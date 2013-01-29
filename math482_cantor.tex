@@ -51,16 +51,16 @@ Since $A$ is open, all but a finite number of $x_n$ lie in A.
 \end{proof}
 
 \begin{theorem}\label{hom}
-If $A \subset \mathbb{R}$ is a Cantor set, then there is a order-preserving homeomorphism $f:A \rightarrow {\{0,1\}}^\mathbb{N}$, where $\{0,1\}^\N$ is ordered lexicographically.
+If $A \subset \mathbb{R}$ is a Cantor set, then there is a order-preserving homeomorphism $f:A \rightarrow {\{0,1\}}^\mathbb{N}$, where $\{0,1\}^\N$ is ordered lexicographically and equipped with the product metric $d(x,y) = \sum_{i=1}^n |x(i) - y(i)| 2^{-n}$.
 \end{theorem}
 \begin{proof}
 Step 1. Let $a := \inf (A)$, and $d := \sup (A) - a = \mathrm{diam}(A)$. Since $A$ is totally disconnected, there exists $c \in [a + \frac d 4, a + \frac {3d} 4] \setminus A$. Then $M_0 := (-\infty, c) \cap A $ and $M_1 := (c, \infty) \cap A$ are clopen relative to $A$, hence Cantor sets by Theorem~\ref{subc}. Moreover, $\mathrm{diam}(M_i) \leq \frac 3 4 \mathrm{diam}(A)$ for $i = 0,1$.
 
-Step 2. For $n > 1$, apply Step 1 to $M_t$ for each $t \in {\{0,1\}}^{n-1}$ to get Cantor sets $M_{t,0}, M_{t,1} \subset M_t$ with $M_{t,0} < M_{t,1}$ and $\mathrm{diam}(M_{t,i}) \leq \frac 3 4 \mathrm{diam}(M_t)$ for $i=0,1$. By recursion on $n$, for all $r,s \in {\{0,1\}}^n$ we have $\mathrm{diam}(M_s) \leq \left(\frac 3 4\right)^n \mathrm{diam} (A)$, and if $r < s$ in the lexicographical ordering then $M_r < M_s$. Moreover, for any fixed $n$, $A = \bigcup_{s \in {\{0,1\}}^n} M_s$.
+Step 2. For $n > 1$, apply Step 1 to $M_t$ for each $t \in {\{0,1\}}^{n-1}$ to get clopen Cantor sets $M_{t,0}, M_{t,1} \subset M_t$ with $M_{t,0} < M_{t,1}$ and $\mathrm{diam}(M_{t,i}) \leq \frac 3 4 \mathrm{diam}(M_t)$ for $i=0,1$. By recursion on $n$, for all $r,s \in {\{0,1\}}^n$ we have $\mathrm{diam}(M_s) \leq \left(\frac 3 4\right)^n \mathrm{diam} (A)$, and if $r < s$ in the lexicographical ordering then $M_r < M_s$, i.e. $x \in M_r, y\in M_s$  implies $x < y$. Moreover, for any fixed $n$, $A = \bigcup_{s \in {\{0,1\}}^n} M_s$.
 
-Step 3. Fix $x \in A$. The construction in Step 2 generates a descending sequence of sets ${\left(M_{t_n}\right)}_{t_n \in {\{0,1\}}^n}$, each containing $x$. Since for all $n$ we have $t_{n+1} =t_n,i$ for some $i \in \{0,1\}$, this sequence of sets determines a unique element $f(x) \in {\{0,1\}}^\mathbb{N}$ such that, for any $n$, the first $n$ entries of $f(x)$ are $t_n$. To see that $f$ is bijective, note that if $t \in {\{0,1\}}^\mathbb{N}$ and $t_n = (t(1), t(2), ... t(n))$, then $f^{-1}(t) = \bigcup_{n = 1}^\infty {M_{t_n}}$ contains exactly one point, since $M_{t_n}$ is a descending chain of compact sets.
+Step 3. Fix $x \in A$. The construction in Step 2 generates a descending sequence of sets ${\left(M_{t_n}\right)}_{t_n \in {\{0,1\}}^n}$, each containing $x$. Since for all $n$ we have $t_{n+1} =t_n,i$ for some $i \in \{0,1\}$, this sequence of sets determines a unique element $f(x) \in {\{0,1\}}^\mathbb{N}$ such that, for any $n$, the first $n$ entries of $f(x)$ are $t_n$. To see that $f$ is bijective, note that if $t \in {\{0,1\}}^\mathbb{N}$ and $t_n = (t(1), t(2), ... t(n))$, then $f^{-1}(t) = \bigcap_{n = 1}^\infty {M_{t_n}}$ contains exactly one point, since $M_{t_n}$ is a descending chain of compact sets with diameters going to $0$.
 
-To see that $f$ is continuous, note that $d(x,y)$ is small, so there exists $M_s$ containing $x$ and $y$ where $n := \length(s)$ is large, so $d(f(x), f(y)) \leq 2^{-n}$ is small. Since $A$ is compact, the continuity of $f$ implies $f^{-1}$ is also continuous.
+To see that $f$ is continuous, let $x \in A$. If $x_m \rightarrow x$ then, for every $M_{t_n}$ containing $x$, all but finitely many $x_m$ lie in $M_{t_n}$ since $M_{t_n}$ is open relative to A. Thus, $f(x_m) \rightarrow f(x)$ since $\diam(f(M_{t_n})) = 2^{-n} \rightarrow 0$ as $n \rightarrow \infty$. Since $A$ is compact, the continuity of $f$ implies $f^{-1}$ is also continuous.
 
 To see that $f$ is order-preserving, if $x < y$ there exists $n$ so large that $x \in M_s, y \in M_t$ for $s,t$ of length $n$ with $s \neq t$. By Step 2, this implies $s < t$.
 Hence, $f(x) < f(t)$.
@@ -71,7 +71,7 @@ Hence, $f(x) < f(t)$.
 If $S \subset R$ is a Cantor set, there exists a nondecreasing, onto, continuous function $g:S \rightarrow [0,1]$.
 \end{theorem}
 \begin{proof}
-Let $h:{\{0,1\}}^\N \rightarrow [0,1]$ be defined by $h(x) = \sum_{i=0}^\infty x(i)2^{-i}$. Defining $f$ as in Theorem~\ref{hom}, let $g = h \circ f$. It suffices to show that $h$ is nondecreasing, onto, and continuous.
+Let $h:{\{0,1\}}^\N \rightarrow [0,1]$ be defined by $h(x) = \sum_{i=0}^\infty x(i)2^{-i}$. Defining $f$ as in Theorem~\ref{hom}, let $g = h \circ f$. Thus, it suffices to show that $h$ is nondecreasing, onto, and continuous.
 
 Let $x,y \in {\{0,1\}}^\N$. Then $|h(x) - h(y)| = |\sum_{i=0}^\infty (x(i)-y(i))2^{-i}| \leq \sum_{i=0}^\infty |x(i)-y(i)|2^{-i} = d(x,y)$, so $h$ is continuous. If $x<y$, then there exists a minimal $n$ such that $x(n) \neq y(n)$. By the definition of lexicographical ordering, $x(n) = 0$ and $y(n) = 1$.  Thus, $h(y) - h(x) = \sum_{i=n}^\infty (y(i)-x(i))2^{-i} = 2^{-n} + \sum_{i=n+1}^\infty (y(i)-x(i))2^{-i} \geq 2^{-n} + \sum_{i=n+1}^\infty (-1)2^{-i} = 0$. Hence, $h$ is nondecreasing. To see that $h$ is onto, let $E_n := \{x \in {\{0,1\}}^\N : x(i) = 0 \text{ for all } i>n\}$. Then each $h(E_n)$ is a $2^{-n+1}$-net for $[0,1]$, so the image of $h$ is dense in $[0,1]$.  Since $S$ is compact, $h(S)$ is compact, so $h$ is onto.
 \end{proof}
@@ -95,9 +95,9 @@ $K = A \cup B$, where $A$ is perfect (hence compact), $B$ is countable, and $A \
 Let $U$ be a countable base for $K$. Let $V := \{S \in U : S \text{ is countable}\}$, and $W := U \setminus V$. Then $B:= \bigcup_{S\in V}{S}$ is countable and open.
 Let $A:= K\setminus B$. Then A is closed, hence compact. 
 
-I claim that $W$ is a base for the topology of $A$ relative to $K$.  Suppose $C \subset A$ is open in $A$, and $x \in C$. Then $C \cup B$ is open in $K$, so there exists $S \in U$ with $x \in S \subset (C \cup B)$. Since $x \notin B$, $S$ cannot be countable, so $S \in W$. Hence, $W$ is a base for $A$.
+I claim that $\widetilde{W} := \{S \cap A : S \in W\}$ is a base for the topology of $A$.  Suppose $C \subset A$ is open in $A$, and $x \in C$. Then $C \cup B$ is open in $K$, so there exists $S \in U$ with $x \in S \subset (C \cup B)$. Since $x \notin B$, $S$ cannot be countable, so $S \in W$. Hence, $x \in S \cap A \subset C$, so $\widetilde{W}$ is a base for $A$.
 
-In particular, since every element of $W$ is uncountable, $A$ can have no isolated points. Hence, $A$ is perfect.
+Note that every element of $W$ is uncountable, so, since $B$ is countable, every element of $\widetilde{W}$ is also uncountable. Thus, $A$ has no isolated points, so $A$ is perfect.
 \end{proof}
 
 \begin{definition}
