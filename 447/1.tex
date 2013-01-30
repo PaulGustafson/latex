@@ -1,4 +1,4 @@
- \documentclass{article}
+\documentclass{article}
 \usepackage{amssymb, amsmath, amsthm, verbatim}
 
 \newtheorem{theorem}{Theorem}
@@ -25,7 +25,7 @@
 Let $U := \bigcup_{n=1}^\infty U_n$. Note that since each $U_n$ is the disjoint union of countably many open intervals, the general case reduces to the case where each $U_n$ is an open interval. 
 If $\ell(U_n) = \infty$ for some $n$, then $m(U) = \infty$ by monotonicity. Hence, we may also assume $\ell(U_n) < \infty$ for all $n$. 
 
-By the definition of exterior measure, $m^*(U) \leq \sum_{n=1}^\infty \ell(U_n)$. For the opposite inequality, let $\epsilon > 0$.  There exist disjoint compact intervals $K_n \subset U_n$ such that $\ell(U_n) - \ell(K_n) < \epsilon 2^{-n}$. Let $S_i := \bigcup_{n=1}^i K_n$.  Since each $S_i$ is compact, each cover of $S_i$ by open intervals admits a finite subcover.  Since the $K_n$ are disjoint intervals, we can do the usual monkeying to show that $m(S_i) = \sum_{n=1}^i \ell(K_n)$.  Thus, $m(U) \geq \lim_{i\rightarrow \infty} S_i = \sum_{n=1}^\infty \ell(K_n) = (\sum_{n=1}^\infty \ell(U_n)) - \epsilon$.
+By the definition of exterior measure, $m^*(U) \leq \sum_{n=1}^\infty \ell(U_n)$. For the opposite inequality, let $\epsilon > 0$.  There exist disjoint compact intervals $K_n \subset U_n$ such that $\ell(U_n) - \ell(K_n) < \epsilon 2^{-n}$. Let $S_i := \bigcup_{n=1}^i K_n$.  Since each $S_i$ is compact, each cover of $S_i$ by open intervals admits a finite subcover.  Since the $K_n$ are disjoint compact intervals, we can do the usual monkeying to show that $m(S_i) = \sum_{n=1}^i \ell(K_n)$.  Thus, $m(U) \geq \lim_{i\rightarrow \infty} S_i = \sum_{n=1}^\infty \ell(K_n) = (\sum_{n=1}^\infty \ell(U_n)) - \epsilon$.
 \end{proof}
 
 
@@ -39,28 +39,38 @@ Note that $[0,1]\setminus H = \bigcup_{n=0}^\infty [0,1]\setminus G_n$. For each
 
 
 
-\p{16.28} Fix $\alpha$ with $0 < \alpha < 1$ and repeat our ``middle thirds'' construction for the Cantor set except that now, at the $n$the stage, each of the $2^{n-1}$ open intervals we discard from $[0,1]$ is to have length $(1-\alpha)3^{-n}$. The limit, $\Delta_\alpha$, of this process is called a generalized Cantor set. Check that $m^*(\Delta_\alpha) = \alpha$.
+\p{16.28} Fix $\alpha$ with $0 < \alpha < 1$ and repeat our ``middle thirds'' construction for the Cantor set except that now, at the $n$th stage, each of the $2^{n-1}$ open intervals we discard from $[0,1]$ is to have length $(1-\alpha)3^{-n}$. The limit, $\Delta_\alpha$, of this process is called a generalized Cantor set. Check that $m^*(\Delta_\alpha) = \alpha$.
 \begin{proof}
-Let $C_n$ denote the $n$the stage of the construction. Then $\Delta_\alpha = \bigcap_n C_n$.  Let $U$ be a cover of $\Delta_\alpha$ by open intervals. Since $\Delta_alpha$ is compact, there exists a finite subcover $F \subset U$ of nonempty intervals. Since $F$ is a finite, there exists $l > 0$ such that $l < \ell(I)$ for all $I \in F$.
+Let $C_0 = [0,1]$, and $C_n$ denote the $n$the stage of the construction. Then $\Delta_\alpha = \bigcap_n C_n$.  Note that each stage removes intervals of total length $2 (1-\alpha) (\frac 2 3)^n$.  Thus, since $C_n$ is the disjoint union of compact intervals, $m^*(C_n) = 1  - \sum_{i=1}^n \frac{1-\alpha} 2 (\frac 2 3)^n = 1 - (\frac {1-\alpha} 3) \frac{1 - (\frac 2 3)^{n+1}} {1/3} = \alpha + (1 - \alpha) (\frac 2 3)^{n+1}$. Thus, since $\Delta_\alpha \subset C_n$ for all $n$, we have $m^*(\Delta_\alpha) \leq \lim_{n \rightarrow \infty} m^*(C_n) = \alpha$.
 
-Note that each stage removes intervals of total length $2 (1-\alpha) (\frac 2 3)^n$.  
 
+Let $U$ be a cover of $\Delta_\alpha$ by open intervals. Since $\Delta_\alpha$ is compact, there exists a finite subcover $F \subset U$ of nonempty intervals. By replacing overlapping intervals with their union and adding the in-between point to every pair of abutting intervals, WLOG each pair of intervals in $F$ is disjoint and nonabutting. Then $[0,1] \setminus F$ is a disjoint finite collection of closed intervals of positive length. Let $B_n := C_n \setminus C_{n-1}$. By construction, each $B_n$ is the union of disjoint, open intervals of length $(1-\alpha)3^{-n}$, and the $B_n$ are themselves disjoint. Thus, since $[0,1] \setminus \Delta_\alpha = \bigcup_{n=1}^\infty{B_n}$ and the length of the intervals of $B_n \rightarrow 0$ as $n \rightarrow \infty$, there exists $N$ such that $[0,1] \setminus F \subset \bigcup_{n=1}^N{B_n}.$  Hence, $C_N \subset F$. This implies $\alpha = \lim_{n\rightarrow \infty}{C_n} \leq \Delta_\alpha$, so  $m^*(\Delta_\alpha) = \alpha$.
 \end{proof}
 
 
 
 \p{16.29} Check that $\bigcup_{n=1}^\infty \Delta_{1-1/n}$ has outer measure 1. Use this to give another proof that $[0,1]$ can be written as the disjoint union of a set of first category and a set of zero measure.
 \begin{proof}
+Let $S := \bigcup_{n=1}^\infty \Delta_{1-1/n}$. Then since for all $n$, $\Delta_{1-1/n} \subset S \subset [0,1]$, we have $m^*(S) = 1$. Since $m^*(S) + m^*([0,1]\setminus S) \leq 1$, we have $m^*([0,1]\setminus S) = 0$.  To see that $S$ is first category, note that, for any $0 < \alpha < 1$, $\Delta_\alpha$ contains no intervals. Hence, it has empty interior. Thus, since each $\Delta_\alpha$ is closed, $S$ is the countable union of nowhere dense sets.
+
 \end{proof}
 
-\p{16.42} Supose that $E$ is measurable with $m(E) = 1$. Show that:
+\p{16.42} Suppose that $E$ is measurable with $m(E) = 1$. Show that:
 \begin{enumerate}
-\item There is a measureable set $F \subset E$ such that $m(F) = 1/2$. (Hint: Consider the function $f(x) = m(E \cap (-\infty, x])$.)
+\item There is a measurable set $F \subset E$ such that $m(F) = 1/2$. (Hint: Consider the function $f(x) = m(E \cap (-\infty, x])$.)
 \item There is a closed set $F$, consisting entirely of irrationals, such that $F \subset E$ and $m(F) = 1/2$.
-\item There is a compact set $F$ with empty interior such that $F \subset E$ and $m(F0 = 1/2$.
+\item There is a compact set $F$ with empty interior such that $F \subset E$ and $m(F) = 1/2$.
 \end{enumerate}
+\begin{proof}
+Let $(q_n)$ be an enumeration of the rationals. Note that $\widetilde{E} = E \ \bigcup_{i=1}^\infty B_{0.01/2^{-n}}(q_n)$ is measurable, and $0.99 \leq \widetilde{E} \leq 1$. Let $(I_n)$ be a cover of $\widetilde{E}$ by open intervals such that $\sum_{i=1}^\infty \ell(I_n) \leq 1.01$. Pick $N$ such that $\sum_{i=N}^\infty \ell(I_n) \leq 0.01$.  Let $U := \sum_{i=1}^N \ell(I_n)$. Then $m(E) = m(E \cap U) + m(E \cap \sum_{i=N}^\infty \ell(I_n))
+
+\end{proof}
+
+
+
 \p{16.48} Let $\mathcal{E}$ be any collection of subsets of $\R$. Show that there is always a smallest $\sigma$-algebra $\mathcal{A}$ containing $\mathcal{E}$.
 \begin{proof}
+
 \end{proof}
 
 \p{16.49} The smallest $\sigma$-algebra containing $\mathcal{E}$ is called the $\sigma$-algebra generated by $\mathcal{E}$ and is denoted $\sigma(\mathcal{E})$. If $\mathcal{E} \subset \mathcal{F}$, prove that $\sigma(\mathcal{E}) \subset \sigma{\mathcal{F}}$.

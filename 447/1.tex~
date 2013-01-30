@@ -41,7 +41,9 @@ Note that $[0,1]\setminus H = \bigcup_{n=0}^\infty [0,1]\setminus G_n$. For each
 
 \p{16.28} Fix $\alpha$ with $0 < \alpha < 1$ and repeat our ``middle thirds'' construction for the Cantor set except that now, at the $n$the stage, each of the $2^{n-1}$ open intervals we discard from $[0,1]$ is to have length $(1-\alpha)3^{-n}$. The limit, $\Delta_\alpha$, of this process is called a generalized Cantor set. Check that $m^*(\Delta_\alpha) = \alpha$.
 \begin{proof}
+Let $C_n$ denote the $n$the stage of the construction. Then $\Delta_\alpha = \bigcap_n C_n$.  Let $U$ be a cover of $\Delta_\alpha$ by open intervals. Since $\Delta_alpha$ is compact, there exists a finite subcover $F \subset U$ of nonempty intervals. Since $F$ is a finite, there exists $l > 0$ such that $l < \ell(I)$ for all $I \in F$.
 
+Note that each stage removes intervals of total length $2 (1-\alpha) (\frac 2 3)^n$.  
 
 \end{proof}
 
@@ -57,7 +59,7 @@ Note that $[0,1]\setminus H = \bigcup_{n=0}^\infty [0,1]\setminus G_n$. For each
 \item There is a closed set $F$, consisting entirely of irrationals, such that $F \subset E$ and $m(F) = 1/2$.
 \item There is a compact set $F$ with empty interior such that $F \subset E$ and $m(F0 = 1/2$.
 \end{enumerate}
-\p{16.48} Let $\mathcal{E}$ be any collection of subsets of $\R$. Show thtat there is always a smallest $\sigma$-algebra $\mathcal{A}$ containing $\mathcal{E}$.
+\p{16.48} Let $\mathcal{E}$ be any collection of subsets of $\R$. Show that there is always a smallest $\sigma$-algebra $\mathcal{A}$ containing $\mathcal{E}$.
 \begin{proof}
 \end{proof}
 
