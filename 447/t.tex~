@@ -1,0 +1,12 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 447\\ 
+\noindent Instructor: Dr. Johnson
+
+\subsection*{HW
+\p{
+\begin{proof}
+\end{proof}

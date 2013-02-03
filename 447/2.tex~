@@ -1,0 +1,71 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 447\\ 
+\noindent Instructor: Dr. Johnson
+
+\subsection*{HW 2, due February 7}
+\p{16.58} Suppose that $m^*(E) < \infty$. Prove that $E$ is measurable if and only if, for every $\epsilon > 0$, there is a finite union of bounded intervals $A$ such that $m^*(E\triangle A) < \epsilon$ (where $E\triangle A$ is the symmetric difference of $E$ and $A$).
+\begin{proof}
+\begin{lemma}
+If $S,T,U$ are sets, then $S\triangle U \subset (S\triangle T) \cup (T\triangle U)$.
+\end{lemma}
+\begin{proof}
+\begin{align*} 
+S \triangle U & = (S\setminus U) \cup (U \setminus S) \\
+& \subset  (((S \setminus T) \cup T) \setminus E) \cup (((U \setminus T) \cup T) \setminus S) \\
+&\subset  (S \setminus T) \cup (T \setminus E) \cup (U \setminus T) \cup (T \setminus S) \\
+& =  (S\triangle T) \cup (T\triangle U)
+\end{align*}
+\end{proof}
+
+Suppose $E$ is measurable. Let $\epsilon > 0$. Pick an open set $U \supset E$ with $m(U \setminus E) < \epsilon/2$. Since $m(U) < \infty$, $U = \bigcup_{n=1}^\infty I_n$ where the $I_n$ are disjoint bounded open intervals.  Pick $N$ such that $\sum_{n=N+1}^\infty I_n < \epsilon/2$. Let $A := \bigcup_{n=1}^N I_n$. Then, by the lemma, $m(A \triangle E) \le m(A \triangle U) + m(U \triangle E)  = m(U \setminus A) + m(U\setminus E) < \epsilon$.
+
+Conversely, let $\epsilon > 0$ and suppose such an $A$ exists. Let $U \supset E\triangle A$ be an open set such that $m(U) < \epsilon$. There exists an open set $J\supset A$ such that $m(J\setminus A) < \epsilon$. Then $G := U \cup J$ is open, and $G \supset (E\triangle A) \cup A \supset E$. Moreover, 
+\begin{align*}
+m^*(G \setminus E) & \leq  m(U) + m^*(J \setminus E) 
+\\ & \le \epsilon + m^*(J \triangle E)
+\\ & \le \epsilon + m(J \triangle A) + m^*(A \triangle E)
+\\ & = \epsilon + m(J \setminus A) + m^*(A \triangle E)
+\\ & < 3\epsilon
+\end{align*}
+\end{proof}
+\p{16.60} If $E$ is a measurable set, show that $E+x$ and $rE$ are measurable for any $x, r \in \R$. [Hint: Use Theorem 16.21].
+\begin{proof}
+If $r = 0$, $rE = \{0\}$ is measurable, so we may assume $r \ne 0$.
+Let $\epsilon > 0$, and let $U \supset E$ be open with $m(U \setminus E) < \epsilon$. Note that for any open interval $I$, $rI +x$ is also an open interval. Hence, since $U$ is a countable union of open intervals, $rU +x$ is open. Moreover, $(I_n)$ is a cover of $U \setminus E$ by open intervals iff $(rI_n + x)$ covers $(rU + x) \setminus (rE +x)$. Therefore, $m^*((rU+x) \setminus (rE+x)) = r m(U \setminus E)$.
+\end{proof}
+\p{16.70} Prove that an arbitrary union of positive-length intervals is measurable. [Hint: Let $\mathcal{C}$ be the collection of all closed intervals $J$ such that $J \subset I_\alpha$ for some $\alpha$.]
+\begin{proof} Let $(I_\alpha)$ be an arbitrary collection of positive length intervals, and $U = \bigcup_\alpha I_\alpha$. Let $\mathcal{C}$ be the collection of all closed intervals $J$ such that $J \subset I_\alpha$ for some $\alpha$.
+
+Let $(q_n)$ be a countable dense-in-$\R$ set. Let $E_n = \bigcup \{J \in \mathcal{C} : q_n \in J\}$. I claim $E_n$ is an interval. Suppose $a<b<c$ with $a,c \in E_n$. Then there exists $J_a \in \mathcal C$ with $q_n, a \in J_a$ and $J_c$ with $q_n, c \in J_c$. Hence, if $q_n \le b$, then $b \in J_c$; and if $q_n > b$, then $b \in J_a$. Hence, $E_n$ is an interval.
+
+To see that $E := \bigcup_n E_n \supset U$, suppose $x \in U$. Then $x \in I_\alpha$ for some $\alpha$. There exists a closed interval $I$ such that $x \in I \subset I_\alpha$. There exists some $q_n$ such that $q_n \in I$. Hence, $x \in I \subset E_n$. 
+
+The reverse inclusion, $E \subset U$, follows from the fact that each $E_n \subset U$. Hence, $U = E$ is the countable union of intervals.
+
+\end{proof}
+\p{16.78} If $E$ is a measurable subset of $A$, show that $m^*(A) = m(E) + m^*(A \setminus E)$. Thus $m^*(A \setminus E) = m^*(A) - m(E)$ provided that $m(E) < \infty$.
+\begin{proof}
+Let $\epsilon > 0$. There exists an open set $U \supset A$ such that $m(U) \le m^*(A) + \epsilon$. Thus, $m^*(A) \ge m(U) + \epsilon = m(E) + m(U\setminus E) + \epsilon \ge m(E) + m^*(A\setminus E) + \epsilon$.
+\end{proof}
+\p{J16.4} Prove that every set of positive outer measure contains a nonmeasurable subset.
+\begin{proof}
+Following Carothers' hint, let $A \subset \R$ with $m^*(A) > 0$. Then since $m^*(A) \ge \sum_n A \cap [n, n+1)$, some $A \cap [n, n+1)$ has positive outer measure. Let $N_r \subset [0,1)$ be defined as in Carothers' construction of an unmeasurable set. Since $\bigcup_r N_r + n = [n, n+1)$, some $A \cap (N_s +n) =: E$ must have positive outer measure. 
+
+Suppose $E$ were measurable. Then $E - n \subset N_s$ has positive measure. Let $F_r := (E - n + r (\mathrm{mod } 1)_r$. Then $m(F_r) = m(E)$, and $F_r \subset N_r$. Hence, the $F_r$ are disjoint, so $m([0,1))  \geq m(\bigcup_r F_r) = \sum_r m(F_r) = \sum_r m(E) = \infty$, a contradiction.
+\end{proof}
+\p{J16.5} Prove that $m$ is Lipschitz with constant 1 on $(\mathcal{M}_1, d)$, where $\mathcal{M}_1$ denotes the measurable subsets of $[0,1]$, and $d(E,F) = m(E\triangle F)$. Prove that $(\mathcal M_1, d)$ is complete. [Hint: If $(E_n)$ is $d$-Cauchy, then, by passing to a subsequence, you may assume that $d(E_n, E_{n+1}) < 2^{-n}$. Now argue that $(E_n)$ converges to, say, $\limsup_{n \rightarrow \infty}E_n$.]
+\begin{proof}
+\end{proof}
+\p{J16.6} Let $X$ be a metric space, $E\subset X$, and $\mathcal B = \{B_{r(x)}(x) : x \in S \}$ cover $E$ with $\sup_{x\in S} r(x) < \infty$. Prove that there is a (finite or infinite) sequence $\{B_{r(x_i)}(x_i)\}_{i=1}^N$ of disjoint balls in $\mathcal B$ so that either
+\begin{enumerate}
+\item $N = \infty$ and $\inf_i r(x_i) > 0$, or
+\item $E \subset \bigcup_{n=1}^N B_{5r(x_i)}(x_i)$. ($N$ can be either finite or infinite in this case.)
+\end{enumerate}
+Hint: Greed is good.
+\begin{proof}
+\end{proof}
+\end{document}
