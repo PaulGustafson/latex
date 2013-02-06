@@ -9,7 +9,7 @@
 \subsection*{HW 2, due February 7}
 \p{16.58} Suppose that $m^*(E) < \infty$. Prove that $E$ is measurable if and only if, for every $\epsilon > 0$, there is a finite union of bounded intervals $A$ such that $m^*(E\triangle A) < \epsilon$ (where $E\triangle A$ is the symmetric difference of $E$ and $A$).
 \begin{proof}
-\begin{lemma}
+\begin{lemma}\label{lem1}
 If $S,T,U$ are sets, then $S\triangle U \subset (S\triangle T) \cup (T\triangle U)$.
 \end{lemma}
 \begin{proof}
@@ -59,7 +59,7 @@ Let $\epsilon > 0$. There exists an open set $U \supset A$ such that $m(U) \le m
 \begin{proof}
 Following Carothers' hint, let $A \subset \R$ with $m^*(A) > 0$. Then since $m^*(A) \ge \sum_n A \cap [n, n+1)$, some $A \cap [n, n+1)$ has positive outer measure. Let $N_r \subset [0,1)$ be defined as in Carothers' construction of an unmeasurable set. Since $\bigcup_r N_r + n = [n, n+1)$, some $A \cap (N_s +n) =: E$ must have positive outer measure. 
 
-Suppose $E$ were measurable. Then $E - n \subset N_s$ has positive measure. Let $F_r := (E - n + r (\mathrm{mod } 1)_r$. Then $m(F_r) = m(E)$, and $F_r \subset N_r$. Hence, the $F_r$ are disjoint, so $m([0,1))  \geq m(\bigcup_r F_r) = \sum_r m(F_r) = \sum_r m(E) = \infty$, a contradiction.
+Suppose $E$ were measurable. Then $E - n \subset N_s$ has positive measure. Let $F_r := E - n + r \text{(mod 1)}$. Then $m(F_r) = m(E)$, and $F_r \subset N_r$. Hence, the $F_r$ are disjoint, so $m([0,1))  \geq m(\bigcup_r F_r) = \sum_r m(F_r) = \sum_r m(E) = \infty$, a contradiction.
 \end{proof}
 \p{J16.5} Prove that $m$ is Lipschitz with constant 1 on $(\mathcal{M}_1, d)$, where $\mathcal{M}_1$ denotes the measurable subsets of $[0,1]$, and $d(E,F) = m(E\triangle F)$. Prove that $(\mathcal M_1, d)$ is complete. [Hint: If $(E_n)$ is $d$-Cauchy, then, by passing to a subsequence, you may assume that $d(E_n, E_{n+1}) < 2^{-n}$. Now argue that $(E_n)$ converges to, say, $\limsup_{n \rightarrow \infty}E_n$.]
 \begin{proof}
@@ -68,7 +68,13 @@ Let $E,F \in \mathcal M_1$. WLOG, $m(E) \le m(F)$. Then $|m(F) - m(E)| = m(F) - 
 For the completeness, suppose $(E_n)$ is $d$-Cauchy. By passing to a subsequence, assume $d(E_n, E_{n+1}) < 2^{-n}$. Let $E = \limsup_{n\rightarrow \infty} E_n$.  For any $k$, we have 
 \begin{align*}
 d(E_k, E) & = m(E_k \triangle \bigcap_{m=1}^\infty\bigcup_{n=m}^\infty E_n)
-\\ &\le m(\bigcap_{m=1}^\infty E_k \triangle \bigcup_{n=m}^\infty E_n)
+\\ & = m((\bigcup_{m=1}^\infty\bigcap_{n \ge m} E_n \setminus E_k) \cup ((\bigcup_{m=1}^\infty\bigcap_{n \ge m} E_n )^c \setminus E_k^c) )
+\\ & \le m(\bigcup_{m=1}^\infty\bigcap_{n \ge m} E_n \setminus E_k) + m(\bigcap_{m=1}^\infty\bigcup_{n \ge m} E_n^c  \setminus E_k^c )
+\\ & \le m(\bigcup_{n > k} E_n \setminus E_k) + m((\bigcup_{n > k} E_n^c) \setminus E_k^c )
+\\ & \le m(\bigcup_{n > k} (E_n \setminus E_{n-1}) \setminus E_k) + m((\bigcup_{n > k} E_n^c \setminus E_{n-1}^c) \setminus E_k^c )
+\\ & \le m(\bigcup_{n > k} E_n \setminus E_{n-1}) + m(\bigcup_{n > k} E_n^c \setminus E_{n-1}^c)
+\\ & \le m(\bigcup_{n > k} E_n \triangle E_{n-1}) + m(\bigcup_{n > k} E_n \triangle E_{n-1})
+\\ & \le 2^{-k} + 2^{-k}
 \end{align*}
 so $E_k \rightarrow E$.
 
