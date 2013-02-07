@@ -21,9 +21,9 @@ S \triangle U & = (S\setminus U) \cup (U \setminus S) \\
 \end{align*}
 \end{proof}
 
-Suppose $E$ is measurable. Let $\epsilon > 0$. Pick an open set $U \supset E$ with $m(U \setminus E) < \epsilon/2$. Since $m(U) < \infty$, $U = \bigcup_{n=1}^\infty I_n$ where the $I_n$ are disjoint bounded open intervals.  Pick $N$ such that $\sum_{n=N+1}^\infty I_n < \epsilon/2$. Let $A := \bigcup_{n=1}^N I_n$. Then, by the lemma, $m(A \triangle E) \le m(A \triangle U) + m(U \triangle E)  = m(U \setminus A) + m(U\setminus E) < \epsilon$.
+Suppose $E$ is measurable. Let $\epsilon > 0$. Pick an open set $U \supset E$ with $m(U \setminus E) < \epsilon/2$. Since $m(U) < \infty$, $U = \bigcup_{n=1}^\infty I_n$ where the $I_n$ are disjoint bounded open intervals.  Pick $N$ such that $\sum_{n=N+1}^\infty m(I_n) < \epsilon/2$. Let $A := \bigcup_{n=1}^N I_n$. Then, by the lemma, $m(A \triangle E) \le m(A \triangle U) + m(U \triangle E)  = m(U \setminus A) + m(U\setminus E) < \epsilon$.
 
-Conversely, let $\epsilon > 0$ and suppose such an $A$ exists. Let $U \supset E\triangle A$ be an open set such that $m(U) < \epsilon$. There exists an open set $J\supset A$ such that $m(J\setminus A) < \epsilon$. Then $G := U \cup J$ is open, and $G \supset (E\triangle A) \cup A \supset E$. Moreover, 
+Conversely, let $\epsilon > 0$ and suppose such an $A$ exists. Let $U \supset E\triangle A$ be an open set such that $m(U) < \epsilon$. Since $A$ is measurable, there exists an open set $J\supset A$ such that $m(J\setminus A) < \epsilon$. Then $G := U \cup J$ is open, and $G \supset (E\triangle A) \cup A \supset E$. Moreover, 
 \begin{align*}
 m^*(G \setminus E) & \leq  m(U) + m^*(J \setminus E) 
 \\ & \le \epsilon + m^*(J \triangle E)
