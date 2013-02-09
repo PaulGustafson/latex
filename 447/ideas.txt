@@ -1,0 +1,7 @@
+Measurable functions are the completion of simple functions (finitely many values) under pointwise convergence.
+
+Similarly, the reals are the completion of the rational constant functions.
+
+I think the completion of characteristic functions of open sets are the characteristic functions of measurable sets.
+
+What about an intermediate idea? That is, what is the completion of simple functions only taking two values?
