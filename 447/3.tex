@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{../m}
+\newcommand{\osc}{\mathrm{osc}}
 
 \begin{document}
 \noindent Paul Gustafson\\
@@ -9,32 +10,77 @@
 \subsection*{HW 3, due Thurs., February 14}
 \p{17.7} If $f: D\to \R$ is measurable and $g: \R \to \R$ is continuous, show that $g \circ f$ is measurable.
 \begin{proof}
+Let $U \subset \R$ be open.  Then $g^{-1}(U)$ is open, so $(g \circ f)^{-1}(U) = f^{-1}(g^{-1}(U))$ is measurable.
 \end{proof}
 \p{11} Let $G \subset [0,1]$ be open, containing the interval rationals, and having $m(G) < 1/2$. Prove that $f = \chi_G$ is Borel measurable but cannot be equal a.e. to a Riemann integrable function.
 \begin{proof}
+Let $g = f$ on $[0,1]\setminus N$ where $m(N) = 0$. Then $g = 1$ on $H:=G \setminus N$, and $g=0$ on $C:= ([0,1]\setminus G)\setminus N$. Note that $m(C) = 1 - m(G) > 1/2$. Hence, it suffices to show that $H$ is dense, for then every point of $C$ will be a point of discontinuity of $g$.
+
+To see that $H$ is dense, let $U \subset [0,1]$ be open.  Since $G$ is open and dense, there exists an interval $I \subset (G \cap U)$. Since $m(N) = 0$, $N$ cannot contain $I$. Hence, $I \cap H = I \cap (G\setminus N) \ne \emptyset$. Thus, $H$ intersects $U$.
 \end{proof}
 \p{12} If $f : [a,b] \to \R$ is Lipschitz with constant $K$, and if $E \subset [a,b]$, show that $m^*(f(E)) \le K m^*(E)$. In particular, $f$ maps null sets to null sets.
 \begin{proof}
+Consider the case when $E$ is an interval. Then, by the Lipschitz condition, $m^*(f(E)) \le sup_{x,y \in E} |f(x) - f(y)| \le sup_{x,y \in E} K |x-y| = K m(E)$.
+
+For the general case, let $\epsilon > 0$, and let $(I_n)$ be a cover of $E$ by open intervals such that $\sum_n m(I_n) \le m^*(E) + \epsilon$. Then $(f(I_n))$ covers $f(E)$, so by the special case above, $m^*(f(E)) \le \sum_n m^*(f(I_n)) \le sum_n K m^*(I_n) \le Km^*(E) + K\epsilon$.  Letting $\epsilon \to 0$ gives the desired inequality.
 \end{proof}
 \p{17} If $f,g: \R \to \R$ are Borel measurable, show that $f \circ g$ is Borel measurable. If $f$ is Borel measurable and $g$ is Lebesgue measurable, show that $f \circ g$ is Borel measurable.  If $f$ is Borel measurable and $g$ is Lebesgue measurable, show that $f \circ g$ is Lebesgue measurable.
 \begin{proof}
+Let $O$ denote the collection of all open sets in $\R$. By a theorem in class,  for any function $g$, we have $\sigma(g^{-1}(O)) = g^{-1}(\sigma(O))$.  Hence, if $U \subset \R$ is open  and $f$ is Borel measurable, we have
+$(f\circ g)^{-1}(U) = g^{-1}(f^{-1}(U)) \in g^{-1}(\sigma(O)) = \sigma(g^{-1}(O))$.
 \end{proof}
 \p{18(e)} Show that there is a Lebesgue measurable function $F$ and a continuous function $G$ such that $F \circ G$ is not Lebesgue measurable.
 \begin{proof}
+Let $0<\alpha<1$ and $\Delta_\alpha$ be the corresponding Cantor-like set.  Since $m(\Delta_\alpha) > 0$, it contains an unmeasurable set $E$.  Let $G:\Delta_\alpha \to \Delta$ be a homeomorphism (We proved $\Delta$ homeomorphic to $\{0,1\}^\N$ in 446; the same proof goes through for $\Delta_\alpha$). Let $F = \chi_{G(E)}$.
+Note that $m^*(G(E)) \le m^*(\Delta) = 0$, so $G(E)$ is measurable. Hence, $F$ is measurable.  However, $(F\circ G)^{-1}((1/2, \infty)) = G^{-1}(F^{-1}((1/2,\infty)) = G^{-1}(G(E)) = E$ is unmeasurable.
 \end{proof}
 \p{37} Give an example showing that a. u. convergence does not imply uniform convergence a.e.
 \begin{proof}
+Let $f_n:[0,1] \to [0,1]$ be defined by $f_n(x) = x^n$. On $[0,c]$, $f_n \le c^n$ converges uniformly.  Since $c$ can be picked arbitrarily close to 1, $f$ converges a.u.  
+
+On the other hand, suppose $f_n$ converged uniformly on $[0,1] \setminus N$ with $m(N) = 0$. Since $N$ cannot contain an interval, there exists a sequence $(x_n) \subset [0,1] \setminus N$ with $x_n \to 1$.  By the uniform convergence, pick $N$ such that $\forall n \ge N$, $sup_{[0,1)}|f_n| < 1/2$.  Pick $M$ such that $x_M > (1/2)^{1/N}$. Then $f_N(x_M) > 1/2$, a contradiction.
 \end{proof}
 \p{40} If $f$ is Lebesgue measurable, prove that there is a Borel measurable function $g$ such that $f = g$ except, possibly, on a Borel set of measure zero. [Hint: Every null set is contained in a Borel set of measure zero.]
 \begin{proof}
+To justify the hint, if $N$ is a null set, there exist open sets $U_n \supset N$ with $m(U_n) = 1/n$. The required Borel set is $\bigcap_n U_n$.
+
+Since $f$ is measurable, there exists simple functions $f_n \to f$.
+
+%%UNNEEDED
+\begin{comment}
+Let $(A_n)$ be a countable base for $\R$ such that $\sup_n \diam(A_n) < 1/2$. Since $f$ is measurable, for each $n$, there exist a Borel set $B_n$ and a null set $\widetilde{N_n}$ disjoint from $B_n$ such that $f^{-1}(A_n) = B_n \cup \widetilde{N_n}$. By the hint, then, $f^{-1}(A_n) \subset B_n \cup N_n$ for some null Borel set $N_n$. Let $N := \bigcup_n N_n$.
+
+Let $g := \chi_{N^c} f$. Let $d:\R \to \R^2$ is the diagonal map, and $\mu:\R^2 \to R$ be the multiplication map. Then $g = \mu \circ (f, \chi_{N^c}) \circ d$. Note that $(A_n \times A_m)_{n,m}$ is a countable base for $\R^2$. 
+
+Let $U \subset \R$ be open.  Since $\mu$ is continuous, $\mu^{-1} (U)$ is open so can be written as $\mu^{-1} (U) = \bigcup_{(n,m) \in C} A_n \times A_m$ for some countable set $C$.  Note that for each $n,m$, we have $(f, \chi_{N^c})^{-1}(A_n \times A_m) = f^{-1}(A_n) \times \chi_{N^c}^{-1} (A_m) = (B_n \cup N_n) \times (\emptyset \text{ or } N^c \text{ or } N)$, where the last equality follows from the fact that $\diam(A_m) < 1/2$ (so $\chi_{N^c}^{-1} (A_m) \ne \R$).  Applying $d^{-1}$ is just taking the intersection, so $d^{-1}((f, \chi_{N^c})^{-1}(A_n \times A_m)) = (B_n \cup N_n) \cap (\emptyset \text{ or } N^c \text{ or } N)$
+\end{comment}
+
+% if $0 \in A_n$, then $g^{-1}(A_n) = B_n \cup N$. Otherwise, $g^{-1}(A_n) = B_n \setminus N$.
+%% CHECKME ^^^^
+
+% If $U$ is open, $g^{-1}(U) = g^{-1}(\bigcup\{A_n : A_n \subset U\}) = \bigcup g^{-1}(\{A_n : A_n \subset U\}) = \bigcup B_n : A_n \subset $
 \end{proof}
 \p{41} Let $E \subset \R$ be closed, and let $f:E\to \R$ be continuous. Prove that $f$ extends to a continuous function $g:\R\to\R$ with $\sup_\R |g| \le \sup_E |f|$.
 \begin{proof}
+%%FIXME
+$E^c$ is an open set, hence the union of disjoint open intervals $(I_n)$. If $E$ is empty, set $g:= 0$.  Otherwise, $(I_n)$ contains at most two semi-infinite intervals. Set the constant value of $g$ on any such interval to the value of $f$ at the finite endpoint.  For any bounded interval $(a,b)$ of $(I_n)$, set $g$ to be the linear function interpolating the points $(a, f(a))$ and $(b,f(b))$.
+
+By construction, $\sup_\R |g| \le \sup_E |f|$, and $g$ is continuous on $E_c$.  It is given that $g$ is continuous on the interior of $E$.  The remaining case is to check that $g$ is continuous on the boundary of $E$.
+
+Let $x \in E$ be a boundary point of $E$.  I will check right continuity; the left continuity case is analogous.
+
+ If $x$ is an isolated point of $E \cap [x, \infty)$, then pick an open interval $U$ containing $x$ such that $U \cap E \cap [x, \infty) = x$.  By construction, $g$ is linear hence continuous on $U \cap [x,\infty)$.
+
+If $x$ is not an isolated point of $E \cap [x, \infty)$, let $\epsilon > 0$. By the continuity of $f$, pick $\delta$ such that $g(B_\delta(x) \cap E \cap [x,\infty)) < \epsilon$. Since $x$ is a limit point of $E \cap [x, \infty)$, there exists $y \in B_\delta(x) \cap E \cap (x,\infty)$. Note that $\osc(g, [x,y]) \le \osc(f, [x,y]) \le \epsilon$. Hence, $g$ is right continuous at $x$.
 \end{proof}
 \p{43} Let $f: [a,b] \to [-\infty,\infty]$ be a measurable and finite a.e., and let $\epsilon > 0$. Show that there is a polynomial $p$ such that $m\{|f - p| \ge \epsilon\} < \epsilon$.
 \begin{proof} 
+By Theorem 17.20, there exists a continuous function $g:[a,b] \to \R$ such that $m(\{|f - g| \ge \epsilon/2\}) < \epsilon/2$.  By the Weierstrauss approximation theorem, there exists $p$ such that $|g-p| < \epsilon/2$.  Then, 
+since $|f - p| \le |f - g| + |g - p| = |f - g| + \epsilon/2$, we have
+
+ $m(\{|f - p| \ge \epsilon\}) \le m(\{|f - g| + \epsilon/2 \ge \epsilon\}) \le m(\{|f - g| \ge \epsilon/2\})  < \epsilon/2.$
 \end{proof}
-\p{44} Let $f: [a,b] \to [-\infty,\infty]$ be a measurable and finite a.e. Prove that there is a sequence of polynomials $(g_n)$ on $[a,b]$ such that $g_n \to f$ a.e. on $[a,b]$. [Hint: For each $n$ choose $g_n$ so that $E_n = \{|f-g_n| \ge 2^-n\}$ has $m(E_n) < 2^-n$. Now argue that $g_n \to f$ off the set $E = \limsup_{n\to\infty} E_n$.]
+\p{44} Let $f: [a,b] \to [-\infty,\infty]$ be a measurable and finite a.e. Prove that there is a sequence of polynomials $(g_n)$ on $[a,b]$ such that $g_n \to f$ a.e. on $[a,b]$. [Hint: For each $n$ choose $g_n$ so that $E_n = \{|f-g_n| \ge 2^{-n}\}$ has $m(E_n) < 2^{-n}$. Now argue that $g_n \to f$ off the set $E = \limsup_{n\to\infty} E_n$.]
 \begin{proof}
 \end{proof}
 \p{45} Let $f: [a,b] \to [-\infty,\infty]$ be a measurable and finite a.e., and let $\epsilon >0$. Show that there is a continuous function $g$ on $[a,b]$ with $m\{f \ne g\} < \epsilon$. [Hint: Combine Exercises 41 and 44 and Egorov's theorem to find $(g_n)$ and a closed set $f$ with $m([a,b]\setminus F) < \epsilon$ and $g_n \to f$ uniformly on $F$. Now argue that $f|_F$ extends to a continuous function $g$.]
