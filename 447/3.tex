@@ -73,18 +73,20 @@ Let $x \in E$ be a boundary point of $E$.  I will check right continuity; the le
 
 If $x$ is not an isolated point of $E \cap [x, \infty)$, let $\epsilon > 0$. By the continuity of $f$, pick $\delta$ such that $g(B_\delta(x) \cap E \cap [x,\infty)) < \epsilon$. Since $x$ is a limit point of $E \cap [x, \infty)$, there exists $y \in B_\delta(x) \cap E \cap (x,\infty)$. Note that $\osc(g, [x,y]) \le \osc(f, [x,y]) \le \epsilon$. Hence, $g$ is right continuous at $x$.
 \end{proof}
-\p{43} Let $f: [a,b] \to [-\infty,\infty]$ be a measurable and finite a.e., and let $\epsilon > 0$. Show that there is a polynomial $p$ such that $m\{|f - p| \ge \epsilon\} < \epsilon$.
+\p{43} Let $f: [a,b] \to [-\infty,\infty]$ be a measurable and finite a.e., and let $\epsilon > 0$. Show that there is a polynomial $p$ such that  $m(\{|f - p| \ge \epsilon\}) < \epsilon$.
 \begin{proof} 
 By Theorem 17.20, there exists a continuous function $g:[a,b] \to \R$ such that $m(\{|f - g| \ge \epsilon/2\}) < \epsilon/2$.  By the Weierstrauss approximation theorem, there exists $p$ such that $|g-p| < \epsilon/2$.  Then, 
 since $|f - p| \le |f - g| + |g - p| = |f - g| + \epsilon/2$, we have
 
  $m(\{|f - p| \ge \epsilon\}) \le m(\{|f - g| + \epsilon/2 \ge \epsilon\}) \le m(\{|f - g| \ge \epsilon/2\})  < \epsilon/2.$
 \end{proof}
-\p{44} Let $f: [a,b] \to [-\infty,\infty]$ be a measurable and finite a.e. Prove that there is a sequence of polynomials $(g_n)$ on $[a,b]$ such that $g_n \to f$ a.e. on $[a,b]$. [Hint: For each $n$ choose $g_n$ so that $E_n = \{|f-g_n| \ge 2^{-n}\}$ has $m(E_n) < 2^{-n}$. Now argue that $g_n \to f$ off the set $E = \limsup_{n\to\infty} E_n$.]
+\p{44} Let $f: [a,b] \to [-\infty,\infty]$ be a measurable and finite a.e. Prove that there is a sequence of polynomials $(g_n)$ on $[a,b]$ such that $g_n \to f$ a.e. on $[a,b]$. [Hint: For each $n$ choose $g_n$ so that the $E_n = \{|f-g_n| \ge 2^{-n}\}$ has $m(E_n) < 2^{-n}$. Now argue that $g_n \to f$ off the set $E = \limsup_{n\to\infty} E_n$.]
 \begin{proof}
+By (43), we can define $g_n$, $E_n$, and $E$ as in the hint. Since $\sum_n m(E_n) < \infty$, Corollary 16.24 implies $m(E) = 0$.  Suppose $x \not\in E$. Then there exists $N$ such that $x \not\in \bigcup_{n=N}^\infty E_n$. Thus, for $n \ge N$, we have $|f(x) - g_n(x)| < 2^{-n}$. Hence, $g^n(x) \to f(x)$.
 \end{proof}
-\p{45} Let $f: [a,b] \to [-\infty,\infty]$ be a measurable and finite a.e., and let $\epsilon >0$. Show that there is a continuous function $g$ on $[a,b]$ with $m\{f \ne g\} < \epsilon$. [Hint: Combine Exercises 41 and 44 and Egorov's theorem to find $(g_n)$ and a closed set $f$ with $m([a,b]\setminus F) < \epsilon$ and $g_n \to f$ uniformly on $F$. Now argue that $f|_F$ extends to a continuous function $g$.]
+\p{45} Let $f: [a,b] \to [-\infty,\infty]$ be a measurable and finite a.e., and let $\epsilon >0$. Show that there is a continuous function $g$ on $[a,b]$ with $m\{f \ne g\} < \epsilon$. [Hint: Combine Exercises 41 and 44 and Egorov's theorem to find $(g_n)$ and a closed set $F$ with $m([a,b]\setminus F) < \epsilon$ and $g_n \to f$ uniformly on $F$. Now argue that $f|_F$ extends to a continuous function $g$.]
 \begin{proof}
+Let $\epsilon >0$.  Pick $N$ such that $2^{-N} <\epsilon$.  Pick polynomials $g_n$ and sets $E_k$ as in (44). Then, if $T := \bigcup_{n=N+1}^\infty E_n$, we have $m(T)$
 \end{proof}
 \p{46} (Luzin's Theorem) Show that $f: \R\to\R$ is measurable if and only if, for each $\epsilon >0$, there is a measurable set $E$ with $m(E) < \epsilon$ such that the restriction of $f$ to $\R\setminus E$ is continuous.
 \begin{proof}
