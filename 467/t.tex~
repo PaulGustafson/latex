@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 467\\ 
+\noindent Instructor: Stephen Fulling
+
+\subsection*{HW 2}
+\p{1} Express in logical notation (quantifiers and connectives):
+\begin{enumerate}
+\item $n$ is an even number
+\item For every number that is a perfect cube, there is a larger number that is even.
+\end{enumerate}
+\begin{proof}
+1. $(n \in Z) \wedge (2 \mid n)$ \\
+2. $\forall n \in \Z [ (\exists m \in \Z [ n = m^3]) \Rightarrow $
+\end{proof}
+\end{document}

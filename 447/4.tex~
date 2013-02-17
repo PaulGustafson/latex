@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 447\\ 
+\noindent Instructor: Dr. Johnson
+
+\subsection*{HW 4, due 2/21}
+\p{18.3} Prove that $\int_1^\infty (1/x)\, dx = \infty$.
+\begin{proof}
+Let $f(x)$ = $(\chi_{(1,\infty)}(x)) (1/x)$. Define $\phi_m = \sum_{n=1}^m \frac 1 {n+1} \chi_{(n, n+1)}$. Then for all $m \ge 1$, we have $\phi_m  \le f$. Hence, by the monotonicity of the integral, $\int f\, dm \ge \int \phi_m\, dm = \sum_{n=1}^m \frac 1 {n+1} \to \infty$ as $m \to \infty$. 
+\end{proof}
+\p{4} Find $(f_n)$ nonnegative measurable functions that converge uniformly to $0$, but $\lim_{n\to\infty} \int f_n = 1$.
+\begin{proof}
+Let $\f_n = 1/n \chi_{(0,n)}$.
+\end{proof}
+\p{6} 
+Suppose $(f_n)$ nonnegative, measurable decrease pointwise to $f$, and that $\int f_k < \infty$ for some $k$. Prove that $\int f = \lim_{n\to\infty} f_n$.  Also, give an example showing that the condition $\int f_k < \infty$ is necessary.
+\begin{proof}
+For the counterexample, let $f_n = \chi_{(n,\infty)}$ for $n \ge 1$.
+For the other part of the problem, for $n \ge k$, let $g_n = f_k - f_n$.  Since $f_n$ is decreasing, $(g_n)$ is increasing and nonnegative. Hence, 
+$\int f\,dm = \int f - f_k + f_k\, dm = \int f - f_k + $
+\end{proof}
+\p{7}
+\begin{proof}
+\end{proof}
+\p{8}
+\begin{proof}
+\end{proof}
+\p{15}
+\begin{proof}
+\end{proof}
+\p{16}
+\begin{proof}
+\end{proof}
+\p{17}
+\begin{proof}
+\end{proof}
+\p{14}
+\begin{proof}
+\end{proof}
+\p{15}
+\begin{proof}
+\end{proof}
+\p{J18.1}
+\begin{proof}
+\end{proof}
+\end{document}

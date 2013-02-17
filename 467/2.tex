@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 467\\ 
+\noindent Instructor: Stephen Fulling
+
+\subsection*{HW 2, W problems}
+\p{2.} Express in English: $\forall n \forall a \forall b \left[ (n < a \wedge n < b) \Rightarrow n<ab \right]$.
+
+\emph{Answer:}
+If a number is less than two other numbers, then it is less than their product.
+\qedhere
+
+\p{Proposition 2.4}
+For every point, there exists at least one line not passing through it.
+\begin{proof} 
+
+\begin{enumerate}
+\item \label{1} Suppose not.  Then there exists a point $P$ such that every line passes through $P$.
+\item \label{2} Pick $A,B,C$ satisfying I-3.
+\item Since $A,B,C$ are disjoint, $P$ does not equal 2 of them. By relabelling, WLOG, $P \ne A$ and $P \ne B$.
+\item By I-1, there exists a line $l$ passing through $A$ and $B$.
+\item By I-1, there exists a line $m$ passing through $A$ and $C$.
+\item By I-1, there exists a line $n$ passing through $B$ and $C$.
+\item By (\ref{1}), $P$ lies on $l$, $m$, and $n$. 
+\item Since $P \ne A$ and $A$,$P$ are both incident to $l$ and $m$, I-1 implies that $l = m$.
+\item Since $P \ne B$ and $B$,$P$ are both incident to $l$ and $n$, I-1 implies that $l = n$.
+\item Then $m = l = n$ passes through $A$,$B$, and $C$, contradicting (\ref{2}).
+\end{enumerate}
+\end{proof}
+
+\p{Proposition 2.5} For every point $P$, there exist at least two distinct lines through $P$.
+\begin{proof}
+
+\begin{enumerate}
+\item Let $P$ be an arbitrary point. 
+\item \label{9} By Proposition 2.4, there exists a line $l$ not passing through $P$.
+\item By I-2, there exists distinct points $Q$ and $R$ on $l$.
+\item \label{5} By I-1, there exists a line $m$ passing through $P$ and $Q$.
+\item \label{6} By I-1, there exists a line $n$ passing through $P$ and $R$.
+\item I claim $m \ne n$.
+\begin{enumerate}
+\item \label{7} Suppose $m = n$. Then by (\ref{5}) and (\ref{6}), $P, Q, R$ lie on $m$.
+\item Then, by I-1, since $Q \ne R$ with $Q,R$ on both $m$ and $l$, we have $m = l$.
+\item But then, by (\ref{7}), $P$ lies on $m = l$, contradicting (\ref{9}).
+\end{enumerate}
+\end{enumerate}
+\end{proof}
+
+\end{document}
+
+
