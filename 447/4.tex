@@ -1,8 +1,9 @@
-\documentclass{article}
+ \documentclass{article}
 \usepackage{../m}
 
 \newcommand{\A}{\mathcal{A}}
 \newcommand{\dm}{\,dm}
+\newcommand{\m}{\,m}
 
 \begin{document}
 \noindent Paul Gustafson\\
@@ -61,36 +62,64 @@ For (1) implies (2), let $(F_n)$ be the disjointification of $(E_n)$.  That is, 
 = \mu(\bigcup_{n=1}^\infty F_n) = \sum_{n=1}^\infty \mu(F_n) = \lim_{N\to\infty} \sum_{n=1}^N \mu(F_n) = \lim_{N\to\infty} \mu(E_N)$.
 \end{proof}
 
-\p{15} Let $f$ be nonnegative and measurable. Prove that $\int f < \infty$ if and only if $\sum_{i=-\infty}^\infty 2^k m\{ f > 2^k \} < \infty$.
+\p{15} Let $f$ be nonnegative and measurable. Prove that $\int f < \infty$ if and only if $L := \sum_{i=-\infty}^\infty 2^k \m\{ f > 2^k \} < \infty$.
 \begin{proof}
-Suppose $\int f < \infty$. Then $\sum_{i=-N}^N 2^k m\{ f > 2^k \} = \int \sum_{i=-N}^N 2^k \chi_{\{ f > 2^k \}} \le \int f$.  Letting $N \to \infty$, we see that $\sum_{i=-\infty}^\infty 2^k m\{ f > 2^k \} \le \int f < \infty$.
+% Incorrect:
+%Suppose $\int f < \infty$. Then $\sum_{i=-N}^N 2^k \m\{ f > 2^k \} = \int \sum_{i=-N}^N 2^k \chi_{\{ f > 2^k \}} \le \int f$.  Letting $N \to \infty$, we see that $\sum_{i=-\infty}^\infty 2^k \m\{ f > 2^k \} \le \int f < \infty$.
+%Conversely, suppose $\sum_{i=-\infty}^\infty 2^k \m\{ f > 2^k \} < \infty$. Let $\phi \le f$ be an integrable simple function with standard representation 
+%$\phi(x) = \sum_{i=0}^n a_i \chi_{A_i}$.  %%TODO
 
-Conversely, suppose $\sum_{i=-\infty}^\infty 2^k m\{ f > 2^k \} < \infty$. Let $\phi \le f$ be an integrable simple function with standard representation 
-$\phi(x) = \sum_{i=0}^n a_i \chi_{A_i}$.  %%TODO
+Note that $f \le \sum_{k=-\infty}^\infty 2^{k+1} \chi_{\{2^k < f \le 2^{k+1}} \le 2 \sum_{k=-\infty}^\infty 2^{k} \chi_{\{f >2^k \}}$. Hence, $\int f \le \int 2 \sum_{k=-\infty}^\infty 2^{k} \chi_{\{f >2^k \}} = 2 \sum_{k=-\infty}^\infty \int 2^{k} \chi_{\{f >2^k \}} = 2 L$.
+
+For the opposite inequality, we have 
+\begin{align*}
+\sum_{k=\infty}^\infty 2^{k} \chi_{\{f >2^k \}} & = \sum_{k=-\infty}^\infty \sum_{j=k}^{\infty} 2^k \chi_{\{ 2^j < f \le 2^{j+1}\}}
+%\\ & \le \sum_{k=-\infty}^\infty \sum_{j=k}^{\infty} 2^k \chi_{\{ 2^j < f \le 2^{j+1}\}} 
+\\ & = \sum_{j=-\infty}^\infty \sum_{k=-\infty}^{j} 2^k \chi_{\{ 2^j < f \le 2^{j+1}\}} 
+\\ & = \sum_{j=-\infty}^\infty 2^{j+1} \chi_{\{ 2^j < f \le 2^{j+1}\}} 
+\\ & \le 2f.
+\end{align*}
+
 \end{proof}
 
 
 \p{16} Let $f \ge 0$ be integrable. Given $\epsilon >0$, show that there is a measurable set $E$ with $m(E) < \infty$ such that $\int_E f > \int f - \epsilon$. Moreover, show that $E$ can be chosen so that $f$ is bounded on $E$.
 \begin{proof}
-\begin{comment}
-Pick an integrable, nonnegative, simple function $\phi \le f$ such that $\int f - \int \phi \le \epsilon/2$. 
- Write $\phi$ in standard form as $\phi = \sum_{i=0}^n a_i \chi_{A_i}$ where $a_0 = 0$.  Note that since $\phi$ is integrable, we have $m(A_0^c) = \sum_{i=1}^n m(A_i) \le (\min_{i\ge 1} a_i)^{-1} \sum_{i=1}^n a_i m(A_i) = (\min_{i\ge 1} a_i)^{-1} \int \phi \le \infty$. Hence, if $F := A_0^c$, we have $\int_{F} f \ge \int_{F} \phi  = \int_\R \phi \ge \int f - \epsilon/2$.
+For $k \ge 1$, define $E_k := f^{-1}([k-1, k))$.  By Corollary 18.12, we have $\int f = \sum_k \int_{E_k} f$. Since $\int f < \infty$, we may pick $N$ such that 
+$\sum_{k>N} \int_{E_k} < \epsilon/2$.  Hence, if $F:= \bigcup_{k\le N} E_k$, then $f < N$ on $F$ and $\int_F f =  \sum_{k\le N} \int_{E_k} f > \int f - \epsilon/2$.
 
-%To get the bounded part, let $E_k := \{f > k\} \cap A_0^c$. Since $f$ is integrable, it is finite a.e., so $m(\bigcap_k E_k) = 0$.  Hence, since $m(E_1) \le m(A_0^c) < \infty$, we have $lim_{k\to\infty} E_k = 0$.  Pick $K$ such that $m(E_k) < \epsilon/2$.  Then, if $E = A_0^c $
+Next, pick an an integrable, nonnegative, simple function $\phi \le \chi_F f$ such that $\int_F f - \int \phi \le \epsilon/2$. 
+ Write $\phi$ in standard form as $\phi = \sum_{i=0}^n a_i \chi_{A_i}$ where $a_0 = 0$.  Note that since $\phi$ is integrable, we have $m(A_0^c) = \sum_{i=1}^n m(A_i) \le (\min_{i\ge 1} a_i)^{-1} \sum_{i=1}^n a_i m(A_i) = (\min_{i\ge 1} a_i)^{-1} \int \phi \le \infty$. Hence, if $E := A_0^c$, we have $\int_{E} f \ge \int_{E} \phi  = \int_\R \phi \ge \int_F f - \epsilon/2 > \int f - \epsilon$. Note that $f$ is bounded on $E$ since $\phi \le \chi_F f$ implies $E = A_0^c \subset F$.
 
-To get the bounded part, pick simple functions $(\phi_n)$ defined on $F$ such that $\phi_n \to f$ on $F$.  By Egorov, there exists a set $G$ with $m(G) < \epsilon$
-\end{\comment}
 \end{proof}
-
 
 
 \p{17} If $f$ is nonnegative and integrable, prove that the function $F(x) = \int_{-\infty}^x f$ is continuous. In fact, even more is true: Given $\epsilon > 0$, show that there is a $\delta > 0$ such that $\int_E f < \epsilon$ whenever $m(E) < \delta$. [Hint: This is easy when $f$ is bounded; see (16)]
 \begin{proof}
+By (16), pick a measurable set $F \in \R$ such that $f |_F \le M$ for some bound $M > 0$, and $\int f - \int_F f < \epsilon/2$.
+If $m(E) < \epsilon/(2M) =: \delta$, then $\int_E f = \int_{E \cap F} f + \int_{E \cap F^c} f \le \int_{E \cap F} M + \int_{F^c} f \le M \, m(E) + (\int f - \int_F f) < \epsilon/2 + \epsilon/2$.
+
+This implies uniform continuity because for any $x<y$ with $y-x < \delta$, we have, by the linearity of the integral on integrable functions, $F(y) - F(x) = \int_{(x,y)} f < \epsilon$.
+
 \end{proof}
+
+
 \p{14} Define $f: [0,1] \to [0, \infty)$ by $f(x) = 0$ if $x$ is rational and $f(x) = 2^n$ if $x$ is irrational with exactly $n = 0,1,2,\ldots$ leading zeros in its decimal expansion. Show that $f$ is measurable, and find $\int_0^1 f$.
 \begin{proof}
+Note that if $a \le 0$, then $\{f \ge a\} = [0,1]$. If $0 < a < 1$, then $\{f \ge a\} = [0,1]\setminus \Q$.
+If $a\ge 1$, let $2^n$ be the minimal power of 2 such that $2^n \ge a$. Then $\{f \ge a\} = \{f \ge 2^n\} = (0, 10^{-n}) \setminus \Q$ where I use the convention that zeros in front of the decimal do not count, so, for example, $0.34\ldots$ has zero leading zeros. Since the inverse image of each ray is measurable, $f$ is measurable.
+
+Define $\phi_m = \sum_{n=0}^m 2^n \chi_{(10^{-n-1}, 10^{-n})}$. Then $\phi_m \to f$ a.e., so $\int f = \lim_{m\to\infty} \int \phi_m = \sum_{n=0}^\infty 2^n (10^{-n} - 10^{-n-1})
+ = (1 - 1/10) \sum_{n=0}^\infty (2/10)^n = (9/10)(5/4) = 9/8$.
+
 \end{proof}
 \p{J18.1} Suppose that $f$ is a nonnegative integrable function and $A$ is a measurable set. Define $F$ on $\R$ by $F(t) = m_f(A+t)$. Show that $F$ is a continuous function. Recall that $m_f(E) := \int \chi_E f \dm$. (Hint: First treat the case where $A$ is a bounded interval.)
 \begin{proof}
+We want to show $F$ is continuous at $t$.  WLOG, by replacing $A$ with $A+t$, we may assume $t=0$. To show that $F$ is continuous at $0$, it suffices to show that every sequence $t_n \to 0$ has $F(t_n) \to F(0)$.  
+
+\emph{Case $A$ an interval}: If $A$ is an interval and $x \in A^\circ$, pick $\delta$ so small that $A_{\delta}(x) \subset A$. Then if $|t_n| < \delta$, we have $x+t_n \in A$. Hence, $\chi_{A+t_n}(x) = \chi_{A}(x)$ for all large $n$.  Similarly, if $x \in (A^c)^\circ$, we have, for all large $n$, that $x+t_n \in A^c$ so $\chi_{A+t_n}(x) = \chi_{A}(x)$.  Since an interval has at most two boundary points, we have $\chi_{A+t_n} \to \chi_{A}$ a.e.  Hence, $\chi_{A+t_n} f \to \chi_{A} f$ a.e., so since these functions are dominated by $f$, we have $\int \chi_{A+t_n} f \to \int \chi_{A} f$. Thus, $F(t_n) \to F(0)$ for every $t_n \to 0$, so $F$ is continuous at $0$ if $A$ is an interval.
+
+\emph{General case}
+
 \end{proof}
 \end{document}

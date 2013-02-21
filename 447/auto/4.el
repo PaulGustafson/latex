@@ -2,7 +2,8 @@
  (lambda ()
     (TeX-add-symbols
      "A"
-     "dm")
+     "dm"
+     "m")
     (TeX-run-style-hooks
      "latex2e"
      "art10"
