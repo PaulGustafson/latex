@@ -28,7 +28,7 @@ Indeed, for $\epsilon > 0$, we have $|a_n - a| \le \epsilon$ for all large $n$. 
 \emph{General case.} Either $m[f \ge 0] \ge 1/2$ or $m[f \le 0] \le 1/2$. FIXME
 
 Suppose not. Either $m[f >0]$ or $m[f < 0]$ is positive; WLOG suppose the former is. Then $m[f>0] = m[\cup_n f \ge 1/n] > 0$, so $m[f \ge 1/n] > 0$ for some $n$.
-If $m[f \ge 1/n] > 1/2$, then pick $E \subset [f \ge 1/n]$ with $m(E) = 1/2$, giving a contradiction.  The existence of such an $E$ follows the intermediate value theorem since $g(t) = m( [f \ge 1/n] \cap [0,t]$ is continuous.
+If $m[f \ge 1/n] > 1/2$, then pick $E \subset [f \ge 1/n]$ with $m(E) = 1/2$, giving a contradiction.  The existence of such an $E$ follows the intermediate value theorem since $g(t) = m( [f \ge 1/n] \cap [0,t])$ is continuous.
 
 If $m[f \ge 1/n] < 1/2$, let $F \subset ([0,1] \setminus [f \ge 1/n]$ with $m(F) = 1/2$. Let $G = F \cap [f le 0]$.
 \end{proof}
@@ -45,7 +45,7 @@ $\lim_n \int_0^1 f_n  = \int_0^1 \lim_{n\to\infty} f_n = 0$.
 \begin{proof}
 Letting $u = 1 + n^2 x^2$, we have $\int_0^1 f_n = \int_1^{1+n^2} \frac{n^{-1/2}}{2u} \,du = (n^{-1/2}/2) [\log u]_1^{1+n^2} = (n^{-1/2}/2) \log (1+n^2)$.
 
-Thus, $\lim_n \int_0^1 f_n = \lim_{n\to\infty} O( n^{-1/2} \log (1+n^2)) = \lim_{n\to\infty} O( \frac{2n/(1+n^2)} {n^{-1/2}}) = 0$.
+Thus, $\lim_n \int_0^1 f_n = \lim_{n\to\infty} \frac {\log (1+n^2)}{2 n^{1/2}} = \lim_{n\to\infty}  \frac{2n/(1+n^2)} {n^{-1/2}} = 0$.
 \end{proof}
 \p{47(b)} Compute $\lim_{n\to\infty} \int_0^1 \frac{ 1+ nx^2} {(1+x^2)^n} \dx$.
 \begin{proof} By the binomial theorem, $\frac{ 1+ nx^2} {(1+x^2)^n} \le 1$ for all $n$. 
@@ -65,7 +65,7 @@ $$\int_a^\infty \frac{n}{1+n^2x^2} \dx = (\pi/2) - \tan^{-1}(na) \to \left\{
 \end{proof}
 \p{49} For which $\alpha \in \R$ is $f(x) := \sum_{n=1}^\infty xn^{-\alpha} e^{-nx}$ continuous on $[0,\infty)$? in $L_1[0,\infty)$?
 \begin{proof}
-First note that, for any $\alpha$, $f$ converges uniformly on every closed interval not containing $0$ by the ratio test.
+First note that, for any $\alpha$, each term of the series is decreasing in $x$. Hence, $f$ converges uniformly on every closed interval not containing $0$ by the ratio test.
 
 Note that if $\alpha \le 0$, we have, for $x>0$,
 $\sum_{n=1}^\infty xn^{-\alpha} e^{-nx} \ge \sum_{n=1}^\infty x e^{-nx} = x \frac{e^{-x}}{1 - e^{-x}}  = \frac x {e^x - 1} \to 1$
@@ -73,19 +73,36 @@ as $x \to 0$. But $f(0) = 0$, so $f$ is discontinuous at $0$ for $\alpha \le 0$.
 
 If $\alpha > 0$, then 
 \begin{align*}
-\lim_{x\to 0} f(x) = \lim_{x\to 0}
+\lim_{x\to 0} f(x) & = \lim_{x\to 0} \sum_{n=2}^\infty xn^{-\alpha} e^{-nx}
+\\ & \le \lim_{x\to 0} \sum_{n=2}^\infty \int_{n-1}^n xy^{-\alpha} e^{-yx} \,dy
+\\ & = \lim_{x\to 0} \int_{1}^\infty xy^{-\alpha} e^{-yx} \,dy
+\\ & = \lim_{x\to 0} \int_{1}^\infty (-y^{-\alpha}) (-x e^{-yx}) \,dy
+\\ & = \lim_{x\to 0} [-y^{-\alpha} e^{-yx}]_{y=1}^\infty - \int_1^\infty e^{-yx} (\alpha y^{-\alpha -1}) \,dy
+\\ & = \lim_{x\to 0} e^{-x} - \alpha \int_1^\infty e^{-yx} y^{-\alpha -1}) \,dy
+\\ & = 1 - \alpha \int_1^\infty \lim_{x\to 0} e^{-yx}  y^{-\alpha -1} \,dy
+\\ & = 1 - \alpha \int_1^\infty y^{-\alpha -1} \,dy
+\\ & = 1 + [y^{-\alpha}]_1^\infty
+\\ & = 0,
 \end{align*}
+where the interchange of limit and integral is justified by the inequality $e^{-yx} y^{-\alpha -1} \le y^{-\alpha -1}$, whose integral converges since $\alpha > 0$.  Hence, $f$ is continuous for $\alpha > 0$.
+
+To find out when $f \in L_1[0,\infty)$, note that by the MCT,
+\begin{align*}
+\int_0^\infty f(x) \dx  &= \sum_{n=1}^\infty n^{-\alpha} \int_0^\infty x e^{-nx} \dx 
+\\ & = \sum_{n=1}^\infty n^{-\alpha} ( [x (-n^{-1}) e^{-nx}]_{x=0}^\infty - \int_0^\infty (-n^{-1}) e^{-nx} \dx )
+\\ & = \sum_{n=1}^\infty n^{-\alpha} [-n^{-2}e^{-nx}]_{x=0}^\infty
+\\ & = \sum_{n=1}^\infty n^{-2-\alpha},
+\end{align*}
+which converges iff $\alpha > -1$.
 \end{proof}
 
-\p{55} Prove that if $f$ is integrable on $\R$, then $f(x) \cos(nx)$ is integrable and $\lim_{n\to\infty} \int_{-\infty}^\infty f(x) cos(nx) \dx = 0$. The same is true with $\sin$ replacing $\cos$.
+\p{55} Prove that if $f$ is integrable on $\R$, then $f(x) \cos(nx)$ is integrable and $\lim_{n\to\infty} \int_{-\infty}^\infty f(x) \cos(nx) \dx = 0$. The same is true with $\sin$ replacing $\cos$.
 \begin{proof}
-To see that $f(x) \cos(nx) \in L_1(\R)$, note $|f(x)\cos(nx)| \le |f(x)$ for all $x$. The other conclusion follows from (56), replacing $\sin$ with $\cos$ where appropriate.
-
+To see that $f(x) \cos(nx) \in L_1(\R)$, note $|f(x)\cos(nx)| \le |f(x)|$ for all $x$. The other conclusion follows from (56), replacing $t$ with $x$ and $\sin(xt)$ with $\cos(nx)$ where appropriate.
 \end{proof}
-\p{60} \begin{enumerate}[(a)]
-\item Show that there is a sequence of polynomials $(P_n)$ such that $P_n \to 0$ pointwise on $[0,1]$, but with $\int_0^1 P_n(x)\dx \to 3$.
-\item Find $\int_0^1 \sup_n |P_n(x)|\dx$.
-\end{enumerate}
+
+\p{60} \textbf{(a)} Show that there is a sequence of polynomials $(P_n)$ such that $P_n \to 0$ pointwise on $[0,1]$, but with $\int_0^1 P_n(x)\dx \to 3$. \\
+\textbf{(b)} Find $\int_0^1 \sup_n |P_n(x)|\dx$.
 \begin{proof}
 \end{proof}
 \p{51} Let $(f_n)$ be a sequence of measurable functions with $|f_n| \le g$ for all $n$, where $g\in L_1$. If $f_n \to f$ a.e., prove that $f_n \to f$ almost uniformly.

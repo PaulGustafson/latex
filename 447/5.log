@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  28 FEB 2013 09:00
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  28 FEB 2013 09:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -155,7 +155,13 @@ mr/m/n/10 2)[[] \OML/cmm/m/it/10 u\OT1/cmr/m/n/10 ][] =
  []
 
 [2]
-Overfull \hbox (32.80568pt too wide) in paragraph at lines 84--85
+Overfull \hbox (16.22252pt too wide) in paragraph at lines 86--88
+\OT1/cmr/m/n/10 where the in-ter-change of limit and in-te-gral is jus-ti-fied 
+by the in-equal-ity $\OML/cmm/m/it/10 e[]y[] \OMS/cmsy/m/n/10 ^^T
+ []
+
+[3]
+Overfull \hbox (32.80568pt too wide) in paragraph at lines 114--115
 []\OT1/cmr/m/it/10 Case $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 
 ^^_[]$ \OT1/cmr/m/it/10 for $\OML/cmm/m/it/10 a; b \OMS/cmsy/m/n/10 2 \U/msb/m/
 n/10 R$\OT1/cmr/m/it/10 . \OT1/cmr/m/n/10 We have $\OML/cmm/m/it/10 g\OT1/cmr/m
@@ -165,15 +171,15 @@ m/n/10 ) [][] [](\OML/cmm/m/it/10 t\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 dt \OT1/c
 mr/m/n/10 =
  []
 
-[3] (./5.aux) ) 
+[4] (./5.aux) ) 
 Here is how much of TeX's memory you used:
  1258 strings out of 495059
  14032 string characters out of 3182030
- 70126 words of memory out of 3000000
+ 72126 words of memory out of 3000000
  4470 multiletter control sequences out of 15000+200000
  6598 words of font info for 26 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,7n,26p,457b,168s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,8n,26p,457b,176s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 bx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
@@ -188,10 +194,10 @@ sfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
 10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
 0.pfb>
-Output written on 5.pdf (3 pages, 149472 bytes).
+Output written on 5.pdf (4 pages, 153713 bytes).
 PDF statistics:
- 70 PDF objects out of 1000 (max. 8388607)
- 50 compressed objects within 1 object stream
+ 73 PDF objects out of 1000 (max. 8388607)
+ 52 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
