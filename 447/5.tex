@@ -1,0 +1,110 @@
+\documentclass{article}
+\usepackage{../m}
+\usepackage{447}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 447\\ 
+\noindent Instructor: Dr. Johnson
+
+\subsection*{HW 5, due 2/28}
+\p{18.32} Let $(f_n), f$ be integrable. If $\int |f_n - f| \to 0$, show that $\int_E f_n \to \int_E f$ for all measurable sets $E$, and that $\int f_n^+ \to \int f^+$.
+\begin{proof}
+Note $\chi_E f_n \in L_1$ and $\chi_E f \in L_1$, so $|\int_E f - \int_E f_n| = |\int_E (f - f_n)| \le \int_E |f- f_n| \le \int |f - f_n| \to 0$.
+
+Also, for any real function $g$, we have $g^+  = (|g| + g)/2$. Hence, $|\int (f_n^+ - f^+)| =  (1/2)|\int (|f_n| - |f| + f_n - f)| 
+\le (1/2) \int (||f_n| - |f|| + |f_n - f|) \le \int |f_n - f| \to 0$.
+\end{proof}
+\p{40} Let $(f_n)$, $(g_n)$, and $g$ be integrable, and suppose that $f_n \to f$ a.e., $g_n \to g$ a.e., $|f_n| \le g_n$ a.e., for all $n$, and  that $\int g_n \to \int g$. Prove that $f \in L_1$ and that $\int f_n \to \int f$.
+\begin{proof} 
+Just the proof of the DCT with the obvious substitutions.  Since $|f_n| \le g_n$, we have $|f| \le g$, so $f \in L_1$. The only other interesting parts are the equality $\liminf_{n \to \infty} (\int g_n + \int f_n) = \int g + \liminf_{n \to \infty} \int f_n$ and the corresponding one for $\limsup$. This follows from the more general fact that if $a_n \to a$ and $(b_n) \subset \R$, then $\liminf_n (a_n + b_n) = a + \liminf_n b_n$. 
+
+Indeed, for $\epsilon > 0$, we have $|a_n - a| \le \epsilon$ for all large $n$. Hence, $a - \epsilon + \liminf_n b_n \le a + \liminf_n (a_n - a) + b_n \le a + \epsilon + \liminf_n b_n$.  Letting  $\epsilon \to 0$, we have $\liminf_n (a_n + b_n) = a + \liminf_n (a_n - a) + b_n = a + \liminf_n b_n$.
+\end{proof}
+\p{43(a)} Let $f$ be measurable and finite a.e. on $[0,1]$. If $\int_E f = 0$ for all measurable $E \subset [0,1]$ with $m(E) = 1/2$, prove that $f = 0$ a.e. on $[0,1]$.
+\begin{proof}
+\emph{Case $f \ge 0$.} Suppose the conclusion fails. Then $m[f>0] = m[\cup_n f \ge 1/n] > 0$, so $m[f \ge 1/n] > 0$ for some $n$. But then either $[0,1/2] \cap [f \ge 1/n]$ or $[1/2, 1] \cap [f \ge 1/n]$ has positive measure. WLOG, suppose the former.  Then $\int_0^{1/2} f \ge \int_0^{1/2} 1/n \chi_{[f \ge 1/n]} = 1/n \m([0,1/2] \cap [f \ge 1/n]) > 0$, a contradiction.
+
+\emph{General case.} Either $m[f \ge 0] \ge 1/2$ or $m[f \le 0] \le 1/2$. FIXME
+
+Suppose not. Either $m[f >0]$ or $m[f < 0]$ is positive; WLOG suppose the former is. Then $m[f>0] = m[\cup_n f \ge 1/n] > 0$, so $m[f \ge 1/n] > 0$ for some $n$.
+If $m[f \ge 1/n] > 1/2$, then pick $E \subset [f \ge 1/n]$ with $m(E) = 1/2$, giving a contradiction.  The existence of such an $E$ follows the intermediate value theorem since $g(t) = m( [f \ge 1/n] \cap [0,t]$ is continuous.
+
+If $m[f \ge 1/n] < 1/2$, let $F \subset ([0,1] \setminus [f \ge 1/n]$ with $m(F) = 1/2$. Let $G = F \cap [f le 0]$.
+\end{proof}
+\p{43(b)} Let $f$ be measurable and finite a.e. on $[0,1]$. If $f > 0$ a.e., show that $\inf \left\{ \int_E f : m(E) \ge 1/2 \right\} > 0$.
+\begin{proof}
+\end{proof}
+\p{44(c)} Show that $\lim_n \int_0^1 f_n = 0$ where $f_n(x) = \frac{nx \log x} {1 + n^2x^2}$.
+\begin{proof}
+Note that $1 + n^2x^2 \ge 2nx$. Hence, $|f_n| \le (1/2) |\log x|$. Note that $\int_0^1 |\log x| \dx = \int_0^1 (-\log x) \dx = [x - x \log x]_0^1 
+= 1 - \lim_{x\to 0} x \log x = 1 - \lim_{x\to 0}  \frac {1/x} {-1/x^2} = 1$. Hence, by the DCT,
+$\lim_n \int_0^1 f_n  = \int_0^1 \lim_{n\to\infty} f_n = 0$.
+\end{proof}
+\p{44(d)} Show that $\lim_n \int_0^1 f_n = 0$ where $f_n(x) = \frac{n^{3/2} x} {1 + n^2x^2}$.
+\begin{proof}
+Letting $u = 1 + n^2 x^2$, we have $\int_0^1 f_n = \int_1^{1+n^2} \frac{n^{-1/2}}{2u} \,du = (n^{-1/2}/2) [\log u]_1^{1+n^2} = (n^{-1/2}/2) \log (1+n^2)$.
+
+Thus, $\lim_n \int_0^1 f_n = \lim_{n\to\infty} O( n^{-1/2} \log (1+n^2)) = \lim_{n\to\infty} O( \frac{2n/(1+n^2)} {n^{-1/2}}) = 0$.
+\end{proof}
+\p{47(b)} Compute $\lim_{n\to\infty} \int_0^1 \frac{ 1+ nx^2} {(1+x^2)^n} \dx$.
+\begin{proof} By the binomial theorem, $\frac{ 1+ nx^2} {(1+x^2)^n} \le 1$ for all $n$. 
+Hence, by the DCT, $\lim_{n\to\infty} \int_0^1 \frac{ 1+ nx^2} {(1+x^2)^n} \dx = \int_0^1 \lim_{n\to\infty} \frac{ 1+ nx^2} {(1+x^2)^n} \dx = 0$.
+\end{proof}
+\p{47(d)} Compute $\lim_{n\to\infty} \int_a^\infty \frac{n}{1+n^2x^2} \dx$.
+\begin{proof}
+Let $u = nx$. Then $\int_a^\infty \frac{n}{1+n^2x^2} \dx = \int_{na}^\infty \frac{1}{1+u^2} \,du 
+= [\tan^{-1}(u)]_{na}^\infty = (\pi/2) - \tan^{-1}(na)$. As $n\to\infty$, 
+$$\int_a^\infty \frac{n}{1+n^2x^2} \dx = (\pi/2) - \tan^{-1}(na) \to \left\{ 
+\begin{array}{lr}
+       0, &  a > 0\\
+       \pi/2, & a = 0\\
+       \pi, & a < 0
+     \end{array}
+\right. .$$
+\end{proof}
+\p{49} For which $\alpha \in \R$ is $f(x) := \sum_{n=1}^\infty xn^{-\alpha} e^{-nx}$ continuous on $[0,\infty)$? in $L_1[0,\infty)$?
+\begin{proof}
+First note that, for any $\alpha$, $f$ converges uniformly on every closed interval not containing $0$ by the ratio test.
+
+Note that if $\alpha \le 0$, we have, for $x>0$,
+$\sum_{n=1}^\infty xn^{-\alpha} e^{-nx} \ge \sum_{n=1}^\infty x e^{-nx} = x \frac{e^{-x}}{1 - e^{-x}}  = \frac x {e^x - 1} \to 1$
+as $x \to 0$. But $f(0) = 0$, so $f$ is discontinuous at $0$ for $\alpha \le 0$.
+
+If $\alpha > 0$, then 
+\begin{align*}
+\lim_{x\to 0} f(x) = \lim_{x\to 0}
+\end{align*}
+\end{proof}
+
+\p{55} Prove that if $f$ is integrable on $\R$, then $f(x) \cos(nx)$ is integrable and $\lim_{n\to\infty} \int_{-\infty}^\infty f(x) cos(nx) \dx = 0$. The same is true with $\sin$ replacing $\cos$.
+\begin{proof}
+To see that $f(x) \cos(nx) \in L_1(\R)$, note $|f(x)\cos(nx)| \le |f(x)$ for all $x$. The other conclusion follows from (56), replacing $\sin$ with $\cos$ where appropriate.
+
+\end{proof}
+\p{60} \begin{enumerate}[(a)]
+\item Show that there is a sequence of polynomials $(P_n)$ such that $P_n \to 0$ pointwise on $[0,1]$, but with $\int_0^1 P_n(x)\dx \to 3$.
+\item Find $\int_0^1 \sup_n |P_n(x)|\dx$.
+\end{enumerate}
+\begin{proof}
+\end{proof}
+\p{51} Let $(f_n)$ be a sequence of measurable functions with $|f_n| \le g$ for all $n$, where $g\in L_1$. If $f_n \to f$ a.e., prove that $f_n \to f$ almost uniformly.
+\begin{proof}
+\end{proof}
+\p{56} Given $f\in L_1(\R)$, define $g(x) = \int_{-\infty}^\infty f(t) \sin(xt) \,dt$ for $x\in\R$. Show that $g$ is continuous on $\R$ and that $g(x) \to 0$ as $x \to \pm \infty$; hence, $g$ is uniformly continuous on $\R$.
+\begin{proof}
+
+\emph{Case $f = \chi_{(a,b)}$ for $a,b \in \R$.} We have $g(x) = \int_a^b \sin(xt) \,dt = (1/x) \int_{xa}^{xb} \sin(t) \, dt = O(1/x)$ since $\int_r^{r+2n\pi} \sin(t) = 0$ for  all $r \in \R$, $n \in \Z$. Hence, $g(x) \to 0$ as $|x| \to \infty$.  
+
+To see that $g$ is continuous, fix $x$ and suppose $x_n \to x$.  Then $\sin(x_nt) \to\sin(xt)$ pointwise on $(a,b)$, hence in measure also.  Let $\epsilon > 0$. Convergence in measure says that we can pick $N$ such that, for all $n > N$, we have $m[|\sin(x_nt) - \sin(xt)| \ge \epsilon] < \epsilon$.  Then for $n > N$, we have $|g(x) - g(x_n)| \le \int_a^b |\sin(xt) - \sin(x_nt)| \,dt 
+\le 2 \m[|\sin(x_nt) - \sin(xt)| \ge \epsilon] + \epsilon \m[|\sin(x_nt) - \sin(xt)| < \epsilon] \le 2\epsilon + \epsilon(b-a)$. Hence, $g$ is continuous.
+
+\emph{Case $f$ is a step function.} We have $f = \sum_{i=1}^m a_i \chi_{A_i}$ a.e., where each $A_i$ is an interval. Both conclusions follow from the linearity of the integral and the previous case.
+
+\emph{General case.} Let $\epsilon > 0$. Pick a step function $h$ such that $\int|f-h| < \epsilon$. To see that $g(x) \to 0$ as $|x| \to \infty$, note that
+$|g(x)| = |\int h(t) \sin(xt) \,dt + \int (f(t) - h(t)) \sin(xt) \,dt| \le |\int h(t) \sin(xt) \,dt| + \int |f - h| \to \epsilon$ as $|x| \to \infty$ by the step function case. 
+
+For the continuity, suppose $x_n\to x$. Then $|g(x_n) - g(x)| = |\int f(t) (\sin(x_nt) - \sin(xt)) \,dt| \le  |\int h(t) (\sin(x_nt) - \sin(xt)) \,dt| + 2 \int |f - h|
+\to 2\epsilon$ as $n \to \infty$.
+\end{proof}
+\end{document}

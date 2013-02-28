@@ -119,7 +119,8 @@ We want to show $F$ is continuous at $t$.  WLOG, by replacing $A$ with $A+t$, we
 
 \emph{Case $A$ an interval}: If $A$ is an interval and $x \in A^\circ$, pick $\delta$ so small that $A_{\delta}(x) \subset A$. Then if $|t_n| < \delta$, we have $x+t_n \in A$. Hence, $\chi_{A+t_n}(x) = \chi_{A}(x)$ for all large $n$.  Similarly, if $x \in (A^c)^\circ$, we have, for all large $n$, that $x+t_n \in A^c$ so $\chi_{A+t_n}(x) = \chi_{A}(x)$.  Since an interval has at most two boundary points, we have $\chi_{A+t_n} \to \chi_{A}$ a.e.  Hence, $\chi_{A+t_n} f \to \chi_{A} f$ a.e., so since these functions are dominated by $f$, we have $\int \chi_{A+t_n} f \to \int \chi_{A} f$. Thus, $F(t_n) \to F(0)$ for every $t_n \to 0$, so $F$ is continuous at $0$ if $A$ is an interval.
 
-\emph{General case}
+\emph{General case} Let $\epsilon > 0$. There exists $[a,b]$ such that $\int_{\R\setminus [a,b]} f < \epsilon$. Let $B = A \cap [a-1,b+1]$. Then 
+$|\m_f(B + t) - m_f(B)| = $
 
 \end{proof}
 \end{document}
