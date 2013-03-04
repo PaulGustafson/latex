@@ -1,0 +1,75 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 416\\
+\noindent Instructor: Dr. Papanikolas
+
+\subsection*{HW 4, due 3/5}
+%Problems, Sec. 33, pp. 304-305: 10*, 11, 12*, 13*, 14H
+%Problems, Sec. 34, pp. 310-311: 3*, 7, 8*
+
+\p{33.10} Show that every irreducible polynomial in $\F_p[x]$ is a divisor of $x^{p^n} - x$ for some $n$.
+\begin{proof}
+Let $f \in \F_p[x]$ be irreducible. WLOG $f$ is non-zero.  Let $E$ be the finite extension of $\F_p$ given by adjoining all the roots of $f$. Let $n = [E : \F_p]$. We know from class that every element of $E$ is a root of $g(x) :=  x^{p^n} - x$. Hence, every root of $f$ is a root of $g$. Hence, for every root $\alpha$ of $f$, the evaluation map w.r.t. $\alpha$ vanishes at both $f$ and $g$.
+
+Thus, it suffices to show that $f$ is separable (has no double roots in ${\overline{\F}_p}$). Since $\F_p[x]$ is a PID, there exists $h \in \F_p[x]$ such that $\langle h \rangle = \langle f, g \rangle \subset \F_p[x]$.  If $f$ has no roots over $\overline{\F}_p$, it is trivially separable. Otherwise, let $\alpha$ be a root of $f$, $h$ also vanishes at $\alpha$.  Since $h$ cannot be the zero polynomial, $h$ is a nonconstant divisor of $f$. Since $f$ is irreducible, we have $h=f$. Hence, $f$ divides $g$. Moreover, since $g$ is separable, so is $f$.
+\end{proof}
+
+\p{12} Show that a finite field of $p^n$ elements has exactly one subfield of $p^m$ elements for each divisor $m$ of $n$.
+\begin{proof}
+Fix $m$ and $n$ with $n = m d$. Recall that every field of $p^n$ elements is isomorphic to the field $K := \{x \in \overline{\F}_p : x^{p^n} - x = 0\}$. This isomorphism bijectively maps subfields to subfields.  Note that by a theorem proved in class, $E := \{x \in \overline{\F}_p : x^{p^m} - x = 0\}$ is the only field of order $p^m$ in $\overline{\F}_p$.  Thus, if $E \subset K$, it is unique.
+
+Let the Frobenius map $\phi:\overline{\F}_p \to \overline{\F}_p$ be defined by $\phi(x) = x^p$.  Let $\phi^k$ for $k \in \N$ denote $k$ compositions of $\phi$.
+
+Let $\alpha \in E$. Note that $\phi^m(\alpha) = \alpha$ by the definition of $E$.
+Hence, $\alpha^{p^n}  = \phi^n(\alpha) = \phi^{md}(\alpha) = \phi^{m(d-1)}(\phi^m(\alpha)) = \phi^{m(d-1)}(\alpha) = \ldots = \alpha$.
+Thus, $\alpha \in K$, so $E \subset K$.
+\end{proof}
+
+\p{13} Show that $x^{p^n} - x$ is the product of all monic irreducible polynomials in $\F_p[x]$ of a degree $d$ dividing $n$.
+\begin{proof}
+Let $d$ divide $n$, and $f$ be a monic irreducible of degree $d$. Then the splitting field of $f$ over $\F_p$---that is, $\F_p$ adjoined the roots of $f$ in $\overline{\F}_p$---is of degree $d$ over $\F_p$, so has $p^d$ elements. By (12), this field lies within $\F_p^n$; hence, every root of $f$ over $\overline{\F}_p$ is also a root of $x^{p^n} -x$.
+
+Conversely, let $\alpha \in \overline{\F}_p$ be a root of $x^{p^n} - x$. Then $\alpha \in \F_{p^n}$, so since $[\F_{p^n} : \F_p] = n$, the degree of the monic irreducible for $\alpha$ over $\F_p$ must divide $n$.
+
+Hence, the roots of $x^{p^n} -x$ in $\overline{\F}_p$ are precisely the roots of the monic irreducibles of degree $d$ dividing $n$. From class, we know that the roots of $x^{p^n} -x$ are distinct, so it suffices to show that if $\alpha$ is of degree $d$, where $d \mid n$, then $\alpha$ is a single root of precisely one monic irreducible.
+
+But we already know that every $\alpha$ is a root of a unique monic irreducible, and from the proof of (10), this polynomial is separable.
+\end{proof}
+
+\p{14} Let $p$ be an odd prime. \\
+\textbf{a.} Show that $a$ is a quadratic residue modulo $p$ iff $a^{(p-1)/2} = 1 (\mod p)$. \\
+\textbf{b.} Is $x^2 - 6$ irreducible in $\Z_{17}[x]$?
+\begin{proof}
+For (a), first note that the set $R$ of quadratic residues  modulo $p$ form a subgroup of $\F_p^\times$. Indeed, the map $x \mapsto x^2$ is an endomorphism of $\mathbb{F}_p^*$. The kernel of this map consists of the roots of the polynomial $x^2-1$ over $\mathbb{F}_p$, i.e. $\pm 1$. Since $p>2$, $1$ and $-1$ are distinct, so $R$ is of index 2 in $\mathbb{F}_p^*$
+
+If $a = b^2$ for some $b \in \mathbb{F}_p^*$, then $a^{(p-1)/2} = b^{p-1} = 1.$  On the other hand, the equation $x^{(p-1)/2} = 1$ has at most $(p-1)/2$ roots in $\mathbb{F}_p^*$, and we know that all $(p-1)/2$ quadratic residues are roots.  Hence, if $a$ is not a quadratic residue, $a^{(p-1)/2} \neq 1.$ 
+
+For (b), note that $6^{(17-1)/2} = 6^8 = 16$ (mod $17$). Hence, $6$ is not a quadratic residue mod $17$; that is, $x^2 -6$ is irreducible in $\Z_{17}[x]$.
+\end{proof}
+
+\p{34.3} In the group $\Z_{24}$, let $H = \langle 4 \rangle$, and $N = \langle 6 \rangle$. \\
+\textbf{a.} List the elements of $HN$ and $H\cap N$.\\
+\textbf{b.} List the cosets in $HN/N$, showing the elements in each coset.\\
+\textbf{c.} List the cosets in $H/(H\cap N)$, showing the elements in each coset.\\
+\textbf{d.} Give the correspondence between $HN/N$ and $H/(H\cap N)$ described in the proof of Theorem 34.5.
+\begin{proof}
+\textbf{a.} $HN$: the even elements of $\Z_{24}$. $H \cap N = \{0, 12\}$.\\
+\textbf{b.} $HN/N$: $\{N, 2+N, 4+N\}$. $N = \{0, 6, 12, 18\}$. $2 + N = \{2, 8, 14, 20\}$. $4+N = \{4, 10, 16, 22\}$. \\
+\textbf{c.} $H/(H\cap N)$: $\{\{0,12\},\{4,16\},\{8,20\}\}$. \\
+\textbf{d.} $N \mapsto \{0,12\}$; $2+N \mapsto \{4,16\}$; $4+N \mapsto \{8,20\}$.
+\end{proof}
+
+\p{8} Let $H < K < L < G$ with $H,K,L$ normal in $G$. Let $A = G/H$, $B = K/H$, and $C = L/H$. \\
+\textbf{a.} Show that $B$ and $C$ are normal subgroups of $A$, and $B < C$. \\
+\textbf{b.} To what factor group of $G$ is $(A/B)/(C/B)$ isomorphic?
+\begin{proof}
+\textbf{a.} Suppose $kH \in B$ and $gH \in A$.  Since $H,K$ are normal in $G$, we have $gH (kH) (gH)^{-1} = gkg^{-1}H = kH$. Thus, $B$ is normal in $A$. A similar argument shows $C$ is normal in $A$.
+
+Lastly, if $b \in B$, then for some $k \in K \subset L$, we have $k \in b$.  Hence, $b = kH \in L/H = C$.
+\\
+\textbf{b.} By Theorem 34.7, $(A/B)/(C/B) \isomorphicto A/C$. By the same theorem, $A/C \isomorphicto G/K$.
+\end{proof}
+\end{document}

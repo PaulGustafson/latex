@@ -1,0 +1,52 @@
+\documentclass{beamer}
+\usepackage[latin1]{inputenc}
+\usetheme{Warsaw}
+\title[Lambda Calculus]{}
+\author{Paul Gustafson}
+\institute{Math 482 - Texas A\&M University}
+\date{March 5, 2013}
+\begin{document}
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+
+\begin{frame}{Why is the $\lambda$-calculus important?}
+\begin{itemize}
+\item Typed $\lambda$-calculi are the basis for modern type systems in programming
+\item Functional programming languages (Lisp, ML, Haskell)
+\item Recursion theory/computability
+\item 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{How was the $\lambda$-calculus developed?}
+\begin{itemize}
+\item Formal system of logic developed by Alonzo Church in 1932
+\item Used to address the \emph{Entscheidungsproblem} -- ``Is first-order logic algorithmically decidable?''
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Rules of the $\lambda$-calculus
+\begin{itemize}
+\item $\alpha$-conversion: $\lambda x.[...x...] = \lambda y.[...y...]$.  \\
+``We can rename dummy variables.''
+\item $\beta$-conversion: $\lambda x.[...x...] T = [...T...]$. \\
+``Evaluation by substitution.''
+\item $\eta$-conversion: $\lambda x.F(x) = F$. \\
+``Extensionality - a function is defined by what it does.'' Controversial.
+
+\begin{frame}{References}
+\begin{itemize}
+\item \emph{Introduction to Lambda Calculus.} Barendregt and Barensen.
+  \verb{https://files.nyu.edu/cb125/public/Lambda/barendregt.94.pdf}
+\item \emph{lambda calculus.} Dave Walker.  
+\verb{http://www.cs.princeton.edu/courses/archive/fall03/cs510/notes/the%20lambda%20calculus.ppt}
+\item \emph{Lambda Calculus, Then and Now.} Dana S. Scott. \verb{http://www.youtube.com/watch?v=7cPtCpyBPNI}
+  
+\end{itemize}
+\end{frame}
+
+\end{document}

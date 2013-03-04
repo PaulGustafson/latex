@@ -14,7 +14,9 @@
      "Q"
      "C"
      "Z"
-     "p")
+     "F"
+     "p"
+     "isomorphicto")
     (TeX-run-style-hooks
      "enumerate"
      "verbatim"
