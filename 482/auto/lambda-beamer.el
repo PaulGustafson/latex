@@ -1,5 +1,8 @@
 (TeX-add-style-hook "lambda-beamer"
  (lambda ()
+    (TeX-add-symbols
+     "true"
+     "false")
     (TeX-run-style-hooks
      "inputenc"
      "latin1"

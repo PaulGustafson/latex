@@ -1,5 +1,9 @@
 \documentclass{beamer}
 \usepackage[latin1]{inputenc}
+
+\newcommand{\true}{\mathrm{true}}
+\newcommand{\false}{\mathrm{false}}
+
 \usetheme{Warsaw}
 \title{The Untyped Lambda Calculus: A Simple Functional Programming Language}
 \author{Paul Gustafson}
@@ -23,8 +27,8 @@
 \end{itemize}
 \item Logic
 \begin{itemize}
-\item Recursion theory
 \item Computability
+\item Constructivism (``Proofs as Programs'')
 \end{itemize}
 \item Linguistics
 \end{itemize}
@@ -36,8 +40,7 @@
 \item Used to solve Leibniz'\emph{Entscheidungsproblem} (``Decision problem'')
 \begin{itemize}
 \item ``Is every statement in first-order logic over a finite set of axioms decidable?''
-\item No.
-\item Solved independently by Turing.
+\item No - Church and Turing 
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -56,7 +59,7 @@
 \item $(\lambda v. (v^\prime v))$
 \item $(((\lambda v. (\lambda v^\prime . (v^\prime v))) v^{\prime\prime}) v^{\prime\prime\prime})$
 \end{itemize}
-\item Free and bound variables
+\item Free and bound variables, closed terms
 \end{itemize}
 \end{frame}
 
@@ -66,12 +69,14 @@
 \item Lowercase letters are placeholders for arbitrary variables
 \item Scope of $\lambda$ extends as far to the right as possible
 \begin{itemize}
-\item Example: $\lambda x . \lambda y . x y = \lambda x . (\lambda y . x y))$
+\item Example: $\lambda x . \lambda y . x y = \lambda x . (\lambda y . (x y))$
 \end{itemize}
 \item Expressions are left associative by default
 \begin{itemize}
 \item Example: $xyz = (x y) z$
 \end{itemize}
+\item Multiple bindings in a row can be contracted.
+\item Example $\lambda xyz.M = \lambda x. \lambda y. \lambda z. M$.
 \end{itemize}
 \end{frame}
 
@@ -95,14 +100,30 @@
 \end{itemize}
 \end{frame}
 
+\begin{frame}{Representing booleans}
+\begin{itemize}
+\item $\true = \lambda x . \lambda y .x$
+\item $\false = \lambda x . \lambda y .y$
+\item if $a$ then $b$ else $c$ = $abc$
+\begin{itemize}
+\item if $\true$ then $b$ else $c$ = $(\lambda x . \lambda y .x) bc =
+(\lambda y . b) c = b$.
+\item if $\false$ then $b$ else $c$ = $(\lambda x . \lambda y .y) bc =
+(\lambda y . y) c = c$.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
 \begin{frame}{Church numerals}
 \begin{itemize}
-\item A representation of the natural numbers
+\item A representation of the natural numbers 
+\begin{itemize}
 \item $0 := \lambda f.\lambda x.x$
 \item $1 := \lambda f.\lambda x.f x$
 \item $2 := \lambda f.\lambda x.f (f x)$
 \item $3 := \lambda f.\lambda x.f (f (f x))$
 \item $\ldots$
+\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -116,10 +137,26 @@
 \end{itemize}
 \end{frame}
 
+\begin{frame}{The $Y$-combinator}
+\begin{itemize}
+\item Define the $Y$-combinator by $Y = \lambda f.(\lambda x.f (x x)) (\lambda x.f (x x))$
+\item Fixed-point Theorem: For any term $g \in \Lambda$, we have $g(Yg) = Yg$. 
+\item Proof: 
+\begin{align*}
+Y g	& = (\lambda f . (\lambda x . f (x x)) (\lambda x . f (x x))) g
+\\ & = (\lambda x . g (x x)) (\lambda x . g (x x))	
+\\ & = g ((\lambda x . g (x x)) (\lambda x . g (x x)))	
+\\ & = g (Y g)
+\end{align*}
+\end{itemize}
+\end{frame}
+
 % infinite beta reduction $(\lambda x.xx)(\lambda x.xx)$
 
 \begin{frame}{References}
 \begin{itemize}
+\item \emph{Lecture Notes on the Lambda Calculus.} Peter Selinger.
+http://www.mscs.dal.ca/~selinger/papers/lambdanotes.pdf
 \item \emph{Untyped Lambda Calculus.} Deepak D'Souza. http://drona.csa.iisc.ernet.in/~deepakd/pav/lecture-notes.pdf
 \item \emph{Introduction to Lambda Calculus.} Barendregt and Barensen.
 ftp://ftp.cs.ru.nl/pub/CompMath.Found/lambda.pdf
