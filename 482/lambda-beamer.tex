@@ -56,6 +56,22 @@
 \item $(\lambda v. (v^\prime v))$
 \item $(((\lambda v. (\lambda v^\prime . (v^\prime v))) v^{\prime\prime}) v^{\prime\prime\prime})$
 \end{itemize}
+\item Free and bound variables
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Convenient syntactic assumptions}
+\begin{itemize}
+\item Drop outer parentheses
+\item Lowercase letters are placeholders for arbitrary variables
+\item Scope of $\lambda$ extends as far to the right as possible
+\begin{itemize}
+\item Example: $\lambda x . \lambda y . x y = \lambda x . (\lambda y . x y))$
+\end{itemize}
+\item Expressions are left associative by default
+\begin{itemize}
+\item Example: $xyz = (x y) z$
+\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -68,7 +84,7 @@
   \end{itemize}
 \item $\beta$-conversion: $\lambda x.[...x...] T = [...T...]$. 
   \begin{itemize}
-    \item ``Evaluation by substitution.''
+    \item ``Evaluation / substitution.''
     \item Example: $(\lambda x.x)y = y.$
   \end{itemize}
 \item $\eta$-conversion: $\lambda x.F(x) = F$. 
@@ -104,6 +120,7 @@
 
 \begin{frame}{References}
 \begin{itemize}
+\item \emph{Untyped Lambda Calculus.} Deepak D'Souza. http://drona.csa.iisc.ernet.in/~deepakd/pav/lecture-notes.pdf
 \item \emph{Introduction to Lambda Calculus.} Barendregt and Barensen.
 ftp://ftp.cs.ru.nl/pub/CompMath.Found/lambda.pdf
 \item \emph{Lambda Calculus, Then and Now.} Dana S. Scott. http://www.youtube.com/watch?v=7cPtCpyBPNI
