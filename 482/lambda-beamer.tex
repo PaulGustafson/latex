@@ -40,7 +40,7 @@
 \item Used to solve Leibniz'\emph{Entscheidungsproblem} (``Decision problem'')
 \begin{itemize}
 \item ``Is every statement in first-order logic over a finite set of axioms decidable?''
-\item No - Church and Turing 
+\item No - Church and Turing, independently
 \end{itemize}
 \end{itemize}
 \end{frame}
@@ -123,16 +123,33 @@
 \item $2 := \lambda f.\lambda x.f (f x)$
 \item $3 := \lambda f.\lambda x.f (f (f x))$
 \item $\ldots$
+\item $n := \lambda fx. f^{(n)}(x)$
 \end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Arithmetic with Church numerals}
+\begin{frame}{Arithmetic with Church numerals (I)}
 \begin{itemize}
 \item Successor: $\lambda n.\lambda f.\lambda x. f (n f x)$
+  \begin{itemize}
+    \item Example: \begin{align*}
+     S(1) & = (\lambda nfx. f(nfx))(\lambda fx.fx)
+      \\ & =_\alpha (\lambda nfx. f(nfx))(\lambda gy.gy)
+      \\ &= \lambda fx. f ((\lambda gy.gy) fx) 
+      \\ &= \lambda fx. f ((\lambda y.fy) x)
+      \\ &= \lambda fx. f (f(x))
+      \\ &= 2.
+      \end{align*}
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Arithmetic with Church numerals (II)}
+\begin{itemize}
 \item Addition: $\lambda m.\lambda n.\lambda f.\lambda x. m f (n f x)$
 \item Multiplication: $\lambda m.\lambda n.\lambda f. m (n f)$
 \item Exponentiation: $\lambda m.\lambda n. n m$
+\item IsZero: $\lambda n. n \true  (\lambda x. \false)$
 \item Predecessor: $\lambda n.\lambda f.\lambda x. n (\lambda g.\lambda h. h (g f)) (\lambda u. x) (\lambda u. u)$
 \end{itemize}
 \end{frame}
@@ -148,6 +165,14 @@ Y g	& = (\lambda f . (\lambda x . f (x x)) (\lambda x . f (x x))) g
 \\ & = g ((\lambda x . g (x x)) (\lambda x . g (x x)))	
 \\ & = g (Y g)
 \end{align*}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Recursion}
+\begin{itemize}
+\item Since $Yg = g(Yg)$, we have $Yg = g(Yg) = g(g(Yg) = g(g(g(Yg))) = \ldots$.
+\item We can use this to implement recursion.
+%\item Example: let $g = \lambda fn.$ if $n isZero$ then $1$ else $n*f
 \end{itemize}
 \end{frame}
 
