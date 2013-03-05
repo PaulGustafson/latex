@@ -1,7 +1,7 @@
 \documentclass{beamer}
 \usepackage[latin1]{inputenc}
 \usetheme{Warsaw}
-\title{Lambda Calculus}
+\title{The Untyped Lambda Calculus: A Simple Functional Programming Language}
 \author{Paul Gustafson}
 \institute{Math 482 - Texas A\&M University}
 \date{March 5, 2013}
@@ -14,42 +14,74 @@
 
 \begin{frame}{Why is the $\lambda$-calculus important?}
 \begin{itemize}
-\item Computer Science - Variable binding, scope
-\item Typed $\lambda$-calculi are the basis for modern type systems in programming 
-\item Functional programming languages (Algol, Lisp, ML, Haskell)
-\item Recursion theory/computability
+\item Computer Science 
+\begin{itemize}
+\item Variable binding in function declarations
+\item Scope
+\item Type sytems
+\item Functional programming languages (Lisp, ML variants, Haskell)
+\end{itemize}
+\item Logic
+\begin{itemize}
+\item Recursion theory
+\item Computability
+\end{itemize}
 \item Linguistics
 \end{itemize}
 \end{frame}
 
-\begin{frame}{How was the $\lambda$-calculus developed?}
+\begin{frame}{Why was the $\lambda$-calculus developed?}
 \begin{itemize}
 \item Formal system of logic developed by Alonzo Church in 1932
-\item Used to address the \emph{Entscheidungsproblem} -- ``Is every predicate first-order logic provable?''
-\item Similar developments - Godel numbers, Turing machines
-\end{itemize}
-\end{frame}
-
-
-
-\begin{frame}{Conversion Rules}
+\item Used to solve Leibniz'\emph{Entscheidungsproblem} (``Decision problem'')
 \begin{itemize}
-\item $\alpha$-conversion: $\lambda x.[...x...] = \lambda y.[...y...]$.  \\
-``We can rename dummy variables.''
-\item Example: $\lambda a.a = \lambda b.b$
-\item $\beta$-conversion: $\lambda x.[...x...] T = [...T...]$. \\
-``Evaluation by substitution.''
-\item Example: $(\lambda x.x)y = y.$
-\item $\eta$-conversion: $\lambda x.F(x) = F$. \\
-``Extensionality - a function is defined by what it does.'' \\
- Controversial; often left out of compilers.
-\item Example: $\lambda y.\lambda x.yx =\lambda y.y$
+\item ``Is every statement in first-order logic over a finite set of axioms decidable?''
+\item No.
+\item Solved independently by Turing.
+\end{itemize}
 \end{itemize}
 \end{frame}
 
+\begin{frame}{How does the $\lambda$-calculus work? (I): $\lambda$-terms}
+\begin{itemize}
+\item The set of $\lambda$-terms, $\Lambda$, is built from a countable set of variables $V = \{v, v^\prime, v^{\prime\prime}, \ldots\}$:
+\begin{enumerate}
+\item $x \in V \implies x \in \Lambda$
+\item $M,N \in \Lambda \implies (MN) \in \Lambda$
+\item $M \in \Lambda, x\in V \implies (\lambda x . M) \in \Lambda$
+\end{enumerate}
+\item{Examples of $\lambda$-terms}
+\begin{itemize}
+\item $v^\prime$
+\item $(\lambda v. (v^\prime v))$
+\item $(((\lambda v. (\lambda v^\prime . (v^\prime v))) v^{\prime\prime}) v^{\prime\prime\prime})$
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{How does the $\lambda$-calculus work? (II): Conversion Rules}
+\begin{itemize}
+\item $\alpha$-conversion: $\lambda x.[...x...] = \lambda y.[...y...]$.  
+  \begin{itemize}
+  \item ``We can rename bound variables.''
+  \item Example: $\lambda a.a = \lambda b.b$
+  \end{itemize}
+\item $\beta$-conversion: $\lambda x.[...x...] T = [...T...]$. 
+  \begin{itemize}
+    \item ``Evaluation by substitution.''
+    \item Example: $(\lambda x.x)y = y.$
+  \end{itemize}
+\item $\eta$-conversion: $\lambda x.F(x) = F$. 
+  \begin{itemize}
+    \item ``Extensionality - a function is defined by what it does.''
+    \item Example: $\lambda y.\lambda x.yx =\lambda y.y$
+  \end{itemize}
+\end{itemize}
+\end{frame}
 
 \begin{frame}{Church numerals}
 \begin{itemize}
+\item A representation of the natural numbers
 \item $0 := \lambda f.\lambda x.x$
 \item $1 := \lambda f.\lambda x.f x$
 \item $2 := \lambda f.\lambda x.f (f x)$
@@ -59,19 +91,21 @@
 \end{frame}
 
 \begin{frame}{Arithmetic with Church numerals}
+\begin{itemize}
 \item Successor: $\lambda n.\lambda f.\lambda x. f (n f x)$
 \item Addition: $\lambda m.\lambda n.\lambda f.\lambda x. m f (n f x)$
 \item Multiplication: $\lambda m.\lambda n.\lambda f. m (n f)$
 \item Exponentiation: $\lambda m.\lambda n. n m$
 \item Predecessor: $\lambda n.\lambda f.\lambda x. n (\lambda g.\lambda h. h (g f)) (\lambda u. x) (\lambda u. u)$
+\end{itemize}
 \end{frame}
 
+% infinite beta reduction $(\lambda x.xx)(\lambda x.xx)$
 
 \begin{frame}{References}
 \begin{itemize}
 \item \emph{Introduction to Lambda Calculus.} Barendregt and Barensen.
 ftp://ftp.cs.ru.nl/pub/CompMath.Found/lambda.pdf
-\item \emph{lambda calculus.} Dave Walker.   http://www.cs.princeton.edu/courses/archive/fall03/cs510/ notes/the\%20lambda\%20calculus.ppt
 \item \emph{Lambda Calculus, Then and Now.} Dana S. Scott. http://www.youtube.com/watch?v=7cPtCpyBPNI
 \end{itemize}
 \end{frame}

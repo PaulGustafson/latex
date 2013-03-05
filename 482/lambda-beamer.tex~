@@ -1,7 +1,7 @@
 \documentclass{beamer}
 \usepackage[latin1]{inputenc}
 \usetheme{Warsaw}
-\title[Lambda Calculus]{}
+\title{Lambda Calculus}
 \author{Paul Gustafson}
 \institute{Math 482 - Texas A\&M University}
 \date{March 5, 2013}
@@ -14,38 +14,65 @@
 
 \begin{frame}{Why is the $\lambda$-calculus important?}
 \begin{itemize}
-\item Typed $\lambda$-calculi are the basis for modern type systems in programming
-\item Functional programming languages (Lisp, ML, Haskell)
+\item Computer Science - Variable binding, scope
+\item Typed $\lambda$-calculi are the basis for modern type systems in programming 
+\item Functional programming languages (Algol, Lisp, ML, Haskell)
 \item Recursion theory/computability
-\item 
+\item Linguistics
 \end{itemize}
 \end{frame}
 
 \begin{frame}{How was the $\lambda$-calculus developed?}
 \begin{itemize}
 \item Formal system of logic developed by Alonzo Church in 1932
-\item Used to address the \emph{Entscheidungsproblem} -- ``Is first-order logic algorithmically decidable?''
+\item Used to address the \emph{Entscheidungsproblem} -- ``Is every predicate first-order logic provable?''
+\item Similar developments - Godel numbers, Turing machines
 \end{itemize}
 \end{frame}
 
 
-\begin{frame}{Rules of the $\lambda$-calculus
+
+\begin{frame}{Conversion Rules}
 \begin{itemize}
 \item $\alpha$-conversion: $\lambda x.[...x...] = \lambda y.[...y...]$.  \\
 ``We can rename dummy variables.''
+\item Example: $\lambda a.a = \lambda b.b$
 \item $\beta$-conversion: $\lambda x.[...x...] T = [...T...]$. \\
 ``Evaluation by substitution.''
+\item Example: $(\lambda x.x)y = y.$
 \item $\eta$-conversion: $\lambda x.F(x) = F$. \\
-``Extensionality - a function is defined by what it does.'' Controversial.
+``Extensionality - a function is defined by what it does.'' \\
+ Controversial; often left out of compilers.
+\item Example: $\lambda y.\lambda x.yx =\lambda y.y$
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Church numerals}
+\begin{itemize}
+\item $0 := \lambda f.\lambda x.x$
+\item $1 := \lambda f.\lambda x.f x$
+\item $2 := \lambda f.\lambda x.f (f x)$
+\item $3 := \lambda f.\lambda x.f (f (f x))$
+\item $\ldots$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Arithmetic with Church numerals}
+\item Successor: $\lambda n.\lambda f.\lambda x. f (n f x)$
+\item Addition: $\lambda m.\lambda n.\lambda f.\lambda x. m f (n f x)$
+\item Multiplication: $\lambda m.\lambda n.\lambda f. m (n f)$
+\item Exponentiation: $\lambda m.\lambda n. n m$
+\item Predecessor: $\lambda n.\lambda f.\lambda x. n (\lambda g.\lambda h. h (g f)) (\lambda u. x) (\lambda u. u)$
+\end{frame}
+
 
 \begin{frame}{References}
 \begin{itemize}
 \item \emph{Introduction to Lambda Calculus.} Barendregt and Barensen.
-  \verb{https://files.nyu.edu/cb125/public/Lambda/barendregt.94.pdf}
-\item \emph{lambda calculus.} Dave Walker.  
-\verb{http://www.cs.princeton.edu/courses/archive/fall03/cs510/notes/the%20lambda%20calculus.ppt}
-\item \emph{Lambda Calculus, Then and Now.} Dana S. Scott. \verb{http://www.youtube.com/watch?v=7cPtCpyBPNI}
-  
+ftp://ftp.cs.ru.nl/pub/CompMath.Found/lambda.pdf
+\item \emph{lambda calculus.} Dave Walker.   http://www.cs.princeton.edu/courses/archive/fall03/cs510/ notes/the\%20lambda\%20calculus.ppt
+\item \emph{Lambda Calculus, Then and Now.} Dana S. Scott. http://www.youtube.com/watch?v=7cPtCpyBPNI
 \end{itemize}
 \end{frame}
 
