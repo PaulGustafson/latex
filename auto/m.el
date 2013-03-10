@@ -7,6 +7,7 @@
      "lemma"
      "example")
     (TeX-add-symbols
+     "cross"
      "diam"
      "length"
      "R"

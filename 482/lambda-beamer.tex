@@ -149,7 +149,7 @@
 \item Addition: $\lambda m.\lambda n.\lambda f.\lambda x. m f (n f x)$
 \item Multiplication: $\lambda m.\lambda n.\lambda f. m (n f)$
 \item Exponentiation: $\lambda m.\lambda n. n m$
-\item IsZero: $\lambda n. n \true  (\lambda x. \false)$
+\item IsZero: $\lambda n. n (\lambda x. \false) \true$
 \item Predecessor: $\lambda n.\lambda f.\lambda x. n (\lambda g.\lambda h. h (g f)) (\lambda u. x) (\lambda u. u)$
 \end{itemize}
 \end{frame}
