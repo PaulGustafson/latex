@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 467\\ 
+\noindent Instructor: Stephen Fulling
+
+\section*{$\F_2$ and the Fano plane}
+\subsection{Introduction}
+The purpose of this paper is to answer Exercise 2.5 of Greenberg \cite{g}.
+Recall $\F_2$, the field of two elements $\{0,1\}$. 
+
+\subsection{$\F_2^2$ as a tetrahedron}
+
+\subsection{$P(\F_2^2)$ as the Fano plane}
+
+\bibliographystyle{plain}
+\bibliography{paper1}
+\end{document}

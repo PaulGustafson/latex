@@ -1,0 +1,86 @@
+\documentclass{article}
+\usepackage{../m}
+\usepackage{graphicx}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 467\\ 
+\noindent Instructor: Stephen Fulling
+
+\section{$\F_2$ and the Fano plane}
+\subsection{Introduction}
+The purpose of this paper is to answer Exercise 2.5 (p. 96) of Greenberg \cite{g}:
+\begin{quote}
+Let $\F_2$ be the field of two elements $\{0,1\}$, whose multiplication and addition have the usual tables except that $1+1 = 0$. Show that $\F_2^2$ is isomorphic to the smallest affine plane. Show that $P^2(\F_2)$ is isomorphic to the Fano plane.
+\end{quote}
+
+We will need a few preliminary definitions from Greenberg.
+
+\begin{definition}
+An \textbf{incidence geometry} $(\mathcal{P}, \mathcal{L}, \mathcal{I})$ consists of a set of points $\mathcal{P}$, a set of lines $\mathcal{L}$, and an incidence relation $\mathcal{I} \subset \mathcal{P} \cross \mathcal{L}$ such that:
+\begin{enumerate}
+\item Every pair of distinct points is incident to a unique line.
+\item Every line is incident to at least two distinct points.
+\item There exist three distinct noncollinear points. 
+\end{enumerate}
+\end{definition}
+
+\begin{definition}
+Two lines are $\textbf{parallel}$ if there is no point incident to both lines.
+\end{definition}
+
+
+\begin{definition}
+A \textbf{projective plane} is an incidence geometry in which:
+\begin{enumerate}
+\item No two lines are parallel.
+\item Every line is incident to at least three distinct points.
+\end{enumerate}
+\end{definition}
+
+\begin{definition} 
+An \textbf{affine plane} is an incidence geometry in which, for every line $l$ and point $P$ not incident to $l$, there exists a unique line $m$ incident to $P$ and parallel to $l$.
+\end{definition}
+
+
+\subsection{The affine plane $\F_2^2$}
+As in $\R^2$, the points in $\F_2^2$ are simply the elements of the vector space $\F_2^2$, i.e. ordered pairs of elements of $\F_2$.  
+
+Also analogous to $\R^2$, the lines in $\F_2^2$ are cosets of 1-dimensional subspaces of $\F_2^2$.  That is, every line in $\F_2^2$ can be written as $V + h$ for some 1-dimensional subspace $V\subset \F_2^2$ and $h \in \F_2^2$.  
+
+Incidence in $\F_2^2$ corresponds to inclusion.  For example, the point $(1,1) \in \F_2^2$ is incident to the line $\{(1,0)t + (0,1): t \in \F_2\}$, since $(1,1) = (1,0) (1) + (0,1)$.
+
+As Greenberg notes, the smallest affine plane, call it $\mathcal{A}$, consists of a set of four points $\{A,B,C,D\}$ and a set of four lines $\{\{A,B\}, \{B,C\}, \{C,D\}, \{D,A\}\}$, where incidence corresponds to inclusion. For example, the point $B$ is incident to the line $\{A,B\}$.
+
+To see that $\mathcal{A}$ and $\F_2^2$ are isomorphic, first note that each 1-dimensional subspace over $\F_2$ has exactly 2 elements, so each line in $\F_2^2$ has 2 elements.  Conversely, given two elements $a,b \in \F_2^2$, the line $L((b-a)t, a)$ passes through $a$ and $b$.  Thus, the lines in $\F_2^2$ are precisely the two-element subsets of $\F_2^2$. 
+
+Therefore, an arbitrary bijection $f$ from the points of $\F_2^2$ to the points of $\mathcal A$ induces a bijection of lines (two-element subsets), and since inclusion is preserved under $f$, incidence is also preserved. 
+
+\subsection{$P^2(\F_2)$ as the Fano plane}
+For an arbitrary field $K$, the points of the projective space $P^2(K)$ are the 1-dimensional subspaces of $K^3$.  The lines are the 2-dimensional subspaces of $K^3$.  Incidence corresponds to containment. 
+
+Projective points in $P^2(K)$ are usually denoted $(a\mathpunct{:}b\mathpunct{:}c)$ for some generator $(a,b,c) \in K^3\setminus \{0\}$. Then $(a\mathpunct{:}b\mathpunct{:}c) = (d\mathpunct{:}e\mathpunct{:}f)$ iff $(a,b,c)$ is a nonzero multiple of $(d,e,f)$.
+
+For example, the projective line $\{x+y+z=0: (x \mathpunct{:}y\mathpunct{:}z) \in P^2(\F_2)\}$ is incident to the point $(1\mathpunct{:}0\mathpunct{:}1) \in P^2(\F_2)$ since $1+0+1 = 0$.
+
+Recall that each 1-dimensional subspace of an $\F_2$-vector space has only one non-zero element. Hence, a strange thing occurs in $P^2(\F_2)$: there is a correspondence between each point in $P^2(\F_2)$ and its unique nonzero element in $\F_2^3$. Since each non-zero element in $\F_2^3$ generates a 1-dimensional subspace of $F_2^3$, i.e. a projective point, this correspondence defines a bijection from $P^2(\F_2)$ to $\F_2^3\setminus \{0\}$. Hence, there are $2^3 - 1 = 7$ points in $\P^2(\F_2)$. 
+
+Since every 2-dimensional subspace of $\F_2^3$ contains 0, a 1-dimensional subspace $V \subset \F_2^3$ lies within a 2-dimensional subspace $W \subset \F_2^3$ iff the unique nonzero element in $V$ lies within $W$.
+
+Note that each line in $P^2(\F_2)$ corresponds to a set of 3 $\F_2^3$-elements since it is a 2-dimensional $\F_2$-vector space. Thus, each line in $P^2(\F_2)$ is incident to precisely 3 projective points.
+
+Similarly, the non-zero elements of $\F_2^3$ correspond to the pr
+
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=4in]{Fano_plane.png}
+\caption{An isomorphism between $P^2(\F_2)$ and the Fano plane}
+\end{figure}
+
+
+
+\bibliographystyle{plain}
+\bibliography{paper1}
+\end{document}

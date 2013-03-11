@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.0"
+   width="600"
+   height="600"
+   id="svg2">
+  <defs
+     id="defs4" />
+  <g
+     id="layer1">
+    <circle cx="300" cy="355.66243" r="144.33756" fill="none"
+	    stroke="black" stroke-width="2" />
+    <polygon fill="none" stroke="black" stroke-width="2"
+    	points="50,500 550,500 300,66.98729" />
+    <line x1="50" y1="500" x2="425" y2="283.49364"
+    	stroke="black" stroke-width="2" />
+    <line x1="550" y1="500" x2="175" y2="283.49364"
+    	stroke="black" stroke-width="2" />
+    <line x1="300" y1="500" x2="300" y2="66.98729"
+    	stroke="black" stroke-width="2" />
+    <circle cx="50" cy="500" r="20" fill="black" stroke="none" />
+    <circle cx="550" cy="500" r="20" fill="black" stroke="none" />
+    <circle cx="300" cy="66.98729" r="20" fill="black" stroke="none" />
+    <circle cx="300" cy="355.66243" r="20" fill="black" stroke="none" />
+    <circle cx="300" cy="500" r="20" fill="black" stroke="none" />
+    <circle cx="175" cy="283.49364" r="20" fill="black" stroke="none" />
+    <circle cx="425" cy="283.49364" r="20" fill="black" stroke="none" />
+  </g>
+</svg>
