@@ -59,17 +59,16 @@ Therefore, an arbitrary bijection $f$ from the points of $\F_2^2$ to the points 
 \subsection{$P^2(\F_2)$ as the Fano plane}
 For an arbitrary field $K$, the points of the projective space $P^2(K)$ are the 1-dimensional subspaces of $K^3$.  The lines are the 2-dimensional subspaces of $K^3$.  Incidence corresponds to containment. 
 
-Projective points in $P^2(K)$ are usually denoted $(a\mathpunct{:}b\mathpunct{:}c)$ for some generator $(a,b,c) \in K^3\setminus \{0\}$. Then $(a\mathpunct{:}b\mathpunct{:}c) = (d\mathpunct{:}e\mathpunct{:}f)$ iff $(a,b,c)$ is a nonzero multiple of $(d,e,f)$.
+Projective points in $P^2(K)$ are usually denoted $(a\mathpunct{:}b\mathpunct{:}c)$ for some generator $(a,b,c) \in K^3\setminus \{0\}$. Then $(a\mathpunct{:}b\mathpunct{:}c) = (d\mathpunct{:}e\mathpunct{:}f)$ iff $(a,b,c)$ is a nonzero multiple of $(d,e,f)$. For example, the projective line $\{x+y+z=0: (x \mathpunct{:}y\mathpunct{:}z) \in P^2(\R)\}$ is incident to the point $(1\mathpunct{:}0\mathpunct{:}-1) \in P^2(\R)$ since $t+0-t = 0$ for all $t\in \R$.
 
-For example, the projective line $\{x+y+z=0: (x \mathpunct{:}y\mathpunct{:}z) \in P^2(\F_2)\}$ is incident to the point $(1\mathpunct{:}0\mathpunct{:}1) \in P^2(\F_2)$ since $1+0+1 = 0$.
+Note that a strange thing occurs in $P^2(\F_2)$: there is a correspondence between each point in $P^2(\F_2)$ as a 1-dimensional subspace of $\F_2^3$ and its unique nonzero element in $\F_2^3$. Since, on the other hand, each non-zero element in $\F_2^3$ generates a 1-dimensional subspace of $F_2^3$, this correspondence defines a bijection from $P^2(\F_2)$ to $\F_2^3\setminus \{0\}$. Hence, there are $2^3 - 1 = 7$ points in $P^2(\F_2)$. 
 
-Recall that each 1-dimensional subspace of an $\F_2$-vector space has only one non-zero element. Hence, a strange thing occurs in $P^2(\F_2)$: there is a correspondence between each point in $P^2(\F_2)$ and its unique nonzero element in $\F_2^3$. Since each non-zero element in $\F_2^3$ generates a 1-dimensional subspace of $F_2^3$, i.e. a projective point, this correspondence defines a bijection from $P^2(\F_2)$ to $\F_2^3\setminus \{0\}$. Hence, there are $2^3 - 1 = 7$ points in $\P^2(\F_2)$. 
+Since every 2-dimensional subspace of $\F_2^3$ contains 0, a 1-dimensional subspace $V \subset \F_2^3$ lies within a 2-dimensional subspace $W \subset \F_2^3$ iff the unique nonzero element in $V$ lies within $W$. Hence, since each 2-dimensional subspace of $\F_2^3$ contains exactly $2^2 - 1 = 3$ nonzero $\F_2^3$-elements, each line in $P^2(\F_2)$ is incident to precisely 3 projective points.
 
-Since every 2-dimensional subspace of $\F_2^3$ contains 0, a 1-dimensional subspace $V \subset \F_2^3$ lies within a 2-dimensional subspace $W \subset \F_2^3$ iff the unique nonzero element in $V$ lies within $W$.
+Since we have seen that no two nonzero elements of an $\F_2$-vector space are linearly dependent, each pair of distinct nonzero elements in $\F_2^3$ determines a 2-dimensional subspace. Hence, since each 2-dimensional subspace of $\F_2^3$ contains exactly ${3 \choose 2} = 3$ distinct pairs of nonzero points, there are
+$(1/3) {7 \choose 2} = 7$ 2-dimensional subspaces of $\F_2^3$, i.e. projective lines in $P^2(\F_2)$.
 
-Note that each line in $P^2(\F_2)$ corresponds to a set of 3 $\F_2^3$-elements since it is a 2-dimensional $\F_2$-vector space. Thus, each line in $P^2(\F_2)$ is incident to precisely 3 projective points.
-
-Similarly, the non-zero elements of $\F_2^3$ correspond to the pr
+Alternatively, given an element $a \in \F_2^3\setminus \{0\}$, one can consider the rank-1 linear transformation $T(a):\F_2^3 \to \F_2$ defined by $(T(a))(x) := \sum_{i=1}^3 a_ix_i$.  By the rank-nullity theorem, the nullity of $T(a)$ is 2.
 
 
 
