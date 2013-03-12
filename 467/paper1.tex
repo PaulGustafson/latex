@@ -19,9 +19,9 @@ We will need a few preliminary definitions from Greenberg.
 \begin{definition}
 An \textbf{incidence geometry} $(\mathcal{P}, \mathcal{L}, \mathcal{I})$ consists of a set of points $\mathcal{P}$, a set of lines $\mathcal{L}$, and an incidence relation $\mathcal{I} \subset \mathcal{P} \cross \mathcal{L}$ such that:
 \begin{enumerate}
-\item Every pair of distinct points is incident to a unique line.
+\item Every pair of distinct points is incident to a unique line.% (where a point $P$ and a line $l$ are called \emph{incident} if $(P,l) \in \mathcal I$).
 \item Every line is incident to at least two distinct points.
-\item There exist three distinct noncollinear points. 
+\item There exist three distinct noncollinear points. %That is, there exist three points such that no line is incident to all three of them.
 \end{enumerate}
 \end{definition}
 
@@ -63,7 +63,7 @@ Projective points in $P^2(K)$ are usually denoted $(a\mathpunct{:} b \mathpunct{
 
 To label the projective lines, given an element $a \in K^3\setminus \{0\}$, consider the rank-1 linear transformation $T(a):K^3 \to K$ defined by $(T(a))(x) := \sum_{i=1}^3 a_ix_i$.  By the rank-nullity theorem, the nullity of $T(a)$ is 2. 
 
-Moreover, if $V \subset K^3$ is a 2-dimensional subspace, then I claim $V = \ker(T(a))$ for some $a \in K^3\setminus \{0\}$.   Pick a basis $\{v, w\}$ for $V$. 
+Moreover, if $V \subset K^3$ is a 2-dimensional subspace, then I claim $V = \ker(T(a))$ for some $a \in K^3\setminus \{0\}$.   To see this, pick a basis $\{v, w\}$ for $V$. 
 Since 
 \begin{align*}
 3 & \ge \dim(\ker(T(v)) + \ker(T(w))) 
@@ -87,10 +87,10 @@ The projective line $\{x+y+z=0: (x \mathpunct{:}y\mathpunct{:}z) \in P^2(\R)\}$ 
 \end{example}
 
 \subsection{$P^2(\F_2)$ as the Fano plane}
-A simplification occurs in $P^2(\F_2)$: there is a correspondence between each point in $P^2(\F_2)$ as a 1-dimensional subspace of $\F_2^3$ and its unique nonzero element in $\F_2^3$. Since, on the other hand, each non-zero element in $\F_2^3$ generates a 1-dimensional subspace of $F_2^3$, this correspondence defines a bijection from $P^2(\F_2)$ to $\F_2^3\setminus \{0\}$. Hence, there are $2^3 - 1 = 7$ points in $P^2(\F_2)$, and there is only one $(x \mathpunct{:}y\mathpunct{:}z)$-representation for each point.
+A simplification occurs in $P^2(\F_2)$: there is a correspondence between each point in $P^2(\F_2)$, as a 1-dimensional subspace of $\F_2^3$, and its unique nonzero element in $\F_2^3$. Since, on the other hand, each non-zero element in $\F_2^3$ generates a 1-dimensional subspace of $F_2^3$, this correspondence defines a bijection from $P^2(\F_2)$ to $\F_2^3\setminus \{0\}$. Hence, there are $2^3 - 1 = 7$ points in $P^2(\F_2)$, and there is only one $(x \mathpunct{:}y\mathpunct{:}z)$-representation for each point.
 
 
-Since every 2-dimensional subspace of $\F_2^3$ contains 0, a 1-dimensional subspace $V \subset \F_2^3$ lies within a 2-dimensional subspace $W \subset \F_2^3$ iff the unique nonzero element in $V$ lies within $W$. Hence, since each 2-dimensional subspace of $\F_2^3$ contains exactly $2^2 - 1 = 3$ nonzero $\F_2^3$-elements, each line in $P^2(\F_2)$ is incident to precisely 3 projective points.
+Since every subspace of $\F_2^3$ contains 0, a 1-dimensional subspace $V \subset \F_2^3$ lies within a 2-dimensional subspace $W \subset \F_2^3$ iff the unique nonzero element in $V$ lies within $W$. Hence, since each 2-dimensional subspace of $\F_2^3$ contains exactly $2^2 - 1 = 3$ nonzero $\F_2^3$-elements, each line in $P^2(\F_2)$ is incident to precisely 3 projective points.
 
 Since we have seen that no two nonzero elements of an $\F_2$-vector space are linearly dependent, each pair of distinct nonzero elements in $\F_2^3$ determines a 2-dimensional subspace. Hence, since each 2-dimensional subspace of $\F_2^3$ contains exactly ${3 \choose 2} = 3$ distinct pairs of nonzero points, there are
 $(1/3) {7 \choose 2} = 7$ dimension-2 subspaces of $\F_2^3$, i.e. projective lines in $P^2(\F_2)$.
@@ -108,7 +108,7 @@ From the previous section, each projective line can be written as $\ker(T(a))$ f
 %168 automorphisms of the Fano plane, what group?
 However, this isomorphism is far from unique: the group of automorphisms of the Fano plane has order 168. Indeed, to see that that the order of this group is at most 168, first pick any 3 noncollinear points.  Under any automorphism, these 3 points must map to 3 noncollinear points, so there are $(7)(6)(4) = 168$ choices for the images of these three points. However, each pair of these points determines a distinct line, and the sole other point on that line must remain collinear with the pair.  Hence, since there are 3 such pairs, the images of 3 more points are fixed.  But there are only 7 points, so the last point's image is also determined.
 
-Conversely, consider the action of $GL(3, \F_2)$, the group of nonsingular linear transformations of $\F_2^3$, on $P^2(\F_2)$. This group action is well-defined since the action of $GL(3, \F_2)$  on $F_2^3$ preserves subspace dimension and inclusion.  Moreover, if $g \in GL(3, \F_2)$ fixes $P^2(\F_2)$, then, since every 1-dimensional subspace of $\F_3$ has only one nonzero point, $g$ must fix $\F_2^3$. Thus, $GL(3, \F_2)$ acts faithfully on $P^2(\F_2)$, so is isomorphic to a subgroup of the automorphism group of the Fano plane.   Finally, by counting column choices, $|GL(3, \F_2)| = (7)(6)(3) = 168$.
+Conversely, consider the action of $GL(3, \F_2)$, the group of nonsingular linear transformations of $\F_2^3$, on $P^2(\F_2)$. This group action is well-defined since the action of $GL(3, \F_2)$  on $\F_2^3$ preserves subspaces and subspace dimension.  Moreover, if $g \in GL(3, \F_2)$ fixes $P^2(\F_2)$, then, since every 1-dimensional subspace of $\F_3$ has only one nonzero point, $g$ must fix $\F_2^3$. Thus, $GL(3, \F_2)$ acts faithfully on $P^2(\F_2)$, so is isomorphic to a subgroup of the automorphism group of the Fano plane.   Finally, by counting column choices, $|GL(3, \F_2)| = (7)(6)(3) = 168$, so $|GL(3, \F_2)|$ must be the whole automorphism group.
 
 \bibliographystyle{plain}
 \bibliography{paper1}
