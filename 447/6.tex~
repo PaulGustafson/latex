@@ -1,0 +1,84 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 447\\ 
+\noindent Instructor: Dr. Johnson
+
+\subsection*{HW 7}
+\p{19.43} No to both; let $f(x) = x \chi_{[0,1)}$. Then $||f||_\infty = 1$, but $\{|f| = 1\} = \emptyset$.
+
+\p{50} Note that if $f \in L_\infty$ then $f$ is a.e. equal to a bounded function, so the simple functions of the Basic Construction converge uniformly to $f$ a.e. Hence, the simple functions are dense in $L_\infty$.  If $E$ is of finite measure, all simple functions defined on $E$ are integrable.  If $m(E) = \infty$, then the integrable simple functions are not dense: take $f = \chi_E$. If $||\phi - f||_\infty < 1/2$, then $||\phi||_\infty > 1/2$, so $\int |\phi| = \infty$.
+
+\p{51} There's a typo in the problem statement: the exponent of $m(E)$ should be $1/p$, not $(1-1/p)$.  To see why the latter can't be right, let $f = \chi_E$, then $||f||_p = m(E)^{1/p} = m(E)^{1/p} ||f||_\infty$. Take $m(E) = 2$ and $p = 1$ to see that the problem can't be correct as stated.
+
+If $f \in L_\infty(E)$ with $m(E) < \infty$ and $1 \le p < \infty$, we have
+$||f||_p \le || ||f||_\infty ||_p = (m(E))^{1/p} ||f||_\infty$. This implies $L_\infty(E) \subset L_p(\R)$ with the convention that a function $f$ defined on $E$ is set to $0$ outside of $E$.  
+
+If $E = [0,1]$, this inequality reduces to $||f||_p \le ||f||_\infty$. To see $||f||_1 \le ||f||_p$, use H\"{o}lder's inequality: $||f||_1 = ||(1)f||_1 \le ||1||_q ||f||_p = ||f||_p$
+
+\p{52} Let $f \in L_\infty[0,1]$. To see that $||f||_p$ is increasing as a function of $p$,  let $1\le r < s \le \infty$. By H\"{o}lder,
+$$||f||_r = (\int |f|^r (1))^{1/r} \le ((\int |f|^{r(s/r)})^{r/s})^{1/r} = ||f||_s.$$
+Since by (51) every $||f||_p$ is bounded above by $||f||_\infty$, we have $\lim_{p\to\infty} ||f||_p$ exists.
+
+To show that $||f||_\infty \le \lim_{p\to\infty} ||f||_p$, let $\epsilon > 0$. We have
+\begin{align*}
+||f||_p & \ge (\int_{\{|f| > ||f||_\infty - \epsilon\}} |f|^p )^{1/p}
+\\ & \ge ((||f||_\infty - \epsilon)^p \,m\{|f| > ||f||_\infty - \epsilon\})^{1/p}
+\\ & = (||f||_\infty - \epsilon) (m\{|f| > ||f||_\infty - \epsilon\})^{1/p}
+\\ & \to ||f||_\infty - \epsilon,
+\end{align*}
+as $p \to \infty$, since $m \{ |f| > ||f||_\infty - \epsilon\} > 0$. Thus,
+$||f||_\infty \le \lim_{p\to\infty} ||f||_p \le ||f||_\infty$, so $\lim_{p\to\infty} = ||f||_\infty$.
+
+\p{62}
+Pick a step function $h$ such that $||f - h||_p < \epsilon/2$. If $m(A) < \delta := (\frac \epsilon {2 ||h||_\infty})^p$, then
+\begin{align*}
+||f \chi_A||_p & \le ||h \chi_A||_p + ||(f-h) \chi_A||_p
+\\ & \le || ||h||_\infty \chi_A||_p + (\epsilon/2)
+\\ & \le ||h||_\infty m(A)^{1/p} + (\epsilon/2)
+\\ & < \epsilon.
+\end{align*}
+
+If $p = \infty$, this will not work.  Take $f(x) := 1$. If $m(A) >0$, then $||f\chi_A||_\infty = ||\chi_A||_\infty = 1$.
+
+\p{64(a)} \emph{Case $p>1$.} For the boundedness, since $1<p<\infty$, we can use H\"{o}lder:
+$$|h(x)| = |\int f T_x(g)| \le ||f||_p||T_x(g)||_q = ||f||_p||g||_q,$$
+where the last equality follows from (63), which was proved in class.
+
+For continuity,
+$$|h(x) - h(y)| = |\int f \cdot (T_x - T_y)g)| \le ||f||_p||(T_x - T_y)g||_q \to 0$$
+as $y\to x$ by (63)(c).
+
+\emph{Case $p=1$}. For the boundedness, note 
+$$|h(x)| \le \int |f T_x(g)| \le \int |f| \cdot ||g||_\infty = ||f||_1||g||_\infty.$$
+
+For continuity, first note the previous estimate shows that $f T_x(g) \in L_1$, so by (63) we have
+\begin{align*}
+h(x) & = \int f T_x (g) 
+\\ & = \int (f T_x (g))^+ - \int (f T_x (g))^-
+\\ & = \int T_{-x} ((f T_x (g))^+) - \int T_{-x} ((f T_x (g))^-)
+\\ & = \int (T_{-x}(f) g)^+ - \int (T_{-x} (f) g)^-
+\\ & = \int T_{-x}(f) g,
+\end{align*}
+where the penultimate equality is justified by the fact that for any function $F$, we have $T_x(F^+) = T_x(1/2(|F| + F)) = 1/2(|T_xF| + T_xF) = (T_xF)^+$ and similarly for $F^-$.
+
+Thus, $|h(x) - h(y)| = |\int f T_{x-y}(g)| = |\int (T_{y-x}f) g| \le ||g||_\infty \int |T_{y-x}(f)|  \to 0$
+as $y\to x$ by (63)(c).
+
+\p{64(b)}  
+Example: Let $f:= 1/(1+x^2)$ and $g = \sin(e^x)$. Then $f \in L_1$ and $g \in L_\infty$.  The difference quotient at 0 is
+$$(h(y) - h(0))/y = \int f(t) (g(t+y) - g(t))/y  \,dt
+=  \int (1/(1+t^2)) (\sin(e^{t+y}) - \sin(e^t)/y  \,dt$$
+
+From Fatou's lemma,
+$$\liminf_{y\to 0} \int (1/(1+t^2)) |(\sin(e^{t+y}) - \sin(e^t)/y|  dt  
+      \ge  \int (1/(1+t^2)) |e^t \cos(e^t)|,$$
+
+and that last integral has to diverge (just look at the parts where $|cos(e^t)| > 1/2$ and get a divergent series, I think).
+
+
+
+
+\end{document}

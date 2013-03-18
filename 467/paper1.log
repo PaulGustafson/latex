@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  12 MAR 2013 13:49
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  14 MAR 2013 14:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -259,7 +259,7 @@ Here is how much of TeX's memory you used:
  5690 multiletter control sequences out of 15000+200000
  14572 words of font info for 55 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 37i,8n,26p,699b,223s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 37i,8n,26p,675b,223s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/
 texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-
 dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/f
@@ -277,7 +277,7 @@ dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/typ
 e1/public/amsfonts/symbols/msbm7.pfb>
-Output written on paper1.pdf (4 pages, 191195 bytes).
+Output written on paper1.pdf (4 pages, 191145 bytes).
 PDF statistics:
  88 PDF objects out of 1000 (max. 8388607)
  62 compressed objects within 1 object stream
