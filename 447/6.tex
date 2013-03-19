@@ -14,7 +14,7 @@
 \p{51} There's a typo in the problem statement: the exponent of $m(E)$ should be $1/p$, not $(1-1/p)$.  To see why the latter can't be right, let $f = \chi_E$, then $||f||_p = m(E)^{1/p} = m(E)^{1/p} ||f||_\infty$. Take $m(E) = 2$ and $p = 1$ to see that the problem can't be correct as stated.
 
 If $f \in L_\infty(E)$ with $m(E) < \infty$ and $1 \le p < \infty$, we have
-$||f||_p \le || ||f||_\infty ||_p = (m(E))^{1/p} ||f||_\infty$. This implies $L_\infty(E) \subset L_p(\R)$ with the convention that a function $f$ defined on $E$ is set to $0$ outside of $E$.  
+$||f||_p \le ||( ||f||_\infty) ||_p = (m(E))^{1/p} ||f||_\infty$. This implies $L_\infty(E) \subset L_p(\R)$ with the convention that a function $f$ defined on $E$ is set to $0$ outside of $E$.  
 
 If $E = [0,1]$, this inequality reduces to $||f||_p \le ||f||_\infty$. To see $||f||_1 \le ||f||_p$, use H\"{o}lder's inequality: $||f||_1 = ||(1)f||_1 \le ||1||_q ||f||_p = ||f||_p$
 
@@ -24,8 +24,8 @@ Since by (51) every $||f||_p$ is bounded above by $||f||_\infty$, we have $\lim_
 
 To show that $||f||_\infty \le \lim_{p\to\infty} ||f||_p$, let $\epsilon > 0$. We have
 \begin{align*}
-||f||_p & \ge (\int_{\{|f| > ||f||_\infty - \epsilon\}} |f|^p )^{1/p}
-\\ & \ge ((||f||_\infty - \epsilon)^p \,m\{|f| > ||f||_\infty - \epsilon\})^{1/p}
+||f||_p & \ge \left(\int_{\{|f| > ||f||_\infty - \epsilon\}} |f|^p \right)^{1/p}
+\\ & \ge \left((||f||_\infty - \epsilon)^p \,m\{|f| > ||f||_\infty - \epsilon\}\right)^{1/p}
 \\ & = (||f||_\infty - \epsilon) (m\{|f| > ||f||_\infty - \epsilon\})^{1/p}
 \\ & \to ||f||_\infty - \epsilon,
 \end{align*}
@@ -64,16 +64,16 @@ h(x) & = \int f T_x (g)
 \end{align*}
 where the penultimate equality is justified by the fact that for any function $F$, we have $T_x(F^+) = T_x(1/2(|F| + F)) = 1/2(|T_xF| + T_xF) = (T_xF)^+$ and similarly for $F^-$.
 
-Thus, $|h(x) - h(y)| = |\int f T_{x-y}(g)| = |\int (T_{y-x}f) g| \le ||g||_\infty \int |T_{y-x}(f)|  \to 0$
+Thus, $|h(x) - h(y)| = |\int (T_{-x}-T_{-y})(f) g| \le ||g||_\infty \int |(T_{-x} - T_{-y})(f)|  \to 0$
 as $y\to x$ by (63)(c).
 
 \p{64(b)}  
-Suppose $g$ is continuously differentiable and, \emph{in addition}, $g$.
+Suppose $g$ is continuously differentiable.
 
-\emph{Case $f = \chi_{[a,b]}$.}  We have $h(x) = \int_a^b g(x+t) dt$, so
- $(h(x + k) - h(x))/k = \int_a^b (g(x +k + t) - g(x + t))/k dt
-  \to \int_a^b g'(x + t) dt  (k \to 0)$
- by the DCT, since $|(g(x +k + t) - g(x + t))/k| < ||g'||_\infty$ by the MVT.
+\emph{Case $f = \chi_{[a,b]}$.}  We have $h(x) = \int_a^b g(x+t) \,dt$, so
+ $(h(x + k) - h(x))/k = \int_a^b (g(x +k + t) - g(x + t))/k \,dt
+  \to \int_a^b g'(x + t) \,dt  \,(k \to 0)$
+ by the DCT, since $|(g(x +k + t) - g(x + t))/k| \le sup_{t \in [a-1, b+1]} |g'(x+t)|$ for $t \in [a,b]$ and $k < 1/2$ by the MVT.
 
 The step function case follows by linearity of the integral.
 
