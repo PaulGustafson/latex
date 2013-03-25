@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{amssymb, amsmath, amsthm, verbatim, enumerate}
+
+\newcommand{\geomline}{\overleftrightarrow}
+
+\begin{document}
+\noindent Team Beta\\
+\noindent Texas A\&M University - Math 467\\ 
+\noindent Instructor: Stephen Fulling
+
+\subsection*{Proposition 4.5}
+\noindent\textbf{To Show:} In $\triangle ABC$, $AB > BC$ iff $\angle BCA > \angle CAB$.
+\begin{proof}
+($\Rightarrow$): Suppose $AB > BC$. Pick $D$ with $A * D * B$ and $BD \cong BC$. 
+Since $B$ is the unique point of intersection of $\geomline{AB}$ and $\geomline{BC}$, $D$ is not incident to $\geomline{BC}$. Hence, $BDC$ is a triangle. Similarly, $ADC$ is a triangle.
+
+Since $BD \cong BC$, $\triangle BDC$ is isosceles with $\angle BDC \cong \angle BCD$.  By the exterior angle theorem applied to $(\triangle ADC, \angle BDC)$, we get $\angle CAB < \angle BDC$. Since $A * D * B$, we have $\angle BCD < \angle BCA$ by the definition of angle ordering. Putting it all together, $\angle CAB < \angle BCD \cong \angle BCD < \angle BCA$.
+
+($\Leftarrow$): Suppose $\neg(AB > BC)$. Then either $AB = BC$ or $AB < BC$. In the former case, $\triangle ABC$ is isosceles with $\angle BCA = \angle CAB$.  In the latter case, apply ($\Rightarrow$) to $\triangle CBA$ to get $\angle A > \angle C$.
+\end{proof}
+\end{document}

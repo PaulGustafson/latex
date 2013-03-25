@@ -1,4 +1,4 @@
-(TeX-add-style-hook "t"
+(TeX-add-style-hook "4"
  (lambda ()
     (TeX-run-style-hooks
      "m467"

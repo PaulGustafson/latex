@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage{m467}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 467\\ 
+\noindent Instructor: Stephen Fulling
+
+\subsection*{An angle analog of Proposition 3.12 (Revision)}
+
+\p{To Show:} If $\angle ABC \cong \angle DEF$ and $\ray{BG}$ is interior to $\angle ABC$, then there is a unique ray $\ray{EH}$ interior to $\angle DEF$ such that $\angle ABG \cong \angle DEF$.
+
+\begin{proof}
+WLOG, by applying C-1 and renaming, $AB \cong DE$ and $BC \cong EF$. By the crossbar theorem, WLOG $A * G * C$. 
+
+By SAS applied to $(AB \cong DE, \angle ABC \cong \angle DEF, BC \cong EF)$, we have $\triangle ABC \cong \triangle DEF$.
+
+Since $AC \cong DF$, we can pick $H$ such that $D * H * F$ and $AG \cong DH$ by Prop. 3.12. We also have $\angle BAG = \angle BAC \cong \angle EDF = \angle EDH$.  Then, by SAS on $(AB \cong DE, \angle BAG \cong \angle EDH, AG \cong DH)$, we have $\triangle BAG \cong \triangle EDH$. Hence, $\angle ABG \cong \angle DEH$.
+
+For the uniqueness, suppose $H^\prime$ is interior to $\angle DEF$ with $\angle DEH' \cong \angle ABG$. Then $H^\prime$ is on the same side of $\gline{DE}$ as $F$. Thus, by C-4, $\ray{EH'} = \ray{EH}$.
+\end{proof}
+\end{document}

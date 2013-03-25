@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage{m467}
+\usepackage{../m}
 
 \begin{document}
 \noindent Paul Gustafson\\

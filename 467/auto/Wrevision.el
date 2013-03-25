@@ -1,4 +1,4 @@
-(TeX-add-style-hook "t"
+(TeX-add-style-hook "Wrevision"
  (lambda ()
     (TeX-run-style-hooks
      "m467"

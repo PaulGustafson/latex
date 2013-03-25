@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage{m467}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 467\\ 
+\noindent Instructor: Stephen Fulling
+
+\subsection*{HW 4 (W)}
+\p{19} Show that in a semi-Euclidean plane, every angle inscribed in a semicircle is a right angle.  Discuss what occurs when the plane is not semi-Euclidean.
+\begin{proof}
+In a semi-Euclidean plane, suppose $\angle ABC$ is inscribed in a semicircle with $A, C$ on the diameter of the semicircle. Let $O$ denote the center of the semicircle.
+
+Note that $\triangle AOB$ is isosceles with $\angle OAB \cong \angle OBA$.  Similarly, $\angle OAC \cong \angle AOC$. 
+
+Since the plane is semi-Euclidean, the degree sum of the angles in any triangle is $180^\circ$. Hence, for $\triangle ABC$, we have
+\begin{align*}
+180^\circ & = (\angle ABC)^\circ + (\angle BAO)^\circ + (\angle OCB)^\circ
+\\ & = (\angle ABC)^\circ + (\angle ABO)^\circ + (\angle CBO)^\circ
+\\ & = 2 (\angle ABC)^\circ,
+\end{align*}
+so $\angle ABC$ is a right angle.
+
+When the plane is not semi-Euclidean, every triangle has angle sum less than $180^\circ$. Analogously to the reasoning above, then, we have $180^\circ >  2 (\angle ABC)^\circ$, so $\angle ABC$ is acute.
+\end{proof}
+\end{document}

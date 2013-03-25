@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 447\\ 
+\noindent Instructor: Dr. Johnson
+
+\subsection*{HW 8}
+\p{J20.1}  Suppose $f$ is Lipschitz with constant $M$. Suppose $h_k \to 0$ with $h_k \neq 0$ for all $k$, and $\frac {f(x + h_k) - f(x)}{h_k} \to \alpha$.
+Then since $|\frac {f(x + h_k) - f(x)}{h_k}| \le M$ for all $k$, we have $|\alpha| \le M$.
+
+Conversely, suppose $Df(x) \subset [-M, M]$ for all $x$.  Define $g$ by $g(x) = f(x) + Mx$. Then $Dg(x) \subset [0, 2M]$ for all $x$, so by (10), $g$ is increasing. Hence, if $x < y$, then $f(x) + Mx \le f(y) + My$.  This implies $-M (y- x) \le (f(y) - f(x))$.
+
+Let $h(x) := -f(x) + Mx$. Then for all $x$, $Dh(x) = -Df(x) + M \subset [0, 2M]$.
+Hence, by (10), $h$ is increasing. Thus, for $x < y$, $-f(x) + Mx \le -f(y) + My$, so $(f(y) - f(x)) \le M(y-x)$.
+
+Thus, for all $x < y$, $|f(y) - f(x)| \le M |y - x|$.  By swapping $y$ with $x$, this also holds for $x > y$.
+
+\p{7} Suppose $D \subset \R$ and $f: D \to \R$ is differentiable, hence continuous.  Let $f_k(x) = (f(x + 1/k) - f(x))k$. Then each $f_k$ is Borel measurable and $f_k \to f'$, so $f$ is Borel measurable.
+
+If $f$ is differentiable a.e., then by the above case, it is Borel measurable on $\R \setminus N$ for some null set $N$. Thus, it is Lebesgue measurable on $\R$.
+
+\p{10} As noted in class, it suffices to prove this in the case that there exists $\epsilon_0 > 0$ such that, for all $x$, $Df(x) \subset [\epsilon_0, \infty]$. Indeed, in the general case, define $f_n(x) := f + (1/n)x$. Assuming the special case, each $f_n$ is increasing, so $f$ is increasing since $f_n \to f$.
+
+To prove the special case, suppose $f$ is not increasing.  Then there exists $x < y_0$ such that $f(x) < f(y_0)$.  Let $B  = \{t : t > x \text{ and } f(t) < f(x)\}$ and $y = \inf B$. 
+
+Case $f(y) < f(x)$. There exists a sequence $y_k \to y$ from the left with $y_k > x$ for all $k$. Since $f(y_k) \ge f(x)$ for all $k$,  $\frac {f(y) - f(y_k)}{y - y_k} \le \frac {f(y) - f(x)}{y - y_k} \to -\infty$ as $k \to \infty$, a contradiction.
+
+Case $f(y) \ge f(x)$.  Note that in this case $y$ must be a limit point of $B$.  Pick a sequence $(y_k) \subset B$ with $y_k \to y$.  Then $q_k :=\frac {f(y_k) - f(y)}{y_k - y} \le \frac {f(x) - f(x)}{y_k - y} = 0$. Pick any subsequence of $q_k$ with a limit in the extended reals to get a contradiction.
+
+\p{11} Following the hint, let $(U_n)$ be a decreasing sequence of open sets  with each $U_n \supset E$ and $m(U_n) < 2^{-n}$. Let 
+$f_n(x) = \,m((-\infty,x) \cap U_n)$, and $f = \sum_n f_n$.
+
+Each $f_n$ is Lipschitz of constant 1 (proved on the exam) and increasing. Moreover, $f_n \le \,m(U_n) < 2^{-n}$, so $\sum_n f_n$ converges uniformly. Thus, $f$ is continuous and increasing.
+
+Note that if $x \in E$, then $U_n$ contains a neighborhood of $x$. Hence, if $x_k \to x$, then for all large $k$, $\frac {f_n(x_k) - f_n(x)}{x_k - x} = \frac {x_k -x}{x_k - x}  = 1$. Thus, each $f_n$ is differentiable at $x$ with derivative $1$.
+
+Hence, if $x \in E$ and $x_k \to x$, then for every $N > 0$, $\frac {f(x_k) - f(x)}{x_k - x} = \sum_n \frac {f_n(x_k) - f_n(x)}{x_k - x} \ge \sum_{n=1}^N \frac {f_n(x_k) - f_n(x)}{x_k - x} \to N$ as $k \to \infty$. Hence, $Df(x) = \{\infty\}$.
+
+\end{document}
