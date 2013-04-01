@@ -17,11 +17,38 @@ Following the hint, construct $D$ on the ray opposite to $\ray{AC}$ such that $A
 \item There exists a point $O$ such that $B*O*C$ and $O$ is incident to $l$.
 \item There exists a point $O$ such that $C*O*D$ and $O$ is incident to $l$.
 \item There exists a point $O$ such that $A*O*D$ and $O$ is incident to $l$.
-\item $C$ is incident to $l$.
-\item $D$ is incident to $l$.
+\item $O := C$ is incident to $l$.
+\item $O := D$ is incident to $l$.
 \end{enumerate}
 \begin{proof}
-Case $C$ is incident to $l$.  
+To see that at least one of these must hold, apply Pasch's theorem to $\triangle ABC$ to get that exactly one of (1),(4), and $l$ intersects $AC$ between $A$ and $C$ holds.  In the last case, apply Pasch's theorem to $\triangle ACD$ to get that exactly one of (2), (3), and (5) holds.
+
+From the preceding argument, it suffices to show that each of (2), (3), and (5) implies $l$ intersects $AC$ between $A$ and $C$. 
+
+Let $M$ denote the intersection of $l$ and $AB$. Since $A*M*B$, $M$ and $B$ are on the same side of $\gline{AC}$. Note that by Exercise 28, $B$ and $D$ are on opposite sides of $\gline{AC}$. Thus, $M$ and $D$ are on opposite sides of $\gline{AC}$.
+
+Note that in each of the cases (2), (3), and (5), $O$ is on the same side of $\gline{AC}$ as $D$. Thus, $M$ and $O$ are on opposite sides of $\gline{AC}$.
+
+Let $I$ denote the point of intersection of $MO$ and $\gline{AC}$. It suffices to show that $I$ lies in the interior of $\square ABCD$, for then we have $A*I*C$.  
+
+To see that $I$ lies in the interior, first note that $M * I * O$ implies that $I$ and $O$ lie on the same side of $\gline{AB}$. Since $\square ABCD$ is convex, $O$ and $D$ lie on the same side of $\gline{AB}$ in all cases. Thus, $I$, $C$, and $D$ lie on the same side of $\gline{AB}$. 
+
+On the other hand, $M*I*O$ also implies $M$ and $I$ are on the same side of $\gline{CD}$. Thus, $I$,$A$, and $B$ are on the same side of $\gline{CD}$.  Since $M$,$O$,$A$, and $D$ are on the same side of $\gline{BC}$, $I$ is on the same side of $\gline{BC}$ as $AD$.  Similarly, $I$ is on the same side of $\gline{AD}$ as $BC$.  
+
+Thus, $I$ lies in the interior of $\square ABCD$.
+
+\begin{comment}
+
+Similarly, apply Pasch's theorem to $\triangle ABD$ to get that exactly one of (3),(5), and $l$ intersects $BD$ between $B$ and $D$ holds.  In the last case, apply Pasch's theorem to $\triangle BCD$ to get that exactly one of (1), (2), and (4) holds.
+
+Case $C$ lies on $l$.  Then (1) and (2) are ruled out since $C$ is the unique point of intersection with $BC$ and $CD$, respectively. If $D$ lies on $l$, then $l = \gline{CD}$. But $AB$ intersects $l$, so $AB$ does not lie in a half plane of $\gline{CD}$, contradicting the convexity of $\square ABCD$.  Thus, (5) is ruled out.  Suppose (3) held. Since $\square ABCD$ is a quadrilateral, $C \neq O$, so exactly one of the following subcases holds.
+\begin{itemize}
+\item Subcase $M * C * O$. Since $A*O*D$, $A$ and $O$ lie on the same side of $\gline{CD}$. Since $M * C * O$, $M$ and $O$ lie on opposite sides of $\gline{CD}$. Thus, $A$ and $M$ lie on opposite sides of $\gline{CD}$, so $AB$ intersects $\gline{CD}$, a contradiction.
+\item Subcase $M * O * C$.  $C, M$ are on opposite sides of $\gline{AD}$. $M, B$ are on the same side of $\gline{AD}$. Hence, $C,B$ are on opposite sides of $\gline{AD}$, a contradiction.
+\item Subcase $O * M * C$. 
+\end{itemize}
+\end{comment}
+
 \end{proof}
 
 \p{32} Using Figure 4.33, note that $\angle A'B'B''$ is supplementary to $\angle A'B'B$. Moreover, $\angle ABB''$ is supplementary to $\angle B'BC$.  Thus, since two angles are congruent iff their supplementary angles are congruent, $\angle A'B'B'' \cong \angle ABB''$ iff $\angle A'B'B \cong \angle B'BC$, one of the pairs of alternate interior angles.  We get a similar equivalence between the other pair of corresponding angles and alternate interior angles.
