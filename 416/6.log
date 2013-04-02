@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  30 MAR 2013 23:14
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  1 APR 2013 22:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -148,13 +148,13 @@ File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] (./6.aux) ) 
 Here is how much of TeX's memory you used:
- 1251 strings out of 495059
- 13973 string characters out of 3182030
+ 1252 strings out of 495059
+ 13979 string characters out of 3182030
  65509 words of memory out of 3000000
- 4467 multiletter control sequences out of 15000+200000
+ 4468 multiletter control sequences out of 15000+200000
  6252 words of font info for 25 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,5n,26p,752b,136s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,5n,26p,752b,142s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texli
 ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/tex
@@ -167,7 +167,7 @@ ts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr
 /share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on 6.pdf (2 pages, 126212 bytes).
+Output written on 6.pdf (2 pages, 128805 bytes).
 PDF statistics:
  59 PDF objects out of 1000 (max. 8388607)
  42 compressed objects within 1 object stream

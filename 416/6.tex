@@ -50,17 +50,22 @@ Since every permutation is a product of transpositions, WLOG $\tau$ is a transpo
 
 \item It suffices to show that  $(1, 2, \ldots, m)$ is conjugate to each $(a_1, a_2, \ldots, a_m)$.  By part(a), this is obvious: just define $\tau$ by $i \mapsto a_i$ for $1 \le i \le m$ and extend this to a bijection of $[n]$ however you like.
 
-\item Let $\sigma = \prod_i \sigma_i$ and $\eta = \prod_i \eta_i$ denote two such products of disjoint cycles with each $\sigma_i = (\sigma_{i1}, \ldots, \sigma_{i,r_i})$ and $eta_i = (\eta_{i1}, \ldots, \eta_{i, r_i})$. Since the $sigma_{ij}$ are distinct and the $\eta_{ij}$ are distinct, there exists $\tau \in S_n$ such that $\tau(\sigma_{ij}) = \eta_{ij}$ for all $i,j$.
+\item Let $\sigma = \prod_i \sigma_i$ and $\eta = \prod_i \eta_i$ denote two such products of disjoint cycles with each $\sigma_i = (\sigma_{i1}, \ldots, \sigma_{i,r_i})$ and $eta_i = (\eta_{i1}, \ldots, \eta_{i, r_i})$. Since the $\sigma_{ij}$ are distinct and the $\eta_{ij}$ are distinct, there exists $\tau \in S_n$ such that $\tau(\sigma_{ij}) = \eta_{ij}$ for all $i,j$.
 
 By the fact that conjugation by $\tau$ is an homomorphism and by part (a),
 $\tau \sigma \tau^{-1} = \prod_i \tau\sigma_i \tau_{-1} = \prod_i \eta_i = \eta$.
 
-\item Let $\sigma \in S_n$.  Let $(x_i)_{1\le i \le s$} be a complete set of representatives of the orbits of $[n]$ under  $\sigma$. Let $r_i$ be the size of the orbit containing $x_i$. Then
-$\sigma = \prod_{i=1}^s (x_i, \sigma(x_i), \ldots, \sigma^{r_i} x_i)$.
-Moreover, by reindexing we can assume that $0 < r_1 \le r_2 \le \ldots \le r_s$.
+\item Let $P(n)$ denote the set of partitions of $n$.  For any $\sigma \in S_n$, let $(O_{\sigma, i})_{1\le i \le s}$ denote the orbits of $[n]$ under  $\sigma$.  Define the map $\phi:S_n \to P(n)$ by $\phi(\sigma) = (|O_{\sigma, i}|)_i$.
 
-Suppose $\sigma'$ has orbit sizes $0 < r_1' \le r_2' \le \ldots \le r_t'$.
-By the decomposition above and part (b), $\sigma$ is conjugate to $\sigma'$ if $t = s$ and $r_i = r_i'$ for all $i$.
+This map is surjective: a partition $Q = (t_i)_{i=1}^s$ of $n$ is the image of $\eta = (1, 2, \ldots, t_1) (t_1 + 1, \ldots, t_2) \ldots (n - t_s + 1, \ldots, n)$.
+
+Suppose $\sigma \in \phi^{-1}(Q)$. For each $i$, pick $x_i \in O_{\sigma, i}$. Then
+\begin{equation} \label{goop}
+\sigma = \prod_{i=1}^s (x_i, \sigma(x_i), \ldots, \sigma^{t_i} x_i)
+\end{equation}
+Hence, by part (c), the preimage of any partition is a subset of a conjugacy class. Moreover, by part (a) and equation (\ref{goop}), if $\eta$ is conjugate to $\sigma$, then $\phi(\eta) = Q$. Hence, the preimage of any partition is equal to a conjugacy class. Thus, $p(n)$ is the number of conjugacy classes of $S_n$.
+
+\item $1,2,3,5,7,11,15$
 
 \end{enumerate}
 
