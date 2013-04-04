@@ -10,17 +10,25 @@
 \p{12}
 \p{16} It follows from the definition of absolute continuity that $AC[a,b] \subset C[a,b]$. 
 
-To check that $AC[a,b]$ is a subspace, let $\epsilon > 0$, $f,g \in AC[a,b]$.  Pick $\delta > 0$ such that if $([a_i,b_i])$ are nonoverlapping with $\sum_i [a_i, b_i] < \delta$, then $\sum_i |f(b_i) - f(a_i)| < \epsilon/2$. Pick $\eta > 0$ similarly for $g$. If $([a_i,b_i])$ are nonoverlapping with $\sum_i [a_i, b_i] < \delta \wedge \eta$, then 
+To check that $AC[a,b]$ is a subspace, let $\epsilon > 0$, $f,g \in AC[a,b]$.  Pick $\delta > 0$ such that if $([a_i,b_i])$ are nonoverlapping with $\sum_i b_i - a_i < \delta$, then $\sum_i |f(b_i) - f(a_i)| < \epsilon/2$. Pick $\eta > 0$ similarly for $g$. If $([a_i,b_i])$ are nonoverlapping with $\sum_i [a_i, b_i] < \delta \wedge \eta$, then 
 $\sum_i |(f+g)(b_i) - (f+g)(a_i)|
 \le \sum_i |(f(b_i) - (f(a_i)| + |g(b_i) - g(a_i)|
 \le \epsilon/2 + \epsilon/2$.
 
-Let $\alpha \in \R$. If $\alpha = 0$, then $\alpha f$ is trivially absolutely continuous.  If $|\alpha| > 0$, pick $\delta > 0$ such that if $([a_i,b_i])$ are nonoverlapping with $\sum_i [a_i, b_i] < \delta$, then $\sum_i |f(b_i) - f(a_i)| < \epsilon/|alpha|$.  Hence if $([a_i,b_i])$ are nonoverlapping with $\sum_i [a_i, b_i] < \delta$, then $\sum_i |(\alpha f)(b_i) - (\alpha f)(a_i)| = |\alpha| \sum_i |f(b_i) - f(a_i)| < |\alpha| (\epsilon/|alpha|)$.
+Let $\alpha \in \R$. If $\alpha = 0$, then $\alpha f$ is trivially absolutely continuous.  If $|\alpha| > 0$, pick $\delta > 0$ such that if $([a_i,b_i])$ are nonoverlapping with $\sum_i [a_i, b_i] < \delta$, then $\sum_i |f(b_i) - f(a_i)| < \epsilon/|alpha|$.  Hence if $([a_i,b_i])$ are nonoverlapping with $\sum_i b_i - a_i < \delta$, then $\sum_i |(\alpha f)(b_i) - (\alpha f)(a_i)| = |\alpha| \sum_i |f(b_i) - f(a_i)| < |\alpha| (\epsilon/|alpha|)$.
 
 To see that $AC[a,b]$ is an algebra, it suffices to show that $f^2 \in AC[a,b]$ since $AC[a,b]$ is a vector space. But this follows from the estimate $\sum_i |f^2(b_i) - f^2(a_i)| = \sum_i |f(b_i) - f(a_i)| |f(b_i) + f(a_i)| \le 2 ||f||_\infty \sum_i |f(b_i) - f(a_i)|$.
 
+To see that $AC[a,b]$ is closed in $C[a,b]$, suppose $f_n \to f$ with $(f_n) \subset AC[a,b]$. Let $\epsilon > 0$.  Pick $N$ such that $|f_N - f| < \frac \epsilon {2(b-a)}$.  Pick $\delta$ such that if $((a_i,b_i))$ are disjoint with $\sum_i b_i - a_i < \delta$ then $\sum_i |f_N(b_i) - f_N(a_i)| < \epsilon/2$.
+Thus, if $((a_i,b_i))$ are disjoint with $\sum_i b_i - a_i < \delta$, then
+$\sum_i |f(b_i) - f(a_i)| \le \sum_i |(f-f_N)(b_i) - (f-f_N)(a_i)| + \sum_i |f_N(b_i) - f_N(a_i)| < \sum_i \int_{a_i}$ %PROBLEM 
 
+\p{17} By (16), if $f$ can be written as the difference of two increasing, absolutely continuous functions, then $f$ is absolutely continuous.
 
-\p{17}
-\p{18}
+For the converse, by Prop 20.15, $f \in AC[a,b]$ implies $v(x) := V_a^x(f) \in AC[a,b]$. Define $p(x) = \frac 1 2 (v(x) + f(x))$ and $n(x) = \frac 1 2 (v(x) - f(x))$, so that $f = p - n$.   By the same proof as that of Prop 13.11, $p$ and $n$ are increasing. By (16), $p,n \in AC[a,b]$. 
+
+\p{18} Let $\epsilon > 0$.  By the absolute continuity of $f$, pick $\delta$ so that if $((a_i,b_i))$ are disjoint with $\sum_i b_i - a_i < \delta$, then
+$\sum_i f(b_i) - f(a_i) = \sum_i |f(b_i) - f(a_i)| < \epsilon$.  Since $m(E) = 0$, there exists a cover $(a_i,b_i)$ of $E$ by disjoint open intervals such that $\sum_i b_i - a_i < \delta$.  By the IVT, for any $a<c<d<b$, $f([c,d]) \supset [f(c), f(d)]$. Thus, since $f$ is monotonic, $f([c,d]) = [f(c),f(d)]$.
+
+Thus, $f(E) \subset f(\bigcup_i [a_i,b_i]) = \bigcup_i f([a_i, b_i]) = \bigcup_i [f(a_i), f(b_i)]$. Hence, $m(f(E)) \le \sum_i f(b_i) - f(a_i) \le \epsilon$.
 \end{document}
