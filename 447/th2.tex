@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 447\\ 
+\noindent Instructor: Dr. Johnson
+
+\subsection*{Take Home Exam, Parts 2.1 and 2.2}
+\p{TH3} Let $g(x) := x$. Suppose $f \in L_1(0,1)$ with $||f||_1 = 1$. Then 
+$h(t) := \int_0^t |f(x)| \,dx$ is in $AC[0,1]$ with $h(0) = 0$ and $h(1) = 1$. By the IVT, there exists $t_0 \in (0,1)$ with $h(t_0) = 1/2$. Thus,
+$|\int fg| = |\int_0^1 xf \,dx|
+ \le \int_0^{t_0} |x||f| \,dx + \int_{t_0}^1 |x||f|\,dx
+ \le \int_0^{t_0} t_0|f| \,dx + \int_{t_0}^1 |f|\,dx
+ = t_0 (1/2) + (1/2)
+< 1 = ||g||_\infty
+$.
+
+\p{TH2.3} Let $N_{p,q} = \{x \in E = E_{p,q} : D_E(x) \ne 1 \}$.  By the Lebesgue Density Theorem, $m(N_{p,q}) = 0$. Let $N = \bigcup_{p,q \in \Q} N_{p,q}$.  Then $m(N) = 0$. 
+
+Suppose $x \not\in N$. Let $a < f(x) < b$.  Pick $p,q \in \Q$ such that $a < p < f(x) < q < b$.  Then $F := E_{p,q} \subset E_{a,b} =: E$.  Hence, $D_E(x) \ge D_F(x)  = 1$, so $D_E(x) = 1$.
+
+\end{document}
