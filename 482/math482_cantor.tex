@@ -18,17 +18,19 @@
 \noindent Texas A\&M University - Math 482 \\
 \noindent Instructor: Dr. David Larson
 
-\section*{Cantor Sets in $\R$}
+\section*{Cantor Spaces in $\R$}
+This paper describes some basic properties of Cantor subspaces of the real line. It includes an application of these Cantor subspaces to a characterization of the countability of closed subsets of $\R$ in terms of some simple exterior measures.
+
 Recall that a \emph{perfect} set is a set for which every point is a limit point. A set $S$ is called \emph{totally disconnected} if for every $x, y \in S$, there exist disjoint open sets $U,V \subset S$ such that $x \in U$, $y \in V$, and $U \cup V = S$.
 
 \begin{definition}
-  A \emph{Cantor set} is a non-empty, totally disconnected, perfect, compact metric space.
+  A \emph{Cantor space} is a non-empty, totally disconnected, perfect, compact metric space.
 \end{definition}
 
 \begin{example}
 Let $C_0 := [0,1]$, $C_1 := [0,1/3] \cup [2/3, 1]$, and $C_2 = [0,1/9] \cup [2/9, 1/3] \cup [2/3, 7/9] \cup [8/9, 1]$.
 Similarly, for $i > 2$, let $C_i$ be the closed set given by removing the open middle third of each interval of $C_{i-1}$.
-The \emph{ternary Cantor set} $$\Delta := \bigcap_{i=0}^\infty {C_i}$$ is a Cantor set.
+The \emph{ternary Cantor set} $$\Delta := \bigcap_{i=0}^\infty {C_i}$$ is a Cantor space.
 \end{example}
 \begin{proof}
 Since $0 \in C_i$ for all $i$, $\Delta$ is non-empty. Since each interval in $C_i$ is of length $3^{-i}$, $\Delta$ is totally disconnected. It is closed and bounded,
@@ -42,7 +44,7 @@ Hence, every point that is an endpoint of an interval in some $C_i$ is in $\Delt
 % ${\{0,1\}}^\mathbb{N}$.
 
 \begin{theorem}\label{subc}
-Let $K$ be a Cantor set. If $A \subset K$ is nonempty and clopen, then $A$ is Cantor.
+Let $K$ be a Cantor space. If $A \subset K$ is nonempty and clopen, then $A$ is Cantor.
 \end{theorem}
 \begin{proof}
 $A$ is compact since it is closed in $K$, and totally disconnected since it is open. 
@@ -51,12 +53,12 @@ Since $A$ is open, all but a finite number of $x_n$ lie in A.
 \end{proof}
 
 \begin{theorem}\label{hom}
-If $A \subset \mathbb{R}$ is a Cantor set, then there is a order-preserving homeomorphism $f:A \rightarrow {\{0,1\}}^\mathbb{N}$, where $\{0,1\}^\N$ is ordered lexicographically and equipped with the product metric $d(x,y) = \sum_{i=1}^n |x(i) - y(i)| 2^{-n}$.
+If $A \subset \mathbb{R}$ is a Cantor space, then there is a order-preserving homeomorphism $f:A \rightarrow {\{0,1\}}^\mathbb{N}$, where $\{0,1\}^\N$ is ordered lexicographically and equipped with the product metric $d(x,y) = \sum_{i=1}^n |x(i) - y(i)| 2^{-n}$.
 \end{theorem}
 \begin{proof}
-Step 1. Let $a := \inf (A)$, and $d := \sup (A) - a = \mathrm{diam}(A)$. Since $A$ is totally disconnected, there exists $c \in [a + \frac d 4, a + \frac {3d} 4] \setminus A$. Then $M_0 := (-\infty, c) \cap A $ and $M_1 := (c, \infty) \cap A$ are clopen relative to $A$, hence Cantor sets by Theorem~\ref{subc}. Moreover, $\mathrm{diam}(M_i) \leq \frac 3 4 \mathrm{diam}(A)$ for $i = 0,1$.
+Step 1. Let $a := \inf (A)$, and $d := \sup (A) - a = \mathrm{diam}(A)$. Since $A$ is totally disconnected, there exists $c \in [a + \frac d 4, a + \frac {3d} 4] \setminus A$. Then $M_0 := (-\infty, c) \cap A $ and $M_1 := (c, \infty) \cap A$ are clopen relative to $A$, hence Cantor spaces by Theorem~\ref{subc}. Moreover, $\mathrm{diam}(M_i) \leq \frac 3 4 \mathrm{diam}(A)$ for $i = 0,1$.
 
-Step 2. For $n > 1$, apply Step 1 to $M_t$ for each $t \in {\{0,1\}}^{n-1}$ to get clopen Cantor sets $M_{t,0}, M_{t,1} \subset M_t$ with $M_{t,0} < M_{t,1}$ and $\mathrm{diam}(M_{t,i}) \leq \frac 3 4 \mathrm{diam}(M_t)$ for $i=0,1$. By recursion on $n$, for all $r,s \in {\{0,1\}}^n$ we have $\mathrm{diam}(M_s) \leq \left(\frac 3 4\right)^n \mathrm{diam} (A)$, and if $r < s$ in the lexicographical ordering then $M_r < M_s$, i.e. $x \in M_r, y\in M_s$  implies $x < y$. Moreover, for any fixed $n$, $A = \bigcup_{s \in {\{0,1\}}^n} M_s$.
+Step 2. For $n > 1$, apply Step 1 to $M_t$ for each $t \in {\{0,1\}}^{n-1}$ to get clopen Cantor spaces $M_{t,0}, M_{t,1} \subset M_t$ with $M_{t,0} < M_{t,1}$ and $\mathrm{diam}(M_{t,i}) \leq \frac 3 4 \mathrm{diam}(M_t)$ for $i=0,1$. By recursion on $n$, for all $r,s \in {\{0,1\}}^n$ we have $\mathrm{diam}(M_s) \leq \left(\frac 3 4\right)^n \mathrm{diam} (A)$, and if $r < s$ in the lexicographical ordering then $M_r < M_s$, i.e. $x \in M_r, y\in M_s$  implies $x < y$. Moreover, for any fixed $n$, $A = \bigcup_{s \in {\{0,1\}}^n} M_s$.
 
 Step 3. Fix $x \in A$. The construction in Step 2 generates a descending sequence of sets ${\left(M_{t_n}\right)}_{t_n \in {\{0,1\}}^n}$, each containing $x$. Since for all $n$ we have $t_{n+1} =t_n,i$ for some $i \in \{0,1\}$, this sequence of sets determines a unique element $f(x) \in {\{0,1\}}^\mathbb{N}$ such that, for any $n$, the first $n$ entries of $f(x)$ are $t_n$. To see that $f$ is bijective, note that if $t \in {\{0,1\}}^\mathbb{N}$ and $t_n = (t(1), t(2), ... t(n))$, then $f^{-1}(t) = \bigcap_{n = 1}^\infty {M_{t_n}}$ contains exactly one point, since $M_{t_n}$ is a descending chain of compact sets with diameters going to $0$.
 
@@ -68,7 +70,7 @@ Hence, $f(x) < f(t)$.
 
 
 \begin{theorem}\label{cfunction}
-If $S \subset R$ is a Cantor set, there exists a nondecreasing, onto, continuous function $g:S \rightarrow [0,1]$.
+If $S \subset \R$ is a Cantor space, there exists a nondecreasing, onto, continuous function $g:S \rightarrow [0,1]$.
 \end{theorem}
 \begin{proof}
 Let $h:{\{0,1\}}^\N \rightarrow [0,1]$ be defined by $h(x) = \sum_{i=0}^\infty x(i)2^{-i}$. Defining $f$ as in Theorem~\ref{hom}, let $g = h \circ f$. Thus, it suffices to show that $h$ is nondecreasing, onto, and continuous.
@@ -106,12 +108,12 @@ $$\m(E) := \inf\{\sum_{i=1}^\infty {\alpha(b_i) - \alpha(a_i)}: E \subset \bigcu
 \end{definition}
 
 \begin{theorem}
-If $E \subset R$ is closed and $\m(E) = 0$ for all nondecreasing, continous $\alpha:\mathbb{R} \rightarrow \mathbb{R}$, then $E$ is countable.
+Let $E \subset \R$ be a closed set. Then $E$ is countable iff $\m(E) = 0$ for all nondecreasing, continous $\alpha:\mathbb{R} \rightarrow \mathbb{R}$.
 \end{theorem}
 \begin{proof}
-Suppose $E$ were uncountable. If $E$ contains a nontrivial interval, then let $\alpha$ be the identity. Since $E$ contains an interval, it contains a compact set of the form $[a,b]$ for $a<b$. Hence, any cover of $E$ by open intervals must contain a finite subcover of $[a,b]$. The sum of the lengths of intervals in this subcover must be at least $b-a$, so $\m(E) \geq b - a > 0$, a contradiction.
+The forward implication is obvious. For the converse, suppose $E$ were uncountable. If $E$ contains a nontrivial interval, then let $\alpha$ be the identity. Since $E$ contains an interval, it contains a compact set of the form $[a,b]$ for $a<b$. Hence, any cover of $E$ by open intervals must contain a finite subcover of $[a,b]$. The sum of the lengths of intervals in this subcover must be at least $b-a$, so $\m(E) \geq b - a > 0$, a contradiction.
 
-Suppose $E$ does not contain any nontrivial intervals. Note that $E \cap [n,n+1]$ must be uncountable for some $n$, so WLOG, $E$ is compact. Then, by Lemma~\ref{split}, $E = A \cup B$ where $A$ is a Cantor set and $B$ is countable. Since $A \subset E$, $\m(A) \leq \m(E)$, so it suffices to show that $\m(A) > 0$.
+Suppose $E$ does not contain any nontrivial intervals. Note that $E \cap [n,n+1]$ must be uncountable for some $n$, so WLOG, $E$ is compact. Then, by Lemma~\ref{split}, $E = A \cup B$ where $A$ is a Cantor space and $B$ is countable. Since $A \subset E$, $\m(A) \leq \m(E)$, so it suffices to show that $\m(A) > 0$.
 
 Let $f:A \rightarrow [0,1]$ be the increasing, onto, continuous function defined in Theorem~\ref{cfunction}. Define
  \begin{displaymath}
@@ -134,4 +136,13 @@ Thus, $\sum_{i=1}^n {\alpha(b_i) - \alpha(a_i)} \geq \alpha(b_n) - \alpha(a_1) =
 Let $f:\R\rightarrow\R$, and $D(f)$ denote the set of discontinuities of $f$. If $\m(D(f)) = 0$ for all nondecreasing, continous $\alpha:\mathbb{R} \rightarrow \mathbb{R}$, then $D(f)$ is countable.
 \end{corollary}
 \end{comment}
+
+\section*{Acknowledgements}
+I am grateful to Bill Johnson for discussing this material in his Math 446/447 Real Analysis courses at Texas A\&M University.  I am also indebted to Dave Larson for his advice and instruction.
+
+\begin{thebibliography}{81}
+\bibitem{Carothers} Carothers N.L., {\it Real Analysis}. Cambridge University
+Press, 2000. 
+\bibitem{Munkres} Munkres, James R., {\it Topology}. Prentice Hall, 2000. 
+\end{thebibliography}
 \end{document}
