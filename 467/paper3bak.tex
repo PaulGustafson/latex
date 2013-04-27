@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{m467}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 467\\ 
+\noindent Instructor: Stephen Fulling
+
+\section*{Intersections of Two Circles}
+
+The purpose of this paper is to answer Major Exercise 3.1 (p. 153) of Greenberg \cite{g}:
+\begin{quote}
+In the real Euclidean plane, let $\gamma$ be a circle with center $A$ and radius of length $r$. Let $\gamma^\prime$ be another circle with center $A'$ and radius of length $r'$, and let $d$ be the distance from $A$ to $A'$. There is a hypothesis about the numbers $r$, $r'$, and $d$ that ensures that the circles $\gamma$ and $\gamma'$ intersect in two distinct points. Figure out what this hypothesis is. \ldots What hypothesis on $r$, $r'$, and $d$ ensures that $\gamma$ and $\gamma'$ intersect in only one point \ldots?
+\end{quote}
+
+I will use the following extension of Greenberg's Triangle Inequality theorem (p. 171).
+\begin{theorem}
+Given distinct points $A,B,C$ in a real Euclidean plane, then $AB + BC \ge AC$ and equality holds iff $A*B*C$.
+\end{theorem}
+\begin{proof}
+If $A,B,C$ are not collinear, then $AB + BC > AC$ by Greenberg's Triangle Inequality. If $A*C*B$, then $AB > AC$, so $AB + BC > AC$.  Similarly, if $B*A*C$, then $BC >AC$, so $AB + BC > AC$.  Lastly, if $A*B*C$, then $AB + BC \cong AC$ by the definition of addition for line segments.
+
+On the other hand, if $AB + BC \cong AC$, then 
+\end{proof}
+
+By the order trichotomy for segments, exactly one of the following occurs:
+\begin{itemize}
+\item $r + r' < d$
+\item $r + r' = d$
+\item $r + r' > d.$
+\end{itemize}
+
+Case $r + r' < d$.  I claim there is no intersection between $\gamma$ and $\gamma'$.  Suppose $I \in \gamma \cap \gamma'$.  Then $|AI| + |IA'| = r + r' < d = |AA'|$, which contradicts the triangle inequality.
+
+Case $r + r' = d$. I claim there is exactly one point of intersection between $\gamma$ and $\gamma'$. By line-circle continuity, the line $\gline{AA'}$ intersects $\gamma$ at two distinct points -- call them $B, C$.  By the triangle inequality, $B*A*C$. %CHECKME
+Thus, either $A*B*A'$ or $A*C*A'$, WLOG suppose the former holds.  Then
+
+\bibliographystyle{plain}
+\bibliography{paper1}
+\end{document}

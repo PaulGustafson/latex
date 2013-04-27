@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage{m467}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 467\\ 
+\noindent Instructor: Stephen Fulling
+
+\section*{Inequalities for Overlapping Circles}
+
+The purpose of this paper is to answer Major Exercise 3.3 (p. 155) of Greenberg \cite{g}, paraphrased as follows:
+\begin{quote}
+In a Hilbert plane, let $\gamma$ be a circle with center $O$ and radius $r$.  Let $\gamma'$ be another circle with center $O' \neq O$ and radius $r'$, and let $d = |OO'|$.   Suppose there exists a point $M$ of $\gamma'$ inside $\gamma$ and another point $N$ of $\gamma'$ outside $\gamma$. Show that the following three inequalities hold: $r + r' > d$, $r + d > r'$, and $r' + d > r$. You may assume the triangle inequality in a Hilbert plane: if $A,B,C$ are not collinear, then $|AB| + |BC| > |AC|$.
+\end{quote}
+
+I will use the following alternative to Greenberg's Triangle Inequality.
+\begin{theorem}
+\emph{\textbf{(Weak Triangle Inequality)}} Given points $A,B,C$ in a Hilbert plane, then $|AB| + |BC| \ge |AC|$.
+\end{theorem}
+\begin{proof}
+If $A,B,C$ are noncollinear, then the conclusion follows from Greenberg's Triangle Inequality.
+
+If $A = B$, then $|AB| + |BC| = |BC| = |AC|$.  If $B=C$, then $|AB| + |BC| = |AB| = |AC|$.  If $A=C$, then $|AB| + |BC| \ge |AC|$ trivially.
+
+The last case is when $A,B,C$ are distinct and collinear.  Then one of the three points must lie between the other two. If $A*C*B$, then $AB > AC$, so $AB + BC > AC$.  Similarly, if $B*A*C$, then $BC > AC$, so $AB + BC > AC$.  Lastly, if $A*B*C$, then $AB + BC \cong AC$ by the definition of addition for line segments.
+\end{proof}
+
+To prove the original problem, first note that by the definition of ``inside $\gamma$'', we have $|OM| < r$.  Hence, $r + r' > |OM| + r' =  |OM| + |MO'| \ge |OO'| = d$ by the weak triangle inequality.  We also have $r + d > |MO| +  d = |MO| + |OO'| \ge |MO'| = r'$.
+
+By the definition of ``outside $\gamma$'', we have $|NO| > r$.  Hence, $r' + d = |NO'| + |O'O| \ge |NO| > r$.
+
+
+\bibliographystyle{plain}
+\bibliography{paper1}
+\end{document}
