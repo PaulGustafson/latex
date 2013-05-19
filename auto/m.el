@@ -5,7 +5,8 @@
      "definition"
      "corollary"
      "lemma"
-     "example")
+     "example"
+     "prop")
     (TeX-add-symbols
      "cross"
      "diam"

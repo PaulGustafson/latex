@@ -3,10 +3,31 @@
 
 \begin{document}
 \noindent Paul Gustafson\\
-\noindent Texas A\&M University - Math \\ 
-\noindent Instructor: 
 
 \subsection*{Chapter 6}
-\p{1} $(\alpha^2 + \alpha + 1)(\alpha^2 + \alpha) = \alpha^4 + 2\alpha^3 + 2\alpha^2 + \alpha = (\alpha^2 + \alpha)(\alpha^3 + \alpha^2 + \alpha + 1)
+\begin{prop} 
+Let $E$ be a finite extension of $F$. Then $E$ is algebraic over $F$.
+\end{prop}
+\begin{proof}
+Let $\alpha \in E$. Let $n = [E:F]$.  Then $1, \alpha, \alpha^2, \ldots, \alpha^n$ are linearly dependent over $F$. Hence, $\alpha$ is algebraic.
+\end{proof}
 
+\begin{prop} 
+Let $k \subset F \subset E$ be fields. Then 
+$$[E:k] = [E:F][F:k].$$
+If $(x_i)$ is $k$-basis for $F$ and $(y_j)$ is an $F$-basis for $E$, then $(x_{ij})$ is a $k$-basis for $E$.
+\end{prop}
+%obvious
+
+\begin{prop}
+Let $E$ be a finite extension of $k$. Then $E$ is finitely generated.
+\end{prop}
+%obvious 
+
+\begin{prop}
+The class of algebraic extensions is distinguished, and so is the class of finite extensions.
+\end{prop} 
+
+\begin{prop}
+Let $E$ be an algebraic extension of $k$, and let $\sigma:E \to E$ be an embedding over $k$. Then $\sigma$ is an automorphism.
 \end{document}
