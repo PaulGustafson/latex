@@ -1,0 +1,19 @@
+\documentclass{article}
+\begin{document}
+What do I want to be able to construct? A programming language for thinking.
+
+Type theory rules:
+\begin{enumerate}
+\item Definitions: $a :: A$ (ex. $1 :: \mathbb{N}$)
+\item Types: 
+      $0$ ((ty pe of proofs of) false),
+      $1$ (true), 
+      $a : A$ ($a$ is of type $A$)
+      $\prod_{a:A} B_a$ (given any proof in $a : A$, there is a type $B_a$  ),
+      $\sum_{a:A} B_a$
+
+\end{enumerate}
+
+Example: P implies Q.  $\prod_{P} Q$.
+
+\end{document}
