@@ -69,11 +69,7 @@ To see that $\phi$ is injective, let $b \in B$ and suppose $x, y \in \phi^{-1}(\
 
 \p{3} Find nonhomeomorphic metric spaces $M_1$ and $M_2$ such that there exist injective continuous functions $f:M_1 \to M_2$ and $g: M_2 \to M_2$.
 \begin{proof}
-Let $M_1 = (0,1)$ and $M_2 = (0,1) \cup (2,3)$ with distances inherited from $\R$. $M_1$ and $M_2$ cannot be homeomorphic since $M_1$ is connected but $M_2$ is not.
-
-Let $f:M_1 \to M_2$ be defined by $f(x) = x$. $f$ is clearly injective.  For continuity, suppose $U$ is open in $M_2$. Then $U = V \cap M_2$ for some open set $V \in \mathbb{R}$, so $U$ is open in $\R$. Thus, $f^{-1}(U) = U \cap (0,1)$ is open in $M_1$.
-
-Let $g:M_2 \to M_1$ be defined by $g(x) = x/3$. $g$ is clearly injective. For continuity, suppose $U \subset M_1$ is open.  Then $U$ is open in $\R$. Hence, $3U$ is open in $\R$ since $x \mapsto 3x$ is a homeomorphism from $\R \to \R$.  Thus, $g^{-1}(U) = (3U) \cap M_2$ is open in $M_2$.
+Let $M_1 = (0,1)$ and $M_2 = (0,1) \cup (2,3)$ with distances inherited from $\R$. Since $M_1$ is connected but $M_2$ is disconnected, they cannot be homeomorphic. Let $f:M_1 \to M_2$ be defined by $f(x) = x$, and  $g:M_2 \to M_1$ be defined by $g(x) = x/3$.
 \end{proof}
 
 \p{4} Prove that every real vector space has a basis.
@@ -105,13 +101,12 @@ but there is no Riemann integrable function $f$ so that
 $$\lim_{n\to \infty} \int_0^1 |f(x) - f_n(x)| \,dx = 0. $$
 
 \begin{proof}
-Pick $0 < a < 1$. Let $(a_n)$ be any sequence converging downward to $a$ with $a_0 = 1$.  Let $E_0 = [0,1]$. Given $E_n$ a disjoint union of $2^n$ closed intervals of length $a_n 2^{-n}$, define $E_{n+1}$ by removing an open interval from the center of each interval of $E_n$ so that $E_{n+1}$ consists of $2^{n+1}$ closed intervals of length $a_{n+1} 2^{-n-1}$. Let $E = \bigcap_n E_n$.  
+Pick any $0 < a < 1$ and a strictly decreasing sequence $a_n \to a$ with $a_0 = 1$.  Let $E_0 = [0,1]$. Given $E_n$ a disjoint union of $2^n$ closed intervals of length $a_n 2^{-n}$, define $E_{n+1}$ by removing an open interval from the center of each interval of $E_n$ so that $E_{n+1}$ consists of $2^{n+1}$ closed intervals of length $a_{n+1} 2^{-n-1}$. Let $E = \bigcap_n E_n$.  
 
 Let $f_n = \chi_{E_n}$.  Each $f_n$ is Riemann integrable since it has only finitely many points of discontinuity.  
+Since $(E_n)$ is a descending sequence of sets of finite measure,  $m(E) = \lim_{n\to\infty} a_n  = a$.  Hence $\int |\chi_E - f_n| = \int \chi_{E \setminus E_n} = a - a_n \to 0$. Thus, $f_n \to \chi_E$ in $L_1$.  In particular, $(f_n)$ is Cauchy in $L_1$.
 
-Note that $m(E_n) = a_n < \infty$, so $m(E) = a$ since Lebesgue measure is continuous from above.  Hence $\int |\chi_E - f_n| = \int \chi_{E \setminus E_n} = a - a_n \to 0$. Thus, $f_n \to \chi_E$ in $L_1$.  In particular, $(f_n)$ is Cauchy in $L_1$.
-
-It suffices to show that there is no Riemann integrable function in the $L_1$ equivalence class of $\chi_E$. Let $g$ differ from $\chi_E$ on a set of measure 0.  Pick any $x \in E$ such that $g(x) = 1$.  I claim that $g$ is discontinuous at $x$.  Let $U$ be a neighborhood of $x$.  Since $E$ cannot contain any intervals, it follows that $V := U \cap E^c$ is a nonempty open set.  Thus $m(V) > 0$, so $g(y) = 0$ for some $y \in V$.  Hence $g$ is discontinuous at $x$.  Thus, $g$ is discontinous on E a.e.  Since $E$ has positive measure, $g$ cannot be Riemann integrable.
+Since $f_n \to \chi_E$ in $L_1$, it suffices to show that there is no Riemann integrable function in the $L_1$ equivalence class of $\chi_E$. Let $g$ differ from $\chi_E$ on a set of measure 0.  Pick any $x \in E$ such that $g(x) = 1$.  I claim that $g$ is discontinuous at $x$.  Let $U$ be a neighborhood of $x$.  Since $E$ cannot contain any intervals, it follows that $V := U \cap E^c$ is a nonempty open set.  Thus $m(V) > 0$, so $g(y) = 0$ for some $y \in V$.  Hence $g$ is discontinuous at $x$.  Thus, $g$ is discontinous on E a.e.  Since $E$ has positive measure, $g$ cannot be Riemann integrable.
 \end{proof}
 
 \end{document}
