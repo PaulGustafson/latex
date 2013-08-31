@@ -69,11 +69,11 @@ To see that $\phi$ is injective, let $b \in B$ and suppose $x, y \in \phi^{-1}(\
 
 \p{3} Find nonhomeomorphic metric spaces $M_1$ and $M_2$ such that there exist injective continuous functions $f:M_1 \to M_2$ and $g: M_2 \to M_2$.
 \begin{proof}
-Let $M_1 = (0,1)$ and $M_2 = (0,1) \cup (2,3)$ with distances inherited from $\R$.  $M_1$ and $M_2$ are not homeomorphic since $M_1$ is connected but $M_2$ is disconnected.  This follows from the fact that homeomorphisms preserve open sets and bijections commute with unions and intersections (since they are inverses of functions).
+Let $M_1 = (0,1)$ and $M_2 = (0,1) \cup (2,3)$ with distances inherited from $\R$. $M_1$ and $M_2$ cannot be homeomorphic since $M_1$ is connected but $M_2$ is not.
 
-Let $f:M_1 \to M_2$ be defined by $f(x) = x$. $f$ is clearly injective since it is the restriction of an injective function (the identity on $\R$).  For continuity, suppose $U$ is open in $M_2$. Then $U = V \cap M_2$ for some open set $V \in \mathbb{R}$, so $U$ is open in $\R$. Thus, $f^{-1}(U) = U \cap (0,1)$, which is open in $R$ hence in $M_1$.
+Let $f:M_1 \to M_2$ be defined by $f(x) = x$. $f$ is clearly injective.  For continuity, suppose $U$ is open in $M_2$. Then $U = V \cap M_2$ for some open set $V \in \mathbb{R}$, so $U$ is open in $\R$. Thus, $f^{-1}(U) = U \cap (0,1)$ is open in $M_1$.
 
-Let $g:M_2 \to M_1$ be defined by $g(x) = x/3$. As before, $g$ is clearly injective. For continuity, suppose $U \subset M_1$ is open.  Then $U$ is open in $\R$. Hence, $3U$ is open in $\R$ since $x \mapsto 3x$ is a homeomorphism from $\R \to \R$.  Thus, $g^{-1}(U) = (3U) \cap M_2$ is open in $M_2$.
+Let $g:M_2 \to M_1$ be defined by $g(x) = x/3$. $g$ is clearly injective. For continuity, suppose $U \subset M_1$ is open.  Then $U$ is open in $\R$. Hence, $3U$ is open in $\R$ since $x \mapsto 3x$ is a homeomorphism from $\R \to \R$.  Thus, $g^{-1}(U) = (3U) \cap M_2$ is open in $M_2$.
 \end{proof}
 
 \p{4} Prove that every real vector space has a basis.
@@ -89,7 +89,7 @@ Hence, every chain in $\mathcal I$ is bounded, so Zorn's Lemma implies that $\ma
 
 \begin{proof}
 
-Let $\mathcal O \subset P(X \times X)$ be the collection of partial orders containing $\le$. $\mathcal O$ is a partial order under inclusion (i.e. extension).  Let $\mathcal U \subset O$ be a chain, and $U = \bigcup \mathcal U$.  $U$ is clearly reflexive. For transitivity, suppose $xUy$ and $yUz$.  Then $xRy$ and $ySz$ for some $R,S \in \mathcal U$. Let $T = R \cup S$.  Then $xTy$ and $yTz$, so $xTz$ which implies $xUz$.  A similar argument shows that $U$ is antisymmetric. Hence, $U$ is a bound for $\mathcal U$. Thus, by Zorn's Lemma, there exists a maximal element $M \in \mathcal O$. 
+Let $\mathcal O \subset P(X \times X)$ be the collection of partial orders containing $\le$. $\mathcal O$ is partially ordered by inclusion.  Let $\mathcal U \subset O$ be a chain, and $U = \bigcup \mathcal U$.  $U$ is clearly reflexive. For transitivity, suppose $xUy$ and $yUz$.  Then $xRy$ and $ySz$ for some $R,S \in \mathcal U$. Let $T = R \cup S$.  Then $xTy$ and $yTz$, so $xTz$ which implies $xUz$.  A similar argument shows that $U$ is antisymmetric. Hence, $U$ is a bound for $\mathcal U$. Thus, by Zorn's Lemma, there exists a maximal element $M \in \mathcal O$. 
 
 I claim that $M$ is linearly ordered.  Suppose $a,b \in X$ with neither $aMb$ nor $bMa$.  Define a relation $N \in P(X \times X)$ by $N = M \cup \{(a,b)\}$.  Let $T$ be the transitive closure of $N$. That is, $xTy$ iff there is a finite sequence $(x_i)_{i=1}^n \subset X$ such that $x_1 = x$, $x_n = y$ and $x_iNx_{i+1}$ for all $1 \le i < n$. Since $T \supset N \supset M$, $T$ is reflexive.  $T$ is transitive since we can concatenate the sequences for $xTy$ and $yTz$. 
 
