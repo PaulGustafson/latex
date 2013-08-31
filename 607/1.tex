@@ -69,21 +69,49 @@ To see that $\phi$ is injective, let $b \in B$ and suppose $x, y \in \phi^{-1}(\
 
 \p{3} Find nonhomeomorphic metric spaces $M_1$ and $M_2$ such that there exist injective continuous functions $f:M_1 \to M_2$ and $g: M_2 \to M_2$.
 \begin{proof}
-Let $M_1 = (0,1)$ and $M_2 = (0,1) \cup (2,3)$ with distances inherited from $\R$.  $M_1$ and $M_2$ are not homeomorphic since $M_1$ is connected but $M_2$ is disconnected. %FIXME
+Let $M_1 = (0,1)$ and $M_2 = (0,1) \cup (2,3)$ with distances inherited from $\R$.  $M_1$ and $M_2$ are not homeomorphic since $M_1$ is connected but $M_2$ is disconnected.  This follows from the fact that homeomorphisms preserve open sets and bijections commute with unions and intersections (since they are inverses of functions).
 
-Let $f:M_1 \to M_2$ be defined by $f(x) = x$. $f$ is clearly injective since it is the restriction of an injective function (the identity on $\R$).  For continuity, suppose $U$ is open in $M_2$. Then $U = V \cap M_2$ for some open set $V \in \mathbb{R}$, so $U$ is open in $\R$. Thus, $f^{-1}(U) = U \cap (0,1)$, which is open in $R$ hence $M_1$.
+Let $f:M_1 \to M_2$ be defined by $f(x) = x$. $f$ is clearly injective since it is the restriction of an injective function (the identity on $\R$).  For continuity, suppose $U$ is open in $M_2$. Then $U = V \cap M_2$ for some open set $V \in \mathbb{R}$, so $U$ is open in $\R$. Thus, $f^{-1}(U) = U \cap (0,1)$, which is open in $R$ hence in $M_1$.
 
-Let $g:M_2 \to M_1$ be defined by $g(x) = x/3$. As with $f$, $g$ is clearly injective. For continuity, suppose $U \subset M_1$ is open.  Then $U$ is open in $\R$. Hence, $3U$ is open in $\R$ since $x \mapsto 3x$ is a homeomorphism from $\R \to \R$.  Thus, $g^{-1}(U) = (3U) \cap M_2$ is open in $M_2$.
+Let $g:M_2 \to M_1$ be defined by $g(x) = x/3$. As before, $g$ is clearly injective. For continuity, suppose $U \subset M_1$ is open.  Then $U$ is open in $\R$. Hence, $3U$ is open in $\R$ since $x \mapsto 3x$ is a homeomorphism from $\R \to \R$.  Thus, $g^{-1}(U) = (3U) \cap M_2$ is open in $M_2$.
 \end{proof}
 
 \p{4} Prove that every real vector space has a basis.
 \begin{proof}
-Let $V$ be a real vector space. Let $\mathcal I \subset P(V)$ be the collection of sets $U$ such that $\span(U) \neq V$. Define an equivalence relation $\~$ on $\mathcal I$ by $S \~ T$ if $\span(S) = \span(T)$.   If $S \~ S'$ and $T \~ T'$, then $\span(S) \subset \span(T)$ implies $\span(S') = \span(S) \subset \span(T) = \span(T')$. Hence, the relation $\le$ on $\mathcal{I}/\~$ defined by $\bar{S} \le \bar{T}$ iff $span(S) \subset span(T)$ is well-defined. I claim that $\le$ is a partial order. Transitivity: suppose $\bar{S} \le \bar{T}$ and $\bar{T} \le \bar{U}$.  Then $\span(S) \subset \span(T) \subset \span(U)$. Hence, $\bar{S} \le \bar{U}$. Similarly, reflexivity follows from the reflexivity of inclusion.  Anti-symmetry:  suppose $\bar{S} \le \bar{T}$ and $\bar{T} \le \bar{S}$.  Then $\span(S) \subset \span(T)$ and vice versa, so $S \~ T$.
+Let $V$ be a real vector space. Let $\mathcal I$ be the collection of linearly independent subsets of $V$.  $\mathcal I$ is partially ordered by inclusion.  Let $\mathcal J$ be a linearly ordered subset of $\mathcal I$. Let $B := \bigcup \mathcal J$.  I claim that $B$ is linearly independent, hence a bound for $\mathcal J$.
 
+Let $\sum_{w \in W} \alpha_w w = 0$ for a finite set $W \subset B$.  By the definition of $B$, each $w$ lies in some $J_w \in \mathcal J$.  Since $W$ is finite, it follows that $J:= \bigcup_w J_w$ is in $\mathcal J$. Since $J$ is linearly independent, $\alpha_w = 0$ for all $w$.  Thus, $B$ is linearly independent.
 
-Let $(\bar{U}_\alpha)$ be a linearly ordered subset of $(\mathcal{I}/\~, \le)$. Let $U := \bigcup_\alpha (U_\alpha)$. I claim $\bar U$ is a bound for $(\bar{U}_\alpha)$. 
+Hence, every chain in $\mathcal I$ is bounded, so Zorn's Lemma implies that $\mathcal I$ has a maximal element $M$.  If $\spn(M) = V$, we are done. Otherwise, there exists $v \in V \setminus \spn(M)$.  If $\alpha v + \sum_{m \in M} \beta_m m = 0$ for $(\beta_m)$ zero except on a finite set, then $\alpha v \in \spn(V)$. Thus $\alpha = 0$, so  $\beta_m = 0$ for all $m$. Hence $\{v\} \cup M$ is linearly independent, contradicting the maximality of $M$.
+\end{proof}
 
+\p{5} Prove that any partial order $\le$ on a set $X$ can be extended to a linear order on the set.
 
+\begin{proof}
+
+Let $\mathcal O \subset P(X \times X)$ be the collection of partial orders containing $\le$. $\mathcal O$ is a partial order under inclusion (i.e. extension).  Let $\mathcal U \subset O$ be a chain, and $U = \bigcup \mathcal U$.  $U$ is clearly reflexive. For transitivity, suppose $xUy$ and $yUz$.  Then $xRy$ and $ySz$ for some $R,S \in \mathcal U$. Let $T = R \cup S$.  Then $xTy$ and $yTz$, so $xTz$ which implies $xUz$.  A similar argument shows that $U$ is antisymmetric. Hence, $U$ is a bound for $\mathcal U$. Thus, by Zorn's Lemma, there exists a maximal element $M \in \mathcal O$. 
+
+I claim that $M$ is linearly ordered.  Suppose $a,b \in X$ with neither $aMb$ nor $bMa$.  Define a relation $N \in P(X \times X)$ by $N = M \cup \{(a,b)\}$.  Let $T$ be the transitive closure of $N$. That is, $xTy$ iff there is a finite sequence $(x_i)_{i=1}^n \subset X$ such that $x_1 = x$, $x_n = y$ and $x_iNx_{i+1}$ for all $1 \le i < n$. Since $T \supset N \supset M$, $T$ is reflexive.  $T$ is transitive since we can concatenate the sequences for $xTy$ and $yTz$. 
+
+For anti-symmetry, suppose $xTy$ and $yTx$.  By concatenation, we get a sequence $(x_i)_{i=1}^n$ with $x_1 = x_n = x$, $x_m = y$ for some $1<m<n$, and $x_iNx_{i+1}$ for all $1 \le i < n$. If none of the $(x_i,x_{i+1})$ is equal to $(a,b)$, then every such pair is in $M$.  Hence, by the transitivity of $M$, $x M x_2 M \ldots M y M \ldots M x$ implies $x M y$ and $y M x$, so $x = y$.  
+
+The other case is that there exists an $(x_i,x_{i+1}) = (a,b)$.  If only one such pair exists, then $(x_k,x_{k+1}) \in M$ for $k \neq i$.  The transitivity of $M$ implies that $xMa$ and $bMx$. Hence $bMa$, a contradiction.  If there exists another pair $(x_j, x_{j+1}) = (a,b)$, WLOG assume $i$ is of minimal index and $j$ is the index of the next such pair.  Then $x_{i+1} M x_{i+2} M \ldots M x_j \implies b M a$, a contradiction.
+
+\end{proof}
+
+\p{6} Find a sequence of Riemann integrable functions $(f_n)$ defined on $[0,1]$, so that for all $\epsilon > 0$ there is an $n_0 \in \N$ so that
+$$ \int_0^1 |f_m(x) - f_n(x)| \,dx < \epsilon \text{ whenever } m,n \ge n_0, $$
+but there is no Riemann integrable function $f$ so that
+$$\lim_{n\to \infty} \int_0^1 |f(x) - f_n(x)| \,dx = 0. $$
+
+\begin{proof}
+Pick $0 < a < 1$. Let $(a_n)$ be any sequence converging downward to $a$ with $a_0 = 1$.  Let $E_0 = [0,1]$. Given $E_n$ a disjoint union of $2^n$ closed intervals of length $a_n 2^{-n}$, define $E_{n+1}$ by removing an open interval from the center of each interval of $E_n$ so that $E_{n+1}$ consists of $2^{n+1}$ closed intervals of length $a_{n+1} 2^{-n-1}$. Let $E = \bigcap_n E_n$.  
+
+Let $f_n = \chi_{E_n}$.  Each $f_n$ is Riemann integrable since it has only finitely many points of discontinuity.  
+
+Note that $m(E_n) = a_n < \infty$, so $m(E) = a$ since Lebesgue measure is continuous from above.  Hence $\int |\chi_E - f_n| = \int \chi_{E \setminus E_n} = a - a_n \to 0$. Thus, $f_n \to \chi_E$ in $L_1$.  In particular, $(f_n)$ is Cauchy in $L_1$.
+
+It suffices to show that there is no Riemann integrable function in the $L_1$ equivalence class of $\chi_E$. Let $g$ differ from $\chi_E$ on a set of measure 0.  Pick any $x \in E$ such that $g(x) = 1$.  I claim that $g$ is discontinuous at $x$.  Let $U$ be a neighborhood of $x$.  Since $E$ cannot contain any intervals, it follows that $V := U \cap E^c$ is a nonempty open set.  Thus $m(V) > 0$, so $g(y) = 0$ for some $y \in V$.  Hence $g$ is discontinuous at $x$.  Thus, $g$ is discontinous on E a.e.  Since $E$ has positive measure, $g$ cannot be Riemann integrable.
 \end{proof}
 
 \end{document}
