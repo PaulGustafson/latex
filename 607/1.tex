@@ -104,9 +104,9 @@ $$\lim_{n\to \infty} \int_0^1 |f(x) - f_n(x)| \,dx = 0. $$
 Pick any $0 < a < 1$ and a strictly decreasing sequence $a_n \to a$ with $a_0 = 1$.  Let $E_0 = [0,1]$. Given $E_n$ a disjoint union of $2^n$ closed intervals of length $a_n 2^{-n}$, define $E_{n+1}$ by removing an open interval from the center of each interval of $E_n$ so that $E_{n+1}$ consists of $2^{n+1}$ closed intervals of length $a_{n+1} 2^{-n-1}$. Let $E = \bigcap_n E_n$.  
 
 Let $f_n = \chi_{E_n}$.  Each $f_n$ is Riemann integrable since it has only finitely many points of discontinuity.  
-Since $(E_n)$ is a descending sequence of sets of finite measure,  $m(E) = \lim_{n\to\infty} a_n  = a$.  Hence $\int |\chi_E - f_n| = \int \chi_{E \setminus E_n} = a - a_n \to 0$. Thus, $f_n \to \chi_E$ in $L_1$.  In particular, $(f_n)$ is Cauchy in $L_1$.
+Since $(E_n)$ is a descending sequence of sets of finite measure,  $m(E) = m(\bigcap_n E_n) = \lim_{n\to\infty} \,m(E_n) =  \lim_{n\to\infty} a_n  = a$.  Hence $\int |\chi_E - f_n| = \int \chi_{E \setminus E_n} = a - a_n \to 0$. Thus, $f_n \to \chi_E$ in $L_1$.  In particular, $(f_n)$ is Cauchy in $L_1$.
 
-Since $f_n \to \chi_E$ in $L_1$, it suffices to show that there is no Riemann integrable function in the $L_1$ equivalence class of $\chi_E$. Let $g$ differ from $\chi_E$ on a set of measure 0.  Pick any $x \in E$ such that $g(x) = 1$.  I claim that $g$ is discontinuous at $x$.  Let $U$ be a neighborhood of $x$.  Since $E$ cannot contain any intervals, it follows that $V := U \cap E^c$ is a nonempty open set.  Thus $m(V) > 0$, so $g(y) = 0$ for some $y \in V$.  Hence $g$ is discontinuous at $x$.  Thus, $g$ is discontinous on E a.e.  Since $E$ has positive measure, $g$ cannot be Riemann integrable.
+Since $f_n \to \chi_E$ in $L_1$, it suffices to show that there is no Riemann integrable function in the $L_1$ equivalence class of $\chi_E$. Let $g$ differ from $\chi_E$ on a set of measure 0.  Pick any $x \in E$ such that $g(x) = 1$.  I claim that $g$ is discontinuous at $x$.  Let $U$ be a neighborhood of $x$.  Since $E$ cannot contain any intervals, it follows that $V := U \cap E^c$ is a nonempty open set.  Thus $m(V) > 0$, so $g(y) = 0$ for some $y \in V$.  Hence $g$ is discontinuous at $x$.  Thus, $g$ is discontinous on $E$ a.e.  Since $E$ has positive measure, $g$ cannot be Riemann integrable.
 \end{proof}
 
 \end{document}
