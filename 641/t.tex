@@ -1,0 +1,83 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 641\\ 
+\noindent Instructor - Fran Narcowich
+
+\subsection*{HW 1}
+\p{1} Let $V$ be a real finite dimensional vector space with inner product $\langle \cdot, \cdot \rangle_V$, and let $B = \{v_1, v_2, \ldots, v_n\}$ be an ordered basis for $V$.
+
+a. If $\Phi$ is the associated coordinate map, show that $\langle \cdot, \cdot \rangle_{\R^n\} := \langle \Phi^{-1}(\cdot) , \Phi^{-1}(\cdot)\rangle$ defines an inner product on $\R^n$.
+
+b. Show that if $x, y \in \R^n$, then $\cdot, \cdot \rangle_{\R^n\}  = y^TGx$, where $G_{jk} = \langle v_k, v_j\rangle_V$.
+
+\begin{proof}
+a. Let $x,y,z \in \R^n$ and $\alpha, beta \in \R$.
+
+Symmetry: $\langle x, y \rangle = \langle \Phi^{-1}(x), \Phi^{-1}(y) \rangle = \langle \Phi^{-1}(y), \Phi^{-1}(x) \rangle = \langle y, x \rangle$.
+
+Bilinearity: 
+$\langle \alpha x + \beta y, z \rangle = 
+\langle \Phi^{-1}(\alpha x + \beta y), \Phi^{-1}(z) \rangle = 
+\langle \alpha \Phi^{-1}(x) + \beta \Phi^{-1}(y), \Phi^{-1}(z) \rangle = 
+\alpha \langle  \Phi^{-1}(x), \Phi^{-1}(z) \rangle + \beta \langle  \Phi^{-1}(y), \Phi^{-1}(z) \rangle = 
+\alpha \langle x, z \rangle + \beta \langle y, z \rangle$.
+Linearity in the second component follows from symmetry.
+
+Positivity: $\langle x, x \rangle 
+= \langle \Phi^{-1} x, \Phi^{-1} x \rangle
+\ge 0$
+with equality iff $\Phi^{-1}(x) = 0 \equiv x = 0$ since $\Phi$ is an isomorphism.
+
+b. Since both sides are linear in each variable, it suffices to check the equation for $x = e_j$ and $y = e_k$.  $\langle e_j, e_k \rangle = \langle \Phi^{-1}(e_j), \Phi{-1}(e_k) \rangle = \langle v_j, v_k \rangle = e_k^T G_{kj} e_j$.
+\end{proof}
+
+\p{2} In the previous problem, suppose that $B = \{v_1, v_2, \ldots, v_n \}$ is simply a subset of vectors in $V$ and $U = \spn(B)$. Show that $B$ is a basis for $U$ iff $y^T G x$ is an inner product for $\R^n$.
+
+\begin{proof}
+The forward implication follows from (1).  For the converse, suppose $y^T G x$ is an inner product and $\sum_{i=1}^n a_i v_i = 0$ for $a_i \in \R$. Then $0 = \langle \sum_i a_i v_i , \sum_i a_i v_i \rangle 
+= \sum_{i,j} a_i a_j \langle v_i, v_j \rangle
+=  a^T G a$,
+where $a = (a_1, a_2, \ldots, a_n)$.  Since $G$ is positive definite, $a = 0$. Thus $B$ is linearly independent.
+\end{proof}
+
+\p{3} Let $U$ be a subspace of an inner product space $V$.
+
+a. Fix $v \in V$. Show that $p \in U$ satisfies $\min_{u \in U} ||v - u || = || v - p||$ iff $v - p$ is orthogonal to the subspace $U$.
+
+b. Show that $p$ is unique, given that it exists for $v$.
+
+c. Suppose $p$ exists for every $v \in V$. Define $P: V \to U$ by $Pv := p$. Show that $P$ is linear and $P^2 = P$.
+
+\begin{proof}
+a. Suppose $\min_{u \in U} ||v - u || = || v - p||$.  If $v-p$ is not orthogonal to $U$, then we can pick $u \in U$ such that $\langle v - p, u \rangle \ne 0$. By multiplying $u$ by the appropriate phase, WLOG $\langle v - p , u \rangle > 0$.  Let $t \in \R$. Then 
+$||v - p - tu||^2 
+= ||v - p||^2  - 2t \langle v - p , u \rangle + t^2 ||u||^2$, 
+which is minimized when $t = \frac {\langle v - p , u \rangle} {||u||^2}$.  This contradicts the minimality of $p$.
+
+Conversely suppose $v - p$ is orthogonal to $U$. Then for any $u \in U$, we have $||v - u||^2 = || v - p + (p-u)||^2 
+= ||v - p||^2 + ||p - u||^2$.  This is minimized when $u = p$.
+
+b. Suppose both $p$ and $q$ satisfy the conditions in (a).  Note that the orthogonal complement to $U$, $U^\perp$, is a subspace. Moreover if $u \in U \cap U^\perp$, then $\langle u, u \rangle = 0$, so $u = 0$.  Hence, since $v - p, v - q \in U^\perp$, we have $(v-p) - (v-q) = q-p \in U^\perp$.  Thus, $q-p \in U \cap U^\perp$, so $q = p$.
+
+c. To see that $P$ is linear, let $\alpha, \beta \in \C$ and $v,w \in V$.  Then for any $u \in U$, we have $\langle \alpha v + \beta w - (\alpha P(v) + \beta P(w)), u \rangle 
+= \alpha\langle v - P(v), u\rangle + \beta \langle w - P(w), u \rangle
+= 0$.  Hence, $P(\alpha v + \beta w) = \alpha P(v) + \beta P(w)$.
+
+To see that $P^2 = P$,  let $v \in V$ and $p = P(v)$.  Then $P^2(v) = P(p) = min_{u\in U} || p - u || = p = P(v)$.
+\end{proof}
+
+\p{5} Equality holds in Schwarz's inequality iff $u$ and $v$ are linearly dependent.
+\begin{proof}
+Suppose $u,v$ are linearly dependent. If either $u$ or $v$ is zero, then equality holds trivially.  Otherwise, $u = k v$ for some scalar $k$.  Then $|\langle u, v \rangle | = |\langle u, ku \rangle |  = |k| ||u||^2 = ||u|| ||v||$.
+
+Conversely, suppose $|\langle u, v \rangle | = ||u|| ||v||$. If either $u$ or $v$ is zero, we are done. Otherwise, let $ t = \frac {\langle u, v \rangle} {||v||}$. Then $||u - tv||^2 
+= ||u||^2 - 2 \Re(t\langle v, u \langle) + |t|^2 ||v||^2
+= ||u||^2 - \frac 2 {||v||^2} |\langle u, v \langle|^2 + |\langle u , v \rangle|^2
+= ||u||^2 - 2 ||u||^2 + ||v||^2$
+
+\end{proof}
+
+\end{document}

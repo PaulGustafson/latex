@@ -1,0 +1,136 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 641\\ 
+\noindent Instructor - Dr. Narcowich
+
+\subsection*{HW 1}
+\p{1} Let $V$ be a real finite dimensional vector space with inner product $\langle \cdot, \cdot \rangle_V$, and let $B = \{v_1, v_2, \ldots, v_n\}$ be an ordered basis for $V$.
+
+a. If $\Phi$ is the associated coordinate map, show that $\langle \cdot, \cdot \rangle_{\R^n} := \langle \Phi^{-1}(\cdot) , \Phi^{-1}(\cdot)\rangle$ defines an inner product on $\R^n$.
+
+b. Show that if $x, y \in \R^n$, then $\langle \cdot, \cdot \rangle_{\R^n}  = y^TGx$, where $G_{jk} = \langle v_k, v_j\rangle_V$.
+
+\begin{proof}
+a. Let $x,y,z \in \R^n$ and $\alpha, beta \in \R$.
+
+Symmetry: $\langle x, y \rangle = \langle \Phi^{-1}(x), \Phi^{-1}(y) \rangle = \langle \Phi^{-1}(y), \Phi^{-1}(x) \rangle = \langle y, x \rangle$.
+
+Bilinearity: 
+\begin{align*}
+\langle \alpha x + \beta y, z \rangle & = &
+\langle \Phi^{-1}(\alpha x + \beta y), \Phi^{-1}(z) \rangle \\ &= &
+\langle \alpha \Phi^{-1}(x) + \beta \Phi^{-1}(y), \Phi^{-1}(z) \rangle \\ &= &
+\alpha \langle  \Phi^{-1}(x), \Phi^{-1}(z) \rangle + \beta \langle  \Phi^{-1}(y), \Phi^{-1}(z) \rangle \\ &= &
+\alpha \langle x, z \rangle + \beta \langle y, z \rangle.
+\end{align*}
+Linearity in the second component follows from symmetry.
+
+Positivity: $\langle x, x \rangle 
+= \langle \Phi^{-1} x, \Phi^{-1} x \rangle
+\ge 0$
+with equality iff $\Phi^{-1}(x) = 0 \equiv x = 0$ since $\Phi$ is an isomorphism.
+
+b. Since both sides are linear in each variable, it suffices to check the equation for $x = e_j$ and $y = e_k$.  $\langle e_j, e_k \rangle = \langle \Phi^{-1}(e_j), \Phi^{-1}(e_k) \rangle = \langle v_j, v_k \rangle = e_k^T G_{kj} e_j$.
+\end{proof}
+
+\p{2} In the previous problem, suppose that $B = \{v_1, v_2, \ldots, v_n \}$ is simply a subset of vectors in $V$ and $U = \spn(B)$. Show that $B$ is a basis for $U$ iff $y^T G x$ is an inner product for $\R^n$.
+
+\begin{proof}
+The forward implication follows from (1).  For the converse, suppose $y^T G x$ is an inner product and $\sum_{i=1}^n a_i v_i = 0$ for $a_i \in \R$. Then $0 = \langle \sum_i a_i v_i , \sum_i a_i v_i \rangle 
+= \sum_{i,j} a_i a_j \langle v_i, v_j \rangle
+=  a^T G a$,
+where $a = (a_1, a_2, \ldots, a_n)$.  Since $G$ is positive definite, $a = 0$. Thus $B$ is linearly independent.
+\end{proof}
+
+\p{3} Let $U$ be a subspace of an inner product space $V$.
+
+a. Fix $v \in V$. Show that $p \in U$ satisfies $\min_{u \in U} ||v - u || = || v - p||$ iff $v - p$ is orthogonal to the subspace $U$.
+
+b. Show that $p$ is unique, given that it exists for $v$.
+
+c. Suppose $p$ exists for every $v \in V$. Define $P: V \to U$ by $Pv := p$. Show that $P$ is linear and $P^2 = P$.
+
+\begin{proof}
+a. Suppose $\min_{u \in U} ||v - u || = || v - p||$.  If $v-p$ is not orthogonal to $U$, then we can pick $u \in U$ such that $\langle v - p, u \rangle \ne 0$. By multiplying $u$ by the appropriate phase, WLOG $\langle v - p , u \rangle > 0$.  Let $t \in \R$. Then 
+$||v - p - tu||^2 
+= ||v - p||^2  - 2t \langle v - p , u \rangle + t^2 ||u||^2$, 
+which is minimized when $t = \frac {\langle v - p , u \rangle} {||u||^2}$.  This contradicts the minimality of $p$.
+
+Conversely suppose $v - p$ is orthogonal to $U$. Then for any $u \in U$, we have $||v - u||^2 = || v - p + (p-u)||^2 
+= ||v - p||^2 + ||p - u||^2$.  This is minimized when $u = p$.
+
+b. Suppose both $p$ and $q$ satisfy the conditions in (a).  Note that the orthogonal complement to $U$, $U^\perp$, is a subspace. Moreover if $u \in U \cap U^\perp$, then $\langle u, u \rangle = 0$, so $u = 0$.  Hence, since $v - p, v - q \in U^\perp$, we have $(v-p) - (v-q) = q-p \in U^\perp$.  Thus, $q-p \in U \cap U^\perp$, so $q = p$.
+
+c. To see that $P$ is linear, let $\alpha, \beta \in \C$ and $v,w \in V$.  Then for any $u \in U$, we have $\langle \alpha v + \beta w - (\alpha P(v) + \beta P(w)), u \rangle 
+= \alpha\langle v - P(v), u\rangle + \beta \langle w - P(w), u \rangle
+= 0$.  Hence, $P(\alpha v + \beta w) = \alpha P(v) + \beta P(w)$.
+
+To see that $P^2 = P$,  let $v \in V$ and $p = P(v)$.  Then $P^2(v) = P(p) = min_{u\in U} || p - u || = p = P(v)$.
+\end{proof}
+
+\p{4} Let $V, B, U, G$ be defined as in problem 1, except $B$ is a basis for $U$.
+
+a. Let $v \in V$ and $d_k := \langle v , v_k \rangle_V$. Show that $p = \sum_j x_j v_j \in U$ is the orthogonal projection of $v$ onto $U$ iff the $x_j$'s satisfy the \emph{normal equations}, $d_k = \sum_j G_{kj} x_j$.
+
+b. Show that the orthogonal projection $P : V \to U$ exists.
+
+c. Show that if $B$ is orthonormal, then $Pv = \sum_j \langle v, v_j \rangle_V v_j$.
+
+\begin{proof}
+a. Suppose that $p$ is the orthogonal projection of $v$ onto $U$. Then 
+$\langle p - v, v_k \rangle = 0$ for every $k$.  Hence
+$d_k = \langle v, v_k \rangle = \langle p, v_k \rangle
+= \langle \sum_j x_j v_j, v_k \rangle
+= \sum_j G_{kj} x_j$.
+
+Conversely, suppose $d_k = \sum_j G_{kj} x_j$ for each $k$. Then $\langle v, v_k \rangle = \langle \sum_j x_j v_j, v_k \rangle = \langle p, v_k \rangle$ for each $k$.  Hence $\langle p - v, v_k \rangle = 0$ for each $k$, so $\langle p - v, u \rangle = 0$ for all $u \in U$ since $(v_k)$ is a basis for $U$.
+
+b.  Suppose $z \in \ker(G)$.  Then $z^T G z = 0$, so $z = 0$ since $G$ is positive definite.  Hence $G$ is invertible, so we can define $x_j = \sum_k (G^{-1})_{jk} d_k = \sum_k (G^{-1})_{jk} \langle v, v_k \rangle_V$.
+
+c. If $B$ is orthonormal, $G_{jk} = \langle v_k, v_j \rangle_V = \delta_{ij}$. Hence from (b), $Pv = \sum_j x_j v_j = \sum_{j,k} (G^{-1})_{jk} \langle v, v_k \rangle_V v_j = 
+\sum_j \langle v, v_j \rangle_V v_j$.
+
+\end{proof}
+
+
+\p{5} Equality holds in Schwarz's inequality iff $u$ and $v$ are linearly dependent.
+\begin{proof}
+Suppose $u,v$ are linearly dependent. If either $u$ or $v$ is zero, then equality holds trivially.  Otherwise, $u = k v$ for some scalar $k$.  Then $|\langle u, v \rangle | = |\langle u, ku \rangle |  = |k| ||u||^2 = ||u|| ||v||$.
+
+Conversely, suppose $|\langle u, v \rangle | = ||u|| ||v||$. If either $u$ or $v$ is zero, we are done. Otherwise, let $ t = \frac {\langle u, v \rangle} {||v||^2}$. Then 
+\begin{align*}
+||u - tv||^2 & = &
+ ||u||^2 - 2 \Re(t\langle v, u \rangle) + |t|^2 ||v||^2
+\\ &= & ||u||^2 - \frac 2 {||v||^2} |\langle u, v \rangle|^2 + \frac {|\langle u , v \rangle|^2} {||v||^2}
+\\ &= & ||u||^2 - 2 ||u||^2 + ||u||^2
+\\ &= & 0.
+\end{align*} 
+Hence, $u - tv = 0$, so $u,v$ are linearly dependent.
+\end{proof}
+
+\p{6} Suppose that $F \in C[0,1]$, $F(x) \ge 0$, and $F(x_0) > 0$ for some $x_0 \in [0,1]$. Show that there is a closed interval $[a,b] \subset [0,1]$, $a \ne b$, that contains $x_0$ and on which $F(x) \ge \frac 1 2 F(x_0)$.
+
+\begin{proof}
+Since $F$ is continuous, there exists $\delta > 0$ such that 
+$|x - x_0| < \delta$ implies $|F(x) - F(x_0)| < F(x_0)/2$.  Hence, if $x \in [x - \delta/2, x + \delta/2]$,  then $F(x) - F(x_0) > -F(x_0)/2$ which implies $F(x) > F(x_0)/2$.
+\end{proof}
+
+\p{7} Let $b = \{v_1, \ldots, v_n\}$ be a basis for a vector space $V$. Define linear functionals $\phi_k$ for $1 \le k \le n$ via $\phi_k(v_j) = \delta_{jk}$.
+
+1. Show that $B^* := \{\phi_1, \ldots, \phi_n\}$ is a basis for $V^*$.
+
+2. Let $V = \R^n$ and suppose that $B = \{ x_1, \ldots, x_n\}$ is a basis of column vectors for $\R^n$, and let $X = [x_1 \cdots x_n]$. Show that $R^{n*}$ may be identified with the set of $1 \times n$ row vectors, and that $B^*$ is then the set of rows of $X^{-1}$.
+
+\begin{proof}
+1) To see that $B^*$ is linearly independent, suppose $\sum_{i=1}^n a_i \phi_i = 0$ for some $a_i \in \R$.  For any $v_j$, applying the left-hand side to $v_j$ yields $a_j = 0$. Hence, $a_i = 0$ for all $i$.
+
+To see that $B^*$ spans $V^*$, let $\psi \in V^*$ and $x \in V$.  Then $x = \sum_i x_i v_i$ for some $x_i \in \R$. Then $\psi(x) = \sum_i x_i \psi(v_i) = \sum_i x_i \psi(v_i) \phi_i(v_i) = \sum_i \psi(v_i) \phi_i(x_iv_i) = \sum_i \psi(v_i) \phi_i(x) = (\sum_i \psi(v_i) \phi_i) x$. Hence, $\psi = \sum_i \psi(v_i) \phi_i$.
+
+2) For $\psi \in \R^{n*}$ let $T(\psi) = (\psi(e_1), \psi(e_2), \ldots, \psi(e_n))$. Then $T(\psi)$ acting by matrix multiplication on column vectors in $\R^n$ is a linear functional. Moreover, $T(\psi)(e_j) = \psi(e_j)$ for each $j$, so $T(\psi)$ and $\psi$ must agree everywhere.
+
+For each $j,k$, $T(\phi_k)(x_j) = \delta_{jk}$. Hence if $Y$ is the matrix with rows $T(\phi_k)$ for $1 \le k \le n$, then $YX = I$. Thus, $Y = X^{-1}$.
+\end{proof}
+\end{document}
