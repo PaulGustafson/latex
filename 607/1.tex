@@ -1,4 +1,4 @@
-\documentclass{article}
+ \documentclass{article}
 \usepackage{../m}
 
 \begin{document}
@@ -47,7 +47,6 @@ For (c), let $X = \{0,1\}$ and $Y = \{0\}$.  Let $A = \{0\} \subset X$.  Let $f:
 For (d), let $X = \{0\}$ and $B = Y = \{0, 1\}$.   Let $f:X \to Y$ be the constant function at $1$. Then $f(f^{-1}(B)) = f(X) = \{1\} \neq B$.
 
 For (e), let $X = \{0,1\}$ and $Y = \{0\}$. Let $A_1 = \{0\}$ and $A_2 = \{ 1 \}$.  Let $f:X \to Y$ be the constant function.  Then $f(A_1 \cap A_2) = f(\emptyset) = \emptyset$, but $f(A_1) \cap f(A_2) = \{0\}$.
-
 \end{proof}
 
 \p{2} Show that the following two statements are equivalent for two nonempty sets $A$ and $B$.
@@ -57,14 +56,13 @@ a) There is an injection $\phi : A \to B$.
 b) There is a surjection $\psi : B \to A$.
 
 \begin{proof}
-Suppose (a) holds.  Let $(U_b)_{b \in B}$ be defined by $U_b = \phi^{-1}(\{b\})$ if $b \in \phi(A)$ and $U_b = A$ otherwise.  By the axiom of choice, there exists $f \in \prod_{b \in B} U_b$. Since each $U_b \subset A$, there exist identity injections $i_b:U_b \to A$ for each $b \in B$.  Define $\psi: B \to A$ by $\psi(b) = i_b(f(b))$.
+Suppose (a) holds.  Let $(U_b)_{b \in B}$ be defined by $U_b = \phi^{-1}(b)$ if $b \in \phi(A)$ and $U_b = A$ otherwise.  By the axiom of choice, there exists $f \in \prod_{b \in B} U_b$. Since each $U_b \subset A$, there exist identity injections $i_b:U_b \to A$ for each $b \in B$.  Define $\psi: B \to A$ by $\psi(b) = i_b(f(b))$.
 
-To see that $\psi$ is surjective, let $a \in A$.  Since $\phi$ is injective, $\phi^{-1}(\phi(\{a\}))$ contains only $a$.  Hence, $f(\phi(a)) \in (U_{\phi(a)} = \phi^{-1}(\phi(\{a\})))$ implies that $f(\phi(a)) = a$. Thus, $\psi(\phi(a)) = i_{\phi(a)} f(\phi(a)) = i_{\phi(a)}(a) = a$.
+To see that $\psi$ is surjective, let $a \in A$.  Since $\phi$ is injective, $\phi^{-1}(\phi(a))$ contains only $a$.  Hence, $f(\phi(a)) \in U_{\phi(a)} = \phi^{-1}(\phi(a))$ implies that $f(\phi(a)) = a$. Thus, $\psi(\phi(a)) = i_{\phi(a)} f(\phi(a)) = i_{\phi(a)}(a) = a$.
 
-Now suppose (b) holds. Let $(U_a)_{a \in A}$ be defined by $U_a = \psi^{-1}(\{a\})$, which are non-empty since $\psi$ is surjective.   By AC, there exists $f \in \prod_{a \in A} U_a$.  Since each $U_a \subset B$, there exist identity injections $i_a:U_a \to B$.  Define $\phi: A \to B$ by $\phi(a) = i_a(f(a))$.
+Now suppose (b) holds.   Since $\psi$ is surjective, AC implies there exists $f \in \prod_{a \in A} \psi^{-1}(a)$.  Since each $\psi^{-1}(a) \subset B$, there exist identity injections $i_a:\psi^{-1}(a) \to B$.  Define $\phi: A \to B$ by $\phi(a) = i_a(f(a))$.
 
-To see that $\phi$ is injective, let $b \in B$ and suppose $x, y \in \phi^{-1}(\{b\})$. Then $x \in f^{-1}(i_x^{-1}(\{b\}))$, so $f(x) \in i_x^{-1}(\{b\}) = \{b\}$ and similarly for y.  Hence, $f(x) = b = f(y)$.  Hence, $b \in (U_x \cap U_y)$. But $U_x \cap U_y = \psi^{-1}(\{x\}) \cap \psi^{-1}(\{y\}) = \psi^{-1}(\{x\} \cap \{y\})$.  Thus, $\{x\} \cap \{y\}$ is nonempty, so $x = y$.
-
+To see that $\phi$ is injective, let $b \in B$ and suppose $x, y \in \phi^{-1}(b)$. Then $f(x) \in i_x^{-1}(b) = \{b\}$, and similarly for $y$.  Hence, $f(x) = b = f(y)$.  Hence, $b \in \psi^{-1}(x) \cap \psi^{-1}(y) = \psi^{-1}(\{x\} \cap \{y\})$.  Thus, $\{x\} \cap \{y\}$ is nonempty, so $x = y$.
 \end{proof}
 
 \p{3} Find nonhomeomorphic metric spaces $M_1$ and $M_2$ such that there exist injective continuous functions $f:M_1 \to M_2$ and $g: M_2 \to M_2$.
@@ -74,9 +72,9 @@ Let $M_1 = (0,1)$ and $M_2 = (0,1) \cup (2,3)$ with distances inherited from $\R
 
 \p{4} Prove that every real vector space has a basis.
 \begin{proof}
-Let $V$ be a real vector space. Let $\mathcal I$ be the collection of linearly independent subsets of $V$.  $\mathcal I$ is partially ordered by inclusion.  Let $\mathcal J$ be a linearly ordered subset of $\mathcal I$. Let $B := \bigcup \mathcal J$.  I claim that $B$ is linearly independent, hence a bound for $\mathcal J$.
+Let $V$ be a real vector space. Let $\mathcal I$ be the collection of linearly independent subsets of $V$.  $\mathcal I$ is partially ordered by inclusion.  We may assume that $V \neq \{0\}$ is nonempty since the proposition is trivial otherwise.  By AC, there exists $v \in V \setminus \{0\}$, so $\{v\} \in \mathcal I$. In particular, $\mathcal I$ is nonempty.
 
-Let $\sum_{w \in W} \alpha_w w = 0$ for a finite set $W \subset B$.  By the definition of $B$, each $w$ lies in some $J_w \in \mathcal J$.  Since $W$ is finite, it follows that $J:= \bigcup_w J_w$ is in $\mathcal J$. Since $J$ is linearly independent, $\alpha_w = 0$ for all $w$.  Thus, $B$ is linearly independent.
+Let $\mathcal J \subset \mathcal I$ be a nonempty chain, and $B := \bigcup \mathcal J$.  I claim that $B$ is linearly independent, hence a bound for $\mathcal J$. Let $\sum_{w \in W} \alpha_w w = 0$ for a nonempty finite set $W \subset B$.  By the definition of $B$, each $w$ lies in some $J_w \in \mathcal J$.  Since $\{J_w\}_{w\in W}$ is a nonempty finite chain, it follows that $\bigcup_w J_w \in \{J_w\} \subset \mathcal J$. Hence, $\bigcup_w J_w$ is linearly independent, so $\alpha_w = 0$ for all $w$.  Thus, $B$ is linearly independent.
 
 Hence, every chain in $\mathcal I$ is bounded, so Zorn's Lemma implies that $\mathcal I$ has a maximal element $M$.  If $\spn(M) = V$, we are done. Otherwise, there exists $v \in V \setminus \spn(M)$.  If $\alpha v + \sum_{m \in M} \beta_m m = 0$ for $(\beta_m)$ zero except on a finite set, then $\alpha v \in \spn(V)$. Thus $\alpha = 0$, so  $\beta_m = 0$ for all $m$. Hence $\{v\} \cup M$ is linearly independent, contradicting the maximality of $M$.
 \end{proof}
@@ -85,14 +83,13 @@ Hence, every chain in $\mathcal I$ is bounded, so Zorn's Lemma implies that $\ma
 
 \begin{proof}
 
-Let $\mathcal O \subset P(X \times X)$ be the collection of partial orders containing $\le$. $\mathcal O$ is partially ordered by inclusion.  Let $\mathcal U \subset O$ be a chain, and $U = \bigcup \mathcal U$.  $U$ is clearly reflexive. For transitivity, suppose $xUy$ and $yUz$.  Then $xRy$ and $ySz$ for some $R,S \in \mathcal U$. Let $T = R \cup S$.  Then $xTy$ and $yTz$, so $xTz$ which implies $xUz$.  A similar argument shows that $U$ is antisymmetric. Hence, $U$ is a bound for $\mathcal U$. Thus, by Zorn's Lemma, there exists a maximal element $M \in \mathcal O$. 
+Let $\mathcal O \subset P(X \times X)$ be the collection of partial orders containing $\le$. $\mathcal O$ is partially ordered by inclusion.  Let $\mathcal U \subset \mathcal O$ be a nonempty chain, and $U = \bigcup \mathcal U$.  Since $\mathcal U$ is nonempty, $U$ is a superset of a partial order, hence is reflexive. For transitivity, suppose $xUy$ and $yUz$.  Then $xRy$ and $ySz$ for some $R,S \in \mathcal U$. Let $T = R \cup S$.  Then $xTy$ and $yTz$, so $xTz$ which implies $xUz$.  A similar argument shows that $U$ is antisymmetric. Hence, $U$ is a bound for $\mathcal U$. Thus, every chain in $\mathcal O$ is bounded. Moreover, $\mathcal O$ is nonempty since it contains $\le$. Hence, Zorn's Lemma implies there exists a maximal element $M \in \mathcal O$. 
 
 I claim that $M$ is linearly ordered.  Suppose $a,b \in X$ with neither $aMb$ nor $bMa$.  Define a relation $N \in P(X \times X)$ by $N = M \cup \{(a,b)\}$.  Let $T$ be the transitive closure of $N$. That is, $xTy$ iff there is a finite sequence $(x_i)_{i=1}^n \subset X$ such that $x_1 = x$, $x_n = y$ and $x_iNx_{i+1}$ for all $1 \le i < n$. Since $T \supset N \supset M$, $T$ is reflexive.  $T$ is transitive since we can concatenate the sequences for $xTy$ and $yTz$. 
 
 For anti-symmetry, suppose $xTy$ and $yTx$.  By concatenation, we get a sequence $(x_i)_{i=1}^n$ with $x_1 = x_n = x$, $x_m = y$ for some $1<m<n$, and $x_iNx_{i+1}$ for all $1 \le i < n$. If none of the $(x_i,x_{i+1})$ is equal to $(a,b)$, then every such pair is in $M$.  Hence, by the transitivity of $M$, $x M x_2 M \ldots M y M \ldots M x$ implies $x M y$ and $y M x$, so $x = y$.  
 
 The other case is that there exists an $(x_i,x_{i+1}) = (a,b)$.  If only one such pair exists, then $(x_k,x_{k+1}) \in M$ for $k \neq i$.  The transitivity of $M$ implies that $xMa$ and $bMx$. Hence $bMa$, a contradiction.  If there exists another pair $(x_j, x_{j+1}) = (a,b)$, WLOG assume $i$ is of minimal index and $j$ is the index of the next such pair.  Then $x_{i+1} M x_{i+2} M \ldots M x_j \implies b M a$, a contradiction.
-
 \end{proof}
 
 \p{6} Find a sequence of Riemann integrable functions $(f_n)$ defined on $[0,1]$, so that for all $\epsilon > 0$ there is an $n_0 \in \N$ so that
