@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 655\\ 
+\noindent Instructor: Bill Johnson
+
+\subsection*{HW 1}
+\p{1} Show that no Banach space has a countable Hamel basis.
+\begin{proof}
+Let $X$ be a Banach space.  Suppose $(x_i)_{i=1}^\infty \subset X$ is a countable Hamel basis.  Let $X_n = \spn((x_i)_{i=1}^n$ for each $n$.  I claim each $X_n$ is nowhere dense. Suppose $X_n$ contained some ball $B_\epsilon(x)$. Then it contains $B_\epsilon(0)$, which contains a multiple of $x_{n+1}$, a contradiction.  Hence, each $X_n$ is nowhere dense.  But $U = \bigcup_n X_n$, which contradicts the Baire Category Theorem.
+\end{proof}
+
+\p{1.1} Show that any two Hamel bases for a vector space have the same cardinality.
+\begin{proof}
+Let $B$ and $C$ be bases for a vector space $V$.  
+
+Suppose $M \neq V$ is maximal in the set of subspaces with IDP.    Pick $v \in M \setminus V$.  Let $N := \spn(\{v\} \cup M)$. Let $B$ be a basis for $N$. We have $v = \sum_i a_i x_i$ for $x_i \in B$.   Let $B'$ be the projection of $B$ onto $M$.  I claim $B' \setminus x_1$ is a basis for $M$.
+
+\end{proof}
+
+\p{2} Show that $l_\infty$ is not separable.
+\begin{proof}
+Let $U \subset l_\infty$ be the set of all sequences consisting of only $0$ and $1$.  Note that $|U| = |P(\N)| > |\N| $.  Let $x,y \in U$ be distinct. Then $\|x - y \| = 1$, so $B_{1/2}(x) \cap B_{1/2}(y) = \emptyset$.  Thus, $(B_{1/2}(x))_{x\in U}$ is an uncountable set of disjoint balls, so $l_\infty$ cannot be separable.
+\end{proof}
+
+
+\p{3} Show that every Banach space with a basis is separable.
+\begin{proof}
+Let $(x_n)$ be a basis for the Banach space $X$. WLOG $\|x_n\| = 1$ for all $n$. Let $Q$ be a countable dense set in the scalar field.  Let $U = \bigcup_n \bigoplus_{k=1}^n Q x_k$. Then $U$ is countable since it is the countable union of countable sets.  To see that $U$ is dense, let $x \in B$ and $\epsilon > 0$. Then $x = \sum_n a_n x_n$ for some scalars $a_n$. Pick $N$ such that $\|x - \sum_{n=1}^N a_n x_n\| < \epsilon/2$.  Pick $q_n$ within $\frac \epsilon {2N}$  of $a_n$.  Then $ |x - \sum_{n=1}^N q_n x_n| \le |x - \sum_{n=1}^N a_n x_n| + |\sum_{n=1}^N (a_n - q_n)x_n| < \epsilon$.
+\end{proof}
+
+\p{4} Find a basis $(x_i)$ for a normed space $X$ for which $x_1^\#$ is not continuous. (Hint: consider the algebraic span of $(e_i) \subset l_2$).
+
+\p{J1.5.1} Construct an M-basis $(e_n)$ for $l_2$ that is not a Schauder basis.
+
+\p{J1.5.2} Same except also have $\sup_n \|e_n^*\| \|e_n\| < \infty$
+
+\p{J1.5.4} Show that if $(e_n, e_n^*)$ is an M-basis for $l_2$ and $\forall n, \|e_n^*\| = 1 = \| e_n \|$, then $(e_n)$ is orthonormal.
+
+\p{J1.6} Show that every separable Banach space has an M-basis.
+
+a) $X$ separable implies that there exists a total sequence $(x_n^*) \subset X$.
+
+b) Show that if $(x_n)$ is fundamental in $x$ and $(x_n^*)$ is total over $X$, then there is an M-basis $(e_n, e_n^*)$ for $X$ such that 
+$\spn(x_1, \ldots, x_n) = \spn(e_1, \ldots, e_n) $ and
+$\spn(x_1^*, \ldots, x_n^*) = \spn(e_1^*, \ldots, e_n^*)$ for all $n$.
+
+\end{document}
