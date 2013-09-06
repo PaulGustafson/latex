@@ -51,24 +51,24 @@ For closure under countable union, let $(U_n) \subset \mathcal U$. Then each $U_
 
 \p{4} Show that every $\sigma$-algebra has either finite or uncountable many elements.
 \begin{proof}
-Suppose that $\mathcal M \subset \mathcal P (X)$ is an infinite $\sigma$-algebra.  I first wish to show that $\mathcal M$ countains a countable family of disjoint nonempty sets.
+Suppose that $\mathcal M \subset \mathcal P (X)$ is an infinite $\sigma$-algebra. 
 
-\emph{Case 1: $\mathcal M$ contains an infinite linearly inclusion-ordered subset $\mathcal L$}.  Let $L \in \mathcal L$. Either $\mathcal I := \{K \le L : K \in \mathcal L\}$ or $\mathcal L \setminus I$ is infinite.  In the former case, there exists strictly ascending sequence $(I_n) \subset \mathcal I$.  Then $D_n = I_n \setminus \bigcup_{k=1}^n I_k \subset \mathcal M$ are disjoint and nonempty. In the latter case, there exists a strictly descending sequence $J_n \subset \mathcal L \setminus I$
+\emph{Step 1: $\mathcal M$ countains a sequence of disjoint nonempty sets.}
 
-\emph{Case 2: every linearly inclusion-ordered subsets of $\mathcal M$ is finite.}  Let $L_1 \subset \mathcal M$ be a maximal chain.  It is easy to see that $\card L_1 \ge 2$.
-
-Inductively assume we are given disjoint finite chains $\mathcal L_1, \ldots \mathcal L_n \subset \mathcal M$ with $\card (\mathcal L_i) \ge 2$ for all $i$. Let $\mathcal N = \mathcal M \setminus \bigcup_i \mathcal L_i$. Let $E \in \mathcal M \setminus$
+\emph{Case 1: $\mathcal M$ contains an infinite linearly inclusion-ordered subset $\mathcal L$}.  Let $(E_n)_{n=1}^\infty \subset \mathcal L$ be a pairwise distinct sequence of sets. I claim that $(E_n)$ must have a monotone subsequence. Suppose not. Then $(E_n)_{n=1}^\infty$ must be bounded above by some $E_{n_1}$, for otherwise, given any $E_n$, there exists $m > n$ with $E_n \subset E_m$. This would define an ascending sequence.  Similarly, $(E_n)_{n=n_1}^\infty$ must be bounded below by say $E_{m_1}$.  Then $(E_n)_{n=m_1}^\infty$ must be bounded above by some $E_{n_2} \subset E_{n_1}$. Continuing in this way, we get a subsequence $E_{n_1} \supset E_{n_2} \supset \ldots$, a contradiction.
 
 
- Let $\mathcal M_1 = \mathcal M \setminus \{X\}$ and $E_1 = X$. Inductively, assume we have an infinite set $\mathcal M_n \subset \mathcal M$ and a sequence of disjoint sets $(E_k)_{k=1}^n \subset X$. Pick a chain $\mathcal L_n \subset \mathcal M_n$ that is maximal among chains in $\mathcal M_n$.  Let $L_n$ be the maximal element of $\mathcal L_n$.  Since $\mathcal M_n$ is infinite, there exists $E_n \in \mathcal M_n \setminus (\mathcal L_n \cup \{\emptyset, X\})$. 
+Since the $E_n$ were distinct, this implies that $(E_n)$ contains either an ascending subsequence $(A_n)$ or a descending subsequence $(D_n)$.  In the former case, let $B_n = A_n \setminus ( \bigcup_{k=1}^{n-1} A_k)$. In the latter case, let $B_n = D_n \setminus D_{n+1}$.  In either case, $(B_n)$ is a sequence of disjoint nonempty sets.
 
- Since $L$ is maximal in $\mathcal L_n$, $E \cup L = X$. Hence, $E^c \subset L^c$.   Hence, the set $\mathcal M_2 := \{M \in \mathcal M \setminus \{ \emptyset \} : M \cap L^c = \emptyset \}$ is nonempty.  Let $\mathcal L_2$ be maximal chain in $\mathcal M_2$.  The cardinality of $\mathcal L_2$ must be finite, for otherwise $L_2$ could be extended to a maximal linearly ordered subset of $\mathcal M$, contradicting the construction of $\mathcal L$.
+\emph{Case 2: every linearly inclusion-ordered subset of $\mathcal M$ is finite.}  Let $\mathcal L_1 \subset \mathcal M \setminus \{\emptyset\}$ be a maximal such chain.  Since $M$ is infinite, $\mathcal L_1$ must be nonempty.
 
-Let $L_2$ be the maximal element of $\mathcal L$.  Since $\mathcal M$ is infinite, there exists $E_2 \in \mathcal M \setminus (\mathcal L \cup \mathcal L_2 \cup \{\emptyset, X\})$. Since $L_2$ is maximal in $\mathcal L_2$, $E_2 \cap $
+Inductively assume we are given nonempty finite chains $(\mathcal L_i)_{i=1}^n \subset \mathcal P ( \mathcal M \setminus \{\emptyset\} )$ such that the minimal elements of $(\mathcal L_i)$ are pairwise disjoint. Let $E_i$ denote the minimal element of $\mathcal L_i$ for each $i$.  Since the $L_i$ are finite, the set $\mathcal F = \{ \bigcup_{i=1}^n F_i : \forall i,  F_i \in (L_i \cup \{\emptyset\}) \}$ is a finite set. Hence there exists a maximal nonempty chain $\mathcal L_{n+1} \subset \mathcal M \setminus (\mathcal F \cup {\emptyset})$. By the Case 2 assumption, $L_1$ is finite, so it contains a minimal element $E_{n+1}$.  Suppose $F := E_{n+1} \cap E_k \neq \emptyset$ for some $1\le k \le n$.  Then $F \in \mathcal F$, for otherwise $F$ contradicts the maximality of $\mathcal L_{n+1}$.  But then $F \subsetneq E_{n+1}$, and $G := E_{n+1} \setminus F$ must be in $\mathcal F$ since $\mathcal L_{n+1}$ is maximal.  Hence, since $\mathcal F$ is closed under finite unions, $E_{n+1} = F \cup G \in \mathcal F$, a contradiction. Hence $(E_i)_{i=1}^{n+1}$ are disjoint, and $L_{n+1}$ is a nonempty finite chain. Thus, by induction, we have the sequence $(E_n)_{n=1}^\infty$ of disjoint nonempty sets.
 
- For each $n$, let $F_n = E_n \setminus \left( \bigcup_{k=1}^{n-1} E_k \right)$. 
-
+\emph{Step 2: \mathcal M is uncountable.} 
+From Step 1, there exists a sequence $(M_n) \subset \mathcal M$ of disjoint nonempty sets. Define $f : \mathcal P (\N) \to \mathcal M$ by $f(U) = \bigcup_{u \in U} M_u$.  To see that $f$ is injective, suppose that $U \neq V$.  WLOG there exists $t \in U \setminus V$.  Since $M_t$ is nonempty, there exists $x \in M_t$, so $x \in \bigcup_{u \in U} M_u = f(U) $. Since the $(M_n)$ are disjoint, $x \not\in M_n$ for $n \neq u$.  
+Hence, $x \not\in \bigcup_{v\in V} M_v = f(V)$.  Thus, $f(U) \neq f(V)$, so $f$ is injective.  Thus $\card(\mathcal M) \ge \card(\mathcal P (\N) > \card(\N)$.
 \end{proof}
+
 
 \p{5} Let $(\Omega_j , \mathcal M_j)$ be measure spaces for $j \in [n]$. Show that 
 $$ \mathcal E = \left\{ \prod_{j=1}^n E_j : E_j \in \mathcal M_j \forall j \right\} $$
