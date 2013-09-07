@@ -1,0 +1,135 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 641\\ 
+\noindent Instructor - Fran Narcowich
+
+\subsection*{HW 2}
+\p{1 a} Show that if $\alpha$, $\beta$ are positive with $\alpha + \beta = 1$ then for all $u,v \ge 0$ we have
+$$ u^\alpha v^\beta \le \alpha u + \beta v.$$
+\begin{proof} If $u = v = 0$, then the inequality holds. Since the inequality is symmetric in $u$ and $v$, we may assume $v \neq 0$.
+Hence we wish to show
+$$(\frac u v)^\alpha \le \alpha (\frac u v) + \beta$$.
+Letting $x = \frac u v$, this is equivalent to showing that $f(x) \ge 0$, where $f(x) = \alpha x -  x^\alpha + \beta$ and $x \ge 0$.  
+Since $\alpha > 0$, we have $f'(x) = \alpha - \alpha x^{\alpha - 1} = \alpha (1 - x^{\alpha - 1})$ whose only zero in $[0,\infty)$ is at $x = 1$.
+Moreover, since $\alpha < 1$, we have $f''(1) = \alpha (\alpha - 1) < 0$ . Hence, the maximum value of $f$ on $[0, \infty)$ occurs at $x = 1$.
+We have $f(1) = \alpha -1 + \beta = 0$, so $f(x) \le 0$ for $x \ge 0$.
+\end{proof}
+
+\p{1 b} Let $x,y \in \R^n$, and let $p > 1$ and define $q$ by $q^{-1} = 1 − p^{−1}$. Prove Hölder's inequality, 
+$$|\sum_j x_j y_j| ≤ \|x\|_p \|y\|_q. $$
+Hint: Using the inequality in part (a). first prove it for $\|x\|_p = \|y\|_q = 1$. Scale to get the final inequality.
+\begin{proof}
+Suppose $\|x\|_p = \|y\|_q = 1$. Then
+\begin{align*}
+| \sum_j x_j y_j | & \le & \sum_j |x_j| |y_j|
+\\ &  = &  \sum_j (|x_j|^p)^{1/p} ((|y_j|)^q)^{1/q}
+\\ & \le & \sum_j \frac 1 p |x_j|^p + \frac 1 q |y_j|^q
+\\ & \le & \frac 1 p (\sum_j  |x_j|^p) + \frac 1 q (\sum_j |y_j|^q)
+\\ & = & \frac 1 p + \frac 1 q
+\\ & = & 1.
+\end{align*}
+
+For the general case, note that if $x = 0$ or $y = 0$ then the inequality holds. Hence we may assume both are nonzero.  
+Let $x' = \frac x \|x\|_p$ and $y' = \frac y \|y\|_p$.  We can now apply the special case to $x'$ and $y'$ then clear denominators to get the general inequality.
+\end{proof}
+
+
+\p{1 c} Suppose $\phi =(y_1, \ldots, y_n) \in l_p^*$. Hölder's inequality implies that $\|\phi\|_{l_p^*} \le \|y\|_q$. Show that we actually have $\|\phi\|_{l_p^*}  = \|y \|_q$.
+\begin{proof}
+%(y_i/|y|_q)^q = (x_i/|x|_p)^p
+Let $x_i = \sign(y_i) \frac {|y_i|^{q/p}}{\|y\|_q^{q/p}}$ for $1 \le i \le n$.  Then $\|x\|_p = \sum_i \frac {|y_i|^q} {\|y\|_q^q} = 1$.
+
+Then $\phi(x) = \sum_i x_i y_i = \sum_i \frac {|y_i|^{q/p}}{\|y\|_q^{q/p}} |y_i| = \frac 1 {\|y\|_q^{q/p}} \sum_i |y_i|^{\frac {p + q} p }  = \frac 1 {\|y\|_q^{q/p}} \sum |y_i|^q = \|y\|_q^{q - q/p} = \|y\|_q$.
+
+\end{proof}
+
+\p{1 d} Let $x,y \in \R^n$, and let $p > 1$. Prove Minkowski's inequality, 
+$$\|x + y \|_p \le \|x\|_p + \|y\|_p. $$
+Use this to show that $\|x\|_p$ defines a norm on $\R^n$. Hint: you will need to use Hölder's inequality, along with a trick.
+
+
+\p{2} $L_2$ minimization. Find the straight line $y = a + bx$ that minimizes $\int_0^1(e^x − a − bx)^2 \, dx$.
+\begin{proof}
+By HW 1, Problem 4, we know that $a + bx$ minimizes $\|e^x - a - bx\|_2$ iff 
+\begin{align*}
+\left( \begin{array}{c}
+\langle e^x, 1 \rangle \\
+\langle e^x, x \rangle  \end{array}\right)
+& = &
+\left( \begin{array}{cc}
+\langle 1, 1 \rangle & \langle x , 1 \rangle \\
+\langle 1, x \rangle & \langle x , x \rangle \end{array} \right) 
+\left( \begin{array}{c}
+a \\
+b \end{array}\right) 
+\end{align*}
+
+The one slightly tricky integral is $\langle e^x , x \rangle = \int_0^1 x e^x \, dx = x e^x \rvert_{x=0}^1 - \int_0^1 e^x \, dx = e - (e - 1) = 1$.
+
+\begin{align*}
+\begin{array}{c}
+ e - 1  \\
+ 1  \end{array}\right) & = & \left( \begin{array}{cc}
+                                     1 &  1/2  \\
+                                     1/2 & 1/3 \end{array} \right) 
+                                                                  \left( \begin{array}{c}
+                                                                      a \\
+                                                                      b \end{array}\right)
+\\ \begin{array}{c}
+ a  \\
+ b  \end{array}\right) & = & \left( \begin{array}{c}
+                              0.8731 \\
+                              1.6903 \end{array}\right)       
+\end{align*}
+
+\end{proof}
+
+\p{3} $L_1$ minimization. Find the straight line $y = a + bx$ that minimizes  $\int_0^1|e^x − a − bx| \, dx$, by following these steps.
+
+a. Whatever the minimizer is, geometric considerations show that $e^x$ and $a+bx$ will cross at two points, $0 < s < t < 1$. Find these two points by minimizing, over $a,b$, the area $A$ between $f(x)$ and $a+bx$:
+$$A=\int_0^1 |e^x − a −bx| \, dx = \int_0^s (e^x − a −bx)\,dx + \int_s^t (a+bx−e^x) \,dx +  \int_t^1(e^x − a − bx) \,dx.$$
+
+b. Use the crossing conditions $a + bs = e^s$ and $a + bt = e^t$ to find $a$ and $b$.
+
+\begin{proof}
+
+Solving for $a,b$ in terms of $t, s$, we have
+$b = \frac {e^t - e^s} { t-s}$ and $ a = e^s + \frac {- s e^t + s e^s} { t-s}  = \frac {t e^s - s e^t} {t - s}$.
+
+So $\frac {\partial b} {\partial s} = \frac{(-e^s)(t-s) + (e^t - e^s)}{(t-s)^2}$.
+
+
+% a. The critical point occurs when 
+% \begin{align*}
+%  0      & =  &  (\frac \partial {\partial a}, \frac \partial {\partial b}) A
+% \\        & = & ( \int_0^s  (-1) \,dx + \int_s^t 1 \,dx + \int_t^1 (-1) \, dx  ,  \int_0^s  (-x) \,dx + \int_s^t x \,dx + \int_t^1 (-x) \, dx )
+% \\      & = & ( -s + (t - s) + (t - 1) ,  (-1/2)s^2  + (1/2)(t^2 - s^2)  + (-1/2) (1 - t^2) )
+% \\      & = & ( 2t - 2s - 1, t^2 - s^2 - 1/2)
+% \end{align*}
+% Thus $t = s + 1/2$, so $0 = (s + 1/2)^2 - s^2 -1/2 = s - 1/4$. Hence $s = 1/4, t = 3/4$ is the critical point.
+
+% b. We have $a + b(1/4) = e^{(1/4)}$ and $a + b(3/4) = e^{(3/4)}$.  Hence $a = 0.8675$ and $b = 1.666$.
+
+\end{proof}
+
+\p{3} Use your favorite software (mine is Matlab) and plot, on the same set of axes, $e^x$ and the two minimization solutions found in the previous two problems.
+
+
+
+\p{4} Let $V$ be a finite dimensional inner product space and let $U$ be a subspace of $V$. Recall that the orthogonal complement of $U$ is 
+$$U^\perp = \{v \in V | \langle v,u \rangle = 0 for all u \in U\}.$$
+Show that $V = U \oplus U^\perp$, where $\oplus$ symbolizes the direct sum of vector spaces. Also, show that $(U^\perp)^\perp = U$.
+\begin{proof}
+By HW 1 (4)(b), the orthogonal projection $P : V \to U$ exists.  Let $v \in V$. Then $v = Pv + (v - Pv)$. By HW 1 (3), $v - Pv \in U^\perp$. Hence, $V = U + U^\perp$.  Moreover, if $w \in U \cap U^\perp$, then $\langle w, w \rangle = 0$ so $w = 0$. Thus, $v = U \oplus U^\perp$.
+
+To see that $U \subset (U^\perp)^\perp$, let  $u \in U$. Then $\langle v,u \rangle = 0$ for all $v \in U^\perp$. Hence, $\langle u,v \rangle = 0$ for all $v \in U^\perp$. Thus, $u \in (U^\perp)^\perp$.
+
+Since $V = W \oplus W^\perp$ for any subspace $W$, we have $\dim (U) + \dim(U^\perp) = \dim (V) = \dim (U^\perp) + \dim((U^\perp)^\perp)$. Since $\dim(U^\perp) < \infty$, we have $\dim(U) = \dim((U^\perp)^\perp)$.  Since $U \subset (U^\perp)^\perp$ and they are finite dimensional, this implies that $U = (U^\perp)^\perp$.
+
+\end{proof}
+
+
+\end{document}
