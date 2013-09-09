@@ -9,7 +9,7 @@
 \subsection*{HW 1}
 \p{J1.1.1} Show that no Banach space has a countable Hamel basis.
 \begin{proof}
-Let $X$ be a Banach space.  Suppose $(x_i)_{i=1}^\infty \subset X$ is a countable Hamel basis.  Let $X_n = \spn((x_i)_{i=1}^n$ for each $n$.  I claim each $X_n$ is nowhere dense. Suppose $X_n$ contained some ball $B_\epsilon(x)$. Then it contains $B_\epsilon(0)$, which contains a multiple of $x_{n+1}$, a contradiction.  Hence, each $X_n$ is nowhere dense.  But $U = \bigcup_n X_n$, which contradicts the Baire Category Theorem.
+Let $X$ be a Banach space.  Suppose $(x_i)_{i=1}^\infty \subset X$ is a countable Hamel basis.  Let $X_n = \spn((x_i)_{i=1}^n)$ for each $n$.  I claim each $X_n$ is nowhere dense. Suppose $X_n$ contained some ball $B_\epsilon(x)$. Then it contains $B_\epsilon(0)$, which contains a multiple of $x_{n+1}$, a contradiction.  Hence, each $X_n$ is nowhere dense.  But $U = \bigcup_n X_n$, which contradicts the Baire Category Theorem.
 \end{proof}
 
 % \p{J1.1.2} Show that any two algebraic bases $X$ and $Y$ for a vector space $V$ have the same cardinality.
@@ -25,30 +25,29 @@ Let $U \subset l_\infty$ be the set of all sequences consisting of only $0$ and 
 
 \p{J1.3} Show that every Banach space with a basis is separable.
 \begin{proof}
-Let $(x_n)$ be a basis for the Banach space $X$. WLOG $\|x_n\| = 1$ for all $n$. Let $Q$ be a countable dense set in the scalar field.  Let $U = \bigcup_n \bigoplus_{k=1}^n Q x_k$. Then $U$ is countable since it is the countable union of countable sets.  To see that $U$ is dense, let $x \in B$ and $\epsilon > 0$. Then $x = \sum_n a_n x_n$ for some scalars $a_n$. Pick $N$ such that $\|x - \sum_{n=1}^N a_n x_n\| < \epsilon/2$.  Pick $q_n$ within $\frac \epsilon {2N}$  of $a_n$.  Then $ |x - \sum_{n=1}^N q_n x_n| \le |x - \sum_{n=1}^N a_n x_n| + |\sum_{n=1}^N (a_n - q_n)x_n| < \epsilon$.
+Let $(x_n)$ be a basis for the Banach space $X$. By normalizing, we can assume $\|x_n\| = 1$ for all $n$. Let $Q$ be a countable dense set in the scalar field.  Let $U = \bigcup_n \bigoplus_{k=1}^n Q x_k$. Then $U$ is countable since it is the countable union of countable sets.  To see that $U$ is dense, let $x \in B$ and $\epsilon > 0$. Then $x = \sum_n a_n x_n$ for some scalars $a_n$. Pick $N$ such that $\|x - \sum_{n=1}^N a_n x_n\| < \epsilon/2$.  For $n \le N$, pick $q_n$ within $\frac \epsilon {2N}$  of $a_n$.  Then $ \|x - \sum_{n=1}^N q_n x_n\| \le \|x - \sum_{n=1}^N a_n x_n| + \|\sum_{n=1}^N (a_n - q_n)x_n\| 
+\le \epsilon/2 + \sum_{n=1}^N |a_n - q_n| < \epsilon$.
 \end{proof}
 
-\p{J1.4} Find a basis $(x_i)$ for a normed space $X$ for which some $x_i$ is not continuous. (Hint: consider the algebraic span of $(e_i) \subset l_2$).
+\p{J1.4} Find a basis $(x_n)$ for a normed space $X$ for which $x_1^\#$ is not continuous. (Hint: consider the algebraic span of $(e_i) \subset l_2$).
 
-%Sun 7:40 pm
+Let $X = \spn{(e_i)_{i=1}^\infty} \subset l_2 ( \N )$.  Define $x_1 = e_1$ and $x_n = n e_1 + e_n$ for $n \ge 2$.  Note that $(x_n)$ span $X$ since they span $(e_i)_{i=1}^n$.  To see that $(x_n)$ is a basis, suppose $\sum_{n=1}^\infty a_n x_n = 0$.  If $a_k \neq 0$ for some $k \ge 2$, then $e_k^*(\sum_{n=1}^\infty a_n x_n) = \sum_n a_n e_k^*(x_n) = a_k$, a contradiction.  Hence $a_k = 0$ for $k \ge 2$, so $a_1 = 0$ also.
 
-Need to find $(x_i)$ and $(q_i)$ with $\|q_i\| \le 1$ such that $x_1^#(q_i) \to \infty$. Will x_i = e_i work?  No, e_i* are continuous on l_2 hence on X. Need something that would not be a basis on l_2. Because if it were a basis on l_2, the duals would be continuous on l2 hence on X.  
-
-Basis of X but not l_2.       (\sum^k e_i)_k ?  I'm not very familiar with duals/ operator norm.
+To see that $x_1^\#$ is not continuous, note that for $n \ge 2$ we have $|x_1^\# (e_n)|  = |x_1^\# (-n x_1 + x_n)| = n \to \infty$.
 
 
-\p{J1.5.1} Construct an M-basis $(e_n)$ for $l_2$ that is not a Schauder basis.
+% \p{J1.5.1} Construct an M-basis $(e_n)$ for $l_2$ that is not a Schauder basis.
 
-\p{J1.5.2} Same except also have $\sup_n \|e_n^*\| \|e_n\| < \infty$
+% \p{J1.5.2} Same except also have $\sup_n \|e_n^*\| \|e_n\| < \infty$
 
-\p{J1.5.4} Show that if $(e_n, e_n^*)$ is an M-basis for $l_2$ and $\forall n, \|e_n^*\| = 1 = \| e_n \|$, then $(e_n)$ is orthonormal.
+% \p{J1.5.4} Show that if $(e_n, e_n^*)$ is an M-basis for $l_2$ and $\forall n, \|e_n^*\| = 1 = \| e_n \|$, then $(e_n)$ is orthonormal.
 
-\p{J1.6} Show that every separable Banach space has an M-basis.
+% \p{J1.6} Show that every separable Banach space has an M-basis.
 
-a) $X$ separable implies that there exists a total sequence $(x_n^*) \subset X$.
+% a) $X$ separable implies that there exists a total sequence $(x_n^*) \subset X$.
 
-b) Show that if $(x_n)$ is fundamental in $x$ and $(x_n^*)$ is total over $X$, then there is an M-basis $(e_n, e_n^*)$ for $X$ such that 
-$\spn(x_1, \ldots, x_n) = \spn(e_1, \ldots, e_n) $ and
-$\spn(x_1^*, \ldots, x_n^*) = \spn(e_1^*, \ldots, e_n^*)$ for all $n$.
+% b) Show that if $(x_n)$ is fundamental in $x$ and $(x_n^*)$ is total over $X$, then there is an M-basis $(e_n, e_n^*)$ for $X$ such that 
+% $\spn(x_1, \ldots, x_n) = \spn(e_1, \ldots, e_n) $ and
+% $\spn(x_1^*, \ldots, x_n^*) = \spn(e_1^*, \ldots, e_n^*)$ for all $n$.
 
 \end{document}
