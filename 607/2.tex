@@ -29,7 +29,7 @@ For (a), let $\mathcal R$ be a ring, and $U, V \in \mathcal R$.  Let $W = U \cup
 
 For (b), let $\mathcal R$ be a ring (resp. $\sigma$-ring).  Suppose $X \in \mathcal A$. Since (a) has been verified, we need only check that $\mathcal R$ contains complements.  This is true since $E^c = X \setminus E$ for any set $E$.  Conversely, suppose $\mathcal R$ is an algebra (resp. $\sigma$-algebra).  Then $\mathcal R$ is nonempty, so there exists $E \in \mathcal R$. Thus, $X = E \cup E^c \in \mathcal R$.
 
-For (c), let $\mathcal M = \{ E \subset X : E \in \mathcal R \text{ or } E^c \in \mathcal R \}$.  Since $\mathcal R$ is nonempty, so is $\mathcal M$.  It is also clear that $\mathcal M$ is closed under complements. For closure under countable unions, let $(E_n) \subset \mathcal M$.  Then $(E_n) = (A_n) \cup (B_n)$ for sequences $(A_n), (B_n)$ such that each $A_n \in \mathcal R$ and each $B_n^c \in \mathcal R$. Let $A = \bigcup A_n \in \mathcal R$ and $B = \bigcap B_n^c \in \mathcal R$.  Then $\bigcup_n E_n = \bigcup_n A_n \cup \bigcup B_n = A \cup B^c = (A^c \cap B)^c = (B \setminus A)^c \in \mathcal M$. 
+For (c), let $\mathcal M = \{ E \subset X : E \in \mathcal R \text{ or } E^c \in \mathcal R \}$.  Since $\mathcal R$ is nonempty, so is $\mathcal M$.  It is also clear that $\mathcal M$ is closed under complements. For closure under countable unions, let $\mathcal E$ be a countable subset of $\mathcal M$.  Then $\mathcal E = \mathcal A \cup \mathcal B$ where $\mathcal A := \{ E \in \mathcal E : E \in \mathcal R\}$ and $\mathcal B := \{ E \in \mathcal E : E^ \in \mathcal R\}$. We also have $A := \bigcup \mathcal A \in \mathcal R$ and $B := \bigcap_{B \in \mathcal B} B^c \in \mathcal R$.  Hence $\bigcup \mathcal E = \bigcup \mathcal A \cup \bigcup \mathcal B = A \cup B^c = (A^c \cap B)^c = (B \setminus A)^c \in \mathcal M$. 
 
 For (d), let $\mathcal M = \{ E \subset X : E \cap F \in \mathcal R \text{ for all } F \in \mathcal R \}$. Since $\mathcal R$ is nonempty, there exists $E \in \mathcal R$.  Hence $\emptyset = E \setminus E \in \mathcal R$. Then it follows from the definition of $\mathcal M$ that $\emptyset \in \mathcal M$. In particular, $\mathcal M$ is nonempty.  To see that $\mathcal M$ is closed under complements, suppose $E \in \mathcal M$.  Let $F \in \mathcal R$.  Then $E^c \cap F = F \setminus E \in \mathcal R$.  Hence, $E^c \in \mathcal M$.  For closure under countable unions, let $(E_n) \subset \mathcal M$. Let $F \in \mathcal R$.  Then $\bigcup_n(E_n) \cap F = \bigcup_n (E_n \cap F)  \in \mathcal R$.  Hence, $\bigcup_n E_n \in \mathcal M$.
 \end{proof}
@@ -53,23 +53,27 @@ Let $\mathcal G = \bigcup_n \mathcal G_n$.  Then $\mathcal G$ is countable, and 
 \begin{proof}
 Suppose that $\mathcal M \subset \mathcal P (X)$ is an infinite $\sigma$-algebra. 
 
-\emph{Step 1: $\mathcal M$ contains a sequence of disjoint nonempty sets.}
+\emph{Step 1: Show that $\mathcal M$ contains a sequence of disjoint nonempty sets.}
 
-\emph{Case 1: $\mathcal M$ contains an infinite linearly inclusion-ordered subset $\mathcal L$}.  Let $(E_n)_{n=1}^\infty \subset \mathcal L$ be a pairwise distinct sequence of sets. I claim that $(E_n)$ must have a monotone subsequence. Suppose not. Then $(E_n)_{n=1}^\infty$ must be bounded above by some $E_{n_1}$, for otherwise, given any $E_n$, there exists $m > n$ with $E_n \subset E_m$. This would define an ascending sequence.  Similarly, $(E_n)_{n=n_1}^\infty$ must be bounded below by say $E_{m_1}$.  Then $(E_n)_{n=m_1}^\infty$ must be bounded above by some $E_{n_2} \subset E_{n_1}$. Continuing in this way, we get a subsequence $E_{n_1} \supset E_{n_2} \supset \ldots$, a contradiction.
+\emph{Case 1: Assume $\mathcal M$ contains an infinite linearly inclusion-ordered subset $\mathcal L$}.  Let $(E_n)_{n=1}^\infty \subset \mathcal L$ be a pairwise distinct sequence of sets. I claim that $(E_n)$ must have a monotone subsequence. Suppose not. Then $(E_n)_{n=1}^\infty$ must be bounded above by some $E_{n_1}$, for otherwise, given any $E_n$, there exists $m > n$ with $E_n \subset E_m$. This would define an ascending sequence.  Similarly, $(E_n)_{n=n_1}^\infty$ must be bounded below by say $E_{m_1}$.  Then $(E_n)_{n=m_1}^\infty$ must be bounded above by some $E_{n_2} \subset E_{n_1}$. Continuing in this way, we get a subsequence $E_{n_1} \supset E_{n_2} \supset \ldots$, a contradiction.
 
 
 Since the $E_n$ were distinct, this implies that $(E_n)$ contains either a strictly ascending subsequence $(A_n)$ or a strictly descending subsequence $(D_n)$.  In the former case, let $B_n = A_n \setminus ( \bigcup_{k=1}^{n-1} A_k)$. In the latter case, let $B_n = D_n \setminus D_{n+1}$.  In either case, $(B_n)$ is a sequence of disjoint nonempty sets.
 
 \emph{Case 2: every linearly inclusion-ordered subset of $\mathcal M$ is finite.}  Let $\mathcal L_1$  be a maximal linearly ordered subset of $\mathcal M \setminus \{\emptyset\}$.  Since $\mathcal M$ is infinite, $\mathcal L_1$ must be nonempty.
 
-Inductively assume we are given nonempty finite chains $(\mathcal L_i)_{i=1}^n \subset \mathcal P ( \mathcal M \setminus \{\emptyset\} )$ such that the minimal elements of $(\mathcal L_i)$ are pairwise disjoint. Let $E_i$ denote the minimal element of $\mathcal L_i$ for each $i$.  Since the $L_i$ are finite, the set $\mathcal F := \{ \bigcup_{i=1}^n F_i : F_i \in \mathcal L_i \cup \{\emptyset\} \text { for all } i \}$ is a finite set. Hence there exists a maximal nonempty chain $\mathcal L_{n+1} \subset \mathcal M \setminus (\mathcal F \cup \{\emptyset\})$. 
+Inductively assume we are given nonempty finite chains $(\mathcal L_i)_{i=1}^n \subset \mathcal P ( \mathcal M \setminus \{\emptyset\} )$  and sets $\mathcal F_i := \{ \bigcup_{k=1}^{i-1} F_k : \forall k \left[ F_k \in \mathcal L_k \cup \{\emptyset\} \right]\}$ such that each $\mathcal L_i$ is maximal in  $\mathcal M \setminus (\mathcal F_i \cup \{\emptyset\})$. Further inductively suppose that the minimal elements of $(\mathcal L_i)$ are pairwise disjoint.
 
-By the Case 2 assumption, $\mathcal L_{n+1}$ is finite, so it contains a minimal element $E_{n+1}$.  Suppose $F := E_{n+1} \cap E_k \neq \emptyset$ for some $1\le k \le n$.  Then $F \in \mathcal F$, for otherwise $F$ contradicts the maximality of $\mathcal L_{n+1}$.  But then $F \subsetneq E_{n+1}$, and $G := E_{n+1} \setminus F$ must be in $\mathcal F$ since $\mathcal L_{n+1}$ is maximal.  Hence we can write $G = \bigcup_{i=1}^n G_i$ and $F = \bigcup_{i=1}^n F_i$ with $G_i, F_i \in \mathcal L_i \cup \{\emptyset\}$. 
-Then $E_{n+1} = F \cup G = \bigcup_{i=1}^n (G_i \cup F_i)$, which is in $\mathcal F$ since each $\mathcal L_i \cup \{\emptyset\}$ is linearly ordered. This  contradicts the fact that $E_{n+1} \in \mathcal L_{n+1} \subset \mathcal M \setminus (\mathcal F \cup \{\emptyset\})$.
+Let $E_i$ denote the minimal element of $\mathcal L_i$ for each $i$.  Since the $\mathcal L_i$ are finite, the set $\mathcal F_{n+1} := \{ \bigcup_{i=1}^n F_i : \forall i \left[ F_i \in \mathcal L_i \cup \{\emptyset\} \right]\}$ is a finite set. Hence there exists a maximal nonempty chain $\mathcal L_{n+1} \subset \mathcal M \setminus (\mathcal F_{n+1} \cup \{\emptyset\})$. 
 
- Hence $(E_i)_{i=1}^{n+1}$ are disjoint, and $L_{n+1}$ is a nonempty finite chain. Thus, by induction, we have the sequence $(E_n)_{n=1}^\infty$ of disjoint nonempty sets.
+By the Case 2 assumption, $\mathcal L_{n+1}$ is finite, so it contains a minimal element $E_{n+1}$.  Suppose $F := E_{n+1} \cap E_k \neq \emptyset$ for some $1\le k \le n$. First note that $E_{n+1} \neq E_k$ since $E_k \in \mathcal F_{n+1}$.  Hence $F \neq E_{n+1}$, for otherwise $E_{n+1} \subsetneq E_k$, which contradicts the maximality of $\mathcal L_k$. Thus $F \in \mathcal F_{n+1}$, for otherwise $F$ contradicts the maximality of $\mathcal L_{n+1}$.
 
-\emph{Step 2: $\mathcal M$ is uncountable.} 
+Since $F \neq \emptyset$, we have $G := E_{n+1} \setminus F \in \mathcal F_{n+1}$ since $\mathcal L_{n+1}$ is maximal.  Hence we can write $G = \bigcup_{i=1}^n G_i$ and $F = \bigcup_{i=1}^n F_i$ with $G_i, F_i \in \mathcal L_i \cup \{\emptyset\}$. 
+Then $E_{n+1} = F \cup G = \bigcup_{i=1}^n (F_i \cup G_i)$, which is in $\mathcal F_{n+1}$ since each $F_i \cup G_i \in \mathcal L_i \cup \{\emptyset\}$. This  contradicts the fact that $E_{n+1} \in \mathcal L_{n+1} \subset \mathcal M \setminus (\mathcal F \cup \{\emptyset\})$.
+
+ Hence $(E_i)_{i=1}^{n+1}$ are disjoint, and the other induction hypotheses also hold at $n+1$. Thus, by induction, we have the sequence $(E_n)_{n=1}^\infty$ of disjoint nonempty sets.
+
+\emph{Step 2: Show that $\mathcal M$ is uncountable.} 
 From Step 1, there exists a sequence $(M_n) \subset \mathcal M$ of disjoint nonempty sets. Define $f : \mathcal P (\N) \to \mathcal M$ by $f(U) = \bigcup_{u \in U} M_u$.  To see that $f$ is injective, suppose that $U \neq V$.  WLOG there exists $t \in U \setminus V$.  Since $M_t$ is nonempty, there exists $x \in M_t$, so $x \in \bigcup_{u \in U} M_u = f(U) $. Since the $(M_n)$ are disjoint, $x \not\in M_n$ for $n \neq u$.  
 Hence, $x \not\in \bigcup_{v\in V} M_v = f(V)$.  Thus, $f(U) \neq f(V)$, so $f$ is injective.  Thus $\card(\mathcal M) \ge \card(\mathcal P (\N) > \card(\N)$.
 \end{proof}
@@ -82,7 +86,7 @@ is an elementary system.
 \begin{proof}
 Since $\emptyset \in \mathcal M_j$ for all $j$, we have $\emptyset = \prod_{j=1}^n \emptyset \in \mathcal E$. Now suppose $E, F \in \mathcal E$. Then $E = \prod_j E_j$ and $F = \prod_j F_j$ for $E_j, F_j \in \mathcal M_j$ for all $j$. Hence $E \cap F = \prod_j (E_j \cap F_j) \in \mathcal E$.  Lastly, we need to check that $E^c$ is the finite union of disjoint elements of $\mathcal E$. Let 
 $$\mathcal U = \{\prod U_j : U_j \in \{E_j, E_j^c \} \}$$.
-Note that $\mathcal U$ is a partition of $\prod_j \Omega_j$, and $\mathcal U \subset \mathcal E$..  Hence $E^c = \bigcup (\mathcal U \setminus {E})$ is a finite union of disjoint elements of $\mathcal E$.
+Note that $\mathcal U$ is a partition of $\prod_j \Omega_j$, and $\mathcal U \subset \mathcal E$.  Hence $E^c = \bigcup (\mathcal U \setminus \{E\})$ is a finite union of disjoint elements of $\mathcal E$.
 \end{proof}
 
 

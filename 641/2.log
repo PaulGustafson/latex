@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  9 SEP 2013 14:50
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  10 SEP 2013 20:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -241,97 +241,52 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 11.
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 )
 Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-Missing character: There is no â in font cmr7!
-Missing character: There is no ˆ in font cmr7!
-Missing character: There is no ’ in font cmr7!
-Missing character: There is no â in font cmr10!
 Missing character: There is no ‰ in font cmr10!
 Missing character: There is no ¤ in font cmr10!
  [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-
-Overfull \hbox (6.8245pt too wide) in paragraph at lines 73--75
-\OT1/cmr/bx/n/10 2 $\OML/cmm/m/it/10 L[]$ \OT1/cmr/m/n/10 min-i-miza-tion. Find
- the straight line $\OML/cmm/m/it/10 y \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 a \OT
-1/cmr/m/n/10 + \OML/cmm/m/it/10 bx$ \OT1/cmr/m/n/10 that min-i-mizes $[][](\OML
-/cmm/m/it/10 e[]abx\OT1/cmr/m/n/10 )[] \OML/cmm/m/it/10 dx$\OT1/cmr/m/n/10 . 
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Overfull \hbox (32.3277pt too wide) detected at line 113
+\OML/cmm/m/it/10 A \OT1/cmr/m/n/10 = [][] \OMS/cmsy/m/n/10 j\OML/cmm/m/it/10 e[
+] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10
+ bx\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 dx \OT1/cmr/m/n/10 = [][](\OML/cmm/m/it/
+10 e[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/
+it/10 bx\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 dx \OT1/cmr/m/n/10 + [][](\OML/cmm/m
+/it/10 a \OT1/cmr/m/n/10 + \OML/cmm/m/it/10 bx \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/
+it/10 e[]\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 dx \OT1/cmr/m/n/10 + [][](\OML/cmm/
+m/it/10 e[] \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 a \OMS/cmsy/m/n/10 ^^@ \OML/c
+mm/m/it/10 bx\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 dx:
  []
 
-[2]
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-
-Overfull \hbox (1.78276pt too wide) in paragraph at lines 109--110
-\OT1/cmr/bx/n/10 3 $\OML/cmm/m/it/10 L[]$ \OT1/cmr/m/n/10 min-i-miza-tion. Find
- the straight line $\OML/cmm/m/it/10 y \OT1/cmr/m/n/10 = \OML/cmm/m/it/10 a \OT
-1/cmr/m/n/10 + \OML/cmm/m/it/10 bx$ \OT1/cmr/m/n/10 that min-i-mizes $[][] \OMS
-/cmsy/m/n/10 j\OML/cmm/m/it/10 e[]abx\OMS/cmsy/m/n/10 j \OML/cmm/m/it/10 dx$\OT
-1/cmr/m/n/10 ,
- []
-
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no ˆ in font cmr10!
-Missing character: There is no ’ in font cmr10!
-[3] <approx.png, id=26, 513.92pt x 513.92pt>
+[3] [4] <approx.png, id=29, 513.92pt x 513.92pt>
 File: approx.png Graphic file (type png)
  <use approx.png>
-Package pdftex.def Info: approx.png used on input line 165.
+Package pdftex.def Info: approx.png used on input line 185.
 (pdftex.def)             Requested size: 216.80946pt x 216.81pt.
- [4 <./approx.png>] [5] (./2.aux) ) 
+ [5 <./approx.png>] (./2.aux) ) 
 Here is how much of TeX's memory you used:
- 2520 strings out of 495059
- 32770 string characters out of 3182030
- 96610 words of memory out of 3000000
- 5671 multiletter control sequences out of 15000+200000
+ 2522 strings out of 495059
+ 32779 string characters out of 3182030
+ 96625 words of memory out of 3000000
+ 5673 multiletter control sequences out of 15000+200000
  6598 words of font info for 26 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  37i,14n,26p,451b,237s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
-ts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.
-pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/symbols/msbm10.pfb>
-Output written on 2.pdf (5 pages, 175256 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmbx12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi
+10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb>
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/te
+xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/symbols/msbm10.pfb>
+Output written on 2.pdf (5 pages, 174571 bytes).
 PDF statistics:
  77 PDF objects out of 1000 (max. 8388607)
  54 compressed objects within 1 object stream
