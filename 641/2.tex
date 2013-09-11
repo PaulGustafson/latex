@@ -116,8 +116,7 @@ b. Use the crossing conditions $a + bs = e^{-s}$ and $a + bt = e^{-t}$ to find $
 
 \begin{proof}
 
-a. Let $g_1(a,b,s) = e^{-s} - a - bs$, and $g_2(a,b,t) = e^{-t} - a - bt$.
-The method of Lagrange multipliers gives us the following necessary condition for $(a,b,s,t)$ to minimize $A$ given the constraints $g_1 = g_2 = 0$:
+a. Let $g_1(a,b,s) = e^{-s} - a - bs$, and $g_2(a,b,t) = e^{-t} - a - bt$. Geometric considerations imply that the global minimum of $A$ with the constraint $g_1 = g_2 = 0$ must be a local minimum, not a boundary value. Hence, Lagrange multipliers gives us the following necessary condition for $(a,b,s,t)$ to minimize $A$ given the constraints $g_1 = g_2 = 0$:
 \begin{align}
  0      & = &  (\pder a, \pder b, \pder s, \pder t) (A - \lambda_1 g_1 - \lambda_2 g_2) \nonumber
 \\ \nonumber
