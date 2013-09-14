@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 607\\ 
+\noindent Instructor: Thomas Schlumprecht
+
+\subsection*{HW 3}
+
+\p{1} Problem 8/Page 27.
+
+\p{2} Assume $\mu$ is finitely additive on a sigma algebra $\mathcal M$
+
+a) $\mu$ is $\sigma$-additive $\leftrightarrow$ $\u$ is continuous from below.
+
+b) Assume $\mu(X) < \infty$. Then $\mu$ is $\sigma$-additive $\leftrightarrow$ $\u$ is continuous from above.
+
+\p{3} Suppose $(X, \mathcal M, \mu)$ is a measure space. We call
+$$ \mathcal N = \{ A \subset X : \exists B \in \mathcal M  \: A \subset B \text { and } \mu(B) = 0 \}$$
+the \emph{nullsets} of $(X \mathcal M, \mu)$.
+
+a) Show that 
+$$ \widebar{\mathcal M} = \{ A \cup N : A \in \mathcal M \text{ and } N \in \mathcal N \}$$
+is a $\sigma$-algebra.
+
+b) Show that
+$$ \widebar{\mu}: \widebar{\mathcal M} \to [0, \infty], \: A \cup N \mapsto \mu(A), \text{ if } A \in \mathcal M , N \in \mathcal N $$
+is well-defined and a measure.
+
+\p{4} Let $(X , \mathcal M, \mu)$ be a finite measure space. 
+
+a) If $E, F \in \mathcal M$ and $\mu(E \Delta F) = 0$ then $\mu(E) = \mu(F)$.
+
+b) We say that $E \tilde F$ if $\mu(E \Delta F) = 0$. Show that $\tilde$ is an equivalence relation.
+
+c) For $E, F \in \mathcal M$ put $\rho(E, F) = \mu(E \Delta F)$, show that $\rho$ induces a metric on $\mathcal M / \tilde$.
+
+\p{5} If $\mu*$ is an outer measure on $X$ and $(A_j)_{j \in \N}$ a sequence of disjoint $\mu^*$-measurable sets, then 
+$\mu^*(E \cap (\bigcup_{j=1}^\infty A_j) = \sum_{j=1}^\infty \mu^*(E \cap A_j)$ for any $E \subset X$.
+
+\p{6} Assume that the algebra $\mathcal A$ generates the $\sigma$-algebra $\mathcal M$ and assume that $\mu$ is a finite measure on $\mathcal M$. Show that for any $\epsilon > 0$ and any $A \in \mathcal M$, there is an $~A \in \mathcal A$ so that $\mu(A \delta ~A) < \epsilon$.
+
+
+
+
+\end{document}
