@@ -1,6 +1,8 @@
 \documentclass{article}
 \usepackage{../m}
 
+\rnc{\d}{\pder}
+
 \begin{document}
 \noindent Paul Gustafson\\
 \noindent Texas A\&M University - Math 666\\ 
@@ -55,15 +57,15 @@ v_{1.5} & =  -\omega n_2'
 \\  \omega_0 & = v_{0.5} \cdot n_0'
 \\ & = \omega \sin(\theta_2 - \theta_1) n_1 \cdot n_0' + \omega \cos(\theta_2 - \theta_1) n_1' \cdot n_0'
 \\ & = \omega \sin(\theta_2 - \theta_1) \sin(\theta_1 - \theta_0) + \omega \cos(\theta_2 - \theta_1) \cos(\theta_1 - \theta_0)
-\\ & = \omega \cos(2 \theta_1 - \theta_0 - \theta_1)
+\\ & = \omega \cos(2 \theta_1 - \theta_0 - \theta_2)
 \end{align*}
 
 Hence the control system for $M$ is given by the family of vector fields $\mathcal F = \{\pm X_1, \pm X_2\}$, where
 $$X_1 = \cos(\theta_2) \pder x  + \sin(\theta_0) \pder y  + \sin(\theta_2 - \theta_1)  \pder {\theta_1} + A \pder {\theta_0}$$
-with $A = \sin(2 \theta_1 - \theta_0 - \theta_1)$,
+with $A = \sin(2 \theta_1 - \theta_0 - \theta_2)$,
 and
 $$X_2 =  \pder {\theta_2} - \cos(\theta_2 - \theta_1) \pder {\theta_1} + B \pder {\theta_0}$$
-with $B = \cos(2 \theta_1 - \theta_0 - \theta_1)$.
+with $B = \cos(2 \theta_1 - \theta_0 - \theta_2)$.
 \end{proof}
 
 
@@ -73,20 +75,48 @@ Hence,
 \begin{align*}
 [X_1, X_2] & = \left[ \cos(\theta_2) \pder x  + \sin(\theta_2) \pder y  + \sin(\theta_2 - \theta_1)  \pder {\theta_1} + A \pder {\theta_0}, \right.
 \\ & \quad \quad \left. \pder {\theta_2} - \cos(\theta_2 - \theta_1) \pder {\theta_1} + B \pder {\theta_0} \right]
-%
-\\ & = \cos(\theta_2) \pder[X_2] x  + \sin(\theta_2) \pder[X_2] y  + \sin(\theta_2 - \theta_1)  \pder[X_2] {\theta_1} + A \pder[X_2] {\theta_0}
-\\ & \quad \quad - \left( \pder[X_1] {\theta_2} - \cos(\theta_2 - \theta_1) \pder [X_1] {\theta_1} + B \pder[X_1] {\theta_0} \right)
-%
+%\\ & = \cos(\theta_2) \pder[X_2] x  + \sin(\theta_2) \pder[X_2] y  + \sin(\theta_2 - \theta_1)  \pder[X_2] {\theta_1} + A \pder[X_2] {\theta_0}
+%\\ & \quad \quad - \left( \pder[X_1] {\theta_2} - \cos(\theta_2 - \theta_1) \pder [X_1] {\theta_1} + B \pder[X_1] {\theta_0} \right)
 \\ & =  \sin(\theta_2 - \theta_1) \left( -\sin(\theta_2 - \theta_1) \pder {\theta_1} + \pder[B] {\theta_1} \pder {\theta_0} \right) + A \pder[B] {\theta_0} \pder {\theta_0}
 \\ & \quad \quad - \left( -\sin(\theta_2) \pder x + \cos(\theta_2) \pder y + \cos (\theta_2 - \theta_1) \pder {\theta_1} + \pder[A] {\theta_1} \pder {\theta_0} \right) 
 \\ & \quad \quad + \cos(\theta_2 - \theta_1) \left( -\cos(\theta_2 - \theta_1) \pder {\theta_1} + \pder[A] {\theta_1} \pder {\theta_0} \right) - B \pder[A] {\theta_0} \pder {\theta_0}
-%
 \\ & = \sin(\theta_2) \pder x  - \cos(\theta_2) \pder y + 
 \\ & \quad \quad \left(- \sin^2(\theta_2 - \theta_1) - \cos (\theta_2 - \theta_1) + \cos^2(\theta_2 - \theta_1) \right) \pder {\theta_1} + 
-\\ & \quad \quad \left(  \sin (\theta_2 - \theta_1) \pder[B] {\theta_1}  + A \pder[B] {\theta_0} +  \pder[A]{\theta_1} + \cos(\theta_2 - \theta_1) \pder[A] {\theta_1} - B \pder[A]{\theta_0} \right) \pder {\theta_0}
-\\ & \quad \quad \left(  \sin (\theta_2 - \theta_1) \pder[B] {\theta_1}  + A \pder[B] {\theta_0} +  \pder[A]{\theta_1} + \cos(\theta_2 - \theta_1) \pder[A] {\theta_1} - B \pder[A]{\theta_0} \right) \pder {\theta_0}
-
+\\ & \quad \quad + \left(  \sin (\theta_2 - \theta_1) \pder[B] {\theta_1}  + A \pder[B] {\theta_0} +  \pder[A]{\theta_1} + \cos(\theta_2 - \theta_1) \pder[A] {\theta_1} - B \pder[A]{\theta_0} \right) \pder {\theta_0}
+\\ & = \sin(\theta_2) \pder x  - \cos(\theta_2) \pder y + (\cos(2 \theta_2 - 2 \theta_1) - \cos(\theta_2 - \theta_1) \pder {\theta_1}
+\\ & \quad \quad + \left(  \sin (\theta_2 - \theta_1) (-2A)  + A^2 +  2B + \cos(\theta_2 - \theta_1) (2B) - B(-B) \right) \pder {\theta_0}
+\\ & = \sin(\theta_2) \pder x  - \cos(\theta_2) \pder y + (\cos(2 \theta_2 - 2 \theta_1) - \cos(\theta_2 - \theta_1)) \pder {\theta_1}
+\\ & \quad \quad  + \left( 2 \cos((\theta_2 - \theta_1) + (2\theta_1 - \theta_0 - \theta_2)) +  2B + 1  \right) \pder {\theta_0}
+\\ & = \sin(\theta_2) \pder x  - \cos(\theta_2) \pder y + C \pder {\theta_1} + D \pder {\theta_0},
 \end{align*}
+where $C = \cos(2 \theta_2 - 2 \theta_1) - \cos(\theta_2 - \theta_1) $
+ and $D = 2 \cos(\theta_1 - \theta_0) +  2 \cos(2 \theta_1 - \theta_0 - \theta_2) + 1$.
+
+Then 
+\begin{align*}
+[X_1, [X_1, X_2]] & = \left[ \cos(\theta_2) \pder x  + \sin(\theta_2) \pder y  + \sin(\theta_2 - \theta_1)  \pder {\theta_1} + A \pder {\theta_0}, \right.
+\\ & \quad \quad \left.  \sin(\theta_2) \pder x  - \cos(\theta_2) \pder y + C \pder {\theta_1} + D \pder {\theta_0} \right]
+%\\ & = \sin(\theta_2 - \theta_1)  \pder [{[X_1, X_2]}] {\theta_1} + A \pder [{[X_1, X_2]}] {\theta_0} 
+%- \left( C \pder [X_1] {\theta_1} + D \pder [X_1] {\theta_0} \right)
+\\ & = \sin(\theta_2 - \theta_1) \left( \pder [C] {\theta_1} \pder {\theta_1} + \pder [D] {\theta_1} \pder {\theta_0} \right)
+ + A \pder [D] {\theta_0} \pder {\theta_0}
+\\ & \quad \quad - C \left( -\cos(\theta_2 - \theta_1) \pder {\theta_1} + \pder [A] {\theta_1} \pder {\theta_0} \right) + D \pder [A] {\theta_0} \pder {\theta_0}
+\\ & = \left(  \sin(\theta_2 - \theta_1) \pder[C]{\theta_1} + C \cos(\theta_2 - \theta_1) \right)\pder {\theta_1}
+\\ & \quad \quad \left( \sin(\theta_2 - \theta_1) \pder[D]{\theta_1} + A \pder[D]{\theta_0} - C \pder[A]{\theta_1} + D \pder[A]{\theta_0} \right) \pder {\theta_0}
+\end{align*}
+and
+\begin{align*}
+[X_2, [X_1, X_2]] & = \left[  \pder {\theta_2} - \cos(\theta_2 - \theta_1) \pder {\theta_1} + B \pder {\theta_0}  ,\right.
+\\ & \quad \quad \left.  \sin(\theta_2) \pder x  - \cos(\theta_2) \pder y + C \pder {\theta_1} + D \pder {\theta_0} \right]
+\\ & = \cos(\theta_2) \d x + \sin(\theta_2) \d y + \d[C]{\theta_2} \d{\theta_1} + \d[D]{\theta_2} \d{\theta_0}
+\\ & \quad \quad -\cos(\theta_2 - \theta_1) \left(\d[C]{\theta_1} \d{\theta_1} + \d[D]{\theta_1} \d{\theta_0}\right) + B \d[D]{\theta_0} \d{\theta_0}
+\\ & \quad \quad - C \left( -\sin(\theta_2 - \theta_1) \d{\theta_1} + \d[B]{\theta_1} \d{\theta_0} \right) - D \d[B]{\theta_0} \d{\theta_0}
+\\ & = \cos(\theta_2) \d x + \sin(\theta_2) \d y 
+\\ & \quad \quad + \left(\d[C]{\theta_2}  - \cos(\theta_2 - \theta_1) \d[C]{\theta_1} + C \sin(\theta_2 - \theta_1) \right) \d{\theta_1} 
+\\ & \quad \quad + \left( \d[D]{\theta_2} - \cos(\theta_2 - \theta_1) \d[D]{\theta_1} + B \d[D]{\theta_0} - C \d[B]{\theta_1} - D \d[B]{\theta_0} \right) \d{\theta_0}
+\end{align*}
+
+% GET RID OF d_x d_y by changing basis by rotation matrix ?? not worth bother.
 
 \end{proof}
 

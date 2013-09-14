@@ -6,8 +6,92 @@
 \noindent Texas A\&M University - Math 666\\ 
 \noindent Instructor: Igor Zelenko
 
-\subsection*{HW
-\p{
+\subsection*{HW 1}
+\p{1}  Write the control system on $M = \R^2 \times \mathbb{T}^3$ corresponding to the car with two off-hook trailers system.
 \begin{proof}
+Let $n_i = (\cos \theta_i, \sin \theta_i)$ and $n_i' = (-\sin \theta_i , \cos \theta_i)$ for $0 \le i \le 2$.
+Then $n_i \cdot n_j  = \cos(\theta_i - \theta_j) = n_i' \cdot n_j'$ and $n_i \cdot n_j' = \sin(\theta_i - \theta_j)$.
+
+Let $v_2$ denote the velocity of the car, and $v_i$ denote the velocity of the $(n-i)$-th trailer. Let $v_{1.5}$ denote the velocity of the first hook, and $v_{0.5}$ denote the velocity of the second hook. Let $\omega_i = \pder[\theta_i]{t}$.  
+
+
+In the case of linear motion of the car, we have $v_2 = v n_2$ and $\omega_2 = 0$. Hence,
+\begin{align*}
+v_{1.5} & = v n_2
+\\
+\\ v_1 & = (v_{1.5} \cdot n_1) n_1 
+\\ & = (v n_2 \cdot n_1) n_1 
+\\ & = \cos(\theta_2 - \theta_1) n_1
+\\
+\\ \omega_1 & = v_{1.5} \cdot n_1' 
+\\ & = v n_2 \cdot n_1' 
+\\ & = v \sin(\theta_2 - \theta_1)
+\\
+\\ v_{0.5} & = v_1  - \omega_1 n_1' 
+\\ & = v \cos(\theta_2 - \theta_1) n_1 - v \sin(\theta_2 - \theta_1) n_1'
+\\
+\\ \omega_0 & = v_{0.5} \cdot n_0'
+\\ & = v \cos(\theta_2 - \theta_1) n_1 \cdot n_0' - v \sin(\theta_2 - \theta_1) n_1' \cdot n_0'
+\\ &  = v \cos(\theta_2 - \theta_1) \sin(\theta_1 - \theta_0) - v \sin(\theta_2 - \theta_1) \cos(\theta_1 - \theta_0)
+\\ &  = v \sin((\theta_1 - \theta_0) - (\theta_2 - \theta_1))
+\\ &  = v \sin(2 \theta_1 - \theta_0 - \theta_2 ).
+\end{align*}
+
+For the case of the car turning, we have $v_2 = 0$ and $\omega_2 = \omega$. Hence,
+\begin{align*}
+v_{1.5} & =  -\omega n_2'
+\\
+\\ v_1 & =  (v_{1.5} \cdot n_1) n_1
+\\ & =  (-\omega n_2' \cdot n_1) n_1
+\\ & = \omega \sin(\theta_2 - \theta_1) n_1
+\\
+\\ \omega_1 & =  v_{1.5} \cdot n_1'
+\\ & = - \omega n_2' \cdot n_1'
+\\ & =  -\omega \cos(\theta_2 - \theta_1)
+\\
+\\ v_{0.5} & =  v_1  - \omega_1 n_1'
+\\ & = \omega \sin(\theta_2 - \theta_1) n_1 + \omega \cos(\theta_2 - \theta_1) n_1'
+\\
+\\  \omega_0 & = v_{0.5} \cdot n_0'
+\\ & = \omega \sin(\theta_2 - \theta_1) n_1 \cdot n_0' + \omega \cos(\theta_2 - \theta_1) n_1' \cdot n_0'
+\\ & = \omega \sin(\theta_2 - \theta_1) \sin(\theta_1 - \theta_0) + \omega \cos(\theta_2 - \theta_1) \cos(\theta_1 - \theta_0)
+\\ & = \omega \cos(2 \theta_1 - \theta_0 - \theta_1)
+\end{align*}
+
+Hence the control system for $M$ is given by the family of vector fields $\mathcal F = \{\pm X_1, \pm X_2\}$, where
+$$X_1 = \cos(\theta_2) \pder x  + \sin(\theta_0) \pder y  + \sin(\theta_2 - \theta_1)  \pder {\theta_1} + A \pder {\theta_0}$$
+with $A = \sin(2 \theta_1 - \theta_0 - \theta_1)$,
+and
+$$X_2 =  \pder {\theta_2} - \cos(\theta_2 - \theta_1) \pder {\theta_1} + B \pder {\theta_0}$$
+with $B = \cos(2 \theta_1 - \theta_0 - \theta_1)$.
 \end{proof}
+
+
+\p{2} Find all points $q \in M$ such that $\mathcal F$ is bracket-generating. At these points, calculate the degree of nonholonomy of $\mathcal F$.
+\begin{proof}
+Hence,
+\begin{align*}
+[X_1, X_2] & = \left[ \cos(\theta_2) \pder x  + \sin(\theta_2) \pder y  + \sin(\theta_2 - \theta_1)  \pder {\theta_1} + A \pder {\theta_0}, \right.
+\\ & \quad \quad \left. \pder {\theta_2} - \cos(\theta_2 - \theta_1) \pder {\theta_1} + B \pder {\theta_0} \right]
+%
+\\ & = \cos(\theta_2) \pder[X_2] x  + \sin(\theta_2) \pder[X_2] y  + \sin(\theta_2 - \theta_1)  \pder[X_2] {\theta_1} + A \pder[X_2] {\theta_0}
+\\ & \quad \quad - \left( \pder[X_1] {\theta_2} - \cos(\theta_2 - \theta_1) \pder [X_1] {\theta_1} + B \pder[X_1] {\theta_0} \right)
+%
+\\ & =  \sin(\theta_2 - \theta_1) \left( -\sin(\theta_2 - \theta_1) \pder {\theta_1} + \pder[B] {\theta_1} \pder {\theta_0} \right) + A \pder[B] {\theta_0} \pder {\theta_0}
+\\ & \quad \quad - \left( -\sin(\theta_2) \pder x + \cos(\theta_2) \pder y + \cos (\theta_2 - \theta_1) \pder {\theta_1} + \pder[A] {\theta_1} \pder {\theta_0} \right) 
+\\ & \quad \quad + \cos(\theta_2 - \theta_1) \left( -\cos(\theta_2 - \theta_1) \pder {\theta_1} + \pder[A] {\theta_1} \pder {\theta_0} \right) - B \pder[A] {\theta_0} \pder {\theta_0}
+%
+\\ & = \sin(\theta_2) \pder x  - \cos(\theta_2) \pder y + 
+\\ & \quad \quad \left(- \sin^2(\theta_2 - \theta_1) - \cos (\theta_2 - \theta_1) + \cos^2(\theta_2 - \theta_1) \right) \pder {\theta_1} + 
+\\ & \quad \quad \left(  \sin (\theta_2 - \theta_1) \pder[B] {\theta_1}  + A \pder[B] {\theta_0} +  \pder[A]{\theta_1} + \cos(\theta_2 - \theta_1) \pder[A] {\theta_1} - B \pder[A]{\theta_0} \right) \pder {\theta_0}
+\\ & \quad \quad \left(  \sin (\theta_2 - \theta_1) \pder[B] {\theta_1}  + A \pder[B] {\theta_0} +  \pder[A]{\theta_1} + \cos(\theta_2 - \theta_1) \pder[A] {\theta_1} - B \pder[A]{\theta_0} \right) \pder {\theta_0}
+
+\end{align*}
+
+\end{proof}
+
+
+\p{3} Let $\widetilde M$ denote the set of bracket-generating points of $\mathcal F$. Prove that the system is controllable on $\widetilde M$.
+
+
 \end{document}
