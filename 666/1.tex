@@ -14,7 +14,7 @@
 Let $n_i = (\cos \theta_i, \sin \theta_i)$ and $n_i' = (-\sin \theta_i , \cos \theta_i)$ for $0 \le i \le 2$.
 Then $n_i \cdot n_j  = \cos(\theta_i - \theta_j) = n_i' \cdot n_j'$ and $n_i \cdot n_j' = \sin(\theta_i - \theta_j)$.
 
-Let $v_2$ denote the velocity of the car, and $v_i$ denote the velocity of the $(n-i)$-th trailer. Let $v_{1.5}$ denote the velocity of the first hook, and $v_{0.5}$ denote the velocity of the second hook. Let $\omega_i = \pder[\theta_i]{t}$.  
+Let $v_2$ denote the velocity of the car, and $v_i$ denote the velocity of the $(n-i)$-th trailer. Let $v_{1.5}$ denote the velocity of the first hook, and $v_{0.5}$ denote the velocity of the second hook. Let $\omega_i = \d[\theta_i]{t}$.  
 
 
 In the case of linear motion of the car, we have $v_2 = v n_2$ and $\omega_2 = 0$. Hence,
@@ -23,7 +23,7 @@ v_{1.5} & = v n_2
 \\
 \\ v_1 & = (v_{1.5} \cdot n_1) n_1 
 \\ & = (v n_2 \cdot n_1) n_1 
-\\ & = \cos(\theta_2 - \theta_1) n_1
+\\ & = v \cos(\theta_2 - \theta_1) n_1
 \\
 \\ \omega_1 & = v_{1.5} \cdot n_1' 
 \\ & = v n_2 \cdot n_1' 
@@ -61,10 +61,10 @@ v_{1.5} & =  -\omega n_2'
 \end{align*}
 
 Hence the control system for $M$ is given by the family of vector fields $\mathcal F = \{\pm X_1, \pm X_2\}$, where
-$$X_1 = \cos(\theta_2) \pder x  + \sin(\theta_0) \pder y  + \sin(\theta_2 - \theta_1)  \pder {\theta_1} + A \pder {\theta_0}$$
+$$X_1 = \cos(\theta_2) \d x  + \sin(\theta_2) \d y  + \sin(\theta_2 - \theta_1)  \d {\theta_1} + A \d {\theta_0}$$
 with $A = \sin(2 \theta_1 - \theta_0 - \theta_2)$,
 and
-$$X_2 =  \pder {\theta_2} - \cos(\theta_2 - \theta_1) \pder {\theta_1} + B \pder {\theta_0}$$
+$$X_2 =  \d {\theta_2} - \cos(\theta_2 - \theta_1) \d {\theta_1} + B \d {\theta_0}$$
 with $B = \cos(2 \theta_1 - \theta_0 - \theta_2)$.
 \end{proof}
 
@@ -73,50 +73,71 @@ with $B = \cos(2 \theta_1 - \theta_0 - \theta_2)$.
 \begin{proof}
 Hence,
 \begin{align*}
-[X_1, X_2] & = \left[ \cos(\theta_2) \pder x  + \sin(\theta_2) \pder y  + \sin(\theta_2 - \theta_1)  \pder {\theta_1} + A \pder {\theta_0}, \right.
-\\ & \quad \quad \left. \pder {\theta_2} - \cos(\theta_2 - \theta_1) \pder {\theta_1} + B \pder {\theta_0} \right]
-%\\ & = \cos(\theta_2) \pder[X_2] x  + \sin(\theta_2) \pder[X_2] y  + \sin(\theta_2 - \theta_1)  \pder[X_2] {\theta_1} + A \pder[X_2] {\theta_0}
-%\\ & \quad \quad - \left( \pder[X_1] {\theta_2} - \cos(\theta_2 - \theta_1) \pder [X_1] {\theta_1} + B \pder[X_1] {\theta_0} \right)
-\\ & =  \sin(\theta_2 - \theta_1) \left( -\sin(\theta_2 - \theta_1) \pder {\theta_1} + \pder[B] {\theta_1} \pder {\theta_0} \right) + A \pder[B] {\theta_0} \pder {\theta_0}
-\\ & \quad \quad - \left( -\sin(\theta_2) \pder x + \cos(\theta_2) \pder y + \cos (\theta_2 - \theta_1) \pder {\theta_1} + \pder[A] {\theta_1} \pder {\theta_0} \right) 
-\\ & \quad \quad + \cos(\theta_2 - \theta_1) \left( -\cos(\theta_2 - \theta_1) \pder {\theta_1} + \pder[A] {\theta_1} \pder {\theta_0} \right) - B \pder[A] {\theta_0} \pder {\theta_0}
-\\ & = \sin(\theta_2) \pder x  - \cos(\theta_2) \pder y + 
-\\ & \quad \quad \left(- \sin^2(\theta_2 - \theta_1) - \cos (\theta_2 - \theta_1) + \cos^2(\theta_2 - \theta_1) \right) \pder {\theta_1} + 
-\\ & \quad \quad + \left(  \sin (\theta_2 - \theta_1) \pder[B] {\theta_1}  + A \pder[B] {\theta_0} +  \pder[A]{\theta_1} + \cos(\theta_2 - \theta_1) \pder[A] {\theta_1} - B \pder[A]{\theta_0} \right) \pder {\theta_0}
-\\ & = \sin(\theta_2) \pder x  - \cos(\theta_2) \pder y + (\cos(2 \theta_2 - 2 \theta_1) - \cos(\theta_2 - \theta_1) \pder {\theta_1}
-\\ & \quad \quad + \left(  \sin (\theta_2 - \theta_1) (-2A)  + A^2 +  2B + \cos(\theta_2 - \theta_1) (2B) - B(-B) \right) \pder {\theta_0}
-\\ & = \sin(\theta_2) \pder x  - \cos(\theta_2) \pder y + (\cos(2 \theta_2 - 2 \theta_1) - \cos(\theta_2 - \theta_1)) \pder {\theta_1}
-\\ & \quad \quad  + \left( 2 \cos((\theta_2 - \theta_1) + (2\theta_1 - \theta_0 - \theta_2)) +  2B + 1  \right) \pder {\theta_0}
-\\ & = \sin(\theta_2) \pder x  - \cos(\theta_2) \pder y + C \pder {\theta_1} + D \pder {\theta_0},
+[X_1, X_2] & = \left[ \cos(\theta_2) \d x  + \sin(\theta_2) \d y  + \sin(\theta_2 - \theta_1)  \d {\theta_1} + A \d {\theta_0}, \right.
+\\ & \quad \quad \left. \d {\theta_2} - \cos(\theta_2 - \theta_1) \d {\theta_1} + B \d {\theta_0} \right]
+\\ & =  \sin(\theta_2 - \theta_1) \left( -\sin(\theta_2 - \theta_1) \d {\theta_1} + \d[B] {\theta_1} \d {\theta_0} \right) + A \d[B] {\theta_0} \d {\theta_0}
+\\ & \quad \quad - \left( -\sin(\theta_2) \d x + \cos(\theta_2) \d y + \cos (\theta_2 - \theta_1) \d {\theta_1} + \d[A] {\theta_2} \d {\theta_0} \right) 
+\\ & \quad \quad + \cos(\theta_2 - \theta_1) \left( -\cos(\theta_2 - \theta_1) \d {\theta_1} + \d[A] {\theta_1} \d {\theta_0} \right) - B \d[A] {\theta_0} \d {\theta_0}
+\\ & = \sin(\theta_2) \d x  - \cos(\theta_2) \d y  
+\\ & \quad \quad + \left(- \sin^2(\theta_2 - \theta_1) - \cos (\theta_2 - \theta_1) - \cos^2(\theta_2 - \theta_1) \right) \d {\theta_1}
+\\ & \quad \quad + \left(  \sin (\theta_2 - \theta_1) \d[B] {\theta_1}  + A \d[B] {\theta_0} -  \d[A]{\theta_2} + \cos(\theta_2 - \theta_1) \d[A] {\theta_1} - B \d[A]{\theta_0} \right) \d {\theta_0}
+\\ & = \sin(\theta_2) \d x  - \cos(\theta_2) \d y + (-1 - \cos(\theta_2 - \theta_1)) \d {\theta_1}
+\\ & \quad \quad + \left(  \sin (\theta_2 - \theta_1) (-2A)  + A^2 +  B + \cos(\theta_2 - \theta_1) (2B) - B(-B) \right) \d {\theta_0}
+\\ & = \sin(\theta_2) \d x  - \cos(\theta_2) \d y + (-1 - \cos(\theta_2 - \theta_1)) \d {\theta_1}
+\\ & \quad \quad  + \left( 2 \cos((\theta_2 - \theta_1) + (2\theta_1 - \theta_0 - \theta_2)) +  B + 1  \right) \d {\theta_0}
+\\ & = \sin(\theta_2) \d x  - \cos(\theta_2) \d y + C \d {\theta_1} + D \d {\theta_0},
 \end{align*}
-where $C = \cos(2 \theta_2 - 2 \theta_1) - \cos(\theta_2 - \theta_1) $
- and $D = 2 \cos(\theta_1 - \theta_0) +  2 \cos(2 \theta_1 - \theta_0 - \theta_2) + 1$.
+where $C = -1 - \cos(\theta_2 - \theta_1) $
+ and $D = 2 \cos(\theta_1 - \theta_0) +  \cos(2 \theta_1 - \theta_0 - \theta_2) + 1$.
+% =  2 \cos(\theta_1 - \theta_0) +  \cos^2 (\theta_1 - \theta_0) - \sin^2(\theta_2 - \theta_1) + 1 = (cos() + 1)^2 - sin^2()
+
+Hence 
+\begin{align*}
+\d[D]{\theta_2} & = \sin(2 \theta_1 - \theta_0 - \theta_2)
+\\ \d[D]{\theta_1} & = - 2 \sin(\theta_1 - \theta_0) - 2 \sin (2 \theta_1 - \theta_0 - \theta_2)
+\\ \d[D]{\theta_0} & = 2 \sin(\theta_1 - \theta_0) + \sin(2 \theta_1 - \theta_0 - \theta_2)
+\end{align*}
 
 Then 
 \begin{align*}
-[X_1, [X_1, X_2]] & = \left[ \cos(\theta_2) \pder x  + \sin(\theta_2) \pder y  + \sin(\theta_2 - \theta_1)  \pder {\theta_1} + A \pder {\theta_0}, \right.
-\\ & \quad \quad \left.  \sin(\theta_2) \pder x  - \cos(\theta_2) \pder y + C \pder {\theta_1} + D \pder {\theta_0} \right]
-%\\ & = \sin(\theta_2 - \theta_1)  \pder [{[X_1, X_2]}] {\theta_1} + A \pder [{[X_1, X_2]}] {\theta_0} 
-%- \left( C \pder [X_1] {\theta_1} + D \pder [X_1] {\theta_0} \right)
-\\ & = \sin(\theta_2 - \theta_1) \left( \pder [C] {\theta_1} \pder {\theta_1} + \pder [D] {\theta_1} \pder {\theta_0} \right)
- + A \pder [D] {\theta_0} \pder {\theta_0}
-\\ & \quad \quad - C \left( -\cos(\theta_2 - \theta_1) \pder {\theta_1} + \pder [A] {\theta_1} \pder {\theta_0} \right) + D \pder [A] {\theta_0} \pder {\theta_0}
-\\ & = \left(  \sin(\theta_2 - \theta_1) \pder[C]{\theta_1} + C \cos(\theta_2 - \theta_1) \right)\pder {\theta_1}
-\\ & \quad \quad \left( \sin(\theta_2 - \theta_1) \pder[D]{\theta_1} + A \pder[D]{\theta_0} - C \pder[A]{\theta_1} + D \pder[A]{\theta_0} \right) \pder {\theta_0}
+[X_1, [X_1, X_2]] & = \left[ \cos(\theta_2) \d x  + \sin(\theta_2) \d y  + \sin(\theta_2 - \theta_1)  \d {\theta_1} + A \d {\theta_0}, \right.
+\\ & \quad \quad \left.  \sin(\theta_2) \d x  - \cos(\theta_2) \d y + C \d {\theta_1} + D \d {\theta_0} \right]
+\\ & = \sin(\theta_2 - \theta_1) \left( \d [C] {\theta_1} \d {\theta_1} + \d [D] {\theta_1} \d {\theta_0} \right)
+ + A \d [D] {\theta_0} \d {\theta_0}
+\\ & \quad \quad - C \left( -\cos(\theta_2 - \theta_1) \d {\theta_1} + \d [A] {\theta_1} \d {\theta_0} \right) + D \d [A] {\theta_0} \d {\theta_0}
+\\ & = \left(  \sin(\theta_2 - \theta_1) \d[C]{\theta_1} + C \cos(\theta_2 - \theta_1) \right)\d {\theta_1}
+\\ & \quad \quad \left( \sin(\theta_2 - \theta_1) \d[D]{\theta_1} + A \d[D]{\theta_0} - C \d[A]{\theta_1} + D \d[A]{\theta_0} \right) \d {\theta_0}
+\\ & = \left(  \sin(\theta_2 - \theta_1) \d[C]{\theta_1} + C \cos(\theta_2 - \theta_1) \right)\d {\theta_1}
+\\ & \quad \quad \left( \sin(\theta_2 - \theta_1) \d[D]{\theta_1} + A \d[D]{\theta_0} - C (2B) + D (-B) \right) \d {\theta_0}
 \end{align*}
 and
 \begin{align*}
-[X_2, [X_1, X_2]] & = \left[  \pder {\theta_2} - \cos(\theta_2 - \theta_1) \pder {\theta_1} + B \pder {\theta_0}  ,\right.
-\\ & \quad \quad \left.  \sin(\theta_2) \pder x  - \cos(\theta_2) \pder y + C \pder {\theta_1} + D \pder {\theta_0} \right]
+[X_2, [X_1, X_2]] & = \left[  \d {\theta_2} - \cos(\theta_2 - \theta_1) \d {\theta_1} + B \d {\theta_0}  ,\right.
+\\ & \quad \quad \left.  \sin(\theta_2) \d x  - \cos(\theta_2) \d y + C \d {\theta_1} + D \d {\theta_0} \right]
 \\ & = \cos(\theta_2) \d x + \sin(\theta_2) \d y + \d[C]{\theta_2} \d{\theta_1} + \d[D]{\theta_2} \d{\theta_0}
 \\ & \quad \quad -\cos(\theta_2 - \theta_1) \left(\d[C]{\theta_1} \d{\theta_1} + \d[D]{\theta_1} \d{\theta_0}\right) + B \d[D]{\theta_0} \d{\theta_0}
 \\ & \quad \quad - C \left( -\sin(\theta_2 - \theta_1) \d{\theta_1} + \d[B]{\theta_1} \d{\theta_0} \right) - D \d[B]{\theta_0} \d{\theta_0}
 \\ & = \cos(\theta_2) \d x + \sin(\theta_2) \d y 
 \\ & \quad \quad + \left(\d[C]{\theta_2}  - \cos(\theta_2 - \theta_1) \d[C]{\theta_1} + C \sin(\theta_2 - \theta_1) \right) \d{\theta_1} 
 \\ & \quad \quad + \left( \d[D]{\theta_2} - \cos(\theta_2 - \theta_1) \d[D]{\theta_1} + B \d[D]{\theta_0} - C \d[B]{\theta_1} - D \d[B]{\theta_0} \right) \d{\theta_0}
+\\ & = \cos(\theta_2) \d x + \sin(\theta_2) \d y 
+\\ & \quad \quad + \left(\d[C]{\theta_2}  - \cos(\theta_2 - \theta_1) \d[C]{\theta_1} + C \sin(\theta_2 - \theta_1) \right) \d{\theta_1} 
+\\ & \quad \quad + \left( \d[D]{\theta_2} - \cos(\theta_2 - \theta_1) \d[D]{\theta_1} + B \d[D]{\theta_0} - C (-2A) - D A \right) \d{\theta_0}.
 \end{align*}
 
-% GET RID OF d_x d_y by changing basis by rotation matrix ?? not worth bother.
+Letting $T$ be the matrix with rows $X_1, X_2, [X_1, X_2], [X_1, [X_1, X_2]], [X_2, [X_1, X_2]]$, using MATLAB we find that $\det(T) = \sin(\theta_2 - \theta_1) -  \sin(\theta_1 - \theta_0) + \sin(\theta_2 -2 \theta_1 + \theta_0)$. 
+
+If $\det(T) \neq 0$, then $Lie^3_q = T_qM$, and the degree of nonholonomy at $q$ is 3. 
+
+On the other hand, if $\det(T) = 0$ then let $\alpha = \theta_2 - \theta_1$ and $\beta = \theta_1 - \theta_0$. Then we have 
+$0 = \det(T) = \sin(\alpha) - \sin(\beta) + \sin(\alpha - \beta) = \sin(\alpha) - \sin(\beta) + \sin(\alpha) \cos(\beta) - \sin(\beta) \cos(\alpha) = \sin(\alpha) (1 + \cos(\beta)) - \sin(\beta)(1 + \cos(\alpha)$. If either $\sin(\alpha) = 0$ or $\sin(\beta) = 0$, then $(\alpha, \beta) \in  \{(0,0)\} \cup \{\pi\} \times S^1\} \cup \{S^1 \times {\pi}\}$. 
+
+Otherwise, we have $\frac{1 + \cos(\beta)} {\sin(\beta)}  =\frac{1 + \cos(\alpha)} {\sin(\alpha)}$.  Let $f: (0, 2\pi) \to \R$ be defined by $f(\pi) = 0$ and $f(x) = \frac { 1 + \cos(x)} {\sin(x)}$ otherwise. If we identify $S^1$ with $[0, 2\pi)$, we have $f(\alpha) = f(\beta)$. Note that $f$ is continuous, and $f'(x) = -1 - \frac{(1 + \cos(x)) \cos(x)}{\sin^2(x)} = -1 - \frac{\cos(x)}{1 - \cos(x)} < 0$ for all $x$.  Hence $f$ is monotone decreasing.  Thus, $\alpha = \beta$.
+
+Thus, the  points $q$ such that $Lie^3_q \neq T_qM$ are those points such that  $\alpha = \pi$, or $\beta = \pi$, or $\beta - \alpha = 0$. In the original variables, this means $\theta_2 - \theta_1 = \pi$. or $\theta_1 - \theta_0 = \pi$, or $2 \theta_1 - \theta_0 - \theta_2 = 0$.
+
+
+
 
 \end{proof}
 
