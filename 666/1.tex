@@ -130,19 +130,29 @@ Letting $T$ be the matrix with rows $X_1, X_2, [X_1, X_2], [X_1, [X_1, X_2]], [X
 If $\det(T) \neq 0$, then $Lie^3_q = T_qM$, and the degree of nonholonomy at $q$ is 3. 
 
 On the other hand, if $\det(T) = 0$ then let $\alpha = \theta_2 - \theta_1$ and $\beta = \theta_1 - \theta_0$. Then we have 
-$0 = \det(T) = \sin(\alpha) - \sin(\beta) + \sin(\alpha - \beta) = \sin(\alpha) - \sin(\beta) + \sin(\alpha) \cos(\beta) - \sin(\beta) \cos(\alpha) = \sin(\alpha) (1 + \cos(\beta)) - \sin(\beta)(1 + \cos(\alpha)$. If either $\sin(\alpha) = 0$ or $\sin(\beta) = 0$, then $(\alpha, \beta) \in  \{(0,0)\} \cup \{\pi\} \times S^1\} \cup \{S^1 \times {\pi}\}$. 
+$0 = \det(T) = \sin(\alpha) - \sin(\beta) + \sin(\alpha - \beta) = \sin(\alpha) - \sin(\beta) + \sin(\alpha) \cos(\beta) - \sin(\beta) \cos(\alpha) = \sin(\alpha) (1 + \cos(\beta)) - \sin(\beta)(1 + \cos(\alpha))$. If either $\sin(\alpha) = 0$ or $\sin(\beta) = 0$, then $(\alpha, \beta) \in  \{(0,0)\} \cup \{\pi\} \times S^1\} \cup \{S^1 \times {\pi}\}$. 
 
 Otherwise, we have $\frac{1 + \cos(\beta)} {\sin(\beta)}  =\frac{1 + \cos(\alpha)} {\sin(\alpha)}$.  Let $f: (0, 2\pi) \to \R$ be defined by $f(\pi) = 0$ and $f(x) = \frac { 1 + \cos(x)} {\sin(x)}$ otherwise. If we identify $S^1$ with $[0, 2\pi)$, we have $f(\alpha) = f(\beta)$. Note that $f$ is continuous, and $f'(x) = -1 - \frac{(1 + \cos(x)) \cos(x)}{\sin^2(x)} = -1 - \frac{\cos(x)}{1 - \cos(x)} < 0$ for all $x$.  Hence $f$ is monotone decreasing.  Thus, $\alpha = \beta$.
 
 Thus, the  points $q$ such that $Lie^3_q \neq T_qM$ are those points such that  $\alpha = \pi$, or $\beta = \pi$, or $\beta - \alpha = 0$. In the original variables, this means $\theta_2 - \theta_1 = \pi$. or $\theta_1 - \theta_0 = \pi$, or $2 \theta_1 - \theta_0 - \theta_2 = 0$.
 
 
+Suppose $q \in M$ such that $Lie^4_q \neq T_qM$. Using MATLAB, I found that the matrix with rows $X_1, X_2, [X_1, X_2], [X_1, [X_1 [X_1, X_2]], [X_2, [X_1, X_2]]$ has determinant $\sin(\alpha) + \sin(\beta) + \sin(\alpha + \beta)$, which must be $0$ at $q$.  Hence if $\alpha = \beta$, then $0 = 2\sin(\alpha) + \sin(2 \alpha) = 2 \sin(\alpha) (1 + \cos(\alpha))$. Hence $\alpha \in \{0, \pi\}$ if $\alpha = \beta$. 
 
+From MATLAB, we also have $\det(X_1, X_2, [X_1, X_2], [X_1 [X_1, X_2]], [X_2, [X_2, [X_1, X_2]]) = 2 \cos(\beta) + \cos(\alpha + \beta) + 2 \cos(\alpha) + \cos(\alpha - \beta) + 2$. If this determinant is zero, we cannot have $\alpha = \beta = 0$.  
+
+The only remaining case is either $\alpha = \pi$ or $\beta = \pi$. Each of these subspaces of $M$ is invariant under the family of controls $\mF$.  For example, if $\alpha = \theta_2 - \theta_1 = \pi$, then $X_1 = \cos(\theta_2) \d x + \sin(\theta_2) \d y - \sin(\theta_1 - \theta_0) \d {\theta_0}$. Hence, the value of $\alpha$ at $q$ is the same as the value at $exp(X_1t)(q)$ for any $t$.  A similar argument holds for $X_2$, and for the subspace $\beta = \pi$ in place of $\alpha = \pi$.   Hence if $q \in M$ with $\alpha = \pi$ or $\beta = \pi$, then $\delta {\theta_1} \not\in Lie_q^2$, for example.
+
+In summary, the only non-bracket-generating points are those with $\theta_2 - \theta_1 = \pi$ or $\theta_1 - \theta_0 = \pi$.  Out of the remaining points of $M$, the points with $\theta_1 - \theta_0 = \theta_2 - \theta_1 \neq \pi$ have degree of nonholomony $4$.  Everything else has degree of nonholonomy $3$.
 
 \end{proof}
 
 
 \p{3} Let $\widetilde M$ denote the set of bracket-generating points of $\mathcal F$. Prove that the system is controllable on $\widetilde M$.
 
+\begin{proof}
+By the Rachevskii-Chow theorem, it suffices to show that $\widetilde M$ is connected.  Let $q^1, q^2 \in \widetilde M$ with $q^1 = (x^1, y^1, \theta_2^1, \theta_1^1, \theta_0^1)$ and $q^2 = (x^2, y^2, \theta_2^2, \theta_1^2, \theta_0^2)$.  Let $I = [0,1]$. Define $p_1:I \to \widetilde M$ by $p_1(t) = q^1 + (x^2 - x^1 , y^2 - y^1, 0 ,0 ,0)t$.  
+
+\end{proof}
 
 \end{document}

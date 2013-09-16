@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  15 SEP 2013 22:40
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  16 SEP 2013 00:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -165,7 +165,27 @@ ith rows $\OML/cmm/m/it/10 X[]; X[]; \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]; X[]
 T1/cmr/m/n/10 ]]$,
  []
 
-[5] [6] (./1.aux) ) 
+
+Overfull \hbox (13.79202pt too wide) in paragraph at lines 139--140
+\OML/cmm/m/it/10 X[]; X[]; \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]; X[]\OT1/cmr/m
+/n/10 ]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]; \OT1/cmr/m/n/1
+0 [\OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]; X[]\OT1/cmr/m/n/1
+0 ]]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]; \OT1/cmr/m/n/10 [
+\OML/cmm/m/it/10 X[]; X[]\OT1/cmr/m/n/10 ]]$ have de-ter-mi-nant $[](\OML/cmm/m
+/it/10 \OT1/cmr/m/n/10 ) + [](\OML/cmm/m/it/10 ^^L\OT1/cmr/m/n/10 ) +
+ []
+
+[5]
+Overfull \hbox (41.81277pt too wide) in paragraph at lines 141--142
+[]\OT1/cmr/m/n/10 From MAT-LAB, we also have $[](\OML/cmm/m/it/10 X[]; X[]; \OT
+1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]; X[]\OT1/cmr/m/n/10 ]\OML/cmm/m/it/10 ; \OT1
+/cmr/m/n/10 [\OML/cmm/m/it/10 X[]\OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]; X[]\OT1
+/cmr/m/n/10 ]]\OML/cmm/m/it/10 ; \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]; \OT1/cm
+r/m/n/10 [\OML/cmm/m/it/10 X[]; \OT1/cmr/m/n/10 [\OML/cmm/m/it/10 X[]; X[]\OT1/
+cmr/m/n/10 ]]) =
+ []
+
+[6] (./1.aux) ) 
 Here is how much of TeX's memory you used:
  1347 strings out of 495059
  14700 string characters out of 3182030
@@ -173,21 +193,21 @@ Here is how much of TeX's memory you used:
  4559 multiletter control sequences out of 15000+200000
  6598 words of font info for 26 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,9n,26p,493b,187s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
-m/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx
-12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
-/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/sy
-mbols/msbm10.pfb>
-Output written on 1.pdf (6 pages, 131197 bytes).
+ 34i,9n,26p,497b,187s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+bx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texl
+ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
+/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
+s/msbm10.pfb>
+Output written on 1.pdf (6 pages, 132534 bytes).
 PDF statistics:
  75 PDF objects out of 1000 (max. 8388607)
  53 compressed objects within 1 object stream
