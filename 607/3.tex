@@ -11,41 +11,103 @@
 \p{1} Problem 8/Page 27. If $(X, \mM, \mu)$ is a measure space and $(E_j)_{j=1}^\infty \subset \mM$, then $\mu(\liminf E_j) \le \liminf \mu(E_j)$. Also, $\mu(\limsup E_j) \ge \limsup \mu(E_j)$ provided that $\mu(\bigcup_j E_j) < \infty$.
 
 \begin{proof}
-Let $F_k := \bigcap_{j \ge k} E_j$. Then $(F_k)$ is an ascending sequence, so $\mu(\bigcup_k F_k) = \lim_k \mu(F_k)$. Hence, $v b
-\end{proof}
+Let $F_k := \bigcap_{j \ge k} E_j$. Then $(F_k)$ is an ascending sequence, so $\mu(\liminf E_j) = \mu(\bigcup_k F_k) = \lim_k \mu(F_k)$. For all $k$, we have $F_k \subset E_k$, so $\mu(F_k) \le \mu(E_k)$. Hence $\mu(\liminf E_j) = \lim_k \mu(F_k) \le \liminf \mu(E_k)$.
 
+For the other part, suppose $\mu(\bigcup_j E_j) < \infty$. Let $G_k = \bigcup_{j \ge k} E_j$. Then $G_k$ is a descending sequence and $\mu(G_1) < \infty$, so $\mu( \bigcap_k G_k) = \lim_k \mu(G_k)$. Since $E_k \subset G_k$ for all $k$, we have $\mu(G_k) \ge \mu(E_k)$.  Hence $\mu(\limsup E_j) = \mu(\bigcap_k G_k) = \lim_k \mu(G_k) \ge \mu(E_k)$.
+
+\end{proof}
 
 \p{2} Assume $\mu$ is finitely additive on a sigma algebra $\mathcal M$
 
-a) $\mu$ is $\sigma$-additive $\leftrightarrow$ $\u$ is continuous from below.
+a) $\mu$ is $\sigma$-additive $\equiv$ $\mu$ is continuous from below.
 
-b) Assume $\mu(X) < \infty$. Then $\mu$ is $\sigma$-additive $\leftrightarrow$ $\u$ is continuous from above.
+b) Assume $\mu(X) < \infty$. Then $\mu$ is $\sigma$-additive $\equiv$ $\mu$ is continuous from above.
+
+\begin{proof}
+Suppose $\mu$ is $\sigma$-additive. Let $(E_n) \subset \mM$ be an ascending sequence of sets.  Let $F_1 = E_1$, and for each $n > 1$, let $F_n = E_n \setminus E_{n-1}$.
+Then $F_n$ are disjoint, and $\bigcup_{n=1}^N F_n = E_N$. Hence $\mu(\bigcup_n E_n)  = \mu(\bigcup_n F_n) = \sum_n \mu(F_n) = \lim_{N \to \infty} \sum_{n=1}^N \mu(F_n)
+ = \lim_{N \to \infty} \mu(\bigcup_{n=1}^N F_n) = \lim_{N \to \infty} E_N$.
+
+For the converse, suppose $\mu$ is continuous from below. Let $(F_n) \subset \mM$ be a sequence of disjoint sets. Let $E_n = \bigcup_{k=1}^n F_k$ for each $n$. Then
+$(E_n)$ is an ascending sequence, so $\mu(\bigcup_n E_n) = \lim_{n \to \infty} \mu(E_n) $.  
+Thus, $\mu(\bigcup_n F_n) = \mu(\bigcup_n E_n) = \lim_{n \to \infty} \mu(E_n) = \lim_{n \to \infty} \sum_{k=1}^n \mu(F_n) = \sum_{k=1}^\infty \mu(F_n)$.
+
+For (b), assume $\mu(X) < \infty$.  Since $\mu(X) < \infty$, for any set $E \in \mM$ we have $\mu(E^c) \le \mu(X) < \infty$, so $\mu(E) = \mu(X) - \mu(E^c)$.
+
+Suppose  $\mu$ is $\sigma$-additive. Let $(E_n) \subset \mM$ be a descending sequence of sets.  Then $(E_n^c)$ is a ascending sequence,
+so part (a) implies that $\mu(\bigcup_n E_n^c) = \lim_{n \to \infty} \mu(E_n^c)$.  Hence, $\mu(\bigcap_n E_n)  = \mu(X) - \mu((\bigcap_n E_n)^c) = \mu(X) - \mu(\bigcup_n E_n^c)
+= \mu(X) - lim_{n \to \infty} \mu(E_n^c) = \mu(X) - lim_{n \to \infty} \mu(X) - \mu(E_n) = \lim_{n\to\infty} \mu(E_n)$.
+
+For the converse, suppose $\mu$ is continuous from above. By part (a), it suffices to show that $\mu$ is continuous from below. Let $(E_n) \subset \mM$ be an ascending sequence of sets.
+Then $(E_n^c)$ is descending.  Hence, $\mu(\bigcup_n E_n) = \mu(X) - \mu(\bigcap_n E_n^c) = \mu(X) - \lim_{n\to\infty} X - \mu(E_n) = \lim_{n \to \infty} \mu(E_n)$.
+\end{proof}
+
 
 \p{3} Suppose $(X, \mathcal M, \mu)$ is a measure space. We call
 $$ \mathcal N = \{ A \subset X : \exists B \in \mathcal M  \: A \subset B \text { and } \mu(B) = 0 \}$$
 the \emph{nullsets} of $(X \mathcal M, \mu)$.
 
 a) Show that 
-$$ \widebar{\mathcal M} = \{ A \cup N : A \in \mathcal M \text{ and } N \in \mathcal N \}$$
+$$ \overline {\mathcal M} = \{ A \cup N : A \in \mathcal M \text{ and } N \in \mathcal N \}$$
 is a $\sigma$-algebra.
 
 b) Show that
-$$ \widebar{\mu}: \widebar{\mathcal M} \to [0, \infty], \: A \cup N \mapsto \mu(A), \text{ if } A \in \mathcal M , N \in \mathcal N $$
+$$ \overline{\mu}: \overline{\mathcal M} \to [0, \infty], \: A \cup N \mapsto \mu(A), \text{ if } A \in \mathcal M , N \in \mathcal N $$
 is well-defined and a measure.
+
+\begin{proof}
+For (a), note that $\emptyset \in \overline \mM$ since $\emptyset \in \mM \cap \mN$.  For closure under complements, let $E \in \overline \mM$.  Then $E  = F \cup N$ for some $F \in \mM$ and $n \in \mN$. Then there exists $B \in \mM$ with $N \subset B$ and $\mu(B) = 0$.  Let $M = B \setminus N$.  Hence $E^c = F^c \cap N^c = F^c \cap (B \setminus M)^c = F^c \cap (B^c \cup M) = (F^c \cap B^c) \cup (F^c \cap M)$, which is in $\overline \mM$ since $F^c \cap B^c \in \mM$ and $F^c \cap M \subset B$.  
+
+For closure under countable unions, suppose $(E_n) \subset \overline \mM$.  Then each $E_n = F_n \cup N_n$ for some $F_n \in \mM$ and $N_n \in \mN$.
+For each $n$, pick $B_n \in \mM$ with $N_n \subset B_n$ and $\mu(B_n) = 0$. We have $\bigcup_n E_n = (\bigcup_n F_n) \cup (\bigcup_n N_n)$. Further, $\bigcup_n F_n \in \mM$ and $\bigcup_n N_n \subset \bigcup_n B_n$ and $\mu(\bigcup_n B_n) \le \sum_n \mu(B_n) = 0$.  Hence, $\bigcup_n E_n \in \overline \mM$.
+
+For (b), suppose $M \in \overline \mM$ with $M = A \cup N = A' \cup N'$ for $A, A' \in \mM$ and $N, N' \in \mN$.  We need to show that $\mu(A) = \mu(A')$.
+By the definition of $\mN$, we can pick $B \in \mM$ with $\mu(B) = 0$ and $N \subset B$.  Thus $A' \subset M \subset (A \cup B)$ implies that $\mu(A') \le \mu(A \cup B) \le \mu(A)$.  The same argument will imply $\mu(A) \le \mu(A')$, so $\mu(A) = \mu(A')$. Hence, $\overline \mu$ is well defined.
+
+Since $\mu(\emptyset) = 0$, we have $\overline \mu(\emptyset) = 0$. Suppose $(E_n) \subset \overline \mM$ is a disjoint sequence of sets with $E_n = A_n \cup N_n$ for $A_n \in \mM$ and $N_n \in \mN$.  Then $\overline \mu (\bigcup_n E_n) = \overline \mu( \bigcup_n A_n \cup \bigcup_n N_n)$.  As we mentioned before, $\bigcup_n N_n \in \mN$.  Hence, $\overline \mu (\bigcup_n E_n) = \mu(\bigcup_n A_n) = \sum_n \mu(A_n) = \sum_n \overline \mu (E_n)$.
+\end{proof}
 
 \p{4} Let $(X , \mathcal M, \mu)$ be a finite measure space. 
 
 a) If $E, F \in \mathcal M$ and $\mu(E \Delta F) = 0$ then $\mu(E) = \mu(F)$.
 
-b) We say that $E \tilde F$ if $\mu(E \Delta F) = 0$. Show that $\tilde$ is an equivalence relation.
+b) We say that $E \sim F$ if $\mu (E \Delta F) = 0$. Show that $\sim$ is an equivalence relation.
 
-c) For $E, F \in \mathcal M$ put $\rho(E, F) = \mu(E \Delta F)$, show that $\rho$ induces a metric on $\mathcal M / \tilde$.
+c) For $E, F \in \mathcal M$ put $\rho(E, F) = \mu(E \Delta F)$, show that $\rho$ induces a metric on $\mathcal M / \sim$.
+
+\begin{proof}
+For (a), we have $\mu(E) + \mu(F \setminus E) = \mu(E \cup F) = \mu(F) + \mu(E \setminus F)$.  Thus $\mu(E \Delta F) = 0$ implies $\mu(E) = \mu(E \cup F) = \mu(F)$ since $(E \setminus F) \cup (F \setminus E) = E \Delta F$.
+
+For (b), we need to show transitivity (reflexivity and symmetry are obvious).  Suppose $\mu(E \Delta F) = 0$ and $\mu(F \Delta G) = 0$. Then $\mu(E \Delta G) = \mu(E \cap G^c) + \mu(E^c \cap G) \le \mu((E \cup F) \cap G^c) + \mu(E^c \cap (F \cup G))
+= \mu((E \setminus F) \cap G^c) + \mu(F \cap G^c) + \mu(E^c \cap F) + \mu(E^c \cap (G \setminus F))
+= 0$.
+
+To see that $\rho$ defines a pseudometric on $\mM$, we need to show that the triangle inequality holds (symmetry is obvious).  Suppose $E, F, G \in \mM$. Then, as in (b), $\rho(E, G) = \mu(E \Delta G) \le \mu((E \setminus F) \cap G^c) + \mu(F \cap G^c) + \mu(E^c \cap F) + \mu(E^c \cap (G \setminus F))
+\le \mu(E \setminus F) + \mu(F \setminus G) + \mu(F \setminus E) + \mu(G \setminus F)
+= \rho(E, F) + \rho(F, G)$.
+
+Hence $\rho$ induces a metric $\overline \rho$ on $\mathcal M / \sim$. To see why $\overline \rho$ is well-defined, suppose $E \sim E'$ and $F \sim F'$. Then by the triangle inequality, $\rho(E', F') \le \rho(E, E') + \rho(E,F) + \rho(F, F') = \rho(E,F)$. Hence $\rho(E', F') = \rho(E,F)$. Thus $\overline \rho$ is well-defined. 
+
+To see that $\overline \rho$ is a metric, suppose $\overline \rho(\overline E, \overline {E'}) = 0$.  Then if $E$ is a representative of $\overline E$ and $E'$ is a representative for $\overline {E'}$, then $\rho(E, E') = 0$.  Hence $E \sim E'$.  The other properties of a metric follow by picking representatives similarly.
+\end{proof}
 
 \p{5} If $\mu*$ is an outer measure on $X$ and $(A_j)_{j \in \N}$ a sequence of disjoint $\mu^*$-measurable sets, then 
-$\mu^*(E \cap (\bigcup_{j=1}^\infty A_j) = \sum_{j=1}^\infty \mu^*(E \cap A_j)$ for any $E \subset X$.
+$\mu^*(E \cap (\bigcup_{j=1}^\infty A_j)) = \sum_{j=1}^\infty \mu^*(E \cap A_j)$ for any $E \subset X$.
 
-\p{6} Assume that the algebra $\mathcal A$ generates the $\sigma$-algebra $\mathcal M$ and assume that $\mu$ is a finite measure on $\mathcal M$. Show that for any $\epsilon > 0$ and any $A \in \mathcal M$, there is an $~A \in \mathcal A$ so that $\mu(A \delta ~A) < \epsilon$.
+\begin{proof}
+By the definition of outer measure, $\mu^*(E \cap \bigcup_j A_j) \le \sum_j \mu^*(E \cap A_j)$.
 
+$(E \cap A ) \cup (E \cap B)$ <- want to make this big (in measure)
+
+
+By Caratheodory's theorem, $A := \bigcup_j A_j$ is $\mu^*$-measurable. Hence $\mu^*(E) = \mu^*(E \cap A) + \mu^*(E \cap A^c)$.
+\end{proof}
+
+\p{6} Assume that the algebra $\mathcal A$ generates the $\sigma$-algebra $\mathcal M$ and assume that $\mu$ is a finite measure on $\mathcal M$. Show that for any $\epsilon > 0$ and any $A \in \mathcal M$, there is an $\tilde A \in \mathcal A$ so that $\mu(A \Delta \tilde A) < \epsilon$.
+
+\begin{proof}
+
+\end{proof}
 
 
 
