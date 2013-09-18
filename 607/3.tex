@@ -13,7 +13,7 @@
 \begin{proof}
 Let $F_k := \bigcap_{j \ge k} E_j$. Then $(F_k)$ is an ascending sequence, so $\mu(\liminf E_j) = \mu(\bigcup_k F_k) = \lim_k \mu(F_k)$. For all $k$, we have $F_k \subset E_k$, so $\mu(F_k) \le \mu(E_k)$. Hence $\mu(\liminf E_j) = \lim_k \mu(F_k) \le \liminf \mu(E_k)$.
 
-For the other part, suppose $\mu(\bigcup_j E_j) < \infty$. Let $G_k = \bigcup_{j \ge k} E_j$. Then $G_k$ is a descending sequence and $\mu(G_1) < \infty$, so $\mu( \bigcap_k G_k) = \lim_k \mu(G_k)$. Since $E_k \subset G_k$ for all $k$, we have $\mu(G_k) \ge \mu(E_k)$.  Hence $\mu(\limsup E_j) = \mu(\bigcap_k G_k) = \lim_k \mu(G_k) \ge \mu(E_k)$.
+For the other part, suppose $\mu(\bigcup_j E_j) < \infty$. Let $G_k = \bigcup_{j \ge k} E_j$. Then $G_k$ is a descending sequence and $\mu(G_1) < \infty$, so $\mu( \bigcap_k G_k) = \lim_k \mu(G_k)$. Since $E_k \subset G_k$ for all $k$, we have $\mu(G_k) \ge \mu(E_k)$.  Hence $\mu(\limsup E_j) = \mu(\bigcap_k G_k) = \lim_k \mu(G_k) \ge \limsup \mu(E_k)$.
 
 \end{proof}
 
@@ -36,7 +36,7 @@ For (b), assume $\mu(X) < \infty$.  Since $\mu(X) < \infty$, for any set $E \in 
 
 Suppose  $\mu$ is $\sigma$-additive. Let $(E_n) \subset \mM$ be a descending sequence of sets.  Then $(E_n^c)$ is a ascending sequence,
 so part (a) implies that $\mu(\bigcup_n E_n^c) = \lim_{n \to \infty} \mu(E_n^c)$.  Hence, $\mu(\bigcap_n E_n)  = \mu(X) - \mu((\bigcap_n E_n)^c) = \mu(X) - \mu(\bigcup_n E_n^c)
-= \mu(X) - lim_{n \to \infty} \mu(E_n^c) = \mu(X) - lim_{n \to \infty} \mu(X) - \mu(E_n) = \lim_{n\to\infty} \mu(E_n)$.
+= \mu(X) -\lim_{n \to \infty} \mu(E_n^c) = \mu(X) - \lim_{n \to \infty} \mu(X) - \mu(E_n) = \lim_{n\to\infty} \mu(E_n)$.
 
 For the converse, suppose $\mu$ is continuous from above. By part (a), it suffices to show that $\mu$ is continuous from below. Let $(E_n) \subset \mM$ be an ascending sequence of sets.
 Then $(E_n^c)$ is descending.  Hence, $\mu(\bigcup_n E_n) = \mu(X) - \mu(\bigcap_n E_n^c) = \mu(X) - \lim_{n\to\infty} X - \mu(E_n) = \lim_{n \to \infty} \mu(E_n)$.
@@ -62,7 +62,7 @@ For closure under countable unions, suppose $(E_n) \subset \overline \mM$.  Then
 For each $n$, pick $B_n \in \mM$ with $N_n \subset B_n$ and $\mu(B_n) = 0$. We have $\bigcup_n E_n = (\bigcup_n F_n) \cup (\bigcup_n N_n)$. Further, $\bigcup_n F_n \in \mM$ and $\bigcup_n N_n \subset \bigcup_n B_n$ and $\mu(\bigcup_n B_n) \le \sum_n \mu(B_n) = 0$.  Hence, $\bigcup_n E_n \in \overline \mM$.
 
 For (b), suppose $M \in \overline \mM$ with $M = A \cup N = A' \cup N'$ for $A, A' \in \mM$ and $N, N' \in \mN$.  We need to show that $\mu(A) = \mu(A')$.
-By the definition of $\mN$, we can pick $B \in \mM$ with $\mu(B) = 0$ and $N \subset B$.  Thus $A' \subset M \subset (A \cup B)$ implies that $\mu(A') \le \mu(A \cup B) \le \mu(A)$.  The same argument will imply $\mu(A) \le \mu(A')$, so $\mu(A) = \mu(A')$. Hence, $\overline \mu$ is well defined.
+By the definition of $\mN$, we can pick $B \in \mM$ with $\mu(B) = 0$ and $N \subset B$.  Thus $A' \subset M \subset (A \cup B)$ implies that $\mu(A') \le \mu(A \cup B) \le \mu(A) + \mu(B) = \mu(A)$.  The same argument will imply $\mu(A) \le \mu(A')$, so $\mu(A) = \mu(A')$. Hence, $\overline \mu$ is well defined.
 
 Since $\mu(\emptyset) = 0$, we have $\overline \mu(\emptyset) = 0$. Suppose $(E_n) \subset \overline \mM$ is a disjoint sequence of sets with $E_n = A_n \cup N_n$ for $A_n \in \mM$ and $N_n \in \mN$.  Then $\overline \mu (\bigcup_n E_n) = \overline \mu( \bigcup_n A_n \cup \bigcup_n N_n)$.  As we mentioned before, $\bigcup_n N_n \in \mN$.  Hence, $\overline \mu (\bigcup_n E_n) = \mu(\bigcup_n A_n) = \sum_n \mu(A_n) = \sum_n \overline \mu (E_n)$.
 \end{proof}
@@ -86,7 +86,7 @@ To see that $\rho$ defines a pseudometric on $\mM$, we need to show that the tri
 \le \mu(E \setminus F) + \mu(F \setminus G) + \mu(F \setminus E) + \mu(G \setminus F)
 = \rho(E, F) + \rho(F, G)$.
 
-Hence $\rho$ induces a metric $\overline \rho$ on $\mathcal M / \sim$. To see why $\overline \rho$ is well-defined, suppose $E \sim E'$ and $F \sim F'$. Then by the triangle inequality, $\rho(E', F') \le \rho(E, E') + \rho(E,F) + \rho(F, F') = \rho(E,F)$. Hence $\rho(E', F') = \rho(E,F)$. Thus $\overline \rho$ is well-defined. 
+Define $\overline \rho$ on $\mathcal M / \sim$ by $\overline \rho(\overline E) = \rho(E)$ where $E \in \overline E$. To see why $\overline \rho$ is well-defined, suppose $E \sim E'$ and $F \sim F'$. Then by the triangle inequality, $\rho(E', F') \le \rho(E, E') + \rho(E,F) + \rho(F, F') = \rho(E,F)$. Hence $\rho(E', F') = \rho(E,F)$. Thus $\overline \rho$ is well-defined. 
 
 To see that $\overline \rho$ is a metric, suppose $\overline \rho(\overline E, \overline {E'}) = 0$.  Then if $E$ is a representative of $\overline E$ and $E'$ is a representative for $\overline {E'}$, then $\rho(E, E') = 0$.  Hence $E \sim E'$.  The other properties of a metric follow by picking representatives similarly.
 \end{proof}
@@ -95,18 +95,16 @@ To see that $\overline \rho$ is a metric, suppose $\overline \rho(\overline E, \
 $\mu^*(E \cap (\bigcup_{j=1}^\infty A_j)) = \sum_{j=1}^\infty \mu^*(E \cap A_j)$ for any $E \subset X$.
 
 \begin{proof}
-By the definition of outer measure, $\mu^*(E \cap \bigcup_j A_j) \le \sum_j \mu^*(E \cap A_j)$.
+By the definition of outer measure, $\mu^*(E \cap \bigcup_j A_j) \le \sum_j \mu^*(E \cap A_j)$. Suppose this inequality is strict.  Then there exists an $n$ such that $\mu^*(E \cap \bigcup_j A_j) < \sum_{j=1}^n \mu^*(E \cap A_j)$.
 
-$(E \cap A ) \cup (E \cap B)$ <- want to make this big (in measure)
-
-
-By Caratheodory's theorem, $A := \bigcup_j A_j$ is $\mu^*$-measurable. Hence $\mu^*(E) = \mu^*(E \cap A) + \mu^*(E \cap A^c)$.
+Now note that if $A,B$ are disjoint sets such that $A$ is $\mu^*$-measurable, then $\mu^*(E \cap (A \cup B)) = \mu^*(E \cap (A \cup B) \cap A) + \mu^*(E \cap (A \cup B) \cap A^c) = \mu^*(E \cap A) + \mu^*(E \cap B)$.  By Caratheodory's theorem, $\bigcup_{j=1}^J A_j$ is $\mu^*$-measurable for every $J$.  Hence, $\mu^*(E \cap \bigcup_j A_j) = \mu^*(E \cap A_1) + \mu^*(E \cap \bigcup_{j=2}^\infty A_j) = \ldots = \sum_{j=1}^n \mu^*(E \cap A_j) + \mu^*(E \cap \bigcup_{j=n+1}^\infty A_j) \ge \sum_{j=1}^n \mu^*(E \cap A_j) > \mu^*(E \cap \bigcup_j A_j)$, a contradiction.
 \end{proof}
 
 \p{6} Assume that the algebra $\mathcal A$ generates the $\sigma$-algebra $\mathcal M$ and assume that $\mu$ is a finite measure on $\mathcal M$. Show that for any $\epsilon > 0$ and any $A \in \mathcal M$, there is an $\tilde A \in \mathcal A$ so that $\mu(A \Delta \tilde A) < \epsilon$.
 
 \begin{proof}
-
+Since $\mu$ is finite, the restriction of $\mu$ to $\mA$ is a finite premeasure.  Hence Theorem 1.14 implies that if $E \in \mM$ then $\mu(E) = \inf \{ \mu(\bigcup_j A_j) : A_j \in \mA \text{ and } E \subset \bigcup_j A_j \}$.  Let $\epsilon > 0$, and pick $(A_j) \subset \mA$ with $A \subset \bigcup_j A_j$  such that $\mu(A \Delta \bigcup_j A_j ) =
+ \mu(\bigcup_j A_j) - \mu(A)  < \epsilon/2$.  Let $B_j = (\bigcup_{k=1}^j A_j) \setminus (\bigcup_{k=1}^{j-1} A_j)$. Then $(B_j) \subset \mA$ is a disjoint sequence of sets such that $\bigcup_{j=1}^n B_j = \bigcup_{j=1}^n A_j$ for all $n$. Since $\mu(\bigcup_j B_j)$ is finite, we can pick $n$ such that, if $\tilde A = \bigcup_{j=1}^n B_j$ then $\mu(\tilde A \Delta \bigcup_{j=1}^\infty B_j) = \sum_{j=n+1}^\infty \mu(B_j)   < \epsilon/2$.  Thus $\mu(A \Delta \tilde A) \le \mu(A \Delta \bigcup_j B_j) + \mu((\bigcup_j B_j) \Delta \tilde A) < \epsilon$.
 \end{proof}
 
 
