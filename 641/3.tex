@@ -1,0 +1,70 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 641\\ 
+\noindent Instructor - Fran Narcowich
+
+\subsection*{HW 3}
+\p{1} Suppose that $A$ is an $m \times n$ matrix, with $m > n$, so that the columns of $A$ are in $\R^m$. Assume that the rank of $A$ is $n$.
+
+a. Use the Gram-Schmidt to find a factorization of $A$ into the form $A = QR$, where $Q$ is an $m \times n$ matrix whose columns are orthonormal, and $R$ is an $n \times n$ upper triangular matrix.
+
+b. Show that $Q^TQ = I$ and that $QQ^T$ is the orthogonal projection of $\R^m$ onto the column space of $A$.
+
+\begin{proof}
+Let $a_1, \ldots, a_n$ denote the columns of $A$.  Define $q_1 = a_1 / \|a_1\|$. For $2 \le i \le n$, we define $q_i$ as follows.  Inductively assume we have orthonormal vectors $(q_j)_{j=1}^{i-1}$ with $\spn (q_j)_{j=1}^{i-1} = \spn (a_j)_{j=1}^{i-1}$.  Define $w_i = a_i - \sum_{j=1}^{i-1} \langle a_i, q_j \rangle q_j$.  Since $A$ is of rank $n$, the vectors $a_1, a_2, \ldots, a_i$ are linearly independent. Since $\spn ((q_j)_{j=1}^{i-1}, a_i) = \spn (a_j)_{j=1}^{i}$, the set $\{a_i, q_1, \ldots, q_{i-1} \}$ must be linearly independent also.  Thus, $w_i \neq 0$.  Hence we may define $q_i = w_i / \|w_i\|$, and $(q_j)_{j=1}^i$  spans the same space as $(a_j)_{j=1}^i$.  Moreover, for $j < i$, we have $\langle w_i, q_j \rangle = \langle a_i, q_j \rangle - \langle a_i, q_j\rangle = 0$, so $(q_j)_{j=1}^i$ is orthornormal. This finishes the induction.
+
+By the definition of the $q_i$, we get $Q := (q_1 \ldots q_n) = A S$ where $S$ is upper triangular and with diagonal entries $\|w_i\|^{-1} \neq 0$ for all $i$. Hence $S$ is invertible, so we have $A = Q R$, where $R = S^{-1}$.  Moreover, $R$ must be upper triangular since the inverse of any invertible upper triangular matrix is upper triangular. One way to see this is to use Gaussian elimination to solve for the inverse.  %This fact may be proved by induction on the size $n$ of the matrix. It is true for $n = 1$.  Suppose 
+
+For (b), we have $(Q^T Q)_{ij} = \langle q_i, q_j \rangle = \delta_{ij}$.  The other fact follows from the normal equations: since the orthonormal vectors $(q_i)$ span the column space of A, the orthogonal projection $P$ onto the column space of A is given by $Px = \sum_j \langle x, q_j \rangle q_j = QQ^T x$.
+\end{proof}
+
+\p{2} Let $m > n$. Suppose that $b \in \R^m$ and that $A = (a_1 \ldots a_n) \in R^{m \times n}$.  Show that the minimizer of $\|b - Ax\|$ over $x \in \R^n$ is $x_0 = R^{-1}Q^Tb$, where $A = QR$. %(Hint: let z=Rx, so that you are minimizing ∥b−Qz∥ over z. Then, use the normal equations.)
+
+\begin{proof}
+Following the hint, let $z = Rx$.  Then we seek to minimize $\|b - Qz\|$ over $z$.  Hence we wish to find the orthogonal projection of $b$ onto the column space of $Q$.  Let $(q_i)$ denote the column vectors of $Q$. The normal equations imply that the minimizer occurs when $Qz = \sum_j \langle b, q_j \rangle q_j = Q Q^T b$.  Hence, a minimum occurs when $z = Q^T b$, and this minimum is unique since $Q$ is an injection.  Thus $x_0 = R^{-1} Q^T b$.
+\end{proof}
+
+\p{3} Let $V$ and $W$ be finite dimensional inner product spaces. Also, let $L : V \to W$ be linear.
+
+a. Show that $\mR(L) \subset \mN(L^*)^\perp$, where $\mR(L)$ is the range of $L$ and $\mN(L*)$ is the null space of the adjoint $L^*$.
+
+b. Show that $\mR(L) = \mN(L^*)^\perp$ by contradiction. Hence $W = \mR(L) \oplus \mN(L^*)$. % If $\mR(L) \neq \mN(L^*)^\perp$, then there is a vector $w \neq 0$ such that $w \in \mR(L)^\perp \cap \mN(L^*)^\perp$. 
+
+\begin{proof}
+For (a), suppose $Lv \in \mR(L)$ and $x \in \mN(L^*)$.  Then $\langle Lv, x \rangle = \langle v , Lx \rangle = 0$.  Hence $Lv \in \mN(L^*)^\perp$. Hence $\mR(L) \subset \mN(L^*)^\perp$.
+
+For (b), suppose $\mR \neq \mN(L^*)^\perp$. Then there exists $x \in \mN(L^*)^\perp \setminus \mR$.  Let $w = x - Px$ where $P$ is the orthogonal projection onto $\mR(L)^\perp$. Hence $w \in \mR(L)^\perp$. Since $x \not\in \mR(L)$, we have $w \neq 0$.  Also, for every $y \in \mN(L^*)$, we have $\langle w, y \rangle = \langle x - Px , y \rangle = \langle x, y \rangle - \langle Px, y \rangle = 0$ since $x \in \mN(L^*)^\perp$ and $Px \in \mR(L) \subset \mN(L^*)^\perp$.  Hence $w \in \mN(L^*)^\perp$.  
+
+Since $w \in \mR(L)^\perp$, we have $0 = \langle L (L^* w ), w \rangle = \langle L^* w , L^* w \rangle$. Hence, $L^* w = 0$, so $w \in \mN(L^*) \cap \mN(L^*)^\perp$.  Thus $w = 0$, a contradiction.
+\end{proof}
+
+
+\p{4} Suppose that $A$ is an $n \times n$ real matrix such that $x^T A x > 0 $ for $x\neq 0$. Use the Fredholm Alternative to determine whether $A$ is invertible.
+\begin{proof}
+For $x \neq 0$, we have $0 < \langle Ax, x \rangle = \langle x, A^*x \rangle$. Thus $\mN(A^*) = 0$. Thus, by (3), $\mR(A) = \RR^n$. Hence $A$ is invertible.
+\end{proof}
+
+\p{5} Let $U$ be a unitary, $n\times n$ matrix; that is $U^* U = I$. 
+
+a. $\langle Ux, Uy \rangle = \langle x, y \rangle$.
+
+b. The eigenvalues of $U$ all lie on the unit circle.
+
+c. $U$ is diagonalizable.
+
+d. Suppose that $U$ is real as well as unitary. For $n$ odd, show that $1$ or $-1$ is an eigenvalue of $U$.
+
+\begin{proof}
+For (a), we have $\langle Ux, Uy \rangle = \langle x, U^* U y \rangle = \langle x , y \rangle$ by the definition of adjoint.
+
+For (b), suppose $U x = \lambda x$ for $x \neq 0$.  By part (a), we have $\langle x, x \rangle = \langle Ux, Ux \rangle = \langle \lambda x , \lambda x \rangle = |\lambda| \langle x, x \rangle$. Hence, $|\lambda| = 1$.
+
+For (c), note that the fundamental theorem of algebra applied to the characteristic polynomial of $U$ implies that $U$ has at least one complex eigenvalue $\lambda$. By part (b), $|\lambda| = 1$.  Let $v$ be a eigenvector corresponding to $\lambda$.  Let $w \in v^\perp$. Then $\langle Uw, v \rangle = \langle Uw , \frac {Uv} {\lambda} \rangle = \overline {\lambda^{-1}} \langle Uw, Uv \rangle = \overline {\lambda^{-1}} \langle w, v \rangle = 0$.  Hence, $v^\perp$ is an invariant subspace of $U$. To see that $U|_{v^\perp}$ remains unitary, note that $(U|_{v^\perp})^*$ is determined by the equations $\langle U x, y \rangle = \langle x, (U|_{v^\perp})^* y\rangle$ for $x,y \in v^\perp$. Hence $(U|_{v^\perp})^* = (U^*)|_{v^\perp}$, so $(U|_{v^\perp})^* U|_{v^\perp} x = (U|_{v^\perp})^* U x = U^* U x = x$ for every $x \in v^\perp$.  Hence, $U|_{v^\perp}$ is unitary, so induction on $n$ finishes the proof.
+
+For (d), since $U$ is real, its characteristic polynomial $p$ is a real polynomial of odd degree. Since complex roots of real polynomials must occur in conjugate pairs, this implies that $p$ has a real root.  By (b), this real root must be 1 or -1. Hence, $U$ has an eigenvalue of 1 or -1.
+\end{proof}
+
+\end{document}
