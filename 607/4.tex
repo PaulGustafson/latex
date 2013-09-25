@@ -49,17 +49,26 @@ Write $B_j = \prod_{i=1}^d [a_i, b_i)$ and $C_k = \prod_{i=1}^d [c_i, d_i)$. The
 
 To see that $\mB$ is closed under taking complements, let $B \in \mB$. Then $B = \bigcup_{i=1}^n E_i$ for $E_i \in \mE$, and $B^c = \bigcap_i E_i^c$. Since we know that $\mB$ is closed under finite intersections, it suffices to show that each $E_i^c \in \mB$. Writing $E_i$ as $E_i = \prod_{j=1}^d [a_j, b_j)$, let $\mathcal U = \{\prod_{j=1}^d U_j : \forall j \quad U_j \in \{ (-\infty, a_j), [a_j, b_j), [b_j,\infty) \} \}$. Then $\mathcal U \subset \mE$ is a finite partition of $\R^d$, and $E_i^c = \bigcup (\mU \setminus E)$. Hence $E_i^c \in \mB$.
 
-For (b), we first define $V : \mE \to [0, \infty]$ by $V(\prod_{i=1}^d [a_i, b_i)) = \prod_{i=1}^d b_i - a_i$. Define $V$ in the same way for open and closed boxes.
-%Let $\pi_i: \overline{\R}^d \to \overline \R$ be the projection onto the $i$-th component.
-Let $\mu_0: \mA \to [0, \infty]$ be defined by $\mu_0(A) = \inf \{\sum_{j=1}^\infty V(E_j) : \bigcup_j E_j \supset A \}$.
+For (b), we first define $V : \mE \to [0, \infty]$ by $V(\prod_{i=1}^d [a_i, b_i)) = \prod_{i=1}^d b_i - a_i$. Define $V$ in the same way for open and closed boxes. Let $\mu_0: \mA \to [0, \infty]$ be defined by $\mu_0(A) = \inf \{\sum_{j=1}^\infty V(E_j) : \bigcup_j E_j \supset A \}$. By the extension of premeasures theorem, it suffices to show that $\mu_0(E) = V(E)$ for $E \in \mE$ and that $\mu_0$ is a premeasure.
 
-Let $E \in \mE$.  We wish to show that $\mu_0(E) = V(E)$. Since $E$ is a cover of itself, clearly $\mu_0(E) \le V(E)$.
+\emph{Step 1: If $E \in \mE$ and $\mP \subset \mE$ is a finite partition of $E$, then $V(E) = \sum_{P \in \mP} V(P)$.}  This will be proved by induction on the dimension $d$. 
+
+%  If $d = 1$, we have $\mP = \{[p_1, q_1), \ldots, [p_n, q_n)\}$ for some $n \ge 0$ and $-\infty \le p_1 \le q_1 \le p_2 \le \ldots \le p_n \le q_n \le \infty$.  We can write $E = [a,b)$ for $a,b \in \overline \R$. We must have $p_1 = a$ since $p_1$ is the least element of $\bigcup \mP = E$. Similarly, $q_n = \sup(\bigcup \mP) = \sup(E) = b$. Moreover, $p_2$ is the least element of $\bigcup (\mP \setminus \{[p_1, q_1)\}) = E \setminus [p_1, q_1) = [q_1, b)$, so $p_2 = q_1$.  Continuing in this way, we have $q_i = p_{i+1}$ for $1 \le i \le n-1$.  Hence $\sum_{P \in \mP} V(P) = \sum_{j=1}^n q_j - p_j = q_n - p_1 = b - a = V(E)$.
+
+% Inductively assume that the proposition holds for $d = d_0$, and suppose $d = d_0 + 1$.  We can write $E = \prod_{i=1}^d [a_i, b_i)$.  Let $\pi_i: \overline  \R ^d \to \overline R$ be the $i$-th coordinate projection. Let $\mQ$ be the partition of the interval $[a_d, b_d)$ induced by ordering the endpoints of the elements of $\pi_i(\mP)$ and then taking the intervals between consecutive endpoints.  Let $\mS$ be the refinement of the partitions $\mP$ and $\mR = \{ E \cap \pi_d^{-1}(Q) : Q \in \mQ \}$.  Since $\mE$ is closed under finite intersections, $\mS \subset \mE$.
+
+% I claim that $V(E) = \sum_{R \in \mR} V(R)$. To see this, we have $V(E) =  \prod_{i=1}^d V(\pi_i E) = V(\pi_d E) \prod_{i=1}^{d-1} V(\pi_i E) = \sum_{Q \in \mQ} V(Q) \prod_{i=1}^{d-1} V(\pi_i E) = \sum_{R \in \mR} V(Q) \prod_{i=1}^{d-1} V(\pi_i E) = \sum_{R  \in \mR} V(R)$, where we have used $d=1$ case for the equality $V(\pi_d E) = \sum_{Q \in \mQ} V(Q)$.  
+
+% Next, for $R \in mR$ we have 
+
+
+\emph{Step 2: If $E \in \mE$, then $\mu_0(E) = V(E)$.} Since $\{E\}$ is a cover of $E$, we have $\mu_0(E) \le V(E)$.
 
 \emph{Case 1: $E$ is bounded.} Let $\epsilon > 0$.  Let $(E_j)$ be a countable $\mE$-cover of $E$.  Enlarge each $E_j$ slightly to get open boxes $\wt E_j$ with $V(\wt E_j) - V(E_j) < 2^{-j} \epsilon$.  We can also pick a closed box $\wt E \subset E$ with $V(E) - V(\wt E) < \epsilon$. Since $\wt E$ is compact, there exists a finite set $F$ such that $(\wt E_j)_{j \in F}$ covers $\wt E$.  Let $(F_j)_{j\ in F} \subset \mE$ be defined by letting each $F_j = \prod_i [a_{ji}, b_{ji}$ where $\prod_i (a_{ji}, b_{ji}) = \wt E_j$.  Similarly, let $F \in \mE$ be defined by $F = \prod_i [a_i, b_i)$ where $\prod_i [a_i, b_i] = \wt E$.  Hence $(F_j)_{j \in F}$ is a finite $\mE$-cover of $F$ with $\sum_{j\in F} V(F_j) < \sum_{j\in F} V(E_j) + 2^{-j} \epsilon \le \epsilon + \sum_{j=1}^\infty V(E_j)$ and $V(F) - V(E) < \epsilon$.  Therefore, it suffices to show that $V(F) \le \sum_{j \in F} V(F_j)$, for then $V(E) < \epsilon + V(F) \le \epsilon + \sum_{j \in F} V(F_j)  \le 2 \epsilon + \sum_{j=1}^\infty V(E_j)$.
 
+\emph{Case 2: $E$ is unbounded.}  Intersect $E$ and $\mP$ against the boxes $[-N, N]$ and use Case 1.
 
-
-
+\emph{Step 3: $\mu_0$ is a premeasure.} By definition, $\mu_0(\emptyset) = 0$.  I still need to show countable additivity.
 
 \end{proof}
 
@@ -76,7 +85,7 @@ For closure under countable unions, let $(M_n) \subset \wt \mM$. Let $\epsilon >
 
 \p{4} If $E \in \mL$ (the Lebesgue sets) and $m(E) > 0$ then there is for any $\alpha < 1$ and open interval $I$ such that $m(E \cap I) > \alpha m(I)$.
 \begin{proof}
-\end{proof} 
 Let $\epsilon > 0$. Since $m$ is outer regular, we can pick an open set $U \supset E$ with $m(U \setminus E) < \epsilon$. We can write $U = \bigcup_{n=1}^\infty I_n$ for disjoint open intervals $I_n$.  Suppose $m(E \cap I_n) \le \alpha \,m(I_n)$ for all $n$.  Then $m(E) = m(\bigcup_n E \cap I_n) = 
 \sum_n E \cap I_n \le \alpha \sum_n I_n = \alpha \m(U) = \alpha(m(E) + m(U\setminus E)) < \alpha(m(E) + \epsilon)$. Letting $\epsilon \to 0$, we have $m(E) \le \alpha \,m(E)$, a contradiction. Hence, $m(E \cap I_n) > \alpha \, m(I_n)$ for some $n$.
+\end{proof} 
 \end{document}
