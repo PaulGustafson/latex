@@ -41,16 +41,23 @@ b) Show that there is a measure $\mu$ on $\mM(\mA)$ so that
 $$\mu(\prod_{i=1}^d [a_i, b_i)) = \prod_{j=1}^d (b_i - a_i) \text{ whenever } -\infty \le a_i \le b_i \le \infty \text{ for } i = 1,2, \ldots, n.$$
 
 \begin{proof}
-For (a), let $\mB = \left\{ \bigcup_{i=1}^n E_i : n\in \NN, E_i \in \mE \text{ are pairwise disjoint } \right\}$.  Clearly $\mB \subset \mA$, so it suffices to show that $\mB$ is an algebra. Since $\mE$ is nonempty, $\mB$ must be nonempty.  
+For (a), let $\mB = \left\{ \bigcup_{i=1}^n E_i : n\in \NN, E_i \in \mE \text{ are pairwise disjoint } \right\}$. Clearly $\mB \subset \mA$, so it suffices to show that $\mB$ is an algebra. Since $\mE$ is nonempty, $\mB$ must be nonempty.
 
-To see that $\mB$ is closed under taking finite intersections,  let $B,C \in \mB$. Then $B = \bigcup_{i=1}^m B_i$ for some $m \in \N$ and disjoint $(B_i) \subset \mE$, and $C = \bigcup_{i=1}^n C_i$ for some $n \in \N$ and disjoint $(C_i) \subset \mE$. Then $B \cap C = \bigcup_{i,j} B_i \cap C_j$. To see that the sets $(B_i \cap C_j)_{i,j}$ are disjoint, suppose $(i,j) \neq (i',j')$.  WLOG $i \neq i'$. Then $(B_i \cap C_j) \cap (B_{i'} \cap C_{j'}) = (B_i \cap B_{i'}) \cap (C_j \cap C_{j'}) = \emptyset$ since the $(B_i)$ are disjoint.  Hence $(B_i \cap C_j)_{ij}$ are disjoint, so it suffices to break an arbitrary $B_i \cap C_j$ into disjoint elements of $\mE$. 
+To see that $\mB$ is closed under taking finite intersections, let $B,C \in \mB$. Then $B = \bigcup_{j=1}^m B_j$ for some $m \in \N$ and disjoint $(B_j) \subset \mE$, and $C = \bigcup_{k=1}^n C_k$ for some $n \in \N$ and disjoint $(C_k) \subset \mE$. Then $B \cap C = \bigcup_{j,k} B_j \cap C_k$. To see that the sets $(B_j \cap C_k)_{j,k}$ are disjoint, suppose $(j,k) \neq (j',k')$. WLOG $j \neq j'$. Then $(B_j \cap C_k) \cap (B_{j'} \cap C_{k'}) = (B_j \cap B_{j'}) \cap (C_k \cap C_{k'}) = \emptyset$ since the $(B_j)$ are disjoint. Hence $(B_j \cap C_k)_{jk}$ are disjoint, so it suffices to break an arbitrary $B_j \cap C_k$ into disjoint elements of $\mE$.
 
-Write $B_i = \prod_{i=1}^d [a_i, b_i)$ and $C_i = \prod_{i=1}^d [c_i, d_i)$.  Then $B_i \cap C_i = \prod_{i=1}^d [a_i, b_i) \cap [c_i, d_i)$.  For each $i$, we have $[a_i, b_i) \cap [c_i, d_i) = [e_i, f_i)$ for some $-\infty \le e_i \le f_i \le \infty$ by case analysis on the order of $a_i, b_i, c_i, d_i$.  Hence, $B_i \cap C_i \in \mE$.
+Write $B_j = \prod_{i=1}^d [a_i, b_i)$ and $C_k = \prod_{i=1}^d [c_i, d_i)$. Then $B_j \cap C_k = \prod_{i=1}^d [a_i, b_i) \cap [c_i, d_i)$. For each $i$, we have $[a_i, b_i) \cap [c_i, d_i) = [e_i, f_i)$ for some $-\infty \le e_i \le f_i \le \infty$ by case analysis on the order of $a_i, b_i, c_i, d_i$. Hence, $B_j \cap C_k \in \mE$.
 
-To see that $\mB$ is closed under taking complements, let $B \in \mB$. Then $B = \bigcup_{i=1}^n E_i$ for $E_i \in \mE$, and $B^c = \bigcap_i E_i^c$.  Since we know that $\mB$ is closed under finite intersections, it suffices to show that each $E_i^c \in \mB$.  Writing $E_i$ as $E_i = \prod_{j=1}^d [a_j, b_j)$, let $\mathcal U = \{\prod_{j=1}^d U_j : \forall j \quad U_j \in \{ (-\infty, a_j), [a_j, b_j), [b_j,\infty) \} \} \subset \mE$.  Then $\mathcal U$ is a  finite partition of $\R^d$, and $E_i^c = \bigcup (\mU \setminus E)$.  Hence $E_i^c \in \mB$.
+To see that $\mB$ is closed under taking complements, let $B \in \mB$. Then $B = \bigcup_{i=1}^n E_i$ for $E_i \in \mE$, and $B^c = \bigcap_i E_i^c$. Since we know that $\mB$ is closed under finite intersections, it suffices to show that each $E_i^c \in \mB$. Writing $E_i$ as $E_i = \prod_{j=1}^d [a_j, b_j)$, let $\mathcal U = \{\prod_{j=1}^d U_j : \forall j \quad U_j \in \{ (-\infty, a_j), [a_j, b_j), [b_j,\infty) \} \}$. Then $\mathcal U \subset \mE$ is a finite partition of $\R^d$, and $E_i^c = \bigcup (\mU \setminus E)$. Hence $E_i^c \in \mB$.
 
-For (b), first define $V:\mE \to [0, \infty]$ by $V( \prod_{i=1}^n [a_i, b_i) = \prod_{i=1}^n b_i - a_i$. 
-By the extension of premeasures theorem, it suffices to show that $\mu_0: \mA \to [0, \infty]$ defined by $\mu_0(A) = \sum_{i=1}^n V(E_i)$, where $(E_i)_{i=1}^n$ is a $\mE$-partition of $A$, is a premeasure.
+For (b), we first define $V : \mE \to [0, \infty]$ by $V(\prod_{i=1}^d [a_i, b_i)) = \prod_{i=1}^d b_i - a_i$. Let $\pi_i: \overline{\R}^d \to \overline \R$ be the projection onto the $i$-th component. By the extension of premeasures theorem, it suffices to show that $\mu_0: \mA \to [0, \infty]$ defined by $\mu_0(A) = \sum_{i=1}^n V(E_i)$, where $(E_i)_{i=1}^n$ is a $\mE$-partition of $A$, is a well-defined premeasure.
+
+
+\emph{Step 1: If $E = \prod_i [a_i, b_i) \in \mE$ and $\mP$ is a finite $\mE$-partition of $E$ then $V(E) = \sum_{P \in \mP} V(P)$.}
+\emph{Case 1.1: There exists $1 \le i \le d$ such that $\pi_i(\mP)$ is a }
+Fix $1 \le i \le d$.
+To see this, Let $X \subset \overline{\R}^d$ be the finite set of all vertices of all nonempty boxes in $\mP$. Fix $1 \le i \le d$. We have $X_i := \pi_i^{-1} (X) \subset [a_i, b_i]$ with $a_i, b_i \in X_i$. Let $(y_j)_{j=1}^m$ be an enumeration of $X_i$ such that $y_j < y_{j+1} \forall j$. Then $\{ [y_j, y_{j+1}) : 1 \le j \le m-1 \}$ is an interval partition of $[a_i, b_i)$. \
+Hence $\mY :=(E \cap \pi_i^{-1}([y_j, y_{j+1})))_{j=1}^{m-1}$ is an $\mE$-partition of $E$. But $V(E) = \prod_{k=1}^d b_k - a_k = (b_i - a_i) \prod_{k \neq i} b_k - a_k = \sum_{j=1}^{m-1} (y_{j+1} - y_j) \prod_{k \neq i} b_k - a_k = \sum_{Y \in \mY} V(Y)$.
+
 
 \emph{Step 1: $\mu_0$ is well-defined.} I first show that if $E \in \mE$ and $\mP \subset \mE$ is a partition of $E$, then $V(E) = \sum_{P \in \mP} V(P)$.
 For $1 \le j \le d$, let $a_{j1} < a_{j2} < \ldots < a_{j m_j}$ enumerate all the endpoints of intervals that appear in the $j$-th coordinate of an element of $\mP$.  Define $\mU = \{ \prod_{i=1}^d U_i : \forall i \exists j \quad U_i = [a_{j,i}, a_{j,i+1}) \}$.  Then $\mU$ is a refinement of $\mP$.
