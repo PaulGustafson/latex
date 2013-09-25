@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 641\\ 
+\noindent Instructor - Fran Narcowich
+
+\subsection*{HW 
+\p{1}
+Let $A$ and $B$ be self-adjoint matrices, which may be real or complex. We say that $A \le B$ if and only if $\langle Ax, x \rangle \le \langle Bx, x \rangle$ for all $x$.
+If $\lambda_1 \le \lambda_2, \ldots ,\lambda_n$ are the eigenvalues of $A$ and $\lambda_1 \ge \lambda_2, \ldots, \lambda_n$ are the eigenvalues of $B$, then show that $\lambda_k \le \lambda_k$.
+Show that $\tr(A) \le \tr(B)$ if $A \le B$.
+Show that if we increase a diagonal entry of A, then the resulting matrix B satisfies A≤B.
+(Keener, problem 1.3(b)). Use the previous part to estimate the lowest eigenvalue of the matrix below. Keener gets −13. Using matlab you get less than about −2. Can you beat −13?
+A=⎛⎝84448−14−43⎞⎠
+
+\p{2} Let A be a self-adjoint matrix with eigenvalues \lambda1≥\lambda2,…,≥\lambdan. Show that for 2≤k<n we have
+maxU∑j=1k⟨Auj,uj⟩=∑j=1k\lambdaj,
+where U={u1,…,uk} is any o.n. set. (Hint: Put A in diagonal form and use a judicious choice of B.)
+
+\p{3} Show that ℓ∞ is a Banach space under the norm ∥{xj}∥=supj|xj|
+
+Show that ℓ2 is a Hilbert space under the inner product
+⟨{xj},{yj}⟩:=∑j=1∞y¯jxj.
+
+Let 0≤δ≤1. We define the modulus of continuity for f∈C[0,1] by
+ω(f;δ):=sup|s−t|≤δ|f(s)−f(t)|, where  s,t∈[0,1].
+Explain why ω(f;δ) exists for every f∈C[0,1].
+Fix δ. Let Sδ = { ε > 0 | |f(t) − f(s)| < ε for all s,t ∈ [0,1], |s − t| ≤ δ}. In other words, for given δ, ε is in the set if |f(t) − f(s)| < ε holds for all |s − t| ≤ δ. Show that 
+ω(f;δ) = inf Sδ
+Show that ω(f;δ) is non decreasing as a function of δ. (Or, more to the point, as δ ↓ 0, ω(f;δ) gets smaller.)
+Show that lim δ↓0 ω(f;δ) = 0.
+\end{document}

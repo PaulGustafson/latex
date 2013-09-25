@@ -47,13 +47,20 @@ To see that $\mB$ is closed under taking finite intersections,  let $B,C \in \mB
 
 Write $B_i = \prod_{i=1}^d [a_i, b_i)$ and $C_i = \prod_{i=1}^d [c_i, d_i)$.  Then $B_i \cap C_i = \prod_{i=1}^d [a_i, b_i) \cap [c_i, d_i)$.  For each $i$, we have $[a_i, b_i) \cap [c_i, d_i) = [e_i, f_i)$ for some $-\infty \le e_i \le f_i \le \infty$ by case analysis on the order of $a_i, b_i, c_i, d_i$.  Hence, $B_i \cap C_i \in \mE$.
 
-To see that $\mB$ is closed under taking complements, let $B \in \mB$. Then $B = \bigcup_{i=1}^n E_i$ for $E_i \in \mE$, and $B^c = \bigcap_i E_i^c$.  Since we know that $\mB$ is closed under finite intersections, it suffices to show that each $E_i^c \in \mB$.  Writing $E_i$ as $E_i = \prod_{j=1}^d [a_j, b_j)$, let $\mathcal U = \{\prod_{j=1}^d U_j : \forall j \quad U_j \in \{ (-\infty, a_j), [a_j, b_j), [b_j,\infty) \} \} \subset \mE$.  Then $\mathcal U$ is a finite partition of $\R^d$, and $E_i^c = \bigcup (\mU \setminus E)$.  Hence $E_i^c \in \mB$.
+To see that $\mB$ is closed under taking complements, let $B \in \mB$. Then $B = \bigcup_{i=1}^n E_i$ for $E_i \in \mE$, and $B^c = \bigcap_i E_i^c$.  Since we know that $\mB$ is closed under finite intersections, it suffices to show that each $E_i^c \in \mB$.  Writing $E_i$ as $E_i = \prod_{j=1}^d [a_j, b_j)$, let $\mathcal U = \{\prod_{j=1}^d U_j : \forall j \quad U_j \in \{ (-\infty, a_j), [a_j, b_j), [b_j,\infty) \} \} \subset \mE$.  Then $\mathcal U$ is a  finite partition of $\R^d$, and $E_i^c = \bigcup (\mU \setminus E)$.  Hence $E_i^c \in \mB$.
 
-For (b), by the extension of premeasures theorem, it suffices to show that $\mu_0: \mA \to [0, \infty]$ defined by $\mu_0(\bigcup_{i=1}^n \prod_{j=1}^d [a_{ij}, b_{ij}) = \sum_i \prod_j (b_{ij} - a_{ij})$ for disjoint $(\prod_j [a_{ij}, b_{ij}))_i$ with $-\infty \le a_{ij} \le b_{ij} \le \infty$ is a premeasure. 
+For (b), first define $V:\mE \to [0, \infty]$ by $V( \prod_{i=1}^n [a_i, b_i) = \prod_{i=1}^n b_i - a_i$. 
+By the extension of premeasures theorem, it suffices to show that $\mu_0: \mA \to [0, \infty]$ defined by $\mu_0(A) = \sum_{i=1}^n V(E_i)$, where $(E_i)_{i=1}^n$ is a $\mE$-partition of $A$, is a premeasure.
+
+\emph{Step 1: $\mu_0$ is well-defined.} I first show that if $E \in \mE$ and $\mP \subset \mE$ is a partition of $E$, then $V(E) = \sum_{P \in \mP} V(P)$.
+For $1 \le j \le d$, let $a_{j1} < a_{j2} < \ldots < a_{j m_j}$ enumerate all the endpoints of intervals that appear in the $j$-th coordinate of an element of $\mP$.  Define $\mU = \{ \prod_{i=1}^d U_i : \forall i \exists j \quad U_i = [a_{j,i}, a_{j,i+1}) \}$.  Then $\mU$ is a refinement of $\mP$.
+
+Fix $P = \prod_{i=1}^d [p_i, p_i') \in \mP$.  The family $\mQ := \{Q \in \mP : Q \cap P \neq \emptyset \}$ is a partition of $P$. I claim that $V(P) = \sum_{Q \in \mQ} V(Q)$. If $Q = \prod_i [q_i, q_i') \in \mQ$
+
+%$E = \prod_{i=1}^d [a_i, b_i) = \bigcup_{j=1}^J \prod_{i=1}^d [c_{ji}, d_{ji})$ then $\prod_{i=1}^d b_i - a_i = \sum_{j=1}^J \prod_{i=1}^d d_{ji} - c_{ji}$.  
+  
 
 
-
-To see that $\mu_0$ is well-defined, I first show that if $E \in \mE$ with $E = \prod_{i=1}^d [a_i, b_i) = \bigcup_{j=1}^J \prod_{i=1}^d [c_{ji}, d_{ji})$ then $\prod_{i=1}^d b_i - a_i = \sum_{j=1}^J \prod_{i=1}^d d_{ji} - c_{ji}$.
 
 suppose $A = \bigcup_{i=1}^I E_i = \bigcup_{j=1}^J F_i$ for disjoint $(E_i = \prod_{k=1}^d [a_{ik}, b_{ik}))_i \subset\mE$ and disjoint $((F_j = \prod_{k=1}^d [c_{jk}, d_{jk})) \subset \mE$. We need to show that $\sum_{i=1}^I \prod_{k=1}^d b_{ik} - a_{ik} = \sum_{j=1}^J \prod_{k=1}^d d_{jk} - c_{jk}$.
 
@@ -67,7 +74,7 @@ To check countable additivity, let $(A_n) \subset \mA$ be disjoint with $A := \b
 
 %Check finite additivity first?
 
-\emph{Step 1: $\mu_0(A) \le \sum_n \mu_0(A_n)$.} 
+\emph{Step 2: $\mu_0(A) \le \sum_n \mu_0(A_n)$.} 
 
 %Might have to show that each B_n is bounded (easy)
 \emph{Case 1: $A$ is bounded.} Since $A$ is bounded, each $A_n$ must be bounded. Let $\epsilon > 0$.  There is an open box $B_n$ of volume $\mu_0(A_n) + 2^{-n} \epsilon$ containing each $A_n$.  These boxes cover $\overline {A}$, so by the Heine-Borel theorem, there exists a finite set $F$ such that $(B_n)_{n\in F}$ covers $\overline A$. We can write each $B_n$ as $B_n = \prod_{i=1}^d (a_{ni}, b_{ni})$ for some $-\infty < a_i < b_i < \infty$.  Let $\mU = \{\prod_{j=1}^d (c_j, d_j] :  c_j < d_j, c_j = a_{ni}, d_j = b_{n'i'} \text{ for some } n,n',i, i' \}$.   Then $\mU$
@@ -75,7 +82,7 @@ To check countable additivity, let $(A_n) \subset \mA$ be disjoint with $A := \b
 \emph{Case 2: $A$ is unbounded.} 
 
 
-\emph{Step 2:  $\sum_n \mu_0(A_n) \le \mu_0(A)$.} It suffices to show that $\sum_{n=1}^N \mu(A_n) \le \mu(A)$ for all $N$.  T
+\emph{Step 3:  $\sum_n \mu_0(A_n) \le \mu_0(A)$.} It suffices to show that $\sum_{n=1}^N \mu(A_n) \le \mu(A)$ for all $N$.  T
 
 
 
