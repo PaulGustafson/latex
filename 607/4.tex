@@ -49,47 +49,13 @@ Write $B_j = \prod_{i=1}^d [a_i, b_i)$ and $C_k = \prod_{i=1}^d [c_i, d_i)$. The
 
 To see that $\mB$ is closed under taking complements, let $B \in \mB$. Then $B = \bigcup_{i=1}^n E_i$ for $E_i \in \mE$, and $B^c = \bigcap_i E_i^c$. Since we know that $\mB$ is closed under finite intersections, it suffices to show that each $E_i^c \in \mB$. Writing $E_i$ as $E_i = \prod_{j=1}^d [a_j, b_j)$, let $\mathcal U = \{\prod_{j=1}^d U_j : \forall j \quad U_j \in \{ (-\infty, a_j), [a_j, b_j), [b_j,\infty) \} \}$. Then $\mathcal U \subset \mE$ is a finite partition of $\R^d$, and $E_i^c = \bigcup (\mU \setminus E)$. Hence $E_i^c \in \mB$.
 
-For (b), we first define $V : \mE \to [0, \infty]$ by $V(\prod_{i=1}^d [a_i, b_i)) = \prod_{i=1}^d b_i - a_i$. Let $\pi_i: \overline{\R}^d \to \overline \R$ be the projection onto the $i$-th component. By the extension of premeasures theorem, it suffices to show that $\mu_0: \mA \to [0, \infty]$ defined by $\mu_0(A) = \sum_{i=1}^n V(E_i)$, where $(E_i)_{i=1}^n$ is a $\mE$-partition of $A$, is a well-defined premeasure.
+For (b), we first define $V : \mE \to [0, \infty]$ by $V(\prod_{i=1}^d [a_i, b_i)) = \prod_{i=1}^d b_i - a_i$. Define $V$ in the same way for open and closed boxes.
+%Let $\pi_i: \overline{\R}^d \to \overline \R$ be the projection onto the $i$-th component.
+Let $\mu_0: \mA \to [0, \infty]$ be defined by $\mu_0(A) = \inf \{\sum_{j=1}^\infty V(E_j) : \bigcup_j E_j \supset A \}$.
 
+Let $E \in \mE$.  We wish to show that $\mu_0(E) = V(E)$. Since $E$ is a cover of itself, clearly $\mu_0(E) \le V(E)$.
 
-\emph{Step 1: If $E = \prod_i [a_i, b_i) \in \mE$ and $\mP$ is a finite $\mE$-partition of $E$ then $V(E) = \sum_{P \in \mP} V(P)$.}
-\emph{Case 1.1: There exists $1 \le i \le d$ such that $\pi_i(\mP)$ is a }
-Fix $1 \le i \le d$.
-To see this, Let $X \subset \overline{\R}^d$ be the finite set of all vertices of all nonempty boxes in $\mP$. Fix $1 \le i \le d$. We have $X_i := \pi_i^{-1} (X) \subset [a_i, b_i]$ with $a_i, b_i \in X_i$. Let $(y_j)_{j=1}^m$ be an enumeration of $X_i$ such that $y_j < y_{j+1} \forall j$. Then $\{ [y_j, y_{j+1}) : 1 \le j \le m-1 \}$ is an interval partition of $[a_i, b_i)$. \
-Hence $\mY :=(E \cap \pi_i^{-1}([y_j, y_{j+1})))_{j=1}^{m-1}$ is an $\mE$-partition of $E$. But $V(E) = \prod_{k=1}^d b_k - a_k = (b_i - a_i) \prod_{k \neq i} b_k - a_k = \sum_{j=1}^{m-1} (y_{j+1} - y_j) \prod_{k \neq i} b_k - a_k = \sum_{Y \in \mY} V(Y)$.
-
-
-\emph{Step 1: $\mu_0$ is well-defined.} I first show that if $E \in \mE$ and $\mP \subset \mE$ is a partition of $E$, then $V(E) = \sum_{P \in \mP} V(P)$.
-For $1 \le j \le d$, let $a_{j1} < a_{j2} < \ldots < a_{j m_j}$ enumerate all the endpoints of intervals that appear in the $j$-th coordinate of an element of $\mP$.  Define $\mU = \{ \prod_{i=1}^d U_i : \forall i \exists j \quad U_i = [a_{j,i}, a_{j,i+1}) \}$.  Then $\mU$ is a refinement of $\mP$.
-
-Fix $P = \prod_{i=1}^d [p_i, p_i') \in \mP$.  The family $\mQ := \{Q \in \mP : Q \cap P \neq \emptyset \}$ is a partition of $P$. I claim that $V(P) = \sum_{Q \in \mQ} V(Q)$. If $Q = \prod_i [q_i, q_i') \in \mQ$
-
-%$E = \prod_{i=1}^d [a_i, b_i) = \bigcup_{j=1}^J \prod_{i=1}^d [c_{ji}, d_{ji})$ then $\prod_{i=1}^d b_i - a_i = \sum_{j=1}^J \prod_{i=1}^d d_{ji} - c_{ji}$.  
-  
-
-
-
-suppose $A = \bigcup_{i=1}^I E_i = \bigcup_{j=1}^J F_i$ for disjoint $(E_i = \prod_{k=1}^d [a_{ik}, b_{ik}))_i \subset\mE$ and disjoint $((F_j = \prod_{k=1}^d [c_{jk}, d_{jk})) \subset \mE$. We need to show that $\sum_{i=1}^I \prod_{k=1}^d b_{ik} - a_{ik} = \sum_{j=1}^J \prod_{k=1}^d d_{jk} - c_{jk}$.
-
-Note that $(E_i \cap F_k)_{i,k}$ is a partition of $A$. Let $(D_l)_{l=1}^L$ enumerate this partition with the empty sets removed.  The intersection of two boxes is a box, so we can write each $D_{l}$ as $\prod_{k=1}^d (e_{lk}, j_{lk})$
-
-
-
-From the definition of $\mu_0$, we have $\mu_0(\emptyset) = 0$.
-
-To check countable additivity, let $(A_n) \subset \mA$ be disjoint with $A := \bigcup_n A_n \in \mA$.  Since $A \in \mA$, we have  $A = \bigcup_{i=1}^m F_i$ for disjoint $(F_i) \subset \mE$.  Replacing each $A_n$ with $(A_n \cap F_i)_{i=1}^m$ and removing the empty sets, WLOG each $A_n$ intersects one $F_i$. By the definition of $\mu_0$, we have $\mu_0(A) = \sum_i \mu_0(F_i)$.  Hence, to show that $\sum_n \mu_0(A_n) = \mu_0(A)$, it suffices to show that $\sum_{A_n \cap F_i \neq \emptyset) \mu_0(A_n) = \mu_0(F_i)$ for each $i$.  Fix an $F_i$. By replacing $(A_n)$ with its subsequence intersecting $F_i$ and replacing $A$ with $F_i$,  WLOG $A \in \mE$. Since each $A_n = \bigcup_{l=1}^L E_l$ for disjoint $(E_l) \subset E$, by replacing each $A_n$ with $(E_l)_{l=1}^L$ we may assume each $A_n \in \mE$.
-
-%Check finite additivity first?
-
-\emph{Step 2: $\mu_0(A) \le \sum_n \mu_0(A_n)$.} 
-
-%Might have to show that each B_n is bounded (easy)
-\emph{Case 1: $A$ is bounded.} Since $A$ is bounded, each $A_n$ must be bounded. Let $\epsilon > 0$.  There is an open box $B_n$ of volume $\mu_0(A_n) + 2^{-n} \epsilon$ containing each $A_n$.  These boxes cover $\overline {A}$, so by the Heine-Borel theorem, there exists a finite set $F$ such that $(B_n)_{n\in F}$ covers $\overline A$. We can write each $B_n$ as $B_n = \prod_{i=1}^d (a_{ni}, b_{ni})$ for some $-\infty < a_i < b_i < \infty$.  Let $\mU = \{\prod_{j=1}^d (c_j, d_j] :  c_j < d_j, c_j = a_{ni}, d_j = b_{n'i'} \text{ for some } n,n',i, i' \}$.   Then $\mU$
-
-\emph{Case 2: $A$ is unbounded.} 
-
-
-\emph{Step 3:  $\sum_n \mu_0(A_n) \le \mu_0(A)$.} It suffices to show that $\sum_{n=1}^N \mu(A_n) \le \mu(A)$ for all $N$.  T
+\emph{Case 1: $E$ is bounded.} Let $\epsilon > 0$.  Let $(E_j)$ be a countable $\mE$-cover of $E$.  Enlarge each $E_j$ slightly to get open boxes $\wt E_j$ with $V(\wt E_j) - V(E_j) < 2^{-j} \epsilon$.  We can also pick a closed box $\wt E \subset E$ with $V(E) - V(\wt E) < \epsilon$. Since $\wt E$ is compact, there exists a finite set $F$ such that $(\wt E_j)_{j \in F}$ covers $\wt E$.  Let $(F_j)_{j\ in F} \subset \mE$ be defined by letting each $F_j = \prod_i [a_{ji}, b_{ji}$ where $\prod_i (a_{ji}, b_{ji}) = \wt E_j$.  Similarly, let $F \in \mE$ be defined by $F = \prod_i [a_i, b_i)$ where $\prod_i [a_i, b_i] = \wt E$.  Hence $(F_j)_{j \in F}$ is a finite $\mE$-cover of $F$ with $\sum_{j\in F} V(F_j) < \sum_{j\in F} V(E_j) + 2^{-j} \epsilon \le \epsilon + \sum_{j=1}^\infty V(E_j)$ and $V(F) - V(E) < \epsilon$.  Therefore, it suffices to show that $V(F) \le \sum_{j \in F} V(F_j)$, for then $V(E) < \epsilon + V(F) \le \epsilon + \sum_{j \in F} V(F_j)  \le 2 \epsilon + \sum_{j=1}^\infty V(E_j)$.
 
 
 
