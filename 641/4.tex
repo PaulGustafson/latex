@@ -36,6 +36,9 @@ For (a),
 
 Since the trace of a matrix is the sum of its eigenvalues, (b) follows directly from (a).
 
+For (c), suppose $A \le B$. Let $(e_i)$ be the standard basis.  
+Then $\tr(A) = \sum_{i=1}^n \langle A e_i, e_i \rangle \le \sum_{i=1}^n \langle B e_i, e_i \rangle = \tr(B)$
+
 \end{proof}
 
 
@@ -50,6 +53,8 @@ where $U=\{u_1,\ldots,u_k\}$ is any o.n. set.  (Hint: Put $A$ in
 diagonal form and use a judicious choice of $B$.)
 
 \begin{proof}
+By the spectral theorem for self-adjoint matrices, $A$ is diagonal with respect to an orthonormal basis $V = (v_i)_{i=1}^n$. By reordering the $v_i$, WLOG the eigenvalue of each $v_i$ is $\lambda_i$.  Let $W = \spn (v_i)_{i=1}^k$, which is an invariant subspace of $A$.  Hence we have $\sum_{j=1}^k \lambda_j = \text{Trace}_W(A) = \sum_{i=1}^k \langle A v_i, v_i \rangle$. Hence $\max_U \sum_{j=1}^k \langle Au_j,u_j \rangle \ge \sum_{j=1}^k \lambda_j$.
+
 \end{proof}
 
 
@@ -67,7 +72,7 @@ Fix $j$. Since $(x_n)$ is Cauchy, given $\epsilon > 0$ there exists $N$ such tha
 
 Let $y = (y_j)_j \in \ell^\infty$.  I need to show that $y \in \ell^\infty$ and $x_n \to y$.  For the former, note that since $(x_n)$ is Cauchy, there exists $M$ such that $\|x_n\| \le M$ for all $n$.  Hence $|x_{nj}| \le M$ for all $n, j$.  Thus for each $j$, we have $|y_j| = |\lim_n x_{nj}| = \lim_n |x_{nj}| \le M$. Thus, $y \in \ell^\infty$.  
 
-To see that $x_n \to y$, pick $\epsilon > 0$.  Since $(x_n)$ is Cauchy, we can pick $N$ such that $\|x_n - x_m\| < \epsilon/2$ for all $n,m \ge N_1$. Since each $x_{nj} \to y_j$ for each $1 \le j \le N$, we can pick $N_j$ such that $\|x_{nj} - y_j \| < \epsilon/2$ for all $n \ge N_j$.  Let $K = \max(N, \max_j N_j))$.  Then for $n \ge K$, we have $\|x_n - y \| \le \|x_n - x_K\| + \|x_K - y\| < \epsilon/2 + \sup_j |x_{Kj} - y_j| < \epsilon/2 + \sup_j (\epsilon/2) = \epsilon/2$.
+To see that $x_n \to y$, pick $\epsilon > 0$.  Since $(x_n)$ is Cauchy, we can pick $N$ such that $\|x_n - x_m\| < \epsilon/2$ for all $n,m \ge N_1$. Since each $x_{nj} \to y_j$ for each $1 \le j \le N$, we can pick $N_j$ such that $\|x_{nj} - y_j \| < \epsilon/2$ for all $n \ge N_j$.  Let $K = \max(N, \max_j N_j))$.  Then for $n \ge K$, we have $\|x_n - y \| \le \|x_n - x_K\| + \|x_K - y\| < \epsilon/2 + \sup_j |x_{Kj} - y_j| < \epsilon/2 + \sup_j (\epsilon/2) = \epsilon$.
 \end{proof}
 
 \p{4} Show that $\ell^2$ is a Hilbert space under the inner product 
