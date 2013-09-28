@@ -11,50 +11,68 @@
 $$\|g\|_{C[a,b]} \le (h^2/8) \|g''\|_{C[a,b]}.$$
 Give an example showing that $1/8$ is the best possible constant.
 \begin{proof}
-We have
+Since $g(a) = g(b) = 0$, there exists a point $c \in (a,b)$ such that $|g(c)| = \|g\|$.  Also $g'(c) = 0$.
+By the fundamental theorem of calculus, we have
 \begin{align*}
-g(x)  & = \int_a^x g'(t) \, dt
-\\ & = \int_a^x g'(a) + \int_a^t g''(s) \, ds \, dt
-\\ & \le (x-a) g'(a) + \int_a^x (t - a) \|g''\| \,dt
-\\ & = (x-a) g'(a) + \left[ (t^2/2 - at) \|g''\| \right]_{t=a}^x
-\\ & = (x-a) g'(a) + (x^2/2 - ax - a^2/2 + a^2) \|g''\|
-\\ & = (x-a) g'(a) + \frac 1 2 (x - a)^2 \|g''\|.
+|g(c)| & = \left| g(a) + \int_a^c g'(x) \, dx \right|
+\\ & = \left| \int_a^c \left(g'(c) + \int_c^t g''(x) \,dt \right)\,dx \right|
+\\ & = \left| \int_a^c  \int_t^c g''(x) \,dt \,dx \right|
+\\ & \le \int_a^c \int_t^c |g''(t)| \,dt\,dx
+\\ & \le \int_a^c \int_t^c \|g''\| \,dt\,dx
+\\ & = \int_a^c (c - t) \|g''\| \, dx
+\\ & = \left[ ct  - t^2/2 \right]_{t=a}^c \|g''\| 
+\\ & = (c^2 - c^2/2 - ac + a^2/2) \|g''\| 
+\\ & = (1/2) (c - a)^2 \|g''\|
 \end{align*}
 
-On the other hand,
-\begin{align*}
-g(x)  & = \int_b^x g'(t) \, dt
-\\ & = \int_b^x g'(b) + \int_b^t g''(s) \, ds \, dt
-\\ & \le (x-b) g'(b) + \int_b^x (t - b) \|g''\| \,dt
-\\ & = (x-b) g'(b) + \left[ (t^2/2 - bt) \|g''\| \right]_{t=b}^x
-\\ & = (x-b) g'(b) + (x^2/2 - bx - b^2/2 + b^2) \|g''\|
-\\ & = (x-b) g'(b) + \frac 1 2 (x - b)^2 \|g''\|.
-\end{align*}
+Similarly, using $b$ in place of $a$, we get $|g(c)| \le (1/2) (b - c)^2 \|g''\|$.  Since $c \in (a,b)$, we have $\min(c-a, b-c) \le (b-a)/2$.
+Hence $\|g\| = |g(c)| \le (1/2) ((b-a)/2)^2 \|g''\| = (h^2/8) \|g''\|$.
 
-Adding the inequalities and dividing by 2, we have
-
-An example showing that $1/8$ is the best possible constant is $g(x) = x^2 - 1$ on $[-1, 1]$. To see this, note that $1 = \|g\| = ((2)^2/8) (2) = (h^2/8) \|g''\|$.
+An example showing that $1/8$ is the best possible constant is $g(x) = x^2 - 1$ on $[-1, 1]$. To see this, note that $\|g\| = 1 = ((2)^2/8) (2) = (h^2/8) \|g''\|$.
 \end{proof}
 
 \p{2} Use the previous problem to show that if $f \in C^2[0,1]$, then the equally spaced linear spline interpolant $f_n$ satisfies
 $$\|f - f_n \|_{C[a,b]} \le (8n^2)^{-1} \|f''\|_{C[a,b]}.$$
+\begin{proof}
+For $1 \le k \le n-1$, we have $f -f_n \in C^2[k/n, (k+1)/n]$ with $f -f_n = 0$ at the endpoints.  Hence $\|f - f_n\|_{C[k/n, (k+1)/n]} \le (8n^2)^{-1} \|(f - f_n)''\|_{C[k/n, (k+1)/n]}  = (8n^2)^{-1} \|f''\|_{C[k/n, (k+1)/n]} \le (8n^2)^{-1} \|f''\|_{C[0,1]}$.  Since $([k/n, (k+1)/n])_k$ covers the interval $[0,1]$, we have $\|f - f_n \|_{C[0,1]} \le (8n^2)^{-1} \|f''\|_{C[0,1]}$.
+\end{proof}
 
 \p{3} Let $0 < \alpha < 1$ be fixed. Define $f(x) = x^\alpha, x \in [0,1]$. Show that $\omega(f; \delta) \le C \delta^\alpha$ where $C$ is independent of $\delta$.
 \begin{proof}
 Let $\delta > 0$. Note that $f'' < 0$ so $f$ is convex.  Moreover $f$ is increasing. Hence, if $s < t$ with $t - s \le \delta$, we have $|f(s) - f(t)| = f(t) - f(s) \le f(\delta + s) - f(s) \le \frac {\delta} {\delta + s} f(\delta) + \frac {s} {\delta + s} f(s) - f(s) \le f(\delta) + f(s) - f(s) = \delta^\alpha$.
 \end{proof}
 
-\p{4} Let $V$ be a Banach space. Suppose that there is an uncountable set of vectors $U$ and $\epsilon_0 > 0$ such that for all $u,v \in U$, $\|u - v\| \ge \epsilon_0$. Prove that $V$ is not separable. Use this to show that $L^\infty[0,1]$ is not separable.
+\p{4} Let $V$ be a Banach space. Suppose that there is an uncountable set of vectors $U$ and $\epsilon_0 > 0$ such that for all $u,v \in U$ with $u \neq v$, $\|u - v\| \ge \epsilon_0$. Prove that $V$ is not separable. Use this to show that $L^\infty[0,1]$ is not separable.
 \begin{proof}
-Suppose $V$ is separable.  Let $D$ be a countable dense set.  Then for every $u \in U$, we have $B_{\epsilon_0/2}(u) \cap D \neq \emptyset$.  However, if $v \in U$ with $u \neq v$, by the triangle inequality $B_{\epsilon_0/2}(u) \cap B_{\epsilon_0/2}(v) = \emptyset$. This contradicts the countability of $D$.
+Suppose $V$ is separable.  Let $D$ be a countable dense set.  Then for every $u \in U$, we have $B_{\epsilon_0/2}(u) \cap D \neq \emptyset$.  However, if $u,v \in U$ with $u \neq v$, by the triangle inequality $B_{\epsilon_0/2}(u) \cap B_{\epsilon_0/2}(v) = \emptyset$. Thus there is an injection from $\{B_{\epsilon_0/2}(u) : u \in U \}$ to $D$. This contradicts the countability of $D$.
 
-To see that $L^\infty[0,1]$ is not separable, let $(A_n)$ be a sequence of disjoint subsets of $[0,1]$ of positive measure.  For example, take $A_n = (1/(n+1), 1/n)$.  Let
+To see that $L^\infty[0,1]$ is not separable, let $(A_n)$ be a sequence of disjoint subsets of $[0,1]$ of positive measure.  For example, take $A_n = (1/(n+1), 1/n)$.  For each $N \subset \N$, let $U_N = \bigcup_{n \in N} A_n$ and $f_N = \chi_{U_N}$.   If $N, M \subset \N$ with $N \neq M$, then WLOG there exists $n \in N \setminus M$.  Then for all $x \in A_n$, we have $f_N(x) - f_M(x) = 1$.  Thus $\|f_N - f_M\|_\infty = 1$.  Hence $(f_N)_{N \in \mP(\N)}$ is an uncountable family of elements of $L^\infty[0,1]$ with $\|f_N - f_M\| = 1$ for $N \neq M$, so by the lemma $L^\infty[0,1]$ is not separable.
 \end{proof}
 
 \p{5} Recall that the B-splines $N_m$ satisfy the recurrence relation
 $$N_m(x) = \frac{x}{m-1}N_{m-1}(x)+\frac{m-x}{m-1}N_{m-1}(x-1),
 \ m \ge 2. $$
-Use this to show $N_3(x) = \frac12 \big( (x)_+^2 - 3(x-1)_+^2 + 
-3(x-2)_+^2 - (x-3)_+^2\big)$. Hint: $(x-a)(x-a)_+^k=(x-a)_+^{k+1}$.
+Use this to show $N_3(x) = \frac 1 2 \big( (x)_+^2 - 3(x-1)_+^2 + 
+3(x-2)_+^2 - (x-3)_+^2\big)$. Hint: $(x-a)((x-a)_+)^k = ((x-a)_+)^{k+1}$ for $k \ge 1$.
+\begin{proof}
+To prove the hint, if $x - a \le 0$ then $(x-a)_+ = 0$, so $(x-a)((x-a)_+)^k = 0 = ((x-a)_+)^{k+1}$.  If $x - a > 0$, then $(x-a)((x-a)_+)^k = (x-a)^{k+1} =  ((x-a)_+)^{k+1}$.
 
+We have $N_1 = \chi_{[0,1)}$. Hence,
+\begin{align*}
+N_2(x) & = \frac{x}{2-1}\chi_{[0,1)}(x)+\frac{2-x}{2-1}\chi_{[0,1)}(x - 1)
+\\ & = x\chi_{[0,1)}(x)+(2-x)\chi_{[1,2)}(x)
+\\ & = x^+ - 2(x-1)_+ + (x-2)_+.
+\end{align*}
+
+Thus,
+\begin{align*}
+N_3(x) & = \frac{x}{2} (x_+ - 2(x-1)_+ + (x-2)_+) + \frac{3-x}{2} ((x-1)_+ - 2(x-2)_+ + (x-3)_+)
+\\ & = \frac 1 2 ((x) x_+ - 2(x-1)(x-1)_+ - 2(x - 1)_+ + (x-2)(x-2)_+ + 2(x-2)_+ 
+\\ & \quad \quad - (x-3) ((x-1)_+ - 2(x-2)_+ + (x-3)_+))
+\\ & = \frac 1 2 ( (x_+)^2 - 2((x-1)_+)^2 - 2(x-1)_+ + ((x-2)_+)^2 + 2(x-2)_+ 
+\\ & \quad \quad  - ((x-1)(x-1)_+ -2(x-1)_+ - 2(x-2)(x-2)_+ +2(x-2)_+ + (x+3)(x+3)_+))
+\\ & = \frac 1 2 ( (x_+)^2 - 2((x-1)_+)^2 + ((x-2)_+)^2 - (((x-1)_+)^2 - 2((x-2)_+)^2 + ((x+3)_+)^2))
+\\ & = \frac 1 2 ( (x_+)^2 - 3((x-1)_+)^2 + 3 ((x-2)_+)^2 - ((x+3)_+)^2)
+\end{align*}
+\end{proof}
 \end{document}
