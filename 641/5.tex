@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 641\\ 
+\noindent Instructor - Fran Narcowich
+
+\subsection*{HW 5}
+\p{1} Let $g \in C^2[a,b]$, and $h = b-a$. Show that if $g(a) = g(b) = 0$, then 
+$$\|g\|_{C[a,b]} \le (h^2/8) \|g''\|_{C[a,b]}.$$
+Give an example showing that $1/8$ is the best possible constant.
+\begin{proof}
+We have
+\begin{align*}
+g(x)  & = \int_a^x g'(t) \, dt
+\\ & = \int_a^x g'(a) + \int_a^t g''(s) \, ds \, dt
+\\ & \le (x-a) g'(a) + \int_a^x (t - a) \|g''\| \,dt
+\\ & = (x-a) g'(a) + \left[ (t^2/2 - at) \|g''\| \right]_{t=a}^x
+\\ & = (x-a) g'(a) + (x^2/2 - ax - a^2/2 + a^2) \|g''\|
+\\ & = (x-a) g'(a) + \frac 1 2 (x - a)^2 \|g''\|.
+\end{align*}
+
+On the other hand,
+\begin{align*}
+g(x)  & = \int_b^x g'(t) \, dt
+\\ & = \int_b^x g'(b) + \int_b^t g''(s) \, ds \, dt
+\\ & \le (x-b) g'(b) + \int_b^x (t - b) \|g''\| \,dt
+\\ & = (x-b) g'(b) + \left[ (t^2/2 - bt) \|g''\| \right]_{t=b}^x
+\\ & = (x-b) g'(b) + (x^2/2 - bx - b^2/2 + b^2) \|g''\|
+\\ & = (x-b) g'(b) + \frac 1 2 (x - b)^2 \|g''\|.
+\end{align*}
+
+Adding the inequalities and dividing by 2, we have
+
+An example showing that $1/8$ is the best possible constant is $g(x) = x^2 - 1$ on $[-1, 1]$. To see this, note that $1 = \|g\| = ((2)^2/8) (2) = (h^2/8) \|g''\|$.
+\end{proof}
+
+\p{2} Use the previous problem to show that if $f \in C^2[0,1]$, then the equally spaced linear spline interpolant $f_n$ satisfies
+$$\|f - f_n \|_{C[a,b]} \le (8n^2)^{-1} \|f''\|_{C[a,b]}.$$
+
+\p{3} Let $0 < \alpha < 1$ be fixed. Define $f(x) = x^\alpha, x \in [0,1]$. Show that $\omega(f; \delta) \le C \delta^\alpha$ where $C$ is independent of $\delta$.
+\begin{proof}
+Let $\delta > 0$. Note that $f'' < 0$ so $f$ is convex.  Moreover $f$ is increasing. Hence, if $s < t$ with $t - s \le \delta$, we have $|f(s) - f(t)| = f(t) - f(s) \le f(\delta + s) - f(s) \le \frac {\delta} {\delta + s} f(\delta) + \frac {s} {\delta + s} f(s) - f(s) \le f(\delta) + f(s) - f(s) = \delta^\alpha$.
+\end{proof}
+
+\p{4} Let $V$ be a Banach space. Suppose that there is an uncountable set of vectors $U$ and $\epsilon_0 > 0$ such that for all $u,v \in U$, $\|u - v\| \ge \epsilon_0$. Prove that $V$ is not separable. Use this to show that $L^\infty[0,1]$ is not separable.
+\begin{proof}
+Suppose $V$ is separable.  Let $D$ be a countable dense set.  Then for every $u \in U$, we have $B_{\epsilon_0/2}(u) \cap D \neq \emptyset$.  However, if $v \in U$ with $u \neq v$, by the triangle inequality $B_{\epsilon_0/2}(u) \cap B_{\epsilon_0/2}(v) = \emptyset$. This contradicts the countability of $D$.
+
+To see that $L^\infty[0,1]$ is not separable, let $(A_n)$ be a sequence of disjoint subsets of $[0,1]$ of positive measure.  For example, take $A_n = (1/(n+1), 1/n)$.  Let
+\end{proof}
+
+\p{5} Recall that the B-splines $N_m$ satisfy the recurrence relation
+$$N_m(x) = \frac{x}{m-1}N_{m-1}(x)+\frac{m-x}{m-1}N_{m-1}(x-1),
+\ m \ge 2. $$
+Use this to show $N_3(x) = \frac12 \big( (x)_+^2 - 3(x-1)_+^2 + 
+3(x-2)_+^2 - (x-3)_+^2\big)$. Hint: $(x-a)(x-a)_+^k=(x-a)_+^{k+1}$.
+
+\end{document}
