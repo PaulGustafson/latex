@@ -43,7 +43,11 @@ By the inner regularity of $m$, there exists a compact $K \subset E$ with $m(K) 
 
 Suppose that $E - E$ does not contain an open interval centered at 0. Then there exists a sequence $x_n \to 0$ such that $x_n \not\in E - E$ for all $n$.  Hence $E + x_n$ is disjoint from $E$ for all $n$.
 
-By the outer regularity of $m$, there exists open $U \supset E$ with $m(U) < 2 \,m(E)$.  Note that $E$ and $U^c$ are disjoint closed sets. Hence $d(E, U^c) > 0$.  Thus there exists $x_n$ such that $E + x_n \subset U$.  But then $m(U) \ge m(E \cup (E + x_n)) = m(E) + m(E + x_n) = 2 \m(E) > m(U)$, a contradiction.
+By the outer regularity of $m$, there exists open $U \supset E$ with $m(U) < 2 \,m(E)$.  
+
+Since $E$ is compact and $U^c$ is closed,  I claim that $d(E, U^c) := \inf\{|x - y| : x \in E, y \in U^c\} > 0$. Suppose $d(E, U^c) = 0$. Then there exists a sequence $(e_n) \subset E$ with $d(e_n, U) \to 0$.  Since $E$ is compact, by passing to a subsequence we may assume $e_n \to e$ for some $e \in E$.  But then $d(e, U) = 0$, so $e$ is a limit point of $U$.  Hence $e \in U$ since $U$ is closed. This contradicts the disjointness of $E$ and $U^c$. Hence $d(E, U^c) > 0$.
+
+Thus there exists $x_n$ such that $E + x_n \subset U$.  But then $m(U) \ge m(E \cup (E + x_n)) = m(E) + m(E + x_n) = 2 \m(E) > m(U)$, a contradiction.
 \end{proof}
 
 \p{4} Let $(X , \mM, \mu)$ be a measure space. We call $A \in \mM$ an atom if $\mu(A) > 0$ and if $A = A_1 \cup A_2$ for $A_1, A_2 \in \mM$ disjoint implies that $\mu(A_1) = 0$ or $\mu(A_2) = 0$.
