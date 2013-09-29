@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 666\\ 
+\noindent Instructor: Igor Zelenko
+
+\subsection*{Bonus exercises}
+\p{1} Let $\lambda:[0,T] \to [0,1]$ be measurable. Let 
+$$A_n = \bigcup_{k=0}^{n-1} [kT/n, kT/n + \int_{kT/n}^{(k+1)T/n} \lambda(t) \,dt).$$
+Show that for any $\phi \in L_1[0,T]$,
+$$\int_0^t \chi_{A_n}(\tau) \phi(\tau) \,d\tau \to \int_0^t \lambda(\tau) \phi(\tau) \,d\tau,$$
+uniformly on $[0,T]$.
+\begin{proof}
+We first consider the case $\phi = \chi_{(a,b)}$.  Pick nonnegative integers $k_a, k_b \le n$  such that $|k_aT/n - a| < T/n$ and $|b - k_bT/n| < T/n$.  Then 
+\begin{align*}
+\left| \int_0^t (\lambda(\tau) - \chi_{A_n}(\tau)) \phi(\tau) \,d\tau \right| &= \left| \int_a^b (\lambda(\tau) - \chi_{A_n}(\tau)) \,d\tau \right|
+\\ &= \left| \left( \int_a^{k_a T/n} + \int_{k_b T/n}^b + \int_{k_a T/n}^{k_b T/n} \right) (\lambda(\tau) - \chi_{A_n}(\tau)) \,d\tau \right|
+\\ & \le |k_a T/n - a| (2) + |b - k_bT/n| (2) + 0
+\\ & \le 4 T/n,
+\end{align*}
+which goes to $0$ uniformly in $t$.
+
+By linearity, we get the same result for step functions. 
+
+Let $\epsilon > 0$ and $\phi \in L_1[0,T]$ be arbitrary. We can pick a step function $h$ such that $\| \phi - h \|_{L_1[0,T]} < \epsilon/(2T)$.  Then
+\begin{align*}
+\left| \int_0^t (\lambda(\tau) - \chi_{A_n}(\tau)) \phi(\tau) \, d\tau  \right| & \le \left| \int_0^t (\lambda(\tau) - \chi_{A_n}(\tau)) h(\tau) \, d\tau  \right| + \left| \int_0^t (\lambda(\tau) - \chi_{A_n}(\tau)) (h - \phi)(\tau) \, d\tau  \right|
+\\ & \le \left| \int_0^t (\lambda(\tau) - \chi_{A_n}(\tau)) h(\tau) \, d\tau  \right| + 2 t \epsilon/(2T)
+\\ & \le \left| \int_0^t (\lambda(\tau) - \chi_{A_n}(\tau)) h(\tau) \, d\tau  \right| + \epsilon.
+\\ & \le 2 \epsilon,
+\end{align*}
+uniformly in $t$ for $n$ sufficiently large by the step function case.
+\end{proof}
+\end{document}
