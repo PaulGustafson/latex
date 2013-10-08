@@ -1,0 +1,69 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 666\\ 
+\noindent Instructor: Igor Zelenko
+
+\subsection*{HW 2}
+\p{1} Let $E_{ij}$ denote the standard basis of $M_4(\R)$, and $F_{ij} = E_{ij} - E_{ji}$.  Let $\alpha \in \R \setminus \{0\}$ and $A = F_{21} + \alpha F_{43}$.  Let $B = F_{32}$.  We consider the following system on $M := SO(4, \R)$:
+$$\dot E = E ( A + u B),  \quad E \in M, u \in \{-1, 1\}.$$
+
+\p{a} Show that the system is controllable iff $\alpha \neq \pm 1$.
+\begin{proof}
+First note that 
+\begin{align*}
+[F_{ij}, F_{kl}] & = [E_{ij} - E_{ji}, E_{kl} - E_{lk}] 
+\\ & = \delta_{jk} E_{il} - \delta_{jl} E_{ik} - \delta_{ik} E_{jl} + \delta_{il} E_{jk} - (\delta_{li} E_{kj} - \delta_{lj} E_{ki} - \delta_{ki} E_{lj} + \delta_{kj} E_{ki}
+\\ & = \delta_{jk} F_{il} - \delta_{jl} F_{ik} - \delta_{ik} F_{jl} + \delta_{il} F_{jk}
+\end{align*}
+Hence
+\begin{align*}
+[A, B] & = [F_{21} + \alpha F_{43}, F_{32}]
+\\ & = F_{13} + \alpha F_{42}
+\\ 
+\\ [A, [A, B]] & = [F_{21} + \alpha F_{43}, F_{13} + \alpha F_{42}]
+\\ & = F_{23} + \alpha F_{14} - \alpha F_{41} - \alpha^2 F_{32}
+\\ & = 2 \alpha F_{14} + (1 + \alpha^2) F_{23}
+\\ 
+\\ [B, [A, B]] &  = [F_{32}, F_{13} + \alpha F_{42}]
+\\ & = F_{21} - \alpha F_{34}
+\\ & = A
+\end{align*}
+
+Let $C = (2\alpha)^{-1} ([A, [A, B]] + (1+\alpha^2) B) = F_{14}$. Then $Lie_3 = \spn(A, B, [A,B], C)$. 
+
+Then we have
+\begin{align*}
+[A, C] & = [F_{21} + \alpha F_{43}, F_{14}]
+\\ & = \alpha (F_{24} +  F_{31})
+\\ & = - \alpha F_{13} -  F_{42}
+\\
+\\ [B, C] & = [F_{32}, \alpha F_{14}]
+\\ & = 0
+\\
+\\ [C, [A,B]] & = [ F_{14}, F_{13} + \alpha F_{42}] 
+\\ & =  - F_{43} + \alpha F_{12}
+\end{align*}
+
+\emph{Case $\alpha^2 = 1$.} We have $\alpha [A,C] = -F_{13} - \alpha F_{42} = - [A,B]$, and $\alpha [C, [A,B]] = F_{12} - \alpha F_{43} = -A$.
+Thus $Lie_3$ is involutive.  %How do I show that Lie_3 is a vector bundle over M? (Continuity of projection)
+Hence by the Frobenius theorem at every point $E$ there exists an immersed submanifold horizontal to $Lie_3$.  In particular, the admissible set lies in this submanifold. 
+
+\emph{Case $\alpha^2 \neq 1$.}
+Let $D = (-\alpha^2 + 1)^{-1}([A, C] + [A, B]) = F_{13}$.  
+Since $[B, D]  = [F_{32}, F_{13}] =  F_{21}$,
+ we have
+$$(F_{12}, F_{13}, F_{14}, F_{23}, F_{24}, F_{34}) = (-[B,D], D, C, -B, [A,C] + \alpha D, [C, [A,B]] + \alpha [B,D]).$$
+Hence $\mF := \{A + uB : u \in \{-1, 1\}\}$  is bracket-generating. Since $SO(4)$ is connected, this implies the system is controllable.
+\end{proof}
+
+\p{b} Will the answer of the previous item change if $u \in \{2,3\}$ instead of $\{-1,1\}$?
+\begin{proof}
+No, $\spn(A + 2B, A + 3B) = \spn(A, B) = \spn(A + B, A - B)$, so the $Lie_n$  vector bundles will be the same as in (a). 
+ %FIXME when I figure out the bad alpha part
+\end{proof}
+
+
+\end{document}

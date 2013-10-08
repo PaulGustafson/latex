@@ -1,0 +1,130 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 666\\ 
+\noindent Instructor: Igor Zelenko
+
+\subsection*{HW 2}
+\p{1} Let $E_{ij}$ denote the standard basis of $M_4(\R)$, and $F_{ij} = E_{ij} - E_{ji}$.  Let $\alpha \in \R \setminus \{0\}$ and $A = F_{21} + \alpha F_{43}$.  Let $B = F_{32}$.  We consider the following system on $M := SO(4, \R)$:
+$$\dot E = E ( A + u B),  \quad E \in M, u \in \{-1, 1\}.$$
+
+\p{a} Show that the system is controllable iff $\alpha \neq \pm 1$.
+\begin{proof}
+Since $SO(4)$ is a compact Lie group, the system is controllable iff it is bracket generating. 
+
+Fix any $E \in M$. To begin calculating the brackets, we have
+\begin{align*}
+[F_{ij}, F_{kl}] & = [E_{ij} - E_{ji}, E_{kl} - E_{lk}] 
+\\ & = \delta_{jk} E_{il} - \delta_{jl} E_{ik} - \delta_{ik} E_{jl} + \delta_{il} E_{jk} - (\delta_{li} E_{kj} - \delta_{lj} E_{ki} - \delta_{ki} E_{lj} + \delta_{kj} E_{ki})
+\\ & = \delta_{jk} F_{il} - \delta_{jl} F_{ik} - \delta_{ik} F_{jl} + \delta_{il} F_{jk}
+\end{align*}
+Hence
+\begin{align*}
+[A, B] & = [F_{21} + \alpha F_{43}, F_{32}]
+\\ & = F_{13} + \alpha F_{42}
+\\ 
+\\ [A, [A, B]] & = [F_{21} + \alpha F_{43}, F_{13} + \alpha F_{42}]
+\\ & = F_{23} + \alpha F_{14} - \alpha F_{41} - \alpha^2 F_{32}
+\\ & = 2 \alpha F_{14} + (1 + \alpha^2) F_{23}
+\\ 
+\\ [B, [A, B]] &  = [F_{32}, F_{13} + \alpha F_{42}]
+\\ & = F_{21} - \alpha F_{34}
+\\ & = A
+\end{align*}
+
+Let $C = (2\alpha)^{-1} ([A, [A, B]] + (1+\alpha^2) B) = F_{14}$. Then $Lie^3_E = \spn(A, B, [A,B], C)$. 
+
+Then we have
+\begin{align*}
+[A, C] & = [F_{21} + \alpha F_{43}, F_{14}]
+\\ & = \alpha (F_{24} +  F_{31})
+\\ & = - \alpha F_{13} -  F_{42}
+\\
+\\ [B, C] & = [F_{32}, \alpha F_{14}]
+\\ & = 0
+\\
+\\ [C, [A,B]] & = [ F_{14}, F_{13} + \alpha F_{42}] 
+\\ & =  - F_{43} + \alpha F_{12}
+\end{align*}
+
+\emph{Case $\alpha^2 = 1$.} We have $\alpha [A,C] = -F_{13} - \alpha F_{42} = - [A,B]$, and $\alpha [C, [A,B]] = F_{12} - \alpha F_{43} = -A$.
+Thus $[Lie^3_E, Lie^3_E] = Lie^3_E$, and it is easy to see that $\dim(Lie^3_E) = 4$. Since this holds for all points of $M$, $Lie^3$ defines an involutive distribution of $M$.  By the Frobenius theorem there exists an immersed submanifold $N$ containing $E$ such that $T_q(N) = Lie^3_q(M)$ for all $q \in N$.  In particular, the orbit of $E$ and the admissible set lie in $N$. Since $\dim(N) = 4 < 6 = \dim(M)$,  the inclusion map $N \to M$ is everywhere singular. Hence, Sard's theorem implies that $N$ has measure $0$ as a subset of $M$, so $N \neq M$. 
+
+\emph{Case $\alpha^2 \neq 1$.}
+Let $D = (-\alpha^2 + 1)^{-1}([A, C] + [A, B]) = F_{13}$.  
+Since $[B, D]  = [F_{32}, F_{13}] =  F_{21}$,
+ we have
+$$(F_{12}, F_{13}, F_{14}, F_{23}, F_{24}, F_{34}) = (-[B,D], D, C, -B, [A,C] + \alpha D, [C, [A,B]] + \alpha [B,D]).$$
+Hence $\mF := \{A + uB : u \in \{-1, 1\}\}$  is bracket-generating. Since $SO(4)$ is connected, this implies the system is controllable.
+\end{proof}
+
+\p{b} Will the answer of the previous item change if $u \in \{2,3\}$ instead of $\{-1,1\}$?
+\begin{proof}
+No, $\spn(A + 2B, A + 3B) = \spn(A, B) = \spn(A + B, A - B)$, so $Lie^1$, hence every $Lie^n$, will be the same as in (a). 
+\end{proof}
+
+\p{c} Assume that $\alpha = \pm 1$. Prove that for any point $E \in M$  the attainable set from $E$ coincides with the orbit, and find the dimension of every orbit.
+\begin{proof}
+Since $SO(4)$ is a compact Lie group, the family of vector fields $\mF$ corresponding to the control system is Poisson stable (as shown in class).  Hence, for every $f \in \mF$, $-f$ is compatible with $\mF$.  Thus the attainable set is dense in the orbit of $E$. 
+
+By part (a), the orbit of $E$ lies in an immersed submanifold $N$ with $T_q(N) = Lie^3(q)$ for all $q \in N$. By passing to the connected component of $N$ containing $E$, WLOG $N$ is connected.  Then by the Rachevskii-Chow theorem, $\mF$ is controllable on $N$.  Hence by Krener's theorem, the attainable set of $E$ is equal to $N$, which coincides with the orbit of $E$.  For every point $q \in M$, the orbit of $q$ has dimension $\dim(Lie^3(q)) = 4$.
+\end{proof}
+
+\p{d} Assume that $\alpha = 1$. Define complex scalar multiplication on $\R^4$ by $ie_1 = - e_4$, $ie_4 = e_1$, $ie_2 = e_3$, and $ie_3 = -e_2$. Show that a matrix $D$ belongs to the tangent space at the identity $I$ to the orbit iff the corresponding linear operator $\widehat D$ is also linear over $\C$ and the 2x2 matrix $D_1$ corresponding to this operator in the complex basis $(e_1, e_2)$ is satisfies $\overline {D_1^T} = D_1$.
+\begin{proof}
+%Let $N$ denote the immersed submanifold corresponding to $O_I(\mF)$ from (c).  Suppose $D \in T_I(N) = Lie^3_I(M)$.  Then, from (a), $D \in \spn(A,B, [A,B], C) = \spn(F_{21} + F_{43}, F_{23}, F_{13} + F_{42}, F_{14})$.  
+
+Suppose $v = \sum_{j=1}^4 v_j e_j \in \R^4$ and $U \in M_4(\R)$, then $U (iv) =  U (v_1(-e_4) + v_2(e_3) + v_3(-e_2) + v_4(e_1)) = v_4 Ue_1 -v_3 Ue_2 + v_2 Ue_3 - v_1 Ue_4$. We also have $F_{jk} e_l = E_{jk} e_l - E_{kj} e_l = \delta_{kl} e_j - \delta_{jl} e_k$.
+
+Hence, 
+\begin{align*}
+i F_{jk}(v) & = i \sum_l v_l (\delta_{kl}  e_j - \delta_{jl} e_k)
+\\ & = v_k (ie_j) +  v_j (-i e_k)
+\end{align*}
+and
+\begin{align*}
+F_{jk}(iv) & = v_4 F_{jk}e_1 - v_3 F_{jk}e_2 + v_2 F_{jk}e_3 - v_1 F_{jk}e_4
+\\ & = v_4 (\delta_{k1} e_j  - \delta_{j1} e_k) - v_3 (\delta_{k2} e_j  - \delta_{j2} e_k) + v_2 (\delta_{k3} e_j  - \delta_{j3} e_k) - v_1 (\delta_{k4} e_j  - \delta_{j4} e_k)
+\\ &  = (\delta_{k1} v_4 - \delta_{k2}v_3 + \delta_{k3}v_2 - \delta_{k4} v_1) e_j + (-\delta_{j1} v_4 + \delta_{j2} v_3 - \delta_{j3} v_2 + \delta_{j4} v_1) e_k
+\end{align*}
+
+Hence, 
+\begin{align*}
+F_{12}(iv) & = - v_3 e_1 -v_4 e_2 = - v_3 (i e_4) - v_4 (-i e_3) = i F_{34}v
+\\ F_{13}(iv) & =  v_2 e_1 -v_4 e_3 = v_2 (i e_4) - v_4 (i e_2) = i F_{42}v
+\\ F_{14}(iv) & = - v_1 e_1 - v_4 e_4 = -v_1 (i e_4) - v_4 (-i e_1) = i F_{14} v
+\\ F_{23}(iv) & = v_2 e_2 + v_3 e_3 =  v_2 ( -i e_3) + v_3 (i e_2) = i F_{23} v
+\\ F_{24}(iv) & = -v_1 e_2 + v_3 e_4 =  -v_1 (-i e_3) + v_3 (- i e_1) = i F_{31} v
+\\ F_{34}(iv) & = -v_1 e_3 - v_2 e_4 = -v_1 (i e_2) - v_2 (-i e_1) = i F_{12} v
+\end{align*}
+
+%Justify?
+Thus, $\mB := \{F_{14}, F_{23},  F_{34} + F_{12}, F_{13} + F_{42} \}$ is an $\R$-basis for the the subspace of $T_I(M)$ consisting of all $\C$-linear operators. From (a), we know that $\mB$ is also an $\R$-basis for $Lie_I^3(M) = T_I(O_I(\mF))$.  Hence, $T_I(O_I(\mF))$ coincides with the $\C$-linear subspace of $T_I(M)$.  In the $\C$-basis $\{e_1, e_2\}$ for $\R^4$ with the given complex structure, we have
+\[
+F_{14} = \begin{pmatrix}
+i &  0 
+\\ 0 & 0
+\end{pmatrix}
+\quad
+F_{23} = \begin{pmatrix}
+0 &  0 
+\\ 0 & i
+\end{pmatrix}
+\]
+and
+\[
+F_{34} + F_{12} = \begin{pmatrix}
+0 &  -1 
+\\ 1 & 0
+\end{pmatrix}
+\quad
+F_{13} + F_{42} = \begin{pmatrix}
+0 &  -i 
+\\ -i & 0
+\end{pmatrix}
+\]
+All of these matrices are self adjoint.   Hence each element of $\spn(\mB)$ is also self-adjoint.
+\end{proof}
+\end{document}
