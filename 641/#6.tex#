@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 641\\ 
+\noindent Instructor - Fran Narcowich
+
+\subsection*{HW 6}
+\p{1} Let $(y_j)_{j=1}^n \subset \R$. Consider the cubic-Hermite spline $s(x) \in S^h(3,1)$, with $h = 1/n$, that satisfies $s(j/n) = y_j$ and minimizes $\int_0^1 (s'')^2 \, dx$. Show that $s(x) \in S^h(3,2)$.
+
+
+\p{2} We want to solve the boundary value problem (BVP): 
+$$-u'' = f(x), u(0) = u(1) = 0, f \in C[0,1]$$.
+
+\p{a.} Let $H$ be the set of all continuous functions vanishing at $x = 0$ and $x = 1$, and having $L^2$ derivatives. Also let $H$ have the inner product
+$$\langle f, g \rangle_H = \int_0^1 f'(x) g'(x) \, dx.$$
+Use integration by parts to convert the BVP into its ``weak'' form:
+$$\langle u, v \rangle_H = \int_0^1 f(x) v(x) \, dx \text{ for all } v \in H.$$
+\begin{proof}
+We have $\langle u, v \rangle_H = \int_0^1 u' v' \, dx =  - \int_0^1 u'' v \, dx = \int_0^1 f v \, dx$ for all $v \in \mH$.
+\end{proof}
+
+\p{b.} Conversely, suppose that $u \in H$ is also in $C^2[0,1]$ and 
+$$\langle u, v \rangle_H  = \int_0^1 f(x) v(x) \text{ for all } v \in H.$$
+Show that $u$ satisfies the BVP.
+\begin{proof}
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              
+\end{proof}
+
+
+\p{c.} Let $V = S^h(1,0)$, with $h = 1/n$. Thus, $V$ is spanned by $\phi_j(x) := N_2(nx - j+1), j \in [n-1]$ Show that the least squares approximation to $u$ from $V$ is $y = \sum_j \alpha_j \phi_j(x) \in V$, where $G \alpha = \beta$ for $\beta_j = \langle y , \phi_j \rangle_H$ and $G_{kj} = \langle \phi_j, \phi_k \rangle_H$.
+
+\begin{proof}
+This is just the definition of the normal equations, which was proved in HW 1.
+\end{proof}
+
+\p{d.} Show that $G_{kj} = \langle \phi_j, \phi_k \rangle_H$ is given by
+$G_{j,j} = 2n$, $G{j,j-1} = -n$, and $G_{j, j+1} = n$ and $G_{j,k} = 0$ for all other $k$.
+
+
+
+\p{3} Let $S = \{ s \in C^2(\R) : \forall j \in \Z \quad s \text{ is a cubic on } [j, j+1] \}$.  Suppose that $s \in S$ has compact support in $[0,M]$. Determine the smallest value of $M$ such that $s \not \equiv 0$.
+
+\begin{proof}
+On each interval $[j, j+1]$, the function $s$ is determined by $s(j), s'(j), s''(j)$ and the constant value of $s'''$ on $(j, j+1)$. Suppose $s \not \equiv 0$.  At $x = 0$, the value and first 2 derivatives of $s$ must be 0.  Let $k = s'''(1/2)$.  Then $s(t) = (k/6)t^3$ for $0 \le t \le 1$. If $k = 0$, then $s'''$ must be nonzero on some interval $[j,j+1]$ for $j \ge 1$, so $M \ge 2$.  If $k \neq 0$, WLOG we may assume $k > 0$. Then $s'''$ must be negative for some interval $[j, j+1]$ for $j \ge 1$, so $M \ge 2$.
+
+It remains to show that
+\end{proof}
+
+\p{4} Let $U := \{u_j\}_{j=1}^\infty$ be an orthonormal set in a Hilbert space $\mH$. Show that the following are equivalent:
+
+i. $U$ is maximal in the sense that there is no non-zero vector in $\mH$ that is orthogonal to $U$.
+
+ii. Every vector in $\mH$ may be uniquely represented as the series $f = \sum_{j=1}^\infty \langle f , u_j \rangle u_j$.
+
+\begin{proof}
+Suppose (i) holds but (ii) does not.  Then there exists $f \in \mH$ with $f \neq \sum_{j=1}^\infty \langle f , u_j \rangle u_j =: v$.  Let $g = f - v$.  Then if $u_j \in U$, then $\langle g, u_j \rangle = \langle f, u_j \rangle - \langle v, u_j \rangle = \langle f, u_j \rangle - \langle f, u_j \rangle = 0$. Thus $g$ is a non-zero vector orthogonal to $U$, a contradiction.
+
+For the converse, suppose (ii) holds but (i) does not. Let $w$ be a nonzero vector orthogonal to $U$.  By (ii), $w = \sum_{j=1}^\infty \langle w, u_j \rangle u_j = 0$, a contradiction.
+\end{proof}
+
+\p{5} Show that every separable Hilbert space $\mH$ has an o.n. basis.
+\begin{proof}
+Let $\mU$ be the poset of all o.n. subsets of $mH$.  If $\mL$ is a chain in $\mU$, then $\bigcup \mL$ is orthonormal.  Hence, by Zorn's Lemma, $\mU$ contains a maximal element $U$. 
+
+I claim that $U$ is countable.  Suppose not. If $u,v \in U$ with $u \neq v$, then $\|u - v\|^2 = \|u\|^2 - \langle u, v \rangle - \langle v, u \rangle + \|v\|^2 = 2$.  This implies that $U$ is not separable, a contradiction.
+
+Hence $U$ satisfies condition (i) of Exercise 4, so $U$ is a basis.
+\end{proof}
+
+\end{document}
