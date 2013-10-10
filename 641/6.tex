@@ -22,10 +22,10 @@ We have $\langle u, v \rangle_H = \int_0^1 u' v' \, dx =  - \int_0^1 u'' v \, dx
 \end{proof}
 
 \p{b.} Conversely, suppose that $u \in H$ is also in $C^2[0,1]$ and 
-$$\langle u, v \rangle_H  = \int_0^1 f(x) v(x) \text{ for all } v \in H.$$
+$$\langle u, v \rangle_H  = \int_0^1 f(x) v(x) \, dx \text{ for all } v \in H.$$
 Show that $u$ satisfies the BVP.
 \begin{proof}
-Suppose not. Then $-u''(x_0) \neq f(x_0)$ for some $x_0 \in (0,1)$. WLOG assume $u''(x_0) + f(x_0) > 0$.  By continuity, this inequality holds on some interval $(x_0 - \delta, x_0 + \delta)$.
+Suppose not. Then $-u''(x_0) \neq f(x_0)$ for some $x_0 \in (0,1)$. WLOG assume $u''(x_0) + f(x_0) > 0$.  By continuity, this inequality holds on some interval $(x_0 - \delta, x_0 + \delta)$. Let $v \in H$ be a nonnegative with support in $(x_0 - \delta, x_0 + \delta)$ and $v(x_0) > 0$.  Then $\int f v \, dx - \langle u, v \rangle_H = \int f v \, dx + \int u'' v \, dx  > 0$, a contradiction.
 \end{proof}
 
 
