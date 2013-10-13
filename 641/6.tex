@@ -7,8 +7,19 @@
 \noindent Instructor - Fran Narcowich
 
 \subsection*{HW 6}
-\p{1} Let $(y_j)_{j=1}^n \subset \R$. Consider the cubic-Hermite spline $s(x) \in S^h(3,1)$, with $h = 1/n$, that satisfies $s(j/n) = y_j$ and minimizes $\int_0^1 (s'')^2 \, dx$. Show that $s(x) \in S^h(3,2)$.
+\p{1} Let $(y_j)_{j=0}^n \subset \R$. Consider the cubic-Hermite spline $s(x) \in S^h(3,1)$, with $h = 1/n$, that satisfies $s(j/n) = y_j$ and minimizes $\int_0^1 (s'')^2 \, dx$. Show that $s(x) \in S^h(3,2)$.
 \begin{proof}
+Let $V = \{f \in S^h(3,1) : f(j/n) = 0 \text{ for all } j\}$.  Define $\langle \cdot, \cdot \rangle : V \times V \to \R_{\ge 0}$ by $\langle f, g \rangle = \int_0^1 f''(x) g''(x) \, dx$.  This function is bilinear, and $\langle f, f \rangle = 0$ implies $f'' = 0$ which implies that $f = 0$ since $f(0) = f(1) = 0$. Hence, $\langle \cdot, \cdot \rangle$ is an inner product.
+
+Let $W = \{f \in S^h(3,1) : f(j/n) = y_j \text{ for all } j\}$.  Pick any $u \in S^h(3,1)$ with , then $W = l + V$.
+
+%%%%
+
+For all $0 \le j \le n-1$, let $s_j$ be the cubic defined by $s$ on $[j/n, (j+1)/n]$. Since $s$ is continuously differentiable, for each $1 \le j \le n$ we have $s_{j}(x) = s_{j-1}(x) + a_j(x - j/n)^2 + b_j(x - j/n)^3$ for some $a_j, b_j \in \R$.    %%FIXME
+Hence $s = s_0 + \sum_{j = 1}^{n-1} a_j(x - j/n)^2 + b_j(x - j/n)^3$, and $s'' = \sum_{j=0}^{n-1} 2 a_j + 6 b_j(x - j/n)$.
+
+
+
 
 \end{proof}
 
@@ -49,9 +60,9 @@ Suppose $s \in S$ with nonnegative compact support. Since $s'''$ is piecewise co
 
 For $j \in \Z$, let $s_j$ be the cubic defined by $s$ on $[j, j+1]$. Since $s \in C^2$, we have $s_{j}''(j) - s_{j-1}''(j) = s_{j}'(j) - s_{j-1}'(j) = s_{j}(j) - s_{j-1}(j) = 0$ for all $j$.  Thus, by comparing Taylor expansions at $x = j$, we have $s_{j} = s_{j-1} + a_j (x-j)^3$ for some $a_{j} \in \R$. Since $s_{-1} = 0$, we have $s_j = \sum_{k=0}^{j} a_k (x - k)^3$ for $j \ge 0$.
 
-Let $V$ be the vector space of polynomials of degree $3$ or less. Let $T: V \to V$ be defined by the matrix $T_{j,k} = (-1)^{k-j} {k \choose j}$ for $0 \le j,k \le 3$ with respect to the basis $(1, x, x^2, x^3)$. Then $T x^k = \sum_{j=0}^k (-1)^{k-j} {k \choose j} x^j = (x-1)^k$ for all $0 \le k \le 3$. Thus $s_j = \sum_{k=0}^{j} a_k T^k x^3$.
+Let $P^3$ be the vector space of polynomials of degree $3$ or less. Let $T: P^3 \to P^3$ be defined by the matrix $T_{j,k} = (-1)^{k-j} {k \choose j}$ for $0 \le j,k \le 3$ with respect to the basis $(1, x, x^2, x^3)$. Then $T x^k = \sum_{j=0}^k (-1)^{k-j} {k \choose j} x^j = (x-1)^k$ for all $0 \le k \le 3$. Thus $s_j = \sum_{k=0}^{j} a_k T^k x^3$.
 
- We want to find the degree of minimal nonzero polynomial $f$ such that $f(T^k)x^3  = 0$. Note that $(T - I) x^k = (x - 1)^k - x^k$, so if $\deg(g) = k > 0$ then $\deg((T-I)g) = k - 1$.  Thus, $((T-I)^n x^3)_{n=0}^3$ forms a basis for $V$. Hence $\deg(f) = 4$.
+ We want to find the degree of minimal nonzero polynomial $f$ such that $f(T^k)x^3  = 0$. Note that $(T - I) x^k = (x - 1)^k - x^k$, so if $\deg(g) = k > 0$ then $\deg((T-I)g) = k - 1$.  Thus, $((T-I)^n x^3)_{n=0}^3$ forms a basis for $P^3$. Hence $\deg(f) = 4$.
 
 Thus, $M = 4$. Moreover, this construction shows that a nonzero $s \in S$ with support $[0,4]$ exists.
 \end{proof}
