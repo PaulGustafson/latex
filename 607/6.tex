@@ -39,7 +39,7 @@ Let $E := \{x \in X : f(x) = \infty \}$.  Suppose $\mu(E) \neq 0$.  Let $\phi_n 
 \begin{align*}
 \liminf E_n & = \bigcup_n \bigcap_{k \ge n} E_k
 \\ &  = \{x : \exists n \forall k \ge n \quad \phi(x) \le f_k(x) \} 
-\\ &  = \{x : \exists n \quad \phi(x) \le \inf_{k \ge n} f_k(x) \} 
+\\ &  \supset \{x : \exists n \quad \phi(x) \le \inf_{k \ge n} f_k(x) \} 
 \\ & \supset \{x : \phi(x) \le \sup_n \inf_{k \ge n} f_k(x)\} 
 \\ & = \R.
 \end{align*}
@@ -60,7 +60,13 @@ c) Using Exercise 29/Chapter 1 show that for some nonmeasurable $A \subset g(C)$
 d) There is a Lebesgue measurable function on $\mR$ which is not Borel measurable.
 
 \begin{proof}
-The Cantor function $f$ is clearly increasing. To see that it is continous, fix $\epsilon > 0$.  There exists $n$ such that $2^{-n} < \epsilon$.  Let $a, b \in C$ with expansions $a = \sum_j a_j 3^{-j}$ and $b = \sum_j b_j 3^{-j}$.  If $|a - b| < 3^{-n}$, then I claim $a_j = b_j$ for $j \le n$. Suppose not. Let $J < n$ denote the first index such that $a_J \neq b_J$. WLOG $2 = a_J > b_J = 0$.  Then $a - b = \sum_{j = J}^\infty (a_j - b_j) 3^{-j} \ge (2)3^{-J} - \sum_{j = J+1}^\infty (2) 3^{-j}  = (2)3^{-J} - (2)3^{-J - 1} \frac 1 {1 - 1/3} = (2)3^{-J} - (2)3^{-J - 1} \frac 3 2   =  3^{-J} > 3^{-n}$, a contradiction.  Hence, $a_j = b_j$ for $j \le n$, so $|f(a) - f(b)| \le \sum_{j=n+1}^\infty 2^{-j} = 2^{-n} < \epsilon$.  Thus $f$ is continuous.
+To see that the Cantor function $f$ is increasing, recall that if $0 \le a < b \le 1$ with $a = \sum_n a_n r^{-n}$ and $b = \sum_n b_n r^{-n}$ base-$r$ expansions, then $(a_n) < (b_n)$ in the lexicographical ordering.   Conversely, if $(a_n) < (b_n)$ in the lexicographical ordering, then $a \le b$.  Hence $f$ is increasing on $C$.  
+
+To see that $f$ is increasing on $[0,1]$, let $0 \le x < y \le 1$.  If $x \in C^c$, replace it with the lower endpoint $x'$ of the interval in $C^c$ containing $x$. We have $f(x) = f(x')$ and $x' < x < y$. Hence WLOG $x \in C$.  We can do similarly for $y$ using an upper endpoint instead. Thus $f(x) \le f(y)$ since $f$ is increasing on $C$.  Thus $f$ is increasing on $[0,1]$.
+
+To see that $f$ is continuous, let $a \in [0,1]$.  If $a \in C^c$, then $f$ is continuous at $a$ since $C^c$ is open and $f$ is locally constant on $C^c$.  
+
+If $a \in C$, fix $\epsilon > 0$.  There exists $n$ such that $2^{-n} < \epsilon$.  Suppose $|a - b| < 3^{-n}$ for some $b$ in $[0,1]$. Then $a_j = b_j$ for $j \le n$.  Hence, $|f(a) - f(b)| \le \sum_{j=n+1}^\infty 2^{-j} = 2^{-n} < \epsilon$.  Thus $f$ is continuous at $a$ for all $a \in C$.  Hence $f$ is continuous.
 
 Since $g$ is the sum of an increasing function and a strictly increasing function, $g$ is strictly increasing.  In particular, $g$ is injective.  Since $f$ is continuous, so is $g$.  Since $g(0) = 0$ and $g(1) = 2$, the intermediate value theorem implies that $g$ surjects onto $[0, 2]$.  
 
