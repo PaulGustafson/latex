@@ -9,7 +9,12 @@
 \subsection*{HW 6}
 \p{1} Let $(y_j)_{j=0}^n \subset \R$. Consider the cubic-Hermite spline $s(x) \in S^h(3,1)$, with $h = 1/n$, that satisfies $s(j/n) = y_j$ and minimizes $\int_0^1 (s'')^2 \, dx$. Show that $s(x) \in S^h(3,2)$.
 \begin{proof}
-Let $V = \{f \in S^h(3,1) : f(j/n) = 0 \text{ for all } j\}$.  Define $\langle \cdot, \cdot \rangle : V \times V \to \R_{\ge 0}$ by $\langle f, g \rangle = \int_0^1 f''(x) g''(x) \, dx$.  This function is bilinear, and $\langle f, f \rangle = 0$ implies $f'' = 0$ which implies that $f = 0$ since $f(0) = f(1) = 0$. Hence, $\langle \cdot, \cdot \rangle$ is an inner product.
+W vanishes at interval $f \in W$ and $g$ is in big space. Wts: $g$ perp to W => g C^2
+
+$\int f'' g'' = \sum_I f' g'' |_I - \int_I f' g'''$. If $g''$ has a jump, want to pick $f'$
+
+
+Let $V = \{f \in S^h(3,1) : f(0) = f(1) = 0 \text{ for all } j\}$.  Define $\langle \cdot, \cdot \rangle : V \times V \to \R_{\ge 0}$ by $\langle f, g \rangle = \int_0^1 f''(x) g''(x) \, dx$.  This function is bilinear, and $\langle f, f \rangle = 0$ implies $f'' = 0$ which implies that $f = 0$ since $f(0) = f(1) = 0$. Hence, $\langle \cdot, \cdot \rangle$ is an inner product.
 
 Let $W = \{f \in S^h(3,1) : f(j/n) = y_j \text{ for all } j\}$.  Pick any $u \in S^h(3,1)$ with , then $W = l + V$.
 
@@ -51,6 +56,10 @@ This is just the definition of the normal equations, which was proved in HW 1.
 \p{d.} Show that $G_{kj} = \langle \phi_j, \phi_k \rangle_H$ is given by
 $G_{j,j} = 2n$, $G{j,j-1} = -n$, and $G_{j, j+1} = n$ and $G_{j,k} = 0$ for all other $k$.
 
+\begin{proof}
+
+
+\end{proof}
 
 
 \p{3} Let $S = \{ s \in C^2(\R) : \forall j \in \Z \quad s \text{ is a cubic on } [j, j+1] \}$.  Suppose that $s \in S$ has compact support in $[0,M]$. Determine the smallest value of $M$ such that $s \not \equiv 0$.
