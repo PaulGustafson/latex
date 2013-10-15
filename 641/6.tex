@@ -11,9 +11,9 @@
 \begin{proof}
 Let $V = \{f \in S^h(3,1) : f(0) = f(1) = 0 \text{ for all } j\}$.  Define $\langle \cdot, \cdot \rangle_V : V \times V \to \R_{\ge 0}$ by $\langle f, g \rangle_V = \int_0^1 f''(x) g''(x) \, dx$.  This function is bilinear, and $\langle f, f \rangle_V = 0$ implies $f'' = 0$ which implies that $f = 0$ since $f(0) = f(1) = 0$. Hence, $\langle \cdot, \cdot \rangle_V$ is an inner product.
 
-Let $W = \{f \in S^h(3,1) : f(j/n) = 0 \text{ for all } j\}$.  Pick any $u \in S^h(3,1)$ interpolating the points $((j/n, y_j))_j$, then $l + W$ is the space of all such interpolants. 
+Let $W = \{f \in S^h(3,1) : f(j/n) = 0 \text{ for all } j\}$.  Pick any $l \in S^h(3,1)$ interpolating the points $((j/n, y_j))_j$, then $l + W$ is the space of all such interpolants. 
 
-We have $s = w + v$ for some $w \in W$ and $v \in W^\perp$.   Hence $v = s - w \in l + W$, and $\|s\|_V^2 = \|w\|_V^2 + \|v\|_V^2$.  Hence, $\|v\|_V \le \|s\|_V$ with equality iff $\|w\| = 0$.  Thus, since $s$ minimizes $\|s\|_V$ over $l + W$, we must have $s = v$.  Thus $s \in W^\perp$.
+We have $s = w + v$ for some $w \in W$ and $v \in W^\perp$.   Hence $v = s - w \in l + W$, and $\|s\|_V^2 = \|w\|_V^2 + \|v\|_V^2$.  Hence, $\|v\|_V \le \|s\|_V$ with equality iff $w = 0$.  Thus, since $s$ minimizes $\|s\|_V$ over $l + W$, we must have $s = v$.  Thus $s \in W^\perp$.
 
 Now suppose that $s \not \in S^h(3,2)$. Let $j_0$ be a knot for which $s''$ is discontinuous.  I claim there exists $u \in W$ such that $u'(j_0) = 1$ and $u'(j) = 0$ for all $j \neq j_0$.  To construct such a $u$, for $x \in [(j_0-1)/n, j_0/n]$ let 
  $u(x) = \int_{(j_0-1)/n}^{x} A(t-(j_0-1)/n)^2 + B(t -(j_0 -1)/n) \, dt$ 
@@ -27,7 +27,7 @@ Then we have
 \\ & = \sum_j [s'' u']_{x=j/n}^{(j+1)/n} -  s''' \int_{j/n}^{(j+1)/n}  u' \, dx
 \\ & = \sum_j [s'' u']_{x=j/n}^{(j+1)/n} 
 \\ & = \lim_{x \to j_0^+} s'' - \lim_{x \to j_0^-} s''
-\\ \neq 0,
+\\ & \neq 0,
 \end{align*}
 which contradicts the fact that $s \in W^\perp$. 
 \end{proof}
@@ -51,7 +51,7 @@ Suppose not. Then $-u''(x_0) \neq f(x_0)$ for some $x_0 \in (0,1)$. WLOG assume 
 \end{proof}
 
 
-\p{c.} Let $V = S^h(1,0)$, with $h = 1/n$. Thus, $V$ is spanned by $\phi_j(x) := N_2(nx - j+1), j \in [n-1]$ Show that the least squares approximation to $u$ from $V$ is $y = \sum_j \alpha_j \phi_j(x) \in V$, where $G \alpha = \beta$ for $\beta_j = \langle y , \phi_j \rangle_H$ and $G_{kj} = \langle \phi_j, \phi_k \rangle_H$.
+\p{c.} Let $V = S^h(1,0)$, with $h = 1/n$. Thus, $V$ is spanned by $\phi_j(x) := N_2(nx - j+1), 1 \le j \le n-1 $ Show that the least squares approximation to $u$ from $V$ is $y = \sum_j \alpha_j \phi_j(x) \in V$, where $G \alpha = \beta$ for $\beta_j = \langle y , \phi_j \rangle_H$ and $G_{kj} = \langle \phi_j, \phi_k \rangle_H$.
 
 \begin{proof}
 This is just the definition of the normal equations, which was proved in HW 1.
@@ -60,8 +60,13 @@ This is just the definition of the normal equations, which was proved in HW 1.
 \p{d.} Show that $G_{kj} = \langle \phi_j, \phi_k \rangle_H$ is given by
 $G_{j,j} = 2n$, $G{j,j-1} = -n$, and $G_{j, j+1} = n$ and $G_{j,k} = 0$ for all other $k$.
 \begin{proof}
-
-
+Recall that $N_2(x) = x_+ - 2(x-1)_+ + (x-2)_+$. Thus, for all $j$, we have $\phi_j' = n \chi_{[(j-1)h, jh]} -n \chi_{[jh, (j+1)h]}$.  
+Hence,
+\begin{align*}
+\langle \phi_j, \phi_k \rangle  & = \int (n \chi_{[(j-1)h, jh]} -n \chi_{[jh, (j+1)h]})(n \chi_{[(k-1)h, kh]} -n \chi_{[kh, (k+1)h]}) \, dx
+\\ & = \int (n^2 \delta_{j,k} - n^2 \delta_{j-1, k}) \chi_{[(j-1)h, jh]}  + ( -n^2 \delta{j, k - 1} + n^2 \delta_{j,k})\chi_{[jh, (j+1)h]} \, dx
+\\ & = 2n \delta_{j,k} - n \delta_{j-1, k} -n \delta_{j, k-1}
+\end{align*}
 \end{proof}
 
 
@@ -74,9 +79,7 @@ For $j \in \Z$, let $s_j$ be the cubic defined by $s$ on $[j, j+1]$. Since $s \i
 
 Let $P^3$ be the vector space of polynomials of degree $3$ or less. Let $T: P^3 \to P^3$ be defined by the matrix $T_{j,k} = (-1)^{k-j} {k \choose j}$ for $0 \le j,k \le 3$ with respect to the basis $(1, x, x^2, x^3)$. Then $T x^k = \sum_{j=0}^k (-1)^{k-j} {k \choose j} x^j = (x-1)^k$ for all $0 \le k \le 3$. Thus $s_j = \sum_{k=0}^{j} a_k T^k x^3$.
 
- We want to find the degree of minimal nonzero polynomial $f$ such that $f(T^k)x^3  = 0$. Note that $(T - I) x^k = (x - 1)^k - x^k$, so if $\deg(g) = k > 0$ then $\deg((T-I)g) = k - 1$.  Thus, $((T-I)^n x^3)_{n=0}^3$ forms a basis for $P^3$. Hence $\deg(f) = 4$.
-
-Thus, $M = 4$. Moreover, this construction shows that a nonzero $s \in S$ with support $[0,4]$ exists.
+Thus, $M$ is equal to the degree of the minimal nonzero polynomial $f$ such that $f(T^k)x^3  = 0$. Note that $(T - I) x^k = (x - 1)^k - x^k$, so if $\deg(g) = k > 0$ then $\deg((T-I)g) = k - 1$.  Thus, $((T-I)^n x^3)_{n=0}^3$ forms a basis for $P^3$. Hence $(T^n x^3)_{n=0}^3$ forms a basis for $P^3$. Hence $M = \deg(f) = 4$.
 \end{proof}
 
 \p{4} Let $U := \{u_j\}_{j=1}^\infty$ be an orthonormal set in a Hilbert space $\mH$. Show that the following are equivalent:
