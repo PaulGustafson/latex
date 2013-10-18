@@ -1,0 +1,77 @@
+\documentclass{article}
+\usepackage{../m}
+
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 607\\ 
+\noindent Instructor: Thomas Schlumprecht
+
+\subsection*{HW 7}}
+\p{1} Assume that $(f_n) \subset L_1(\mu)$ and $f_n \to f$ uniformly.
+
+a) If $\mu(X) < \infty$, then $f \in L_1$ and $\lim_{n\to \infty} \int f_n \, d \mu = \int f \, d\mu$.
+
+b) If $\mu(X) = \infty$, then the conclusion of (a) may fail.
+
+\begin{proof}
+For (a), we have
+\begin{align*}
+\left | \int f \, d \mu - \int f_n \, d \mu | & \le \int |f - f_n| \, d \mu
+\\ & \le \mu(X) \sup_{x \in X} |f(x) - f_n(x)|
+\\ \to 0.
+\end{align*}
+
+For (b), let $(f_n) = 1/n \chi_{[0,n]}$. Then $f_n \to 0$ uniformly on $\R$, but $\int f_n \, dx = 1$ for all $n$.
+\end{proof}
+
+\p{2} Let $f_n, g_n, g \in L_1$, $n \in \N$, and assume that $f_n \to f$, $f$ measurable, and $g_n \to g$ $\mu$-a.e., and that $|f_n| \le g_n$ and $\int g_n \, d \mu \to \int g \, d\mu$. 
+
+Then $\int f_n \, d \mu \to \int f \, d \mu$.
+
+\begin{proof}
+Following the proof of the DCT, since $f_n \le g_n$, we have $f \le g$, so $f \in L_1$. We also have $g_n + f_n \ge 0$ a.e. and $g_n - f_n \ge 0$ a.e.  Hence by Fatou's lemma and linearity of the integral on $L_1$,
+$$\int g + \int f \le \liminf \int (g_n + f_n)= \liminf \int g_n +  \int f_n = \int g + \liminf \int f_n$$
+The last inequality follows from the fact that if $(a_n) \to a$ and $(b_n) \subset \R$, then $\liminf a_n + b_n = a + \liminf b_n$.  To see this, pick $\epsilon > 0$ and $N$ such that $|a - a_n| < \epsilon$ for all $n \ge N$.  Hence $\liminf a_n + b_n = \liminf (a_n - a) + a + b_n \le \liminf \epsilon + a +  b_n = \epsilon + a + \liminf b_n$, and similarly $\liminf a_n + b_n \ge -\epsilon + a + \liminf b_n$.   Hence $\liminf a_n + b_n = a + \liminf b_n$.
+
+Similarly,
+$$\int g - \int f \le \liminf \int (g_n - f_n) = \liminf \int g_n -  \int f_n = \int g - \limsup \int f_n$$.
+
+Hence $\limsup \int f_n \le \int f \le \liminf \int f_n$, so $\int f = \lim \int f_n$.
+\end{proof}
+
+\p{3} Suppose that for $n \in \N$, $f_n = \chi_{E_n}$ for some $E_n \subset \R$, and assume that $f(x) = \lim_{n \to \infty} f_n(x)$ exists a.e.
+
+a) Show that if $f = \chi_E$ a.e. for some measurable set $E \subset \R$.
+
+b) Show that for any $g \in L_1$:
+$$ \int_E g \, dx = \lim_{n \to \infty} \int_{E_n} g \, dx.$$
+
+c) Establish a necessary and sufficient condition for $f_n \to f$ in $L_1$.
+
+\p{4} Let $L_0([0,1])$ be the space of all measurable functions $f : [0,1] \to \R$.
+
+a) for $f,g \in L_0([0,1])$ put
+$$d(f, g) = \int_0^1 \min\{1, |f - g|\} \, dx.$$
+
+Show that $(L_0([0,1]), d)$ is a metric space and that for $f, f_n \in L_0([0,1])$:
+$$ f_n \to f \text{ in } (L([0,1]), d) \iff f_n \to f \text { in measure.}$$
+
+b) is there a metric $d'$ on $L_0([0,1])$ for which 
+$$f_n \to f \text{ in } (L_0([0,1]), d') \iff f_n \to f a.e. ? $$
+
+\p{5} 
+\begin{enumerate}[(a)]
+\item $$\lim_{n\to \infty} \int_0^\infty \left( 1 + \frac x n \right)^{-n} \sin \left(\frac x n \right) \, dx = 0$$
+\item $$\lim_{n \to \infty} \int_0^1 \frac{1 + n x^2} {(1 + x^2)^2} = 0$$
+\item $$\lim_{n \to \infty} \int_0^\infty n \sin \left( \frac x n \right) [x(1+x^2)]^{-1} \, dx = \frac \pi 2$$
+\item $$\lim_{n \to \infty} \int_a^\infty \frac n {1 + n^2 x^2} = \left\{ 
+\begin{array}[ll]
+   0 & \text{ if } a > 0
+\\ \pi/2 & \text{ if } a = 0
+\\ \pi  & \text{ if } a < 0
+\end{array} \right.
+$$
+\end{enumerate}
+
+\end{document}
