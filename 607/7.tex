@@ -42,12 +42,23 @@ Hence $\limsup \int f_n \le \int f \le \liminf \int f_n$, so $\int f = \lim \int
 
 \p{3} Suppose that for $n \in \N$, $f_n = \chi_{E_n}$ for some $E_n \subset \R$, and assume that $f(x) = \lim_{n \to \infty} f_n(x)$ exists a.e.
 
-a) Show that if $f = \chi_E$ a.e. for some measurable set $E \subset \R$.
+a) Show that $f = \chi_E$ a.e. for some measurable set $E \subset \R$.
 
 b) Show that for any $g \in L_1$:
 $$ \int_E g \, dx = \lim_{n \to \infty} \int_{E_n} g \, dx.$$
 
 c) Establish a necessary and sufficient condition for $f_n \to f$ in $L_1$.
+
+\begin{proof}
+For (a), we have $\chi_{E_n} \to f$ on $N^c$ for some null set $N$.  Let $x \in N^c$. Since $(\chi_{E_n}(x))_n$ is a convergent discrete-valued sequence, it must be eventually constant.  Thus, $f(x) \in \{0,1\}$.  Let $E = f^{-1}(1) \cap N^c$.  Hence $f = \chi_E$ on $N^c$, so $f = \chi_E$ a.e. on $\R$. By a previous homework problem, $f$ is measurable since it is the limit of measurable functions.  Hence $E$ is measurable.  
+
+For (b), we have $\chi_{E_n} g \to \chi_E g$ pointwise a.e. by part (a).  Moreover, $\chi_{E_n} g \le |g| \in L_1$. Hence, by the DCT, we have the desired conclusion.
+
+For (c), one such condition is that $m(E_n) \to m(E)$ with $m(E_n), m(E) < \infty$.  Clearly, the latter condition is necessary for $f_n, f$ to be in $L_1$.  For the necessity of the former condition, suppose $f_n \to f$ in $L_1$.  Then $|m(E_n) - m(E)| = |\int f_n - \int f | \le \int |f_n - f| \to 0$.
+
+For sufficiency, suppose $m(E_n) \to m(E)$ with $m(E_n), m(E) < \infty$.    Then $|f_n - f| \le |f_n| + |f| = \chi_{E_n} + \chi_E$ a.e.  Moreover, $\chi_{E_n} + \chi_E \to 2 \chi E$ and $\int (\chi_{E_n} + \chi_E) = m(E_n) + m(E) \to 2 m(E) = \int (2 chi_E)$.  Hence, by the Generalized DCT (Exercise 2), we have
+$\int |f_n - f| \to \int \lim_n |f_n - f| = 0$.
+\end{proof}
 
 \p{4} Let $L_0([0,1])$ be the space of all measurable functions $f : [0,1] \to \R$.
 
@@ -57,8 +68,14 @@ $$d(f, g) = \int_0^1 \min\{1, |f - g|\} \, dx.$$
 Show that $(L_0([0,1]), d)$ is a metric space and that for $f, f_n \in L_0([0,1])$:
 $$ f_n \to f \text{ in } (L([0,1]), d) \iff f_n \to f \text { in measure.}$$
 
-b) is there a metric $d'$ on $L_0([0,1])$ for which 
+b) Is there a metric $d'$ on $L_0([0,1])$ for which 
 $$f_n \to f \text{ in } (L_0([0,1]), d') \iff f_n \to f a.e. ? $$
+
+\begin{proof}
+For (a), to see that $d$ is a metric, we need to show that $d$ is positive definite, symmetric, and satisfies the triangle inequality.  The function $d$ is clearly nonnegative and $0 = d(f,g) = \int_0^1 \min\{1, |f - g|\} \, dx$ implies that $f = g$ a.e.  The function $d$ is obviously symmetric.  For the triangle inequality, first note that for $x,y,z \in \R$ we have $\min\{1, |x - y|\} \le | x - y| \le |x - z| + |y-z|$.  If $|x-z| \ge 1$ and $|x - y| \le 1$, then $\min\{1, |x - y|\} = | x - y| = |x - z|  + |z - y|
+
+\end{proof}
+
 
 \p{5} 
 \begin{enumerate}[(a)]
