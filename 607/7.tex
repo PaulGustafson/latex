@@ -7,7 +7,7 @@
 \noindent Texas A\&M University - Math 607\\ 
 \noindent Instructor: Thomas Schlumprecht
 
-\subsection*{HW 7}}
+\subsection*{HW 7}
 \p{1} Assume that $(f_n) \subset L_1(\mu)$ and $f_n \to f$ uniformly.
 
 a) If $\mu(X) < \infty$, then $f \in L_1$ and $\lim_{n\to \infty} \int f_n \, d \mu = \int f \, d\mu$.
@@ -17,9 +17,9 @@ b) If $\mu(X) = \infty$, then the conclusion of (a) may fail.
 \begin{proof}
 For (a), we have
 \begin{align*}
-\left | \int f \, d \mu - \int f_n \, d \mu | & \le \int |f - f_n| \, d \mu
+\left | \int f \, d \mu - \int f_n \, d \mu \right| & \le \int |f - f_n| \, d \mu
 \\ & \le \mu(X) \sup_{x \in X} |f(x) - f_n(x)|
-\\ \to 0.
+\\ & \to 0.
 \end{align*}
 
 For (b), let $(f_n) = 1/n \chi_{[0,n]}$. Then $f_n \to 0$ uniformly on $\R$, but $\int f_n \, dx = 1$ for all $n$.
@@ -106,11 +106,11 @@ Conversely, suppose $f_n \to f$ in measure.  Let $0 < \epsilon < 1$. Pick $N$ su
 \\ & < 2 \epsilon.
 \end{align*}
 
-For (b), I use a fact about convergence in metric spaces. Let $(M, d)$ be a metric space, $(x_n)_{n \in \N} \subset M$ , and $x \in M$.  I claim that if every subsequence of $(x_n)$ has a further subsequence converging to $x$, then $x_n \to x$.  Suppose $x_n \not \to x$.  Then there exists $\epsilon > 0$ and a subsequence $(x_n)_{n \in N_1}$ such that $d(x, x_n) \ge \epsilon$ for all $x_N$. This subsequence cannot have a further subsequence converging to $x$, contradicting the hypothesis.
+For (b), I use a fact about convergence in metric spaces. Let $(M, d)$ be a metric space, $(x_n)_{n \in \N} \subset M$ , and $x \in M$.  I claim that if every subsequence of $(x_n)$ has a further subsequence converging to $x$, then $x_n \to x$.  Suppose $x_n \not \to x$.  Then there exists $\epsilon > 0$ and a subsequence $(x_n)_{n \in N_1}$ such that $d(x, x_n) \ge \epsilon$ for all $n \in N_1$. This subsequence cannot have a further subsequence converging to $x$, contradicting the hypothesis.
 
 Thus it suffices to find a sequence that does not converge pointwise a.e., but each subsequence has a subsequence that converges to the $0$ function.  For $n \in \N$, write $n$ as $n = 2^j + k$ for $j \ge 0$ and $0 \le k < 2^j$.  Let $E_n = [k 2^{-j}, (k+1) 2^{-j}]$ and $f_n = \chi_{E_n}$.  Every element of $[0,1]$ is contained in infinitely many $E_n$ and infinitely many $E_n^c$, so $f_n$ do not converge pointwise a.e.  
 
-On the other hand, suppose $(f_n)_{n \in N_1}$ is a subsequence of $(f_n)_{n \in \N}$.  For each $n$, pick $x_n \in E_n$.  Then by the sequential compactness of $[0,1]$, there exists an infinite set $N_2 \subset N_1$ and $x_0 \in [0,1]$ such that $x_n \to x_0$ as $n \to \infty, n \in N_2$. Since $\diam(E_n) \to 0$, we have $f_n(x) \to 0$ as $n \to \infty, n \in N_2$ for $x \neq x_0$.  Hence, $(f_n)_{n \in N_2} \to 0$ pointwise a.e.
+On the other hand, suppose $(f_n)_{n \in N_1}$ is a subsequence of $(f_n)_{n \in \N}$.  For each $n$, pick $x_n \in E_n$.  Then by the sequential compactness of $[0,1]$, there exists an infinite set $N_2 \subset N_1$ and $x_0 \in [0,1]$ such that $x_n \to x_0$ as $n \to \infty, n \in N_2$. Since $\diam(E_n) \to 0$, we have $f_n(x) \to 0$ as $n \to \infty, n \in N_2$ for $x \neq x_0$.  Hence, $f_n \to 0$ as $n \to \infty, n \in N_2$ pointwise a.e.
 \end{proof}
 
 
@@ -119,13 +119,35 @@ On the other hand, suppose $(f_n)_{n \in N_1}$ is a subsequence of $(f_n)_{n \in
 \item $$\lim_{n\to \infty} \int_0^\infty \left( 1 + \frac x n \right)^{-n} \sin \left(\frac x n \right) \, dx = 0$$
 \item $$\lim_{n \to \infty} \int_0^1 \frac{1 + n x^2} {(1 + x^2)^2} = 0$$
 \item $$\lim_{n \to \infty} \int_0^\infty n \sin \left( \frac x n \right) [x(1+x^2)]^{-1} \, dx = \frac \pi 2$$
-\item $$\lim_{n \to \infty} \int_a^\infty \frac n {1 + n^2 x^2} = \left\{ 
-\begin{array}[ll]
+\item $$\lim_{n \to \infty} \int_a^\infty \frac n {1 + n^2 x^2} \, dx= \left\{ 
+\begin{array}{ll}
    0 & \text{ if } a > 0
 \\ \pi/2 & \text{ if } a = 0
 \\ \pi  & \text{ if } a < 0
 \end{array} \right.
 $$
 \end{enumerate}
+
+\begin{proof}
+For (a), we have $(1 + \frac x n )^n    = \sum_{j=0}^n { n \choose j } \left( \frac x n \right)^j$.
+
+
+
+For (d),
+\begin{align*}
+\lim_{n \to \infty} \int_a^\infty \frac n {1 + n^2 x^2} \, dx  & = \lim_{n \to \infty} \int_{na}^\infty \frac {du} {1 + u^2} 
+\\ & = \lim_{n \to \infty} \pi/2 - \tan^{-1}(na)
+\\ & = \left\{ 
+\begin{array}{ll}
+   0 & \text{ if } a > 0
+\\ \pi/2 & \text{ if } a = 0
+\\ \pi  & \text{ if } a < 0
+\end{array} \right.
+\end{align*}
+
+
+
+
+\end{proof}
 
 \end{document}
