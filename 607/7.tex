@@ -66,14 +66,51 @@ a) for $f,g \in L_0([0,1])$ put
 $$d(f, g) = \int_0^1 \min\{1, |f - g|\} \, dx.$$
 
 Show that $(L_0([0,1]), d)$ is a metric space and that for $f, f_n \in L_0([0,1])$:
-$$ f_n \to f \text{ in } (L([0,1]), d) \iff f_n \to f \text { in measure.}$$
+$$ f_n \to f \text{ in } (L_0([0,1]), d) \iff f_n \to f \text { in measure.}$$
 
 b) Is there a metric $d'$ on $L_0([0,1])$ for which 
-$$f_n \to f \text{ in } (L_0([0,1]), d') \iff f_n \to f a.e. ? $$
+$$f_n \to f \text{ in } (L_0([0,1]), d') \iff f_n \to f a.e.  $$
 
 \begin{proof}
-For (a), to see that $d$ is a metric, we need to show that $d$ is positive definite, symmetric, and satisfies the triangle inequality.  The function $d$ is clearly nonnegative and $0 = d(f,g) = \int_0^1 \min\{1, |f - g|\} \, dx$ implies that $f = g$ a.e.  The function $d$ is obviously symmetric.  For the triangle inequality, first note that for $x,y,z \in \R$ we have $\min\{1, |x - y|\} \le | x - y| \le |x - z| + |y-z|$.  If $|x-z| \ge 1$ and $|x - y| \le 1$, then $\min\{1, |x - y|\} = | x - y| = |x - z|  + |z - y|
+For (a), to see that $d$ is a metric, we need to show that $d$ is positive definite, symmetric, and satisfies the triangle inequality.  The function $d$ is clearly nonnegative and $0 = d(f,g) = \int_0^1 \min\{1, |f - g|\} \, dx$ implies that $f = g$ a.e.  The function $d$ is obviously symmetric.  For the triangle inequality, I first claim that for $x,y,z \in \R$ we have  $\min\{1, |x - y|\} \le \min\{1, |x - z| \} + \min\{1, |y-z|\}$. 
 
+We have four cases from the RHS of the inequality. 
+
+\emph{Case $|x - z| \le 1$ and $|y - z| \le 1$.}  We have $\min\{1, |x - y|\}  \le |x - y| \le |x - y| + |y - z| = \min\{1, |x - z|\}  + \min\{1, |z - y|\}$.
+
+\emph{Case $|x - z| \le 1$ and $|y - z| > 1$.} We have $\min\{1, |x - y|\} \le \min\{1, |x - z| + |z- y|\} \le \min\{1, 1 + |z- y|\} = 1 + |z- y| = \min\{1, |x - z|\}  + \min\{1, |z - y|\}$.
+
+\emph{Case $|x - z| > 1$ and $|y - z| \le 1$.} Analogous to previous case.
+
+\emph{Case $|x - z| > 1$ and $|y - z| > 1$.} We have $\min\{1, |x - y|\} \le \min\{1, |x - z| + |z- y|\} = 1 \le \min\{1, |x - z|\}  + \min\{1, |z - y|\}$.
+
+Hence $\min\{1, |x - y|\} \le \min\{1, |x - z| \} + \min\{1, |y-z|\}$ for all $x,y,z \in \R$.  Thus, if $f,g,h \in L_0([0,1])$ then 
+$d(f,g) = \int_0^1 \min\{1, |f - g|\} \, dx \le \int_0^1 \min\{1, |f - h|\} + \min\{1, |h - g|\}  \, dx = \le \int_0^1 \min\{1, |f - h|\} \, dx + \int_0^1 \min\{1, |h - g|\}  \, dx = d(f,h) + d(g,h)$.  Thus, $d$ is a metric.
+
+Suppose $f_n \to f$ in $(L_0([0,1]), d)$.  Let $0 < \epsilon < 1$.  Pick $N$ such that $d(f, f_n) < \epsilon^2$ for all $n \ge N$.  Then for all $n \ge N$,
+we have 
+\begin{align*}
+m(\{ |f - f_n| \ge \epsilon \}) & = \int_{\{ |f - f_n| \ge \epsilon \}}  \,dx 
+\\ & = \int_{\{ \epsilon \le |f - f_n| < 1 \}} \,dx + \int_{\{ |f - f_n| \ge 1 \}} \, dx
+\\ & \le \int_{\{ \epsilon \le |f - f_n| < 1 \}} \frac { |f - f_n|} {\epsilon} \,dx + \int_{\{ |f - f_n| \ge 1 \}} \min\{1, |f - f_n|\} \, dx
+\\ & \le \int_{\{ \epsilon \le |f - f_n| < 1 \}} \epsilon^{-1}  \min\{1, |f - f_n|\}  \,dx + \int_{\{ |f - f_n| \ge 1 \}} \min\{1, |f - f_n|\} \, dx
+\\ & \le \epsilon^{-1} \int \min\{1, |f - f_n|\} \, dx
+\\ & < \epsilon
+\end{align*}
+
+Conversely, suppose $f_n \to f$ in measure.  Let $0 < \epsilon < 1$. Pick $N$ such that $m( \{ |f - f_n \ge \epsilon \})  \le \epsilon$ for all $n \ge N$.  Then for all $n \ge N$ we have
+\begin{align*}
+\int \min \{1, |f_n - f|\} \, dx & =  \int_{\{ 0 \le |f_n - f| < \epsilon \}} |f_n - f| \, dx + \int_{\{ \epsilon \le |f_n - f| < 1\}} |f_n - f| \, dx + \int_{\{|f_n - f| \ge 1\}} \, dx
+\\ & \le \int_{\{ 0 \le |f_n - f| < \epsilon \}} \epsilon \, dx + \int_{\{ \epsilon \le |f_n - f| < 1\}} \, dx + \int_{\{|f_n - f| \ge 1\}} \, dx
+\\ & \le \epsilon + m( \{ |f - f_n \ge \epsilon \})
+\\ & < 2 \epsilon.
+\end{align*}
+
+For (b), I use a fact about convergence in metric spaces. Let $(M, d)$ be a metric space, $(x_n)_{n \in \N} \subset M$ , and $x \in M$.  I claim that if every subsequence of $(x_n)$ has a further subsequence converging to $x$, then $x_n \to x$.  Suppose $x_n \not \to x$.  Then there exists $\epsilon > 0$ and a subsequence $(x_n)_{n \in N_1}$ such that $d(x, x_n) \ge \epsilon$ for all $x_N$. This subsequence cannot have a further subsequence converging to $x$, contradicting the hypothesis.
+
+Thus it suffices to find a sequence that does not converge pointwise a.e., but each subsequence has a subsequence that converges to the $0$ function.  For $n \in \N$, write $n$ as $n = 2^j + k$ for $j \ge 0$ and $0 \le k < 2^j$.  Let $E_n = [k 2^{-j}, (k+1) 2^{-j}]$ and $f_n = \chi_{E_n}$.  Every element of $[0,1]$ is contained in infinitely many $E_n$ and infinitely many $E_n^c$, so $f_n$ do not converge pointwise a.e.  
+
+On the other hand, suppose $(f_n)_{n \in N_1}$ is a subsequence of $(f_n)_{n \in \N}$.  For each $n$, pick $x_n \in E_n$.  Then by the sequential compactness of $[0,1]$, there exists an infinite set $N_2 \subset N_1$ and $x_0 \in [0,1]$ such that $x_n \to x_0$ as $n \to \infty, n \in N_2$. Since $\diam(E_n) \to 0$, we have $f_n(x) \to 0$ as $n \to \infty, n \in N_2$ for $x \neq x_0$.  Hence, $(f_n)_{n \in N_2} \to 0$ pointwise a.e.
 \end{proof}
 
 
