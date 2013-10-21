@@ -129,7 +129,10 @@ $$
 \end{enumerate}
 
 \begin{proof}
-For (a), we have $(1 + \frac x n )^n    = \sum_{j=0}^n { n \choose j } \left( \frac x n \right)^j$.
+For (a), we have  $\int_0^\infty \left( 1 + \frac x n \right)^{-n} \sin \left(\frac x n \right) \, dx  = \int_0^\infty n^2 \left( 1 + n u)^{-n} sin(nu) \, du$.
+
+For $n \ge 2$, we have $n^2 (1 + nu)^{-n} \le n^2 (1 + nu)^{-2} = (1/n + u)^{-2}  \le u^{-2}$.
+
 
 For (b), the statement cannot be true since for $n \ge 1$ we have $\int_0^1 \frac{1 + n x^2} {(1 + x^2)^2} \, dx \ge \int_0^1 \frac 1 {(1+x^2)^2} \,dx > 0$.
 
@@ -145,9 +148,9 @@ For (d),
    0 & \text{ if } a > 0
 \\ \pi/2 & \text{ if } a = 0
 \\ \pi  & \text{ if } a < 0
-\end{array} \right.
+\end{array} \right.,
 \end{align*}
-
+where the second equality follows from the MCT applied to $\int_{na}^M \frac {du} {1+u^2}$ as $M \to \infty$.
 
 
 
