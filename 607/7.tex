@@ -117,7 +117,7 @@ On the other hand, suppose $(f_n)_{n \in N_1}$ is a subsequence of $(f_n)_{n \in
 \p{5} 
 \begin{enumerate}[(a)]
 \item $$\lim_{n\to \infty} \int_0^\infty \left( 1 + \frac x n \right)^{-n} \sin \left(\frac x n \right) \, dx = 0$$
-\item $$\lim_{n \to \infty} \int_0^1 \frac{1 + n x^2} {(1 + x^2)^2} = 0$$
+\item $$\lim_{n \to \infty} \int_0^1 \frac{1 + n x^2} {(1 + x^2)^n} = 0$$
 \item $$\lim_{n \to \infty} \int_0^\infty n \sin \left( \frac x n \right) [x(1+x^2)]^{-1} \, dx = \frac \pi 2$$
 \item $$\lim_{n \to \infty} \int_a^\infty \frac n {1 + n^2 x^2} \, dx= \left\{ 
 \begin{array}{ll}
@@ -129,22 +129,29 @@ $$
 \end{enumerate}
 
 \begin{proof}
-For (a), we have  $\int_0^\infty \left( 1 + \frac x n \right)^{-n} \sin \left(\frac x n \right) \, dx  = \int_0^\infty n^2 \left( 1 + n u)^{-n} sin(nu) \, du$.
+For (a), we have  $\int_0^\infty \left( 1 + \frac x n \right)^{-n} \sin \left(\frac x n \right) \, dx  = \int_0^\infty n^2 \left( 1 + n u)^{-n} \sin(nu) \, du$.
 
-For $n \ge 2$, we have $n^2 (1 + nu)^{-n} \le n^2 (1 + nu)^{-2} = (1/n + u)^{-2}  \le u^{-2}$.
+For $n \ge 2$, we have $n^2 (1 + nu)^{-n} \le n^2 (1 + nu)^{-2} = (1/n + u)^{-2}  \le u^{-2}$, which is integrable on $(1, \infty)$.  Hence, by the DCT, 
+\begin{align*}
+ \lim_{n\to \infty} \int_1^\infty n^2 \left( 1 + n u)^{-n} \sin(nu) \, du  & = \int_1^\infty \lim_{n\to \infty} n^2 \left( 1 + n u)^{-n} \sin(nu) \, du
+\\ & = 0
+\end{align*}
 
-% \int_0^1 n^2 \left( 1 + n u)^{-n} sin(nu) \, du \le  \int_0^1 
+For the rest of the integral, we have
+\begin{align*}
+\left| \int_0^1 n^2 \left( 1 + n u)^{-n} \sin(nu) \, du \right| & \le \int_0^1 n^2 \left(1 + nu \right)^{-n} nu \, du 
+\\ & = \left[ \frac{n^2}{1 - n} u (1+nu)^{1-n} \right]_{u=0}^1 - \int_0^1 \frac{n^2}{1-n} (1+nu)^{1-n} \, du
+\\ & = \frac{n^2}{1-n} (1+n)^{1-n} - \left[ \frac{n}{(1-n)(2-n)} (1+nu)^{2-n} \right]_{u=0}^1
+\\ \to 0
+\end{align*}
+as $n \to \infty$.  This proves (a).
 
-%n^3 u  (1 + n u)^{-n}       
-
-% integrate by parts,  n^3 (1+nu)^{-n} |_0^1 - \int n^2/(1-n)  (1 + nu)^{-n+1}
-%  = n^3(1+2n)^{-n} - n^3 - [n/(1-n)/(2-n) (1 + nu)^{2-n}]_0^1
-%  \to 0
-
-
-
-
-For (b), the statement cannot be true since for $n \ge 1$ we have $\int_0^1 \frac{1 + n x^2} {(1 + x^2)^2} \, dx \ge \int_0^1 \frac 1 {(1+x^2)^2} \,dx > 0$.
+For (b), for $0 \le x \le 1$ we have $\frac{1 + n x^2} {(1 + x^2)^n} \le 1$ since the numerator is equal to the first two terms of the binomial expansion of the denominator. Hence, by the DCT, we have
+\begin{align*}
+\lim_{n \to \infty} \int_0^1 \frac{1 + n x^2} {(1 + x^2)^n} \, dx & = \int_0^1 \lim_{n \to \infty} \frac{1 + n x^2} {(1 + x^2)^n} \, dx 
+\\ & = \int_0^1 0 \,dx
+\\ & = 0.
+\end{align*}
 
 For (c),
 

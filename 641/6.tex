@@ -9,9 +9,11 @@
 \subsection*{HW 6}
 \p{1} Let $(y_j)_{j=0}^n \subset \R$. Consider the cubic-Hermite spline $s(x) \in S^h(3,1)$, with $h = 1/n$, that satisfies $s(j/n) = y_j$ and minimizes $\int_0^1 (s'')^2 \, dx$. Show that $s(x) \in S^h(3,2)$.
 \begin{proof}
+For any sequence $(q_j)_{j=0}^n$, let $U((q_j)_j)$ be the space of all $u \in S^h(3,1)$ such that $u(j/n) = q_j$ for all $j$.  Let $f(x)$ be the line interpolating $(0, y_0)$ and $(1, y_n)$.  Then $u \in U((y_j - f(j/n))_j)$ iff  $u + f \in U((y_j)_j$.  Moreover, $u'' = (u + f)''$ since $f$ is a line.  Hence since $s$ minimizes $\int (s'')^2 \, dx$ over $s \in U((y_j)_j$, we have $u = s - f$ minimizes $\int (u'')^2 \,dx$ for $u \in U((y_j - f(j/n))_j)$.  Moreover if $s -f \in C^2$ so is $s$.  Thus, it suffices to consider the case where $y_j$ is replaced by $y_j - f(j/n)$; that is, the case where $y_0 = y_n = 0$.
+
 Let $V = \{f \in S^h(3,1) : f(0) = f(1) = 0 \text{ for all } j\}$.  Define $\langle \cdot, \cdot \rangle_V : V \times V \to \R_{\ge 0}$ by $\langle f, g \rangle_V = \int_0^1 f''(x) g''(x) \, dx$.  This function is bilinear, and $\langle f, f \rangle_V = 0$ implies $f'' = 0$ which implies that $f = 0$ since $f(0) = f(1) = 0$. Hence, $\langle \cdot, \cdot \rangle_V$ is an inner product.
 
-Let $W = \{f \in S^h(3,1) : f(j/n) = 0 \text{ for all } j\}$.  Pick any $l \in S^h(3,1)$ interpolating the points $((j/n, y_j))_j$, then $l + W$ is the space of all such interpolants. 
+Let $W = \{f \in S^h(3,1) : f(j/n) = 0 \text{ for all } j\}$.  Pick any $l \in S^h(3,1)$ interpolating the points $((j/n, y_j))_j$, then $l + W = U((y_j)_j)$.
 
 We have $s = w + v$ for some $w \in W$ and $v \in W^\perp$.   Hence $v = s - w \in l + W$, and $\|s\|_V^2 = \|w\|_V^2 + \|v\|_V^2$.  Hence, $\|v\|_V \le \|s\|_V$ with equality iff $w = 0$.  Thus, since $s$ minimizes $\|s\|_V$ over $l + W$, we must have $s = v$.  Thus $s \in W^\perp$.
 
@@ -64,8 +66,9 @@ Recall that $N_2(x) = x_+ - 2(x-1)_+ + (x-2)_+$. Thus, for all $j$, we have $\ph
 Hence,
 \begin{align*}
 \langle \phi_j, \phi_k \rangle  & = \int (n \chi_{[(j-1)h, jh]} -n \chi_{[jh, (j+1)h]})(n \chi_{[(k-1)h, kh]} -n \chi_{[kh, (k+1)h]}) \, dx
-\\ & = \int (n^2 \delta_{j,k} - n^2 \delta_{j-1, k}) \chi_{[(j-1)h, jh]}  + ( -n^2 \delta{j, k - 1} + n^2 \delta_{j,k})\chi_{[jh, (j+1)h]} \, dx
-\\ & = 2n \delta_{j,k} - n \delta_{j-1, k} -n \delta_{j, k-1}
+\\ & = \int n^2 \chi_{[(j-1)h, jh] \cap [(k-1)h, kh]} - n^2 \chi_{[(j-1)h, jh] \cap [(kh, (k+1)h]}
+\\ & \quad \quad - n^2 \chi_{[jh, (j+1)h] \cap [(k-1)h, kh]} + n^2 \chi_{[jh, (j+1)h] \cap [kh, (k+1)h]} \, dx
+\\ & = 2n \delta_{j,k} - n \delta_{j-1, k} - n \delta_{j, k-1}
 \end{align*}
 \end{proof}
 

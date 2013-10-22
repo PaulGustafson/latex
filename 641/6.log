@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  15 OCT 2013 01:25
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.10.11)  15 OCT 2013 12:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -150,34 +150,29 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 10.
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (11.78807pt too wide) in paragraph at lines 69--69
-[] 
- []
-
-[2]
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
 
 Package amsmath Warning: Foreign command \atopwithdelims;
 (amsmath)                \frac or \genfrac should be used instead
-(amsmath)                 on input line 80.
+(amsmath)                 on input line 83.
 
-
-Overfull \hbox (22.33101pt too wide) in paragraph at lines 89--90
+[3]
+Overfull \hbox (22.33101pt too wide) in paragraph at lines 92--93
 []\OT1/cmr/m/n/10 ii. Ev-ery vec-tor in $\OMS/cmsy/m/n/10 H$ \OT1/cmr/m/n/10 ma
 y be uniquely rep-re-sented as the se-ries $\OML/cmm/m/it/10 f \OT1/cmr/m/n/10 
 = [][]\OMS/cmsy/m/n/10 h\OML/cmm/m/it/10 f; u[]\OMS/cmsy/m/n/10 i\OML/cmm/m/it/
 10 u[]$\OT1/cmr/m/n/10 . 
  []
 
-[3] (./6.aux) ) 
+[4] (./6.aux) ) 
 Here is how much of TeX's memory you used:
  1350 strings out of 495059
- 14707 string characters out of 3182030
- 67816 words of memory out of 3000000
+ 14707 string characters out of 3182029
+ 69816 words of memory out of 3000000
  4562 multiletter control sequences out of 15000+200000
  6598 words of font info for 26 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,8n,26p,516b,169s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 34i,8n,26p,644b,178s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 bx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.p
 fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
@@ -191,10 +186,10 @@ blic/amsfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbol
 s/msbm10.pfb>
-Output written on 6.pdf (3 pages, 141329 bytes).
+Output written on 6.pdf (4 pages, 143688 bytes).
 PDF statistics:
- 66 PDF objects out of 1000 (max. 8388607)
- 47 compressed objects within 1 object stream
+ 69 PDF objects out of 1000 (max. 8388607)
+ 49 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
