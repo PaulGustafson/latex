@@ -22,7 +22,7 @@ For (a), we have
 \\ & \to 0.
 \end{align*}
 
-For (b), let $(f_n) = 1/n \chi_{[0,n]}$. Then $f_n \to 0$ uniformly on $\R$, but $\int f_n \, dx = 1$ for all $n$.
+For (b), let $(f_n) = (1/n) \chi_{[0,n]}$. Then $f_n \to 0$ uniformly on $\R$, but $\int f_n \, dx = 1$ for all $n$.
 \end{proof}
 
 \p{2} Let $f_n, g_n, g \in L_1$, $n \in \N$, and assume that $f_n \to f$, $f$ measurable, and $g_n \to g$ $\mu$-a.e., and that $|f_n| \le g_n$ and $\int g_n \, d \mu \to \int g \, d\mu$. 
@@ -56,7 +56,7 @@ For (b), we have $\chi_{E_n} g \to \chi_E g$ pointwise a.e. by part (a).  Moreov
 
 For (c), one such condition is that $m(E_n) \to m(E)$ with $m(E_n), m(E) < \infty$.  Clearly, the latter condition is necessary for $f_n, f$ to be in $L_1$.  For the necessity of the former condition, suppose $f_n \to f$ in $L_1$.  Then $|m(E_n) - m(E)| = |\int f_n - \int f | \le \int |f_n - f| \to 0$.
 
-For sufficiency, suppose $m(E_n) \to m(E)$ with $m(E_n), m(E) < \infty$.    Then $|f_n - f| \le |f_n| + |f| = \chi_{E_n} + \chi_E$ a.e.  Moreover, $\chi_{E_n} + \chi_E \to 2 \chi E$ and $\int (\chi_{E_n} + \chi_E) = m(E_n) + m(E) \to 2 m(E) = \int (2 chi_E)$.  Hence, by the generalized DCT (Exercise 2), we have
+For sufficiency, suppose $m(E_n) \to m(E)$ with $m(E_n), m(E) < \infty$.    Then $|f_n - f| \le |f_n| + |f| = \chi_{E_n} + \chi_E$ a.e.  Moreover, $\chi_{E_n} + \chi_E \to 2 \chi_E$  a.e., and $\int (\chi_{E_n} + \chi_E) = m(E_n) + m(E) \to 2 m(E) = \int (2 \chi_E)$.  Hence, by the generalized DCT (Exercise 2), we have
 $\int |f_n - f| \to \int \lim_n |f_n - f| = 0$.
 \end{proof}
 
@@ -85,13 +85,12 @@ We have four cases from the RHS of the inequality.
 \emph{Case $|x - z| > 1$ and $|y - z| > 1$.} We have $\min\{1, |x - y|\} \le \min\{1, |x - z| + |z- y|\} = 1 \le \min\{1, |x - z|\}  + \min\{1, |z - y|\}$.
 
 Hence $\min\{1, |x - y|\} \le \min\{1, |x - z| \} + \min\{1, |y-z|\}$ for all $x,y,z \in \R$.  Thus, if $f,g,h \in L_0([0,1])$ then 
-$d(f,g) = \int_0^1 \min\{1, |f - g|\} \, dx \le \int_0^1 \min\{1, |f - h|\} + \min\{1, |h - g|\}  \, dx = \le \int_0^1 \min\{1, |f - h|\} \, dx + \int_0^1 \min\{1, |h - g|\}  \, dx = d(f,h) + d(g,h)$.  Thus, $d$ is a metric.
+$d(f,g) = \int_0^1 \min\{1, |f - g|\} \, dx \le \int_0^1 \min\{1, |f - h|\} + \min\{1, |h - g|\}  \, dx =  d(f,h) + d(g,h)$.  Thus, $d$ is a metric.
 
 Suppose $f_n \to f$ in $(L_0([0,1]), d)$.  Let $0 < \epsilon < 1$.  Pick $N$ such that $d(f, f_n) < \epsilon^2$ for all $n \ge N$.  Then for all $n \ge N$,
 we have 
 \begin{align*}
-m(\{ |f - f_n| \ge \epsilon \}) & = \int_{\{ |f - f_n| \ge \epsilon \}}  \,dx 
-\\ & = \int_{\{ \epsilon \le |f - f_n| < 1 \}} \,dx + \int_{\{ |f - f_n| \ge 1 \}} \, dx
+m(\{ |f - f_n| \ge \epsilon \})  & = \int_{\{ \epsilon \le |f - f_n| < 1 \}} \,dx + \int_{\{ |f - f_n| \ge 1 \}} \, dx
 \\ & \le \int_{\{ \epsilon \le |f - f_n| < 1 \}} \frac { |f - f_n|} {\epsilon} \,dx + \int_{\{ |f - f_n| \ge 1 \}} \min\{1, |f - f_n|\} \, dx
 \\ & \le \int_{\{ \epsilon \le |f - f_n| < 1 \}} \epsilon^{-1}  \min\{1, |f - f_n|\}  \,dx + \int_{\{ |f - f_n| \ge 1 \}} \min\{1, |f - f_n|\} \, dx
 \\ & \le \epsilon^{-1} \int \min\{1, |f - f_n|\} \, dx
@@ -100,13 +99,14 @@ m(\{ |f - f_n| \ge \epsilon \}) & = \int_{\{ |f - f_n| \ge \epsilon \}}  \,dx
 
 Conversely, suppose $f_n \to f$ in measure.  Let $0 < \epsilon < 1$. Pick $N$ such that $m( \{ |f - f_n \ge \epsilon \})  \le \epsilon$ for all $n \ge N$.  Then for all $n \ge N$ we have
 \begin{align*}
-\int \min \{1, |f_n - f|\} \, dx & =  \int_{\{ 0 \le |f_n - f| < \epsilon \}} |f_n - f| \, dx + \int_{\{ \epsilon \le |f_n - f| < 1\}} |f_n - f| \, dx + \int_{\{|f_n - f| \ge 1\}} \, dx
-\\ & \le \int_{\{ 0 \le |f_n - f| < \epsilon \}} \epsilon \, dx + \int_{\{ \epsilon \le |f_n - f| < 1\}} \, dx + \int_{\{|f_n - f| \ge 1\}} \, dx
-\\ & \le \epsilon + m( \{ |f - f_n \ge \epsilon \})
-\\ & < 2 \epsilon.
+\int \min \{1, |f_n - f|\} \, dx & \le  \int_{\{ 0 \le |f_n - f| < \epsilon \}} |f_n - f| \, dx + \int_{\{  |f_n - f| \ge \epsilon \}} \, dx
+\\ & \le \int_{\{ 0 \le |f_n - f| < \epsilon \}} \epsilon \, dx + m( \{ |f - f_n \ge \epsilon \}) 
+\\ & \le 2 \epsilon.
 \end{align*}
 
-For (b), I use the following fact about convergence in metric spaces. Let $(M, d)$ be a metric space, $(x_n)_{n \in \N} \subset M$ , and $x \in M$.  I claim that if every subsequence of $(x_n)$ has a further subsequence converging to $x$, then $x_n \to x$.  Suppose $x_n \not \to x$.  Then there exists $\epsilon > 0$ and a subsequence $(x_n)_{n \in N_1}$ such that $d(x, x_n) \ge \epsilon$ for all $n \in N_1$. This subsequence cannot have a further subsequence converging to $x$, contradicting the hypothesis.
+For (b), I use the following fact about convergence in metric spaces. Let $(M, d)$ be a metric space, $(x_n)_{n \in \N} \subset M$ , and $x \in M$.  I claim that if every subsequence of $(x_n)$ has a further subsequence converging to $x$, then $x_n \to x$.  
+
+Suppose $x_n \not \to x$.  Then there exists $\epsilon > 0$ and a subsequence $(x_n)_{n \in N_1}$ such that $d(x, x_n) \ge \epsilon$ for all $n \in N_1$. This subsequence cannot have a further subsequence converging to $x$, contradicting the hypothesis.
 
 Thus it suffices to find a sequence that does not converge pointwise a.e., but each subsequence has a subsequence that converges a.e. to $0$.  For $n \in \N$, write $n$ as $n = 2^j + k$ for $j \ge 0$ and $0 \le k < 2^j$.  Let $E_n = [k 2^{-j}, (k+1) 2^{-j}]$ and $f_n = \chi_{E_n}$.  Every element of $[0,1]$ is contained in infinitely many $E_n$ and infinitely many $E_n^c$, so $(f_n)$ does not converge pointwise a.e.  
 
@@ -146,19 +146,19 @@ For the rest of the integral, we have
 \end{align*}
 as $n \to \infty$.  This proves (a).
 
-For (b), for $0 \le x \le 1$ we have $\frac{1 + n x^2} {(1 + x^2)^n} \le 1$. Hence, by the DCT we have
+For (b), for $x \ge 0$ we have $\frac{1 + n x^2} {(1 + x^2)^n} \le 1$. Hence, by the DCT we have
 \begin{align*}
 \lim_{n \to \infty} \int_0^1 \frac{1 + n x^2} {(1 + x^2)^n} \, dx & = \int_0^1 \lim_{n \to \infty} \frac{1 + n x^2} {(1 + x^2)^n} \, dx 
  = 0.
 \end{align*}
 
-For (c), for $x \in [0,\infty)$ we have $ \left| n\sin \left( \frac x n \right) [x(1+x^2)]^{-1} \right| \le n \left(\frac x n \right) [x(1+x^2)]^{-1} = (1+x^2)^{-1}$.  We have $(1+x^2)^{-1} \in L_1([0,\infty))$ by applying the MCT to the integrals over $[0,M]$ as $M \to \infty$.  Hence, by the DCT we have
+For (c), for $x \in [0,\infty)$ we have $ \left| n\sin \left( \frac x n \right) [x(1+x^2)]^{-1} \right| \le n \left(\frac x n \right) [x(1+x^2)]^{-1} = (1+x^2)^{-1}$.  We have $(1+x^2)^{-1} \in L_1([0,\infty))$ by applying the MCT to $\int_0^M (1+x^2)^{-1} \, dx$ as $M \to \infty$.  Hence, by the DCT we have
 
 \begin{align*}
 \lim_{n \to \infty} \int_0^\infty n \sin \left( \frac x n \right) [x(1+x^2)]^{-1} \, dx  & = \int_0^\infty \lim_{n \to \infty} n \sin \left( \frac x n \right) [x(1+x^2)]^{-1} \, dx 
 \\ & = \int_0^\infty \lim_{m \to 0^+}  \frac {\sin (m)}{m}  (1+x^2)^{-1} \, dx 
 \\ & = \int_0^\infty  (1+x^2)^{-1} \, dx 
-\\ & = \lim_{M \to \infty} \int_0^\infty (1+x^2)^{-1} \, dx 
+\\ & = \lim_{M \to \infty} \int_0^M (1+x^2)^{-1} \, dx 
 \\ & = \lim_{M \to \infty} \tan^{-1}(M)
 \\ & = \pi/2,
 \end{align*}
