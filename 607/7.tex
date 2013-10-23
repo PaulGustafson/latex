@@ -30,9 +30,9 @@ For (b), let $(f_n) = 1/n \chi_{[0,n]}$. Then $f_n \to 0$ uniformly on $\R$, but
 Then $\int f_n \, d \mu \to \int f \, d \mu$.
 
 \begin{proof}
-Following the proof of the DCT, since $f_n \le g_n$, we have $f \le g$, so $f \in L_1$. We also have $g_n + f_n \ge 0$ a.e. and $g_n - f_n \ge 0$ a.e.  Hence by Fatou's lemma and linearity of the integral on $L_1$,
+Following the proof of the DCT, since $|f_n| \le g_n$ we have $|f| \le g$. Hence $f \in L_1$. We also have $g_n + f_n \ge 0$ a.e. and $g_n - f_n \ge 0$ a.e.  Hence by Fatou's lemma and linearity of the integral on $L_1$,
 $$\int g + \int f \le \liminf \int (g_n + f_n)= \liminf \int g_n +  \int f_n = \int g + \liminf \int f_n$$
-The last inequality follows from the fact that if $(a_n) \to a$ and $(b_n) \subset \R$, then $\liminf a_n + b_n = a + \liminf b_n$.  To see this, pick $\epsilon > 0$ and $N$ such that $|a - a_n| < \epsilon$ for all $n \ge N$.  Hence $\liminf a_n + b_n = \liminf (a_n - a) + a + b_n \le \liminf \epsilon + a +  b_n = \epsilon + a + \liminf b_n$, and similarly $\liminf a_n + b_n \ge -\epsilon + a + \liminf b_n$.   Hence $\liminf a_n + b_n = a + \liminf b_n$.
+The last equality follows from the fact that if $(a_n) \to a$ and $(b_n) \subset \R$, then $\liminf a_n + b_n = a + \liminf b_n$.  To see this, pick $\epsilon > 0$ and $N$ such that $|a - a_n| < \epsilon$ for all $n \ge N$.  Hence $\liminf a_n + b_n = \liminf (a_n - a) + a + b_n \le \liminf \epsilon + a +  b_n = \epsilon + a + \liminf b_n$, and similarly $\liminf a_n + b_n \ge -\epsilon + a + \liminf b_n$.   Hence $\liminf a_n + b_n = a + \liminf b_n$.
 
 Similarly,
 $$\int g - \int f \le \liminf \int (g_n - f_n) = \liminf \int g_n -  \int f_n = \int g - \limsup \int f_n$$.
@@ -56,7 +56,7 @@ For (b), we have $\chi_{E_n} g \to \chi_E g$ pointwise a.e. by part (a).  Moreov
 
 For (c), one such condition is that $m(E_n) \to m(E)$ with $m(E_n), m(E) < \infty$.  Clearly, the latter condition is necessary for $f_n, f$ to be in $L_1$.  For the necessity of the former condition, suppose $f_n \to f$ in $L_1$.  Then $|m(E_n) - m(E)| = |\int f_n - \int f | \le \int |f_n - f| \to 0$.
 
-For sufficiency, suppose $m(E_n) \to m(E)$ with $m(E_n), m(E) < \infty$.    Then $|f_n - f| \le |f_n| + |f| = \chi_{E_n} + \chi_E$ a.e.  Moreover, $\chi_{E_n} + \chi_E \to 2 \chi E$ and $\int (\chi_{E_n} + \chi_E) = m(E_n) + m(E) \to 2 m(E) = \int (2 chi_E)$.  Hence, by the Generalized DCT (Exercise 2), we have
+For sufficiency, suppose $m(E_n) \to m(E)$ with $m(E_n), m(E) < \infty$.    Then $|f_n - f| \le |f_n| + |f| = \chi_{E_n} + \chi_E$ a.e.  Moreover, $\chi_{E_n} + \chi_E \to 2 \chi E$ and $\int (\chi_{E_n} + \chi_E) = m(E_n) + m(E) \to 2 m(E) = \int (2 chi_E)$.  Hence, by the generalized DCT (Exercise 2), we have
 $\int |f_n - f| \to \int \lim_n |f_n - f| = 0$.
 \end{proof}
 
@@ -72,7 +72,7 @@ b) Is there a metric $d'$ on $L_0([0,1])$ for which
 $$f_n \to f \text{ in } (L_0([0,1]), d') \iff f_n \to f a.e.  $$
 
 \begin{proof}
-For (a), to see that $d$ is a metric, we need to show that $d$ is positive definite, symmetric, and satisfies the triangle inequality.  The function $d$ is clearly nonnegative and $0 = d(f,g) = \int_0^1 \min\{1, |f - g|\} \, dx$ implies that $f = g$ a.e.  The function $d$ is obviously symmetric.  For the triangle inequality, I first claim that for $x,y,z \in \R$ we have  $\min\{1, |x - y|\} \le \min\{1, |x - z| \} + \min\{1, |y-z|\}$. 
+For (a), to see that $d$ is a metric we need to show that $d$ is positive definite, symmetric, and satisfies the triangle inequality.  The function $d$ is clearly nonnegative and $0 = d(f,g) = \int_0^1 \min\{1, |f - g|\} \, dx$ implies that $f = g$ a.e.  The function $d$ is obviously symmetric.  For the triangle inequality, I first claim that for $x,y,z \in \R$ we have  $\min\{1, |x - y|\} \le \min\{1, |x - z| \} + \min\{1, |y-z|\}$. 
 
 We have four cases from the RHS of the inequality. 
 
@@ -106,9 +106,9 @@ Conversely, suppose $f_n \to f$ in measure.  Let $0 < \epsilon < 1$. Pick $N$ su
 \\ & < 2 \epsilon.
 \end{align*}
 
-For (b), I use a fact about convergence in metric spaces. Let $(M, d)$ be a metric space, $(x_n)_{n \in \N} \subset M$ , and $x \in M$.  I claim that if every subsequence of $(x_n)$ has a further subsequence converging to $x$, then $x_n \to x$.  Suppose $x_n \not \to x$.  Then there exists $\epsilon > 0$ and a subsequence $(x_n)_{n \in N_1}$ such that $d(x, x_n) \ge \epsilon$ for all $n \in N_1$. This subsequence cannot have a further subsequence converging to $x$, contradicting the hypothesis.
+For (b), I use the following fact about convergence in metric spaces. Let $(M, d)$ be a metric space, $(x_n)_{n \in \N} \subset M$ , and $x \in M$.  I claim that if every subsequence of $(x_n)$ has a further subsequence converging to $x$, then $x_n \to x$.  Suppose $x_n \not \to x$.  Then there exists $\epsilon > 0$ and a subsequence $(x_n)_{n \in N_1}$ such that $d(x, x_n) \ge \epsilon$ for all $n \in N_1$. This subsequence cannot have a further subsequence converging to $x$, contradicting the hypothesis.
 
-Thus it suffices to find a sequence that does not converge pointwise a.e., but each subsequence has a subsequence that converges to the $0$ function.  For $n \in \N$, write $n$ as $n = 2^j + k$ for $j \ge 0$ and $0 \le k < 2^j$.  Let $E_n = [k 2^{-j}, (k+1) 2^{-j}]$ and $f_n = \chi_{E_n}$.  Every element of $[0,1]$ is contained in infinitely many $E_n$ and infinitely many $E_n^c$, so $f_n$ do not converge pointwise a.e.  
+Thus it suffices to find a sequence that does not converge pointwise a.e., but each subsequence has a subsequence that converges a.e. to $0$.  For $n \in \N$, write $n$ as $n = 2^j + k$ for $j \ge 0$ and $0 \le k < 2^j$.  Let $E_n = [k 2^{-j}, (k+1) 2^{-j}]$ and $f_n = \chi_{E_n}$.  Every element of $[0,1]$ is contained in infinitely many $E_n$ and infinitely many $E_n^c$, so $(f_n)$ does not converge pointwise a.e.  
 
 On the other hand, suppose $(f_n)_{n \in N_1}$ is a subsequence of $(f_n)_{n \in \N}$.  For each $n$, pick $x_n \in E_n$.  Then by the sequential compactness of $[0,1]$, there exists an infinite set $N_2 \subset N_1$ and $x_0 \in [0,1]$ such that $x_n \to x_0$ as $n \to \infty, n \in N_2$. Since $\diam(E_n) \to 0$, we have $f_n(x) \to 0$ as $n \to \infty, n \in N_2$ for $x \neq x_0$.  Hence, $f_n \to 0$ as $n \to \infty, n \in N_2$ pointwise a.e.
 \end{proof}
@@ -116,45 +116,53 @@ On the other hand, suppose $(f_n)_{n \in N_1}$ is a subsequence of $(f_n)_{n \in
 
 \p{5} 
 \begin{enumerate}[(a)]
-\item $$\lim_{n\to \infty} \int_0^\infty \left( 1 + \frac x n \right)^{-n} \sin \left(\frac x n \right) \, dx = 0$$
-\item $$\lim_{n \to \infty} \int_0^1 \frac{1 + n x^2} {(1 + x^2)^n} = 0$$
-\item $$\lim_{n \to \infty} \int_0^\infty n \sin \left( \frac x n \right) [x(1+x^2)]^{-1} \, dx = \frac \pi 2$$
-\item $$\lim_{n \to \infty} \int_a^\infty \frac n {1 + n^2 x^2} \, dx= \left\{ 
+\item $\displaystyle \lim_{n\to \infty} \int_0^\infty \left( 1 + \frac x n \right)^{-n} \sin \left(\frac x n \right) \, dx = 0$
+\item $\displaystyle \lim_{n \to \infty} \int_0^1 \frac{1 + n x^2} {(1 + x^2)^n} = 0$
+\item $ \displaystyle \lim_{n \to \infty} \int_0^\infty n \sin \left( \frac x n \right) [x(1+x^2)]^{-1} \, dx = \frac \pi 2$
+\item $ \displaystyle \lim_{n \to \infty} \int_a^\infty \frac n {1 + n^2 x^2} \, dx= \left\{
 \begin{array}{ll}
    0 & \text{ if } a > 0
 \\ \pi/2 & \text{ if } a = 0
 \\ \pi  & \text{ if } a < 0
 \end{array} \right.
-$$
+$
 \end{enumerate}
 
 \begin{proof}
-For (a), we have  $\int_0^\infty \left( 1 + \frac x n \right)^{-n} \sin \left(\frac x n \right) \, dx  = \int_0^\infty n^2 \left( 1 + n u)^{-n} \sin(nu) \, du$.
+For (a), we have  $\int_0^\infty \left( 1 + \frac x n \right)^{-n} \sin \left(\frac x n \right) \, dx  = \int_0^\infty n^2 ( 1 + n u )^{-n} \sin(nu) \, du$.
 
-For $n \ge 2$, we have $n^2 (1 + nu)^{-n} \le n^2 (1 + nu)^{-2} = (1/n + u)^{-2}  \le u^{-2}$, which is integrable on $(1, \infty)$.  Hence, by the DCT, 
+For $n \ge 2$, we have $\left| n^2 ( 1 + n u )^{-n} \sin(nu) \right| \le  n^2 (1 + nu)^{-2} \le u^{-2}$, which is integrable on $(1, \infty)$.  Hence, by the DCT, 
 \begin{align*}
- \lim_{n\to \infty} \int_1^\infty n^2 \left( 1 + n u)^{-n} \sin(nu) \, du  & = \int_1^\infty \lim_{n\to \infty} n^2 \left( 1 + n u)^{-n} \sin(nu) \, du
-\\ & = 0
+ \lim_{n\to \infty} \int_1^\infty n^2 ( 1 + n u)^{-n} \sin(nu) \, du  & = \int_1^\infty \lim_{n\to \infty} n^2 ( 1 + n u)^{-n} \sin(nu) \, du
+ = 0
 \end{align*}
 
 For the rest of the integral, we have
 \begin{align*}
-\left| \int_0^1 n^2 \left( 1 + n u)^{-n} \sin(nu) \, du \right| & \le \int_0^1 n^2 \left(1 + nu \right)^{-n} nu \, du 
+\left| \int_0^1 n^2 ( 1 + n u)^{-n} \sin(nu) \, du \right| & \le \int_0^1 n^2 (1 + nu )^{-n} nu \, du 
 \\ & = \left[ \frac{n^2}{1 - n} u (1+nu)^{1-n} \right]_{u=0}^1 - \int_0^1 \frac{n^2}{1-n} (1+nu)^{1-n} \, du
 \\ & = \frac{n^2}{1-n} (1+n)^{1-n} - \left[ \frac{n}{(1-n)(2-n)} (1+nu)^{2-n} \right]_{u=0}^1
-\\ \to 0
+\\ & \to 0
 \end{align*}
 as $n \to \infty$.  This proves (a).
 
-For (b), for $0 \le x \le 1$ we have $\frac{1 + n x^2} {(1 + x^2)^n} \le 1$ since the numerator is equal to the first two terms of the binomial expansion of the denominator. Hence, by the DCT, we have
+For (b), for $0 \le x \le 1$ we have $\frac{1 + n x^2} {(1 + x^2)^n} \le 1$. Hence, by the DCT we have
 \begin{align*}
 \lim_{n \to \infty} \int_0^1 \frac{1 + n x^2} {(1 + x^2)^n} \, dx & = \int_0^1 \lim_{n \to \infty} \frac{1 + n x^2} {(1 + x^2)^n} \, dx 
-\\ & = \int_0^1 0 \,dx
-\\ & = 0.
+ = 0.
 \end{align*}
 
-For (c),
+For (c), for $x \in [0,\infty)$ we have $ \left| n\sin \left( \frac x n \right) [x(1+x^2)]^{-1} \right| \le n \left(\frac x n \right) [x(1+x^2)]^{-1} = (1+x^2)^{-1}$.  We have $(1+x^2)^{-1} \in L_1([0,\infty))$ by applying the MCT to the integrals over $[0,M]$ as $M \to \infty$.  Hence, by the DCT we have
 
+\begin{align*}
+\lim_{n \to \infty} \int_0^\infty n \sin \left( \frac x n \right) [x(1+x^2)]^{-1} \, dx  & = \int_0^\infty \lim_{n \to \infty} n \sin \left( \frac x n \right) [x(1+x^2)]^{-1} \, dx 
+\\ & = \int_0^\infty \lim_{m \to 0^+}  \frac {\sin (m)}{m}  (1+x^2)^{-1} \, dx 
+\\ & = \int_0^\infty  (1+x^2)^{-1} \, dx 
+\\ & = \lim_{M \to \infty} \int_0^\infty (1+x^2)^{-1} \, dx 
+\\ & = \lim_{M \to \infty} \tan^{-1}(M)
+\\ & = \pi/2,
+\end{align*}
+where the fourth equality follows from the MCT.
 
 For (d),
 \begin{align*}
