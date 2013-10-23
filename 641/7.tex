@@ -17,17 +17,90 @@ c. Find $\sum_{n=0}^\infty \frac 1 {n^2 +1}$.
 
 d. Estimate the error $\|f - S_N \|_{L_2[-\pi, \pi]}$, where $S_N$ is the partial sum of the Fourier series for $f$.
 
+\begin{proof}
+For (a), the Fourier series for $f$ is $\sum_{n = -\infty}^\infty a_n e^{inx}$ where
+\begin{align*}
+a_n &  = \frac 1 {2 \pi} \int_{-\pi}^{\pi} e^x e^{-inx} \, dx
+\\ & =  \frac 1 {2 \pi (1 - in)} \left[ e^{(1 - in)x} \right]_{x = -\pi}^{\pi}
+\\ & =  \frac {(-1)^n(e^{\pi} - e^{-\pi})} {2 \pi (1 - in)} 
+\end{align*}
+
+For (c), we have $|a_n|^2 = \frac{(e^{\pi} - e^{-\pi})^2}{(2 \pi)^2(1 + n^2)}$.  Hence using Parseval's identity, we have
+\begin{align*}
+\sum_{n=0}^\infty  \frac 1 {n^2 +1} & = \frac 1 2 + \frac 1 2 \sum_{n= -\infty}^\infty  \frac 1 {n^2 +1}
+\\ & =\frac 1 2  + \frac{2 \pi^2}{(e^{\pi} - e^{-\pi})^2} \sum_{n = -\infty}^\infty |a_n|^2
+\\ & =\frac 1 2  + \frac{ \pi}{(e^{\pi} - e^{-\pi})^2} \int_{-\pi}^{\pi} e^{2x} \, dx
+\\ & =\frac 1 2  + \frac{ \pi}{(e^{\pi} - e^{-\pi})^2} \left(\frac 1 2 \right) (e^{2 \pi} - e^{-2\pi})
+\\ & =\frac 1 2  + \frac{ \pi (e^{ \pi} + e^{-\pi}) }{2(e^{\pi} - e^{-\pi})}  
+\\ & = \frac 1 2 + \frac \pi 2 \coth(\pi)
+\end{align*}
+
+For (d), we have 
+\begin{align*}
+\|f - S_N \|_{L_2[-\pi, \pi]}^2 & = \|\sum_{|n| > N} a_n e^{inx} \|_{L_2[-\pi, \pi]}^2
+\\ & = \sum_{|n| > N} |a_n|^2
+\\ & =  \frac{(e^{\pi} - e^{-\pi})^2}{(2 \pi)^2} \sum_{|n| > N}(1 + n^2)^{-1}
+\\ & =  \frac{(e^{\pi} - e^{-\pi})^2}{(2 \pi)^2} \sum_{|n| > N} \int_{n-1}^n (1 + t^2)^{-1} \, dt
+\\ & =  \frac{(e^{\pi} - e^{-\pi})^2}{2 \pi^2 } \int_{N}^\infty \frac{dt}{1 + t^2}
+\\ & =  \frac{(e^{\pi} - e^{-\pi})^2}{2 \pi^2 } \left( \frac \pi 2  - \tan^{-1}(N)  \right)
+\end{align*}
+\end{proof}
+
 
 \p{2} Prove this:  Let $g$ be a $2 \pi$-periodic piecewise continuous function. Then, $\int_{-\pi+c}^{\pi + c} g(u) \, du$ is independent of $c$. (Remark: This holds for $g$ integrable on each bounded interval of $\R$.)
 
+\begin{proof}
+Pick $k \in \Z$ such that $2\pi k \in [-\pi + c, \pi + c)$.  We have 
+\begin{align*}
+\int_{-\pi+c}^{\pi + c} g(u) \, du & = \int_{-\pi + c}^{2\pi k} g(u) \, du +  \int_{2\pi k}^{\pi + c} g(u) \, du
+\\ & = \int_{-2\pi (k-1) - \pi + c}^{2\pi} g(v + 2 \pi (k-1))  \, dv + \int_0^{\pi + c - 2 \pi k} g(v + 2 \pi k) \, dv
+\\ & = \int_{-2\pi k + \pi + c}^{2\pi} g(v)  \, dv + \int_0^{\pi + c - 2 \pi k} g(v) \, dv
+\\ &  = \int_0^{2\pi} g(v) \, dv.
+\end{align*}
+\end{proof}
 
-\p{3} Use the previous result to show that if $f$ is $2 \pi$-periodic and piecewise smooth, then it has the Fourier series f(x)∼a0+∑∞n=1cos(nx)+bnsin(nx), where
-a0=12π∫2π0f(x)dx, an=1π∫2π0f(x)cos(nx)dx, bn=1π∫2π0f(x)sin(nx)dx,
-Formulate a theorem on the pointwise convergence of the seires.
 
-\p{4} Find the Fourier series for $f(x)=x$, $0<x<2 \pi$. Sketch three periods of the 2π-periodic function to which the series converges pointwise. (Hand-drawn is fine. No need to use a computer here.)
-Find the Fourier series for f(x)={10x∈[−14π,14π],x∈(−π,14π) or x∈(14π,π).
-Consider the series ∑∞n=−∞cneinx, where ∑∞n=−∞|cn|<∞. Show that the series ∑∞n=−∞cneinx converges uniformly to a 2π-periodic continuous function f(x) and the the series is the Fourier series for f. Also, show that the series converges to f in L2[−π,π].
+\p{3} Use the previous result to show that if $f$ is $2 \pi$-periodic and piecewise smooth, then it has the Fourier series $f(x) \sim a_0 + \sum_{n=1}^\infty a_n \cos(nx) + b_n \sin(nx)$ where
+$$ a_0 = \frac 1 {2\pi} \int_0^{2\pi} f(x) \, dx \quad a_n = \frac 1 \pi \int_0^{2\pi} f(x) \cos(nx) \, dx \quad b_n = \frac 1 \pi \int_0^{2\pi} f(x) \sin(nx) \, dx. $$
+Formulate a theorem on the pointwise convergence of the series.
 
+\begin{proof}
+The first part is just a rewriting of the definition of Fourier series.  The theorem about pointwise convergence is that the series converges pointwise to $f$. This was proved in class by applying the Riemann-Lebesgue lemma to the convolution of $f$ with the Dirichlet kernel.
+\end{proof}
+
+
+\p{4} Find the Fourier series for $f(x)=x$, $0<x<2 \pi$. Sketch three periods of the $2\pi$-periodic function to which the series converges pointwise. (Hand-drawn is fine. No need to use a computer here.)
+
+\begin{proof}
+The Fourier series for $f$ is $\sum_{n = -\infty}^{\infty} a_n e^{inx}$ where $a_0 = \frac 1 {2\pi} \int_{0}^{2 \pi} x \,dx = \frac 1 2$, and for $n \neq 0$
+\begin{align*}
+a_n & = \frac 1 {2 \pi} \int_0^{2\pi} x e^{-inx} \, dx
+\\ & = \frac 1 {2 \pi} \left[ x \left( \frac{-1}{in} \right) e^{-inx} \right]_0^{2\pi} + \frac 1 {2\pi in} \int_0^{2\pi} e^{-inx} \, dx
+\\ & = \frac 1 {2 \pi} \left( 2\pi \left( \frac{-1}{in} \right)  \right) + \frac 1 {2\pi in} \left[ \frac {-1}{in} e^{-inx} \right]_0^{2\pi}
+\\ & = \frac i n.
+\end{align*}
+\end{proof}
+
+\p{5} Find the Fourier series for $\displaystyle f(x)=\left\{ \begin{array}{ll}
+1, & x \in [- \frac \pi 4 , \frac \pi 4]
+\\ 0, & x \in (-\pi,- \frac \pi 4) \cup(\frac \pi 4, \pi) 
+\end{array}\right. .$
+\begin{proof}
+The Fourier series is $\sum_{n = -\infty}^{\infty} a_n e^{inx}$ where
+\begin{align*}
+a_n & = \frac 1 {2 \pi} \int_{-\pi/4}^{\pi / 4} e^{-inx} \, dx
+\\ & =  \frac 1 {2 \pi} \left[ - \frac {e^{-inx}}{in} \right]_{-\pi/4}^{\pi/4}
+\\ & =   \frac 1 {\pi n} \sin(n \pi/4)
+\end{align*}
+
+\end{proof}
+
+\p{6} Consider the series $\sum_{n=-\infty}^\infty c_n e^{inx}$, where $\sum_{n=-\infty}^\infty |c_n| < \infty$. Show that the series $\sum_{n= -\infty}^\infty c_n e^{inx}$ converges uniformly to a $2\pi$-periodic continuous function $f(x)$ and the series is the Fourier series for $f$. Also, show that the series converges to $f$ in $L_2[-\pi, \pi]$.
+
+\begin{proof}
+For $x \in \R$, we have $\sum_{n = -\infty}^\infty |c_n e^{inx}| = \sum_n |c_n| < \infty$. Hence $\sum_{n = -\infty}^\infty c_n e^{inx}$ converges absolutely for all $x$ and uniformly in $x$.  Since $f$ is the uniform limit of continuous functions, it is continuous. It is obvious that $f$ is  $2\pi$-periodic and that the series is the Fourier series for $f$. 
+
+Let $f_N = \sum_{n = -N}^N c_n e^{inx}$.  Then $\int_{-\pi}^\pi |f_N - f|^2 \,dx \le 2 \pi \|f_N - f\|_\infty^2 \to 0$. Hence $f_N \to f$ in $L_2[-\pi, \pi]$.
+\end{proof}
 
 \end{document}
