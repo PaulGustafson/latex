@@ -24,7 +24,7 @@ The characteristic polynomial for $A$ is $f(x) := x^3 +6 + 6 - 9x -4x - x = x^3 
 \p{2} Let $A$ be an $n \times n$ complex matrix that satisfies $A^* A = A A^*$. Show that $A$ is diagonalizable and that there is a unitary matrix $U$ for which $U^*AU = \Lambda = \diag(\lambda_1, \ldots, \lambda_n)$.
 
 \begin{proof}
-\emph{Step 1: $A$ and $A*$ are simultaneously diagonalizable}.  Let $J \in M_n(\C)$ be the Jordan Normal Form for $A$.  I claim that $J$ is diagonal. Suppose not. Then $J$ contains an $m \times \m$ Jordan block $B$ for $ 1< m \le n$.  If $\lambda$ is the generalized eigenvalue corresponding for $B$, then we have $[B, B^*]_{11} = (B B^*)_{11} - (B^*B)_{11} = (|\lambda|^2 + 1) - |\lambda|^2 \neq 0$.  Hence $[J, J^*] \neq 0$, so $[A, A^*] \neq 0$, a contradiction. Thus, $J$ is diagonal. The matrix $J^* = \overline{J}^T$ is clearly diagonal also.
+\emph{Step 1: $A$ and $A^*$ are simultaneously diagonalizable}.  Let $J \in M_n(\C)$ be the Jordan Normal Form for $A$.  I claim that $J$ is diagonal. Suppose not. Then $J$ contains an $m \times \m$ Jordan block $B$ for $ 1< m \le n$.  If $\lambda$ is the generalized eigenvalue corresponding for $B$, then we have $[B, B^*]_{11} = (B B^*)_{11} - (B^*B)_{11} = (|\lambda|^2 + 1) - |\lambda|^2 \neq 0$.  Hence $[J, J^*] \neq 0$, so $[A, A^*] \neq 0$, a contradiction. Thus, $J$ is diagonal. The matrix $J^* = \overline{J}^T$ is clearly diagonal also.
 
 \emph{Step 2: $A$ is unitarily diagonalizable.}  The proof is by induction on $n$. The base case is trivial. For the inductive step, recall that $A$ must have an eigenvector.  Let $v$ be an normalized eigenvector of $A$.  Let $w \in v^\perp$.  Then $\langle v, Aw \rangle = \langle A^*v , w \rangle = 0$ since $v$ is an eigenvector of both $A$ and $A^*$ by Step 1.  Hence $v^\perp$ is an invariant subspace of $A$, and we can apply the inductive hypothesis to $A \vert_{v^\perp}$.  
 \end{proof}
@@ -73,15 +73,31 @@ The set $\{\phi_k\}_{0 \le k < n}$ spans the polynomials of degree less than $n-
 \item Show that $\{ \phi_n \}_{n=0}^\infty$ is complete in $L_w^2[a,b]$.
 \begin{proof}
 % Since $\phi_0 \in L_w^2[a,b]$, we have $0 < \int_a^b \phi_0^2 w(x) dx < \infty$.
-WLOG the $\phi_n$ are normalized.  Let $g \in L_w^2[a,b]$ be continuous.  Let $\epsilon > 0$.  By the Weierstrauss Approximation Theorem, pick a polynomial $p$ such that $\|g - p \|_{C[a,b]} < \epsilon$.  Then
-$\|g - p\|_{L_w^2[a,b]} = \int_a^b |g - p|^2 w dx \le \epsilon^2 \int_a^b w dx$.  Since $1 = \phi_0 \in L_w^2[a,b]$, this last integral is finite.  Hence, the polynomials are dense in $L_w^2[a,b]$.
+Let $g \in L_w^2[a,b]$ be continuous.  Let $\epsilon > 0$.  By the Weierstrauss Approximation Theorem, pick a polynomial $p$ such that $\|g - p \|_{C[a,b]} < \epsilon$.  Then
+$\|g - p\|_{L_w^2[a,b]} = \int_a^b |g - p|^2 w dx \le \epsilon^2 \int_a^b w dx$.  Since $\phi_0 \in L_w^2[a,b]$, this last integral is finite.  Hence, the polynomials are dense in $L_w^2[a,b]$.
 
 Now suppose $\{ \phi_n \}_{n=0}^\infty$ is not complete. By a previous homework problem, there exists a normalized function $f \in L_w^2[a,b]$ with $\langle f, \phi_n \rangle = 0$ for all $n$.  Thus for any polynomial $p$, we have $\|f - p\|_{L_w^2[a,b]}^2 = \|f\|_{L_w^2[a,b]}^2 + \|p\|_{L_w^2[a,b]}^2 \ge 1$.  This contradicts the fact that the polynomials are dense in ${L_w^2[a,b]}$.
 
 \end{proof}
 \item Show that the polynomials satisfy the recurrence relation $\phi_{n+1}(x) = (A_nx + B_n) \phi_n(x) + C_n \phi_{n-1}(x)$. Find $A_n$ in terms of the $k_n$'s.  
 \begin{proof}
+We have 
+$\phi_{n+1} = A_n x \phi_n + \sum_{j=0}^{n} a_j \phi_j$ 
+for some unique $A_n$ and $(a_j)_{j=1}^n$.  
 
+For $1 \le l \le n-2$, part (a) implies that 
+\begin{align*}
+0 & = \langle \phi_{n+1} , \phi_l \rangle 
+\\ & = \left\langle A_n x \phi_n + \sum_{j=0}^{n} a_j \phi_j, \phi_l \right\rangle
+\\ & = \langle A_n x \phi_n , \phi_l \rangle +  a_l \langle \phi_l, \phi_l \rangle
+\\ & =  A_n  \langle \phi_n , x \phi_l \rangle +  a_l \langle \phi_l, \phi_l \rangle
+\\ & = a_l \langle \phi_l, \phi_l \rangle
+\end{align*}
+
+Hence $a_l = 0$ for $ 1 \le l \le n - 2$, so
+$\phi_{n+1} = A_n x \phi_n + B_n \phi_n + C_n \phi_{n-1}.$ 
+
+By comparing leading coefficients, $A_n = \frac {k_{n+1}}{k_n}$.
 \end{proof}
 \end{enumerate}
 
@@ -94,14 +110,27 @@ Now suppose $\{ \phi_n \}_{n=0}^\infty$ is not complete. By a previous homework 
 \item Show that $\ckj = (ik)^j c_k$ for $1 \le j \le m+1$.
 
 \begin{proof}
-Integrate by parts $j$ times.
+Integrating by parts $j$ times, we have
+\begin{align*}
+\ckj  & =  \frac 1 {2 \pi} \int_0^{2 \pi} f^{(j)}(x) e^{- i k x} dx 
+\\ & = \frac 1 {2 \pi} \left( \left[ f^{(j-1)}(x) e^{2 \pi k x}  \right]_0^{2 \pi} + (ik)  \int_0^{2 \pi} f(x) e^{2\pi k x} dx \right)
+\\ & = \frac  {ik} {2 \pi} \left( \int_0^{2 \pi} f^{(j-1)}(x) e^{2\pi k x} dx \right)
+\\ & \vdots
+\\ & = \frac  {(ik)^j} {2 \pi} \left( \int_0^{2 \pi} f(x) e^{2\pi k x} dx \right)
+\\ & = (ik)^j c_k
+\end{align*}
 \end{proof}
 
 \item For $k \neq 0$, show that the Fourier coefficient $c_k$ satisifies the bound
 $$ | c_k | \le \frac 1 {2 \pi |k|^{m+1}} \|f^{(m+1)}\|_{L_1[0,2\pi]}$$
 
 \begin{proof}
-Integrate by parts $k$ times.
+Integrating by parts $m+1$ times, we have
+\begin{align*}
+|c_k| & = \left| \frac 1 {2 \pi} \int_0^{2 \pi} f(x) e^{- i k x} dx \right|
+\\ & = \left| \frac 1 {2 \pi (ik)^{m+1}} \int_0^{2 \pi} f^{(m+1)}(x) e^{- i k x} dx \right|
+\\ & \le \frac 1 {2 \pi |k|^{m+1}} \|f^{(m+1)}\|_{L_1[0,2\pi]}
+\end{align*}
 \end{proof}
 
 \item Let $S_n(\theta) = \sum_{k=-n}^n c_k e^{ik\theta}$ be the $n$-th partial sum of the Fourier series for $f$, $n \ge 1$. Show that both of the following hold for $f$:
@@ -116,12 +145,13 @@ By Parseval's theorem, we have
 \\ & = \left(  \frac {C_2} {n^{2m+1}} \right)^{-1/2} \|f^{(m+1)}\|_{L_1[0,2\pi]}
 \\ & = \frac {C_3} {n^{m+1/2}} \|f^{(m+1)}\|_{L_1[0,2\pi]}
 \end{align*}
-and
+Using part (b), we have
 \begin{align*}
 \|f - S_n \|_{C[0, 2\pi]} & = \sup_{x \in [0,2\pi]} \left| \sum_{k > n} c_k(x) e^{ikx} \right|
+\\ & \le \sup_{x \in [0,2\pi]}  \sum_{k > n} |c_k(x)|
 \\ & \le \sum_{k > n} \frac 1 {2 \pi |k|^{m+1}} \|f^{(m+1)}\|_{L_1[0,2\pi]}
-\\ & \le \int_{k > n} \frac {C'} {|k|^{m+1}} dk \|f^{(m+1)}\|_{L_1[0,2\pi]}
-\\ & = \frac {C'} {n^{m}} \|f^{(m+1)}\|_{L_1[0,2\pi]}.
+\\ & \le \left(\int_{k > n} \frac {C'} {|k|^{m+1}} dk\right) \|f^{(m+1)}\|_{L_1[0,2\pi]}
+\\ & = \frac {C''} {n^{m}} \|f^{(m+1)}\|_{L_1[0,2\pi]}.
 \end{align*}
 \end{proof}
 
@@ -142,9 +172,9 @@ From (a), the Fourier coefficient $c_k$ for $f$ is
 \begin{align*}
 c_k & = (ik)^{-2} \ckj
 \\  & = -\frac 1 {2 \pi k^2} \int_0^{2\pi} f''(x) e^{-ikx} dx
-\\  & = -\frac 1 {2 \pi k^2} \int_0^{2\pi} (12x^2 - 24x) e^{-ikx} dx
-\\  & = -\frac {1} {2 \pi k^2}  \left( \left[ \frac{12x^2 - 24x}{-ik} e^{-ikx}\right]_0^{2\pi}  + \frac 1 {ik} \int_0^{2 \pi} (24x - 24)e^{-ikx} dx \right)
-\\  & = -\frac {1} {2 \pi k^2}  \frac {24} {ik} \int_0^{2 \pi} xe^{-ikx} dx
+\\  & = -\frac 1 {2 \pi k^2} \int_0^{2\pi} (12x^2 - 24 \pi x) e^{-ikx} dx
+\\  & = -\frac {1} {2 \pi k^2}  \left( \left[ \frac{12x^2 - 24 \pi x}{-ik} e^{-ikx}\right]_0^{2\pi}  + \frac 1 {ik} \int_0^{2 \pi} (24x - 24 \pi)e^{-ikx} dx \right)
+\\  & = -\frac {1} {2 \pi k^2}  \left( \frac {24} {ik} \right) \int_0^{2 \pi} xe^{-ikx} dx 
 \\  & = \frac {24i} {2 \pi k^3} \int_0^{2\pi} x e^{-ikx} dx
 \\  & = \frac {24i} {k^3} \left( \frac i k \right)
 \\ & = - \frac{24} {k^4},
