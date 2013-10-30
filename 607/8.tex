@@ -7,32 +7,26 @@
 \noindent Instructor: Thomas Schlumprecht
 
 \subsection*{HW 8}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \p{1} Let $f:[0,1] \to \R$ be integrable (with respect to Lebesgue measure) and nonnegative. Define 
 $$G_{-} =  \{(x,y) : 0 \le x \le 1, 0 \le y \le f(x) \}.$$
 Show that $G_-$ is measurable in $\R \times \R$ and that 
 $$m(G_-) = \int_0^1 f(x) \, dx.$$
+\begin{proof}
+\emph{Case $f$ is simple.}  Then in standard form $f = \sum_{i=1}^n a_i \chi_{A_i}$.  Hence $G_- = \bigcup_{i=1}^n A_i \times [0, a_i)$ is measurable. Since the $A_i$ are disjoint we have $m(G_i) = \sum_i a_i m(A_i) = \int f \, dx$.
+
+\emph{General case.} There exists a sequence of simple functions $\phi_n \uparrow f$.   Let $H_n = \{(x,y) : 0 \le x \le 1, 0 \le y \le \phi_n(x) \}$.  Then by part (a), each $H_n$ is measurable and $m(H_n) = \int \phi_n \, dx$.  Hence $G_- = \bigcup_n H_n$ is measurable, and $m(G_-) = \lim_{n \to \infty} m(H_n) = \lim_{n \to \infty} \int \phi_n \, dx = \int f \, dx$, where the last equality follows from the MCT.
+\end{proof}
 
 \p{2} Let $f$ be Lebesgue integrable on $(0,1)$. For $0< x < 1$ define
 $$g(x) = \int_x^1 t^{-1} f(t) \, dt.$$
 Prove that $g$ is Lebesgue integrable on $(0,1)$ and that 
 $$\int_0^1 g(x) \, dx = \int_0^1 f(x) \, dx.$$
+[Hint: first prove the case where $f \ge 0$.]
+\begin{proof}
+\emph{Case $f \ge 0$} 
+
+\end{proof}
+
 
 \p{3} Let $\mM = \mN = \mB_{[0,1]}$. Let $\mu$ be the Lebesgue measure on $\mM$ and $\nu$ be the counting measure on $\mN$. Show that for $D = \{(x,x) : x \in [0,1]\}$
 
@@ -45,16 +39,25 @@ are all unequal.
 c) Show that there is more than one measure $\pi$ on $\R^2$ for which
 $$ \pi(A \times B) = \mu(A) \nu(B), \text{ whenever } A, B \in \mB_[0,1].$$
 
-p{4} Find a measurable function $f: \R^2 \to \R$ measurable so that
+ p{4} Find a measurable function $f: \R^2 \to \R$ measurable so that
 
 a) $\int_{\R^2} |f(x,y| \, dx dy = \infty$
 
 b) $\int_\R \int _\R f(x,y) \, dx dy$, and $\int_\R \int_\R f(x,y) \, dx dy$ both exist but are unequal.
 
-\p{5} 
+\p{5} Problem 49/Page 69. Prove Theorem 2.39 by using Theorem 2.37 and Proposition 2.12 together with the following lemmas.
+
+a. If $E \in \mM \times \mN$ and $\mu \times \nu(E) = 0$, then $\nu(E_x) = \mu(E^y) = 0$ for a.e. $x$ and $y$.
+
+b. If $f$ is $\mL$-measurable and $f = 0$ $\lambda$-a.e., then $f_x$ and $f^y$ are integrable for a.e. $x$ and $y$, and $\int f_x \, d\nu = \int f^y \, d\mu = 0$ for a.e. $x$ and $y$. (Here the completeness of $\mu$ and $\nu$ is needed.)
 
 \p{6} If $f \in L_1(\R^2)$ or $f \ge 0$ and mble and $c \in \R \setminus \{0\}$, then
-$$
+$$ \int f (cx, cy) dx dy  =  c^{-2} \int f(x,y) dx dy.$$
+$$\int f (x + cy, cy) dx dy  =  \int f(x,y) dx dy.$$
+
+\p{7} Prove that for any $f \in L_1(\R^d)$ and any $\epsilon > 0$ there is a simple function
+$$ \phi = \sum_{j=1}^n \alpha_j \chi_{R_j},$$
+where the $R_j$'s are products of intervals, and $\|\phi - f\|_1 \le \epsilon$.
 
 
 
