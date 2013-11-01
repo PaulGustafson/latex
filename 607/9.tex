@@ -1,0 +1,43 @@
+ome\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 607\\ 
+\noindent Instructor: Thomas Schlumprecht
+
+\subsection*{HW 9}
+\\p{1} If $f \in L_1(0,\infty)$, define
+$$g(s) = \int_0^\infty e^{-st}f(t) \,dt, \quad 0 < s < \infty.$$
+Prove that $g(s)$ is differentiable on $(0,\infty)$ and that
+$$g'(s) = - \infty_0^\infty t e^{-st} f(t), \quad 0 < s < \infty.$$
+\begin{proof}
+\end{proof}
+
+\p{2} Let $(\Omega, \mu, \Sigma)$ be a finite measure space and $(f_n)$ be a sequence of measurable functions on $\Omega$. Suppose that for each $\omega \in \Omega$ there is an $M_\omega \in \R$ so that for all $k \in \N$, $|f_k(\omega) \le M_\omega$. Let $\epsilon > 0$. Show that there is a measurable $A \subset \Omega$ and an $M \in \R$ so that $\mu(\Omega \setminus A) < \epsilon$ and $f_k(\omega) < M$ for all $k \in \N$ and all $\omega \in A$.
+
+\p{3} 57/page 77.
+
+\p{4} 60/page 77.
+
+\p{5} Given a bounded function $f : [a,b] \to \R$, define
+$$ H(x) = \lim_{\delta \to 0} \sup_{|x - y| \le \delta} f(y), \text{ and } h(x) = \lim_{\delta \to 0} \inf_{|x - y| \le \delta} f(y)$$
+\begin{enumerate}[a)]
+\item For $x \in [a,b]$, $f$ continuous at $x$ $\equiv$ $H(x) = h(x)$.
+\item Assume now that $(P_k)$ is an increasing sequence of partitions of $[a,b]$ for which the mesh converges to zero. Write $P_k = (t_0^{(k)}, t_1^{(k)}, \ldots, t_{n_k}^{(k)})$. Define for $x \in [a,b]$,
+$$G(x) = \lim_{k \to \infty} G_{P_k}(x) \text{ and } g(x) = \lim_{k \to \infty} g_P_k(x)$$,
+where for a partition $P = (t_0, t_1, \ldots, t_n)$
+$$G_P = \sum_{i=1}^n \chi_{(t_{i-1}, t_i]} \sup_{t \in (t_{i-1}, t_i]} f(t) \text{ and } g_P = \sum_{i=1}^n \chi_{(t_{i-1}, t_i]} \inf_{t \in {(t_{i-1}, t_i]} f(t).$$
+Prove that $H = G$ and $h = g$ $m$-a.e.
+\item Show that $f$ is Riemann integrable $\equiv$ the set of discontinuities of $f$ has Lebesgue measure zero.
+\end{enumerate}
+
+\p{6} Problem 30/page 60. Hint: AM-GM.
+
+\p 7 Problem 1/88.
+
+\p 8 Problem 4/88.
+
+\p 9 Problem 7/88.
+
+\end{document}

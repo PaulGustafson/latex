@@ -1,0 +1,20 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+
+\subsection*{January 09}
+\p{1} Let $F \subset \R^n$ be compact and prove that the convex hull $\conv(F)$ is compact. (You may use without proof the theorem of Caratheodory that states that every point in the convex hull of any subset $S$ of $\R^n$ is a convex combination of $n+1$ or fewer points of $S$.)
+\begin{proof}
+It suffices to show that every sequence $(x_k) \subset F$ has a subsequence that converges to a point of $\conv(F)$.
+
+ By the hint, $x_k = \sum_{j = 1}^{n + 1} \lambda_{kj} v_{kj}$, a convex combination.   Let $\lambda_k = (\lambda_{k1}, \lambda_{k2}, \ldots, \lambda_{k,n+1})$.  Then $\lambda_k$ lies in the compact $n+1$-simplex $\Delta = \{x \in \R^d_+ : \|x\|_1 = 1\}$. Hence, by passing to a subsequence, WLOG $\lambda_k \to \lambda$ for some $\lambda = (\lambda_1, \ldots, \lambda_{n+1}) \in \Delta$.  Similarly, we can assume that for each $j$ we have $v_{kj} \to v_j$ for some $v_j \in \F$.  Since addition and multiplication are continuous, we then have $x_k \to \sum_{j=1} \lambda_j v_j \in \conv(F)$.
+\end{proof}
+
+\p{2} Let $(X, \mM, \rho)$ be a finite measure space. Suppose $\mU \subset \mM$ is an algebra of sets and $\mu : \mU \to \C$ is a complex, finitely additive measure such that $|\mu(E)| \le \rho(E) < \infty$ for all $E \in \mU$. Show that there is a complex measure $\nu : \mM \to \C$ whose restriction to $\mU$ is $\mu$, and such that $|\nu(E)| \le \rho(E)$ for all $E \in \mM$. (Hint: you may want to consider the set of simple functions of the form $\sum_{i=1}^n c_i 1_{E_i}$ for $E_i \in \mU$.)
+
+\p{3} Given $1 \le p \le \infty$ and $f \in L^p([0, \infty))$, prove 
+$$\lim_{n \to \infty} \int_0^\infty f(x) e^{-nx} dx = 0.$$
+
+\end{document}
