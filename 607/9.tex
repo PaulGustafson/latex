@@ -1,4 +1,4 @@
-ome\documentclass{article}
+\documentclass{article}
 \usepackage{../m}
 
 \begin{document}
@@ -7,7 +7,7 @@ ome\documentclass{article}
 \noindent Instructor: Thomas Schlumprecht
 
 \subsection*{HW 9}
-\\p{1} If $f \in L_1(0,\infty)$, define
+\p{1} If $f \in L_1(0,\infty)$, define
 $$g(s) = \int_0^\infty e^{-st}f(t) \,dt, \quad 0 < s < \infty.$$
 Prove that $g(s)$ is differentiable on $(0,\infty)$ and that
 $$g'(s) = - \infty_0^\infty t e^{-st} f(t), \quad 0 < s < \infty.$$
@@ -16,28 +16,35 @@ $$g'(s) = - \infty_0^\infty t e^{-st} f(t), \quad 0 < s < \infty.$$
 
 \p{2} Let $(\Omega, \mu, \Sigma)$ be a finite measure space and $(f_n)$ be a sequence of measurable functions on $\Omega$. Suppose that for each $\omega \in \Omega$ there is an $M_\omega \in \R$ so that for all $k \in \N$, $|f_k(\omega) \le M_\omega$. Let $\epsilon > 0$. Show that there is a measurable $A \subset \Omega$ and an $M \in \R$ so that $\mu(\Omega \setminus A) < \epsilon$ and $f_k(\omega) < M$ for all $k \in \N$ and all $\omega \in A$.
 
-\p{3} 57/page 77.
+\p{3} 57/page 77. Show that $\int_0\infty e^{-sx}x^{-1} \sin x \, dx = \arctan(s^{-1})$ for $s > 0$ by integrating $e^{-sxy}\sin x$ with respect to $x$ and $y$.  (Hints: $\tan(\frac \pi 2) = (\tan \theta)^{-1}$ and Exercise 31d.)
 
-\p{4} 60/page 77.
+\p{4} 60/page 77. $\Gamma(x) \Gamma(y)/ \Gamma(x + y) = \int_0^1 t^{x-1}(1-t)^{y-1} \, dt$. (Recall that $\Gamma$ was defined in Section 2.3. Write $\Gamma(x) \Gamma(y)$ as a double integral and use the argument of the exponential as a new variable of integration.)
 
 \p{5} Given a bounded function $f : [a,b] \to \R$, define
 $$ H(x) = \lim_{\delta \to 0} \sup_{|x - y| \le \delta} f(y), \text{ and } h(x) = \lim_{\delta \to 0} \inf_{|x - y| \le \delta} f(y)$$
-\begin{enumerate}[a)]
-\item For $x \in [a,b]$, $f$ continuous at $x$ $\equiv$ $H(x) = h(x)$.
+\begin{enumerate}[\bfseries a)]
+\item For $x \in [a,b]$, $f$ continuous at $x$ $\iff$ $H(x) = h(x)$.
 \item Assume now that $(P_k)$ is an increasing sequence of partitions of $[a,b]$ for which the mesh converges to zero. Write $P_k = (t_0^{(k)}, t_1^{(k)}, \ldots, t_{n_k}^{(k)})$. Define for $x \in [a,b]$,
-$$G(x) = \lim_{k \to \infty} G_{P_k}(x) \text{ and } g(x) = \lim_{k \to \infty} g_P_k(x)$$,
+$$G(x) = \lim_{k \to \infty} G_{P_k}(x) \text{ and } g(x) = \lim_{k \to \infty} g_{P_k}(x),$$
 where for a partition $P = (t_0, t_1, \ldots, t_n)$
-$$G_P = \sum_{i=1}^n \chi_{(t_{i-1}, t_i]} \sup_{t \in (t_{i-1}, t_i]} f(t) \text{ and } g_P = \sum_{i=1}^n \chi_{(t_{i-1}, t_i]} \inf_{t \in {(t_{i-1}, t_i]} f(t).$$
+$$G_P = \sum_{i=1}^n \chi_{(t_{i-1}, t_i]} \sup_{t \in (t_{i-1}, t_i]} f(t) \text{ and } g_P = \sum_{i=1}^n \chi_{(t_{i-1}, t_i]} \inf_{t \in (t_{i-1}, t_i]} f(t).$$
 Prove that $H = G$ and $h = g$ $m$-a.e.
-\item Show that $f$ is Riemann integrable $\equiv$ the set of discontinuities of $f$ has Lebesgue measure zero.
+\item Show that $f$ is Riemann integrable $\iff$ the set of discontinuities of $f$ has Lebesgue measure zero.
 \end{enumerate}
 
-\p{6} Problem 30/page 60. Hint: AM-GM.
+\p{6} Problem 30/page 60. Hint: AM-GM. Show that $\lim_{k \to \infty} \int_0^k x^n (1 - k^{-1} x) ^k \, dx = n!$.
 
-\p 7 Problem 1/88.
+\p 7 Problem 1/88. Let $\nu$ be a signed measure on $(X, \mM)$. If $(E_j)$ is an increasing sequence in $\mM$, the $\nu(\bigcup_1^\infty E_j) = \lim_{j \to \infty} \nu(E_j)$. If $(E_j)$ is a decreasing sequence in $\mM$ and $\nu(E_1)$ is finite, then $\nu(\bigcap_1^\infty E_j) = \lim_{j \to \infty} \nu(E_j)$.
 
-\p 8 Problem 4/88.
+\p 8 Problem 4/88. If $\nu$ is a signed measure and $\lambda, \mu$ are positive measures such that $\nu = \lambda - \mu$, then $\lambda \ge \nu^+$ and $\mu \ge \nu^-$.
 
-\p 9 Problem 7/88.
+\p 9 Problem 7/88. Suppose that $\nu$ is a signed measure on $(X, \mM)$ and $E \in \mM$.
+\begin{enumerate}[\bfseries a.]
+
+\item $\nu^+(E) = \sup\{\nu(F) : F \in \mM, F \subset E\}$ and $\nu^-(E) = - \inf\{\nu(F) : F \in \mM, F \subset E\}$.
+
+\item $|\nu|(E) = \sup\{\sum_1^n |\nu(E_j)| : n \in \N, E_1, \ldots, E_n \text{ are disjoint, and } \bigcup_1^n E_j = E\}$.
+\end{enumerate}
+
 
 \end{document}

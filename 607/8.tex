@@ -23,8 +23,9 @@ Prove that $g$ is Lebesgue integrable on $(0,1)$ and that
 $$\int_0^1 g(x) \, dx = \int_0^1 f(x) \, dx.$$
 [Hint: first prove the case where $f \ge 0$.]
 \begin{proof}
-\emph{Case $f \ge 0$} 
-
+By the linearity of the integral on $L_1$ and splitting $f$ into positive and negative parts, WLOG $f \ge 0$.  
+Note that the function $(t,x) \mapsto \chi_{[x,1]} t^{-1} f(t)$ is nonnegative and measurable.  Hence by the Tonelli theorem we have $g \in \mL^+$ and
+$\int_0^1 g(x) dx = \int_0^1 \int_x^1 t^{-1} f(t) dt dx = \int_0^1 \int_0^t t^{-1} f(t) dx dt = \int_0^1 f(t) dt$. Hence $g$ is integrable.
 \end{proof}
 
 
@@ -44,12 +45,15 @@ For (a), let $D_n = \bigcup_{k=0}^{2^n-1} [k 2^{-n}, (k+1) 2^{-n}] \times [k 2^{
 
 For (b), let $(E_n)$ be a countable cover of $D$ with each $E_n = M_n \times N_n$ for some  nonempty $M_n \in \mM$ and $N_n \in \mN$.  I claim that $\sum_n \mu \otimes \nu(E_n) = \infty$. 
 
-Suppose not. Let $F = \{ n \in \nN : \mu(M_n) > 0\}$. If $\bigcup{n \in F} N_n$ is uncountable, then $\sum_{n \in \N} \mu \otimes \nu(E_n) \le \sum_{n \in F} \mu \otimes \nu(E_n) \le \sum_{n \in F} \mu(M_n) \nu(N_n) = \infty$, a contradiction. Hence $\bigcup{n \in F} N_n$ is countable.
- 
+Suppose not. Let $F = \{ n \in \mN : \mu(M_n) > 0\}$. If $\bigcup_{n \in F} N_n$ is uncountable, then $\sum_{n \in \N} \mu \otimes \nu(E_n) \le \sum_{n \in F} \mu \otimes \nu(E_n) \le \sum_{n \in F} \mu(M_n) \nu(N_n) = \infty$, a contradiction. Hence $\bigcup_{n \in F} N_n$ is countable, so $\mu \left( \bigcup_{n \in F} N_n \right) = 0$.
 
-Since $(M_n)$ must cover $[0,1]$, there must be at least one $M_n$ of positive measure.  Then $(N_n)$ must cover $[0,1]$.  Hence $\sum_n \mu \otimes \nu(E_n) = \sum_n \mu(M_n) \nu(N_n)
+If $x \in [0,1]$ then either $(x,x) \in \bigcup_{n \in F} E_n$, which implies that $x \in \bigcup_{n \in F} N_n$,  or $(x,x) \in \bigcup_{n \in F^c} E_n$, which implies that $x \in \bigcup_{n \in F^c} M_n$.  Thus $[0,1]$ is covered by $(N_n)_{n\in F} \cup (M_n)_{n \in F^c}$, all of which have $\mu$-measure $0$, a contradiction.
 
+Therefore, $\sum_n \mu \otimes \nu(E_n) = \infty$ for all countable covers $(E_n)$ of $D$ where each $E_n \in \mM \times \mN$.  Thus, $\mu \otimes \nu(D) = \infty$.
 
+On the other hand, $\int \int \chi_D  \, d \mu d\nu = \int 0 \, d \nu = 0$, and $\int \int \chi_D \, d \nu d \mu = \int 1 , d \mu  = 1$.
+
+For (c), let $\pi_1 = \mu_1 \otimes \nu_1 :\mB_{\R^2} \to [0, \infty]$ where $\mu_1$ is the Lebesgue measure on $\R$ and $\nu_1$ is the counting measure on $\R$.  Let $\pi_2 = \mu_2 \otimes \nu_2:  \mB_{\R^2} \to [0, \infty]$, where $\mu_2(M) = \mu(M \cap [0,1])$ and $\nu_2(N) = \nu(N \cap [0,1])$. To see that $\mu_2$ is countably additive, if $(E_n) \subset \mB_\R$ are pairwise disjoint we have $\mu_2(\bigcup_n E_n) = \mu(\bigcup_n E \cap E_n) = \sum_n \mu_2(E_n)$.  The same argument applies to $\nu_2$, so $\mu_2$ and $\nu_2$ are both measures.   It is clear that $\pi_1(A \times B) = \mu(A) \nu(B) = \pi_2(A \times B)$ for $A,B \in \mB_{[0,1]}$, but $\pi_1([2,3] \times \{0\}) = 1 \neq 0 = \pi_1([2,4] \times \{0\})$, for example.
 \end{proof}
 
 \p{4} Find a measurable function $f: \R^2 \to \R$ measurable so that
@@ -86,6 +90,15 @@ a. If $E \in \mM \times \mN$ and $\mu \times \nu(E) = 0$, then $\nu(E_x) = \mu(E
 
 b. If $f$ is $\mL$-measurable and $f = 0$ $\lambda$-a.e., then $f_x$ and $f^y$ are integrable for a.e. $x$ and $y$, and $\int f_x \, d\nu = \int f^y \, d\mu = 0$ for a.e. $x$ and $y$. (Here the completeness of $\mu$ and $\nu$ is needed.)
 
+\begin{proof}
+For (a), suppose not.  WLOG $\nu(E_x) > 0$ for $x \in F$ where $\mu(F) > 0$.  Fix any $x \in F$. Since $E \in \mM \times \mN$, we have $E = E_x \times N$ for some $N \in \mN$ with $F \subset N$. Thus $\mu \times \nu(E) \ge \mu(E_x)\nu(F) > 0$.
+
+For (b), let $B = \{(x,y) : f(x,y) \neq 0\}$. It suffices to show that $\nu(B_x) = 0$ a.e. for a.e. $x$. We have $\mu \otimes \nu(B) = 0$.
+
+To prove Theorem 2.39, use Proposition 2.12 to get an $\mM \otimes \mN$-measurable function $g$ such that $f = g$ $\lambda$-a.e.  Then apply (b) to $f - g$.
+\end{proof}
+
+
 \p{6} If $f \in L_1(\R^2)$ or $f \ge 0$ and mble and $c \in \R \setminus \{0\}$, then
 $$ \int f (cx, cy) dx dy  =  c^{-2} \int f(x,y) dx dy.$$
 $$\int f (x + cy, cy) dx dy  =  \int f(x,y) dx dy.$$
@@ -93,6 +106,11 @@ $$\int f (x + cy, cy) dx dy  =  \int f(x,y) dx dy.$$
 but you can use, without proof the formula of the area of a parallelogram).
 
 \begin{proof}
+If $f \in L_1(\R^2)$, both identities are linear in $f$, so by splitting $f$ into positive and negative parts, WLOG $f \ge 0$.  Thus, it suffices to prove the case $f \ge 0$ and measurable.
+
+Moreover, if $\phi \ge 0$ is a simple measurable function then $\phi(x,y) \le f(x,y)$ implies that  the simple function $\phi(cx,cy) \le f(cx, cy)$. Conversely, $\phi(x,y) \le f(cx, cy)$ implies that $\phi(c^{-1} x, c^{-1}y) \le f(x,y)$.  A similar argument works for the identity involving $f(x +cy, cy)$.  Hence WLOG $f$ is a nonnegative simple function. By linearity again, WLOG $f = \chi_E$ for a measurable set $E \subset \R^2$.
+
+Note that if $(cR_n)$ is a collection of parallelograms containing $E$, then $(R_n)$ are parallelograms containing $E$, and vice versa. A similar statement holds for the second identity. Ssince $m(E)$ is determined by the measures of its countable covers by rectangles hence by parallelograms, WLOG $E$ is a parallelogram.  But both identities are obvious for parallelograms (just calculate the determinant of each transformation).
 \end{proof}
 
 \p{7} Prove that for any $f \in L_1(\R^d)$ and any $\epsilon > 0$ there is a simple function
@@ -103,26 +121,9 @@ Since there exist simple functions $0 \le |\phi_n| \le |f|$ with $\phi_n \to f$,
 
 Let $A$ be a measurable set of finite measure in $\R^d$.  By the outer regularity of Lebesgue measure, WLOG $A$ is open.  Let $E_n = \{x \in A : B_{1/n}(x) \in A\}$.  Then since $A$ is open, $A = \bigcup_{n=1}^\infty E_n$. Since $(E_n)$ is increasing, we have $m(A) = \lim_{n \to \infty} m(E_n)$.
 
-Let $\epsilon > 0$.  Pick $E_n$ such that $m(A \setminus E_n) < \epsilon$.  Let $\mQ$ be the collection of all $R^d$-cubes with half-open sides of length $\frac 1 {2\sqrt 3 n}$ and vertices at $\frac 1 {2\sqrt 3 n} \Z$-lattice points. Then $\mQ$ is a pairwise disjoint covering of $R^d$. Let $U  = \bigcup \{Q \in \Q : Q \cap E_n \neq \emptyset\}$.  Then $E_n \subset U \subset A$, where the latter inclusion follows from the fact that the diameter of each cube is $\frac 1 {2n} < 1/n \le d(E_n, A^c)$.  
+Let $\epsilon > 0$.  Pick $E_n$ such that $m(A \setminus E_n) < \epsilon$.  Let $\mQ$ be the collection of all $R^d$-cubes with half-open sides of length $\frac 1 {2\sqrt 3 n}$ and vertices at $\frac 1 {2\sqrt 3 n} \Z$-lattice points. Then $\mQ$ is a pairwise disjoint covering of $R^d$. Let $U  = \bigcup \{Q \in \Q : Q \cap E_n \neq \emptyset\}$.  Then $E_n \subset U \subset A$, where the latter inclusion follows from the fact that the diameter of each cube is $\frac 1 {2n} < \frac 1 n \le d(E_n, A^c)$.  
 
 Since $U$ has finite measure, $U$ is a finite disjoint union of products of intervals, and $m(A \Delta U) = m(A \setminus U) < \epsilon$.
 \end{proof}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \end{document}
