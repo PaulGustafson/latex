@@ -10,13 +10,57 @@
 \p{1} If $f \in L_1(0,\infty)$, define
 $$g(s) = \int_0^\infty e^{-st}f(t) \,dt, \quad 0 < s < \infty.$$
 Prove that $g(s)$ is differentiable on $(0,\infty)$ and that
-$$g'(s) = - \infty_0^\infty t e^{-st} f(t), \quad 0 < s < \infty.$$
+$$g'(s) = - \int_0^\infty t e^{-st} f(t) \, dx, \quad 0 < s < \infty.$$
 \begin{proof}
+Let $s \in (0,\infty)$ and $0 \le |h| \le s/2$. We have $|e^{-st}f(t)| \le |f(t)|$, so $e^{-st}f(t) \in L_1$. Hence 
+\begin{align*}
+\frac { g(s + h) - g(s)} h & = \int_0^\infty \frac {e^{-(s+h)t} - e^{-st}} h  f(t) \,dt.
+\end{align*}
+By the Mean Value theorem, we have  
+\begin{align*}
+\left|\frac {e^{-(s+h)t} - e^{-st}} h f(t)\right| & \le \sup_{h \in (-s/2,s/2)} |-t e^{-(s+h)t}| \left|f(t)\right|
+\\ & = t e^{-(s/2)t} |f(t)|
+\\ &  \le C_s |f(t)|
+\end{align*}
+Hence, by the DCT,
+$$\lim_{h \to 0} \frac { g(s + h) - g(s)} h = \int_0^\infty \frac d {ds} e^{-st} f(t) = - \int_0^\infty t e^{-st} f(t) \, dx. $$
 \end{proof}
 
-\p{2} Let $(\Omega, \mu, \Sigma)$ be a finite measure space and $(f_n)$ be a sequence of measurable functions on $\Omega$. Suppose that for each $\omega \in \Omega$ there is an $M_\omega \in \R$ so that for all $k \in \N$, $|f_k(\omega) \le M_\omega$. Let $\epsilon > 0$. Show that there is a measurable $A \subset \Omega$ and an $M \in \R$ so that $\mu(\Omega \setminus A) < \epsilon$ and $f_k(\omega) < M$ for all $k \in \N$ and all $\omega \in A$.
+\p{2} Let $(\Omega, \mu, \Sigma)$ be a finite measure space and $(f_n)$ be a sequence of measurable functions on $\Omega$. Suppose that for each $\omega \in \Omega$ there is an $M_\omega \in \R$ so that for all $k \in \N$, $|f_k(\omega)| \le M_\omega$. Let $\epsilon > 0$. Show that there is a measurable $A \subset \Omega$ and an $M \in \R$ so that $\mu(\Omega \setminus A) < \epsilon$ and $f_k(\omega) < M$ for all $k \in \N$ and all $\omega \in A$.
+\begin{proof}
+Let $E_{jk} := \{ \omega \in \Omega : \forall n \ge j \quad |f_n(\omega)| \le k \}$.  Then $\bigcup_{j,k} E_{jk} = \Omega$.
 
-\p{3} 57/page 77. Show that $\int_0\infty e^{-sx}x^{-1} \sin x \, dx = \arctan(s^{-1})$ for $s > 0$ by integrating $e^{-sxy}\sin x$ with respect to $x$ and $y$.  (Hints: $\tan(\frac \pi 2) = (\tan \theta)^{-1}$ and Exercise 31d.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{proof}
+
+
+\p{3} 57/page 77. Show that $\int_0^\infty e^{-sx}x^{-1} \sin x \, dx = \arctan(s^{-1})$ for $s > 0$ by integrating $e^{-sxy}\sin x$ with respect to $x$ and $y$.  (Hints: $\tan(\frac \pi 2) = (\tan \theta)^{-1}$ and Exercise 31d.)
 
 \p{4} 60/page 77. $\Gamma(x) \Gamma(y)/ \Gamma(x + y) = \int_0^1 t^{x-1}(1-t)^{y-1} \, dt$. (Recall that $\Gamma$ was defined in Section 2.3. Write $\Gamma(x) \Gamma(y)$ as a double integral and use the argument of the exponential as a new variable of integration.)
 

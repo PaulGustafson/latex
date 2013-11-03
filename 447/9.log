@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  2 NOV 2013 23:04
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  2 NOV 2013 22:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -124,7 +124,8 @@ Package: xspace 2009/10/20 v1.13 Space after command names (DPC,MH)
 \c@lemma=\count102
 \c@example=\count103
 \c@prop=\count104
-) (./9.aux)
+)
+No file 9.aux.
 \openout1 = `9.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 4.
@@ -139,51 +140,52 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 4.
 LaTeX Font Info:    ... okay on input line 4.
-LaTeX Font Info:    Try loading font information for U+msa on input line 10.
-
+LaTeX Font Info:    Try loading font information for U+msa on input line 11.
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2009/06/22 v3.00 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 10.
+LaTeX Font Info:    Try loading font information for U+msb on input line 11.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-) [1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (1.48314pt too wide) in paragraph at lines 78--79
-\OT1/cmr/bx/n/10 6 \OT1/cmr/m/n/10 Prob-lem 30/page 60. Hint: AM-GM. Show that 
-$[][] [][] \OML/cmm/m/it/10 x[]\OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm
-/m/it/10 k[]x\OT1/cmr/m/n/10 )[] \OML/cmm/m/it/10 dx \OT1/cmr/m/n/10 =
+)
+Overfull \hbox (16.57823pt too wide) in paragraph at lines 33--34
+[]\OT1/cmr/m/n/10 Thus, $\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 E\
+OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^Z \OML/cmm/m/it/10 f\OT1/cmr/m/n/10 ([][][\
+OML/cmm/m/it/10 a[]; b[]\OT1/cmr/m/n/10 ]) = [][] \OML/cmm/m/it/10 f\OT1/cmr/m/
+n/10 ([\OML/cmm/m/it/10 a[]; b[]\OT1/cmr/m/n/10 ]) = [][][\OML/cmm/m/it/10 f\OT
+1/cmr/m/n/10 (\OML/cmm/m/it/10 a[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ; f\OT1/cmr
+/m/n/10 (\OML/cmm/m/it/10 b[]\OT1/cmr/m/n/10 )]$. Hence, $\OML/cmm/m/it/10 m\OT
+1/cmr/m/n/10 (\OML/cmm/m/it/10 f\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 E\OT1/cmr/m/n
+/10 )) \OMS/cmsy/m/n/10 ^^T
  []
 
-[2] (./9.aux) ) 
+[1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./9.aux) ) 
 Here is how much of TeX's memory you used:
- 1350 strings out of 495059
- 14707 string characters out of 3182030
+ 1346 strings out of 495059
+ 14674 string characters out of 3182030
  66816 words of memory out of 3000000
- 4562 multiletter control sequences out of 15000+200000
- 6598 words of font info for 26 fonts, out of 3000000 for 9000
+ 4561 multiletter control sequences out of 15000+200000
+ 6252 words of font info for 25 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 34i,10n,26p,475b,195s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
-bx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm1
-0.pfb>
-Output written on 9.pdf (2 pages, 142162 bytes).
+ 34i,4n,26p,468b,111s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/tex
+live/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10
+.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></
+usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on 9.pdf (1 page, 104560 bytes).
 PDF statistics:
- 67 PDF objects out of 1000 (max. 8388607)
- 48 compressed objects within 1 object stream
+ 52 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
