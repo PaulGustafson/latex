@@ -28,39 +28,19 @@ $$\lim_{h \to 0} \frac { g(s + h) - g(s)} h = \int_0^\infty \frac d {ds} e^{-st}
 
 \p{2} Let $(\Omega, \mu, \Sigma)$ be a finite measure space and $(f_n)$ be a sequence of measurable functions on $\Omega$. Suppose that for each $\omega \in \Omega$ there is an $M_\omega \in \R$ so that for all $k \in \N$, $|f_k(\omega)| \le M_\omega$. Let $\epsilon > 0$. Show that there is a measurable $A \subset \Omega$ and an $M \in \R$ so that $\mu(\Omega \setminus A) < \epsilon$ and $f_k(\omega) < M$ for all $k \in \N$ and all $\omega \in A$.
 \begin{proof}
-Let $E_{jk} := \{ \omega \in \Omega : \forall n \ge j \quad |f_n(\omega)| \le k \}$.  Then $\bigcup_{j,k} E_{jk} = \Omega$.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Let $\epsilon > 0$ and $E_j := \bigcap_n \{f_n < j \}$.  Then $(E_j)$ is increasing and $\bigcup_j E_j = \Omega$. Hence $\lim_j \mu(E_j) = \mu(\Omega)$.  Since $\mu(\Omega) < \infty$, we can pick $M$ such that $\mu(\Omega \setminus E_M) = \mu(\Omega) - \mu(E_M) < \epsilon$. Moreover, if $\omega \in E_M$, then $f_k(\omega) < M$ for all $k$.
 \end{proof}
 
 
-\p{3} 57/page 77. Show that $\int_0^\infty e^{-sx}x^{-1} \sin x \, dx = \arctan(s^{-1})$ for $s > 0$ by integrating $e^{-sxy}\sin x$ with respect to $x$ and $y$.  (Hints: $\tan(\frac \pi 2) = (\tan \theta)^{-1}$ and Exercise 31d.)
+\p{3} 57/page 77. Show that $\int_0^\infty e^{-sx}x^{-1} \sin x \, dx = \arctan(s^{-1})$ for $s > 0$ by integrating $e^{-sxy}\sin x$ with respect to $x$ and $y$.  (Hints: $\tan(\frac \pi 2 - \theta) = \cot \theta$ and Exercise 31d.) %%FIXME
+\begin{proof}
+We have 
+\begin{align*}
+\int_0^\infty  e^{-sx} x^{-1} \sin x \, dx & =  s \int_0^\infty \int_1^\infty e^{-sxy} \sin x \, dy dx 
+\\ & =  s \int_1^\infty \int_0^\infty e^{-sxy} \sin x \, dx dy
+\\ & =  s \int_1^\infty \int_0^\infty e^{-sxy} \sin x \, dx dy
+\end{align*}
+\end{proof}
 
 \p{4} 60/page 77. $\Gamma(x) \Gamma(y)/ \Gamma(x + y) = \int_0^1 t^{x-1}(1-t)^{y-1} \, dt$. (Recall that $\Gamma$ was defined in Section 2.3. Write $\Gamma(x) \Gamma(y)$ as a double integral and use the argument of the exponential as a new variable of integration.)
 
