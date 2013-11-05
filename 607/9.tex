@@ -39,6 +39,14 @@ We have
 \int_0^\infty  e^{-sx} x^{-1} \sin x \, dx & =  s \int_0^\infty \int_1^\infty e^{-sxy} \sin x \, dy dx 
 \\ & =  s \int_1^\infty \int_0^\infty e^{-sxy} \sin x \, dx dy
 \\ & =  s \int_1^\infty \int_0^\infty e^{-sxy} \sin x \, dx dy
+\\ & =  \frac s {2i} \int_1^\infty \int_0^\infty e^{(i-sy)x} - e^{(-i-sy)x} \, dx dy
+\\ & =  \frac s {2i} \int_1^\infty \left[\frac 1 {i - sy} e^{(i-sy)x} + \frac 1 {i + sy} e^{(-i-sy)x} \right]_{x = 0}^\infty \,  dy
+\\ & =  - \frac s {2i} \int_1^\infty \frac 1 {i - sy} + \frac {i + sy}  \,  dy
+\\ & =   \int_1^\infty \frac s {1 + s^2y^2}  \,  dy
+\\ & =   \int_{s}^\infty \frac 1 {1 + u^2}  \,  du
+\\ & = \frac \pi 2 - \arctan(s) 
+\\ & = \arctan \cot \arctan(s) 
+\\ & = \arctan (s^{-1}) 
 \end{align*}
 \end{proof}
 
