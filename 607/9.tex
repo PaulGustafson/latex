@@ -34,7 +34,7 @@ Let $\epsilon > 0$ and $E_j := \bigcap_n \{f_n < j \}$.  Then $(E_j)$ is increas
 
 \p{3} 57/page 77. Show that $\int_0^\infty e^{-sx}x^{-1} \sin x \, dx = \arctan(s^{-1})$ for $s > 0$ by integrating $e^{-sxy}\sin x$ with respect to $x$ and $y$.  (Hints: $\tan(\frac \pi 2 - \theta) = \cot \theta$ and Exercise 31d.) %%FIXME
 \begin{proof}
-We have 
+For fixed $x > 0$, we have $\left| e^{-sxy} \sin x \right| \in L_1(1, \infty)$. Moreover, since $\left| \frac {\sin x} x \right| \le 1$ for all $x > 0$, we have $(x \mapsto e^{-sx} x^{-1} \sin x) \in L_1(0,\infty)$. Thus, by Tonelli's theorem, $(x \mapsto e^{-sxy} \sin x) \in L_1((0,\infty) \times (1, \infty))$. Thus, we have
 \begin{align*}
 \int_0^\infty  e^{-sx} x^{-1} \sin x \, dx & =  s \int_0^\infty \int_1^\infty e^{-sxy} \sin x \, dy dx 
 \\ & =  s \int_1^\infty \int_0^\infty e^{-sxy} \sin x \, dx dy
@@ -50,7 +50,14 @@ We have
 \end{align*}
 \end{proof}
 
-\p{4} 60/page 77. $\Gamma(x) \Gamma(y)/ \Gamma(x + y) = \int_0^1 t^{x-1}(1-t)^{y-1} \, dt$. (Recall that $\Gamma$ was defined in Section 2.3. Write $\Gamma(x) \Gamma(y)$ as a double integral and use the argument of the exponential as a new variable of integration.)
+\p{4} 60/page 77. $\Gamma(x) \Gamma(y)/ \Gamma(x + y) = \int_0^1 t^{x-1}(1-t)^{y-1} \, dt$ for $x,y > 0$. (Recall that $\Gamma$ was defined in Section 2.3. Write $\Gamma(x) \Gamma(y)$ as a double integral and use the argument of the exponential as a new variable of integration.)
+
+We have $\Gamma(z) = \int_0^\infty t^{z - 1} e^{-t} \, dt$ for $\Re z > 0$.  Thus
+\begin{align*}
+\Gamma(x) \Gamma(y)  & = \left(\int_0^\infty s^{x - 1} e^{-s} \, ds \right) \left( \int_0^\infty t^{y - 1} e^{-t} \, dt \right)
+\\ & = \int_0^ \infty \int_0^\infty s^{x - 1} t^{y-1} e^{-s - t} \, ds dt
+\\ & = \int_0^\infty \int_0^\infty s^{x - 1} (u - s)^{y-1} e^{-u} \, du ds
+\end{align*}
 
 \p{5} Given a bounded function $f : [a,b] \to \R$, define
 $$ H(x) = \lim_{\delta \to 0} \sup_{|x - y| \le \delta} f(y), \text{ and } h(x) = \lim_{\delta \to 0} \inf_{|x - y| \le \delta} f(y)$$
@@ -65,6 +72,13 @@ Prove that $H = G$ and $h = g$ $m$-a.e.
 \end{enumerate}
 
 \p{6} Problem 30/page 60. Hint: AM-GM. Show that $\lim_{k \to \infty} \int_0^k x^n (1 - k^{-1} x) ^k \, dx = n!$.
+\begin{proof}
+For $x < k$, we have 
+\begin{align*}
+x^n (1 - k^{-1} x)^k & \le \left( \frac {nx + k(1 - k^{-1}x)} { n + k} \right)^{n+k}
+\\ & = \left( \frac {(n-1)x + k} { n + k} \right)^{n+k} 
+\\ & \le \left( \frac {(nk } { n + k} \right)^{n+k} 
+\end{proof}
 
 \p 7 Problem 1/88. Let $\nu$ be a signed measure on $(X, \mM)$. If $(E_j)$ is an increasing sequence in $\mM$, the $\nu(\bigcup_1^\infty E_j) = \lim_{j \to \infty} \nu(E_j)$. If $(E_j)$ is a decreasing sequence in $\mM$ and $\nu(E_1)$ is finite, then $\nu(\bigcap_1^\infty E_j) = \lim_{j \to \infty} \nu(E_j)$.
 
