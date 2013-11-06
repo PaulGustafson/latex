@@ -71,18 +71,56 @@ Prove that $H = G$ and $h = g$ $m$-a.e.
 \item Show that $f$ is Riemann integrable $\iff$ the set of discontinuities of $f$ has Lebesgue measure zero.
 \end{enumerate}
 
+\begin{proof}
+Let $H_\delta(x) = \sup_{|x - y| \le \delta} f(y)$ and $h_\delta(x) = \inf_{|x - y| \le \delta} f(y)$. For fixed $x$, note that $H_\delta(x)$ is an increasing function of $delta$, and $h_\delta(x)$ is a decreasing function of $delta$.
+
+For (a), suppose $f$ is continuous at $x$. Let $\epsilon > 0$. Pick $\delta > 0$ such that $|f(x) - f(y)| < \epsilon$ for all $|x - y| < \delta$.  Then $f(x) \le H_\delta \le f(x) + \epsilon$ and $f(x) - \epsilon \le h_\delta \le f(x)$.  By the monotinicity of $H_\delta$ and $h_\delta$ in $\delta$, it follows that for $0 < \gamma \le  \delta$ we have $f(x) \le H_\gamma \le f(x) + \epsilon$ and $f(x) - \epsilon \le h_\gamma \le f(x)$.  Thus $\lim_{\delta \to 0} H_\delta = f(x) = \lim_{\delta \to 0} h_\delta$.
+
+For the converse, we assume that $H(x) = h(x)$.  Suppose $f(x) \neq H(x)$.  Note that $h(x) \le f(x) \le H(x)$.  Hence $h(x) < H(x)$, a contradiction.  Hence $f(x) = H(x) = h(x)$.  Let $\epsilon > 0$.  Pick $\delta > 0$ such that $H_\delta - f(x) < \epsilon$ and $f(x) - h_\delta < \epsilon$. Then if $|x - y| < \delta$, we have $f(y) - f(x) \le H_\delta(x) - h(y) < \epsilon$ and $f(y) - f(x) \ge h_\delta - f(x) > - \epsilon$.
+
+For (b), suppose
+
+For (c), if $f$ is Riemann integrable, then $\int G_{P_k} \to \int f$ and $\int H_{P_k} \to \int f$ by the definition of Riemann integrability in terms of upper and lower Riemann sums.  Thus $0  = \int G_{P_K} - f $
+
+\end{proof}
+
+
 \p{6} Problem 30/page 60. Hint: AM-GM. Show that $\lim_{k \to \infty} \int_0^k x^n (1 - k^{-1} x) ^k \, dx = n!$.
 \begin{proof}
-For $x < k$, we have 
+Using Exercise (4), we have
 \begin{align*}
-x^n (1 - k^{-1} x)^k & \le \left( \frac {nx + k(1 - k^{-1}x)} { n + k} \right)^{n+k}
-\\ & = \left( \frac {(n-1)x + k} { n + k} \right)^{n+k} 
-\\ & \le \left( \frac {(nk } { n + k} \right)^{n+k} 
+\int_0^k x^n (1 - k^{-1} x) ^k \, dx & =  k^{n+1} \int_0^1 (u)^n (1 - u)^k   \, du
+\\ & =  k^{n+1} \frac{\Gamma(n+1) \Gamma(k+1)}{\Gamma(n + k + 2)}
+\\ & =  k^{n+1} \frac{\Gamma(n+1) \Gamma(k+1)}{\Gamma(n + k + 2)}
+\\ & = k^{n+1} \frac{\Gamma(n+1) \Gamma(k+1)}{\Gamma(n + k + 2)} %stirling
+
+n! k! /(n+k -1)!
+\end{align*}
 \end{proof}
 
 \p 7 Problem 1/88. Let $\nu$ be a signed measure on $(X, \mM)$. If $(E_j)$ is an increasing sequence in $\mM$, the $\nu(\bigcup_1^\infty E_j) = \lim_{j \to \infty} \nu(E_j)$. If $(E_j)$ is a decreasing sequence in $\mM$ and $\nu(E_1)$ is finite, then $\nu(\bigcap_1^\infty E_j) = \lim_{j \to \infty} \nu(E_j)$.
+\begin{proof}
+For the first part, we have
+\begin{align*}
+\nu(\bigcup_1^\infty E_j) & = \nu(E_1 \cup \bigcup_1^\infty E_{j+1} \setminus E_j)  
+\\ & = \nu(E_1) + \sum_1^\infty \nu(E_{j+1} \setminus E_j)
+\\ & = \lim_{J \to \infty} \nu(E_1) + \sum_1^J \nu(E_{j+1} \setminus E_j)
+\\ & = \lim_{J \to \infty} \nu(E_1 + \bigcup_1^J \nu(E_{j+1} \setminus E_j)
+\\ & = \lim_{J \to \infty} \nu(E_{J+1}.
+\end{align*}
+For the second part, first note that if $A \subset E_1$ with $A \in \mM$ then $\nu(A) + \nu(E_1 \setminus A) = \nu(E_1)$. Since $\nu(E_1)$ is finite, $\nu(A)$ must be finite. Hence $\nu(E_1 \setminus A) = \nu(E_1) - \nu(A)$.  Using this fact and the previous part, we have
+\begin{align*}
+\nu(\bigcap_1^\infty E_j) & = \nu(E_1 \setminus \bigcup_1^\infty (E_1 \setminus E_j))
+\\ & = \nu(E_1) - \lim_{j \to \infty} \nu(E_1 \setminus E_j)
+\\ & = \nu(E_1) - \lim_{j \to \infty} \nu(E_1) - \nu(E_j)
+\\ & = \lim_{j \to \infty} \nu(E_j)
+\end{align*}
+\end{proof}
 
 \p 8 Problem 4/88. If $\nu$ is a signed measure and $\lambda, \mu$ are positive measures such that $\nu = \lambda - \mu$, then $\lambda \ge \nu^+$ and $\mu \ge \nu^-$.
+\begin{proof}
+Suppose not.  WLOG there exists a measurable set $A$ such that $\lambda(A) < \nu^+(A)$.  From the Haar decomposition, there exists a partition $P \cup N = X$ where $P$ contains the support of $\nu^+$ and $N$ contains the support $\nu^-$.  Then $\lambda(A \cap P) \le \lambda(A) < \nu^+(A) = \nu(A \cap P) = \lambda(A \cap P) - \mu(A \cap P) < \lambda(A \cap P)$, a contradiction.
+\end{proof}
 
 \p 9 Problem 7/88. Suppose that $\nu$ is a signed measure on $(X, \mM)$ and $E \in \mM$.
 \begin{enumerate}[\bfseries a.]
@@ -91,6 +129,13 @@ x^n (1 - k^{-1} x)^k & \le \left( \frac {nx + k(1 - k^{-1}x)} { n + k} \right)^{
 
 \item $|\nu|(E) = \sup\{\sum_1^n |\nu(E_j)| : n \in \N, E_1, \ldots, E_n \text{ are disjoint, and } \bigcup_1^n E_j = E\}$.
 \end{enumerate}
+
+\begin{proof} 
+For (a), we have the partition $X = P \cup N$ where $P$ and $N$ contain the support of $\nu^+$ and $\nu^-$ respectively.  Hence $\nu^+(E) = \nu(E \cap P) \le \sup\{\nu(F) : F \in \mM, F \subset E\}$.  On the other hand, if $F \in \mM, F \subset E$ then $\nu(F) = \nu^+(F) - \nu^-(F) \le \nu^+(F) \le \nu^+(E)$. The $\nu^-$ part follows from applying the first part to $-\nu$.
+
+For (b), let $K = \sup\{\sum_1^n |\nu(E_j)| : n \in \N, E_1, \ldots, E_n \text{ are disjoint, and } \bigcup_1^n E_j = E\}$. We have $|\nu|(E) = \nu^+(E) + \nu^-(E) = |\nu(E \cap P)| + |\nu(E \cap N)| \le K$.  On the other hand, if $(E_j)_1^n$ is a partition of $E$ then 
+$\sum_1^n |\nu(E_j)| = \sum_1^n |\nu^+(E_j) - \nu^-(E_j)| \le = \sum_1^n |\nu|(E_j) \le |\nu|(E)$. 
+\end{proof}
 
 
 \end{document}
