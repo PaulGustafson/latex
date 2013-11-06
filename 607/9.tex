@@ -52,12 +52,14 @@ For fixed $x > 0$, we have $\left| e^{-sxy} \sin x \right| \in L_1(1, \infty)$. 
 
 \p{4} 60/page 77. $\Gamma(x) \Gamma(y)/ \Gamma(x + y) = \int_0^1 t^{x-1}(1-t)^{y-1} \, dt$ for $x,y > 0$. (Recall that $\Gamma$ was defined in Section 2.3. Write $\Gamma(x) \Gamma(y)$ as a double integral and use the argument of the exponential as a new variable of integration.)
 
+\begin{proof}
 We have $\Gamma(z) = \int_0^\infty t^{z - 1} e^{-t} \, dt$ for $\Re z > 0$.  Thus
 \begin{align*}
 \Gamma(x) \Gamma(y)  & = \left(\int_0^\infty s^{x - 1} e^{-s} \, ds \right) \left( \int_0^\infty t^{y - 1} e^{-t} \, dt \right)
 \\ & = \int_0^ \infty \int_0^\infty s^{x - 1} t^{y-1} e^{-s - t} \, ds dt
 \\ & = \int_0^\infty \int_0^\infty s^{x - 1} (u - s)^{y-1} e^{-u} \, du ds
 \end{align*}
+\end{proof}
 
 \p{5} Given a bounded function $f : [a,b] \to \R$, define
 $$ H(x) = \lim_{\delta \to 0} \sup_{|x - y| \le \delta} f(y), \text{ and } h(x) = \lim_{\delta \to 0} \inf_{|x - y| \le \delta} f(y)$$
@@ -72,16 +74,19 @@ Prove that $H = G$ and $h = g$ $m$-a.e.
 \end{enumerate}
 
 \begin{proof}
-Let $H_\delta(x) = \sup_{|x - y| \le \delta} f(y)$ and $h_\delta(x) = \inf_{|x - y| \le \delta} f(y)$. For fixed $x$, note that $H_\delta(x)$ is an increasing function of $delta$, and $h_\delta(x)$ is a decreasing function of $delta$.
+Let $H_\delta(x) = \sup_{|x - y| \le \delta} f(y)$ and $h_\delta(x) = \inf_{|x - y| \le \delta} f(y)$. For fixed $x$, note that $H_\delta(x)$ is an increasing function of $\delta$, and $h_\delta(x)$ is a decreasing function of $\delta$.
 
 For (a), suppose $f$ is continuous at $x$. Let $\epsilon > 0$. Pick $\delta > 0$ such that $|f(x) - f(y)| < \epsilon$ for all $|x - y| < \delta$.  Then $f(x) \le H_\delta \le f(x) + \epsilon$ and $f(x) - \epsilon \le h_\delta \le f(x)$.  By the monotinicity of $H_\delta$ and $h_\delta$ in $\delta$, it follows that for $0 < \gamma \le  \delta$ we have $f(x) \le H_\gamma \le f(x) + \epsilon$ and $f(x) - \epsilon \le h_\gamma \le f(x)$.  Thus $\lim_{\delta \to 0} H_\delta = f(x) = \lim_{\delta \to 0} h_\delta$.
 
-For the converse, we assume that $H(x) = h(x)$.  Suppose $f(x) \neq H(x)$.  Note that $h(x) \le f(x) \le H(x)$.  Hence $h(x) < H(x)$, a contradiction.  Hence $f(x) = H(x) = h(x)$.  Let $\epsilon > 0$.  Pick $\delta > 0$ such that $H_\delta - f(x) < \epsilon$ and $f(x) - h_\delta < \epsilon$. Then if $|x - y| < \delta$, we have $f(y) - f(x) \le H_\delta(x) - h(y) < \epsilon$ and $f(y) - f(x) \ge h_\delta - f(x) > - \epsilon$.
+For the converse, we assume that $H(x) = h(x)$.  Suppose $f(x) \neq H(x)$.  Note that $h(x) \le f(x) \le H(x)$.  Hence $h(x) < H(x)$, a contradiction.  Hence $f(x) = H(x) = h(x)$.  Let $\epsilon > 0$.  Pick $\delta > 0$ such that $H_\delta - f(x) < \epsilon$ and $f(x) - h_\delta < \epsilon$. Then if $|x - y| < \delta$, we have $f(y) - f(x) \le H_\delta(x) - h(y) < \epsilon$ and $f(y) - f(x) \ge h_\delta(x) - f(x) > - \epsilon$.
 
-For (b), suppose
+For (b), I first claim that $H$ is upper semicontinuous. Let $x_n \to x$.  Let $\epsilon > 0$. Pick $\delta > 0$ such that $H_\delta(x)  - H(x) < \epsilon$. Then if $|x - y| < \delta/2$ we have $H(y) \le H_{\delta/2}(y) \le H_\delta(x) < H(x) + \epsilon$.  Therefore, $\limsup H(x_n) \le H(x) + \epsilon$ for every $\epsilon > 0$, so $H$ is upper semicontinuous. A similar argument (or taking negatives) shows that $h$ is lower semicontinuous.
 
-For (c), if $f$ is Riemann integrable, then $\int G_{P_k} \to \int f$ and $\int H_{P_k} \to \int f$ by the definition of Riemann integrability in terms of upper and lower Riemann sums.  Thus $0  = \int G_{P_K} - f $
+For any partition $P$ we have $G_P > H$, so $G > H$.  Suppose $m(\{G > H \}) > 0$. Then by continuity from below, there exists $n > 0$ such that $m(\{G - H > 1/n\}) > 0$.
 
+For (c), note that if $x_n \to x$ we have $\limsup f(x_n) = \limsup H(x_n) \le H(x)$ and $\liminf f(x_n) \le \liminf h(x_n) \le h(x)$. Hence, if $H(x) = h(x)$, then $f(x)$ is continuous at $x$.  The converse is also true. Thus, for (c), it suffices to show that $f$ is Riemann integrable $\iff$ $H = h$ a.e.
+
+Recall that $f$ is Riemann integrable $\iff$ for every $(P_k)$ with mesh converging to zero we have $\int G_{P_k} - g_{P_k} \to 0$.  Since $G_{P_k} - g_{P_k}$ is decreasing in $k$, by the DCT we have $\lim_k \int G_{P_k} - g_{P_k} = \int \lim_k G_{P_k} - g_{P_k} = \int H - h$.  Thus $f$ is Riemann integrable $\iff$ $H = h$ a.e.
 \end{proof}
 
 
@@ -91,11 +96,10 @@ Using Exercise (4), we have
 \begin{align*}
 \int_0^k x^n (1 - k^{-1} x) ^k \, dx & =  k^{n+1} \int_0^1 (u)^n (1 - u)^k   \, du
 \\ & =  k^{n+1} \frac{\Gamma(n+1) \Gamma(k+1)}{\Gamma(n + k + 2)}
-\\ & =  k^{n+1} \frac{\Gamma(n+1) \Gamma(k+1)}{\Gamma(n + k + 2)}
-\\ & = k^{n+1} \frac{\Gamma(n+1) \Gamma(k+1)}{\Gamma(n + k + 2)} %stirling
-
-n! k! /(n+k -1)!
+\\ & =  n\! \left( \frac k {k +1} \right) \left( \frac k {k +2} \right) \ldots \left( \frac k {k +n +1} \right)
+\\ & \to n\!
 \end{align*}
+as $k \to \infty$, $k \in \N$.
 \end{proof}
 
 \p 7 Problem 1/88. Let $\nu$ be a signed measure on $(X, \mM)$. If $(E_j)$ is an increasing sequence in $\mM$, the $\nu(\bigcup_1^\infty E_j) = \lim_{j \to \infty} \nu(E_j)$. If $(E_j)$ is a decreasing sequence in $\mM$ and $\nu(E_1)$ is finite, then $\nu(\bigcap_1^\infty E_j) = \lim_{j \to \infty} \nu(E_j)$.
@@ -106,7 +110,7 @@ For the first part, we have
 \\ & = \nu(E_1) + \sum_1^\infty \nu(E_{j+1} \setminus E_j)
 \\ & = \lim_{J \to \infty} \nu(E_1) + \sum_1^J \nu(E_{j+1} \setminus E_j)
 \\ & = \lim_{J \to \infty} \nu(E_1 + \bigcup_1^J \nu(E_{j+1} \setminus E_j)
-\\ & = \lim_{J \to \infty} \nu(E_{J+1}.
+\\ & = \lim_{J \to \infty} \nu(E_{J+1}).
 \end{align*}
 For the second part, first note that if $A \subset E_1$ with $A \in \mM$ then $\nu(A) + \nu(E_1 \setminus A) = \nu(E_1)$. Since $\nu(E_1)$ is finite, $\nu(A)$ must be finite. Hence $\nu(E_1 \setminus A) = \nu(E_1) - \nu(A)$.  Using this fact and the previous part, we have
 \begin{align*}
