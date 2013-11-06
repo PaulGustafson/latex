@@ -94,10 +94,10 @@ Recall that $f$ is Riemann integrable $\iff$ for every $(P_k)$ with mesh converg
 \begin{proof}
 Using Exercise (4), we have
 \begin{align*}
-\int_0^k x^n (1 - k^{-1} x) ^k \, dx & =  k^{n+1} \int_0^1 (u)^n (1 - u)^k   \, du
+\int_0^k x^n (1 - k^{-1} x) ^k \, dx & =  k^{n+1} \int_0^1 u^n (1 - u)^k   \, du
 \\ & =  k^{n+1} \frac{\Gamma(n+1) \Gamma(k+1)}{\Gamma(n + k + 2)}
-\\ & =  n\! \left( \frac k {k +1} \right) \left( \frac k {k +2} \right) \ldots \left( \frac k {k +n +1} \right)
-\\ & \to n\!
+\\ & =  n! \left( \frac k {k +1} \right) \left( \frac k {k +2} \right) \ldots \left( \frac k {k +n +1} \right)
+\\ & \to n!
 \end{align*}
 as $k \to \infty$, $k \in \N$.
 \end{proof}
