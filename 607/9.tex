@@ -57,8 +57,13 @@ We have $\Gamma(z) = \int_0^\infty t^{z - 1} e^{-t} \, dt$ for $\Re z > 0$.  Thu
 \begin{align*}
 \Gamma(x) \Gamma(y)  & = \left(\int_0^\infty s^{x - 1} e^{-s} \, ds \right) \left( \int_0^\infty t^{y - 1} e^{-t} \, dt \right)
 \\ & = \int_0^ \infty \int_0^\infty s^{x - 1} t^{y-1} e^{-s - t} \, ds dt
-\\ & = \int_0^\infty \int_0^\infty s^{x - 1} (u - s)^{y-1} e^{-u} \, du ds
+\\ & = \int_0^\infty \int_s^\infty s^{x - 1} (u - s)^{y-1} e^{-u} \, du ds
+\\ & = \int_0^\infty \int_0^u s^{x - 1} (u - s)^{y-1} e^{-u} \,  ds du
+\\ & = \int_0^\infty \int_0^1 (uv)^{x - 1} (u - uv)^{y-1} e^{-u} u \, dv du
+\\ & = \left( \int_0^\infty u^{x + y -1 } e^{-u} \,  du \right) \left( \int_0^1 v^{x - 1} (1 - v)^{y-1}  \, dv \right)
+\\ & = \Gamma(x + y) \int_0^1 v^{x - 1} (1 - v)^{y-1}  \, dv,
 \end{align*}
+where the intechange of integration is justified by the fact that the integrand is positive and the double integral is finite.
 \end{proof}
 
 \p{5} Given a bounded function $f : [a,b] \to \R$, define
