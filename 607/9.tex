@@ -85,11 +85,15 @@ For (a), suppose $f$ is continuous at $x$. Let $\epsilon > 0$. Pick $\delta > 0$
 
 For the converse, we assume that $H(x) = h(x)$.  Suppose $f(x) \neq H(x)$.  Note that $h(x) \le f(x) \le H(x)$.  Hence $h(x) < H(x)$, a contradiction.  Hence $f(x) = H(x) = h(x)$.  Let $\epsilon > 0$.  Pick $\delta > 0$ such that $H_\delta - f(x) < \epsilon$ and $f(x) - h_\delta < \epsilon$. Then if $|x - y| < \delta$, we have $f(y) - f(x) \le H_\delta(x) - h(y) < \epsilon$ and $f(y) - f(x) \ge h_\delta(x) - f(x) > - \epsilon$.
 
-For (b), I first claim that $H$ is upper semicontinuous. Let $x_n \to x$.  Let $\epsilon > 0$. Pick $\delta > 0$ such that $H_\delta(x)  - H(x) < \epsilon$. Then if $|x - y| < \delta/2$ we have $H(y) \le H_{\delta/2}(y) \le H_\delta(x) < H(x) + \epsilon$.  Therefore, $\limsup H(x_n) \le H(x) + \epsilon$ for every $\epsilon > 0$, so $H$ is upper semicontinuous. A similar argument (or taking negatives) shows that $h$ is lower semicontinuous.
+For (b), for any  $P_k$ with mesh size less than $\delta$, we have $G_{P_k} \le H_\delta$. Hence, $G \le H_\delta$ for every $\delta$, so $G \le H$.  
 
-For any partition $P$ we have $G_P > H$, so $G > H$.  Suppose $m(\{G > H \}) > 0$. Then by continuity from below, there exists $n > 0$ such that $m(\{G - H > 1/n\}) > 0$.
+For the reverse inequality, first fix $k \in \N$. If $x$ is not one of the mesh points of $P_k$, then $H_\delta(x) \le G_{P_k}(x)$ for $\delta$ sufficiently small. Hence $H(x) \le G_{P_k}(x)$.  
 
-For (c), note that if $x_n \to x$ we have $\limsup f(x_n) = \limsup H(x_n) \le H(x)$ and $\liminf f(x_n) \le \liminf h(x_n) \le h(x)$. Hence, if $H(x) = h(x)$, then $f(x)$ is continuous at $x$.  The converse is also true. Thus, for (c), it suffices to show that $f$ is Riemann integrable $\iff$ $H = h$ a.e.
+Let $B = \{(t_i^{(k)} : \forall k, i\}$. If $x \not \in B$, then $H(x) \le G_{P_k}$ for all $k$.  Hence $H(x) \le G(x)$, so $H(x) = G(x)$.  Since $B$ is countable, we have $H = B$ a.e.
+
+For (c), I first claim that $H$ is upper semicontinuous. Let $x_n \to x$.  Let $\epsilon > 0$. Pick $\delta > 0$ such that $H_\delta(x)  - H(x) < \epsilon$. Then if $|x - y| < \delta/2$ we have $H(y) \le H_{\delta/2}(y) \le H_\delta(x) < H(x) + \epsilon$.  Therefore, $\limsup H(x_n) \le H(x) + \epsilon$ for every $\epsilon > 0$, so $H$ is upper semicontinuous. A similar argument (or taking negatives) shows that $h$ is lower semicontinuous.
+
+Hence if $x_n \to x$ we have $\limsup f(x_n) = \limsup H(x_n) \le H(x)$ and $\liminf f(x_n) \le \liminf h(x_n) \le h(x)$. Hence, if $H(x) = h(x)$, then $f(x)$ is continuous at $x$.  The converse is also true. Thus, for (c), it suffices to show that $f$ is Riemann integrable $\iff$ $H = h$ a.e.
 
 Recall that $f$ is Riemann integrable $\iff$ for every $(P_k)$ with mesh converging to zero we have $\int G_{P_k} - g_{P_k} \to 0$.  Since $G_{P_k} - g_{P_k}$ is decreasing in $k$, by the DCT we have $\lim_k \int G_{P_k} - g_{P_k} = \int \lim_k G_{P_k} - g_{P_k} = \int H - h$.  Thus $f$ is Riemann integrable $\iff$ $H = h$ a.e.
 \end{proof}
