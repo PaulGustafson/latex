@@ -12,18 +12,18 @@ $$g(s) = \int_0^\infty e^{-st}f(t) \,dt, \quad 0 < s < \infty.$$
 Prove that $g(s)$ is differentiable on $(0,\infty)$ and that
 $$g'(s) = - \int_0^\infty t e^{-st} f(t) \, dx, \quad 0 < s < \infty.$$
 \begin{proof}
-Let $s \in (0,\infty)$ and $0 \le |h| \le s/2$. We have $|e^{-st}f(t)| \le |f(t)|$, so $e^{-st}f(t) \in L_1$. Hence 
+Let $s,t \in (0,\infty)$ and $0 < |h| \le s/2$. We have $|e^{-st}f(t)| \le |f(t)|$, so $e^{-st}f(t) \in L_1$. Hence 
 \begin{align*}
 \frac { g(s + h) - g(s)} h & = \int_0^\infty \frac {e^{-(s+h)t} - e^{-st}} h  f(t) \,dt.
 \end{align*}
 By the Mean Value theorem, we have  
 \begin{align*}
-\left|\frac {e^{-(s+h)t} - e^{-st}} h f(t)\right| & \le \sup_{h \in (-s/2,s/2)} |-t e^{-(s+h)t}| \left|f(t)\right|
-\\ & = t e^{-(s/2)t} |f(t)|
-\\ &  \le C_s |f(t)|
+\left|\frac {e^{-(s+h)t} - e^{-st}} h \right| & \le \sup_{h \in (-s/2,s/2)} |-t e^{-(s+h)t}| 
+\\ & = t e^{-(s/2)t} 
+\\ &  \le C_s
 \end{align*}
-Hence, by the DCT,
-$$\lim_{h \to 0} \frac { g(s + h) - g(s)} h = \int_0^\infty \frac d {ds} e^{-st} f(t) = - \int_0^\infty t e^{-st} f(t) \, dx. $$
+Hence, $\left|\frac {e^{-(s+h)t} - e^{-st}} h f(x)\right| \le C_s |f(x)| \in L_1(0,\infty)$. Thus, by the DCT
+$$g'(s)  = \int_0^\infty \frac d {ds} e^{-st} f(t) = - \int_0^\infty t e^{-st} f(t) \, dx. $$
 \end{proof}
 
 \p{2} Let $(\Omega, \mu, \Sigma)$ be a finite measure space and $(f_n)$ be a sequence of measurable functions on $\Omega$. Suppose that for each $\omega \in \Omega$ there is an $M_\omega \in \R$ so that for all $k \in \N$, $|f_k(\omega)| \le M_\omega$. Let $\epsilon > 0$. Show that there is a measurable $A \subset \Omega$ and an $M \in \R$ so that $\mu(\Omega \setminus A) < \epsilon$ and $f_k(\omega) < M$ for all $k \in \N$ and all $\omega \in A$.
@@ -34,14 +34,23 @@ Let $\epsilon > 0$ and $E_j := \bigcap_n \{f_n < j \}$.  Then $(E_j)$ is increas
 
 \p{3} 57/page 77. Show that $\int_0^\infty e^{-sx}x^{-1} \sin x \, dx = \arctan(s^{-1})$ for $s > 0$ by integrating $e^{-sxy}\sin x$ with respect to $x$ and $y$.  (Hints: $\tan(\frac \pi 2 - \theta) = \cot \theta$ and Exercise 31d.) %%FIXME
 \begin{proof}
-For fixed $x > 0$, we have $\left| e^{-sxy} \sin x \right| \in L_1(1, \infty)$. Moreover, since $\left| \frac {\sin x} x \right| \le 1$ for all $x > 0$, we have $(x \mapsto e^{-sx} x^{-1} \sin x) \in L_1(0,\infty)$. Thus, by Tonelli's theorem, $(x \mapsto e^{-sxy} \sin x) \in L_1((0,\infty) \times (1, \infty))$. Thus, we have
+We have
+\begin{align*}
+\int_0^\infty \int_1^\infty \left| e^{-sxy} \sin x \right| \, dy dx  & \le \int_0^{\pi/2} \int_1^\infty e^{-sxy} \sin x \, dy dx + \int_{\pi/2}^{\infty} \int_1^\infty e^{-sxy} \, dy dx
+\\ & = \int_0^{\pi/2}  \frac {\sin x} {sx} e^{-sxy}  dx   + C_s
+\\ & \le \int_0^{\pi/2}  \frac 1 s e^{-sxy}  dx   + C_s
+\\ & < \infty,
+\end{align*}
+so  $f(x,y) =  e^{-sxy} \sin x$ is in $L_1((0,\infty) \times (1,\infty))$.
+
+Thus, we have
 \begin{align*}
 \int_0^\infty  e^{-sx} x^{-1} \sin x \, dx & =  s \int_0^\infty \int_1^\infty e^{-sxy} \sin x \, dy dx 
 \\ & =  s \int_1^\infty \int_0^\infty e^{-sxy} \sin x \, dx dy
 \\ & =  s \int_1^\infty \int_0^\infty e^{-sxy} \sin x \, dx dy
 \\ & =  \frac s {2i} \int_1^\infty \int_0^\infty e^{(i-sy)x} - e^{(-i-sy)x} \, dx dy
 \\ & =  \frac s {2i} \int_1^\infty \left[\frac 1 {i - sy} e^{(i-sy)x} + \frac 1 {i + sy} e^{(-i-sy)x} \right]_{x = 0}^\infty \,  dy
-\\ & =  - \frac s {2i} \int_1^\infty \frac 1 {i - sy} + \frac {i + sy}  \,  dy
+\\ & =  - \frac s {2i} \int_1^\infty \frac 1 {i - sy} + \frac 1 {i + sy}  \,  dy
 \\ & =   \int_1^\infty \frac s {1 + s^2y^2}  \,  dy
 \\ & =   \int_{s}^\infty \frac 1 {1 + u^2}  \,  du
 \\ & = \frac \pi 2 - \arctan(s) 
@@ -81,34 +90,37 @@ Prove that $H = G$ and $h = g$ $m$-a.e.
 \begin{proof}
 Let $H_\delta(x) = \sup_{|x - y| \le \delta} f(y)$ and $h_\delta(x) = \inf_{|x - y| \le \delta} f(y)$. For fixed $x$, note that $H_\delta(x)$ is an increasing function of $\delta$, and $h_\delta(x)$ is a decreasing function of $\delta$.
 
-For (a), suppose $f$ is continuous at $x$. Let $\epsilon > 0$. Pick $\delta > 0$ such that $|f(x) - f(y)| < \epsilon$ for all $|x - y| < \delta$.  Then $f(x) \le H_\delta \le f(x) + \epsilon$ and $f(x) - \epsilon \le h_\delta \le f(x)$.  By the monotinicity of $H_\delta$ and $h_\delta$ in $\delta$, it follows that for $0 < \gamma \le  \delta$ we have $f(x) \le H_\gamma \le f(x) + \epsilon$ and $f(x) - \epsilon \le h_\gamma \le f(x)$.  Thus $\lim_{\delta \to 0} H_\delta = f(x) = \lim_{\delta \to 0} h_\delta$.
+\begin{enumerate}[\bfseries a)]
 
-For the converse, we assume that $H(x) = h(x)$.  Suppose $f(x) \neq H(x)$.  Note that $h(x) \le f(x) \le H(x)$.  Hence $h(x) < H(x)$, a contradiction.  Hence $f(x) = H(x) = h(x)$.  Let $\epsilon > 0$.  Pick $\delta > 0$ such that $H_\delta - f(x) < \epsilon$ and $f(x) - h_\delta < \epsilon$. Then if $|x - y| < \delta$, we have $f(y) - f(x) \le H_\delta(x) - h(y) < \epsilon$ and $f(y) - f(x) \ge h_\delta(x) - f(x) > - \epsilon$.
+\item Suppose $f$ is continuous at $x$. Let $\epsilon > 0$. Pick $\gamma > 0$ such that $|f(x) - f(y)| < \epsilon$ for all $y$ with $|x - y| \le \gamma$.  Then $f(x) \le H_\gamma(x) \le f(x) + \epsilon$ and $f(x) - \epsilon \le h_\gamma(x) \le f(x)$.  By the monotinicity of $H_\delta$ and $h_\delta$ in $\delta$, it follows that for $0 < \delta \le  \gamma$ we have $f(x) \le H_\delta(x) \le f(x) + \epsilon$ and $f(x) - \epsilon \le h_\delta(x) \le f(x)$.  Thus $\lim_{\delta \to 0} H_\delta(x) = f(x) = \lim_{\delta \to 0} h_\delta(x)$.
 
-For (b), for any  $P_k$ with mesh size less than $\delta$, we have $G_{P_k} \le H_\delta$. Hence, $G \le H_\delta$ for every $\delta$, so $G \le H$.  
+For the converse, we assume that $H(x) = h(x)$.  Suppose $f(x) \neq H(x)$.  Note that $h(x) \le f(x) \le H(x)$.  Hence $h(x) < H(x)$, a contradiction.  Hence $f(x) = H(x) = h(x)$.  
 
-For the reverse inequality, first fix $k \in \N$. If $x$ is not one of the mesh points of $P_k$, then $H_\delta(x) \le G_{P_k}(x)$ for $\delta$ sufficiently small. Hence $H(x) \le G_{P_k}(x)$.  
+Let $\epsilon > 0$.  Pick $\delta > 0$ such that $H_\delta(x) - f(x) < \epsilon$ and $f(x) - h_\delta(x) < \epsilon$. Then if $|x - y| < \delta$, we have $f(y) - f(x) \le H_\delta(x) - f(x) < \epsilon$ and $f(y) - f(x) \ge h_\delta(x) - f(x) > - \epsilon$.
 
-Let $B = \{(t_i^{(k)} : \forall k, i\}$. If $x \not \in B$, then $H(x) \le G_{P_k}$ for all $k$.  Hence $H(x) \le G(x)$, so $H(x) = G(x)$.  Since $B$ is countable, we have $H = B$ a.e.
+\item For any  $P_k$ with mesh size less than $\delta$, we have $G_{P_k} \le H_\delta$. Hence, $G \le H_\delta$ for every $\delta$, so $G \le H$.  
 
-For (c), I first claim that $H$ is upper semicontinuous. Let $x_n \to x$.  Let $\epsilon > 0$. Pick $\delta > 0$ such that $H_\delta(x)  - H(x) < \epsilon$. Then if $|x - y| < \delta/2$ we have $H(y) \le H_{\delta/2}(y) \le H_\delta(x) < H(x) + \epsilon$.  Therefore, $\limsup H(x_n) \le H(x) + \epsilon$ for every $\epsilon > 0$, so $H$ is upper semicontinuous. A similar argument (or taking negatives) shows that $h$ is lower semicontinuous.
+For the reverse inequality, let $B = \{(t_i^{(k)} : \forall k, i\}$ be the set of all mesh points of all partitions $P_k$. 
 
-Hence if $x_n \to x$ we have $\limsup f(x_n) = \limsup H(x_n) \le H(x)$ and $\liminf f(x_n) \le \liminf h(x_n) \le h(x)$. Hence, if $H(x) = h(x)$, then $f(x)$ is continuous at $x$.  The converse is also true. Thus, for (c), it suffices to show that $f$ is Riemann integrable $\iff$ $H = h$ a.e.
+Fix $k \in \N$. If $x \not \in B$ then $x$ is not one of the mesh points of $P_k$, so $H_\delta(x) \le G_{P_k}(x)$ for $\delta$ sufficiently small. Hence $H(x) \le G_{P_k}(x)$.  
 
-Recall that $f$ is Riemann integrable $\iff$ for every $(P_k)$ with mesh converging to zero we have $\int G_{P_k} - g_{P_k} \to 0$.  Since $G_{P_k} - g_{P_k}$ is decreasing in $k$, by the DCT we have $\lim_k \int G_{P_k} - g_{P_k} = \int \lim_k G_{P_k} - g_{P_k} = \int H - h$.  Thus $f$ is Riemann integrable $\iff$ $H = h$ a.e.
+Hence if $x \not \in B$, then $H(x) \le G_{P_k}(x)$ for all $k$.  Hence $H(x) \le G(x)$, so $H(x) = G(x)$.  Since $B$ is countable, we have $H = G$ a.e.  A similar argument (or taking negatives) gives $h = g$ a.e.
+
+\item Recall that $f$ is Riemann integrable if and only if for every partition $(P_k)$ with mesh converging to zero we have $\int G_{P_k} - g_{P_k} \to 0$.  Since $G_{P_k} - g_{P_k}$ is decreasing in $k$, by the DCT we have $\lim_k \int G_{P_k} - g_{P_k} = \int \lim_k G_{P_k} - g_{P_k} = \int H - h$.  Thus $f$ is Riemann integrable if and only if $H = h$ a.e. By part (a), $H=h$ a.e. if and only if the set of discontinuties of $f$ has measure zero.
+\end{enumerate}
 \end{proof}
 
 
 \p{6} Problem 30/page 60. Hint: AM-GM. Show that $\lim_{k \to \infty} \int_0^k x^n (1 - k^{-1} x) ^k \, dx = n!$.
 \begin{proof}
-Using Exercise (4), we have
+Using Exercise (4), for $k \in \N$ we have
 \begin{align*}
 \int_0^k x^n (1 - k^{-1} x) ^k \, dx & =  k^{n+1} \int_0^1 u^n (1 - u)^k   \, du
 \\ & =  k^{n+1} \frac{\Gamma(n+1) \Gamma(k+1)}{\Gamma(n + k + 2)}
 \\ & =  n! \left( \frac k {k +1} \right) \left( \frac k {k +2} \right) \ldots \left( \frac k {k +n +1} \right)
 \\ & \to n!
 \end{align*}
-as $k \to \infty$, $k \in \N$.
+as $k \to \infty$.
 \end{proof}
 
 \p 7 Problem 1/88. Let $\nu$ be a signed measure on $(X, \mM)$. If $(E_j)$ is an increasing sequence in $\mM$, the $\nu(\bigcup_1^\infty E_j) = \lim_{j \to \infty} \nu(E_j)$. If $(E_j)$ is a decreasing sequence in $\mM$ and $\nu(E_1)$ is finite, then $\nu(\bigcap_1^\infty E_j) = \lim_{j \to \infty} \nu(E_j)$.
@@ -132,7 +144,7 @@ For the second part, first note that if $A \subset E_1$ with $A \in \mM$ then $\
 
 \p 8 Problem 4/88. If $\nu$ is a signed measure and $\lambda, \mu$ are positive measures such that $\nu = \lambda - \mu$, then $\lambda \ge \nu^+$ and $\mu \ge \nu^-$.
 \begin{proof}
-Suppose not.  WLOG there exists a measurable set $A$ such that $\lambda(A) < \nu^+(A)$.  From the Haar decomposition, there exists a partition $P \cup N = X$ where $P$ contains the support of $\nu^+$ and $N$ contains the support $\nu^-$.  Then $\lambda(A \cap P) \le \lambda(A) < \nu^+(A) = \nu(A \cap P) = \lambda(A \cap P) - \mu(A \cap P) < \lambda(A \cap P)$, a contradiction.
+Suppose not.  WLOG there exists a measurable set $A$ such that $\lambda(A) < \nu^+(A)$.  From the Haar decomposition, there exists a partition $P \cup N = X$ where $P$ contains the support of $\nu^+$ and $N$ contains the support of $\nu^-$.  Then $\lambda(A \cap P) \le \lambda(A) < \nu^+(A) = \nu(A \cap P) = \lambda(A \cap P) - \mu(A \cap P) < \lambda(A \cap P)$, a contradiction.
 \end{proof}
 
 \p 9 Problem 7/88. Suppose that $\nu$ is a signed measure on $(X, \mM)$ and $E \in \mM$.
@@ -147,7 +159,7 @@ Suppose not.  WLOG there exists a measurable set $A$ such that $\lambda(A) < \nu
 For (a), we have the partition $X = P \cup N$ where $P$ and $N$ contain the support of $\nu^+$ and $\nu^-$ respectively.  Hence $\nu^+(E) = \nu(E \cap P) \le \sup\{\nu(F) : F \in \mM, F \subset E\}$.  On the other hand, if $F \in \mM, F \subset E$ then $\nu(F) = \nu^+(F) - \nu^-(F) \le \nu^+(F) \le \nu^+(E)$. The $\nu^-$ part follows from applying the first part to $-\nu$.
 
 For (b), let $K = \sup\{\sum_1^n |\nu(E_j)| : n \in \N, E_1, \ldots, E_n \text{ are disjoint, and } \bigcup_1^n E_j = E\}$. We have $|\nu|(E) = \nu^+(E) + \nu^-(E) = |\nu(E \cap P)| + |\nu(E \cap N)| \le K$.  On the other hand, if $(E_j)_1^n$ is a partition of $E$ then 
-$\sum_1^n |\nu(E_j)| = \sum_1^n |\nu^+(E_j) - \nu^-(E_j)| \le = \sum_1^n |\nu|(E_j) \le |\nu|(E)$. 
+$\sum_1^n |\nu(E_j)| = \sum_1^n |\nu^+(E_j) - \nu^-(E_j)| \le  \sum_1^n |\nu|(E_j) = |\nu|(E)$. 
 \end{proof}
 
 
