@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 641\\ 
+\noindent Instructor - Fran Narcowich
+
+\subsection*{HW 8}
+\p{1}  Let $f(x) = x^2$ for $-1 \le x \le 2$. Find two simple functions $s_1 \le f \le s_2$ and
+$$ \int_{-1}^2 s_2(x) dx - \int_{-1}^2 s_1(x) dx < 0.01.$$
+How well do these integrals compare with $\int_{-1}^2 f(x)dx$?
+
+\p 2 Let $F(s) = \int_0^\infty e^{-st} f(t) dt$ be the Laplace transform of $f \in L^1([0,\infty))$. Use the DCT to show that $F$ is continuous from the right as $s = 0$.
+
+\p 3 Let $f_n = n^{3/2} x e^{-nx}$, where $x \in [0,1]$ and $n = 1,2,3, \ldots$
+\begin{enumerate}[a.]
+\item Verify that the pointwise limit of $f_n$ is $f = 0$.
+\item Show that $\|f_n\|_{C[0,1]} \to \infty $ as $n \to \infty$, so that $f_n$ does not converge uniformly to $0$.
+\item Find a constant $C$ such that for all $n$ and $x$ fixed $f_n(x) \le C x^{-1/2}, x \in (0,1]$.
+\item Use the DCT to show that 
+$$\lim_{n \to \infty} \int_0^1 f_n(x) dx = 0.$$
+\end{enumerate}
+\begin{proof}
+For (b), we have $$
+\end{proof}
+
+\p 4 Let $L$ be a bounded linear operator on Hilbert space $\mH$. Show that the two formulas for $\|L\|$ are equivalent:
+\begin{enumerate}[i.]
+\item $\|L\| = \sup\{\|Lu\| : u \in \mH, \|u\| = 1\}$
+\item $\|L\| = \sup\{|\langle Lu, v \rangle| : u, v \in \mH, \|u\| = \|v\| = 1 \}$
+\end{enumerate}
+
+\begin{proof}
+Fix $u \in \mH$ with $\|u\| = 1$.  If $Lu = 0$, then $\|Lu\| = 0 = \langle Lu, v \rangle$ for all $\|v\| = 1$. If $Lu \neq 0$, we have $\|Lu\| = \langle Lu, \frac {Lu} {\|Lu\|}$.
+
+On the other hand, $|\langle Lu, v \rangle| \le \|Lu\|$ for all $\|v\| = 1$ by Cauchy-Schwartz.
+\end{proof}
+
+\p 5 Let $V$ be a Banach space and let $L : V \to V$ be linear. Show that $L$ is bounded iff $L$ is continuous.
+\begin{proof}
+Suppose $L$ is bounded. Let $\epsilon > 0$. If $\|w - v\| < \epsilon/\|L\|$ then $\|Lw - Lv\| \le \|L\|\|w - v\| < \epsilon$.
+
+Suppose $L$ is continuous.  Pick $\delta > 0$ such that $\|Lv\| < 1$ for all $\|v\| < \delta$.  Then for all $\|v\| < 1$, we have $\|Lv\| = \delta \|L \frac v \delta \| < \delta$.
+\end{proof}
+
+\p 6 Consider the BVP $-u''(x) = f(x)$ for $0 \le x \le 1, f \in C[0,1], u(0) = 0$ and $u'(1) = 0$.
+\begvgin{enumerat}[a.]
+\item Verify that the solution is given by $u(x) = \int_0^1 k(x,y) f(y) dy$, where
+$$ k(x,y) = \left\{ \begin{array}{cc}
+   y, & 0 \le y \le x
+\\ x, & x \le y \le 1
+\right. $$
+\item Let $L$ be the integral operator $Lf = \int_0^1 k(x,y)f(y) dy$. Show that $L: C[0,1] \to C[0,1]$ is bounded and that the norm $\|L\|_{C[0,1] \to C[0,1]} \le 1$. Try to show that $\|L\|_{C[0,1] \to C[0,1]} = 1/2$.
+\item Show that $k(x,y)$ is a Hilbert-Schmidt kernel and that $\|L\|_{L^2 \to L^2} \le \sqrt{\frac 3 {20}}$.
+\end{array}
+\end{enumerat}
+\end{document}
+
