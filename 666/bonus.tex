@@ -33,4 +33,13 @@ Let $\epsilon > 0$ and $\phi \in L_1[0,T]$ be arbitrary. We can pick a step func
 \end{align*}
 uniformly in $t$ for $n$ sufficiently large by the step function case.
 \end{proof}
+
+\p{3} Let $V$ be a finite dimensional complex vector space and $T:V \to V$ be a linear transformation. Let $p(x)$ denote the characteristic polynomial of $T$, and $m(x)$ denote the minimal polynomial of $T$. Find a necessary and sufficient condition on the Jordan Normal Form of $T$ for $p(x) = m(x)$.
+\begin{proof}
+I claim that $p = m$ if and only if the geometric multiplicity of each eigenvalue of $T$ is $1$. This means that each Jordan block has a distinct eigenvalue.
+
+Let $(\lambda_j)$ be an enumeration of the eigenvalues of $T$ without multiplicity.  Let $\alpha_j$ be the algebraic multiplicity of $\lambda_j$.  Then $p(x) = \prod_j (T - \lambda_j I)^{\alpha_j}$.
+
+Suppose each eigenvalue of $T$ has geometric multiplicity 1. Then $(T - \lambda_j I)$
+\end{proof}
 \end{document}
