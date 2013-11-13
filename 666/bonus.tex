@@ -35,7 +35,7 @@ uniformly in $t$ for $n$ sufficiently large by the step function case.
 \end{proof}
 
 \p{2} Let $Y_1$ and $Y_2$ be two complete vector fields on $\R^n$, which are also Lipshitzian, i.e. there exist $L_i > 0$ such that $\|Y_i(x_1) - Y_i(x_2)\| \le L_1 \|x_1 x_2 \|$ for any $x_1, x_2 \in \R^n$, $i \in \{1, 2\}$. Let $T, \lambda, A_n$ be as in the previous problem. Further, assume that $q(t)$ is the trajectory of the vector field $\lambda(t)Y_1 + (1 - \lambda(t)) Y_2$ with $q(0) = q_0$ and $(q_n(t))$ are the trajectories of the vector fields $\chi_{A_n} Y_1 + (1 - \chi_{A_n}(t))Y_2$ with $q_n(0) = q_n$ and such that $q_n \to q_0$. Prove that $q_n(t) \to q(t)$ uniformly on $[0,T]$.
-(Hint: Use the Gronwall inequality: if $y(\tau), \beta(\tau)$ are continuous and take non-negative values on $[0,T]$ and $\alpha \ge 0$ with $y(t) \le \alpha + \int_0^t \beta(\tau) y(\tau) \, d\tau$ for $t \in [0,T]$, then $y(t) \le \alpha e^{\int_0^t \beta(\tau) \, d \tau$.)
+(Hint: Use the Gronwall inequality: if $y(\tau), \beta(\tau)$ are continuous and take non-negative values on $[0,T]$ and $\alpha \ge 0$ with $y(t) \le \alpha + \int_0^t \beta(\tau) y(\tau) \, d\tau$ for $t \in [0,T]$, then $y(t) \le \alpha e^{\int_0^t \beta(\tau) \, d \tau}$.)
 
 
 \begin{proof}
@@ -46,6 +46,6 @@ uniformly in $t$ for $n$ sufficiently large by the step function case.
 \begin{proof}
 I claim that $p = m$ if and only if the geometric multiplicity of each eigenvalue of $T$ is $1$. This means that each Jordan block has a distinct eigenvalue.
 
-Let $(\lambda_j)$ be an enumeration of the eigenvalues of $T$ without multiplicity. Let $s_j$ denote the size of the largest Jordan block corresponding to each eigenvalue $\lambda_j$. Then $(T - \lambda_j I)^{s_j}$ kills the generalized eigenspace $V_j$ for $\lambda_j$.   Thus $m(x)$ divides $\prod_j (x - \lambda_j)^{s_j}$.   Moreover, each $(x - \lambda_j)^{s_j}$ generates the $T$-annihilator for some element of $V_j$.   Thus, each $(x - \lambda_j)^{s_j}$ divides $m(x)$.  Hence $m(x) = \prod_j (x - \lambda_j)^{s_j}$.  It follows that $p = m$ iff each $\lambda_j$ corresponds to exactly one Jordan block.
+Let $(\lambda_j)$ be an enumeration of the eigenvalues of $T$ without multiplicity. Let $s_j$ denote the size of the largest Jordan block corresponding to each eigenvalue $\lambda_j$. Then $(T - \lambda_j I)^{s_j}$ kills the generalized eigenspace $V_j$ for $\lambda_j$.   Thus $m(x)$ divides $\prod_j (x - \lambda_j)^{s_j}$.   Moreover, each $(x - \lambda_j)^{s_j}$ generates the $T$-annihilator for the basis vector acted on by the last column of the largest Jordan block for $\lambda_j$.   Thus, each $(x - \lambda_j)^{s_j}$ divides $m(x)$.  Hence $m(x) = \prod_j (x - \lambda_j)^{s_j}$.  It follows that $p = m$ iff each $\lambda_j$ corresponds to exactly one Jordan block.
 \end{proof}
 \end{document}
