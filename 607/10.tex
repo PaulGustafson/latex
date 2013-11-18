@@ -28,7 +28,12 @@ $\left| \int_E f_n d\mu \right| \le \int_E |f_n -f| d\mu + \int_E |f| d\mu \le \
 \item $m << \mu$ but there is no $f \in L_0^+$ so that $dm = f d\mu$,
 \item $\mu$ has no Lebesgue decomposition with respect to $m$.
 \end{enumerate}
-Show that the counting measure $\mu$ defined on $[0,1]$ (with the Borel $\sigma$-algebra $\B_{[0,1]}$) can not be wirtten as $d \mu = d \lambda + f dm$ for some $f \in L_1(m)$ or $f \in L^+([0,1])$.
+\begin{proof}
+For (a), the only null sets of $\mu$ are empty, so $m << \mu$.  For the other part, suppose $dm = f d\mu$ for some $f \in L_0^+$.  Then $0 = \int_{\{x\}} dm = \int_{\{x\}} f d\mu = f(x)$ for all $x \in [0,1]$, a contradiction.
+
+
+
+\end{proof}
 
 \p 3 Assume that $(\Omega, \mM, \PP)$ is a probability space and that $\tilde \mM \ubset \mM$ is a sub-$\sigma$-algebra of $\mM$. Let $X$ be an integrable random variable. Then there exists a random variable $\tilde X$ so that:
 \begin{enumerate}[a)]
