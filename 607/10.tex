@@ -7,8 +7,10 @@
 \noindent Instructor: Thomas Schlumprecht
 
 
+\nc{\E}{\EE}
+
 \subsection*{HW 10}
-\p{1}  Problem 11/page 92. Let $\mu$ be a positive measure on $(X \mM)$. A collection of functions $(f_\alpha)_{\alpha \in A}$ is called \emph{uniformly integrable} if for every $\epsilon > 0$ there is a $\delta > 0$ such that $\left| \int_E f_\alpha d\mu \right| < \epsilon$ for all $\alpha \in A$ whenever $\mu(E) < \delta$.
+\p{1}  Problem 11/page 92. Let $\mu$ be a positive measure on $(X, \mM)$. A collection of functions $(f_\alpha)_{\alpha \in A}$ is called \emph{uniformly integrable} if for every $\epsilon > 0$ there is a $\delta > 0$ such that $\left| \int_E f_\alpha d\mu \right| < \epsilon$ for all $\alpha \in A$ whenever $\mu(E) < \delta$.
 \begin{enumerate}[a)]
 \item Any finite subset of $L_1$ is uniformly integrable.
 \item A sequence $(f_n)$ which is convergent in $L_1$ is uniformly integrable.
@@ -18,7 +20,7 @@ For (a), it suffices to show that a single function $f \in L_1$ is uniformly int
  $\|f - \phi\|_1 < \epsilon/2$.  Pick $\delta > 0$ such that $\int_E |\phi| d\mu < \epsilon/2$ for all $\mu(E) < \delta$.  
 Then $\left| \int_E f d\mu \right| \le \int_E |f - \phi| d\mu + \int_E |\phi| d\mu < \epsilon$.
 
-For (b), let $\epsilon > 0$ and let $f$ be the $L_1$-limit of the sequence $(f_n)$.  Pick $N$ such that $\| f_n - f \|_1 \le \epsilon/2$ for all $n \ge N$.  By part (a), pick $\delta$ such that $\int_E |g| d\mu  < \epsilon/2$ for all $\mu(E) < \delta$, $g \in \{f\} \cup \{f_n\}_{n < N}$.  
+For (b), let $\epsilon > 0$ and let $f$ be the $L_1$-limit of the sequence $(f_n)$.  Pick $N$ such that $\| f_n - f \|_1 \le \epsilon/2$ for all $n \ge N$.  By part (a), pick $\delta >0$ such that $\int_E |g| d\mu  < \epsilon/2$ for all $\mu(E) < \delta$, $g \in \{f\} \cup \{f_n\}_{n < N}$.  
 For $\mu(E) < \delta$ and $n \ge N$, we have 
 $\left| \int_E f_n d\mu \right| \le \int_E |f_n -f| d\mu + \int_E |f| d\mu \le \epsilon$.
 \end{proof}
@@ -31,38 +33,77 @@ $\left| \int_E f_n d\mu \right| \le \int_E |f_n -f| d\mu + \int_E |f| d\mu \le \
 \begin{proof}
 For (a), the only null sets of $\mu$ are empty, so $m << \mu$.  For the other part, suppose $dm = f d\mu$ for some $f \in L_0^+$.  Then $0 = \int_{\{x\}} dm = \int_{\{x\}} f d\mu = f(x)$ for all $x \in [0,1]$, a contradiction.
 
-For (b), suppose $\mu = \lambda + \rho$ with $\lambda \perp m$ and $\rho << m$. Let $x \in [0,1]$.  Since $\rho << m$, $\rho(\{x\}) = 0$.  Hence $1 = \mu(\{x\}) = \lambda(\{x\})$. Then $\lambda([0,1]) \ge 1$ and $m([0,1]) = 1$, which contradicts the assumption that $\lambda \perp m$.
+For (b), suppose $\mu = \lambda + \rho$ with $\lambda \perp m$ and $\rho << m$. Since $\lambda \perp m$, there exists a  partition $E \cup F = [0,1]$ with $E$ being $\lambda$-null and $F$ being $m$-null.  Let $x \in [0,1]$.   Since $\rho << m$, $\rho(\{x\}) = 0$.  Hence $1 = \mu(\{x\}) = \lambda(\{x\})$.   Hence, $E = \emptyset$, since every nonempty subset of $[0,1]$ has positive $\lambda$-measure.  Thus $F = [0,1]$, a contradiction.
 \end{proof}
 
-\p 3 Assume that $(\Omega, \mM, \PP)$ is a probability space and that $\tilde \mM \subset \mM$ is a sub-$\sigma$-algebra of $\mM$. Let $X$ be an integrable random variable. Then there exists a random variable $\tilde X$ so that:
+\p 3 Assume that $(\Omega, \mM, {\PP})$ is a probability space and that $\tilde \mM \subset \mM$ is a sub-$\sigma$-algebra of $\mM$. Let $X$ be an integrable random variable. Then there exists a random variable $\tilde X$ so that:
 \begin{enumerate}[a)]
 \item $\tilde X$ is $\tilde \mM$-measurable.
 \item for all $A \in \tilde \mM$,
-$$\EE_\PP(\chi_A X) = \EE_\PP(\chi_A \tilde X).$$
-Furthermore $\tilde X$ is unique, i.e. for every random variable $Y$ which has properties (a) and (b) it follows that $Y = \tilde X$ almost surely. (Hint: consider the signed measure $d\nu = X d\PP$ and restrict that measure.  Use the Radon Nikodym theorem.)
+$$\EE_{{\PP}} (\chi_A X) = \EE_{\PP}(\chi_A \tilde X).$$
+Furthermore $\tilde X$ is unique, i.e. for every random variable $Y$ which has properties (a) and (b) it follows that $Y = \tilde X$ almost surely. (Hint: consider the signed measure $d\nu = X d{\PP}$ and restrict that measure.  Use the Radon Nikodym theorem.)
 \end{enumerate}
 \begin{proof}
- Let $\tilde \PP$ be the restriction of $\PP$ to $\tilde \mM$.  Let $\nu$ be the signed measure on $\tilde \mM$ defined by $\nu(A) = \int_A X d\tilde \PP$.  Let $\tilde X$
+Define the signed measure $\nu$ on $\mM$ by $d\nu = X d{\PP}$. Let $\tilde \nu$ be the restriction of $\nu$ to $\tilde \mM$. Since $X$ is integrable, $\nu$ is a finite signed measure.  Moreover, $\nu << \tilde {\PP}$, where $\tilde {\PP}$ is the restriction of ${\PP}$ to $\tilde \mM$, since $\tilde {\PP}(A) = 0 \implies {\PP}(A) = 0 \implies \nu(A) = 0 \implies \tilde \nu(A) = 0$.  Hence, by the Radon Nikodym theorem, there exists an $\tilde \mM$-measureable random variable $\tilde X$ such that $d \tilde \nu = \tilde X d \tilde {\PP}$. Moreover, if $A \in \tilde \mM$, then 
+$$\EE_{\PP}(\chi_A X) = \nu(A) = \tilde \nu(A) = \EE_{\PP}(\chi_A \tilde X).$$
 
+For the uniqueness, suppose $\tilde Y$ also satisfies (a) and (b). Suppose the uniqueness fails.  WLOG we have that ${\PP}(\{\tilde X - \tilde Y > 0\}) > 0$. Then there exists $n$ such that ${\PP}(\{\tilde X - \tilde Y > 1/n\}) > 0$.  Let $A = \{\tilde X - \tilde Y > 1/n\}$.  Then $\EE_{\PP}(\chi_A (\tilde X - \tilde Y)) > 0$, so $\E_{\PP}(\chi_A X) = \E_{\PP}(\chi_A \tilde X) > \E_{\PP}(\chi_A \tilde Y) = \E_{\PP}(\chi_A X)$, a contradiction.
 \end{proof}
 
 
-\p 4 Assume that $(\Omega, \mM \PP)$ is a probability space and that $\tilde \mM \subset \mM$ is a sub-$\sigma$-algbra of $\mM$. Let $X$ and $Y$ be integrable random variables. Then
+\p 4 Assume that $(\Omega, \mM , {\PP})$ is a probability space and that $\tilde \mM \subset \mM$ is a sub-$\sigma$-algbra of $\mM$. Let $X$ and $Y$ be integrable random variables. Then
 \begin{enumerate}[a)]
 \item (Linearity)
-$$\EE(\alpha X + \beta Y | \tilde \mM) = \alpha \EE(X | \mM) + \beta \EE(Y | \tilde \mM).$$
+$$\EE(\alpha X + \beta Y | \tilde \mM) = \alpha \EE(X | \tilde \mM) + \beta \EE(Y | \tilde \mM).$$
 \item (Positivity)
-$$X \le Y \quad \text{$\PP$-almost surely} \implies \EE(X | \tilde \mM) \le \EE(Y | \tilde \mM) \quad \text{$\PP$-a.s.}$$
+$$X \le Y \quad \text{${\PP}$-almost surely} \implies \EE(X | \tilde \mM) \le \EE(Y | \tilde \mM) \quad \text{${\PP}$-a.s.}$$
 \item (Tower-Property) Assume $\mN \subset \tilde \mM$ is a sub-$\sigma$-algebra of $\tilde \mM$. Then
-$$\EE(\EE(X | \tilde \mM) | \mN) = \E(X | \mN) \quad \text{$\PP$-a.s.}$$
+$$\EE(\EE(X | \tilde \mM) | \mN) = \E(X | \mN) \quad \text{${\PP}$-a.s.}$$
 \item (Factorization) If $Y$ is $\tilde \mM$-measurable and $XY$ is integrable, then
-$$\EE(Y | \tilde \mM) = Y \text{ and } \EE(YX | \tilde \mM) = Y \EE(X | \tilde \mM) \quad \text{$\PP$-a.s.}
+$$\EE(Y | \tilde \mM) = Y \text{ and } \EE(YX | \tilde \mM) = Y \EE(X | \tilde \mM) \quad \text{${\PP}$-a.s.} $$
 \item (Absolute value)
-$$|\EE(X | \tilde \mM)| \le \EE(|X||\mM) \quad \text{$\PP$-a.s.}$$
+$$|\EE(X | \tilde \mM)| \le \EE(|X||\mM) \quad \text{${\PP}$-a.s.}$$
 \end{enumerate}
+
+\begin{proof}
+For (a), if $A \in \tilde \mM$ we have
+\begin{align*}
+\EE( \chi_A (\alpha \EE(X | \tilde \mM) + \beta \EE(Y | \tilde \mM))) & = \alpha \EE( \chi_A \EE(X | \tilde \mM)) + \beta \EE(\chi_A \EE(Y | \tilde \mM))) 
+\\ & = \alpha \EE(\chi_A X) + \beta \EE(\chi_A Y)
+\\ & = \EE(\chi_A (\alpha X + \beta Y)).
+\\ & = \EE(\chi_A \E(\alpha X + \beta Y | \tilde \mM)).
+\end{align*}
+Hence, by the uniqueness part of exercise (3), we have the desired equality.
+
+For (b), suppose not.  Then there exists $n \in \N$ and $A \in \tilde \mM$ with $m(A) > 0$ and $\EE(X | \tilde \mM)(\omega) - \EE(Y | \tilde \mM)(\omega) > 1/n$ for all $\omega \in A$ .  Thus, $0 < \EE(\chi_A(\EE(X | \tilde \mM) - \EE(Y | \tilde \mM)) =\EE(\chi_A (X -Y))  \le 0$, a contradiction.
+
+For (c), let $A \in \mN$. Then $\EE(\chi_A \EE(\EE(X | \tilde \mM) | \mN)) = \EE(\chi_A \EE(X | \tilde \mM))  = \EE(\chi_A X) = \EE(\chi_A \EE(X | \mN))$. 
+
+For (d), let $A \in \tilde \mM$. Then $\EE( \chi_A \EE(Y | \tilde \mM)) = \EE(\chi_A Y)$. Thus, by the uniqueness in (3), we have $\EE(Y | \tilde \mM) = Y$.  
+
+For the second part of (d), first assume that $Y$ is a characteristic function, then have $\EE(\chi_A Y \E(X | \tilde \mM)) = \EE(\chi_A Y X) =  \EE(\chi_A Y \EE(X | \tilde \mM))$ for all $A \in \tilde \mM$.  By part (a), we get the same equality for the case when $Y$ is a simple function.  Lastly, when $Y$ is integrable, it is the limit of simple functions $Y_n$ with $|Y_n| \le |Y|$, so by the DCT for conditional expectations proved in (5), we have
+$\EE(YX | \tilde \mM) = \lim_n \EE(Y_n X | \tilde \mM) = \lim_n Y_n \EE(X | \tilde \mM) = Y \EE(X | \tilde \mM)$.
+
+For (e), we have $|\EE(X | \tilde \mM)| = |\EE(X^+ - X^- | \tilde \mM)| =  \EE(X^+| \tilde \mM) + \EE( X^- | \tilde \mM)  =  \EE(X^+ + X^-| \tilde \mM) =  \EE(|X| | \tilde \mM) $.
+\end{proof}
+
 
 \p 5 State and prove the Monotone Convergence Theorem and the Dominated Convergence Theorem for conditional expectations.
 
-\p 6 Assume that $(\Omega, \mM, \PP)$ is a probability space and that $\tilde \mM \subset \mM$ is a sub-$\sigma$-algebra of $\mM$ generated by $A_1, A_2, \ldots, A_n \in \mM$, a partition of $\Omega$. Assume that $X$ is an integrable random variable on $(\Omega, \mM, \PP)$. Compute $\EE(X | \tilde \mM)$.
+MCT for conditional expectations: if $(\Omega, \mM , {\PP})$ is a probability space, $\tilde \mM$ is a sub-$\sigma$-algebra of $\mM$, and $(X_n)$ is a sequence of positive random variables with $X_n \uparrow X$; then $\E(X_n | \tilde \mM) \to \E(X | \tilde \mM)$.
 
+DCT for conditional expectations: if $(\Omega, \mM , {\PP})$ is a probability space, $\tilde \mM$ is a sub-$\sigma$-algebra of $\mM$, $Y$ is an integrable random varibale, and $(X_n)$ is a sequence of random variables with $|X_n| \le Y$ and $X_n \to X$; then $\E(X_n | \tilde \mM) \to \E(X | \tilde \mM)$.
+\begin{proof}
+For the MCT, let $A \in \tilde \mM$.  Then $\E(\chi_A \E(X_n | \tilde \mM)) = \E(\chi_A X_n) \to \E(\chi_A X) = \E(\chi_A \E(X | \tilde \mM))$ by the usual MCT. Hence, $\E(X_n | \tilde \mM) \to \E(X | \tilde \mM)$.
+
+For the DCT, let $A \in \tilde \mM$. Then $\E(\chi_A \E(X_n | \tilde \mM)) = \E(\chi_A X_n) \to \E(\chi_A X) = \E(\chi_A \E(X | \tilde \mM))$ by the usual DCT since $\chi_A |X_n| \le |Y|$. Hence, $\E(X_n | \tilde \mM) \to \E(X | \tilde \mM)$.
+\end{proof}
+
+\p 6 Assume that $(\Omega, \mM, {\PP})$ is a probability space and that $\tilde \mM \subset \mM$ is a sub-$\sigma$-algebra of $\mM$ generated by $A_1, A_2, \ldots, A_n \in \mM$, a partition of $\Omega$. Assume that $X$ is an integrable random variable on $(\Omega, \mM, {\PP})$. Compute $\EE(X | \tilde \mM)$.
+\begin{proof}
+Let $Y = \sum_{i=1}^n \frac{\EE(\chi_{A_i} X)} {\EE(\chi_{A_i} )} \chi_{A_i}$.  Then $Y$ is clearly $\tilde \mM$ measurable.  Moreover, we have
+$\EE(\chi_{A_i} Y) = \EE(\frac{\EE(\chi_{A_i} X)} {\EE(\chi_{A_i})} \chi_{A_i}) = \EE(\chi_{A_i} X)$. 
+
+Note that $\mM = \{ \bigcup_{j \in J} A_j : J \subset [n]\}$. If $A = \bigcup_{j \in J} A_j$, then $\EE(\chi_A Y) = \sum_{j \in J} \EE(\chi_{A_j} Y) = \sum_{j \in J} \EE(\chi_{A_j} X) = \EE(\chi_A X)$.  Thus, by the uniqueness part of (3), we have $\EE(X | \tilde \mM) = Y$.
+\end{proof}
 \end{document}
