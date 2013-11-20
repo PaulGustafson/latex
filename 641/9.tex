@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 641\\ 
+\noindent Instructor - Fran Narcowich
+
+\subsection*{HW 9}
+\p{1} Finish the proof of the Projection Theorem: If for every $f \in \mH$ there is a $p \in V$ such that $\|p - f\| = \min_{v \in V} \|v - f\|$ the $V$ is closed.
+
+\begin{proof}
+\end{proof}
+
+
+\p 2 If $L : \mH \to \mH$ is a bounded linear transformation, then $\overline{R(L)} = N (L^*)^\perp$.
+
+\p 3 Let $\mH$ be a Hilbert space of functions that are defined on [0,1]. In addition, suppose that $\mH \subset C[0,1]$, with $\|f\|_{C[0,1]} \le K \|f \|_H$ for all $f \in \mH$. (The Sobolev space $H^1$ has this property.)
+
+\begin{enumerate}[a.]
+\item Show that the point-evaluation functional $\phi_x(f) = f(x)$ is a bounded linear functional on $\mH$.
+\item Let $x$ be fixed. Show that there is a kernel $k(x,y) \in \mH$ such that 
+$$ \phi_x(f) = f(x) = \langle f , k(x, \cdot) \rangle$$
+(The kernel $k(x,y)$ is called a reproducing kernel and $\mH$ is called a reproducing kernel Hilbert space.)
+\item For $x, z$ fixed, show that $k(z,x) = \langle k(z, \cdot), k(x, \cdot) \rangle$. In addition, let $(x_j)_{j=1}^n$ be any finite set of distinct points in $[0,1]$.  Show that the matrix $G_{jk} = k(x_k, x_j)$ is ositive semidefinite; that is $\sum_{j,k} c_k \overline{c_j} k(x_k, x_j) \ge 0$.
+\item Suppose the matrix $G$ is positive definite and therefore invertible. Let $f \in \mH$. Show that there are unique coefficients $(c_j)_{j=1}^n$ such that $s(x) = \sum_{j=1}^n k(x_j, x) c_j$ interpolates $f$ at the $x_j$'s.
+\end{enumerate}
+
+\p 4 Consider the finite rank (degenerate) kernel $k(x,y) = \phi_1(x) \overline{\psi_1}(y) + \phi_2(x) \overline{\psi_2} (y)$, where $\phi_1 = 2x - 1, \phi_2 = x^2, \psi_1 = 1, \psi_2 = 4x - 3$. Let $Ku = \int_0^1 k(x,y) u(y) dy$. Assume that $L:= I - \lambda K$ has closed range.
+
+\begin{enumerate}[a.]
+\item For what values of $\lambda$ does the integral equation
+$$u(x) - \lambda \int_0^1 k(x,y) u(y) dy = f(x)$$
+have a solution for all $f \in L^2[0,1]$.
+\item For these values, find the solution $u = (I - \lambda K)^{-1} F$ -- i.e., find the resolvent.
+\item For the values of $\lambda$ for which the equation does not have a solution for all $f$, find a condition on $f$ that guarantees a solution exists. Will the solution be unique?
+\end{enumerate}
+
+\p 5 Let $S = \{ (a_j) \in \ell^2 : \sum_j (1+j^2)|a_j|^2 \le 1 \}$. Show that $S$ is a compact subset of $\ell^2$.
+
+\end{document}
