@@ -32,7 +32,7 @@ $$ \phi_x(f) = f(x) = \langle f , k(x, \cdot) \rangle$$
 \end{enumerate}
 
 \begin{proof}
-For (a), we have $|\phi_x(f)| \le \|f\|_{C[0,1]} \le K \|f\|_\mH$.
+For (a), we have $|\phi_x(f)| \le \|f\|_{C[0,1]} \le K \|f\|_{\mH}$.
 
 (b) follows from (a) and the Riesz Representation Theorem.
 
@@ -58,16 +58,25 @@ have a solution for all $f \in L^2[0,1]$.
 \end{enumerate}
 
 \begin{proof}
+For (a), we have $u - \lambda \sum_i \langle u, \psi_i \rangle \phi_i = f$.  Hence $\langle u, \psi_j \rangle - \sum_i \langle u, \psi_i \rangle \langle \phi_i, \psi_j \rangle = \langle f, \psi_j \rangle$.
+Hence $ \sum_i (\delta_{ij}  - \lambda \langle \phi_i, \psi_j \rangle) \langle u, \psi_i \rangle = \langle f, \psi_j \rangle$.
+Using the alternative value for $\phi_2$, the determinant of $\delta_{ij} - \lambda \langle \phi_j, \psi_j$ is $1$.  Thus, we can find solutions for all $\lambda$.
 
+For (b), the solution is given by $\langle u, \psi_1 \rangle = \langle f, \psi_1 \rangle + \lambda/3 \langle f, \psi_2 \rangle$ and $\langle u, \psi_2  \rangle = \langle f, \psi_2 \rangle$.
 
 \end{proof}
 
 
 \p 5 Let $S = \{ (a_j) \in \ell^2 : \sum_j (1+j^2)|a_j|^2 \le 1 \}$. Show that $S$ is a compact subset of $\ell^2$.
 \begin{proof}
-Let $(a^{(n)})_n \subset S$. Since $|a_j^{(n)}| \le 1$ for all $j$ and for $j=1$ in particular, we can pick $N_1 \subset \N$ such that $(a_1^{(n)})_{n \in N_1} \to a_1$ for some $a_1$.  Inductively, for each $j > 1$ pick $N_j \subset N_{j-1}$ such that $(a_j^{(n)})_{n \in N_j} \to a_j$ for some $a_j$.  Let $a = (a_j)_{j \in \N}$.
+It suffices to show that $S$ is closed and totally bounded. To see that $S$ is closed, suppose $(a^(n)) \subset S$ with $a^(n) \to a$ in $\ell^2$.  Suppose $a \not\in S$.   Then  $\sum_{j = 1}^N (1+j^2) |a_j|^2 > 1 + \epsilon$ for some $N$ and some $\epsilon > 0$.  But then we have
+\begin{align*}
+\epsilon & \le \sum_{j=1}^N (1 + j^2) |a_j|^2 - \sum_{j=1}^\infty (1+j)^2 |a^{(n)}_j|^2
+\\ & \le \sum_{j=1}^N (1 + j^2) (|a_j|^2 - |a^{(n)}_j|^2)
+\to 0
+\end{align*}
+as $n \to \infty$, a contradiction.  Hence $S$ is closed.
 
-Let $D \subset \N$ be composed of the least element of $N_1$, the second element of $N_2$, and so on.  I claim that $(a^{(n)})_{n \in D} \to a$. 
+To see that $S$ is totally bounded, let $\epsilon > 0$.  We have $\sum_{j=N}^\infty |a_j|^2 \le N^{-2} \sum_{j=N}^\infty (1 + j^2) |a_j|^2 \le N^-2$ for $(a_j) \in \ell^2$.  Pick $N$ such that $N^-2 < \epsilon$.  Note that $\|a\| \le 1$ for all $a \in S$.  Recall that $B_1(\ell_2^N)$ is totally bounded.  The rest of $S$ is within $\epsilon$ of $B_1(\ell_2^N)$, so $S$ is totally bounded.
 \end{proof}
-
 \end{document}
