@@ -10,10 +10,15 @@
 \p{1} Finish the proof of the Projection Theorem: If for every $f \in \mH$ there is a $p \in V$ such that $\|p - f\| = \min_{v \in V} \|v - f\|$ the $V$ is closed.
 
 \begin{proof}
+Let $(f_n) \subset V$ with $f_n \to f$. Suppose $f \not\in V$.  Let $p$ be the projection of $f$ to $V$.  Then $\|f_n - f\| \ge \|f - p\| > 0$ for all $n$. Letting $n \to \infty$, we get $0 \ge \|f - p \| > 0$,  a contradiction.
 \end{proof}
 
-
 \p 2 If $L : \mH \to \mH$ is a bounded linear transformation, then $\overline{R(L)} = N (L^*)^\perp$.
+\begin{proof}
+Suppose $(Lv_n)_n \subset  R(L)$ with $Lv_n \to w$.  Then if $u \in N(L^*)$ we have $\langle u, L v_n \rangle = \langle L u , v_n \rangle = 0$. Letting $n \to \infty$, we have $\langle u, w \rangle = 0$.  Hence, $\overline{R(L)} \subset N(L^*)^\perp$.
+
+For the reverse inclusion, suppose $v \in N(L^*)^\perp$.  Let $P$ be the orthogonal projection operator mapping onto $\overline{R(L)}$.  Let $u = v - Pv \in \overline{R(L)}^\perp$. Hence, $0 = \langle L L^* u, u \rangle = \|L^*u\|$, so $L^*u = 0$.  Moreover $v, Pv \in N(L^*)^\perp$, so $u \in N(L^*)^\perp$.   Thus $u = 0$, so $v \in \overline{R(L)}$.
+\end{proof}
 
 \p 3 Let $\mH$ be a Hilbert space of functions that are defined on [0,1]. In addition, suppose that $\mH \subset C[0,1]$, with $\|f\|_{C[0,1]} \le K \|f \|_H$ for all $f \in \mH$. (The Sobolev space $H^1$ has this property.)
 
@@ -22,9 +27,25 @@
 \item Let $x$ be fixed. Show that there is a kernel $k(x,y) \in \mH$ such that 
 $$ \phi_x(f) = f(x) = \langle f , k(x, \cdot) \rangle$$
 (The kernel $k(x,y)$ is called a reproducing kernel and $\mH$ is called a reproducing kernel Hilbert space.)
-\item For $x, z$ fixed, show that $k(z,x) = \langle k(z, \cdot), k(x, \cdot) \rangle$. In addition, let $(x_j)_{j=1}^n$ be any finite set of distinct points in $[0,1]$.  Show that the matrix $G_{jk} = k(x_k, x_j)$ is ositive semidefinite; that is $\sum_{j,k} c_k \overline{c_j} k(x_k, x_j) \ge 0$.
+\item For $x, z$ fixed, show that $k(z,x) = \langle k(z, \cdot), k(x, \cdot) \rangle$. In addition, let $(x_j)_{j=1}^n$ be any finite set of distinct points in $[0,1]$.  Show that the matrix $G_{jk} = k(x_k, x_j)$ is positive semidefinite; that is $\sum_{j,k} c_k \overline{c_j} k(x_k, x_j) \ge 0$.
 \item Suppose the matrix $G$ is positive definite and therefore invertible. Let $f \in \mH$. Show that there are unique coefficients $(c_j)_{j=1}^n$ such that $s(x) = \sum_{j=1}^n k(x_j, x) c_j$ interpolates $f$ at the $x_j$'s.
 \end{enumerate}
+
+\begin{proof}
+For (a), we have $|\phi_x(f)| \le \|f\|_{C[0,1]} \le K \|f\|_\mH$.
+
+(b) follows from (a) and the Riesz Representation Theorem.
+
+For (c), we have $k(z,x) = \phi_x(k(z, \cdot)) = \langle k(z, \cdot) , k(x, cdot) \rangle$.  For the other part, we have  
+\begin{align*}
+\sum_{j,k} c_k \overline{c_j} k(x_k, x_j) & =  \sum_{j,k} c_k \overline{c_j} \langle k(x_k, \cdot) , k(x_j, cdot) \rangle
+\\ & =  \sum_{j,k} \langle c_k k(x_k, \cdot) , c_j k(x_j, cdot) \rangle
+\\ & =  \left\langle \sum_k c_k k(x_k, \cdot) , \sum_j c_j k(x_j, cdot) \right \rangle
+\\ & \ge 0.
+\end{align*}
+
+For (d), let $v = (f(x_1), f(x_2), \ldots, f(x_n))$.  A coefficient vector $c$ interpolates $f$ at the $x_j$'s iff it is the solution to the matrix equation $c G = v$. This has a unique solution since $G$ is invertible.
+\end{proof}
 
 \p 4 Consider the finite rank (degenerate) kernel $k(x,y) = \phi_1(x) \overline{\psi_1}(y) + \phi_2(x) \overline{\psi_2} (y)$, where $\phi_1 = 2x - 1, \phi_2 = x^2, \psi_1 = 1, \psi_2 = 4x - 3$. Let $Ku = \int_0^1 k(x,y) u(y) dy$. Assume that $L:= I - \lambda K$ has closed range.
 
@@ -36,6 +57,17 @@ have a solution for all $f \in L^2[0,1]$.
 \item For the values of $\lambda$ for which the equation does not have a solution for all $f$, find a condition on $f$ that guarantees a solution exists. Will the solution be unique?
 \end{enumerate}
 
+\begin{proof}
+
+
+\end{proof}
+
+
 \p 5 Let $S = \{ (a_j) \in \ell^2 : \sum_j (1+j^2)|a_j|^2 \le 1 \}$. Show that $S$ is a compact subset of $\ell^2$.
+\begin{proof}
+Let $(a^{(n)})_n \subset S$. Since $|a_j^{(n)}| \le 1$ for all $j$ and for $j=1$ in particular, we can pick $N_1 \subset \N$ such that $(a_1^{(n)})_{n \in N_1} \to a_1$ for some $a_1$.  Inductively, for each $j > 1$ pick $N_j \subset N_{j-1}$ such that $(a_j^{(n)})_{n \in N_j} \to a_j$ for some $a_j$.  Let $a = (a_j)_{j \in \N}$.
+
+Let $D \subset \N$ be composed of the least element of $N_1$, the second element of $N_2$, and so on.  I claim that $(a^{(n)})_{n \in D} \to a$. 
+\end{proof}
 
 \end{document}
