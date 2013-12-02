@@ -1,0 +1,61 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 666\\ 
+\noindent Instructor: Igor Zelenko
+
+\subsection*{HW 3}
+\p{1} Consider the control system
+$$\left\{ \begin{array}{l}
+\dot x_1 = 8 x_1 + 3 x_2 + 2 u
+\\ \dot x_2 = -10 x_1 - 3 x_2 - u
+\end{array}
+\right. , 
+-4 \le u \le 2.$$
+Find the attainable set $\mA_{(0,0)}$ from the point $(0,0)$ and draw the time optimal synthesis with the target $(0,0)$ in the plane $(x_1, x_2)$.
+
+\begin{proof}
+
+%Kalman rank condition 
+
+
+\end{proof}
+
+\p 2 
+\begin{enumerate}[(a)]
+\item (Optimal U-turn of the Dubins car) Consider the time-minimal problem for the control system corresponding to the Dubins car:
+$$ 
+\left\{\begin{array}{l}
+\dot x_1 = \cos \theta
+\\ \dot x_2 = \sin \theta
+\\ \dot \theta = u
+\end{array}
+\right. , |u| \le 1.
+$$
+Find the time-optimal control and trajectory for the boundary conditions:
+$$ (x_1(0) , x_2(0), \theta(0)) = (0,0,0), \quad (x_1(t_1), x_2(t_1), \theta(t_1)) = (0,0,\pi)$$
+\item (Dubins car with the steering wheel turning counterclockwise only) 
+Consider the time-minimal problem of (a) except that the control satisfies $0 \le u \le 1$. Describe all extremal controls and trajectories (for all possible fixed initial and terminal points).
+\item Find the optimal control and trajectory in the problem of item (b) for the following boundary conditiions:
+$$ (x_1(0), x_2(0), \theta(0)) = (0,0,0), \quad (x_1(t_1), x_2(t_1), \theta(t_1)) = \left( 0,0, \frac{5 \pi} 4 \right)$$
+
+\begin{proof}
+
+
+
+\end{proof}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
