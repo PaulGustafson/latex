@@ -34,15 +34,15 @@ Let $\epsilon > 0$ and $\phi \in L_1[0,T]$ be arbitrary. We can pick a step func
 uniformly in $t$ for $n$ sufficiently large by the step function case.
 \end{proof}
 
-\p{2} Let $Y_1$ and $Y_2$ be two complete vector fields on $\R^n$, which are also Lipshitzian, i.e. there exist $L_i > 0$ such that $\|Y_i(x_1) - Y_i(x_2)\| \le L_1 \|x_1 x_2 \|$ for any $x_1, x_2 \in \R^n$, $i \in \{1, 2\}$. Let $T, \lambda, A_n$ be as in the previous problem. Further, assume that $q(t)$ is the trajectory of the vector field $\lambda(t)Y_1 + (1 - \lambda(t)) Y_2$ with $q(0) = q_0$ and $(q_n(t))$ are the trajectories of the vector fields $\chi_{A_n} Y_1 + (1 - \chi_{A_n}(t))Y_2$ with $q_n(0) = q_n$ and such that $q_n \to q_0$. Prove that $q_n(t) \to q(t)$ uniformly on $[0,T]$.
-(Hint: Use the Gronwall inequality: if $y(\tau), \beta(\tau)$ are continuous and take non-negative values on $[0,T]$ and $\alpha \ge 0$ with $y(t) \le \alpha + \int_0^t \beta(\tau) y(\tau) \, d\tau$ for $t \in [0,T]$, then $y(t) \le \alpha e^{\int_0^t \beta(\tau) \, d \tau}$.)
+%\p{2} Let $Y_1$ and $Y_2$ be two complete vector fields on $\R^n$, which are also Lipshitzian, i.e. there exist $L_i > 0$ such that $\|Y_i(x_1) - Y_i(x_2)\| \le L_1 \|x_1 x_2 \|$ for any $x_1, x_2 \in \R^n$, $i \in \{1, 2\}$. Let $T, \lambda, A_n$ be as in the previous problem. Further, assume that $q(t)$ is the trajectory of the vector field $\lambda(t)Y_1 + (1 - \lambda(t)) Y_2$ with $q(0) = q_0$ and $(q_n(t))$ are the trajectories of the vector fields $\chi_{A_n} Y_1 + (1 - \chi_{A_n}(t))Y_2$ with $q_n(0) = q_n$ and such that $q_n \to q_0$. Prove that $q_n(t) \to q(t)$ uniformly on $[0,T]$.
+%(Hint: Use the Gronwall inequality: if $y(\tau), \beta(\tau)$ are continuous and take non-negative values on $[0,T]$ and $\alpha \ge 0$ with $y(t) \le \alpha + \int_0^t \beta(\tau) y(\tau) \, d\tau$ for $t \in [0,T]$, then $y(t) \le \alpha e^{\int_0^t \beta(\tau) \, d \tau}$.)
+%
+
+%\begin{proof}
+%\end{proof}
 
 
-\begin{proof}
-\end{proof}
-
-
-\p{3} Let $V$ be a finite dimensional complex vector space and $T:V \to V$ be a linear transformation. Let $p(x)$ denote the characteristic polynomial of $T$, and $m(x)$ denote the minimal polynomial of $T$. Find a necessary and sufficient condition on the Jordan Normal Form of $T$ for $p(x) = m(x)$.
+\p{2} Let $V$ be a finite dimensional complex vector space and $T:V \to V$ be a linear transformation. Let $p(x)$ denote the characteristic polynomial of $T$, and $m(x)$ denote the minimal polynomial of $T$. Find a necessary and sufficient condition on the Jordan Normal Form of $T$ for $p(x) = m(x)$.
 \begin{proof}
 I claim that $p = m$ if and only if the geometric multiplicity of each eigenvalue of $T$ is $1$. This means that each Jordan block has a distinct eigenvalue.
 
