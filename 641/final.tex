@@ -1,0 +1,108 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 641\\ 
+\noindent Instructor - Fran Narcowich
+
+\subsection*{Final}
+\p{1} Let $f \in C[0,2 \pi]$ with $f(0) = f(2\pi)$.  Let 
+$Q_{trap}(f) =  \frac {2\pi} n \sum_{k=0}^{n-1} f \left(\frac {2 \pi k} n \right)$.
+Let $E_n = \left| \int_0^{2 \pi} f(x) dx - Q_n(f) \right|$.
+
+\begin{enumerate}[(a)]
+\item Show $Q_{trap}(e^{ikx}) = \left\{ 
+\begin{array}[ll]
+0 & k \not\equiv 0 \pmod n
+\\ 2\pi & k \equiv 0 \pmod n
+\end{array}
+\right.$
+
+\begin{proof}
+If $k \equiv 0 \pmod n$, we have $Q_{trap} = \frac {2\pi} n \sum_{j=0}^{n-1} e^{\frac {2 \pi i jk} n} = \frac{2 \pi}{n} \sum_{j=0}^{n-1} 1 = 2\pi$.
+
+Otherwise, we have 
+\begin{align*}
+Q_{trap}(e^{ikx}) & = \frac {2\pi} n \sum_{j=0}^{n-1} e^{\frac {2 \pi i jk} n}
+\\ & = \frac {2\pi} n \frac{1 -  e^{\frac {2 \pi i k}}{1 - e^{\frac {2 \pi i k} n}}
+\\ & = 0
+\end{align*}
+\end{proof}
+
+\item Let $f(x)$ be the $2 \pi$-periodic function that equals $x^2(2\pi - x)^2$ when $x \in [0, 2\pi]$. Show that $\int_0^{2\pi} f(x) dx = 16 \pi^5/15$. Prove that $E_n \le C n^{-4}$.  
+(Hint: $f(x) = \frac{8\pi^4}{15} - \frac{24}{\pi} \sum_{k \neq 0} e^{ikx} k^{-4}$.)
+
+\begin{proof}
+We have 
+\begin{align*}
+\int_0^{2 \pi} x^2(2\pi - x)^2 dx & = \int_0^{2 \pi} 4\pi^2 x^2 - 4 \pi x^3 + x^4 \, dx
+\\ & = \frac 4 3 \pi^2 (2\pi)^3 - \pi(2 \pi)^4 + \frac 1 5 (2 \pi)^5
+\\ & = \frac 4 3 \pi^2 (2\pi)^3 - \pi(2 \pi)^4 + \frac 1 5 (2 \pi)^5
+\\ & = (32 \cdot 5 - 16 \cdot 15 + \32 \cdot 3) \pi^5/15
+\\ & = 16 \pi^5/15
+\end{align*}
+
+
+\end{proof}
+
+\end{enumerate}
+
+\p 2 Let $mH$ be a complex Hilbert space, and let $L \in \mB(\mH)$.
+\begin{enumerate}
+\item Verify that 
+$\langle L(u + e^{i \alpha} v), u + e^{i \alpha} v \rangle - 
+\langle L(u - e^{i \alpha} v), u - e^{i \alpha} v \rangle
+= 2 e^{-i \alpha} \langle L u, v \rangle + 2 e^{-i \alpha} \langle Lv, u \rangle$
+
+\item Show that if $L = L^*$, then $\|L \| = \sup_{\|u\| = 1} | \langle L u \rangle |$.
+
+\item Show that if $M$
+\end{enumerate}
+
+\p 5 Let $\mH = L^2[0,1]$. Consider the boundary value problem
+$$Lu := \frac d {dx} \left( (1 + x) \frac {du} {dx} \right) = f(x),
+u(0) = 0, u'(1) = 0.$$
+
+\begin{enumerate}[(a)]
+\item Find $G(x,y)$, the Green's function for this BVP.
+\itme Let $Gf(x) = \int_0^1 G(x,y) f(y) dy$. Sho
+
+
+\p 6 Let $\| \cdot \|_{op}$ be the operator norm for $\mB(\mH)$.
+\begin{enumerate}
+\item Show that $(\mB(\mH), \|\cdot \|_{op})$ is a Banach space.
+\begin{proof}
+We need to show that $\| \cdot \|_{op}$ is positive definite, homogeneous, and satisfies the triangle inequality.  
+
+It is clearly positive. Moreover, if $\|T\|_{op} = 0$, then $\|Tu\| = 0$ for all $\|u\| = 1$.  Hence $Tv = \|v\| T \frac v {\|v\|} = 0$ for all $v \in \mH \setminus \{0\}$.  Thus $Tv = 0$.
+
+For the homogeneity, we have $\|cT\|_{op} = \sup_{\|u\| = 1} |c|\|Tu\| = |c| \|T\|_{op}$ for all $c \in \R$ and $T \in \mH$.
+
+For the triangle inequality,
+\end{proof}
+
+\item Consider the operator $L = I - \lambda M$, with $M \in \mB(\mH)$. Show that if $|\lambda| < \|M \|_{op}^{-1}$, then 
+$\sum_{k=0}^\infty \lambda^k M^k = (I - \lambda M)^{-1}$.
+\end{enumerate}
+
+\p 7 Show that if $B, B^{-1}$ are in $\mB(\mH)$, and $K \in \mC(\mH)$, then the range of $L = B + \lambda K$ is closed.
+
+\begin{proof}
+Suppose $Lx_n \to y$. By passing to a subsequence, since $\lambda K$ is compact, we may assume $\lambda K x_n \to z$.  Then $B x_n \to y - z$.   Since $B^{-1}$ is continuous, we have $x_n \to B^{-1}(y-z)$.
+
+We have $L B^{-1}(y-z) = (y - z) + \lambda K B^{-1}(y-z) =  (y - z) + \lambda K \lim_n x_n = y$.
+\end{proof}
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
