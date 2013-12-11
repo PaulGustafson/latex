@@ -55,10 +55,45 @@ $\langle L(u + e^{i \alpha} v), u + e^{i \alpha} v \rangle -
 \langle L(u - e^{i \alpha} v), u - e^{i \alpha} v \rangle
 = 2 e^{-i \alpha} \langle L u, v \rangle + 2 e^{-i \alpha} \langle Lv, u \rangle$
 
-\item Show that if $L = L^*$, then $\|L \| = \sup_{\|u\| = 1} | \langle L u \rangle |$.
+\begin{proof}
+We have 
+\begin{align*}
+\langle L(u + e^{i \alpha} v), u + e^{i \alpha} v \rangle - 
+\langle L(u - e^{i \alpha} v), u - e^{i \alpha} v \rangle
+& = \lange Lu, u \rangle + \langle Lu, e^{i \alpha} v \rangle +
+\langle e^{i \alpha} v), u \rangle + \langle u, v \rangle
+& \quad - \lange Lu, u \rangle + \langle Lu, e^{i \alpha} v \rangle +
+\langle e^{i \alpha} v), u \rangle - \langle u, v \rangle
+& = 2 e^{-i \alpha} \langle L u, v \rangle + 2 e^{-i \alpha} \langle Lv, u \rangle
+\end{proof}
 
-\item Show that if $M$
+\item Show that if $L = L^*$, then $\|L \| = \sup_{\|u\| = 1} | \langle L u, u \rangle |$.
+
+\begin{proof}
+By Cauchy-Schwarz, we have $\sup_{\|u\| = 1} | \langle L u, u \rangle | \le 
+\sup_{\|u\| = 1} \|L u\| = \|L \|$.
+
+For the reverse inequality, we have 
+$\|L\|^2 = \sup_{\|u\| = 1} \|L u\|^2 = \sup_{\|u\| = 1} |\langle L u, L u \rangle |^2$ 
+\end{proof}
+
+\item Show that if $M = \sup_{\|u\| = 1} |\langle Lu, u \rangle|$, then $M \le \|L\| \le 2M$, whether or not $L$ is self-adjoint. Give an example that shows that this result is false in a real Hilbert space.
+
+\begin{proof}
+By Cauchy-Schwarz, we have $M = \sup_{\|u\| = 1} | \langle L u, u \rangle | \le 
+\sup_{\|u\| = 1} \|L u\| = \|L \|$.
+
+For the other inequality, we have 
+
+
+
+\end{proof}
+
 \end{enumerate}
+
+\p 3 Let $K \in \mC(\mH)$ be self adjoint. Show that the only possible limit point of the set of eigenvalues of $K$ is 0.
+
+\p 4 Let $K \in \mC(\mH)$ be self adjoint. Suppose the range of $K$ contains a dense subset of $\mH$, and that an o.n. basis has been chosen for the igenspace of each nonzero eigenvalue of $K$. Show that the set of all these eigenvectors form a complete orthonormal set.
 
 \p 5 Let $\mH = L^2[0,1]$. Consider the boundary value problem
 $$Lu := \frac d {dx} \left( (1 + x) \frac {du} {dx} \right) = f(x),
@@ -79,7 +114,9 @@ It is clearly positive. Moreover, if $\|T\|_{op} = 0$, then $\|Tu\| = 0$ for all
 
 For the homogeneity, we have $\|cT\|_{op} = \sup_{\|u\| = 1} |c|\|Tu\| = |c| \|T\|_{op}$ for all $c \in \R$ and $T \in \mH$.
 
-For the triangle inequality,
+For the triangle inequality, we have 
+$\|S + T \|_{op} = \sup_{\|u\|=1} \|Su + Tu\| \le \sup_{\|u\|=1} \|Su \| + \|Tu\| 
+\le \sup_{\|u\|=1} \|Su \| + \sup_{\|v\| = 1} \|Tv\|  = \|S\| + \|T\|_{op}$.
 \end{proof}
 
 \item Consider the operator $L = I - \lambda M$, with $M \in \mB(\mH)$. Show that if $|\lambda| < \|M \|_{op}^{-1}$, then 
