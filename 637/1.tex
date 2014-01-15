@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 637\\ 
+\noindent Instructor: Zoran Sunik
+
+\subsection*{HW 1}
+\p{1}  Show that every faithful and transitive action of a group $G$ on a set $X$, where $G$ is abelian, is free (and therefore equivalent to a regular one).
+\begin{proof}
+From the representation of transitive actions theorem, WLOG $X = G/H$ for some subgroup $H \le G$, and the action of $G$ on $X$ is by left multiplication.
+Since $G$ is abelian, the stabilizer of any element of $X$ is $H$. Since the action is transitive, $H$ must be trivial. Thus the action is free.
+\end{proof}
+
+\p{2} Consider the following three subspaces of $\R^2$ with metric that is inherited from the Euclidean metric
+$$
+R = \{ (x,0) | x \in \R \}
+\\
+L = \{ (x,0) | x \in \R, x \ge 0\} \cup \{(0,y) | y \in \R, y \ge 0 \}
+\\
+H = \{ (x, 0) | x \in \R, x > 0 \}.
+$$
+Which of these spaces are quasi-isometric?
+\begin{proof}
+$R$ and $L$ are quasi-isometric to each other, but $H$ is not quasi-isometric to the others.
+Let $\phi: L \to R$ be defined by sending $(x,0)$ to itself and sending $(0,y)$ to $(-y,0)$.
+
+Suppose $p,q \in L$.  Then $d(p,q) = d(\phi(p), \phi(q))$ unless $p,q$ are on different sides of the corner.
+In this case, WLOG assume $p = (x,0)$ and $q = (0,y)$ for $x,y \ge 0$.  Then $d(p,q) = (x^2 + y^2)^{1/2} \le x + y = d(\phi(p), \phi(q)$.
+On the other hand, $d(\phi(p), \phi(q)) = x + y = (x^2 + 2xy + y^2)^{1/2} \le (x^2 + 2(x^2 + y^2) + y^2)^{1/2} =  \sqrt{3} (x^2 + y^2)^{1/2} = \sqrt(3) d(x,y)$.
+Hence, $L$ and $R$ are quasi-isometric.
+
+Suppose $\phi: H \to R$ is a quasi-isometry. Then $C^{-1} d(p,q) - K \le d(\phi(p), \phi(q)) \le C d(p,q) + K$ for all $p,q \in H$ for some $C \ge 1$ and $K \ge 0$.
+\end{proof}
+\end{document}
