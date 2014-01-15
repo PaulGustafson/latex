@@ -19,15 +19,18 @@ $$
 Hint: Vitali's Lemma.
 
 \begin{proof}
-For $x \in A$, pick a sequence $(h_{x,n})$ with $\lim_{n \to \infty} h_{x,n} \to 0$ and
+To avoid worrying about endpoints, extend $f$ to be constant on $(-\infty, 0]$ and $[1, \infty)$. This does not change $A$.
+
+For each $x \in A$, pick a sequence $(h_{x,n})$ with $\lim_{n \to \infty} h_{x,n} \to 0$ and
 $$
-\lim_{n \to \infty} \frac { f(x + h_{x,n}) - f(x - h_{x,n})}{2 h_{x,n}} > 1.
+\lim_{n \to \infty} \frac { f(x + h_{x,n}) - f(x - h_{x,n})}{2 h_{x,n}} > 1,
 $$
+for all $n$.
 
 Then $\mB = \{B(h_{x,n}, x) : x \in A\}$ forms a Vitali cover for $A$.  Let $\epsilon > 0$. 
 We can pick a finite set $\mF \subset \mB$ of disjoint balls with $m(\bigcup \mF) > m^*(A) - \epsilon$.
-
-
+Let $(a_i,b_i)_{i=1}^n$ be an enumeration of $\mF$ with $a_1 < b_1 < a_2 < \ldots < b_n$.  Then
+$f(1) - f(0) \ge \sum_{i=1}^n f(b_i) - f(a_i) \ge b_i - a_i > m^*(A) - \epsilon$.  Letting $\epsilon \to 0$, we have $f(1) - f(0) \ge m^*(A)$.
 \end{proof}
 
 
@@ -37,13 +40,46 @@ m(\{D^+f(x) \neq D^-f(x)\}) = 0.
 $$
 where $D^+(f)$ is the upper derivative from the right, and $D^-(f)$ is the lower derivative from the right.
 
+\begin{proof}
+Acknowledgement: I looked at http://www.math.ucla.edu/$\sim$ralston/245a.1.08f/Vitali.pdf for hints.
 
+It suffices to show that $E_{p,q} = \{x \in [a,b] : D^-f(x) < p < q < D^+f(x)\}$ has measure $0$ for every $p,q \in \Q$ with $p < q$. 
+
+Let $\epsilon > 0$. Pick an open set $U \supset E_{p,q}$ with $m(U) < m^*(E_{p,q}) + \epsilon$.
+
+If $x \in E_{p,q}$, then there exist arbitrarily small $h$ for which $\frac{f(x+h) - f(x)}{h} < p$.  
+Thus intervals of the form $[x, x+h) \subset U$ with this property form a Vitali cover for $E_{p,q}$. 
+By the Vitali lemma, we can pick
+a disjoint finite subset of these intervals $([x_k, x_k + h_k))_{k=1}^n$ such that $\sum_k h_k > m^*(E_{p,q}) - \epsilon$.
+
+Similarly for $y \in E_{p,q} \cap \bigcup_k [x_k, x_k + h_k)$ there exist arbitrarily small $l$ for which $\frac{f(y+l) - f(y)}{l} > q$.  Thus,
+sets of the form $[y, y+l)$ with this property form a Vitali cover for $E_{p,q} \cap \bigcup_k [x_k, x_k + h_k)$.  
+Moreover, by throwing sets out of the cover, we can assume that each interval $[y, y+l)$ lies within an interval $[x_k, x_k + h_k)$.
+By the Vitali Lemma, we get a disjoint finite subset of these intervals $([y_j, y_j + l_k))_{j=1}^m$ with 
+\begin{align*}
+\sum_k l_k & > m^*(E_{p,q} \cap \bigcup_k [x_k, x_k + h_k)) - \epsilon 
+\\ & = m(\bigcup_k [x_k, x_k + h_k)) - m^*(E_{p,q}^c \cap \bigcup_k [x_k, x_k + h_k)) - \epsilon 
+\\ & > (m^*(E_{p,q}) - \epsilon) - m^*(E_{p,q}^c \cap U) - \epsilon
+\\ & > m^*(E_{p,q}) - 3 \epsilon
+\end{align*}
+
+Then we have
+\begin{align*}
+q(m^*(E_{p,q}) - 3 \epsilon)  &   = q \sum_k l_k
+\\ & < \sum_j f(y_j + l_j) - f(x_j) 
+\\ & \le \sum_k f(x_k + h_k) - f(x_k)
+\\ & < p \sum_k h_k 
+\\ & < p (m^*(E_{p,q}) - \epsilon).
+\end{align*}
+Letting $\epsilon \to 0$, we have $0 \le (p-q) m^*(E_{p,q})$, so  $m^*(E_{p,q}) = 0$.
+\end{proof}
 
 \p 3 Assume that $f: [a,b] \to \R$ is continuous and that $D^+f(x) > 0$, for all $x \in [a,b]$.
 Show that $f$ is nondecreasing on $[a,b]$.
 
 \begin{proof}
-
+Suppose $f$ is not nondecreasing.  Then there exist $a \le c < d \le b$ with $f(c) > f(d)$. By the extreme value theorem, $f$ achieves a maximum $M$ on $[c,d]$. 
+Let $u = \sup\{x \in [c,d] : f(x) = M\}$.  Since $f$ is continuous, $f(u) = M$. Since $M \ge f(c) > f(d)$, we have $u < d$. Moreover, $f(x) < M$ for all $x \in [u,d]$.  Thus $D^+f(u) \le 0$, a contradiction.
 \end{proof}
 
 
@@ -54,7 +90,22 @@ Show that $f$ is nondecreasing on $[a,b]$.
 \item $f(x) = x^2 \sin(1/x), \quad x \neq 0, f(0) = 0.$
 \end{enumerate}
 
+\begin{proof}
+For (a), we have 
+\begin{align*}
+T_{-1}^1(f) & \ge \sum_{n = 1}^N  |f((n \pi)^{-1/2} - f((n \pi + \pi/2)^{-1/2})|
+\\ & = \sum_{n = 1}^N  |(n \pi + \pi/2)^{-1})|
+\\ \to \infty
+\end{align*}
+as $N \to \infty$, so $f$ is not of bounded variation.
 
+For (b), if $(x_n)_{n=0}^N$ is a partition of $[-1,1]$
+\begin{align*}
+\sum_{n = 1}^N  |f(x_n) - f(x_{n-1})| & \le C + 2 \sum_{n = 1}^\infty | f((n\pi - \pi/2)^{-1}) - f((n\pi + \pi/2)^{-1})|
+\\ & = C + 2 \sum_{n = 1}^\infty (n\pi - \pi/2)^{-2} + (n\pi + \pi/2)^{-2},
+\end{align*}
+which converges.  Hence $f$ is of bounded variation.
+\end{proof}
 
 
 \p 5 Let $f$ be of bounded variation on $[a,b]$, then 
@@ -66,19 +117,25 @@ $$
 We have
 \begin{align*}
 \int_a^b |f'(t)| dt  & = \int_a^b |\frac 1 2 (T_a^t(f) + f)' -  \frac 1 2 (T_a^t(f) - f)'| dt 
-& \le \frac 1 2 \int_a^b |(T_a^t(f) + f)'| +  |(T_a^t(f) - f)'| dt 
-& = \frac 1 2 \int_a^b (T_a^t(f) + f)' +  (T_a^t(f) - f)' dt 
-& = \int_a^b (T_a^t(f))' dt 
-& = T_a^b(f) dt 
+\\ & \le \frac 1 2 \int_a^b |(T_a^t(f) + f)'| +  |(T_a^t(f) - f)'| dt 
+\\ & = \frac 1 2 \int_a^b (T_a^t(f) + f)' +  (T_a^t(f) - f)' dt 
+\\ & = \int_a^b (T_a^t(f))' dt 
+\\ & \le T_a^b(f),
 \end{align*}
+where the last inequality follows from decomposing the function $t \mapsto T_a^t(f)$ into its absolutely continuous and singular parts.
 \end{proof}
 
  
 \p 6 Construct an increasing function on $\R$ whose discontinuities are $\Q$.
 
 \begin{proof}
-Let $\delta_x$ denote the Dirac measure at $x$. Let $(q_n)$ be an enumeration of $\Q$.  Let $\mu = \sum_n 2^{-n} \delta_{q_n}$. Let 
-$f(x) = \nu((-\infty, x))$.
+Let $\delta_x$ denote the Dirac measure at $x$. Let $(q_n)$ be an enumeration of $\Q$.  Let $\nu = \sum_{n=1}^\infty 2^{-n} \delta_{q_n}$. Let 
+$f(x) = \nu((-\infty, x))$. Then $f$ is increasing and has discontinuities at every rational point. 
+
+ If $x$ is irrational and $\epsilon > 0$, pick $N$ such that $2^{-N} < \epsilon$.  
+Pick $\delta > 0$ such that $d(x,q_n) > \delta$ for all $n \le N$.  
+
+Suppose $d(x,y) < \delta$.  WLOG suppose $x < y$. We have $|f(x) - f(y)| = \nu((x,y)) \le \sum_{n = N + 1}^\infty 2^{-n} = 2^{-N} < \epsilon$.
 \end{proof}
 
 
