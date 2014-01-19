@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 620\\ 
+\noindent Instructor: Frank Sottile
+
+\subsection*{HW 1}
+\p{1.6} Assume that $k$ is infinite. Determine the function rings $A_i$ $(i = 1,2,3)$ of the plane curves whose equations are $F_1 = Y - X^2$, $F_2 = XY -1 $, $F_3 = X^2 + Y^2 - 1$. Show that $A_1$ is isomorphic to $k[T]$, and that $A_2$ is isomorphic to $k[T, T^{-1}]$. Shwo that $A_1$ and $A_2$ are not isomorphic. What can we say about $A_3$ relative to the other two rings?
+\begin{proof}
+To see that $A_1 \simeq k[T]$, let $\phi: k[X,Y] \to k[T]$ be the $k$-algebra homomorphism defined by sending $X \mapsto T$ and $Y \mapsto T^2$.  Clearly, $Y - X^2$ is in the kernel of $\phi$.  Thus, $\phi$ induces a map $\phi^*: A_1 = k[X,Y]/(Y - X^2) \to k[T]$.  Note that the map $\beta: k[T] \to k[X,Y]/(Y - X^2)$ sending $T$ to $X$ is a left and right inverse of $\phi^*$.  Therefore, $\phi^*$ is an isomorphism.
+
+To see that $A_2 \simeq k[X,Y]$,
+
+
+
+\end{proof}
+
+\p{1.7} Let $f: k \to k^3$ be the map $t \mapsto (t, t^2, t^3)$ and let $C$ be the image of $F$. Show that $C$ is an affine algebraic set and calculate $I(C)$. Show that $\Gamma(C)$ is isomprhic to the ring of polynomials $k[T]$.
+\begin{proof}
+\end{proof}
+\end{document}

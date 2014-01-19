@@ -31,6 +31,8 @@ In this case, WLOG assume $p = (x,0)$ and $q = (0,y)$ for $x,y \ge 0$.  Then $d(
 On the other hand, $d(\phi(p), \phi(q)) = x + y = (x^2 + 2xy + y^2)^{1/2} \le (x^2 + 2(x^2 + y^2) + y^2)^{1/2} =  \sqrt{3} (x^2 + y^2)^{1/2} = \sqrt(3) d(x,y)$.
 Hence, $L$ and $R$ are quasi-isometric.
 
-Suppose $\phi: H \to R$ is a quasi-isometry. Then $C^{-1} d(p,q) - K \le d(\phi(p), \phi(q)) \le C d(p,q) + K$ for all $p,q \in H$ for some $C \ge 1$ and $K \ge 0$.
+To see that $R$ and $H$ are not quasi-isometric, it suffices to show that $\Z$ and $\N$ are not quasi-isometric. Suppose $\phi: \N \to \Z$ is a quasi-isometry. Then $C^{-1} d(p,q) - K \le d(\phi(p), \phi(q)) \le C d(p,q) + K$ for all $p,q \in \N$ for some $C \ge 1$ and $K \ge 0$.  In particular, we have $d(\phi(n), \phi(n+1)) \le C + K$ for all $n \in \N$. Since $\phi$ takes on infinitely many positive values and infinitely many negative values, it must take on infinitely many values in the interval $[0, C+K]$. Pick any $p \in \N$ with $\phi(p) \in [0, C+K]$.  Pick $q$ with $\phi(q) \in [0, C+K]$ so large that $C^{-1} d(p,q) - K > C+K  \ge d(\phi(p), \phi(q)$, a contradiction.
 \end{proof}
+
+
 \end{document}
