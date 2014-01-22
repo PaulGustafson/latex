@@ -7,11 +7,20 @@
 \noindent Instructor: Frank Sottile
 
 \subsection*{HW 1}
-\p{1.6} Assume that $k$ is infinite. Determine the function rings $A_i$ $(i = 1,2,3)$ of the plane curves whose equations are $F_1 = Y - X^2$, $F_2 = XY -1 $, $F_3 = X^2 + Y^2 - 1$. Show that $A_1$ is isomorphic to $k[T]$, and that $A_2$ is isomorphic to $k[T, T^{-1}]$. Shwo that $A_1$ and $A_2$ are not isomorphic. What can we say about $A_3$ relative to the other two rings?
+\p{1.6} Assume that $k$ is infinite. Determine the function rings $A_i$ $(i = 1,2,3)$ of the plane curves whose equations are $F_1 = Y - X^2$, $F_2 = XY -1 $, $F_3 = X^2 + Y^2 - 1$. Show that $A_1$ is isomorphic to $k[T]$, and that $A_2$ is isomorphic to $k[T, T^{-1}]$. Show that $A_1$ and $A_2$ are not isomorphic. What can we say about $A_3$ relative to the other two rings?
 \begin{proof}
-To see that $A_1 \simeq k[T]$, let $\phi: k[X,Y] \to k[T]$ be the $k$-algebra homomorphism defined by sending $X \mapsto T$ and $Y \mapsto T^2$.  Clearly, $Y - X^2$ is in the kernel of $\phi$.  Thus, $\phi$ induces a map $\phi^*: A_1 = k[X,Y]/(Y - X^2) \to k[T]$.  Note that the map $\beta: k[T] \to k[X,Y]/(Y - X^2)$ sending $T$ to $X$ is a left and right inverse of $\phi^*$.  Therefore, $\phi^*$ is an isomorphism.
+To see that $A_1 \simeq k[T]$, I will first show that $A_1 = k[X,Y]/(Y - X^2)$.  Let $f \in I(F_1)$. By dividing with respect to $Y$, we have $f = a(X,Y)(Y - X^2) + b(X)$.  Thus, by evaluating at $X = t, Y = t^2$ for any $t \in k$, we have $0 = f(a,a^2) = b(a)$.  Hence, since $k$ is infinite, $b(X) \equiv 0$.  Thus, $I(F_1) = \langle Y - X^2 \rangle$, so $A_1 \simeq k[X,Y]/(Y - X^2)$.
 
-To see that $A_2 \simeq k[X,Y]$,
+Let $\phi: k[X,Y] \to k[T]$ be the $k$-algebra homomorphism defined by sending $X \mapsto T$ and $Y \mapsto T^2$.  Clearly, $Y - X^2$ is in the kernel of $\phi$.  Thus, $\phi$ induces a map $\phi^*: A_1 = k[X,Y]/(Y - X^2) \to k[T]$.  Note that the map $\beta: k[T] \to k[X,Y]/(Y - X^2)$ sending $T$ to $X$ is a left and right inverse of $\phi^*$.  Therefore, $\phi^*$ is an isomorphism. Hence $A_1 \simeq k[T]$.
+
+To see that $A_2 = k[X,Y]/(XY - 1)$, suppose $f \in I(XY - 1)$.  Then $f = a(X,Y) (XY - 1) + b(X) + c(Y)$.  Evaluating at $(t, t^{-1})$ for $t \in k^\times$, we have $b(t) + c(t^{-1}) = 0$.  Clearing denominators and recalling that $k$ is infinite shows that $b(X) \equiv 0 \equiv c(Y)$.  Thus $I(F_2) = \langle XY - 1 \rangle$, so $A_2 = k[X,Y]/(XY - 1) = k[T, T^{-1}]$. 
+
+For the last part, first suppose $\char(k) = 2$.  Then $X^2 + Y^2 -1 = (X + Y + 1)^2$. Thus $F_3 = X + Y + 1$.  Let $f \in I(F_3)$.  Then $f = a(X,Y)(X + Y + 1) + b(X)$.  The same argument as before shows $b(X) \equiv 0$.  Thus, $A_3 = k[X,Y]/(X + Y + 1) \simeq k[T]$, where the last isomorphism in the same way as in the first part.
+
+Now suppose $\char(k) \neq 2$. I claim that $I(F_3) = \langle X^2 + Y^2 - 1 \rangle$.  Suppose $f \in I(F_3)$.  Then $f = a(X,Y)(X^2 + Y^2 + 1) + b(X) Y + c(X)$.
+
+
+
 \end{proof}
 
 \p{1.7} Let $f: k \to k^3$ be the map $t \mapsto (t, t^2, t^3)$ and let $C$ be the image of $F$. Show that $C$ is an affine algebraic set and calculate $I(C)$. Show that $\Gamma(C)$ is isomorphic to the ring of polynomials $k[T]$.
