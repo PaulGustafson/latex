@@ -9,23 +9,30 @@
 \subsection*{HW 1}
 \p{1.6} Assume that $k$ is infinite. Determine the function rings $A_i$ $(i = 1,2,3)$ of the plane curves whose equations are $F_1 = Y - X^2$, $F_2 = XY -1 $, $F_3 = X^2 + Y^2 - 1$. Show that $A_1$ is isomorphic to $k[T]$, and that $A_2$ is isomorphic to $k[T, T^{-1}]$. Show that $A_1$ and $A_2$ are not isomorphic. What can we say about $A_3$ relative to the other two rings?
 \begin{proof}
-To see that $A_1 \simeq k[T]$, I will first show that $A_1 = k[X,Y]/(Y - X^2)$.  Let $f \in I(F_1)$. By dividing with respect to $Y$, we have $f = a(X,Y)(Y - X^2) + b(X)$.  Thus, by evaluating at $X = t, Y = t^2$ for any $t \in k$, we have $0 = f(a,a^2) = b(a)$.  Hence, since $k$ is infinite, $b(X) \equiv 0$.  Thus, $I(F_1) = \langle Y - X^2 \rangle$, so $A_1 \simeq k[X,Y]/(Y - X^2)$.
+To see that $A_1 \simeq k[T]$, I will first show that $I(F_1) = \langle Y - X^2 \rangle$. Clearly, $Y - X^2 \in I(F_1)$. For the reverse inclusion, let $f \in I(F_1)$. By dividing with respect to $Y$, we have $f = a(X,Y)(Y - X^2) + b(X)$.  Thus $0 = f(t,t^2) = b(t)$ for any $t \in k$.  Hence, since $k$ is infinite, $b(X) \equiv 0$.  Thus $I(F_1) = \langle Y - X^2 \rangle$, so $A_1 \simeq k[X,Y]/(Y - X^2)$.
 
 Let $\phi: k[X,Y] \to k[T]$ be the $k$-algebra homomorphism defined by sending $X \mapsto T$ and $Y \mapsto T^2$.  Clearly, $Y - X^2$ is in the kernel of $\phi$.  Thus, $\phi$ induces a map $\phi^*: A_1 = k[X,Y]/(Y - X^2) \to k[T]$.  Note that the map $\beta: k[T] \to k[X,Y]/(Y - X^2)$ sending $T$ to $X$ is a left and right inverse of $\phi^*$.  Therefore, $\phi^*$ is an isomorphism. Hence $A_1 \simeq k[T]$.
 
 To see that $A_2 = k[X,Y]/(XY - 1)$, suppose $f \in I(XY - 1)$.  Then $f = a(X,Y) (XY - 1) + b(X) + c(Y)$.  Evaluating at $(t, t^{-1})$ for $t \in k^\times$, we have $b(t) + c(t^{-1}) = 0$.  Clearing denominators and recalling that $k$ is infinite shows that $b(X) \equiv 0 \equiv c(Y)$.  Thus $I(F_2) = \langle XY - 1 \rangle$, so $A_2 = k[X,Y]/(XY - 1) = k[T, T^{-1}]$. 
 
-For the last part, first suppose $\char(k) = 2$.  Then $X^2 + Y^2 -1 = (X + Y + 1)^2$. Thus $F_3 = X + Y + 1$.  Let $f \in I(F_3)$.  Then $f = a(X,Y)(X + Y + 1) + b(X)$.  The same argument as before shows $b(X) \equiv 0$.  Thus, $A_3 = k[X,Y]/(X + Y + 1) \simeq k[T]$, where the last isomorphism in the same way as in the first part.
+For the last part, first suppose $\mathrm{char}(k) = 2$.  Then $X^2 + Y^2 -1 = (X + Y + 1)^2$. Thus $F_3 = X + Y + 1$.  Let $f \in I(F_3)$.  Then $f = a(X,Y)(X + Y + 1) + b(X)$.  The same argument as before shows $b(X) \equiv 0$.  Thus, $A_3 = k[X,Y]/(X + Y + 1) \simeq k[T]$, where the last isomorphism is shown in the same way as in the first part.
 
-Now suppose $\char(k) \neq 2$. I claim that $I(F_3) = \langle X^2 + Y^2 - 1 \rangle$.  Suppose $f \in I(F_3)$.  Then $f = a(X,Y)(X^2 + Y^2 + 1) + b(X) Y + c(X)$.
+Now suppose $\mathrm{char}(k) \neq 2$. I claim that $I(F_3) = \langle X^2 + Y^2 - 1 \rangle$.  Suppose $f \in I(F_3)$.  Then $f = a(X,Y)(X^2 + Y^2 + 1) + b(X) Y + c(X)$.  Then we have $0 = f(\frac{t^2 - 1}{t^2 + 1}, \frac{2t}{t^2 + 1}) = b(\frac{t^2 - 1}{t^2 + 1}) \frac{2t}{t^2+1} + c(\frac{t^2 - 1}{t^2 + 1})$ for all $t \in k$. Clearing denominators, the right hand side must be identically 0 since $k$ is infinite.  Moreover, since the first term has only coefficients of odd degree and the second only has coefficients of even degree and $2 \neq 0$, we have $b(X) = c(X) \equiv 0$. Thus, $I(F_3) = \langle X^2 + Y^2 - 1 \rangle$, so $A_3 = k[X,Y]/(X^2 + Y^2 + 1)$.
 
+Further suppose there exists $i \in k$ with $i^2 = -1$.  Define a $k$-algebra map $\phi: k[X,Y] \to k[T, T^{-1}]$ by 
+$(X,Y) \mapsto ((T + T^{-1})/2, (T-T^{-1})/(2i))$. Since $X^2 + Y^2 -1 \in \ker(\phi)$, this induces a map $\phi^*: k[X,Y]/(X^2 + Y^2 - 1) \to k[T, T^{-1}]$.  To construct an inverse, define $\psi: k[T,U] \to k[X,Y]/(X^2 + Y^2 - 1)$ by $(T,U) \mapsto (X + iY, X - iY)$. The kernel of $\psi$ contains $TU - 1$, so we get a map  $\psi^*: k[T, T^{-1}] \to k[X,Y]$.  It is easy to see that $\psi^*$ is a left and right inverse of $\phi^*$, so $A_3 \simeq k[T,T^{-1}]$.
 
+Now suppose that $k$ does not contain a square root of $-1$. I claim that $A_3$ is not isomorphic to $A_1$ or $A_2$.  Suppose $\phi:A_3 \to k[T]$ is an isomorphism. Then $\phi(X)^2 + \phi(Y)^2 = 1$.  Since $\phi$ fixes $k$, $\deg(\phi(X)) > 0$ and $\deg(\phi(Y)) > 0$.  Moreover, in order for the nonconstant terms of $\phi(X)^2 + \phi(Y)^2$ to disappear, at the very least $\deg(\phi(X)) = \deg(\phi(Y))$.  Then the highest degree cofficients of $X$ and $Y$ (call them $a$ and $b$) must satisfy $a^2 + b^2 = 0$. This equivalent to $\left(\frac a b\right)^2 = -1$, a contradiction.  
 
+The proof that $A_3$ is not isomorphic to $A_2$ is similar, except one also does the same for the term of lowest degree as well as the terms of highest degree.
 \end{proof}
 
 \p{1.7} Let $f: k \to k^3$ be the map $t \mapsto (t, t^2, t^3)$ and let $C$ be the image of $F$. Show that $C$ is an affine algebraic set and calculate $I(C)$. Show that $\Gamma(C)$ is isomorphic to the ring of polynomials $k[T]$.
 \begin{proof}
-To see that $C$ is an affine algebraic set, note that it is a parametrization of the variety of $\langle X^3 - Z, X^2 - Y \rangle$.
-By dividing by $Y$ and $Z$, we have $I(C) \simeq k[X,Y,Z] / \langle X^3 - Z, X^2 - Y \rangle)$.  The map $k[T] \to k[X,Y,Z] / \langle X^3 - Z, X^2 - Y \rangle)$ defined by $T \mapsto X$ is an isomorphism.
+To see that $C$ is an affine algebraic set, note that $C = V(X^3 - Z, X^2 - Y)$. Suppose $f \in I(C)$.  By dividing by $Y$ and $Z$, we have $f = a(X,Y,Z)(X^3 - Z) + b(X,Y,Z)(X^2 - Y) + c(X)$.  
+
+If $k$ is infinite, $c(X) \equiv 0$ by the same argument as in the preceding problem. Thus $I(C) =  \langle X^3 - Z, X^2 - Y \rangle$.  Moreover, it is easy to check that the map $k[T] \to k[X,Y,Z] / \langle X^3 - Z, X^2 - Y \rangle = \Gamma(C)$ defined by $T \mapsto X$ is an isomorphism (by constructing the inverse).
+
+If $k = \FF_q$, then $c(X)$ is a multiple of $X^q - X$. Hence, $I(C) =  \langle X^3 - Z, X^2 - Y, X^q - X \rangle$. Suppose $\phi:\Gamma(C) \to k[T]$ where a $k$-algebra isomorphishm.  Then $\phi(X)^q - \phi(X) = 0$. Since $\phi$ fixes $k$, the degree of $\phi(X)$ must be greater than 0. This leads to a contradiction since the highest term of $\phi(X)^q - \phi(X)$ is simply the $q$-th power of the highest term of $\phi(X)$.
 \end{proof}
 \end{document}
