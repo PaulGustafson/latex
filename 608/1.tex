@@ -11,11 +11,11 @@
 \begin{proof}
 Define $$\|x\| = \inf \{ c: c > 0, x \in cK \}.$$
 
-Since $K$ contains some small $B$ and $-B$, by convexity it must contain a small ball around $0$.  Thus, $0 \le \|x\| \le \infty$ for all $x$.
+Since $K$ contains some small ball $B$ and $-B$, by convexity it must contain a small ball around $0$.  Thus, $0 \le \|x\| \le \infty$ for all $x$.
 
 We have $\|0\| =  0$ since $0 \in cK$ for all $c$.  If $x \neq 0$, we have $\|x\| \neq 0$ since $K$ is bounded.
 
-Let $B$ denote the closed unit ball with respect to $\| \cdot \|$. Clearly $K \subset B$. Now suppose $x \in B \setminus K$.  There exists a sequence $(c_n) \to \|x\|$ with $x \in c_nK$. Then $c_n^{-1} x \to x$
+Let $B$ denote the closed unit ball with respect to $\| \cdot \|$. Clearly $K \subset B$. Now suppose $x \in B \setminus K$.  Note that $cK \subset K$ for $0 \le c \le K$ by convexity since $0 \in K$. Hence, $\|x\| \ge 1$, so $\|x\| = 1$ since $x \in B$.  By the definition of $\|\cdot\|$, there exists a sequence $(c_n) \to 1$ with $x \in c_nK$. Then $c_n^{-1} x \to x$ with $c_n^{-1} x \in K$.  But $K$ is closed, so $x \in K$, a contradiction.
 
 % \|\lambda x \| = | \lambda | \|x\|
 To see that $\| \cdot \|$ is homogeneous, first note that if $\lambda = 0$, then $\|\lambda x\| = 0 = |\lamdba| \|x\|$.  If $\lambda \neq 0$, we have $\lambda x \in cK$ iff $|\lambda|x \in cK$ iff $x \in \frac {c}{|\lambda|} K$. Hence $\|\lambda x\| = \inf \{ c: c > 0, x \in \frac{c}{|\lambda|}K \} = 
@@ -26,7 +26,7 @@ For the triangle inequality, it suffices to consider the case where $\|x\| + \|y
 $x + y = \|x\| (x / \|x\|)  + \|y \| (y / \|y\|) \in K$ since the RHS is a convex combination of elements of $K$.  Thus $\|x + y\| \le 1 = \|x\| + \|y\|$.
 \end{proof}
 
-\p{2} Let $X$ be a normed space and let $f: X \to \R$ be a linear functional. Show that the following are equivalent:
+\p{2} Let $X$ be a normed space and let $f: X \to \R$ be a nonzero linear functional. Show that the following are equivalent:
 \begin{enumerate}
 \item $f$ is not bounded
 \item For every $x \in X$ and for every $r > 0$, $f(B(x,r)) = \R$.
@@ -35,11 +35,11 @@ $x + y = \|x\| (x / \|x\|)  + \|y \| (y / \|y\|) \in K$ since the RHS is a conve
 Conclude the following: For every linear functional $f$ either $\ker(f)$ is closed or $ker(f)$ is dense.
 
 \begin{proof}
-(i) $\implies$ (ii): Suppose $f$ is not bounded. Then there exists a sequence $(x_n) \subset B_X$ with $|f(x_n)| \to \infty$.  Let $u \in \R$.  Pick $x_n$ such that $|f(x_n)| > |u|$.  Then $\left| \frac {u}{f(x_n)} \right| \in B_X$
+(i) $\implies$ (ii): Suppose $f$ is not bounded. Then there exists a sequence $(x_n) \subset B_X$ with $|f(x_n)| \to \infty$.  Let $u \in \R$.  Pick $x_n$ such that $|f(x_n)| > |u - f(x)|/r$.  Then $y := (\frac{u - f(x)}{f(x_n)} x_n + x) \in B(x,r)$, and $f(y) = u$.
 
-(ii) $\implies$ (iii): 
+(ii) $\implies$ (iii):  $0$ is in the preimage of every ball.
 
-(iii) $\implies$ (i): 
+(iii) $\implies$ (i): Suppose $f$ were bounded with $|f(x)| \le M \|x\|$ for all $x \in X$.  Pick $x_0 \in X$ such that $f(x) \neq 0$. By multiplying $x_0$ by a scalar, WLOG $f(x_0) > M$.  By (iii), pick $y \in B(x_0, 1)$ such that $f(y) = 0$.  Then $f(x_0 - y) > M \ge M \|x_0 - y\|$, a contradiction.
 \end{proof}
 
 
@@ -51,11 +51,70 @@ Conclude the following: For every linear functional $f$ either $\ker(f)$ is clos
 \item $X$ has finite dimension
 \end{enumerate}
 
+\begin{proof}
+(i) $\implies$ (ii):  Suppose $Y \le X$ is not closed.
+
+(ii) $\implies$ (iii): 
+
+(iii) $\implies$ (iv): 
+
+(iii) $\implies$ (i): 
+
+
+\end{proof}
+
 \p 4 Let $(X, \| \cdot \|)$ be a normed space with $\dim(X) = \infty$. Show that
 \begin{enumerate}
 \item There exists an unbounded injective linear operator from $X$ onto $X$.
 \item There exists a norm $\| \cdot \|_1$ in $X$ such that $\|\cdot \|_1$ is not equivalent to $\| \cdot \|$ but the spaces $(X, \| \cdot \|_1)$ and $(X, \| \cdot \|)$ are isometric.
 \end{enumerate}
+\begin{proof}
+Pick a sequence $(x_n) \subset X$ of linearly independent vectors. Let $V = \spn{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\end{proof}
+
+
 
 \p 5 Let $X, Y$ be normed spaces and $T; X \to Y$ be a linear operator. Show that 
 \begin{enumerate}
@@ -63,5 +122,8 @@ Conclude the following: For every linear functional $f$ either $\ker(f)$ is clos
 \item If for every absolutely convergent series we have $\sum_n Tx_n$ converges, then $T$ is bounded.
 \end{enumerate}
 
+\begin{proof}
 
+
+\end{proof}
 \end{document}
