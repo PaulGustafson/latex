@@ -1,3 +1,4 @@
+
 \documentclass{article}
 \usepackage{../m}
 
@@ -52,15 +53,13 @@ Conclude the following: For every linear functional $f$ either $\ker(f)$ is clos
 \end{enumerate}
 
 \begin{proof}
-(i) $\implies$ (ii):  Suppose $Y \le X$ is not closed.
+(i) $\implies$ (ii):  Suppose $Y \le X$ is not closed. Pick $(x_n) \subset Y$ with $x_n \to x$ and $x \not\in Y$. Let $V = \spn{x}$. Then $X = V \oplus Z$ for some $Z \le V$.  Define a linear functional $\phi: X \to k$ by $\phi(\lambda x_n + z) = \lambda$ for $\lambda \in k$, $z \in Z$.   Then $\phi(x_n) = 0 \neq \phi(x_n)$, so $\phi$ is not continuous.
 
-(ii) $\implies$ (iii): 
+(ii) $\implies$ (iii): Let $(x_n) \subset X$ be Cauchy.  %TODO
 
-(iii) $\implies$ (iv): 
+(iii) $\implies$ (iv):  Suppose $X$ is infinite dimensional. By repeatedly applying Riesz's lemma, we can pick a sequence $x_n \subset S_X$ with $\|x_n - x_m\| > 1/2$ for all $n \neq m$  (the space $\spn(x_1, \ldots, x_k)$ is closed by $(iv) \implies (i) \implies (ii)$). Thus, $B_X$ is not totally bounded, hence not compact.
 
-(iii) $\implies$ (i): 
-
-
+(iv) $\implies$ (i): Let $\phi: X \to k$ be a linear functional, and $(e_i)_{i=1}^n$ be a basis for $X$.  If $x = \sum_i a_i e_i$, then $\phi(x) \le \max_i |\phi(e_i)| \sum_i |a_i| \le C \max_i |\phi(e_i)|  \|x\|$, where the last inequality is from the equivalence of the $l_1$ norm to $\| \cdot \|$ since $X$ is finite dimensional.
 \end{proof}
 
 \p 4 Let $(X, \| \cdot \|)$ be a normed space with $\dim(X) = \infty$. Show that
@@ -69,49 +68,9 @@ Conclude the following: For every linear functional $f$ either $\ker(f)$ is clos
 \item There exists a norm $\| \cdot \|_1$ in $X$ such that $\|\cdot \|_1$ is not equivalent to $\| \cdot \|$ but the spaces $(X, \| \cdot \|_1)$ and $(X, \| \cdot \|)$ are isometric.
 \end{enumerate}
 \begin{proof}
-Pick a sequence $(x_n) \subset X$ of linearly independent vectors. Let $V = \spn{
+(i) Let $(x_n)_{n=1}^\infty$ be a Hamel basis for $X$. Let $T: X \to X$ be the linear transformation induced by $x_n \maps n x_n$ for all $n$.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+(ii) %TODO 
 \end{proof}
 
 
@@ -119,10 +78,14 @@ Pick a sequence $(x_n) \subset X$ of linearly independent vectors. Let $V = \spn
 \p 5 Let $X, Y$ be normed spaces and $T; X \to Y$ be a linear operator. Show that 
 \begin{enumerate}
 \item If for every sequence $(x_n) \subset X$ with $x_n \to 0$ the sequence $(Tx_n) \subset Y$ is bounded, then $T$ is a bounded operator.
-\item If for every absolutely convergent series we have $\sum_n Tx_n$ converges, then $T$ is bounded.
+\item If for every absolutely convergent series $x_n$ we have $\sum_n Tx_n$ converges, then $T$ is bounded.
 \end{enumerate}
 
 \begin{proof}
+(i) Suppose $T$ is not bounded.  Then there exists a sequence $(x_n) \subset S_X$ with $\|Tx_n\| \to \infty$.  Then $y_n := x_n \|Tx_n\|^{-1/2} \to 0$ but
+$Ty_n = Tx_n^{1/2} \to \infty$, a contradiction.
+
+(ii) Suppose $T$ is not bounded.  Then there exists a sequence $(x_n) \subset S_X$ with $\|Tx_n\| \to \infty$.  
 
 
 \end{proof}
