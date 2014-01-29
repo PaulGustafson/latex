@@ -33,7 +33,9 @@ $x + y = \|x\| (x / \|x\|)  + \|y \| (y / \|y\|) \in K$ since the RHS is a conve
 \item For every $x \in X$ and for every $r > 0$, $f(B(x,r)) = \R$.
 \item $\ker(f)$ is a dense subspace of $X$.
 \end{enumerate}
-Conclude the following: For every linear functional $f$ either $\ker(f)$ is closed or $ker(f)$ is dense.
+Conclude the following: For every linear functional $f$ either $\ker(f)$ is closed or $ker(f)$ is dense. 
+
+%TODO
 
 \begin{proof}
 (i) $\implies$ (ii): Suppose $f$ is not bounded. Then there exists a sequence $(x_n) \subset B_X$ with $|f(x_n)| \to \infty$.  Let $u \in \R$.  Pick $x_n$ such that $|f(x_n)| > |u - f(x)|/r$.  Then $y := (\frac{u - f(x)}{f(x_n)} x_n + x) \in B(x,r)$, and $f(y) = u$.
@@ -54,6 +56,8 @@ Conclude the following: For every linear functional $f$ either $\ker(f)$ is clos
 
 \begin{proof}
 (i) $\implies$ (ii):  Suppose $Y \le X$ is not closed. Pick $(x_n) \subset Y$ with $x_n \to x$ and $x \not\in Y$. Let $V = \spn{x}$. Then $X = V \oplus Z$ for some $Z \le V$.  Define a linear functional $\phi: X \to k$ by $\phi(\lambda x_n + z) = \lambda$ for $\lambda \in k$, $z \in Z$.   Then $\phi(x_n) = 0 \neq \phi(x_n)$, so $\phi$ is not continuous.
+
+(ii) $\implies$ (i): Suppose there exists an unbounded linear functional $f: X \to k$. Then $\ker(f)$ is not closed by Exercise 2, a contradiction.
 
 (ii) $\implies$ (iii): Let $(x_n) \subset X$ be Cauchy.  %TODO
 
