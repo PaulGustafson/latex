@@ -8,7 +8,39 @@
 
 %p34 1,2
 \subsection*{HW 2}
-\p{1}
+\nc{\P}{\mathbb{P}}
+
+\p{1} Let $E$ be a $k$-vector space of dimension $n + 1$ and let $\P(E)$ be the associated projective space. If $u \in GL(E)$, $u$ induces a bijection $\overline{u}$ from $\P(E)$ to itself which we call a homography.
+\begin{enumerate}[a)]
+\item What can we say about $u$ when $\overline u = \mathrm{Id}$?
+\item Show that the image of a projective subspace of dimension $d$ under a homography is again a projective subspace of dimension $d$.
+\item Conversely, show that if $V$ and $W$ are two projective subspaces of dimension $d$, then there is a homography $\overline u$ such that $\overline u (V) = W$.
+\item Assume $E = k^2$ and 
+$$ u = \begin{pmatrix}
+a & b \\
+c & d 
+\end{pmatrix}
+$$
+such that $ad - bc \neq 0$.  Take that point $(1,0)$ in $\P^1(k) = \P(E)$ to be the point at infinity, so points $x$ in $k$ can be identified with points $(x,1)$ in $\P^1(k) - \{\infty\}$. Determine $\overline u$ explicitly and explain the origins of the word homography.
+\end{enumerate}
+
 \begin{proof}
+If $\overline u = \mathrm{Id}$, then $u = r \mathrm{Id}$ for some $r \in k^\times$.
+
+Suppose $V, W \le E$ with $\dim(V) = d$ and $u(V) = W$.  
+
+
+
 \end{proof}
+
+
+\p{2} Using the same notation as in 1, we denote the canonical projection from $E - \{0\}$ to $\P(E)$ by $p$. A marking of $\P(E)$ consists of $n + 2$ points $x_0, \ldots, x_{n+1}$ of $\P(E)$ such that there is a basis $e_1, \ldots, e_{n+1}$ of $E$ such that $p(e_i) = x_i$ for all $i$ and $p(e_1 + \ldots + e_{n+1} = x_0$.
+
+\begin{enumerate}[a)]
+\item Assume $n = 1$. Prove that a marking of $\P(E0$ (i.e., the projective line) is exactly the data of three distinct points. (For example, in $\P^1(k)$ we can take $0 = (0,1),$ $\infty = (1,0)$, and $1 = (1,1)$.)
+
+\item Prove that $n + 2$ points $x_0, \ldots, x_{n+1} \in \P(E)$ form a marking if and only if no $n+1$ of them are contained in a hyperplane.
+
+\item Prove that if $x_0, \ldots, x_{n+1}$ and $y_0, \ldots, y_{n+1}$ are two markings of $\P(E)$, then there is a unique homography which sends each $x_i$ to $y_i$. Study the case $n = 1$ in detail.
+
 \end{document}
