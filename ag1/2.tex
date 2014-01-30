@@ -9,6 +9,7 @@
 %p34 1,2
 \subsection*{HW 2}
 \nc{\P}{\mathbb{P}}
+\DeclareMathOperator}{\Id}{Id}
 
 \p{1} Let $E$ be a $k$-vector space of dimension $n + 1$ and let $\P(E)$ be the associated projective space. If $u \in GL(E)$, $u$ induces a bijection $\overline{u}$ from $\P(E)$ to itself which we call a homography.
 \begin{enumerate}[a)]
@@ -25,22 +26,37 @@ such that $ad - bc \neq 0$.  Take that point $(1,0)$ in $\P^1(k) = \P(E)$ to be 
 \end{enumerate}
 
 \begin{proof}
-If $\overline u = \mathrm{Id}$, then $u = r \mathrm{Id}$ for some $r \in k^\times$.
+For (a), suppose $\overline u = \Id$. Let $(e_i)_{i=1}^k$ be a basis for $E$.  Then $u e_i = \lambda_i e_i$ for some $\lambda_i \in k^\times$ for all $i$. If $\lambda_i \neq \lambda_j$, then $u(e_i + e_j)$ is not a multiple of $e_i + e_j$, a contradiction.  Thus we have $u = \lambda \Id$ for some $\lambda \in k^\times$.  This condition is obviously sufficient as well.
 
-Suppose $V, W \le E$ with $\dim(V) = d$ and $u(V) = W$.  
+For (b),  suppose $\overline F$ is a projective subspace of $\P(E)$ of dimension $d$.  Then $F \le E$ with $\dim(F) = d + 1$, so $\dim(u(F)) = d + 1$ by the rank-nullity theorem. Hence $\dim(\overline u (\overline F))) = \dim(\overline{(u(F)}) = d$.
 
+For (c), there exist $F,G \le E$ with $V = \overline F$ and $W = \overline G$. Pick a basis $f_1, \ldots, f_d$ for $F$ and extend it to a basis $(f_i)_{i=1}^d$ for $E$.  Do the same for $G$ to get a basis $(g_i)_{i=1}^{n+1}$ for $E$ with $G = \spn(g_1, \ldots, g_d)$.  Define a linear transformation $u:E \to E$ by sending $f_i \mapsto g_i$ for all $i$. Then $\overline u(V) = \overline {u(F)} = \overline G = W$.
 
+For (d),  $\overline u (x,1) = (\frac{ax +b}{cx + d}, 1)$ for $x \neq -d/c$, and $\overline u (-d/c, 1) = (1, 0)$.  For the point at infinity, $\overline u (1, 0) = (a/c, 1)$ unless $c = 0$, in which case $\overline u (1, 0) = (1, 0)$.
 
+Homography means ``same graph'', the transformation is supposed to be only a change of perspective.
 \end{proof}
 
 
-\p{2} Using the same notation as in 1, we denote the canonical projection from $E - \{0\}$ to $\P(E)$ by $p$. A marking of $\P(E)$ consists of $n + 2$ points $x_0, \ldots, x_{n+1}$ of $\P(E)$ such that there is a basis $e_1, \ldots, e_{n+1}$ of $E$ such that $p(e_i) = x_i$ for all $i$ and $p(e_1 + \ldots + e_{n+1} = x_0$.
+\p{2} Using the same notation as in 1, we denote the canonical projection from $E - \{0\}$ to $\P(E)$ by $p$. A marking of $\P(E)$ consists of $n + 2$ points $x_0, \ldots, x_{n+1}$ of $\P(E)$ such that there is a basis $e_1, \ldots, e_{n+1}$ of $E$ such that $p(e_i) = x_i$ for all $i$ and $p(e_1 + \ldots + e_{n+1}) = x_0$.
 
 \begin{enumerate}[a)]
-\item Assume $n = 1$. Prove that a marking of $\P(E0$ (i.e., the projective line) is exactly the data of three distinct points. (For example, in $\P^1(k)$ we can take $0 = (0,1),$ $\infty = (1,0)$, and $1 = (1,1)$.)
+\item Assume $n = 1$. Prove that a marking of $\P(E)$ (i.e., the projective line) is exactly the data of three distinct points. (For example, in $\P^1(k)$ we can take $0 = (0,1),$ $\infty = (1,0)$, and $1 = (1,1)$.)
 
 \item Prove that $n + 2$ points $x_0, \ldots, x_{n+1} \in \P(E)$ form a marking if and only if no $n+1$ of them are contained in a hyperplane.
 
 \item Prove that if $x_0, \ldots, x_{n+1}$ and $y_0, \ldots, y_{n+1}$ are two markings of $\P(E)$, then there is a unique homography which sends each $x_i$ to $y_i$. Study the case $n = 1$ in detail.
+
+\begin{proof}
+For (a), let $x_0, x_1, x_2$ be a marking of $\P(E)$.  Pick a basis $e_1, e_2, e_3$ for $E$ corresponding to the $x_i$ as in the definition above.  Clearly $x_1 \neq x_2$ since $e_2$ and $e_3$ are linearly independent.  Also $p^{-1}(x_0) = \spn(e_1 + e_2)$ does not coincide with $\spn(e_1)$ or $\spn(e_2)$.  Hence all the $x_i$ are distinct.
+
+For (b), suppose $x_0, \ldots, x_{n+1} \in \P(E)$ form a marking. It is easy to see that any $n+1$ elements of $\{e_1, \ldots, e_n, \sum_i e_i \}$ form a basis. 
+
+Conversely, suppose $x_0, \ldots, x_{n+1} \in \P(E)$ such that no $n+1$ of them are contained in a hyperplane.  For each $i$, pick $e_i \in E$ such that $p(e_i) = x_i$. Any choice of $n+1$ of the $e_i$ must be a basis since the $x_i$ cannot be contained in a proper subspace of $P(E)$.  In particular, $e_1, \ldots, e_n$ forms a basis for $E$.  
+
+Hence $e_0 = \sum_{i \ge 1} a_i e_i$ for some $a_i \in k$.  Moreover if $a_j = 0$ for some $j \ge 1$ then $(e_i)_{i \ge 0, i \neq j}$ is not a basis for $E$, a contradiction.  Thus the $a_i \neq 0$ for $i \ge 1$.  Hence, by replacing $e_i$ with $a_i e_i$, WLOG $a_i = 1$ for all $i \ge 1$.  Then $p(e_1 + \ldots + e_n) = x_0$, so the $x_i$ form a marking.
+
+For (c),
+\end{proof}
 
 \end{document}
