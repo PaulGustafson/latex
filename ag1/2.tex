@@ -56,7 +56,10 @@ Conversely, suppose $x_0, \ldots, x_{n+1} \in \P(E)$ such that no $n+1$ of them 
 
 Hence $e_0 = \sum_{i \ge 1} a_i e_i$ for some $a_i \in k$.  Moreover if $a_j = 0$ for some $j \ge 1$ then $(e_i)_{i \ge 0, i \neq j}$ is not a basis for $E$, a contradiction.  Thus the $a_i \neq 0$ for $i \ge 1$.  Hence, by replacing $e_i$ with $a_i e_i$, WLOG $a_i = 1$ for all $i \ge 1$.  Then $p(e_1 + \ldots + e_n) = x_0$, so the $x_i$ form a marking.
 
-For (c),
+For (c), for each $i$ there exist $e_i, f_i$ such that $p(e_i) = x_i$ and $p(f_i) = y_i$ and such that $\sum_{i \ge 1} e_i = e_0$ and $\sum_{i \ge 1} f_i = f_0$.
+Since $(e_i)_{i \ge 1}$ is a basis, we can define $u:E \to E$ by $u(e_i) = f_i$ for $i \ge 1$.  Then $\overline u$ is a homography sending each $x_i$ to $y_i$.
+
+For the uniqueness part, suppose $\overline t$ is a homography sending $x_i$ to $y_i$ for each $i$.  Then $t(e_i) = \lambda_i f_i$ for some $\lambda_i \in k^\times$ for each $i \ge 1$, and $t(e_0) = \alpha f_0$ for some $\alpha \in k^\times$.  Then $\sum_{i \ge 1} \lambda_i f_i = t(e_0) = \alpha \f_0 = \alpha \sum_{i \ge 1} f_i$. Since $(f_i)_{i \ge 1}$ are linearly independent, we have $\lambda_i = \alpha$ for all $i \ge 1$. Thus $t = \alpha u$, so $\overline t = \overline u$.
 \end{proof}
 
 \end{document}
