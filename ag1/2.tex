@@ -1,6 +1,8 @@
 \documentclass{article}
 \usepackage{../m}
 
+\DeclareMathOperator{\Id}{Id}
+
 \begin{document}
 \noindent Paul Gustafson\\
 \noindent Texas A\&M University - Math 620\\ 
@@ -8,8 +10,8 @@
 
 %p34 1,2
 \subsection*{HW 2}
-\nc{\P}{\mathbb{P}}
-\DeclareMathOperator}{\Id}{Id}
+\rnc{\P}{\mathbb{P}}
+
 
 \p{1} Let $E$ be a $k$-vector space of dimension $n + 1$ and let $\P(E)$ be the associated projective space. If $u \in GL(E)$, $u$ induces a bijection $\overline{u}$ from $\P(E)$ to itself which we call a homography.
 \begin{enumerate}[a)]
@@ -46,11 +48,14 @@ Homography means ``same graph'', the transformation is supposed to be only a cha
 \item Prove that $n + 2$ points $x_0, \ldots, x_{n+1} \in \P(E)$ form a marking if and only if no $n+1$ of them are contained in a hyperplane.
 
 \item Prove that if $x_0, \ldots, x_{n+1}$ and $y_0, \ldots, y_{n+1}$ are two markings of $\P(E)$, then there is a unique homography which sends each $x_i$ to $y_i$. Study the case $n = 1$ in detail.
+\end{enumerate}
 
 \begin{proof}
 For (a), let $x_0, x_1, x_2$ be a marking of $\P(E)$.  Pick a basis $e_1, e_2, e_3$ for $E$ corresponding to the $x_i$ as in the definition above.  Clearly $x_1 \neq x_2$ since $e_2$ and $e_3$ are linearly independent.  Also $p^{-1}(x_0) = \spn(e_1 + e_2)$ does not coincide with $\spn(e_1)$ or $\spn(e_2)$.  Hence all the $x_i$ are distinct.
 
-For (b), suppose $x_0, \ldots, x_{n+1} \in \P(E)$ form a marking. It is easy to see that any $n+1$ elements of $\{e_1, \ldots, e_n, \sum_i e_i \}$ form a basis. 
+Conversely, if $x_0, x_1, x_2 \in \P(E)$ are distinct, then no two of them lie in a proper subspace of $\P(E)$ (which must be 0-dimensional). Hence, by part (b) they form a marking.
+
+For (b), suppose $x_0, \ldots, x_{n+1} \in \P(E)$ form a marking with corresponding $e_0, \ldots, e_{n+1}$ as in the definition. It is easy to see that any $n+1$ elements of $\{e_1, \ldots, e_n, \sum_i e_i \}$ form a basis. 
 
 Conversely, suppose $x_0, \ldots, x_{n+1} \in \P(E)$ such that no $n+1$ of them are contained in a hyperplane.  For each $i$, pick $e_i \in E$ such that $p(e_i) = x_i$. Any choice of $n+1$ of the $e_i$ must be a basis since the $x_i$ cannot be contained in a proper subspace of $P(E)$.  In particular, $e_1, \ldots, e_n$ forms a basis for $E$.  
 
@@ -59,7 +64,7 @@ Hence $e_0 = \sum_{i \ge 1} a_i e_i$ for some $a_i \in k$.  Moreover if $a_j = 0
 For (c), for each $i$ there exist $e_i, f_i$ such that $p(e_i) = x_i$ and $p(f_i) = y_i$ and such that $\sum_{i \ge 1} e_i = e_0$ and $\sum_{i \ge 1} f_i = f_0$.
 Since $(e_i)_{i \ge 1}$ is a basis, we can define $u:E \to E$ by $u(e_i) = f_i$ for $i \ge 1$.  Then $\overline u$ is a homography sending each $x_i$ to $y_i$.
 
-For the uniqueness part, suppose $\overline t$ is a homography sending $x_i$ to $y_i$ for each $i$.  Then $t(e_i) = \lambda_i f_i$ for some $\lambda_i \in k^\times$ for each $i \ge 1$, and $t(e_0) = \alpha f_0$ for some $\alpha \in k^\times$.  Then $\sum_{i \ge 1} \lambda_i f_i = t(e_0) = \alpha \f_0 = \alpha \sum_{i \ge 1} f_i$. Since $(f_i)_{i \ge 1}$ are linearly independent, we have $\lambda_i = \alpha$ for all $i \ge 1$. Thus $t = \alpha u$, so $\overline t = \overline u$.
+For the uniqueness part, suppose $\overline t$ is a homography sending $x_i$ to $y_i$ for each $i$.  Then $t(e_i) = \lambda_i f_i$ for some $\lambda_i \in k^\times$ for each $i \ge 1$, and $t(e_0) = \alpha f_0$ for some $\alpha \in k^\times$.  Then $\sum_{i \ge 1} \lambda_i f_i = t(e_0) = \alpha f_0 = \alpha \sum_{i \ge 1} f_i$. Since $(f_i)_{i \ge 1}$ are linearly independent, we have $\lambda_i = \alpha$ for all $i \ge 1$. Thus $t = \alpha u$, so $\overline t = \overline u$.
 \end{proof}
 
 \end{document}
