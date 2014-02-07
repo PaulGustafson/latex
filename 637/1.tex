@@ -9,7 +9,7 @@
 \subsection*{HW 1}
 \p{1}  Show that every faithful and transitive action of a group $G$ on a set $X$, where $G$ is abelian, is free (and therefore equivalent to a regular one).
 \begin{proof} 
-If $X$ is empty, the conclusion is trivial.  Otherwise, let $x \in X$.  Suppose $gx = x$.  To show that the action is free, it suffices to show that $g = 1$.
+If $X$ is empty, the conclusion is trivial.  Otherwise, let $x \in X$.  Suppose $gx = x$ for some $g \in G$.  To show that the action is free, it suffices to show that $g = 1$.
 
 Let $y \in X$.  Since the action is transitive, $y = hx$ for some $h \in G$.  Thus $gy = ghx = hgx = hx = y$.  Since $y$ was arbitrary, $g$ fixes all of $X$.  Thus $g = 1$ since the action is faithful.
 \end{proof}
@@ -17,9 +17,11 @@ Let $y \in X$.  Since the action is transitive, $y = hx$ for some $h \in G$.  Th
 \p{2} Consider the following three subspaces of $\R^2$ with metric that is inherited from the Euclidean metric
 $$
 R = \{ (x,0) | x \in \R \}
-\\
+$$
+$$
 L = \{ (x,0) | x \in \R, x \ge 0\} \cup \{(0,y) | y \in \R, y \ge 0 \}
-\\
+$$
+$$
 H = \{ (x, 0) | x \in \R, x > 0 \}.
 $$
 Which of these spaces are quasi-isometric?
@@ -28,12 +30,12 @@ I claim that $R$ and $L$ are quasi-isometric to each other, but $H$ is not quasi
 
 For the former, define $\phi: L \to R$ by sending $(x,0)$ to itself and sending $(0,y)$ to $(-y,0)$.
 
-Suppose $p,q \in L$.  Then $d(p,q) = d(\phi(p), \phi(q))$ unless $p,q$ are on different sides of the corner.
+Suppose $p,q \in L$.  Then $d(p,q) = d(\phi(p), \phi(q))$ unless $p,q$ are on different axes.
 In this case, WLOG assume $p = (x,0)$ and $q = (0,y)$ for $x,y \ge 0$.  Then $d(p,q) = (x^2 + y^2)^{1/2} \le x + y = d(\phi(p), \phi(q)$.
 On the other hand, $d(\phi(p), \phi(q)) = x + y = (x^2 + 2xy + y^2)^{1/2} \le (x^2 + 2(x^2 + y^2) + y^2)^{1/2} =  \sqrt{3} (x^2 + y^2)^{1/2} = \sqrt(3) d(x,y)$.
 Hence, $L$ and $R$ are quasi-isometric.
 
-To see that $R$ and $H$ are not quasi-isometric, it suffices to show that $\Z$ and $\N$ are not quasi-isometric. Suppose $\phi: \N \to \Z$ is a quasi-isometry. Then $C^{-1} d(p,q) - K \le d(\phi(p), \phi(q)) \le C d(p,q) + K$ for all $p,q \in \N$ for some $C \ge 1$ and $K \ge 0$.  In particular, we have $d(\phi(n), \phi(n+1)) \le C + K$ for all $n \in \N$. Since $\phi$ takes on infinitely many positive values and infinitely many negative values, this implies $\phi(n) \in [0, C+K]$ for infinitely many $n$. Pick any $p \in \N$ with $\phi(p) \in [0, C+K]$.  Pick $q$ with $\phi(q) \in [0, C+K]$ and $q$ so large that $C^{-1} d(p,q) - K > C+K  \ge d(\phi(p), \phi(q)$, a contradiction.
+To see that $R$ and $H$ are not quasi-isometric, it suffices to show that $\Z$ and $\N$ are not quasi-isometric. Suppose $\phi: \N \to \Z$ is a quasi-isometry. Then $C^{-1} d(p,q) - K \le d(\phi(p), \phi(q)) \le C d(p,q) + K$ for all $p,q \in \N$ for some $C \ge 1$ and $K \ge 0$.  In particular, we have $d(\phi(n), \phi(n+1)) \le C + K$ for all $n \in \N$. Since $\phi$ takes on infinitely many positive values and infinitely many negative values, this implies $\phi(n) \in [0, C+K]$ for infinitely many $n$. Pick any $p \in \N$ with $\phi(p) \in [0, C+K]$.  Pick $q$ with $\phi(q) \in [0, C+K]$ and $q$ so large that $C^{-1} d(p,q) - K > C+K  \ge d(\phi(p), \phi(q))$, a contradiction.
 \end{proof}
 
 \end{document}
