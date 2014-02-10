@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 608 \\ 
+\noindent Instructor: Grigoris Paouris
+
+\subsection*{HW 2}
+\p{1} Let $X, Y$ be normed spaces and $T: X \to Y$ be a bounded linear operator.  We define $T^*: Y^* \to X^*$ as $T^*(f) = f \circ T$. Show that $T^*$ is a well-defined bounded linear operator and $\|T^*\| = \|T\|$.
+
+\begin{proof}
+If $f \in Y^*$, then $f \circ T: X \to \R$, so $T^*$ is a well-defined linear map. To see that it is bounded, we have $\|T(f)\| = \|f \circ T\| \le \|f\| \|T\|$.
+\end{proof}
+
+
+\p 2 Let $f : [-\pi, \pi] \to \R$ be a continuous function. Use the Uniform boundedness theorem to show that there exists $f$ continuous such that its fourier series does not converge at $t_0 = 0$. %See hint.
+\begin{proof}
+Let $a_n \in (C[-\pi, \pi])^*$ be defined by $a_n(f) = \frac 1 {2\pi} \int_{-\pi}^\pi f(x) e^{-inx} dx$, the $n$-th Fourier coefficient for $f$. Let $\phi_N(f) = \sum_{n \le N} a_n(f)$. Then $\phi_N(f)$ is the $N$-th partial sum of the Fourier series of $f$ evaluated at $0$. By the uniform boundedness principle, it suffices to show that $(\|\phi_N\|)_N$ is unbounded.
+
+Approximate $\sgn(\phi_N)$ by a continuous function.  Look at $\|\phi_N\|_{L_1} = c \log n$ (why?).
+
+\end{proof}
+
+\p 3 Let $X$ be a normed space and $p: X \to \R$ be a sublinear functional. Show that 
+\begin{enumerate}[i)]
+\item There exists a linear functional $g : X \to \R$ such that 
+$$ -p(-x) \le g(x) \le p(x), \quad \forall x \in X.$$
+\item If $\|\cdot\|$ is a norm on $X$ and $f_n$ is a bounded sequence in $X^*$, there exists $f \in X^*$ such that 
+$$\liminf_n f_n(x) \le f(x) \le \limsup_n f_n(x) , \quad \forall x \in X.$$
+\end{enumerate}
+
+
+\p 4 Let $c_{00}$ be the space of sequences which are eventually $0$. Show that
+\begin{enumerate}[i)]
+\item $c_{00}$ is dense in $c_0$.
+\item $c_0$ is separable.
+\item For every $x \in S_{c_0}$ there exists $x_1, x_2 \in S_{c_0}$ with $x_1 \neq x_2$  and $x = (x_1 + x_2)/2$.
+\item $c, c_0$ are not isometrically isomorphic.
+\item $c_0^*$ is isometrically isomorphic to $l_1$.
+\item $c_0$ is not reflexive.
+\item $c_0^*$ is isometrically isomorphic to $c^*$.
+\end{enumerate}
+
+\begin{proof}
+\begin{enumerate}[i)]
+\item Let $\epsilon > 0$ and $x = (x_i) \in c_0$. Pick $N$ such that $\|x_i\| < \epsilon$ for all $i \ge N$. Let $y \in c_{00}$ be defined by $y_i = x_i$ for all $i \le N$ and $y_i = 0$ otherwise. Then $\|x - y\| < \epsilon$.
+
+\item The space $c_{00}(\Q)$ is countable and dense in $c_{00}(\R)$, hence dense in $c_0(\R)$.
+
+\item Let $x = (\xi_i) \in S_{c_0}$.  Pick any index $i$ such that $|\chi_i| < 1/2$.  Let $x_1 = x + (1/2) e_i$ and $x_2 = x - (1/2) e_i$.
+
+\item Suppose $c, c_0$ are isometrically isomorphic.  Then $c$ has the property in (iii) also. Let $x = \sum_i e_i \in S_c$.  Pick $x_1, x_2 \in S_c$ with $x_1 \neq x_2$ and $x = (x_1 + x_2)/2$.  Let $j$ be an index such that $\pi_j(x_1) \neq \pi_j(x_2)$.  Since $\pi_j(x_1) + \pi_j(x_2) = 2$, one of $\pi_j(x_1)$ and $\pi_j(x_2)$ is greater than $1$. This contradicts the fact that $x_1, x_2 \in S_c$.
+
+\item
+
+\end{enumerate}
+
+\end{proof}
+
+
+
+\p 5 Define $T : C^1[0,1] \to C[0,1]$ by $Tf = f'$. Show that $T$ has a closed graph but is not bounded, implying that $C^1[0,1]$ is not Banach.
+
+\begin{proof}
+%T is bounded w.r.t to usual C^1 norm.  Maybe use sup norm?
+
+\end{proof}
+
+
+
+\end{document}
