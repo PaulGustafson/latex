@@ -22,16 +22,17 @@ Approximate $\sgn(\phi_N)$ by a continuous function.  Look at $\|\phi_N\|_{L_1} 
 
 \end{proof}
 
-\p 3 Let $X$ be a normed space and $p: X \to \R$ be a sublinear functional. Show that 
+\p 3 Let $X$ be a nontrivial normed space and $p: X \to \R$ be a sublinear functional. Show that 
 \begin{enumerate}[i)]
-\item There exists a nonzero linear functional $g : X \to \R$ such that 
+\item There exists a linear functional $g : X \to \R$ such that 
 $$ -p(-x) \le g(x) \le p(x), \quad \forall x \in X.$$
 \item If $\|\cdot\|$ is a norm on $X$ and $f_n$ is a bounded sequence in $X^*$, there exists $f \in X^*$ such that 
 $$\liminf_n f_n(x) \le f(x) \le \limsup_n f_n(x) , \quad \forall x \in X.$$
 \end{enumerate}
-
 \begin{proof}
+For (i), let $x \in X \setminus \{0\}$.  Define $f: \spn(x) \to \R$ by $f(\lambda x) = \lambda p(x)$ for $\lambda \in \R$.  Apply Hahn-Banach.
 
+For (ii), 
 
 \end{proof}
 
@@ -59,7 +60,7 @@ $$\liminf_n f_n(x) \le f(x) \le \limsup_n f_n(x) , \quad \forall x \in X.$$
 
 \item Suppose $c, c_0$ are isometrically isomorphic.  Then $c$ has the property in (iii) also. Let $x = \sum_i e_i \in S_c$.  Pick $x_1, x_2 \in S_c$ with $x_1 \neq x_2$ and $x = (x_1 + x_2)/2$.  Let $j$ be an index such that $\pi_j(x_1) \neq \pi_j(x_2)$.  Since $\pi_j(x_1) + \pi_j(x_2) = 2$, one of $\pi_j(x_1)$ and $\pi_j(x_2)$ is greater than $1$. This contradicts the fact that $x_1, x_2 \in S_c$.
 
-\item Define $T: l_1 \to c_0^*$ by $T(e_i^*%)
+\item Define $T: l_1 \to c_0^*$ by $T(\sum_i a_i e_i) = \sum_i a_i e_i^*$. This map is well-defined since each $e_i^* \in c_0^*$ is of norm 1, hence the series $\sum_i a_i e_i^*$ is absolutely convergent.  
 
 \end{enumerate}
 
@@ -67,10 +68,12 @@ $$\liminf_n f_n(x) \le f(x) \le \limsup_n f_n(x) , \quad \forall x \in X.$$
 
 
 
-\p 5 Define $T : C^1[0,1] \to C[0,1]$ by $Tf = f'$. Show that $T$ has a closed graph but is not bounded, implying that $C^1[0,1]$ is not Banach.
+\p 5 Let $X = (C^1[0,1], \|\cdot\|_\infty)$. Define $T : X \to C[0,1]$ by $Tf = f'$. Show that $T$ has a closed graph but is not bounded, implying that $C^1[0,1]$ is not Banach.
 
 \begin{proof}
-%T is bounded w.r.t to usual C^1 norm.  Maybe use sup norm?
+To see that $T$ has a closed graph,  suppose $(f_n, Tf_n) \to (f,g)$ in $X$.  Then $Tf_n \to g$ in the sup-norm, so $\lim_n Tf_n = g$ since $Tf_n$ are continuous.  Thus $T$ has a closed graph.
+
+To see that $T$ is not bounded, let note that $\|\sin(nx)\| = 1$ but $\|T \sin(nx)\| = n$ for all $n \in \N$.
 
 \end{proof}
 
