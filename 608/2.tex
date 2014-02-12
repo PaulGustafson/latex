@@ -16,13 +16,12 @@ If $f \in Y^*$, then $f \circ T: X \to \R$, so $T^*$ is a well-defined linear ma
 
 \p 2 Let $f : [-\pi, \pi] \to \R$ be a continuous function. Use the Uniform boundedness theorem to show that there exists $f$ continuous such that its fourier series does not converge at $t_0 = 0$. %See hint.
 \begin{proof}
-Let $a_n \in (C[-\pi, \pi])^*$ be defined by $a_n(f) = \frac 1 {2\pi} \int_{-\pi}^\pi f(x) e^{-inx} dx$, the $n$-th Fourier coefficient for $f$. Let $\phi_N(f) = \sum_{n \le N} a_n(f)$. Then $\phi_N(f)$ is the $N$-th partial sum of the Fourier series of $f$ evaluated at $0$. By the uniform boundedness principle, it suffices to show that $(\|\phi_N\|)_N$ is unbounded.
+Let $a_n \in (C[-\pi, \pi])^*$ be defined by $a_n(f) = \frac 1 {2\pi} \int_{-\pi}^\pi f(x) e^{-inx} dx$, the $n$-th Fourier coefficient for $f$. Let $\phi_N(f) = \sum_{n \le N} a_n(f) = \frac 1 {2\pi} \int_{-\pi}^\pi f(x) D_N(x) \,dx$, where $D_N = \sum_{n\le N} e^{inx}$ is the $N$-th Dirichlet kernel. Then $\phi_N(f)$ is the $N$-th partial sum of the Fourier series of $f$ evaluated at $0$. By the uniform boundedness principle, it suffices to show that $(\|\phi_N\|)_N$ is unbounded.
 
-Approximate $\sgn(\phi_N)$ by a continuous function.  Look at $\|\phi_N\|_{L_1} = c \log n$ (why?).
-
+Pick $(f_n) \subset C[-\pi, \pi]$ with $f_n \to \sgn(D_N)$ in $L_1$.  Then $\phi_N(f_n) = \frac 1 {2\pi} \int_{-\pi}^\pi f_N D_N \,dx = \frac 1 {2\pi} \int_{-\pi}^\pi  |D_N| + (f_n - \sgn(D_N)) D_N \,dx \to \|D_N\|_{L_1}$ since $\|D_N\|_\infty \le 2N + 1$.  Thus, $\|\phi_N\| \ge \|D_N\|_{L_1}$ but $\|D_N\|_{L_1}$ grows faster than $c \log N$ by a result of Dirichlet.
 \end{proof}
 
-\p 3 Let $X$ be a nontrivial normed space and $p: X \to \R$ be a sublinear functional. Show that 
+\p 3 Let $X$ be a normed space and $p: X \to \R$ be a sublinear functional. Show that 
 \begin{enumerate}[i)]
 \item There exists a linear functional $g : X \to \R$ such that 
 $$ -p(-x) \le g(x) \le p(x), \quad \forall x \in X.$$
@@ -30,7 +29,8 @@ $$ -p(-x) \le g(x) \le p(x), \quad \forall x \in X.$$
 $$\liminf_n f_n(x) \le f(x) \le \limsup_n f_n(x) , \quad \forall x \in X.$$
 \end{enumerate}
 \begin{proof}
-For (i), let $x \in X \setminus \{0\}$.  Define $f: \spn(x) \to \R$ by $f(\lambda x) = \lambda p(x)$ for $\lambda \in \R$.  Apply Hahn-Banach.
+Apply Hahn-Banach to the linear functional mapping $0 \in X$ to $0 \in \R$ to get a linear functional $g$ such that $g(x) \le p(x) \forall x \in X$.
+-p(-x) \le p(x)
 
 For (ii), 
 
@@ -60,7 +60,21 @@ For (ii),
 
 \item Suppose $c, c_0$ are isometrically isomorphic.  Then $c$ has the property in (iii) also. Let $x = \sum_i e_i \in S_c$.  Pick $x_1, x_2 \in S_c$ with $x_1 \neq x_2$ and $x = (x_1 + x_2)/2$.  Let $j$ be an index such that $\pi_j(x_1) \neq \pi_j(x_2)$.  Since $\pi_j(x_1) + \pi_j(x_2) = 2$, one of $\pi_j(x_1)$ and $\pi_j(x_2)$ is greater than $1$. This contradicts the fact that $x_1, x_2 \in S_c$.
 
-\item Define $T: l_1 \to c_0^*$ by $T(\sum_i a_i e_i) = \sum_i a_i e_i^*$. This map is well-defined since each $e_i^* \in c_0^*$ is of norm 1, hence the series $\sum_i a_i e_i^*$ is absolutely convergent.  
+\item Define $T: l_1 \to c_0^*$ by $T((a_i)_{i=1}^\infty) = \sum_i a_i e_i^*$. This map is well-defined since each $e_i^* \in c_0^*$ is of norm 1, hence the series $\sum_i a_i e_i^*$ is absolutely convergent.   
+
+
+% To see that $T$ is injective, note that if $a_i \neq 0$ for some $i$, then $T((a_i)_i)(e_i) = a_i \neq 0$.  Thus the kernel of $T$ is trivial, so $T$ is injective. 
+
+%FIXME
+To see that $T$ is surjective, let $f \in c_0^*$. I claim that $(f(e_i))_i$ is in $l_1$.  Suppose not. $\sum_i f(\sgn(f(e_i)) e_i) = \sum_i |f(e_i)|$
+
+\item It was proved in class that $l_1^*$ is isometrically isomorphic to $l_\infty$.  Since $l_\infty$ is not separable but $c_0$ is separable, they are not homeomorphic.  Hence $c_0$ is not reflexive.
+
+\item Define $T: c_0^* \to c^*$ by $T(f)((x_n)_n) = f((x_j - \lim_n x_n)_j)$. Then $T$ is well-defined and linear. If $f \in \ker(T)$ and $(x_n) \in c_0$, then $f((x_n)) = T(f)((x_n)) = 0$.  Hence $f$ is injective.
+
+
+
+To see that $f$ is surjective, let $g \in c^*$. Then for any $(x_n) \in c_0$, we have $g((x_n)) = g((x_j - \lim_n x_n)_j) + g((\lim_n x_n)_j)$
 
 \end{enumerate}
 
