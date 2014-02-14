@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 637\\ 
+\noindent Instructor: Zoran Sunik
+
+\subsection*{HW 3}
+\p{5} Let $f : X \to Y$ be a map of topological spaces.  Show that $f$ is a homotopy equivalence iff there exists maps $g,h:Y \to X$ such that 
+$gf \simeq 1_X$ and $fh \simeq 1_Y$.
+\begin{proof}
+We have $fg \simeq fgfh \simeq fh \simeq 1$. 
+\end{proof}
+
+\p 6 (a) Prove the Borsuk-Ulam Theorem in dimension 1, i.e., prove that for every map $f: S^1 \to \R$ there exists a pair of antipodal points $x$ and $-x$ in $S^1$ such that $f(x) = f(-x)$.
+
+(b) Is the following version of the Borsuk-Ulam Theorem for the torus correct? For every map $f: S^1 \times S^1 \to R^2$ there exists a pair of antipodal points $(x,y)$ and $(-x, -y)$ in $T^2 = S^1 \times S^1$ such that $f(x,y) = f(-x, -y)$.
+
+\begin{proof}
+(a) 
+
+(b)
+\end{proof}
+\end{document}

@@ -1,0 +1,25 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 637\\ 
+\noindent Instructor: Zoran Sunik
+
+\subsection*{HW 3}
+\p{5} Let $f : X \to Y$ be a map of topological spaces.  Show that $f$ is a homotopy equivalence iff there exists maps $g,h:Y \to X$ such that 
+$gf \simeq 1_X$ and $fh \simeq 1_Y$.
+\begin{proof}
+We have $fg \simeq fgfh \simeq fh \simeq 1$. 
+\end{proof}
+
+\p 6 (a) Prove the Borsuk-Ulam Theorem in dimension 1, i.e., prove that for every map $f: S^1 \to \R$ there exists a pair of antipodal points $x$ and $-x$ in $S^1$ such that $f(x) = f(-x)$.
+
+(b) Is the following version of the Borsuk-Ulam Theorem for the torus correct? For every map $f: S^1 \times S^1 \to R^2$ there exists a pair of antipodal points $(x,y)$ and $(-x, -y)$ in $T^2 = S^1 \times S^1$ such that $f(x,y) = f(-x, -y)$.
+
+\begin{proof}
+(a) Let $g: [0,1] \to S^1$ be defined by $g(x) = e^{i \pi x}$.  Let $h(x) = f(x) - f(-x)$.  Let $\phi = h \circ g$.  Then $\phi(0) = f(1) - f(-1)$, and $\phi(1) = f(-1) - f(1)$.   One of these values must be nonnegative and the other nonpositive.  It follows from the intermediate value theorem that $\phi$ has a root.  Hence $h$ has a root, so there exists $x \in S^1$ with $f(x) = f(-x)$.
+
+(b) No, let $\pi:S^1 \times S^1$ be the projection on the first coordinate, and $\phi: S^1 \to R^2$ be the usual inclusion.  Let $f = \phi \circ \pi$. For any $(x,y) \in S^1 \times S^1$, we have $\pi(x,y) = x \neq -x = \pi(-x,-y)$.  Hence $f(x,y) \neq f(-x,-y)$ since $\phi$ is an injection.
+\end{proof}
+\end{document}
