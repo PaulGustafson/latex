@@ -7,7 +7,16 @@
 \noindent Instructor: Frank Sottile
 
 \subsection*{HW 3}
-\p{1} Let $\mF: \mU \to k$ be the constant presheaf on $X$.  Find the associated sheaf.
+\p{1} Let $\mF$ be the constant presheaf associated to a field $k$ on a topological space $X$.  Find its sheafification.
 \begin{proof}
+For every open set $U \subset X$, let $\mG(U): U \to k$ denote the set of locally constant functions.  I claim that $\mG$ forms a sheaf, and that the morphism of presheaves $\phi: \mF \to \mG$ defined by the inclusions $\mF(U) \to \mG(U)$ is a sheafification.
+
+Since the restriction of a locally constant function is locally constant, $\mG$ forms a presheaf. For the gluing axiom, suppose $(U_i)_{i \in I}$ is an open cover of an open set $U \subset X$ and there exist functions $f_i \in U_i$ for all $i \in I$ such that $f_i|_{U_i \cap U_j} = f_j|_{U_i \cap U_j}$ for all $i,j \in I$. Then there exists a unique function $f: U \to k$ such that $f|_{U_i} = f_i$ for all $i$.  To see that $f$ is locally constant, let $x \in U$.  Then $x \in U_i$ for some $i$.  Since $f_i$ is locally constant, there exists a neighborhood $x \in V \subset U_i$ with $f_i$ constant on $V$.  Since $f|_V = f_i|_V$, the function $f$ is also constant on $V$.  Thus $f$ is locally constant, so $\mG$ is a sheaf.
+
+To check that $\phi$ is a sheafification, let $\mH$ be a sheaf and let $\alpha: \mF \to \mH$ be a morphism of presheaves. Let $U \subset X$ be open with connected components $(U_i)_{i \in I}$. Let $\beta(U): \mG(U) \to \mH(U)$ be defined as follows. Let $f \in \mG(U)$.  Then for every $i$, we have $f|_{U_i} \in \mF(U_i)$ since $U_i$ is connected. Hence $\alpha(U_i)(f|_{U_i})$ is well-defined.   Let $\beta(U)(f)$ be the gluing of $(\alpha(U_i)(f|_{U_i}))_{i \in I}$. 
+
+If $f \in \mF(U)$, then  $(\beta \circ \phi)(U)(f)$ is the gluing of $(\alpha(U_i)(f|_{U_i}))_i = ((\alpha(U)(f))|_{U_i})_i$. Hence by the uniqueness of gluings $\alpha(U)(f) = (\beta \circ \phi)(U)(f)$.  Hence $\beta \circ \phi = \alpha$.
+
+For the uniqueness of $\beta$, suppose $\gamma \circ \phi = \alpha$ for some morphism of sheaves $\gamma: \mG \to \mH$. If $V \subset X$ is open and connected, then $\mF(V) = \mG(V)$ so $\phi(V)$ is an identity map, not just an inclusion.  Hence $\gamma(V) = \gamma \circ \phi(V) = \alpha(V)$. If $U \subset X$ is open with connected components $(U_i)$ and $f \in \mG(U)$, we have $(\gamma(U)(f))|_{U_i} = \gamma(U_i)(f|_{U_i}) = \alpha(U_i)(f|_{U_i}) $.  Thus $\gamma(U)(f)$ is also the gluing of $(\alpha(U_i)(f))_{i \in I}$, so by the uniqueness of gluings $\gamma(U)(f) = \beta(U)(f)$.  Thus $\gamma = \beta$, so $\phi$ is a sheafification.
 \end{proof}
 \end{document}
