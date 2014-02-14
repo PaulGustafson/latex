@@ -10,11 +10,9 @@
 \p{3} Let a group $G$ act on a topological space $X$ by homeomorphisms.  Show that the projection $\pi: X \to G \backslash X$ is an open map.
  As a corollary show that  if $X$ is locally compact so is $G \backslash X$.
 \begin{proof}
-To see that $\pi$ is continuous, let $U \subset G \backslash X$ be open.  Then $\pi^{-1}(U) = GU \subset X$ is open by the definition of the topology on $G \backslash X$.
+To see that $\pi$ is open, let $U \subset X$ be open.  Then $\bigcup_{x \in U} Gx = \bigcup_{g \in G} gU$ is open in $X$ since the RHS is a union of open sets.  Thus $\pi(U)$ is open, so $\pi$ is an open map.
 
-To see that $\pi$ is open, let $U \subset X$ be open.  Then $\bigcup_{x \in U} Gx = \bigcup_{g \in G} gU$ is open since the RHS is a union of open sets.  Thus $\pi(U)$ is open, so $\pi$ is an open map.
-
-Now suppose $X$ is locally compact.  Let $Gx \in G \backslash X$.  Pick a compact neighborhood $K_x$ of $x$.  Then $\pi(K)$ is compact since it is the image of a compact set under a continuous map.  Moreover, $\pi(\mathring{K})$ is a neighborhood of $Gx$ within $\pi(K)$, so $\pi(K)$ is a compact neighborhood of $Gx$. Hence $G \backslash X$ is locally compact.
+Now suppose $X$ is locally compact.  Let $Gx \in G \backslash X$.  Pick a compact neighborhood $K_x$ of $x$.  Then $\pi(K)$ is compact since it is the image of a compact set under a continuous map.  Since $\pi$ is open, $\pi(\mathring{K})$ is an open neighborhood of $Gx$. Thus $\pi(K)$ is a compact neighborhood of $Gx$. Hence $G \backslash X$ is locally compact.
 \end{proof}
 
 \p{4} Let a group $G$ act properly discontinuously on a locally compact, Hausdorff space $X$ by homeomorphisms.  Show that, for any two points $x, y \in X$, there exists an open set $U_x$ containing $x$ such that only finitely many elements of the orbit $Gy$ are in $U_x$.
@@ -22,7 +20,7 @@ As a corollary show that the orbit space $G \backslash X$ is Hausdorff.
 \begin{proof}
 Let $K_x$ be a compact neighborhood of $x$.   Since the action of $G$ is properly discontinuous, $Gy \cap K_x$ is finite.  Let $U_x$ be the interior of $K_x$.  Then $Gy \cap U_x$ is finite.
 
-To show that $G \backslash X$ is Hausdorff, suppose $Gx \neq Gy$. From the above paragraph, pick a compact neighborhood $K_x$ of $x$ such that $Gy \cap K_x$ is finite.  Since $X$ is locally compact Hausdorff, we can intersect $K_x$ with compact neighborhoods of $x$ separating $x$ from each point of $Gy \cap K_x$ to get a new compact neighborhood $V_x$ of $x$ such that $Gy \cap V_x = \emptyset$. 
+To show that $G \backslash X$ is Hausdorff, suppose $Gx \neq Gy$. Pick a compact neighborhood $K_x$ of $x$.  Then $Gy \cap K_x$ is finite.  Since $X$ is locally compact Hausdorff, we can intersect $K_x$ with compact neighborhoods of $x$ separating $x$ from each point of $Gy \cap K_x$ to get a new compact neighborhood $V_x$ of $x$ such that $Gy \cap V_x = \emptyset$. 
 
 Let $K_y$ be any compact neighborhood of $y$.  Since $G$ acts properly discontinuously, $F := \{g \in G : gV_x \cap K_y \neq \emptyset \}$ is finite. Hence $A := FV_x$ is closed.  Since $y \not\in GV_x$, the open set $A^c$ is a neighborhood of $y$. Let $V_y = K_y \cap A^c$.  Then $V_y \cap GV_x = K_y \cap A^c \cap GV_x \subset A^c \cap FV_x = \emptyset$, so $GV_y$ and $GV_x$ are disjoint neighborhoods of $Gx$ and $Gy$ in $G \backslash X$.
 \end{proof}
