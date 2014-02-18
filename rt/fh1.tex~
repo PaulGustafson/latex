@@ -1,0 +1,13 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 608 \\ 
+\noindent Instructor: Grigoris Paouris
+
+\subsection*{HW 1}
+\p{1} Show that for every symmetric convex body $K \subset \R^n$, one can define a norm $\| \cdot \|$ whose unit ball is $K$.
+\begin{proof}
+\end{proof}
+\end{document}
