@@ -52,6 +52,10 @@
 \maketitle
 \thispagestyle{fancy}
 
+\begin{itemize}
+\item Show all your work and indicate your final
+answer clearly. You will be graded not merely on the final answer, but also on the work leading up to it.
+\end{itemize}
 \vskip0.25in
 \begin{enumerate}
 

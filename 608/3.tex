@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 608 \\ 
+\noindent Instructor: Grigoris Paouris
+
+\nc{\weaklyto}{\to ^{\hbox{w}}}
+
+\subsection*{HW 3}
+\p{1} Let $H$ be a Hilbert space and $x_n, x \in H$ such that $x_n \weaklyto x$ and $\|x_n\| \to \|x\|$. Show that $x_n \to ^{\hbox{\| \cdot \|}} x$.
+\begin{proof}
+We have $\|x_n - x\|^2 = \|x_n\|^2 - \langle x_n, x \rangle - \langle x, x_n \rangle + \|x\|^2 \to 2\|x\|^2 - 2 \langle x, x \rangle = 0$.
+\end{proof}
+
+\p 2 Let $X$ be a vector space equipped with an inner product and $(e_n)$ be an orthonormal sequence in $X$. If $x,y \in X$ show that $\sum_{k=1}^\infty | \langle x, e_k \rangle \langle y, e_k \rangle | \le \|x\| \|y\|$.
+\begin{proof}
+For $N \in \N$ we have 
+\begin{align*}
+\sum_{k=1}^N |\langle x, e_k \rangle \langle y, e_k \rangle | & = 
+\left( \sum_{k=1}^N \epsilon_k \langle x, e_k \rangle e_k  \right) \left( \sum_{k=1}^N  \langle y, e_k \rangle e_k \right)
+\\ & \le \left( \sum_{k=1}^N |\langle x, e_k \rangle|^2 \right) \left( \sum_{k=1}^N |\langle y, e_k \rangle|^2 \right) 
+\end{align*}
+\end{proof}
+
+\p 4 Let $H$ be a Hilbert space and $(x_n) \subset H$ such that $x_n \weaklyto 0$. Show that there exists a subsequence $(x_{k_n})$ such that
+$$ \left\| \frac{x_{k_1} + \ldots + x_{k_n}} {n} \right \| \to 0.$$
+\begin{proof}
+
+\end{proof}
+
+
+\p 5 Let $H$ be a Hilbert space and $(x_n)$ be an orthonormal sequence in $H$. Show that $\sum_n x_n$ converges iff $\sum_n \|x_n\|^2$ converges. %FISHY
+
+\p 6 Let $X$ be a vector space equipped with an inner product and $x_1, \ldots, x_n \in X$. Show that
+$$ \frac 1 {2^n} \sum_{\epsilon_i = \pm 1} \| \sum_{i=1}^n \epsilon_i x_i \|^2 = \sum_{i=1}^n \|x_i\|^2.$$
+
+\end{document}
