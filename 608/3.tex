@@ -6,10 +6,10 @@
 \noindent Texas A\&M University - Math 608 \\ 
 \noindent Instructor: Grigoris Paouris
 
-\nc{\weaklyto}{\to ^{\hbox{w}}}
+\nc{\weaklyto}{\overset{w}{\to}}
 
 \subsection*{HW 3}
-\p{1} Let $H$ be a Hilbert space and $x_n, x \in H$ such that $x_n \weaklyto x$ and $\|x_n\| \to \|x\|$. Show that $x_n \to ^{\hbox{\| \cdot \|}} x$.
+\p{1} Let $H$ be a Hilbert space and $x_n, x \in H$ such that $x_n \weaklyto x$ and $\|x_n\| \to \|x\|$. Show that $x_n \overset{\| \cdot \|}{\to} x$.
 \begin{proof}
 We have $\|x_n - x\|^2 = \|x_n\|^2 - \langle x_n, x \rangle - \langle x, x_n \rangle + \|x\|^2 \to 2\|x\|^2 - 2 \langle x, x \rangle = 0$.
 \end{proof}
@@ -20,25 +20,38 @@ Since the inner product on $X$ is continuous, the completion of $X$ is a Hilbert
 \begin{align*}
 \sum_{k=1}^\infty | \langle x, e_k \rangle \langle y, e_k \rangle| & = 
 \lim_{N \to \infty} \left\langle \sum_{k=1}^N \epsilon_k \langle x, e_k \rangle e_k , \sum_{k=1}^N \langle y, e_k \rangle e_k \right\rangle
-& \le \lim_N \left \|\sum_{k=1}^N \epsilon_k \langle x, e_k \rangle e_k \right\| \left\| \sum_{k=1}^N \langle y, e_k \rangle e_k \right\|
-& = \lim_N \|P_{V_N} x\| \|P_{V_N} y\|
-& \le \|x\| \|y\|
+\\ & \le \lim_N \left \|\sum_{k=1}^N \epsilon_k \langle x, e_k \rangle e_k \right\| \left\| \sum_{k=1}^N \langle y, e_k \rangle e_k \right\|
+\\ & = \lim_N \|P_{N} x\| \|P_{N} y\|
+\\ & \le \|x\| \|y\|
 \end{align*}
-where $\epsilon_k = \pm 1$ for all $k$, and $V_N = \spn\{e_1, \ldots, e_N\}$.
+where $\epsilon_k = \pm 1$ for all $k$, and $P_N$ is the projection onto $\spn\{e_1, \ldots, e_N\}$.
 \end{proof}
 
 \p 3 Let $(e_n)$ be the usual basis of $\ell_2$. Consider the set
 $$A:= \{e_m + me_n : 1 \le m < n\}.$$
 Show that $0 \in \overline{A}^w$, but there is no sequence $a_k \in A$ such that $a_k \weaklyto 0$.
 \begin{proof}
+To show that $0 \in \overline{A}^w$, it suffices to show that $f^{-1}((-\delta, \delta))$ intersects $A$ for every $f \in \ell_2^*$ and $\delta > 0$. By the Riesz Representation theorem,  $f(\cdot) = \langle x, \cdot \rangle$ for some $x \in \ell_2$.  We have $x = \sum_n x_n e_n$ for some scalars $x_n$.  Thus, we need to find $m < n$ such that $|f(e_m + me_n)| = |x_m + mx_n| < \delta$.  This is easy since $x_k \to 0$ as $k \to \infty$.  Simply pick $m$ such that $|x_m| < \delta/2$, then pick $n > m$ such that $|x_n| < \delta/(2m)$.
+
+For the other part of the problem, suppose there is a sequence $a_k \in A$ with $a_k \weaklyto 0$. We can write $a_k = e_{m_k} + m_k e_{n_k}$ for some $m_k < n_k$. If $(m_k)$ is bounded, then by passing subsequence WLOG $(m_k)$ is constant with $m_k = m$.  Then $\langle a_k, e_m \rangle = 1$ for all $k$, a contradiction.  Similarly, $(n_k)$ cannot be bounded.
+
+Hence we may assume $(m_k)$ and $(n_k)$ are unbounded. By passing to a subsequence WLOG $|m_k| \ge k$ and $n_{k+1} > n_k$ for all $k$.  Then $\sum_k (1/k) e_{n_k} \in \ell_2$, and $|\langle a_k, \sum_k (1/k) e_{n_k} \rangle| = |m_k / k| \ge 1$ for all $k$, a contradiction.
 \end{proof}
 
 
 \p 4 Let $H$ be a Hilbert space and $(x_n) \subset H$ such that $x_n \weaklyto 0$. Show that there exists a subsequence $(x_{k_n})$ such that
 $$ \left\| \frac{x_{k_1} + \ldots + x_{k_n}} {n} \right \| \to 0.$$
 \begin{proof}
+Let $k_1 = 1$.  Given $k_1, \ldots k_{n-1}$, pick $k_n > k_{n-1}$ such that $|\langle x_{k_1} + \ldots + x_{k_{n-1}}, x_{k_n} \rangle| < 1$.
+Then  
+\begin{align*}
+\| x_{k_1} + \ldots + x_{k_n} \|^2 & \le 2 + \|x_{k_1} + \ldots + x_{k_{n-1}}\|^2 + \|x_{k_n}\|^2
+\\ & \le  4 + \|x_{k_1} + \ldots + x_{k_{n-2}}\|^2 + \|x_{k_{n-1}}\| + \|x_{k_n}\|^2
+\\ & \ldots
+\\ & \le 2n + \|x_{k_1}\|^2 + \ldots + \|x_{k_n}\|^2
+\end{align*}
 
-
+Thus, it suffices to show that $(\|x_n\|)$ is bounded. Since $x_n \weaklyto 0$, we have $\sup_n |\langle x_n, y \rangle| < \infty$ for all $y \in H$. Thus by the uniform boundedness principle, $\sup_n \| \langle x_n, \cdot \rangle \|_{H^*} = \sup_n \|x_n\| < \infty$.  
 \end{proof}
 
 
@@ -51,6 +64,16 @@ For any $0 \le M \le N$ we have $\|\sum_{n=M}^N x_n \|^2 = \sum_{n=M}^N \|x_n\|^
 \p 6 Let $X$ be a vector space equipped with an inner product and $x_1, \ldots, x_n \in X$. Show that
 $$ \frac 1 {2^n} \sum_{\epsilon_i = \pm 1} \| \sum_{i=1}^n \epsilon_i x_i \|^2 = \sum_{i=1}^n \|x_i\|^2.$$
 \begin{proof}
+We have
+\begin{align*}
+\frac 1 {2^n} \sum_{\epsilon_i = \pm 1} \| \sum_{i=1}^n \epsilon_i x_i \|^2 
+& = \frac 1 {2^n} \sum_{\epsilon_i = \pm 1} \left \langle \sum_{i=1}^n \epsilon_i x_i,  \sum_{j=1}^n \epsilon_j x_j \right \rangle
+\\ & = \frac 1 {2^n} \sum_{\epsilon_i = \pm 1} \sum_{i,j} \epsilon_i \epsilon_j \langle x_i, x_j \rangle
+\\ & = \frac 1 {2^n} \sum_{\epsilon_i = \pm 1} \sum_{i \neq j} \epsilon_i \epsilon_j \langle x_i, x_j \rangle + \sum_i \|x_i\|^2
+\\ & = \sum_i \|x_i\|^2 + \frac 1 {2^n}  \sum_{i \neq j} \sum_{\epsilon_i = \pm 1} \epsilon_i \epsilon_j \langle x_i, x_j \rangle
+\\ & = \sum_i \|x_i\|^2 + \frac 1 {2^n}  \sum_{i \neq j} (1 + 1 -1 -1) (2^{n-2}) \langle x_i, x_j \rangle
+\\ & = \sum_i \|x_i\|^2 
+\end{align*}
 
 \end{proof}
 
