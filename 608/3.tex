@@ -16,24 +16,42 @@ We have $\|x_n - x\|^2 = \|x_n\|^2 - \langle x_n, x \rangle - \langle x, x_n \ra
 
 \p 2 Let $X$ be a vector space equipped with an inner product and $(e_n)$ be an orthonormal sequence in $X$. If $x,y \in X$ show that $\sum_{k=1}^\infty | \langle x, e_k \rangle \langle y, e_k \rangle | \le \|x\| \|y\|$.
 \begin{proof}
-For $N \in \N$ we have 
+Since the inner product on $X$ is continuous, the completion of $X$ is a Hilbert space extending the inner product on $X$. Hence WLOG $X$ is Hilbert. We have 
 \begin{align*}
-\sum_{k=1}^N |\langle x, e_k \rangle \langle y, e_k \rangle | & = 
-\left( \sum_{k=1}^N \epsilon_k \langle x, e_k \rangle e_k  \right) \left( \sum_{k=1}^N  \langle y, e_k \rangle e_k \right)
-\\ & \le \left( \sum_{k=1}^N |\langle x, e_k \rangle|^2 \right) \left( \sum_{k=1}^N |\langle y, e_k \rangle|^2 \right) 
+\sum_{k=1}^\infty | \langle x, e_k \rangle \langle y, e_k \rangle| & = 
+\lim_{N \to \infty} \left\langle \sum_{k=1}^N \epsilon_k \langle x, e_k \rangle e_k , \sum_{k=1}^N \langle y, e_k \rangle e_k \right\rangle
+& \le \lim_N \left \|\sum_{k=1}^N \epsilon_k \langle x, e_k \rangle e_k \right\| \left\| \sum_{k=1}^N \langle y, e_k \rangle e_k \right\|
+& = \lim_N \|P_{V_N} x\| \|P_{V_N} y\|
+& \le \|x\| \|y\|
 \end{align*}
+where $\epsilon_k = \pm 1$ for all $k$, and $V_N = \spn\{e_1, \ldots, e_N\}$.
 \end{proof}
+
+\p 3 Let $(e_n)$ be the usual basis of $\ell_2$. Consider the set
+$$A:= \{e_m + me_n : 1 \le m < n\}.$$
+Show that $0 \in \overline{A}^w$, but there is no sequence $a_k \in A$ such that $a_k \weaklyto 0$.
+\begin{proof}
+\end{proof}
+
 
 \p 4 Let $H$ be a Hilbert space and $(x_n) \subset H$ such that $x_n \weaklyto 0$. Show that there exists a subsequence $(x_{k_n})$ such that
 $$ \left\| \frac{x_{k_1} + \ldots + x_{k_n}} {n} \right \| \to 0.$$
 \begin{proof}
 
+
 \end{proof}
 
 
-\p 5 Let $H$ be a Hilbert space and $(x_n)$ be an orthonormal sequence in $H$. Show that $\sum_n x_n$ converges iff $\sum_n \|x_n\|^2$ converges. %FISHY
+\p 5 Let $H$ be a Hilbert space and $(x_n)$ be an orthogonal sequence in $H$. Show that $\sum_n x_n$ converges iff $\sum_n \|x_n\|^2$ converges. 
+\begin{proof}
+For any $0 \le M \le N$ we have $\|\sum_{n=M}^N x_n \|^2 = \sum_{n=M}^N \|x_n\|^2$.  Thus the partial sums of $\sum_n x_n$ are Cauchy iff the partial sums of $\sum_n \|x_n\|^2$ are Cauchy.
+\end{proof}
+
 
 \p 6 Let $X$ be a vector space equipped with an inner product and $x_1, \ldots, x_n \in X$. Show that
 $$ \frac 1 {2^n} \sum_{\epsilon_i = \pm 1} \| \sum_{i=1}^n \epsilon_i x_i \|^2 = \sum_{i=1}^n \|x_i\|^2.$$
+\begin{proof}
+
+\end{proof}
 
 \end{document}
