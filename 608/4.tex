@@ -6,8 +6,30 @@
 \noindent Texas A\&M University - Math 608 \\ 
 \noindent Instructor: Grigoris Paouris
 
-\subsection*{HW 3}
-\p{
+%Folland, Chapter 6, Exercises: 3,4,5, 10, 12,13
+\subsection*{HW 4}
+\p{6.3} If $1 \le p < r \le \infty$, $L^p \cap L^r$ is a Banach space with norm $\|f\| = \|f\|_p + \|f\|_r$, and if 
+$p < q< r$, the inclusion map $L^p \cap L^r \to L^q$ is continuous.
 \begin{proof}
+The restrictions of $\|\cdot\|_p$ and $\|cdot\|_r$ to $L^p \cap L^r$ are norms, so their sum is a norm.  To see that $L^p \cap L^r$ is complete, suppose $\sum_n f_n$ converges absolutely with respect to $\| \cdot \|$ for $f_n \in L^p \cap L^r$.  Then the same series converges absolutely in $L^p$ and $L^q$.  Thus the pointwise limit of the series exists a.e. and lies in $L^p \cap L^q$.
+
+To see that the inclusion map $L^p \cap L^r \to L^q$ is continuous, let $f \in L^p \cap L^r$ and pick $\lambda$ as in Prop. 6.10.  Then $\|f\|_q \le \|f\|_p^\lambda \|f\|_q^{1 - \lambda} \le \|f\|^\lambda \|f\|^{1 - \lambda} = \|f\|$.
 \end{proof}
+
+\p{4} If $1 \le p < r \le \infty$, $L^p + L^r$ is a Banach space with norm $\|f\| = \inf\{\|g\|_p + \|h\|_r : f = g + h\}$, and if
+$p < q < r$, the inclusion map $L^q \to L^p + L^r$ is continuous.
+
+\begin{proof}
+To see that $\|\cdot\|$ is positive definite, the only hard part is to show that $\|f\| = 0$ implies $f = 0$ a.e.  Suppose not. Then there exists a function $f$ such that $\|f\| = 0$ and $\mu(\{f > 0\}) > 0$.  Then there exist sequences $g_n \in L^p$ and $h_n \in L^r$ with $f = g_n + h_n$ and $\|g_n\| + \|h_n\| < 2^{-n}$. 
+\end{proof}
+
+
+\p{5} Suppose $0 < p < q < \infty$. Then $L^p \not\subset L^q$ iff $X$ contains sets of arbitrarily small positive measure, and $L^q \not \subset L^p$ iff $X$ contains sets of arbitrarily large finite measure. (Hint in book).
+
+\p{10} Suppose $1 \le p < \infty$. If $f_n, f \in L^p$ and $f_n \to f$ a.e., then $\|f_n - f\|_p \to 0$ iff $\|f_n\|_p \to \|f\|_p$. (Use Exercise 20 in 2.3)
+
+\p{12} If $p \neq 2$, the $L^p$ norm does not aries on $L^p$, except in trivial cases when $\dim(L^p) \le 1$.
+
+\p{13} $L^p(\R^n, m)$ is separable for $1 \le p < \infty$. However, $L^\infty(\R^n, m)$ is not separable.
+
 \end{document}
