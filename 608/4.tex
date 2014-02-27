@@ -20,7 +20,21 @@ To see that the inclusion map $L^p \cap L^r \to L^q$ is continuous, let $f \in L
 $p < q < r$, the inclusion map $L^q \to L^p + L^r$ is continuous.
 
 \begin{proof}
-To see that $\|\cdot\|$ is positive definite, the only hard part is to show that $\|f\| = 0$ implies $f = 0$ a.e.  Suppose not. Then there exists a function $f$ such that $\|f\| = 0$ and $\mu(\{f > 0\}) > 0$.  Then there exist sequences $g_n \in L^p$ and $h_n \in L^r$ with $f = g_n + h_n$ and $\|g_n\| + \|h_n\| < 2^{-n}$. 
+To see that $\|\cdot\|$ is positive definite, we must show that $\|f\| = 0$ implies $f = 0$ a.e.  Suppose that $\mu(\{f > 0\}) > 0$.  Then there exist a measurable set $E$ and $\delta > 0$ such that $\mu(E) > 0$ and $f_{|E} \ge \delta$. Suppose $f = g + h$ for $g \in L^p$ and $h \in L^q$.  Then 
+\begin{align*}
+\|g\|_p + \|h\|_r &  \ge \|g_{|E}\|_p + \|h_{|E}\|_q 
+\\ &  \ge \|g_{|E}\|_p + \mu(E)^{1/p - 1/q}\|h_{|E}\|_p
+\\ & \ge \min(\mu(E)^{1/p - 1/q},1) (\|g_{|E}\|_p + \|h_{|E}\|_p)
+\\ & \ge \min(\mu(E)^{1/p - 1/q},1) \|f_{|E}\|_p
+\\  & \ge \min(\mu(E)^{1/p - 1/q},1) \delta^{1/p}
+\end{align*}
+This implies that $\|f\| \ge \min(\mu(E)^{1/p - 1/q},1) \delta^{1/p} > 0$.
+
+The function $\|\cdot\|$ satisfies the homogeneity condition of a norm.  For the triangle inequality, suppose $f_1, f_2 \in L^p + L^r$.  Suppose $f_1 = g_1 + h_1$ and $f_2 = g_1 + h_2$ for some $g_1,g_2 \in L^p$ and $h_1, h_2 \in L^r$. Then $\|g_1\|_p + \|h_1\|_q +  \|g_2\|_p + \|h_2\|_q \ge \|g_1 + g_2\|_p + \|h_1 + h_2\|_q \ge \|f_1 +f_2\|$.  Thus, $\|f_1\| + \|f_2\| \ge \|f_1 + f_2\|$.
+
+To see that $L^p + L^q$ is complete,
+
+
 \end{proof}
 
 
