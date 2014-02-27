@@ -11,7 +11,7 @@
 \p{6.3} If $1 \le p < r \le \infty$, $L^p \cap L^r$ is a Banach space with norm $\|f\| = \|f\|_p + \|f\|_r$, and if 
 $p < q< r$, the inclusion map $L^p \cap L^r \to L^q$ is continuous.
 \begin{proof}
-The restrictions of $\|\cdot\|_p$ and $\|cdot\|_r$ to $L^p \cap L^r$ are norms, so their sum is a norm.  To see that $L^p \cap L^r$ is complete, suppose $\sum_n f_n$ converges absolutely with respect to $\| \cdot \|$ for $f_n \in L^p \cap L^r$.  Then the same series converges absolutely in $L^p$ and $L^q$.  Thus the pointwise limit of the series exists a.e. and lies in $L^p \cap L^q$.
+The restrictions of $\|\cdot\|_p$ and $\|\cdot\|_r$ to $L^p \cap L^r$ are norms, so their sum is a norm.  To see that $L^p \cap L^r$ is complete, suppose $\sum_n f_n$ converges absolutely with respect to $\| \cdot \|$ for $f_n \in L^p \cap L^r$.  Then the same series converges absolutely in $L^p$ and $L^q$.  Thus the pointwise limit of the series exists a.e. and lies in $L^p \cap L^q$.
 
 To see that the inclusion map $L^p \cap L^r \to L^q$ is continuous, let $f \in L^p \cap L^r$ and pick $\lambda$ as in Prop. 6.10.  Then $\|f\|_q \le \|f\|_p^\lambda \|f\|_q^{1 - \lambda} \le \|f\|^\lambda \|f\|^{1 - \lambda} = \|f\|$.
 \end{proof}
@@ -32,7 +32,25 @@ This implies that $\|f\| \ge \min(\mu(E)^{1/p - 1/q},1) \delta^{1/p} > 0$.
 
 The function $\|\cdot\|$ satisfies the homogeneity condition of a norm.  For the triangle inequality, suppose $f_1, f_2 \in L^p + L^r$.  Suppose $f_1 = g_1 + h_1$ and $f_2 = g_1 + h_2$ for some $g_1,g_2 \in L^p$ and $h_1, h_2 \in L^r$. Then $\|g_1\|_p + \|h_1\|_q +  \|g_2\|_p + \|h_2\|_q \ge \|g_1 + g_2\|_p + \|h_1 + h_2\|_q \ge \|f_1 +f_2\|$.  Thus, $\|f_1\| + \|f_2\| \ge \|f_1 + f_2\|$.
 
-To see that $L^p + L^q$ is complete,
+To see that $L^p + L^r$ is complete, suppose $f_n \in L^p + L^r$ and $\sum_n f_n$ converges absolutely. Pick $g_n \in L^p$ and $h_n \in L^r$ such that $\|g_n\|_p + \|h_n\|_r \le \|f\| + 2^{-n}$.  Then $\sum_n g_n$ and $\sum_n h_n$ converge absolutely in $L^p$ and $L^r$ respectively.  Let $g = \sum_n g_n$ and $h = \sum_n h_n$. Then $\sum_n f_n = g + h$ pointwise a.e.  Moreover, 
+\begin{align*}
+\| \sum_{n \ge N} f_n \|  & \le \sum_{n \ge N} \|f_n\|
+\\ & \le \sum_{n \ge N} \|g_n\|_p + \|h_n\|_r
+\\ & \underset{N \to \infty}{\to} 0,
+\end{align*}
+so $\sum_n f_n = g+ h$ in $L^p + L^r$.  Hence $L^p + L^r$ is complete.
+
+%FIXME
+Lemma: if $|f| \le 1$ and $1 < q < r < \infty$, then $\|f\|_r \le \|f\|_q$.
+
+
+To see that the inclusion $L^q \to L^p + L^r$ is continuous, let $f \in L^q$. Let $E = \{x : f(x) > 1\}$. Then $\mu(E) < \infty$, $f\chi_E \in L^p$ and $f\chi_{E^c} \in L^r$. Hence
+\begin{align*}
+\|f\| & \le \|f\chi_E\|_p + \|f \chi_{E^c}\|_r
+& \le \mu(E)^{1/p - 1/q} \|f \chi_E \|_q + \left( \int_{E^c} |f|^r d\mu \right)^{1/r}
+& \le \mu(E)^{1/p - 1/q} \|f \|_q + 
+\end{align*}
+
 
 
 \end{proof}
