@@ -1,0 +1,31 @@
+c\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 620\\ 
+\noindent Instructor: Frank Sottile
+
+\subsection*{HW 4}
+\p{B-3 p67} Let  $n, d > 0$ and 
+$$ A = \{\alpha = (\alpha_0, \ldots, \alpha_n) \in \N^{n+1} | \alpha_i \ge 0 \text{ and} \sum_{i=0}^n \alpha_i = d \}.$$
+We note that $|A| = {{n+d} \choose d }$. We set $|A| = N + 1$.
+
+The cardinality of the support of $\alpha \in A$ is called the breadth of $\alpha$.
+
+Consider distinct integers $i,j \in [0,n]$. We denote by $(i,j)$ (resp. $(i)$) the element $\alpha \in A$ defined by $\alpha_k = 0$ for $k \neq i,j$; $\alpha_i = d- 1$; $\alpha_j = 1$ (resp. $\alpha_k = 0$ for $k \neq i$ and $\alpha_i = d$).
+
+If $X_0, \ldots, X_n$ are variables, then for any $\alpha \in A$ we set $X^\alpha = X_0^{\alpha_0} \cdots X_n^{\alpha_n}$.
+
+We consider the map $\phi : \PP^n \to \PP^N$ defined by the formula
+$$\phi(x_0, \ldots, x_n) = ((x^\alpha)_{\alpha \in A).$$
+\begin{enumerate}[1)]
+\item Prove that $\phi$ is an injective map.
+\item Consider the ring homomorphism
+$$\theta : k[(Y_\alpha)]_{\alpha \in A} \to k[X_0, \ldots X_n]$$
+defined by $\theta(Y_\alpha) = X^\alpha$. Set $I = \ker \theta$ and consider $V = V_P(I)$ (the Veronese variety).
+
+Prove that $I$ is a homogeneous ideal and $\phi(\PP^n) \subset V$.
+\end{enumerate}
+
+\end{document}

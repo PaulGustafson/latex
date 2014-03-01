@@ -13,7 +13,7 @@ $p < q< r$, the inclusion map $L^p \cap L^r \to L^q$ is continuous.
 \begin{proof}
 The restrictions of $\|\cdot\|_p$ and $\|\cdot\|_r$ to $L^p \cap L^r$ are norms, so their sum is a norm.  To see that $L^p \cap L^r$ is complete, suppose $\sum_n f_n$ converges absolutely with respect to $\| \cdot \|$ for $f_n \in L^p \cap L^r$.  Then the same series converges absolutely in $L^p$ and $L^q$.  Thus the pointwise limit of the series exists a.e. and lies in $L^p \cap L^q$.
 
-To see that the inclusion map $L^p \cap L^r \to L^q$ is continuous, let $f \in L^p \cap L^r$ and pick $\lambda$ as in Prop. 6.10.  Then $\|f\|_q \le \|f\|_p^\lambda \|f\|_q^{1 - \lambda} \le \|f\|^\lambda \|f\|^{1 - \lambda} = \|f\|$.
+To see that the inclusion map $L^p \cap L^r \to L^q$ is continuous, let $f \in L^p \cap L^r$ and pick $\lambda$ as in Prop. 6.10.  Then $\|f\|_q \le \|f\|_p^\lambda \|f\|_r^{1 - \lambda} \le \|f\|^\lambda \|f\|^{1 - \lambda} = \|f\|$.
 \end{proof}
 
 \p{4} If $1 \le p < r \le \infty$, $L^p + L^r$ is a Banach space with norm $\|f\| = \inf\{\|g\|_p + \|h\|_r : f = g + h\}$, and if
@@ -41,27 +41,45 @@ To see that $L^p + L^r$ is complete, suppose $f_n \in L^p + L^r$ and $\sum_n f_n
 so $\sum_n f_n = g+ h$ in $L^p + L^r$.  Hence $L^p + L^r$ is complete.
 
 %FIXME
-Lemma: if $|f| \le 1$ and $1 < q < r < \infty$, then $\|f\|_r \le \|f\|_q$.
+To see that the inclusion $L^q \to L^p + L^r$ is continuous, let $f \in L^q$ with $\|f\|_q = 1$. 
 
-
-To see that the inclusion $L^q \to L^p + L^r$ is continuous, let $f \in L^q$. Let $E = \{x : f(x) > 1\}$. Then $\mu(E) < \infty$, $f\chi_E \in L^p$ and $f\chi_{E^c} \in L^r$. Hence
+Case $f$ is simple. Let $E = \{x : f(x) \le 1\}$. Then 
 \begin{align*}
-\|f\| & \le \|f\chi_E\|_p + \|f \chi_{E^c}\|_r
-& \le \mu(E)^{1/p - 1/q} \|f \chi_E \|_q + \left( \int_{E^c} |f|^r d\mu \right)^{1/r}
-& \le \mu(E)^{1/p - 1/q} \|f \|_q + 
+\|f\| & \le \|f \chi_{E^c}\|_p + \|f \chi_E\|_r 
+\\ & =  \left( \int_{E^c} |f|^p d\mu \right)^{1/p} + \left( \int_{E} |f|^r d\mu \right)^{1/r}
+\\ & \le \left( \int_{E^c} |f|^q d\mu \right)^{1/p} + \left( \int_{E} |f|^q d\mu \right)^{1/r}
+\\ & \le \left( \int |f|^q d\mu \right)^{1/p} + \left( \int |f|^q d\mu \right)^{1/r}
+\\ = 2
 \end{align*}
 
-
+General case. Pick simple functions $\phi_n$ with $\phi_n \to f$ pointwise and $|\phi_n| < |f|$. Then
+\begin{align*}
+\|f - \phi_n\| & 
+\end{align*} 
 
 \end{proof}
 
 
 \p{5} Suppose $0 < p < q < \infty$. Then $L^p \not\subset L^q$ iff $X$ contains sets of arbitrarily small positive measure, and $L^q \not \subset L^p$ iff $X$ contains sets of arbitrarily large finite measure. (Hint in book).
+\begin{proof}
+
+\end{proof}
 
 \p{10} Suppose $1 \le p < \infty$. If $f_n, f \in L^p$ and $f_n \to f$ a.e., then $\|f_n - f\|_p \to 0$ iff $\|f_n\|_p \to \|f\|_p$. (Use Exercise 20 in 2.3)
+\begin{proof}
+
+\end{proof}
 
 \p{12} If $p \neq 2$, the $L^p$ norm does not aries on $L^p$, except in trivial cases when $\dim(L^p) \le 1$.
+\begin{proof}
+
+\end{proof}
 
 \p{13} $L^p(\R^n, m)$ is separable for $1 \le p < \infty$. However, $L^\infty(\R^n, m)$ is not separable.
+\begin{proof}
+To see that $L^\infty(R^n, m)$ is not separable, let $E_k = [k, k+1] \times \prod_{i=2}^n [0,1]$. 
+
+
+\end{proof}
 
 \end{document}
