@@ -84,11 +84,17 @@ We now consider the case $q = \infty$. I claim $L_\infty \subset L_p$ iff $\mu(X
 
 \p{10} Suppose $1 \le p < \infty$. If $f_n, f \in L^p$ and $f_n \to f$ a.e., then $\|f_n - f\|_p \to 0$ iff $\|f_n\|_p \to \|f\|_p$. (Use Exercise 20 in 2.3)
 \begin{proof}
-Since $| \|f_n\|_p - \|f\|_p | \le \|f_n - f\|_p$, one implication is clear. For the converse, assume $\|f_n\|_p \to \|f\|_p$. We have
-$\|f_n - f\|^p = \int |f_n - f|^p d\mu$  
-%need to bound |f_n - f|^p by g_n integrable with g_n \to g
+Since $| \|f_n\|_p - \|f\|_p | \le \|f_n - f\|_p$, one implication is clear. 
 
-
+For the converse, suppose $\|f_n\|_p \to \|f\|_p$. 
+We have
+\begin{align*}
+|f_n - f|^p & \le (|f_n| + |f|)^p 
+\\ & = \sum_{i=0}^\infty {p \choose i} |f_n|^i |f|^{p-i} 
+\\ & \le \sum_{i=0}^\infty {p \choose i} (|f_n|^p + |f|^p)
+\\ & = 2^p (|f_n|^p + |f|^p)
+\end{align*}
+Letting $g_n = 2^p(|f_n|^p + |f|^p)$ and $g = 2^{p+1} |f|^p$, we have $g_n \to g$ a.e. and $\int g_n \to \int g$ since $\|f_n\|_p^p \to \|f\|_p^p$.  Thus by the Generalized DCT, we have $\int |f_n - f|^p \to 0$. Hence $\|f_n - f\|_p \to 0$.
 \end{proof}
 
 \p{12} If $p \neq 2$, the $L^p$ norm does not arise from an inner product on $L^p(X, \mM, \mu)$, except in trivial cases when $\dim(L^p) \le 1$.
