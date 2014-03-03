@@ -40,7 +40,6 @@ To see that $L^p + L^r$ is complete, suppose $f_n \in L^p + L^r$ and $\sum_n f_n
 \end{align*}
 so $\sum_n f_n = g+ h$ in $L^p + L^r$.  Hence $L^p + L^r$ is complete.
 
-%FIXME
 To see that the inclusion $L^q \to L^p + L^r$ is continuous, let $f \in L^q$ with $\|f\|_q = 1$. 
 
 Case $f$ is simple. Let $E = \{x : f(x) \le 1\}$. Then 
@@ -52,34 +51,50 @@ Case $f$ is simple. Let $E = \{x : f(x) \le 1\}$. Then
 \\ = 2
 \end{align*}
 
-General case. Pick simple functions $\phi_n$ with $\phi_n \to f$ pointwise and $|\phi_n| < |f|$. Then
+General case. Let $E = \{x : f(x) \le 1\}$, $g = f \chi_{E^c} \in L^p$, and $h = f \chi_E \in L^r$. Pick simple functions $\phi_n, \psi_n$ with $\phi_n \to g$ and $\psi_n \to h$ pointwise a.e., $|\phi_n| \le |g|$, and $|\psi_n| \le |h|$.  Let $\theta_n = \phi_n + \psi_n$.  We have
 \begin{align*}
-\|f - \phi_n\| & 
+\|f - \theta_n \| & = \|g + h - \phi_n - \psi_n\|
+\\ & \le \|g - \phi_n\|_p + \|h - \psi_n\|_r
+\\ \to 0
 \end{align*} 
-
+Hence $\|f\| \le \liminf_n \|theta_n\| + \|theta_n - f\| \le 2$. 
 \end{proof}
 
 
-\p{5} Suppose $0 < p < q < \infty$. Then $L^p \not\subset L^q$ iff $X$ contains sets of arbitrarily small positive measure, and $L^q \not \subset L^p$ iff $X$ contains sets of arbitrarily large finite measure. (Hint in book).
+\p{5} Suppose $0 < p < q < \infty$. Then $L^p \not\subset L^q$ iff $X$ contains sets of arbitrarily small positive measure, and $L^q \not \subset L^p$ iff $X$ contains sets of arbitrarily large finite measure. What about the case $q = \infty$? (Hint in book).
 \begin{proof}
+
+
+
 
 \end{proof}
 
 \p{10} Suppose $1 \le p < \infty$. If $f_n, f \in L^p$ and $f_n \to f$ a.e., then $\|f_n - f\|_p \to 0$ iff $\|f_n\|_p \to \|f\|_p$. (Use Exercise 20 in 2.3)
 \begin{proof}
+Since $| \|f_n\|_p - \|f\|_p | \le \|f_n - f\|_p$, one implication is clear. For the converse, assume $\|f_n\|_p \to \|f\|_p$. We have
+$\|f_n - f\|^p = \int |f_n - f|^p d\mu$  
+%need to bound |f_n - f|^p by g_n integrable with g_n \to g
+
 
 \end{proof}
 
-\p{12} If $p \neq 2$, the $L^p$ norm does not aries on $L^p$, except in trivial cases when $\dim(L^p) \le 1$.
-\begin{proof}
+\p{12} If $p \neq 2$, the $L^p$ norm does not arise from an inner product on $L^p(X, \mM, \mu)$, except in trivial cases when $\dim(L^p) \le 1$.
+\begin{proof}}
+Since $\dim(L^p) > 1$, there exist $E,F \in \mM$ with $0 < \mu(E) < \infty$, $0 < \mu(F) < \infty$, and $E \cap F = \emptyset$. Then
+$\|\chi_E + \chi_F\|^2 + \|\chi_E - \chi_F\|^2 = 2 (\mu(E) + \mu(F))^{2/p}$, whereas $2\|\chi_E\|^2 + 2 \|\chi_F\|^2 = 2 \mu(E)^{2/p} + 2\mu(F)^{2/p}$. For $p < 2$, these cannot be equal by Minkowski's inequality. 
 
+If $p > 2$, let $s = 2/p < 1$ and $\alpha = \mu(E)/(\mu(E) + \mu(F))$. Then we have $\frac{2\|\chi_E\|^2 + 2 \|\chi_F\|^2}{\|\chi_E + \chi_F\|^2 + \|\chi_E - \chi_F\|^2} = \alpha^s + (1 - \alpha)^s =: f(\alpha)$. We have $f''(\alpha) = s(s-1) (\alpha^s  + (1 - \alpha)^s) < 0$.
+
+Suppose $f(\alpha_0) = 1$ for some $\alpha_0 \in (0,1)$.  Since $f(0) = 1 = f(1)$, the mean value theorem implies there exist $\beta_1 \in (0,\alpha_0)$ and $\beta_2 \in (\alpha_0,1)$ with $f'(\beta_1) = 0 = f'(\beta_2)$.  Applying the MVT again implies that $f''$ has a root, a contradiction.
 \end{proof}
 
 \p{13} $L^p(\R^n, m)$ is separable for $1 \le p < \infty$. However, $L^\infty(\R^n, m)$ is not separable.
 \begin{proof}
-To see that $L^\infty(R^n, m)$ is not separable, let $E_k = [k, k+1] \times \prod_{i=2}^n [0,1]$. 
+To see that $L^p(\R^n, m)$ is separable for $1 \le p < \infty$, recall that the simple functions are dense in $L^p$.  Let $\phi = \sum_{i=1}^j a_i \chi_{E_i} \in L^p$ be simple. By the DCT and picking rational sequences converging to each $a_i$, WLOG $a_i \in \Q$ for all $i$. 
 
+Since $\phi$ is bounded and supported on a set of finite measure, it suffices to approximate $\phi$ in measure. We have $m(E_i) = \inf{\bigcup_{k = 1}^\infty m(R_k) : l \in \N, R_k \text{ a rectangle with rational vertices}, E_i \subset \bigcup_k R_k \}$.  Hence, WLOG $E_i = \bigcup_{k = 1}^l R_k$ for a rational rectangle. The set of such functions $\phi$ is countable.
 
+To see that $L^\infty(R^n, m)$ is not separable, for $i = \prod_k i_k \in \{0,1\}^\N$ let $E_i = \bigcup_{i_k = 1} [i_k, i_k + 1] \times \prod_{i=2}^n [0,1]$. Then if $i \neq j$, we have $\|\chi_{E_i} - \chi_{E_j}\|_\infty = 1$.  Since $|\{0,1\}|^\N > \N$ it follows that $L^\infty(\R^n, m)$ is not separable.
 \end{proof}
 
 \end{document}
