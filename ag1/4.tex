@@ -1,4 +1,4 @@
-c\documentclass{article}
+\documentclass{article}
 \usepackage{../m}
 
 \begin{document}
@@ -8,7 +8,7 @@ c\documentclass{article}
 
 \subsection*{HW 4}
 \p{B-3 p67} Let  $n, d > 0$ and 
-$$ A = \{\alpha = (\alpha_0, \ldots, \alpha_n) \in \N^{n+1} | \alpha_i \ge 0 \text{ and} \sum_{i=0}^n \alpha_i = d \}.$$
+$$ A = \{\alpha = (\alpha_0, \ldots, \alpha_n) \in \N^{n+1} | \alpha_i \ge 0 \text{ and } \sum_{i=0}^n \alpha_i = d \}.$$
 We note that $|A| = {{n+d} \choose d }$. We set $|A| = N + 1$.
 
 The cardinality of the support of $\alpha \in A$ is called the breadth of $\alpha$.
@@ -18,14 +18,23 @@ Consider distinct integers $i,j \in [0,n]$. We denote by $(i,j)$ (resp. $(i)$) t
 If $X_0, \ldots, X_n$ are variables, then for any $\alpha \in A$ we set $X^\alpha = X_0^{\alpha_0} \cdots X_n^{\alpha_n}$.
 
 We consider the map $\phi : \PP^n \to \PP^N$ defined by the formula
-$$\phi(x_0, \ldots, x_n) = ((x^\alpha)_{\alpha \in A).$$
+$$\phi(x_0, \ldots, x_n) = (x^\alpha)_{\alpha \in A}.$$
 \begin{enumerate}[1)]
 \item Prove that $\phi$ is an injective map.
+\begin{proof}
+Suppose $\phi(x) = \phi(y)$.
+\end{proof}
+
 \item Consider the ring homomorphism
 $$\theta : k[(Y_\alpha)]_{\alpha \in A} \to k[X_0, \ldots X_n]$$
 defined by $\theta(Y_\alpha) = X^\alpha$. Set $I = \ker \theta$ and consider $V = V_P(I)$ (the Veronese variety).
-
 Prove that $I$ is a homogeneous ideal and $\phi(\PP^n) \subset V$.
+\item Consider $\alpha, \beta, \gamma, \delta \in A$. We assume $\alpha + \beta = \gamma + \delta$. Prove that $Y_\alpha Y_\beta - Y_\gamma Y_\delta$ is in the ideal $I$.
+\item Prove that the open sets $D^+(Y_{(i)})$ cover $V$. (Hint in book).
+\item We define $\psi : D^+(Y_{(i)}) \cap V \to D^+(X_i)$ by the formula
+$$\psi((y_\alpha)) = (y_{(i,0)}, y_{(i,1)}, \ldots, y_{(i)}, \ldots, y_{(i,n)}).$$
+Prove that $\phi$ and $\psi$ are mutually inverse morphisms on the open sets in question.
+\item Prove that $\phi$ gives an isomorphism from $\PP^n$ to the Veronese variety $V$.
 \end{enumerate}
 
 \end{document}
