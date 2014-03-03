@@ -63,10 +63,23 @@ Hence $\|f\| \le \liminf_n \|theta_n\| + \|theta_n - f\| \le 2$.
 
 \p{5} Suppose $0 < p < q < \infty$. Then $L^p \not\subset L^q$ iff $X$ contains sets of arbitrarily small positive measure, and $L^q \not \subset L^p$ iff $X$ contains sets of arbitrarily large finite measure. What about the case $q = \infty$? (Hint in book).
 \begin{proof}
+Fix $r \in \R$ with $p < r < q$.
 
+Suppose $X$ contains sets of arbitrarily small positive measure. Pick $F_n$ with $0 < m(F_n) \le 2^{-n}$.  Let $E_n = F_n \setminus \bigcup_{j > n} F_j$. Then $0 < \mu(E_n) \le 2^{-n}$ and the $(E_n)$ are disjoint.  Let $f = \sum_n (\mu(E_n))^{-1/r} \chi_{E_n}$.  Then $\|f\|_p^p = \sum_n \mu(E_n)^{-p/r} \mu(E_n) \le \sum_n \mu(E_n)^{1-p/r} \le \sum_n 2^{-n(1-p/r)} < \infty$, but $\|f\|_q^q = \sum_n \mu(E_n)^{1-q/r} \ge \sum_n 2^{n(q/r - 1)} = \infty$.
 
+Conversely, suppose that there exists $\delta > 0$ such that if $\mu(E) > 0$ then $\mu(E) \ge \delta$. Suppose $f \in L^p$. Since $\int_{f \le 1} |f|^q \le \int_{f \le 1} |f|^p$, WLOG $f \ge 1$.  This also implies that the support of $f$ has finite measure. 
 
+I claim that there are only finitely many integers $n \ge 1$ such that $E_n := \{x : n \le |f|^p < n+1\}$ has nonzero measure. Suppose not. Then $\int |f|^p = \sum_n \int_{E_n} |f|^p \ge \sum_{\mu(E_n) \neq 0} \delta n = \infty$, a contradiction.
 
+Thus $\int |f|^q = \sum_n \int_{E_n} |f|^q$ is a finite sum.  By definition $\mu(E_n)$ is finite for all $n$, and $|f|$ is bounded on each $E_n$.  Hence $f \in L^q$.
+
+Now suppose $X$ contains sets of arbitrarily large finite measure.  Then, by disjointifying, it must contain a sequence of disjoint subsets $E_n \in \mM$ with $1 \le \mu(E_n) < \infty$. Let $f = \sum_n (n \mu(E_n))^{-1/r} \chi_{E_n}$.  Then $\|f\|_q^q = \sum_n (n \mu(E_n))^{-q/r} \mu(E_n) \le \sum_n n^{-q/r} < \infty$, but $\|f\|_p^p = \sum_n (n \mu(E_n))^{-p/r} \mu(E_n) \ge \sum_n n^{-p/r} = \infty$.  Hence $\L^q \not \subset L^p$.
+
+Conversely, suppose there exists $K \ge 0$ such that every set $E \in \mM$ of finite measure has $\mu(E) \le K$. Let $f \in L^q$.  Let $E = \{ f \le 1 \}$.  We have $\|f\|_p^p = \int_E |f|^p d\mu + \int_{E^c} |f|^p d\mu \le \int_E |f|^p d\mu + \int_{E^c} |f|^q d\mu$.
+
+Thus it suffices to show $\int_E |f|^p d\mu < \infty$. Let $\phi = \sum_{i=1}^n a_i \chi_{E_i}$ be a simple function with $0 \le \phi \le \chi_E |f|^p$. Then $\int \phi d\mu \le \sum_i \mu(E_i) = \mu(\bigcup_i E_i) \le K$.  Hence $\int_E |f|^p d\mu \le K$.
+
+We now consider the case $q = \infty$. I claim $L_\infty \subset L_p$ iff $\mu(X) < \infty$. Suppose $\mu(X) < \infty$ and $f \in L_\infty$. Then $\|f\|_p^p = \int |f|^p \le \mu(X) \||f|^p\|_\infty = \mu(X) \|f\|_\infty^p$.  Conversely, suppose $\mu(X) = \infty$. Then $\chi_X \in L_\infty \setminus L_p$.
 \end{proof}
 
 \p{10} Suppose $1 \le p < \infty$. If $f_n, f \in L^p$ and $f_n \to f$ a.e., then $\|f_n - f\|_p \to 0$ iff $\|f_n\|_p \to \|f\|_p$. (Use Exercise 20 in 2.3)
