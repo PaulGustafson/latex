@@ -11,7 +11,9 @@
 \p{6.3} If $1 \le p < r \le \infty$, $L^p \cap L^r$ is a Banach space with norm $\|f\| = \|f\|_p + \|f\|_r$, and if 
 $p < q< r$, the inclusion map $L^p \cap L^r \to L^q$ is continuous.
 \begin{proof}
-The restrictions of $\|\cdot\|_p$ and $\|\cdot\|_r$ to $L^p \cap L^r$ are norms, so their sum is a norm.  To see that $L^p \cap L^r$ is complete, suppose $\sum_n f_n$ converges absolutely with respect to $\| \cdot \|$ for $f_n \in L^p \cap L^r$.  Then the same series converges absolutely in $L^p$ and $L^q$.  Thus the pointwise limit of the series exists a.e. and lies in $L^p \cap L^q$.
+The restrictions of $\|\cdot\|_p$ and $\|\cdot\|_r$ to $L^p \cap L^r$ are norms, so their sum is a norm. 
+
+ To see that $L^p \cap L^r$ is complete, suppose a sequence $(f_n)$ is Cauchy in $L^p \cap L^r$.  Then $(f_n)$ is Cauchy in $L^p$, and hence converges to some $f \in L^p$.  Moreover $f$ is the pointwise a.e. limit of $f_n$, for otherwise there exists $\epsilon > 0$ and a set $E$ of positive measure where $\limsup_n \chi_E |f - f_n| \ge \epsilon$. This implies $\limsup_n \|f - f_n\|_p^p \ge \limsup_n \int_E |f - f_n|^p \ge \mu(E) \epsilon^p$, a contradiction. Similarly, $f$ is the limit of $(f_n)$ in $L^q$.  Thus, $f \in L^p \cap L^q$, and $\|f_n - f\| \le \|f_n -f\|_p + \|f_n - f\|_q \to 0$.
 
 To see that the inclusion map $L^p \cap L^r \to L^q$ is continuous, let $f \in L^p \cap L^r$ and pick $\lambda$ as in Prop. 6.10.  Then $\|f\|_q \le \|f\|_p^\lambda \|f\|_r^{1 - \lambda} \le \|f\|^\lambda \|f\|^{1 - \lambda} = \|f\|$.
 \end{proof}
@@ -20,7 +22,7 @@ To see that the inclusion map $L^p \cap L^r \to L^q$ is continuous, let $f \in L
 $p < q < r$, the inclusion map $L^q \to L^p + L^r$ is continuous.
 
 \begin{proof}
-To see that $\|\cdot\|$ is positive definite, we must show that $\|f\| = 0$ implies $f = 0$ a.e.  Suppose that $\mu(\{f > 0\}) > 0$.  Then there exist a measurable set $E$ and $\delta > 0$ such that $\mu(E) > 0$ and $f_{|E} \ge \delta$. Suppose $f = g + h$ for $g \in L^p$ and $h \in L^q$.  Then 
+To see that $\|\cdot\|$ is positive definite, we must show that $\|f\| = 0$ implies $f = 0$ a.e.  Suppose that $\mu(\{f > 0\}) > 0$.  Then there exist a measurable set $E$ and $\delta > 0$ such that $0 < \mu(E) < \infty$ and $f_{|E} \ge \delta$. Suppose $f = g + h$ for $g \in L^p$ and $h \in L^q$.  Then 
 \begin{align*}
 \|g\|_p + \|h\|_r &  \ge \|g_{|E}\|_p + \|h_{|E}\|_q 
 \\ &  \ge \|g_{|E}\|_p + \mu(E)^{1/p - 1/q}\|h_{|E}\|_p
@@ -48,16 +50,16 @@ Case $f$ is simple. Let $E = \{x : f(x) \le 1\}$. Then
 \\ & =  \left( \int_{E^c} |f|^p d\mu \right)^{1/p} + \left( \int_{E} |f|^r d\mu \right)^{1/r}
 \\ & \le \left( \int_{E^c} |f|^q d\mu \right)^{1/p} + \left( \int_{E} |f|^q d\mu \right)^{1/r}
 \\ & \le \left( \int |f|^q d\mu \right)^{1/p} + \left( \int |f|^q d\mu \right)^{1/r}
-\\ = 2
+\\ & = 2
 \end{align*}
 
 General case. Let $E = \{x : f(x) \le 1\}$, $g = f \chi_{E^c} \in L^p$, and $h = f \chi_E \in L^r$. Pick simple functions $\phi_n, \psi_n$ with $\phi_n \to g$ and $\psi_n \to h$ pointwise a.e., $|\phi_n| \le |g|$, and $|\psi_n| \le |h|$.  Let $\theta_n = \phi_n + \psi_n$.  We have
 \begin{align*}
 \|f - \theta_n \| & = \|g + h - \phi_n - \psi_n\|
 \\ & \le \|g - \phi_n\|_p + \|h - \psi_n\|_r
-\\ \to 0
+\\ & \to 0
 \end{align*} 
-Hence $\|f\| \le \liminf_n \|theta_n\| + \|theta_n - f\| \le 2$. 
+Hence $\|f\| \le \liminf_n \|\theta_n\| + \|\theta_n - f\| \le 2$. 
 \end{proof}
 
 
@@ -67,13 +69,13 @@ Fix $r \in \R$ with $p < r < q$.
 
 Suppose $X$ contains sets of arbitrarily small positive measure. Pick $F_n$ with $0 < m(F_n) \le 2^{-n}$.  Let $E_n = F_n \setminus \bigcup_{j > n} F_j$. Then $0 < \mu(E_n) \le 2^{-n}$ and the $(E_n)$ are disjoint.  Let $f = \sum_n (\mu(E_n))^{-1/r} \chi_{E_n}$.  Then $\|f\|_p^p = \sum_n \mu(E_n)^{-p/r} \mu(E_n) \le \sum_n \mu(E_n)^{1-p/r} \le \sum_n 2^{-n(1-p/r)} < \infty$, but $\|f\|_q^q = \sum_n \mu(E_n)^{1-q/r} \ge \sum_n 2^{n(q/r - 1)} = \infty$.
 
-Conversely, suppose that there exists $\delta > 0$ such that if $\mu(E) > 0$ then $\mu(E) \ge \delta$. Suppose $f \in L^p$. Since $\int_{f \le 1} |f|^q \le \int_{f \le 1} |f|^p$, WLOG $f \ge 1$.  This also implies that the support of $f$ has finite measure. 
+Conversely, suppose that there exists $\delta > 0$ such that if $\mu(E) > 0$ then $\mu(E) \ge \delta$. Suppose $f \in L^p$. Since $\int_{f \le 1} |f|^q \le \int_{f \le 1} |f|^p$, WLOG $f \ge 1$.  Then the support of $f$ has finite measure. 
 
 I claim that there are only finitely many integers $n \ge 1$ such that $E_n := \{x : n \le |f|^p < n+1\}$ has nonzero measure. Suppose not. Then $\int |f|^p = \sum_n \int_{E_n} |f|^p \ge \sum_{\mu(E_n) \neq 0} \delta n = \infty$, a contradiction.
 
-Thus $\int |f|^q = \sum_n \int_{E_n} |f|^q$ is a finite sum.  By definition $\mu(E_n)$ is finite for all $n$, and $|f|$ is bounded on each $E_n$.  Hence $f \in L^q$.
+Thus $\int |f|^q = \sum_n \int_{E_n} |f|^q$ is a finite sum.  By definition $\mu(E_n)$ must be finite for all $n$, and $|f|$ is bounded on each $E_n$.  Hence $f \in L^q$.
 
-Now suppose $X$ contains sets of arbitrarily large finite measure.  Then, by disjointifying, it must contain a sequence of disjoint subsets $E_n \in \mM$ with $1 \le \mu(E_n) < \infty$. Let $f = \sum_n (n \mu(E_n))^{-1/r} \chi_{E_n}$.  Then $\|f\|_q^q = \sum_n (n \mu(E_n))^{-q/r} \mu(E_n) \le \sum_n n^{-q/r} < \infty$, but $\|f\|_p^p = \sum_n (n \mu(E_n))^{-p/r} \mu(E_n) \ge \sum_n n^{-p/r} = \infty$.  Hence $\L^q \not \subset L^p$.
+Now suppose $X$ contains sets of arbitrarily large finite measure.  Then, by disjointifying, it must contain a sequence of disjoint subsets $E_n \in \mM$ with $1 \le \mu(E_n) < \infty$. Let $f = \sum_n (n \mu(E_n))^{-1/r} \chi_{E_n}$.  Then $\|f\|_q^q = \sum_n (n \mu(E_n))^{-q/r} \mu(E_n) \le \sum_n n^{-q/r} < \infty$, but $\|f\|_p^p = \sum_n (n \mu(E_n))^{-p/r} \mu(E_n) \ge \sum_n n^{-p/r} = \infty$.  Hence $L^q \not \subset L^p$.
 
 Conversely, suppose there exists $K \ge 0$ such that every set $E \in \mM$ of finite measure has $\mu(E) \le K$. Let $f \in L^q$.  Let $E = \{ f \le 1 \}$.  We have $\|f\|_p^p = \int_E |f|^p d\mu + \int_{E^c} |f|^p d\mu \le \int_E |f|^p d\mu + \int_{E^c} |f|^q d\mu$.
 
@@ -86,34 +88,31 @@ We now consider the case $q = \infty$. I claim $L_\infty \subset L_p$ iff $\mu(X
 \begin{proof}
 Since $| \|f_n\|_p - \|f\|_p | \le \|f_n - f\|_p$, one implication is clear. 
 
-For the converse, suppose $\|f_n\|_p \to \|f\|_p$. 
-We have
-\begin{align*}
-|f_n - f|^p & \le (|f_n| + |f|)^p 
-\\ & = \sum_{i=0}^\infty {p \choose i} |f_n|^i |f|^{p-i} 
-\\ & \le \sum_{i=0}^\infty {p \choose i} (|f_n|^p + |f|^p)
-\\ & = 2^p (|f_n|^p + |f|^p)
-\end{align*}
+For the converse, suppose $\|f_n\|_p \to \|f\|_p$. We have $|f_n - f|^p  \le (|f_n| + |f|)^p \le 2^p (|f_n|^p + |f|^p)$.
 Letting $g_n = 2^p(|f_n|^p + |f|^p)$ and $g = 2^{p+1} |f|^p$, we have $g_n \to g$ a.e. and $\int g_n \to \int g$ since $\|f_n\|_p^p \to \|f\|_p^p$.  Thus by the Generalized DCT, we have $\int |f_n - f|^p \to 0$. Hence $\|f_n - f\|_p \to 0$.
 \end{proof}
 
 \p{12} If $p \neq 2$, the $L^p$ norm does not arise from an inner product on $L^p(X, \mM, \mu)$, except in trivial cases when $\dim(L^p) \le 1$.
-\begin{proof}}
+\begin{proof}
 Since $\dim(L^p) > 1$, there exist $E,F \in \mM$ with $0 < \mu(E) < \infty$, $0 < \mu(F) < \infty$, and $E \cap F = \emptyset$. Then
-$\|\chi_E + \chi_F\|^2 + \|\chi_E - \chi_F\|^2 = 2 (\mu(E) + \mu(F))^{2/p}$, whereas $2\|\chi_E\|^2 + 2 \|\chi_F\|^2 = 2 \mu(E)^{2/p} + 2\mu(F)^{2/p}$. For $p < 2$, these cannot be equal by Minkowski's inequality. 
+$\|\chi_E + \chi_F\|^2 + \|\chi_E - \chi_F\|^2 = 2 (\mu(E) + \mu(F))^{2/p}$, whereas $2\|\chi_E\|^2 + 2 \|\chi_F\|^2 = 2 \mu(E)^{2/p} + 2\mu(F)^{2/p}$. 
 
-If $p > 2$, let $s = 2/p < 1$ and $\alpha = \mu(E)/(\mu(E) + \mu(F))$. Then we have $\frac{2\|\chi_E\|^2 + 2 \|\chi_F\|^2}{\|\chi_E + \chi_F\|^2 + \|\chi_E - \chi_F\|^2} = \alpha^s + (1 - \alpha)^s =: f(\alpha)$. We have $f''(\alpha) = s(s-1) (\alpha^s  + (1 - \alpha)^s) < 0$.
+Let $s = 2/p$ and $\alpha = \mu(E)/(\mu(E) + \mu(F))$. Then we have $\frac{2\|\chi_E\|^2 + 2 \|\chi_F\|^2}{\|\chi_E + \chi_F\|^2 + \|\chi_E - \chi_F\|^2} = \alpha^s + (1 - \alpha)^s =: f(\alpha)$. We have $f''(\alpha) = s(s-1) (\alpha^s  + (1 - \alpha)^s)$, which has no roots in $[0,1]$ since $s \neq 0, 1$.
 
 Suppose $f(\alpha_0) = 1$ for some $\alpha_0 \in (0,1)$.  Since $f(0) = 1 = f(1)$, the mean value theorem implies there exist $\beta_1 \in (0,\alpha_0)$ and $\beta_2 \in (\alpha_0,1)$ with $f'(\beta_1) = 0 = f'(\beta_2)$.  Applying the MVT again implies that $f''$ has a root, a contradiction.
+
+Thus $f(\alpha) \neq 1$ for $\alpha \in (0,1)$.  Thus, $2\|\chi_E\|^2 + 2 \|\chi_F\|^2 \neq \|\chi_E + \chi_F\|^2 + \|\chi_E - \chi_F\|^2$, so the parallelogram law fails.
 \end{proof}
 
 \p{13} $L^p(\R^n, m)$ is separable for $1 \le p < \infty$. However, $L^\infty(\R^n, m)$ is not separable.
 \begin{proof}
-To see that $L^p(\R^n, m)$ is separable for $1 \le p < \infty$, recall that the simple functions are dense in $L^p$.  Let $\phi = \sum_{i=1}^j a_i \chi_{E_i} \in L^p$ be simple. By the DCT and picking rational sequences converging to each $a_i$, WLOG $a_i \in \Q$ for all $i$. 
+To see that $L^p(\R^n, m)$ is separable for $1 \le p < \infty$, first recall that the simple functions are dense in $L^p$.  Let $\phi = \sum_{i=1}^j a_i \chi_{E_i} \in L^p$ be simple. By the DCT and picking rational sequences converging to each $a_i$, WLOG $a_i \in \Q$ for all $i$ (the set of such functions $\phi$ remains dense in $L^p$).
 
-Since $\phi$ is bounded and supported on a set of finite measure, it suffices to approximate $\phi$ in measure. We have $m(E_i) = \inf{\bigcup_{k = 1}^\infty m(R_k) : l \in \N, R_k \text{ a rectangle with rational vertices}, E_i \subset \bigcup_k R_k \}$.  Hence, WLOG $E_i = \bigcup_{k = 1}^l R_k$ for a rational rectangle. The set of such functions $\phi$ is countable.
+Since $\phi$ is bounded and supported on a set of finite measure, it suffices to approximate $\phi$ in measure. We have 
+$$m(E_i) = \inf\{\sum_{k = 1}^\infty m(R_k) : l \in \N, R_k \text{ a rectangle with rational vertices}, E_i \subset \bigcup_k R_k \}.$$ 
+ Hence, WLOG $E_i = \bigcup_{k = 1}^l R_k$ for a rational rectangle. The set of such functions $\phi$ is countable.
 
-To see that $L^\infty(R^n, m)$ is not separable, for $i = \prod_k i_k \in \{0,1\}^\N$ let $E_i = \bigcup_{i_k = 1} [i_k, i_k + 1] \times \prod_{i=2}^n [0,1]$. Then if $i \neq j$, we have $\|\chi_{E_i} - \chi_{E_j}\|_\infty = 1$.  Since $|\{0,1\}|^\N > \N$ it follows that $L^\infty(\R^n, m)$ is not separable.
+To see that $L^\infty(R^n, m)$ is not separable, for $i = \prod_k i_k \in \{0,1\}^\N$ let $E_i = \bigcup_{i_k = 1} [i_k, i_k + 1] \times \prod_{i=2}^n [0,1]$. Then if $i \neq j$, we have $\|\chi_{E_i} - \chi_{E_j}\|_\infty = 1$.  Since $|\{0,1\}^\N| > \N$ it follows that $L^\infty(\R^n, m)$ is not separable.
 \end{proof}
 
 \end{document}
