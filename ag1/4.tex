@@ -22,13 +22,24 @@ $$\phi(x_0, \ldots, x_n) = (x^\alpha)_{\alpha \in A}.$$
 \begin{enumerate}[1)]
 \item Prove that $\phi$ is an injective map.
 \begin{proof}
-Suppose $\phi(x) = \phi(y)$. 
+The map $\phi$ is well defined since $(\lambda x)^\alpha = \lambda^d x$ for all $x \in k^{n +1}$ and $\alpha \in A$.
+
+To see that $\phi$ is injective, suppose $\phi(x) = \phi(y)$.
+
+Let $0 \le i \le n$.  I claim $x_i = 0$ iff $y_i = 0$. Suppose $x_i = 0$ but $y_i \neq 0$.  Then $x^{(i)} = 0$ but $y^{(i)} \neq 0$, a contradiction. Thus, by symmetry, $x_i = 0$ iff $y_i = 0$.
+
+Now let $i$ denote the index of the first nonzero term of $x$ and $y$. Suppose $x \neq y$.  Then there exists an index $j$ such that $x_j/x_i \neq y_j/y_i$.
+Then $x^{(i,j)}/x^{(i)} = x_j/x_i \neq y_j/y_i = y^{(i,j)}/y^{(i)}$, a contradiction.
 \end{proof}
 
 \item Consider the ring homomorphism
 $$\theta : k[(Y_\alpha)]_{\alpha \in A} \to k[X_0, \ldots X_n]$$
 defined by $\theta(Y_\alpha) = X^\alpha$. Set $I = \ker \theta$ and consider $V = V_P(I)$ (the Veronese variety).
 Prove that $I$ is a homogeneous ideal and $\phi(\PP^n) \subset V$.
+\begin{proof}
+
+\end{proof}
+
 \item Consider $\alpha, \beta, \gamma, \delta \in A$. We assume $\alpha + \beta = \gamma + \delta$. Prove that $Y_\alpha Y_\beta - Y_\gamma Y_\delta$ is in the ideal $I$.
 \item Prove that the open sets $D^+(Y_{(i)})$ cover $V$. (Hint in book).
 \item We define $\psi : D^+(Y_{(i)}) \cap V \to D^+(X_i)$ by the formula
