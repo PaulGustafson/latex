@@ -6,8 +6,23 @@
 \noindent Texas A\&M University - Math 608 \\ 
 \noindent Instructor: Grigoris Paouris
 
-\subsection*{HW
-\p{
+\subsection*{HW 5}
+%Section 4.2: 23, Section 6.4: 38,39,40, Section 6.5 43
+\p{4.2.23} Give an elementary proof of the Tietze extension theorem in the case $X = \R$.
 \begin{proof}
+Let $E \subset \R$ be closed and $f : E \to \R$. Then $E^c = \bigcup_{n=1}^N I_n$ for disjoint open intervals $I_n$ and $N \le \infty$. We extend $f$ to a function $f^* : \R \to \R$ by linearly interpolating on each bounded $I_n$ and setting $f^*$ to be constant on any unbounded $\overline{I_n}$.
+
 \end{proof}
+
+\p{6.4.38} Show that $f \in L^p$ iff $\sum_{k= -\infty}^\infty 2^{kp} \lambda_f(2^k) < \infty$.
+
+\p{39} If $f \in L^p$, then $\lim_{\alpha \to 0} \alpha^p \lambda_f(\alpha) = \lim_{\alpha \to \infty} \alpha^p \lambda_f(\alpha) = 0$. (First suppose $f$ is simple.)
+
+\p{40} If $f$ is a measurable function on $X$, its decreasing rearrangement is the function $f^*: (0,\infty) \to [0,\infty]$ defined by 
+$$f^*(t) = \inf\{\alpha : \lambda_f(\alpha) \le t\} \quad (\text{where } \inf \emptyset = \infty).$$
+\begin{enumerate}[a.]
+\item $f^*$ is decreasing. If $f^* < \infty$ then $\lambda_f(f^*(t)) \le t$, and if $\lambda_f(\alpha) < \infty)$ then 
+\end{enumerate}
+
+\p{43}
 \end{document}

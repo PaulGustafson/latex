@@ -10,19 +10,54 @@
 %Section 4.2: 23, Section 6.4: 38,39,40, Section 6.5 43
 \p{4.2.23} Give an elementary proof of the Tietze extension theorem in the case $X = \R$.
 \begin{proof}
-Let $E \subset \R$ be closed and $f : E \to \R$. Then $E^c = \bigcup_{n=1}^N I_n$ for disjoint open intervals $I_n$ and $N \le \infty$. For each $I_n$, if $I_n$ is bounded, 
+Let $E \subset \R$ be closed and $f : E \to \R$. Then $E^c = \bigcup_{n=1}^N I_n$ for disjoint open intervals $I_n$ and $N \le \infty$.
 
+We define the function $F:\R \to \R$ to be the extension of $f$ that linearly interpolates the endpoint values on 
+each bounded interval $I_n$ and is constant on the closure of each unbounded interval $I_n$.
+
+By symmetry it suffices to show that $F$ is right continuous. Let $x \in \R$. If $x \in E^c$, then $F$ is continous at $x$.  
+
+Now suppose $x \in E$. If $x$ is not an accumulation point of $E \cap [x, \infty)$, then $F$ is right continuous at $x$.  
+
+If $x$ is an accumulation point of $E \cap [x, \infty)$, then let $\epsilon > 0$.  Pick $\delta > 0$ such that $|f(x) - f(y)| < \epsilon$ for all $y \in E$ with $|y - x| < \delta$.
+Since $x$ is an accumulation point of $E \cap [x, \infty)$, there exists $y_0 \in E \cap [x, x + \delta)$.  By the construction of $F$ it follows
+ that $|F(x) - F(y)| < \epsilon$ for all $y >x$ with $|y - x| < \delta$.
 \end{proof}
 
 \p{6.4.38} Show that $f \in L^p$ iff $\sum_{k= -\infty}^\infty 2^{kp} \lambda_f(2^k) < \infty$.
+\begin{proof}
+
+
+
+
+
+
+
+\end{proof}
+
 
 \p{39} If $f \in L^p$, then $\lim_{\alpha \to 0} \alpha^p \lambda_f(\alpha) = \lim_{\alpha \to \infty} \alpha^p \lambda_f(\alpha) = 0$. (First suppose $f$ is simple.)
+\begin{proof}
+\end{proof}
 
 \p{40} If $f$ is a measurable function on $X$, its decreasing rearrangement is the function $f^*: (0,\infty) \to [0,\infty]$ defined by 
 $$f^*(t) = \inf\{\alpha : \lambda_f(\alpha) \le t\} \quad (\text{where } \inf \emptyset = \infty).$$
 \begin{enumerate}[a.]
-\item $f^*$ is decreasing. If $f^* < \infty$ then $\lambda_f(f^*(t)) \le t$, and if $\lambda_f(\alpha) < \infty)$ then 
+\item $f^*$ is decreasing. If $f^* < \infty$ then $\lambda_f(f^*(t)) \le t$, and if $\lambda_f(\alpha) < \infty)$ then $f^*(\lambda_f(\alpha)) \le \alpha$.
+\item $\lambda_f = \lambda_{f^*}$, where $\lambda_{f^*}$ is defined with respect to Lebesgue measure on $(0,\infty)$.
+\item If $\lambda_f(\alpha) < \infty$ for all $\alpha > 0$ and $\lim_{\alpha \to \infty} \lambda_f(\alpha) = 0$ (so that $f^*(t) < \infty$ for all $t > 0$), and 
+$\phi \ge 0$ is a Borel measurable function on $(0,\infty)$, then $\int_X \phi \circ |f| \, d\mu = \int_0^\infty \phi \circ f^*(t) \, dt$. In particulare,
+$\|f\|_p = \|f^*\|_p$ for $0 < p < \infty$.
+\item If $0<p < \infty$, $[f]_p = \sup_{t > 0} t^{1/p} f^*(t)$.
+\item The name \emph{rearrangement} for $f^*$ comes from the case where $f$ is a nonnegative function on $(0,\infty)$. To see why it is appropriate, pick
+a step function on $(0, \infty)$ assuming four or five different values and draw the graphs of $f$ and $f^*$.
 \end{enumerate}
 
-\p{43}
+\p{43} Let $H$ be the Hardy-Littlewood maximal operator on $\R$. Compute $H_{\chi_{(0,1)}}$ explicitly. 
+Show that it is in $L^p$ for all $p > 1$ and in weak $L^1$ but not in $L^1$., and that its $L^p$ norm tends to $\infty$ 
+like $(p-1)^{-1}$ as $p \to 1$, although $\|\chi_{(0,1)}\|_p = 1$ for all $p$.
+\begin{proof}
+\end{proof}
+
+
 \end{document}
