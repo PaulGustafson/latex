@@ -27,17 +27,24 @@ Since $x$ is an accumulation point of $E \cap [x, \infty)$, there exists $y_0 \i
 \p{6.4.38} Show that $f \in L^p$ iff $\sum_{k= -\infty}^\infty 2^{kp} \lambda_f(2^k) < \infty$.
 \begin{proof}
 
+Note that $|f|^p \le \sum_{k=-\infty}^\infty 2^{p(k+1)} \chi_{\{2^k < |f| \le 2^{k+1} \}} \le 2^p \sum_{k=-\infty}^\infty 2^{pk} \chi_{\{|f| > 2^k \}}$. Hence, $\int |f|^p \le \int 2^p \sum_{k=-\infty}^\infty 2^{kp} \chi_{\{f >2^k \}} = 2^p \sum_{k=-\infty}^\infty 2^{pk} \lambda_f(2^k)$.
 
-
-
-
-
-
+For the opposite inequality, we have 
+\begin{align*}
+\sum_{k=\infty}^\infty 2^{pk} \chi_{\{f >2^k \}} & = \sum_{k=-\infty}^\infty \sum_{j=k}^{\infty} 2^{pk} \chi_{\{ 2^j < |f| \le 2^{j+1}\}}
+\\ & = \sum_{j=-\infty}^\infty \sum_{k=-\infty}^{j} 2^{pk} \chi_{\{ 2^j < |f| \le 2^{j+1}\}} 
+\\ & = \sum_{j=-\infty}^\infty \frac{2^{pj}} { 1 - 2^{-p}} \chi_{\{ 2^j < |f| \le 2^{j+1}\}} 
+\\ & \le \frac{1}{ 1 - 2^{-p}} |f|^p.
+\end{align*}
 \end{proof}
 
 
 \p{39} If $f \in L^p$, then $\lim_{\alpha \to 0} \alpha^p \lambda_f(\alpha) = \lim_{\alpha \to \infty} \alpha^p \lambda_f(\alpha) = 0$. (First suppose $f$ is simple.)
 \begin{proof}
+Case $f$ is simple.  Then the support of $f$ has finite measure, so $\lim_{\alpha \to 0} \alpha^p \lambda_f(\alpha) = 0$.  Moreover, $f$ is bounded so $\lim_{\alpha \to \infty} \alpha^p \lambda_f(\alpha) = 0$.
+
+General case. Let $\epsilon > 0$. Pick a simple function $\phi \in L^p$ with  $\phi \le f$ and $\|\phi - f\|_p^p < \epsilon$.  Then $\int_0^\infty \alpha^{p-1} \lambda_{f - \phi}(\alpha) \, d \alpha < \epsilon$. In particular $\alpha^p (f - \phi)$.e
+
 \end{proof}
 
 \p{40} If $f$ is a measurable function on $X$, its decreasing rearrangement is the function $f^*: (0,\infty) \to [0,\infty]$ defined by 
@@ -57,6 +64,14 @@ a step function on $(0, \infty)$ assuming four or five different values and draw
 Show that it is in $L^p$ for all $p > 1$ and in weak $L^1$ but not in $L^1$., and that its $L^p$ norm tends to $\infty$ 
 like $(p-1)^{-1}$ as $p \to 1$, although $\|\chi_{(0,1)}\|_p = 1$ for all $p$.
 \begin{proof}
+
+We saw in class that $H$ is weak 1-1. Hence, $H_{\chi_{(0,1)}}$ is in weak $L^1$.
+
+
+
+
+
+
 \end{proof}
 
 
