@@ -43,8 +43,14 @@ For the opposite inequality, we have
 \begin{proof}
 Case $f$ is simple.  Then the support of $f$ has finite measure, so $\lim_{\alpha \to 0} \alpha^p \lambda_f(\alpha) = 0$.  Moreover, $f$ is bounded so $\lim_{\alpha \to \infty} \alpha^p \lambda_f(\alpha) = 0$.
 
-General case. Let $\epsilon > 0$. Pick a simple function $\phi \in L^p$ with  $\phi \le f$ and $\|\phi - f\|_p^p < \epsilon$.  Then $\int_0^\infty \alpha^{p-1} \lambda_{f - \phi}(\alpha) \, d \alpha < \epsilon$. In particular $\alpha^p (f - \phi)$.e
-
+General case. Let $\epsilon > 0$. Pick a simple function $\phi \in L^p$ with  $\phi \le f$ and $\|\phi - f\|_p^p < \epsilon$.  Then
+\begin{align*}
+\limsup_{\alpha \to 0} \alpha^p \lambda_f(\alpha) & \le \limsup_{\alpha \to 0} \alpha^p \lambda_\phi(\frac \alpha 2) + \alpha^p \lambda_{f - \phi})(\frac \alpha 2)
+\\ & = \limsup_{\alpha \to 0} \alpha^p \lambda_{f - \phi})(\frac \alpha 2)
+\\ & \le \limsup_{\alpha \to 0} \alpha^p \frac 2^p {\alpha^p} \|\phi - f\|_p^p
+\\ & = 2^p \epsilon.
+\end{align*}
+The case where $\alpha \to \infty$ is similar.
 \end{proof}
 
 \p{40} If $f$ is a measurable function on $X$, its decreasing rearrangement is the function $f^*: (0,\infty) \to [0,\infty]$ defined by 
@@ -64,8 +70,9 @@ a step function on $(0, \infty)$ assuming four or five different values and draw
 Show that it is in $L^p$ for all $p > 1$ and in weak $L^1$ but not in $L^1$., and that its $L^p$ norm tends to $\infty$ 
 like $(p-1)^{-1}$ as $p \to 1$, although $\|\chi_{(0,1)}\|_p = 1$ for all $p$.
 \begin{proof}
+We have $H_{\chi_{(0,1)}}(x) = \sup_{r>0} \frac 1 {2 r} \int_{x-r}^{x+r} \chi_{(0,1)}(t) \, dt$. If $x \in (0,1)$, then $H_{\chi_{(0,1)}}(x) = 1$.  If $x=0$ or $x =1$, then $H_{\chi_{(0,1)}}(x) = 1/2$.  If $x > 1$, then $H_{\chi_{(0,1)}}(x) = \frac 1 {2x}$.  If $x < 0$, then $H_{\chi_{(0,1)}}(x) = \frac 1 {2-2x}$.
 
-We saw in class that $H$ is weak 1-1. Hence, $H_{\chi_{(0,1)}}$ is in weak $L^1$.
+We saw in class that $H$ is weak (1,1) and strong (p,p) for all $p > 1$. Hence, $H_{\chi_{(0,1)}}$ is in weak $L^1$ and in $L^p$ for all $p > 1$. It is clear that $H_{\chi_{(0,1)}}(x)$ is not in $L^1$ since $\int_1^\infty \frac {dx}{2x}$ diverges.
 
 
 
