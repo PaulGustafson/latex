@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 620\\ 
+\noindent Instructor: Frank Sottile
+
+\subsection*{HW 4} %p83-5
+\p{1} Let $X$ and $Y$ be two irreducible algebraic subsets of $k^n$ of respective dimensions $r$ and $s$. 
+Our aim is to prove that any irreducible component of $X \cap Y$ is of dimension $\ge r + s -n $.
+\begin{enumerate}[a)]
+\item Prove that this result is true if $X$ is a hypersurface in $k^n$.
+\item Let $\Delta$ be the diagonal in $k^n \times k^n$ (cf. Problem I,4). Prove that
+the variety $X \cap Y$ is isomorphic to $(X \times Y) \cap \Delta$. Show that $X \times Y$
+is of dimension $r + s$ (use the theorem on dimensions of fibres).
+\item Using b) and explicit equations for $\Delta$, finish the problem by reducing to
+the case of a hypersurface.
+\end{enumerate}
+
+\p 3 Let $p,q$ be integers $ > 0$ and $r$ an integer such that $0 \le r \le \inf(p,q)$. We
+denote by $\MM_{p,q}$ the set of matrices $p \times q$ with coefficients in $k$. We endow
+this set with its natural affine space structure of dimension $pq$. We set
+$$C_r = \{A \in \MM_{p,q} \vert \rank(A) \le r \} \quad \text{ and } \quad 
+ C_r' = \{A \in \MM_{p,q} \vert \rank(A) = r \}.$$
+\begin{enumerate}[a)]
+\item Prove that $C_r$ is a closed set in $\MM_{p,q}$ and $C_r'$ is open in $C_r$.
+\item We set
+$$J = \begin{pmatrix}
+   I_r & 0
+\\ 0 & 0
+\end{pmatrix}
+\in \MM_{p,q},
+$$
+where $I_r$ is the $r \times r$ identity matrix. Show that the map $\phi: \MM_{p,p} \times \MM_{q,q} \to C_r$
+given by $\phi(P,Q) = PJQ$ is a surjective morphism of varieties. Deduce that $C_r$ is irreducible.
+\item We consider $\phi'$, the restriction of $\phi$ to $GL(p,k) \times GL(q,k)$. Prove that the image
+of $\phi'$ is equal to $C_r'$. Prove that all the fibres of $\phi'$ are isomorphic. Calculate the
+dimesion of $\phi'^{-1}(J)$.
+\item Deduce from b) and c) the dimension of $C_r$ and the codimension of $C_r$ in $\MM_{p,q}$.
+\end{enumerate}
+
+\p 6 Let $E$ be a $k$-vectore space of dimension $n$ and let $G_{n,p}$ be the set of subspaces of $E$ of
+dimension $p$. We will admit the result that $G_{n,p}$ is a projective algebraic variety (called a Grassmanian).
+
+Prove that the map $\phi$, associating to a $p$-tuplet of independent vectors of $E$ the subspace they generate, 
+induces a surjections from an open set of $E^p$ to $G_{n,p}$. Determine the fibres of $\phi$ and calculate
+$\dim G_{n,p}$. (You may use the fact that $\phi$ is a morphism. See also the June 1993 exam.)
+
+\end{document}
