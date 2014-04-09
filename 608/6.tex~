@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 608 \\ 
+\noindent Instructor: Grigoris Paouris
+
+\subsection*{HW 6}
+%Chapter 7, Exercises 10, 11, 17, 22, 25
+
+\p{7.10} If $\mu$ is a Radon measure and $f \in L^1(\mu)$ is real-valued, for every $\epsilon > 0$ there exist
+and LSC function $g$ and a USC function $H$ such that $h \le f \le g$ and $\int (g - h) \, d \mu < \epsilon$.
+\begin{proof}
+By Proposition 7.14, we can pick LSC functions $g_1$ and $h_2$ with $g_1 \ge f^+$,  $h_2 \ge f^-$,
+$\int (g_1 - f^+) < \epsilon$, and $\int (h_2 - f^-) < \epsilon$.   Similarly, we can pick USC functions
+$g_1, g_2 $ with $0 \le h_1 \le f^+$, $ 0 \le g_2 \le f^-$, $\int (f^+ - h_1) < \epsilon$, and 
+$\int (f^- - g_2) < \epsilon$.
+
+Let $g = g_1 - g_2$ and $h = h_1 - h_2$.  Then $g$ is LSC and $h$ is USC.  Moreover, we have
+$h = h_1 - h_2 \le f^+ - f^- = f$ and $g = g_1 - g_2 \ge f^+ - f^- = f$. Lastly,
+$\int (g - h) = \int (g_1 - f^+ + h^2 - f^- + f^- -  g_2 + f^+ - h_2) < 4 \epsilon$.
+\end{proof}
+
+\p{7.11} Suppose that $\mu$ is a Radon measure on $X$ such that $\mu(\{x\}) = 0$ for all $x \in X$, and
+$A \in \mB_X$ satisfies $0 < \mu(A) < \infty$. Then for any $\alpha$ such that $0 < \alpha < \mu(A)$
+there is a Borel set $B \subset A$ such that $\mu(B) = \alpha$.
+\begin{proof}
+
+
+\end{proof}
+
+\p{7.17} If $\mu$ is a positive Radon measure on $X$ with $\mu(X) = \infty$, there exists $f \in C_0(X)$ such that
+$\int f \, d\mu = \infty$. Consequently, every positive linear functional on $C_0(X)$ is bounded.
+\begin{proof}
+I think the following is a counterexample: $X = \R$ with the discrete topology, $\mu(E) = 0$ if $E$ is countable, 
+and $\mu(E) = \infty$ if $E$ is uncountable.
+
+%what if x = R with discrete topology, \mu = 0 for all countable sets, \mu(E) = \infty for all uncountable sets
+
+%if \mu sigma-finite...?
+
+\end{proof}
+
+\p{7.22} A sequence $(f_n)$ in $C_0(X)$ converges weakly to $f \in C_0(X)$ iff $\sup \|f_n\|_u < \infty$ and
+$f_n \to f$ pointwise.
+
+\p{7.25} Let $\mu$ be a Radon measure on $X$ such that every nonempt open set has positive measure. For each 
+$x \in X$ there is a net $(f_\alpha)$ in $L^1(\mu)$ that converges vaguely in $M(X)$ to the point mass at $x$. If
+$X$ is first countable, the net can be taken to be a sequence. (Consider functions of the form $\mu(U)^{-1} \chi_U$.)
+
+
+\end{document}

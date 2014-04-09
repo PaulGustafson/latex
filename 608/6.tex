@@ -1,0 +1,78 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Texas A\&M University - Math 608 \\ 
+\noindent Instructor: Grigoris Paouris
+
+\subsection*{HW 6}
+%Chapter 7, Exercises 10, 11, 17, 22, 25
+
+\p{7.10} If $\mu$ is a Radon measure and $f \in L^1(\mu)$ is real-valued, for every $\epsilon > 0$ there exist
+and LSC function $g$ and a USC function $H$ such that $h \le f \le g$ and $\int (g - h) \, d \mu < \epsilon$.
+\begin{proof}
+By Proposition 7.14, we can pick LSC functions $g_1$ and $h_2$ with $g_1 \ge f^+$,  $h_2 \ge f^-$,
+$\int (g_1 - f^+) < \epsilon$, and $\int (h_2 - f^-) < \epsilon$.   Similarly, we can pick USC functions
+$g_1, g_2 $ with $0 \le h_1 \le f^+$, $ 0 \le g_2 \le f^-$, $\int (f^+ - h_1) < \epsilon$, and 
+$\int (f^- - g_2) < \epsilon$.
+
+Let $g = g_1 - g_2$ and $h = h_1 - h_2$.  Then $g$ is LSC and $h$ is USC.  Moreover, we have
+$h = h_1 - h_2 \le f^+ - f^- = f$ and $g = g_1 - g_2 \ge f^+ - f^- = f$. Lastly,
+$\int (g - h) = \int (g_1 - f^+ + h^2 - f^- + f^- -  g_2 + f^+ - h_2) < 4 \epsilon$.
+\end{proof}
+
+\p{7.11} Suppose that $\mu$ is a Radon measure on $X$ such that $\mu(\{x\}) = 0$ for all $x \in X$, and
+$A \in \mB_X$ satisfies $0 < \mu(A) < \infty$. Then for any $\alpha$ such that $0 < \alpha < \mu(A)$
+there is a Borel set $B \subset A$ such that $\mu(B) = \alpha$.
+\begin{proof}
+Let 
+$$\mE := \{ E \subset A : E \text{ is open in } A \text{  and  } \mu(E) \le \alpha \}.$$
+To see that chains are bounded in $\mE$, let $(E_\lambda)$ be an increasing (with respect to inclusion) chain in $\mE$.
+Let $E = \bigcup_\lambda E_\lambda$.  Then $E$ is open in $A$. 
+
+Moreover, $\mu(E) \le \mu(A) < \infty$, so by the inner regularity of $\mu$ on $\sigma$-finite sets
+\begin{align*}
+\mu(E) & = \sup\{\mu(K): K \subset E, K \text{ compact} \}
+\\ & = \sup\{\mu(K): K \subset E_\lambda \text{ for some } \lambda, K \text{ compact} \}
+\\ & \le \alpha
+\end{align*},
+where the second step uses the compactness of $E$ to pick a finite cover of $K$ by the $E_\lambda$ and then fixes $\lambda$ to be the maximum index of this finite cover. Hence, $E \in \mE$. 
+
+Thus every chain in $\mE$ is bounded, so by Zorn's lemma $\mE$ contains a maximal element $B$.
+
+I claim that $\mu(B) = \alpha$. Suppose not. Then $\mu(B) < \alpha < \mu(A)$. Pick $x \in A \setminus B$.  By outer regularity,
+there exists an open set $U$ such that $x \in U$ and $\mu(U) < \alpha - \mu(B)$.  Then $C := B \cup (U \cap A)$ is open in $A$, 
+and $\mu(C) \le \alpha$.  Since $x \in C \setminus B$, this contradicts the maximality of $B$ in $\mE$.
+\end{proof}
+
+\p{7.17} If $\mu$ is a positive Radon measure on $X$ with $\mu(X) = \infty$, there exists $f \in C_0(X)$ such that
+$\int f \, d\mu = \infty$. Consequently, every positive linear functional on $C_0(X)$ is bounded.
+\begin{proof}
+By the inner regularity of $\mu$ at $X$, we can pick an ascending chain of compact sets $K_n$ with $\mu(K_n) \ge n$ for all $n$.
+By picking a subsequence, WLOG $\mu(K_n) \ge \mu(K_{n-1}) + 1$.  Let $E_n = K_n \setminus K_{n-1}$.  Then for every $n$, the set
+$E_n$ has compact closure, $1 \le \mu(E_n) < \infty$, and all the $E_n$ are disjoint.  Let $f = \sum_n 1/n \chi_{E_n}$.
+\end{proof}
+
+\p{7.22} A sequence $(f_n)$ in $C_0(X)$ converges weakly to $f \in C_0(X)$ iff $\sup \|f_n\|_u < \infty$ and
+$f_n \to f$ pointwise.
+\begin{proof}
+If $M = \sup_n \|f_n\|_u < \infty$ and $f_n \to f$,  then $\|f \|_u \le M$.  Hence, for every finite Radon measure $\mu$,
+we have $\int f_n d\mu \to \int f d\mu$ by the DCT. Thus, $f_n$ weakly converges to $f$ in $C_0(X)$.
+
+For the converse, first suppose $f_n \not \to f$ pointwise.  Then there exists an $x \in X$ for which
+$f_n(x) \not\to f(x)$. Define a Radon measure $\mu$ by $\mu(E) = 1$ if $x \in E$ and $\mu(E) = 0$ otherwise. 
+Then $\int f_n d\mu = f(x_0) \neq f(x) = \int f d\mu$, so $f_n$ does not converge weakly to $f$.
+
+Now suppose $\sup \|f_n\|_u = \infty$. For each $n$, pick $x_n$ such that $f(x_n) = \|f_n\|_u$. If $(x_n)$ has an accumulation point $x$,
+then $|f_n(x)| \to \infty$, a contradiction. 
+\end{proof}
+
+
+\p{7.25} Let $\mu$ be a Radon measure on $X$ such that every nonempty open set has positive measure. For each 
+$x \in X$ there is a net $(f_\alpha)$ in $L^1(\mu)$ that converges vaguely in $M(X)$ to the point mass at $x$. If
+$X$ is first countable, the net can be taken to be a sequence. (Consider functions of the form $\mu(U)^{-1} \chi_U$.)
+
+
+
+\end{document}
