@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\   
+\noindent Texas A\&M University - Math 637\\ 
+\noindent Instructor: Zoran Sunik
+
+\subsection*{HW 4}
+\p{7} The closure of the open disk contains all the (infinitely many) 1-cells, so the (C) condition fails. 
+
+For the (W) condition, suppose $A \cap \overline{e}$ is closed in $X$ for every cell $e$. Taking $e$ to be the 2-cell, we have that $A$ is closed in $X$.
+The converse (that $A \subset X$ closed implies $A \cap \overline{e}$ is closed for all cells $e$) is obvious.
+
+\p{8} The set $S := \{(1,1/n) \vert n \text{ a positive integer } \}$ intersects every 1-cell's closure in at most a single point; however, this set has a limit point at $(1,0)$.  Hence the set $S$ is not closed, contradicting the (W) condition.
+
+For the (C) condition, note that the closure of any $1$-cell is simply two of the $0$-cells.
+
+\p{9} We think of $\P^2$ as the quotient space of the square defined in class.
+
+\end{document}
