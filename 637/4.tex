@@ -16,8 +16,14 @@ The converse (that $A \subset X$ closed implies $A \cap \overline{e}$ is closed 
 
 For the (C) condition, note that the closure of any $1$-cell is simply two of the $0$-cells.
 
-\p{9} I have attached a triangulation of $\P^2$ with a spanning tree and labelled directed edges.  I left edges which immediately generate trivial loops unlabeled. I also gave edges corresponding to homotopic loops the same label. As a result, the only nontrivial relation is given by the triangle marked by a green circle $A^2 = 1$. Thus, $\pi_1(\PP^2) = \Z_2$.
+\p{9} I have attached a triangulation of $\PP^2$ with a spanning tree and labelled directed edges.  I left edges which immediately generate trivial loops unlabeled. I also gave edges corresponding to homotopic loops the same label. As a result, the only nontrivial relation is given by the triangle marked by a green circle $A^2 = 1$. Thus, $\pi_1(\PP^2) = \Z_2$.
 
-\p{10} I did the same thing here as in (9).  Again we have only one generator $A$ and one relation $A^2 = 1$.  Thus, $\pi_1(\KK^2) = \Z_2$.
+\p{10} I did the same thing here as in (9).  This time the presentation is
+$$ \pi_1(\KK^2) = \langle A,B,C \vert ACB, ABC^{-1} \rangle = \langle A,B \vert A^2B^2 \rangle.$$
 
+\p{11} (a) WLOG $y = 0$.  Let $C$ be the $n$-ball centered at $z/2$ with radius $z/2$. Pick $\epsilon > 0$ so small that the ball of radius $z/2 + \epsilon$ centered at $z/2$ remains in $\BB^n$. Let this slightly larger ball be denoted $D$.  Let $R \in SO(n)$ be any rotation of $C$ swapping $y$ and $z$.  Let $f$ be the extension of $R$ to $D$ by rotating each sphere centered at $z/2$ with radius $z/2 \le r \le z/2 + \epsilon$ by $R^{1 - (r - z/2)/\epsilon}$. Extend $f$ to $B^n$ by setting it to be the identity outside of $D$.  This map is the desired homeomorphism.
+
+(b) Pick an open neighborhood $V_x$ of $x$ such that there exists a homeomorphism $V_x \to \BB^n$.  Pick any smaller open ball $U_x  \subset V_x$ containing $x$.  For any $y,z \in U_x$, apply (a) to $\overline{U_x}$ to get a homeomorphism $f: \overline{U_x} \to \overline{U_x}$ that restricts to the identity on the boundary.  Extend $f$ to $M$ by setting it to the identity everywhere else.
+
+(c) Let $p:I \to M$ be a path from $y$ to $z$. For every point $x$ in the image of $p$, let $U_x$ be chosen as in (b).  Let $\delta$ be the Lebesgue number of the cover $(p^{-1}(U_x))_x$ of $I$.  Pick points $0 = y_1 < y_2 < \ldots < y_n = 1$ with $y_k - y_{k-1} < \delta$ for all $k$.  Pick a finite set $F$ such that $y_{k-1}, y_k \in p^{-1}(U_x)$ for some $x \in F$ for every $2 \le k \le n$. Let $f_k$ be the homeomorphism from (b) mapping $p(y_{k-1})$ to $p(y_k)$.  Since permutations of the form $(k-1 \quad k)$ generate $S_n$, and in particular $(1 \quad n)$, some composition of the $f_k$ will give the desired homeomorphism.
 \end{document}
