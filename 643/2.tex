@@ -39,9 +39,31 @@ Since $f$ is nullhomotopic there exists a homotopy $F:f \simeq c_x$ for some con
 \p{1.10} Let $f:X \to Y$ be an identification, and let $g: Y \to Z$ be a continuous surjection.
 Then $g$ is an identification iff $gf$ is an identification.
 
+\begin{proof}
+Suppose $g$ is an identification. Then $gf$ is a continuous surjection.
+Suppose $U \subset Z$ with $(gf)^{-1}(U) = f^{-1} g^{-1}(U)$ open. Since $f,g$ are identifications,
+we have $g^{-1}(U)$ is open and then $U$ is open. Hence $gf$ is an identification.
+
+For the converse, suppose $gf$ is an identification.  Suppose $U \subset Z$ with $g^{-1}(U)$ open.
+Then $(gf)^{-1}(U) = f^{-1}g^{-1}(U)$ is open since $f$ is continuous.  Hence $U$ is open since $gf$
+is an identifiction. Since $g$ is already a continuous surjection, $g$ is an identification.
+\end{proof}
+
+
 \p{1.11} Let $X$ and $Y$ be spaces with equivalence relations $\sim$ and $\square$, respectively, and
 let $f: X \to Y$ be a continuous map preserving the relations (if $x \sim x'$, then $f(x) \square f(x')$).
 Prove that the induced map $\overline f: X/\sim \to Y / \square$ is continuous; moreover, if
 $f$ is an identification, then so is $\overline f$.
+
+\begin{proof}
+Let $\psi$ and $\pi$ be the identification maps for $\sim$ and $\square$, respectively. Suppose
+$U \subset Y / \square$ is open.  Then $(\overline f)^{-1}(U) = \psi f^{-1} \pi^{-1}(U)$ is open
+since $\psi, \pi$ are identifications and $f$ is continuous. Hence $\overline f$ is continuous.
+
+If $f$ is an identification, then $\overline f$ is surjection since $f$ is a surjection.
+Suppose $(\overline f)^{-1}(U) = \psi f^{-1} \pi^{-1}(U)$ is open.  Then since $\psi, f, \pi$ are
+identifications, we have that $U$ is open.  Hence, $\overline f$ is an identification.
+\end{proof}
+
 
 \end{document}
