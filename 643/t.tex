@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 643 - Algebraic Topology I
+
+%Problems: 0.1, 0.3, 0.4, 0.6*, 0.7, 0.8(i) Note: part (ii) is false, 0.14, 0.16(vi), 0.17* 0.18, 0.19, 0.20(ii)* Note: C(X) is an R-algebra, where R is the field of real numbers. 
+%due 9/9
+\subsection*{HW 1}
+\p{0.6} Let $A = (a_{ij})$ be a real $n \times n$ matrix with $a_{ij} > 0$ for all $i,j$. Prove that $A$ has a positive
+eigenvalue $\lambda$; moreover there is a corresponding eigenvector $x = (x_i)$ with $x_i > 0$ for all $i$.
+(Hint: First define $\sigma: \R^n \to \R$ by $\sigma((x_i)_{i=1}^n) = \sum_i x_i$. Then define $g: \Delta^{n-1} \to \Delta^{n-1}$
+by $g(x) = Ax / \sigma(Ax)$. Apply the Brouwer fixed point theorem.)
+
+\begin{proof}
+  First note that $A$ maps the positive orthant into the positive orthant, and $A(\Delta^{n-1})$ does not meet $0$.  Hence
+$\sigma(Ax) > 0$ for all $x$, so $g$ is continuous.
+ Moreover, $\sigma(g(x)) = \sigma(Ax) / \sigma(Ax) = 1$.  Hence $g$ maps into $\Delta^{n-1}$ since $g(x)$ also maps the positive
+orthant to itself.
+
+Thus, by the Brouwer fixed point theorem, $g(x) = x$ for some $x = (x_i) \in Delta^{n-1}$. This means $Ax = \sigma(Ax) x$. As
+mentioned before, $\sigma(Ax) > 0$.  To see that $x_i > 0$ for all $i$, first pick some $j$ such that $x_j > 0$ (we can do this
+since $x \in \Delta^{n-1}$. Then for all $i$, we have $\sigma(Ax) x_i = \langle Ax, e_i \rangle  \le \langle Ax_j, e_i \rangle > 0$.
+\end{proof} 
+
+\p{0.17} Let $\mC$ and $\mA$ be categories, and let $\sim$ be a congruence on $\mC$. If $T: \mC \to \mA$ is a functor
+with $T(f) = T(g)$ whenever $f \sim g$, then $T$ defines a functor $T': \mC' \to \mA$ (where $\mC'$ is the quotient
+category) by $T'(X) = T(X)$ for every object $X$ and $T'([f]) = T(f)$ for every morphism $f$.
+\begin{proof}
+$T'$ is well-defined, and takes identity maps to identity maps. Lastly, $T'([g] [f]) = T(g f) = T(g) T(f) = T'([g])T'([f])$.
+\end{proof}
+
+\p{0.20(ii)} Define the functor $F: \mathbf{Top} \to \mathbf{Rings}$ by $F(X) = C(X)$ and if $\phi:X \to Y$
+define $F(\phi): C(Y) \to C(X)$ by $F(\phi)(f) = f(\phi(x))$.  Then $F$ is well-defined and takes identities to identities.
+Suppose $\phi: X\to Y$ , $\psi: Y \to Z$, and $f \in C(Z)$.  Then $F(\psi \phi)(f) = f(\psi(\phi(x))) = F(\phi) f(\psi(x)) = 
+F(\phi) F(\psi) (f)$.
+\end{document}

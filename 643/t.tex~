@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Serre - Linear Representations of Finite Groups
+
+\subsection*{HW 1}
+\p{2.1} Let $\chi$ and $\chi'$ be the characters of two representations. Prove the formulas:
+$$(\chi + \chi')_\sigma^2 = \chi_\sigma^2 + \chi'_\sigma^2 + \chi \chi',$$
+$$(\chi + \chi')_\alpha^2 = \chi_\alpha^2 + \chi'_\alpha^2 + \chi \chi'.$$
+\begin{proof}
+We have 
+\begin{align*}
+(\chi + \chi')_\sigma^2(s) & = \frac 1 2 ((\chi + \chi')^2(s) + (\chi+ \chi')(s^2))= 
+\\ & = \frac 1 2 (\chi^2(s) + \chi(s^2) + \chi'^2(s) + \chi'(s^2)) + \chi\chi'(s)
+\\ & = \chi_\sigma^2(s) + \chi'_\sigma^2(s) + \chi \chi'(s)
+\end{align*}
+and
+\begin{align*}
+(\chi + \chi')_\alpha^2  & = \frac 1 2 ((\chi + \chi')^2(s) - (\chi+ \chi')(s^2))
+\\ & = \frac 1 2 (\chi^2(s) - \chi(s^2) + \chi'^2(s) - \chi'(s^2)) + \chi\chi'(s)
+\\ & = \chi_\alpha^2 + \chi'_\alpha^2 + \chi \chi'
+\end{align*}
+
+\p{2.2} Let $X$ be a finite set on which $G$ acts, let $\rho$ be the corresponding permutation representation, 
+and $\chi_X$ be the character of $\rho$. Let $s \in G$; show that $\chi_X(s)$ is the number of elements
+fixed by $s$.
+\begin{proof}
+Write $\rho_s$ as a matrix $(a_{ij})$ with respect to the basis it permutes.  For every $i$, $a_{ii} = 1$ iff $\rho_s(e_i) = e_i$.
+\end{proof}
+
+\p{2.3} Let $\rho: G \to GL(V)$ be a linear representation with character $\chi$. For $x \in V, x' \in V^*$, let $\langle x, x' \rangle$ 
+denote the value of the linear form $x'$ at $x$. Show that there exists a unique linear representation $\rho': G \to GL(V^*)$
+such that 
+$$\langle \rho_s x, \rho'_s x' \rangle = \langle x, x' \rangle \text{ for }s \in G, x \in V, x' \in V^*.$$
+This is called the contragredient or dual representation of $\rho$; its character is $\chi^*$.
+
+\begin{proof}
+Let $\rho_s' = (\rho_s^*)^{-1}$. (adjoint *, no conjugation involved).
+\end{proof}
+
+
+
+
+
+\end{proof}
+\end{document}
