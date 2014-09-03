@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 643 - Algebraic Topology I
+
+%Problems: Problems: 1.1, 1.3, 1.4, 1.6*, 1.8*, 1.9*, 1.10*, 1.11* 
+%Problems with and asterisk (*) are due 9/16. 
+\subsection*{HW 2}
+\p{1.6} Contractible sets and hence convex sets are connected. 
+\begin{proof}
+Suppose not.  Then there exists a contractible space $X$ and a disconnection $X = U \cup V$. Let $x$ be a point for which $1_X \simeq c_x$. WLOG $x \in U$. Let $F:X \times I \to X$ be a homotopy from $1_x$ to $c_x$. 
+
+Pick $y \in V$. Let $f(t) = F(y,t)$. Then by considering $f(I) \cap U$ and $f(I) \cap V$, we see that $f(I)$ is disconnected.  Hence $I$ is disconnected, a contradiction.
+\end{proof}
+
+\p{1.8} \begin{enumerate}[(i)]
+\item Give an example of a continuous image of a contractible space that is not contractible.
+\item Show that a retract of a contractible space is contractible.
+\end{enumerate}
+\begin{proof}
+For (i), the circle is the image of the line under the winding map.
+
+For (ii), let $X$ be contractible and $r: X \to Y$ be a retraction. Pick any $y \in Y$. Since $X$ is contractible, there exists $x \in X$ and  a homotopy  $F:1_X \simeq c_x$. 
+
+Define $G: Y \times I \to Y$ by $G = r \circ F$. Then $G(y, 0) = r(F(y, 0)) = r(y) = y$, and $G(y, 1) = r(F(y,1)) = r(x)$.  Hence $G$ is a homotopy from $Y$ to $1_{r(x)}$.
+\end{proof}
+
+
+
+\p{1.9} If $f: X \to Y$ is nullhomotopic and if $g: Y \to Z$ is continuous, then $g \circ f$ is 
+null-homotopic.
+
+\begin{proof}
+Since $f$ is nullhomotopic there exists a homotopy $F:f \simeq c_x$ for some constant map $c_x:X \to Y$.  Define $G:X \times I \to Z$ by $G = g \circ F$. Then $G(x,0) = g(F(x,0)) = g(f(x))$ and $G(x,1) = g(F(x,1)) = g(c_x)$ is a constant map. Thus $g \circ f$ is nullhomotopic.
+\end{proof}
+
+\p{1.10} Let $f:X \to Y$ be an identification, and let $g: Y \to Z$ be a continuous surjection.
+Then $g$ is an identification iff $gf$ is an identification.
+
+\p{1.11} Let $X$ and $Y$ be spaces with equivalence relations $\sim$ and $\square$, respectively, and
+let $f: X \to Y$ be a continuous map preserving the relations (if $x \sim x'$, then $f(x) \square f(x')$).
+Prove that the induced map $\overline f: X/\sim \to Y / \square$ is continuous; moreover, if
+$f$ is an identification, then so is $\overline f$.
+
+\end{document}
