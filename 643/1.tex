@@ -14,10 +14,10 @@ eigenvalue $\lambda$; moreover there is a corresponding eigenvector $x = (x_i)$ 
 by $g(x) = Ax / \sigma(Ax)$. Apply the Brouwer fixed point theorem.)
 
 \begin{proof}
-  First note that $A$ maps the positive orthant into the positive orthant, and $A(\Delta^{n-1})$ does not meet $0$.  Hence
-$\sigma(Ax) > 0$ for all $x$, so $g$ is continuous.
+  First note that $A$ maps the positive orthant excluding the origin into itself, so $A(\Delta^{n-1})$ does not meet $0$.  Hence
+$\sigma(Ax) > 0$ for all $x \in \Delta^{n-1}$, so $g$ is continuous.
  Moreover, $\sigma(g(x)) = \sigma(Ax) / \sigma(Ax) = 1$.  Hence $g$ maps into $\Delta^{n-1}$ since $g(x)$ also maps the positive
-orthant to itself.
+orthant into itself.
 
 Thus, by the Brouwer fixed point theorem, $g(x) = x$ for some $x = (x_i) \in \Delta^{n-1}$. This means $Ax = \sigma(Ax) x$. As
 mentioned before, $\sigma(Ax) > 0$.  To see that $x_i > 0$ for all $i$, first pick some $j$ such that $x_j > 0$ (we can do this

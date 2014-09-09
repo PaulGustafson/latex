@@ -11,7 +11,14 @@
 \subsection*{HW 3}
 \p{1.14} Prove that $X \mapsto CX$ defines a functor $\mathbf{Top}  \to \mathbf{Top}$. (Hint: use exercise 1.11)
 \begin{proof}
+If $f:X \to Y$ is continuous, then $f \times 1: X \times I \to Y \times I$ is continuous. Since $f \times 1$ maps
+$(x,1)$ to $(f(x), 1)$ for all $x$, it preserves the relation $\sim$ from the definition of the cone over a space.
+Hence, by Exercise 1.11, we get a map $\overline f : CX to CY$. 
 
+To see that the association $f \mapsto \overline f$ is functorial, we need to check that it preserves identities
+and composition. It is clear from the definition that $\overline 1_x = 1_{CX}$.  For composition, for $t \neq 1$,
+we have $\overline{fg}(x,t) = ((fg)(x),t) = (\overline f \circ \overline g) (x,t)$.  For the other case, we have
+$\overline{fg}(x,1) = (*,1) = (\overline f \circ \overline g) (*,1)$.
 \end{proof}
 
 \p{1.19} \begin{enumerate}[(i)] 
@@ -20,22 +27,59 @@
 $X \to Y$ are homotopic (and each is nullhomotopic).
 \end{enumerate}
 
+\begin{proof}
+For (i), first suppose $X$ is path connected.  Let $c_x, c_y: X \to X$ be the constant maps at $x$ and $y$.
+Since $X$ is path connected, there exists a path $p:I \to X$ from $x$ to $y$.  
+The map $H:X \times I \to X$ by $H(x,t) = p(t)$ is a homotopy from $c_x$ to $c(y)$.
+
+Conversely, every two constant maps $X \to X$ are homotopic. Let $x,y \in X$ and $H: c_x \simeq c_y$. 
+Define $p:I \to X$ by $p(t) = H(x_0,t)$ for any fixed $x_0 \in X$. Then $p$ is a path from $x$ to $y$.
+
+For (ii), let $f, g: X \to Y$. Since $X$ is contractible there exists $x_0 \in X$ with a homotopy $H: 1_X \simeq c_{x_0}$.
+Let $p$ be a path from $f(x_0)$ to $g(x_0)$. Let $G:X \times I \to Y$ be defined by the concatenation 
+$(f \circ H) * p(t) * (g \circ H^{-1})$. Then $G: f \simeq g$.
+\end{proof}
+
 \p{1.23} 
 \begin{enumerate}[(i)] 
 \item The $\sin(1/x)$ space $X$ has exactly two path components: the vertical line $A$ 
 and the graph $G$.
-\item Show that the graph $G$ is not closed. Conclude that, in contrast to componentes
+\item Show that the graph $G$ is not closed. Conclude that, in contrast to components
 (which are always closed), path components may not be closed.
 \item Show that the natural map $\nu: X \to X/A$ is not an open map. (Hint: Let $U$
 be the open disk with center $(0/\frac 1 2)$ and radius $\frac 1 4$; show that $\nu(X \cap U)$
 is not open in $X/A (\approx [0, \frac 1 {2 \pi}])$.)
 \end{enumerate}
 
+\begin{proof}
+\begin{enumerate}[(i)] 
+\item It is clear that $A$ and $G$ are both path connected. Hence it suffices to show that
+there is no path in $X$ from $(0,1)$ to $(1/\pi, 0)$. Suppose such a path $p$
+exists. Then $\lim_{t \to 0} p(t) = (0,1)$. Hence, there exists $t_0$ such that the $y(p(t)) > 1/2$
+for all $t < t_0$, where $y(\cdot)$ denotes the projection on the $y$-coordinate. 
+Pick $n$ so large that $(2\pi n)^{-1} < t_0$.  Then since $\sin(1/x) < 0$ for 
+$(2\pi n + 2\pi)^{-1} < x < (2\pi n + \pi)^{-1}$, the graph of $p$ cannot meet this strip.
+Thus, the graph of $p$ is disconnected, a contradiction.
+
+\item The sequence $(1/(n\pi), 0)$ lies in $G$, but its limit is the origin.
+
+\item %%%WHAT IS X/A???
+
+\end{enumerate}
+
+\end{proof}
+
+
 
 \p{1.32} Assume that $X$, $Y$, and $Z$ are spaces with $X \subset Y$. If $X$ is a retract, then 
 every continuous map $f: X \to Z$ can be extended to a continuous map $\tilde f : Y \to Z$, 
 namely, $\tilde f = fr$, where $r: Y \to X$ is a retraction. Prove that if $X$ is a retract of
 $Y$ and if $f_0$ and $f_1$ are homotopic continuous maps $X \to Z$, then $\tilde f_0 \simeq \tilde f_1$.
+
+\begin{proof}
+
+\end{proof}
+
 
 \p{1.34} \begin{enumerate}[(i)]
 \item Define $i:X \to M_f$ by $i(x) = [x,0]$ and $j: Y \to M_f$ by $j(y) = [y]$. Show that
