@@ -5,7 +5,7 @@
 \noindent Paul Gustafson\\
 \noindent Math 643 - Algebraic Topology I
 
-%1.14* or Top* instead of Top, 1.15, 1.19*, 1.22, 1.23*, 1.24(read), 1.29, 1.30, 1.31(read) 1.32*, 1.33, 1.34* 
+%1.14* or Top* instead of Top, 1.15, 1.19*, 1.22, 1.23*, 1.24(read), 1.29, 1.30, 1.31(read) 1.32*, 1.33, 1.34*, 2.8*
 %Problems with an asterisk (*) are due 9/23. 
 
 \subsection*{HW 3}
@@ -63,8 +63,9 @@ Thus, the graph of $p$ is disconnected, a contradiction.
 
 \item The sequence $(1/(n\pi), 0)$ lies in $G$, but its limit is the origin.
 
-\item %%%WHAT IS X/A???
-
+\item Following the hint, let $U$ be the open disk with center $(0, \frac 1 2)$ and radius $\frac 1 4$. 
+I claim that $\nu(X \cap U)$ is not open in $X / A$.  If it were, then $\nu^{-1} \nu(X \cap U) = A \cup (X \cap U)$ is open in $X$.
+This is not true since any neighborhood of, say, $(0, - \frac 1 2)$ must intersect $G$ below the $x$-axis.
 \end{enumerate}
 
 \end{proof}
@@ -77,15 +78,40 @@ namely, $\tilde f = fr$, where $r: Y \to X$ is a retraction. Prove that if $X$ i
 $Y$ and if $f_0$ and $f_1$ are homotopic continuous maps $X \to Z$, then $\tilde f_0 \simeq \tilde f_1$.
 
 \begin{proof}
-
+Let $F: f_0 \simeq f_1$. Let $G: Y \times I \to Z$ be defined by $G(y,t) = F(r(y), t)$. Then 
+$G(y,0) = F(r(y),0) = f_0r(y) = \tilde f_0(y)$, and similarly for $G(y,1)$. Hence $G$ is the desired homotopy.
 \end{proof}
 
 
 \p{1.34} \begin{enumerate}[(i)]
 \item Define $i:X \to M_f$ by $i(x) = [x,0]$ and $j: Y \to M_f$ by $j(y) = [y]$. Show that
 $i$ and $j$ are homeomorphisms to subspaces of $M_f$.
+\begin{proof}
+It is easy to see that $i,j$ are continuous. The map $i$ is injective since the relation $\sim$ does
+not affect its image.  The map $j$ is also injective since the fibers of $f$ are disjoint (hence only
+one $y \in Y$ is in each equivalence class of $\sim$). Thus it suffices to show that $i,j$ are open maps.
+
+Let $U \subset X$ be open.  Then $i(U) = \pi_X^{-1}(U) \cap i(X)$ is open, where $\pi_X: X \times I \to X$ is the canonical projection.
+Hence $i$ is an open map.
+
+Let $U \subset Y$ be open.  Let $\nu: (X \times I ) \sqcup Y \to M_f$ be the quotient map, and
+$i_1: X \times I \to  (X \times I ) \sqcup Y$ and $i_2: Y \to  (X \times I ) \sqcup Y$ be the 
+canonical injections.   Then
+$\nu^{-1}j(U) = i_1(f^{-1}(U) \times \{1\}) \cup i_2(U) = (i_1(f^{-1}(U)) \cap j(Y)) \cup i_2(U)$
+is open, hence $j(U)$ is open.
+\end{proof}
+
 \item Define $r:M_f \to Y$ by $r[x,t] = f(x)$ for all $(x,t) \in X \times I$ and $r[y] = y$. Prove
 that $r$ is a retraction $rj = 1_Y$.
+
+\begin{proof}
+If $y \in Y$ and $[x,1] \sim y$, then $r[x,1] = f(x) = y = r[y]$.  Hence $r$ is well-defined. 
+
+It is also clear that $rj = 1_Y$.  To see that $r$ is continuous, note that $r = \nu \circ ((f\pi_X) \sqcup id_Y)$,
+where $\nu$ is the quotient map defined above and $\pi_X:X \times I \to X$ is the canonical projection.
+\end{proof}
+
+
 \item Prove that $Y$ is a deformation retract of $M_f$. (Hint: Define $F:M_f \time I \to M_f$ by
 \begin{array}[rcll]
 F([x,t], s) & = & [x, (1-s)t+ s] & \text{ if } x \in X, t,s\in I; \\
@@ -93,6 +119,9 @@ F([y], s) & = & [y]  \text{ if } y \in Y, s \in I.)
 \end{array}
 \item Show that every continuous map $f: X \to Y$ is homotopic to $r \circ i$, where $i$ is
  an injection and $r$ is a homotopy equivalence.
+
 \end{enumerate}
+
+\p{2.8} 
 
 \end{document}
