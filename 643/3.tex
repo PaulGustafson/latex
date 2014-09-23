@@ -13,12 +13,13 @@
 \begin{proof}
 If $f:X \to Y$ is continuous, then $f \times 1: X \times I \to Y \times I$ is continuous. Since $f \times 1$ maps
 $(x,1)$ to $(f(x), 1)$ for all $x$, it preserves the relation $\sim$ from the definition of the cone over a space.
-Hence, by Exercise 1.11, we get a map $\overline f : CX to CY$. 
+Hence, by Exercise 1.11, we get a map $\overline f : CX \to CY$. 
 
 To see that the association $f \mapsto \overline f$ is functorial, we need to check that it preserves identities
 and composition. It is clear from the definition that $\overline 1_x = 1_{CX}$.  For composition, for $t \neq 1$,
 we have $\overline{fg}(x,t) = ((fg)(x),t) = (\overline f \circ \overline g) (x,t)$.  For the other case, we have
-$\overline{fg}(x,1) = (*,1) = (\overline f \circ \overline g) (*,1)$.
+$\overline{fg}(x,1) = (*,1) = (\overline f \circ \overline g) (*,1)$ where
+$(*,1)$ denotes the vertex of the cone.
 \end{proof}
 
 \p{1.19} \begin{enumerate}[(i)] 
@@ -112,16 +113,48 @@ where $\nu$ is the quotient map defined above and $\pi_X:X \times I \to X$ is th
 \end{proof}
 
 
-\item Prove that $Y$ is a deformation retract of $M_f$. (Hint: Define $F:M_f \time I \to M_f$ by
-\begin{array}[rcll]
-F([x,t], s) & = & [x, (1-s)t+ s] & \text{ if } x \in X, t,s\in I; \\
-F([y], s) & = & [y]  \text{ if } y \in Y, s \in I.)
-\end{array}
+\item Prove that $Y$ is a deformation retract of $M_f$. (Hint: Define $F:M_f \times I \to M_f$ by
+\begin{align*}
+F([x,t], s) & = & [x, (1-s)t+ s] & \text{ if } x \in X, t \in I; \\
+F([y], s) & = & [y] & \text{ if } y \in Y, s \in I
+\end{align*}
+.)
+
+\begin{proof}
+Let $F$ be defined as in the hint. To see that $F$ is a well-defined continous map, let 
+$G: ((X \times I) \sqcup Y) \times I \to ((X \times I) \sqcup Y) \times I$ be defined by
+$G(x,t,s) = (x, (1-s)t+ s)$ and $G(y,s) = y$ for $(x,t) \in X \times I$ and $y \in Y$.
+Then $G$ is continuous, and $G(x,1,s) = (x,1)$ and $G(y,s) = y$ for all $x \in X$ and $y \in Y$. Thus,
+$G$ respects the identification map defining $M_f$.  Hence $F$, the induced map, is a continuous map.
+
+Moreover, $F([x,t], 0) = [x,t]$ and $F([y],0) = [y]$, so $F( \cdot, 0) = 1_{M_f}$. Lastly,
+$F([x,t], 1) = [x, 1] \in Y$ and $F([y],1) = [y]$.  Thus, $Y$ is a deformation retract of $M_f$.
+\end{proof}
+
+
+
 \item Show that every continuous map $f: X \to Y$ is homotopic to $r \circ i$, where $i$ is
  an injection and $r$ is a homotopy equivalence.
 
+\begin{proof}
+Let $i$ be the injection $i$ from part (i). Let $r$ be defined as in (ii).  The proof
+of (iii) shows that $j \circ r \simeq 1_{M_f}$, so $r$ is a homotopy equivalence.
+\end{proof}
+
+
 \end{enumerate}
 
-\p{2.8} 
+\p{2.8} Let $A \subset \R^n$ be an affine set and let $T: A \to \R^k$ be an affine map. If
+$X \subset A$ is affine (or convex), then $T(X) \subset \R^k$ is affine (or convex). In
+particular, if $a,b$ are distinct points in $A$ and if $l$ is the line segment with endpoints
+$a,b$, then $T(l)$ is the line segment with points $T(a), T(b)$ if $T(a) \neq T(b)$, and 
+$T(l)$ collapses to the point $T(a)$ if $T(a) = T(b)$.
+
+\begin{proof}
+To see that $T(X)$ is affine (convex), let $T(a), T(b) \in T(X)$.  Then
+for any $\alpha + \beta = 1$ (with $\alpha,\beta$ nonnegative in the convex case),
+ we have $\alpha T(a) + \beta T(b) = T(\alpha a + \beta b) \in T(X)$ since 
+$\alpha a + \beta b \in X$ since $X$ is affine (convex).  
+\end{proof}
 
 \end{document}
