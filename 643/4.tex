@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 643 - Algebraic Topology I
+
+%Problems
+
+\subsection*{Problem Set 1}
+\p{1.12} Let $X,Z$ be compact Hausdorff spaces, and let $h:X \to Z$ be a continuous
+surjection. Prove that $\phi: X /\ker h \to Z$, defined by $[x] \to h(x)$, is a homeomorphism.
+\begin{proof}
+Since $X/\ker h$ is a continuous image of the compact set $X$, it is compact. Since $Z$
+is Hausdorff and $\phi$ is a continuous bijection, this implies $\phi$ is a homeomorphism
+($\phi$ maps compact sets to compact sets, hence closed sets to closed sets).
+\end{proof}
+
+\p{1.13} For fixed $t$ with $0 \le t < 1$, prove that $f: x \mapsto [x,t]$ defines a homeomorphism
+from a space $X$ to a subspace of $CX$.
+\begin{proof}
+This map is continuous since the map $x \mapsto (x,t) \subset X \times I$ is continuous and
+respects the equivalence relation $\sim$.  The map $f$ is also bijective since $\sim$ only identifies
+points of the form $[x,1]$.  
+
+To see that $f^{-1}$ is continuous, let $U \subset X$ be open. Then $U \times [0, (t+1)/2) \subset X \times I$
+is open.  Let $\pi: X \times I \to CX$ be the canonical quotient map.
+Then $f(U) = \pi(U \times [0, (t+1)/2)) \cap f(X)$ is open in $f(X)$.
+\end{proof}
+
+\p{2.9}
+
+\p{2.10}
+
+\p{5}  Show that if $x$ deformation retracts to $A$ in the weak sense, then the
+inclusion map $A \to X$ is a homotopy equivalence.
+
+\end{document}
