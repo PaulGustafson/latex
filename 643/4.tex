@@ -28,11 +28,50 @@ is open.  Let $\pi: X \times I \to CX$ be the canonical quotient map.
 Then $f(U) = \pi(U \times [0, (t+1)/2)) \cap f(X)$ is open in $f(X)$.
 \end{proof}
 
-\p{2.9}
+\p{2.9} If $\{p_0, p_1, \ldots, p_m\}$ is affine independent with barycenter $b$, then $\{b, p_0, \cdots, 
+\hat p_i, \ldots, p_m \}$ is affine independent for each $i$.
+\begin{proof}
+Fix $0 \le i \le m$.  Suppose $sb + \sum_{j \neq i} s_j p_j = 0$ with $s + \sum_{j \neq i} s_j = 0$ for some $s,s_j \in \R$.
+Then we have
+\begin{align*}
+0 & = sb + \sum_{j \neq i} s_j p_j \\
+& = \frac{s}{m+1} \sum_j p_j + \sum_{j \neq i} s_j p_j \\
+& = \sum_j t_j p_j,
+\end{align*}
+where $t_j = \frac{s}{m+1} + s_j$ for $j \neq i$, and $t_i = \frac{s}{m+1}$.
+Hence $\sum_j t_j = s + \sum_{j \neq i} s_j = 0$.  Since $\{p_i\}_i$ is affine independent,
+this implies $t_j = 0$ for all $j$.  Thus $s = 0$ and $s_j = 0$ for all $j \neq i$.
+Thus $\{b, p_0, \cdots, \hat p_i, \ldots, p_m \}$ is affine independent.
 
-\p{2.10}
+It is false that the diameter of a simplex with the barycenter replacing a vertex is
+always strictly smaller than the diameter of the original simplex. 
+Take an equilateral triangle as an example.
+\end{proof}
+
+\p{2.10} Show that for $0 \le i \le m$, $[p_0, \ldots, p_m]$ is homeomorphic to the cone
+$C[p_0, \ldots, \hat p_i, \ldots, p_m]$ with vertex $p_i$.
+\begin{proof}
+Since $C[p_0, \ldots, \hat p_i, \ldots, p_m]$ is the continuous image of the compact set
+$[p_0, \ldots, \hat p_i, \ldots, p_m]$, it is compact.  Also $[p_0, \ldots, p_m]$ is Hausdorff.
+Hence it suffices to find a continuous bijection from $C[p_0, \ldots, \hat p_i, \ldots, p_m]$
+to $[p_0, \ldots,  p_m]$.
+
+Define $\phi: [p_0, \ldots, \hat p_i, \ldots, p_m] \times I \to [p_0, \ldots,  p_m]$ by
+$\phi( \sum_{j \neq i} s_j p_j, t) = t p_i + \sum_{j \neq i} s_j (1-t) p_j$.
+%Let $\pi: [p_0, \ldots, \hat p_i, \ldots, p_m] \times I \to C[p_0, \ldots, \hat p_i, \ldots, p_m]$ be the canonical quotient map.  
+Since $\phi(x, 1) = p_i$ for all $x$, $\phi$ induces a continuous map 
+$\bar \phi : C[p_0, \ldots, \hat p_i, \ldots, p_m] \to [p_0, \ldots,  p_m]$. Since $\phi$ is surjective, so is $\bar \phi$.
+
+To see that $\bar \phi$ is injective, first note that $\phi$ maps only the vertex to the point $p_i$. Next if
+$\bar \phi [\sum_{j \neq i} s_j p_j, t]  = \bar \phi [\sum_{j \neq i} r_j p_j, u] \neq p_i$, then
+$(u-t) p_i + \sum_{j \neq i} (r_j - s_j) p_j$.  Hence, $u = t$ and $r_j = s_j$ for all $j \neq i$ since
+the $p_j$ are affine independent.  Thus $\bar \phi$ is injective.
+\end{proof}
 
 \p{5}  Show that if $x$ deformation retracts to $A$ in the weak sense, then the
 inclusion map $A \to X$ is a homotopy equivalence.
+\begin{proof}
+
+\end{proof}
 
 \end{document}
