@@ -19,8 +19,8 @@ is Hausdorff and $\phi$ is a continuous bijection, this implies $\phi$ is a home
 \p{1.13} For fixed $t$ with $0 \le t < 1$, prove that $f: x \mapsto [x,t]$ defines a homeomorphism
 from a space $X$ to a subspace of $CX$.
 \begin{proof}
-This map is continuous since the map $x \mapsto (x,t) \subset X \times I$ is continuous and
-respects the equivalence relation $\sim$.  The map $f$ is also bijective since $\sim$ only identifies
+This map $f$ is continuous since the map $x \mapsto (x,t) \subset X \times I$ is continuous and
+respects the equivalence relation $\sim$.  The map $f$ is also injective since $\sim$ only identifies
 points of the form $[x,1]$.  
 
 To see that $f^{-1}$ is continuous, let $U \subset X$ be open. Then $U \times [0, (t+1)/2) \subset X \times I$
@@ -71,7 +71,9 @@ the $p_j$ are affine independent.  Thus $\bar \phi$ is injective.
 \p{5}  Show that if $x$ deformation retracts to $A$ in the weak sense, then the
 inclusion map $A \to X$ is a homotopy equivalence.
 \begin{proof}
-
+Let $i: A \to X$ be the inclusion. Let $f:X \to A$ be defined by $f(x) = F(x,1)$, where $F$
+is the weak deformation retraction.  Then $F:1_X \simeq (i \circ f)$.
+Moreover $F_{\vert A \times I}: 1_A \simeq f \circ i$ makes sense because $F(A,I) \subset A$.
 \end{proof}
 
 \end{document}
