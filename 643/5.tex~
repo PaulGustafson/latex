@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 643 - Algebraic Topology I
+
+%Problems:  3.2*, 3.4*, 3.6*, 3.14*, 3.23* 
+\subsection*{HW 5}
+\p{3.2} \begin{enumerate}[(i)]
+\item If $f: I \to X$ is a path with $f(0) = f(1) = x_0 \in X$, then there is a continuous path
+$f': S^1 \to X$ given by $f'(e^{2\pi i t}) = f(t)$. If $f, g : I \to X$ are paths with $f(0) = 
+f(1) = x_0 = g(0) = g(1)$ and if $f \simeq g$ rel $\dot I$, then $f' \simeq g'$ rel $\{1\}$.
+
+\begin{proof}
+
+
+
+
+
+
+
+
+
+\end{proof}
+
+\item If $f$ and $g$ are as above, then $f \simeq f_1$ rel $\dot I$ and $g \simeq g_1$ rel $\dot I$ 
+implies that $f' * g' \simeq f_1' * g_1'$ rel $\{1\}$.
+\p{3.4}
+\p{3.6}
+\p{3.14}
+\p{3.23}
+\end{document}

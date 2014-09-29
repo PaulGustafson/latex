@@ -1,0 +1,93 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 643 - Algebraic Topology I
+
+%Problems:  3.2*, 3.4*, 3.6*, 3.14*, 3.23* 
+\subsection*{HW 5}
+\p{3.2} \begin{enumerate}[(i)]
+\item If $f: I \to X$ is a path with $f(0) = f(1) = x_0 \in X$, then there is a continuous path
+$f': S^1 \to X$ given by $f'(e^{2\pi i t}) = f(t)$. If $f, g : I \to X$ are paths with $f(0) = 
+f(1) = x_0 = g(0) = g(1)$ and if $f \simeq g$ rel $\dot I$, then $f' \simeq g'$ rel $\{1\}$.
+
+\begin{proof}
+
+
+
+
+
+
+
+
+
+\end{proof}
+
+\item If $f$ and $g$ are as above, then $f \simeq f_1$ rel $\dot I$ and $g \simeq g_1$ rel $\dot I$ 
+implies that $f' * g' \simeq f_1' * g_1'$ rel $\{1\}$.
+\p{3.4} Let $\sigma: \Delta^2 \to X$ be continuous where $\Delta^2 = [e_0, e_1, e_2]$.
+Define $\epsilon_0 : I \to \Delta^2$ as the affine map with $\epsilon_0(0) = e_1$ and
+$\epsilon_0(1) = e_2$; similarly, define $\epsilon_1$ by $\epsilon_1(0) = e_0$ and $\epsilon_1(1) = e_2$,
+and define $\epsilon_2$ by $\epsilon_2(0) = e_0$ and $\epsilon_2(1) = e_1$.
+Finally, define $\sigma_i = \sigma \circ \epsilon_i$.
+\begin{enumerate}[(i)]
+\item Prove that $(\sigma_0 * \sigma_1^{-1})  * \sigma_2$ is nullhomotopic rel $\dot I$. (Hint: Theorem 1.6.)
+\item Prove that $(\sigma_1 * \sigma_0^{-1}) * \sigma_2^{-1}$ is nullhomotopic rel $\dot I$.
+\item Let $F: I \times I \to X$ be continuous, and define paths $\alpha, \beta, \gamma, \delta$ in $X$ as 
+indicated in the figure (in the book). Thus $\alpha(t) = F(t,0)$, $\beta(t) = F(t,1)$, $\gamma(t) = F(0,t)$,
+and $\delta(t) = F(1,t)$. Prove that $\alpha \simeq \gamma * \beta * \delta^{-1}$ rel $\dot I$.
+\end{enumerate}
+\p{3.6} \begin{enumerate}[(i)]
+\item If $f \simeq g$ rel $\dot I$, then $f^{-1} \simeq g^{-1}$ rel $\dot I$, where $f,g$ are paths in $X$.
+\begin{proof}
+Let $F:f \simeq g$ rel $\dot I$. Then $F(1-s, t):f^{-1} \simeq g^{-1}$ rel $\dot I$.
+\end{proof}
+\item If $f$ and $g$ are paths in $X$ with $\omega(f) = \alpha(g)$, then 
+$$(f*g)^{-1} = g^{-1} * f^{-1}.$$
+\begin{proof}
+We have $(f*g)^{-1}(t) = (f*g)(1-t) = (g^{-1} * f^{-1})(t).$
+\end{proof}
+
+\item Give an example of a closed path $f$ with $f * f^{-1} \neq f^{-1} * f$.
+\begin{proof}
+The map $\exp:I \to S^1$ qualifies.
+\end{proof}
+
+\item Show that if $\alpha(f) = p$ and $f$ is not constant, then $i_p * f \neq f$.
+\begin{proof}
+This is false without the assumption that $X$ is Hausdorff (consider a path $f$ 
+to a two point set with the trivial topology with $f(t) = p$ for $t < 1$
+and $f(1) = q$).
+
+So let's assume $X$ is Hausdorff. Since $f$ is not constant, there exists a $t \neq 0$ with $f(t) = q \neq p$. 
+I claim that WLOG $t < 1$. Suppose $t = 1$.
+Let $U,V$ be disjoint open neighborhoods of $p$ and $q$. Then since the range of $f$ is connected, there must exist 
+$q'$ in the range of $f$ but not in $U \cup V$. Replace $q$ with $q'$ and $t$ with an element of $f^{-1}(q')$.
+
+Since $f^{-1}(q)$ is compact, there exists a minimal such $t$ with $f(t) = q$, say $t_0$.  
+If $t_0 \le 1/2$, then $(i_p * f)(t_0) = p \neq q = f(t_0)$.
+Otherwise, $(i_p * f)(t_0) = f(2t_0 - 1)$.  Note that $2 t_0 -1 < t_0$ since $t_0 < 1$.  Since
+$t_0$ was the minimal $t$ with $f(t) = q$, this implies $(i_p * f)(t_0) \neq q = f(t_0)$.
+\end{proof}
+\end{enumerate}
+
+
+\p{3.14} If $f$ is a closed path in $S^1$ at $1$ and if $m \in \Z$, then $t \mapsto f(t)^m$ is a closed path in 
+$S^1$ at $1$ and 
+$$\deg(f^m) = m \deg f.$$
+\begin{proof}
+Since the function $x \mapsto x^m$ on $S^1$ is continuous and fixes $1$, we have $f^m$ is a closed path in $S^1$.
+
+Moreover, using the notation of Corollary 3.15, we have $\exp m \tilde f = (\exp \tilde f)^m = f^m$ and $(m \tilde f)(0) = 0$.
+Hence by the uniqueness of the lifting, $\widetilde{f^m} = m \tilde f$.  Hence $\deg f^m = m \deg f$.
+\end{proof}
+
+\p{3.23} Let $G$ be a topological group and let $H$ be a normal subgroup. Prove that $G/H$ is a topological group,
+where $G/H$ is regarded as the quotient space of $G$ by the kernel of the natural map.
+\begin{proof}
+The set of cosets $G/H$ is a group since $H$ is normal. In particular, both multiplication and inversion respect 
+the identification of the elements of a coset.  Thus, multiplication and inversion on $G/H$ are continuous.
+\end{proof}
+
+\end{document}
