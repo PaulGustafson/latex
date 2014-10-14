@@ -11,29 +11,58 @@
 \item Using the explicit formula for $\beta_{n+1}$, show that
 $$\partial_{n+1} \beta_{n+1} = ( {\lambda_1^\Delta}_\# - {\lambda_0^\Delta}_\# - P^\Delta_{n-1} \partial_n)(\delta)$$
 for $n = 0$ and $n=1$.
+
+\begin{proof}
+
+For $n=0$, we have
+\begin{align*}
+\partial_1 \beta_1 & = \partial ([a_0, b_0]) \\
+& = [b_0] - [a_0] \\
+& = ( {\lambda_1^\Delta}_\# - {\lambda_0^\Delta}_\# - P^\Delta_{-1} \partial_1)(\delta) 
+\end{align*}
+
+
+For $n=1$, we have 
+\begin{align*}
+\partial_2 \beta_2 & = \partial ([a_0, b_0, b_1] - [a_0, a_1, b_1]) \\
+& = [b_0,b_1] - [a_0,b_1] + [a_0, b_0] - [a_1, b_1] + [a_0, b_1] - [a_0, a_1] \\
+& = [b_0,b_1]  - [a_0, a_1] + [a_0, b_0] - [a_1, b_1] \\
+& = [b_0,b_1]  - [a_0, a_1] - (\partial_2 \delta \times 1)_\# \beta_1 \\
+& = ( {\lambda_1^\Delta}_\# - {\lambda_0^\Delta}_\# - P^\Delta_{0} \partial_2)(\delta) 
+\end{align*}
+\end{proof}
+
 \item Give an explicit formula for $P_1^X(\sigma)$, where $\sigma: \Delta^1 \to X$ is a 1-simplex.
 \end{enumerate}
 \begin{proof}
+We have 
+\begin{align*}
+P_1^X(\sigma) & = (\sigma \times 1)_\#(\beta_2)
+& = (\sigma \times 1)_\#([a_0,b_0, b_1] - [a_0, a_1, b_1])
+\end{align*}
 \end{proof}
 
 \p{4.10} Prove that $P_n$ is natural.
 \begin{proof}
+The diagram holds when $f$ is a simplex.  Extend by linearity.
 \end{proof}
 
 \p{4.11} If $X$ is a deformation retract of $Y$, then $H_n(X) \simeq H_n(Y)$ for all $n \ge 0$. In fact, if
 $i: X \to Y$ is the inclusion, then $H_n(i)$ is an isomorphism.
 \begin{proof}
+Since $X$ is a deformation retract of $Y$, $i \simeq 1_Y$. Hence $H_n(i) = H_n(1_Y) = 1$ is an isomorphism. In particular $H_n(X) \simeq H_n(Y)$ for all $n \ge 0$.
 \end{proof}
 
 \p{4.13} Prove that the Hurewicz map $\phi$ is natural.
 \begin{proof}
+We have 
+\begin{align*}
+\phi h_* [f] &  = \phi [h f] \\
+& = \cls (h f \eta) \\
+& = h_* \cls (f \eta) \\
+& = h_* \phi([f])
 \end{proof}
 
-\p{4.16} Let $X$ be a space and let $\alpha, \beta, \gamma$ be paths in $X$ such that $\alpha * \beta * \gamma$ is defined and is a 
-closed path. Prove that, in $H_1(X)$,
-$$\cls(\alpha * \beta * \gamma) = \cls(\alpha + \beta + \gamma) = \cls \alpha + \cls \beta + \cls \gamma.$$
-\begin{proof}
-\end{proof}
-
+\p{4.16} 
 
 \end{document}
