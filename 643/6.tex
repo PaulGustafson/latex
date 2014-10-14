@@ -38,7 +38,7 @@ For $n=1$, we have
 We have 
 \begin{align*}
 P_1^X(\sigma) & = (\sigma \times 1)_\#(\beta_2)
-& = (\sigma \times 1)_\#([a_0,b_0, b_1] - [a_0, a_1, b_1])
+ = (\sigma \times 1)_\#([a_0,b_0, b_1] - [a_0, a_1, b_1])
 \end{align*}
 \end{proof}
 
@@ -61,8 +61,20 @@ We have
 & = \cls (h f \eta) \\
 & = h_* \cls (f \eta) \\
 & = h_* \phi([f])
+\end{align*}
 \end{proof}
 
-\p{4.16} 
+\p{4.16} If $f:S^1 \to S^1$ is continuous, define the degree of $f$ to be $m$ if the induced map $f_*:H_1(S^1) \to H_1(S^1)$ is 
+multiplication by $m$. Show that this definition of degree coincides with the degree of a pointed map $(S^1, 1) 
+\to (S^1, 1)$ defined in terms of $\pi_1(S_1,1)$.
+\begin{proof}
+Let $f:(S^1, 1) \to (S^1, 1)$ be a pointed map with degree $m$ with respect to the new definition.
+Let $i:(S^1, 1) \to (S^1, 1)$ be the identity map.
+
+By Theorem 4.29, the Hurewicz map is an isomorphism $\phi:\pi_1(S^1,1) \simeq H_1(S^1)$.
+Hence $\pi_1(f) = \phi^{-1} H_1(f) = \phi^{-1} H_1(f \circ i) = \phi^{-1}(m H_1(i))
+= (\pi_1(i))^m$.
+Thus, the degree of $f$ is $m$ with respect to the old definition also.
+\end{proof}
 
 \end{document}
