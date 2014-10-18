@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 643 - Algebraic Topology I
+
+%Problems: 5.1 (be sure to go through this exercise), 5.2, 5.3*, 5.4, 5.5(ii)* use part (i), 5.7, 5.8, 5.9, 5.10, 5.11* 
+
+\subsection*{HW 7}
+\p{5.3} Let 
+$$0 \to A \to B \to C \to 0$$
+be a short exact sequence. Show that $iA \simeq A$ and $B/iA \simeq C$.
+\begin{proof}
+The kernel of $i: A \to B$ is trivial so the map is a bijection onto $iA$, hence an isomorphism $A \to iA$.
+
+The kernel of $B \to C$ is $iA$ and $B \to C$ is surjective, hence the induced map $B/iA \to C$ is an isomorphism.
+\end{proof}
+
+\p{5.5(ii)} If $0 \to A_n \to A_{n-1} \to \ldots \to A_1 \to A_0 \to 0$ is an exact sequence of f.g. abelian groups, then
+$\sum_{i=0}^n (-1)^i \rank A_i = 0$.
+\begin{proof}
+We use strong induction on $n$. Part (i) covers the cases $n \le 2$. For $n > 3$, pick $j$ to be greatest integer at most $n/2$.
+Then $0 \to A_n \to \ldots to A_j \to B \to 0$ and $0 \to B \to A_{j-1} \to ldots A_0 \to 0$ are exact sequences of shorter length than the original,
+where $B$ is the image of the map $A_j \to A_{j-1}$.  By the induction hypothesis, 
+$$0 = (-1)^j \rank B + \sum_{i=0}^{j-1} (-1)^i \rank A_i = \rank B + \sum_{i=j}^{n} (-1)^{i-j+1} \rank A_i.$$
+By multiplying the last expression by $(-1)^{j-1}$ and adding it to the other, we get the desired equality.
+\end{proof}
+
+\p{5.11} If $U_* \subset T_* \subset S_*$ then
+$$0 \to T_*/U_*  \overset{i}{\to} S_*/U_* \overset{p}{\to} S_*/T_* \to 0,$$
+where $i_n: t_n + U_n \mapsto t_n + U_n$ and $p_n(s_n + U_n) = s_n + T_n$.
+\begin{proof}
+By the third isomorphism theorem for groups, we get short exact sequences
+$$T_n/U_n \overset{i_n}{\to} S_n/U_n \overset{p_n}{\to} S_n/T_n,$$
+for every $n$.
+
+Moreover $U_* \subset T_* \subset S_*$ implies that $i$ and $p$ are chain maps,
+so we get the desired short exact sequence.
+\end{proof}
+\end{document}
