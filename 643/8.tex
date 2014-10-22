@@ -24,5 +24,56 @@ Then for $1 \le i \le N$ Then $g_i := p_{i-1} * f_{|[(i-1)/N), i/N]} * p_{i}^{-1
 The fact that $[f] = [g_1]*[g_2]* \ldots * [g_N]$ proves the desired result.
 \end{proof}
 
+\p{3.21} If $n \ge 2$, prove that $S^n$ is simply connected.
+\begin{proof}
+Let $U_1, U_2 \subset S^n$ be the complements of the north and south poles, respectively.  By Exercise 3.20,
+it suffices to show that both $U_1$ and $U_2$ are simply connected.  However, the stereographic projection
+from the north pole defines a homeomorphism from $U_1$ to $\R^n$ which is simply connected. Thus $U_1$ is
+simply connected.  A similar argument works for $U_2$.
+\begin{end}
+
+\p{3.24} Let $G$ be a simply connnected topological group and let $H$ be a discrete closed
+normal subgroup. Prove that $\pi_1(G/H, 1) \simeq H$.
+\begin{proof}
+Let $\nu: G \to G/H$ be the canonical quotient map. Let $f:I \to G/H$ be a loop based at $1$.
+\end{proof}
+
+\p{5.14}\begin{enumerate}[(i)]
+\item \begin{proof}
+Since $i_{n-1}$ is injective,  we have $0 = \ker A_{n-1} = \im (C_n \to A_{n-1})$ by the exactness of the 
+long sequence at $A_{n-1}$. Hence, by the exactness at $C_n$ in the long sequence, we have $\im p_n = C_n$.
+
+The exactness at $B_n$ in the long sequence implies exactness at $B_n$ in the short sequence.  Since
+$i_n$ is injective, we get exactness at $A_n$ in the short sequence.
+\end{proof}
+
+\item If $A$ is a retract of $X$, prove that for all $n \ge 0$,
+$$ H_n(X) \simeq H_n(A) \oplus H_n(X,A).$$
+
+\begin{proof}
+Since $A$ is a retract of $X$, the s.e.s $0 \to A \to X \to X/A to 0$ splits.
+
+Therefore $0 \to S_*(A) \overset{i} \to S_*(X) \overset{p} \to S_*(X/A) to 0$ also splits.
+
+Applying Theorem 5.6, we get an exact sequence
+$$ \ldots \to H_n(A) \overset{i_*}\to H_n(X) \overset{p_*}\to H_n(X,A) \to H_{n+1}(A) \to \ldots. $$
+Since $i$ has a left inverse, so does $i_*$ for all $n$ since $H_n$ is a functor.
+In particular, $i_*$ is invertible for all $n$.
+
+Thus by (i), we have the split exact sequence
+$$0 \to H_n(A) \to H_n(X) \to H_n(X,A) \to 0.$$
+\end{proof}
+
+\item if $A$ is a deformation retract of $X$, then $H_n(X,A) = 0$ for all $n \ge 0$.
+\begin{proof}
+Since $A$ is a deformation retract of $X$, the inclusion $i:A \to X$ is a homotopy equivalence.
+Since $H_n$ factors through $\mathbf{hTop}$, the map $i_*:= H_n(i)$ is an isomorphism,
+and in particular surjective.
+The map $p_*$ in the s.e.s.
+$$0 \to H_n(A) \overset{i_*} \to H_n(X)  \overset{p_*} \to H_n(X,A) \to 0,$$
+is must be the $0$-map and also be surjective.  Hence $H_n(X,A) = 0$.
+\end{proof}
+
+\end{enumerate}  
 
 \end{document}
