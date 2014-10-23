@@ -35,7 +35,28 @@ simply connected.  A similar argument works for $U_2$.
 \p{3.24} Let $G$ be a simply connnected topological group and let $H$ be a discrete closed
 normal subgroup. Prove that $\pi_1(G/H, 1) \simeq H$.
 \begin{proof}
-Let $\nu: G \to G/H$ be the canonical quotient map. Let $f:I \to G/H$ be a loop based at $1$.
+Let $\nu: G \to G/H$ be the canonical quotient map. Let $f$ and $(X,x_0)$ be defined as in Lemma 3.14 with
+codomain $(G/H,1)$ instead of $(S^1, 1)$. I will prove the analog of Lemma 3.14 with
+$\nu$ replacing $\exp$ and $G$ replacing $\RR$.
+
+Since $H$ is discrete, there exists an open $U \subset G$ with $U \cap H = 1$. 
+
+I claim that there exists $V \subset U$, a symmetric open neighborhood of $1$ with $V*V \subset U$.
+Indeed, there exists open neighborhoods $A,B$ of $1$ with $A*B \subset U$ by the continuity of 
+group multiplication.  Therefore $W := A \cap B$ is an open neighborhood of $1$ with $W*W \subset U$.
+Moreover $W^{-1}$ is an open neighborhood of $1$.  Hence $V:= W \cap W^{-1}$ works.
+
+Note that $Vg$ is the inverse image of $V$ under multiplication by $g^{-1}$ on the right, so is open for all $g \in G$. 
+Therefore $\{f^{-1}(Vg)\}_g$ is an open cover of $X$. Let $\epsilon$ be the Lebesgue number of this cover. It follows that if $\|x - x'\| < \epsilon$
+then $f(x) f(x')^{-1} \in Vg g^{-1}V = V$.
+
+The rest of the proof of Lemma 3.14 follows with $V$ replacing $(-\frac 1 2, \frac 1 2)$ and $\nu(V)$ replacing $S^1 - \{-1\}$. The only
+sticky part is showing that $\nu_{|V}$ is a homeomorphism onto its image.
+
+First $\nu_{|V}$ is injective since $H \cap V = \{1\}$. Thus $\nu_{|V}$ is a continuous bijection onto its image, so it suffices to show that
+$\nu$ is an open map. Suppose $U \subset G$ is open. Then $\nu^{-1}(\nu(U)) = \bigcup_{h \in H\} Vh$ is the union of open sets, hence open.
+Hence $\nu(U)$ is open since $\nu$ is a quotient map.  Thus $\nu_{|V}$ is a homeomorphism onto its image.
+
 \end{proof}
 
 \p{5.14}\begin{enumerate}[(i)]
