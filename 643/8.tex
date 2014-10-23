@@ -61,10 +61,20 @@ The rest of the proof follows with the obvious modifications (replacing $+$ with
 \end{proof}
 
 \p{4}
+\begin{proof}
 %1) reformulate the naturally condition
+The new naturality condition is
+$$(\sigma \times 1)_\# P^{\Delta^n}_{n-1} = P_{n-1}^X \sigma_\#.$$
 %2) check it still holds for the start of the induction 
+This still holds for $n = 0$ since $P^X_{-1} = 0$ by definition for all $X$.
 %3) fix the part of the proof of the key formula in the text (using the new naturally condition)
+The key formula on p. 77 remains unchanged.
+%For the key formula on p.77, we use the linearity of $(\sigma \times 1)_\# P^{\Delta^n}_{n-1} \delta$ to extend
+%from the case of $(n-1)$-simplices in $\Delta^n$ to $(n-1)$-chains.
 %4) verify the new naturally condition holds for n.
+To verify that the new naturality condition holds for $P^{\Delta^{n+1}}_n$, the same argument as in the text works,
+ except we choose $\tau : \Delta^{n} \to \Delta^{n+1}$ and $\sigma:\Delta^{n+1} \to X$.
+\end{proof}
 
 \p{5.14}\begin{enumerate}[(i)]
 \item \begin{proof}
