@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 643 - Algebraic Topology I
+
+%Problems: 7.26, 7.31
+
+\subsection*{HW 12}
+\p{7.26} \begin{enumerate}[(i)] 
+\item Show that wedge is associative; that is, $(X  \vee Y) \vee Z$ and 
+$X \vee (Y \vee Z)$ are homeomorphic pointed spaces.
+\begin{proof}
+Suppose $U \subset (X \vee Y) \vee Z$ is open. Then $U \cap Z$ is open, and
+$U \cap (X \vee Y)$ is open. Hence $U \cap X$ and $U \cap Y$ are open. Thus the image of $U$ in $X \vee (Y \vee Z)$ is open.  The reverse direction follows by symmetry.
+\end{proof}
+\item If $K_1$ and $K_2$ are polyhedra, then for all $n \ge 1$,
+$$H_n(K_1 \vee K_2) \simeq H_n(K_1) \oplus H_n(K_2).$$
+\begin{proof}
+By reduced version Corollary 7.17, we have the exact sequence
+$$\tilde H_n(K_1 \cap K_2) \to \tilde H_n(K_1) \oplus \tilde H_n(K_2) \to \tilde H_n(K_1 \vee K_2) \to \tilde H_{n-1}(K_1 \cap K_2).$$
+Since $K_1 \cap K_2$ is a point, $\tilde H_n(K_1 \cap K_2) = 0$ for $n \ge 0$.  This gives the desired isomorphism since $\tilde H_n(K) = H_n(K, x_0)$, assuming the problem was talking about pointed spaces.
+\end{proof}
+\item Let $m_1, \ldots, m_n$ be a sequence of nonnegative integers. Prove that there exists a connected polyhedron of dimension $n$ with $H_q(X)$ free abelian of rank $m_q$ for every $q = 1, \ldots, n$.
+\begin{proof}
+Take the wedge sum of $m_q$ copies of $\Delta^q$ for $q = 1, \ldots, n$.
+\end{proof}
+
+\p{7.31} Show that the homology groups of the Klein bottle are
+$$ H_p = 0 \text{ for } p \ge 2, \quad H_1 = \ZZ \oplus (\ZZ/2\ZZ), \quad \text{ and } H_0 = \ZZ.$$
+
+\end{document}
