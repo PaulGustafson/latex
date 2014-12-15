@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 663 
+
+%Problems: 
+
+\subsection*{Problems}
+\p{1} Give a proof of the mean ergodic theorem using the spectral theorem for unitary operators.
+\begin{proof}
+Let $U$ be a unitary operator on a Hilbert space $H$. By the spectral theorem, there exists a unitary map $T: H \to L^2(X, \mu)$ for some finite measure space $(X, \mu)$ with $U = T^{-1}ST$ where $S$ is multiplication by a function $f$ taking values on the unit circle.
+
+Note that we have $\lim_{N \to \infty} \frac 1 N \sum_{n=0}^N f^n & = 1_{f = 1}$. Thus, $P := \lim_{N \to \infty} \frac 1 N \sum_{n=0}^N U^n$ exists and is a orthogonal projection. 
+
+I claim that $P$ is the orthogonal projection onto $\ker(I - U)$. If $v \in \ker(I - U)$, then $T^{-1}STv = Uv = v$. Hence $S(Tv) = Tv$. Therefore $f(x) = 1$ for all $x$ where $Tv(x) \neq 0$. This implies that $Pv = T^{-1} 1_{f=1} Tv = v$. All these steps are reversible, so the range of $P$ is precisely $\ker(I-U)$.
+\end{proof}
+
+\p{8} Show that a subgroup $H$ of an amenable countable discrete group $G$ is amenable.
+\begin{proof}
+Suppose $H$ were not amenable.  Then it admits a paradoxical decomposition $C \sim D \sim H$. By appending $G \setminus H$ to both $C$ and $D$ we get a paradoxical decomposition of $G$, a contradiction.
+\end{proof}
+\end{document}

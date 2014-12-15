@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 643 - Algebraic Topology I
+
+%Problems: 
+
+\subsection*{PSet 4}
+\p{7.27} \begin{enumerate}[(i)]
+\item 
+\item
+\end{enumerate} 
+\p{7.33} 
+\p{7.37}
+\p{7.40}
+\p{7.50}
+\end{document}

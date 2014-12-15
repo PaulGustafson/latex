@@ -1,0 +1,57 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 643 - Algebraic Topology I
+
+%Problems:1. Do Problem 6.18 on page 125 of the text.
+% 2. Do Problem 7.7 on page 135 of the text.
+% 3. Do Problem 7.8 on page 135 of the text.
+% 4. Do Problem 7.10 on page 137 of the text.
+% 5. Do Problem 7.11 on page 137 of the text 
+
+\subsection*{PSet 3}
+\p{6.18} Assume that there is no antipodal map $S^m \to S^n$ for $m > n$. Prove
+ that if $f: S^n \to \R^n$, then there exists $x_0 \in S^n$ with $f(x_0) = f(-x_0)$.
+\begin{proof}
+Suppose not. Then there exists $f:S^n \to \R^n$ with no such $x_0$. Define $g: S^n \to S^{n-1}$ by
+$$g(x) = (f(x) - f(-x))/\|f(x) - f(-x)\|$$.
+This is an antipodal map, a contradiction.
+\end{proof}
+
+\p{7.7}\begin{enumerate}
+\item For each vertex $p \in \Vrt(K)$, prove that $\st(p)$ is an open subset of $|K|$ and that the family of all such stars is an open cover of $|K|$.
+\begin{proof}
+I claim that if an open simplex $s^\circ \subset \st(p)^c$ then $s \subset \st(p)^c$. Suppose not.  Then there exists $x \in \dot s \cap \st(p)$. Let $t^\circ$ be the unique open simplex with $x \in t^\circ$. Since $x \in s \cap t^\circ$, the definition of simplicial complex implies that $t \subset \dot s$. On the other hand, since $x \in \st(p)$, Exercise 7.6 implies that $p \in \Vrt(t)$. Therefore, $p \in \Vrt(s)$ a contradiction.
+
+By Exercise 7.5, $\st(p)^c$ is the union of the open simplices it contains. Thistogether with the above claim implies that $\st(p)^c$ is a finite union of simplices. Thus, $\st(p)^c$ is closed, so $\st(p)$ is open.
+\end{proof}
+
+\item If $x \in \st(p)$, then the line segment with endpoints $x$ and$p$ is contained in $\st(p)$.
+\begin{proof}
+Let $s^\circ$ be the unique open simplex containing $x$.  By Exercise 7.6, $p \in \Vrt(s)$. Therefore, $x,p \in s$. The conclusion follows from the fact that $s$ is convex.
+\end{proof}
+\end{enumerate}
+
+\p{7.8} Let $p_0, p_1, \ldots p_n \in \Vert(K)$. Prove that $\{p_0, \ldots, \p_n\}$ spans a simplex of $K$ iff $\cap_{i=0}^n \st(p_i) \neq \emptyset$.
+\begin{proof}
+If $\{p_0, \ldots, p_n\}$ spans a simplex $s$ of $K$, then $s^\circ \subset \cap_{i=0}^n \st(p_i)$.
+
+For the converse, suppose $\cap_{i=0}^b \st(p_i) \neq \emptyset$. WLOG we may assume that $P := \{p_0, \ldots, p_n\}$ is maximal in the sense that $\st(p) \cap \cap_{i=0}^n \st(p_i) = \emptyset$ for all $p \in \Vrt(K) \setminus P$.  Indeed, if $P$ is not maximal, we can keep adding vertices to $P$ to get a maximal $P'$, and then the conclusion for $P'$ implies the conclusion for $P$.
+
+Let $x \in \cap_{i=0}^b \st(p_i)$. Let $s^\circ$ be the unique open simplex containing $x$. Then $s^\circ \subset \cap_{i=0}^b \st(p_i)$ by the definition of $\st$. I claim that $\Vrt(s) = P$.
+
+To see that $\Vrt(s) \subset P$, suppose $p \in \Vrt(s)$. Then $s^\circ \subset \st(p)$. This contradicts the maximality of $P$.
+
+To see that $P \subset \Vrt(s)$, pick an arbitrary $p_i \in P$. Since $s^\circ \subset \st(p_i)$, Exercise 7.6 implies that $p_i \in \Vrt(s)$.
+\end{proof}
+
+\p{7.10} Prove that a simplicial map $\phi: K \to L$ is a simplicial approximation to $f : |K| \to |L|$ if and only if, whenever $x \in |K|$ and $f(x) \in s^\circ$ (where $s$ is a simplex of $L$), then $|\phi|(x) \in s$.
+\begin{proof}
+
+\end{proof}
+
+
+\p{7.11} If $\phi: K \to L$ is a simplicial approximation to $f: |K| \to |L|$, then $|\phi| \simeq f$.
+\end{document}
