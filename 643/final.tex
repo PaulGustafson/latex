@@ -12,7 +12,7 @@
 \begin{proof}
 Let $U$ be a unitary operator on a Hilbert space $H$. By the spectral theorem, there exists a unitary map $T: H \to L^2(X, \mu)$ for some finite measure space $(X, \mu)$ with $U = T^{-1}ST$ where $S$ is multiplication by a function $f$ taking values on the unit circle.
 
-Note that we have $\lim_{N \to \infty} \frac 1 N \sum_{n=0}^N f^n & = \chi_{f^{-1}(1)}$. Thus, $P := \lim_{N \to \infty} \frac 1 N \sum_{n=0}^N U^n$ exists and is a orthogonal projection. 
+Note that we have $\lim_{N \to \infty} \frac 1 N \sum_{n=0}^N f^n = \chi_{f^{-1}(1)}$. Thus, $P := \lim_{N \to \infty} \frac 1 N \sum_{n=0}^N U^n$ exists and is a orthogonal projection. 
 
 I claim that $P$ is the orthogonal projection onto $\ker(I - U)$. If $v \in \ker(I - U)$, then $T^{-1}STv = Uv = v$. Hence $S(Tv) = Tv$. Therefore $f(x) = 1$ for all $x$ where $Tv(x) \neq 0$. This implies that $Pv = T^{-1} \chi_{f^{-1}(1)} Tv = v$. All these steps are reversible, so the range of $P$ is precisely $\ker(I-U)$.
 \end{proof}
@@ -59,16 +59,28 @@ for all $t \in G$. This implies that for any $t \in G$ there exists $s \in F_n$ 
 Let $\pi = \rho$ be the one-dimensional representation taking $1$ to multiplication by $i$.  Since this representation is finite-dimensional, it is not weakly mixing. Moreover, $(\pi \otimes \rho)(1)$ acts by multiplication by $-1$, so $\pi \otimes \rho$ is ergodic.
 \end{proof}
 
-\p{6} Give an example of a unitary representation of $\ZZ$ on an infinite-dimensional Hilbert space which is weakly mixing but not mixing.
+%\p{6} Give an example of a unitary representation of $\ZZ$ on an infinite-dimensional Hilbert space which is weakly mixing but not mixing.
+%\begin{proof}
+%Let $\{e_n\}_{n = 1}^\infty$ be the standard basis for $l^2$.
+%
+%Note that $\{e_1 - e_2 - e_3 - \ldots -e_{n} + n e_{n+1}\}_{n=1}^\infty$ forms an orthogonal set. Let us call the normalized version $\{u_n\}_{n=1}^\infty$.
+%
+%Now note that $e_1 -\sum_{j=2}^k e_j$ is orthogonal to $\{u_n\}_{n=1}^{k-1}$. Thus, the distance from $e_1$ to $\spn\{u_n\}_{n=1}^{k-1}$ is equal to $1/\sqrt{k}$. It follows that $e_1$ is in the closed linear span of $\{u_n\}_{n=1}^\infty$.
+%
+%Define $\pi(1)$ by mapping $e_n$ to $u_n$ for all $n \ge 1$.  This defines an isometry with dense range, hence a unitary operator.
+%
+%This representation is not mixing because $\langle \pi(s) e_1, e_1 \rangle \ge 2^{-s/2} + 3^{-s/2} + \ldots $ does not go to $0$ as $s \to \infty$.
+%
+%This representation is weakly mixing because it has no nonzero finite dimensional subrepresentations.
+%\end{proof}
+
+\p{7} Show that a countable discrete group $G$ is amenable iff every continuous action of $G$ on a compact Hausdorff space has an invariant Borel probability measure.
 \begin{proof}
-Let $\{e_n\}_{n = -\infty}^\infty$ be the standard basis for $l^2(\ZZ)$.
-Note that $\{e_1 - e_2 - e_3 - \ldots -e_{n} + n e_{n+1}\}_{n=1}^\infty$ forms an orthogonal set. Let us call the normalized version $\{u_n\}_{n=1}^\infty$.
+Suppose $G$ is amenable.  The canonical map $\beta:l^\infty(G) \to C(\beta G)$ (extending a bounded function to the Stone-Cech compactification) is a $G$-equivariant $C^*$-algebra isomorphism. Thus, the left-invariant mean on $l^\infty(G)$ induces a $G$-invariant state on $\beta G$.  By the Riesz Representation theorem, this gives us an invariant Borel probability measure on $\beta G$.
 
-Define $\pi(1)$ by mapping $e_n$ to $e_1 + e_{n+1}$ for all $n \ge 1$, where 
+Now  suppose $G$ acts continuously on a compact Hausdorff space $K$. Fix any point $x_0 \in K$. Define $f:G \to K$ by $f(s) = sx_0$. Clearly $f$ is $G$-equivariant, so $\beta f: \beta G \to K$ is equivariant also. The pushforward of the measure on $\beta G$ by the function $\beta f$ is the desired measure.
 
-This representation is not mixing because $\langle \pi(s) e_1, e_1 \rangle = \sum_{i=1}^s 2^{-s/2}$ does not go to $0$ as $s \to \infty$.
-
-This representation is weakly mixing because it has no nonzero finite dimensional subrepresentations.
+Now suppose the converse holds. Then action of $G$ on $\beta G$ gives us an invariant Borel probability measure on $\beta G$. Integrating against this measure and making use of the properties of the map $\beta$ mentioned above, we get an invariant mean on $l^\infty(G)$.
 \end{proof}
 
 \p{8} Show that a subgroup $H$ of an amenable countable discrete group $G$ is amenable.
