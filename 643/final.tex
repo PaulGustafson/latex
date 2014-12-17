@@ -47,9 +47,28 @@ $$\frac 1 {|F_n|} \sum_{s \in tF_n} \mu(sA \cap A) \ge \mu(A)^2 - \epsilon$$
 for all $t \in G$. This implies that for any $t \in G$ there exists $s \in F_n$ such that $ts \in S$. Thus $S$ is syndetic.
 \end{proof}
 
+%\p{3} Let $G$ be a countable group acting on $(Y^G, \nu^G)$ by a Bernoulli action. Determin the associated Koopman representation of $G$ on 
+%$L^2(Y^G, \nu^G)$.
+%\begin{proof}
+%The Bernoulli action of $s \in G$ on $x \in Y_G$ is defined by $(sx)_t = x_{s^{-1}t}$.
+%\end{proof}
+
+
 \p{5} Give examples of unitary representations $\pi$ and $\rho$ of $\ZZ$ such that $\pi \otimes \rho$ is ergodic but neither $\pi$ nor $\rho$ is weakly mixing.
 \begin{proof}
-Let $\pi = \rho$ be the one-dimensional representation taking $1$ to multiplication by $i$.  Since this representation is finite-dimensional, it is not weakly mixing. Moreover, $(\pi \otimes \rho)(1)$ acts by multiplication by $-1$, so $\pi \otimes \rho$ is not ergodic.
+Let $\pi = \rho$ be the one-dimensional representation taking $1$ to multiplication by $i$.  Since this representation is finite-dimensional, it is not weakly mixing. Moreover, $(\pi \otimes \rho)(1)$ acts by multiplication by $-1$, so $\pi \otimes \rho$ is ergodic.
+\end{proof}
+
+\p{6} Give an example of a unitary representation of $\ZZ$ on an infinite-dimensional Hilbert space which is weakly mixing but not mixing.
+\begin{proof}
+Let $\{e_n\}_{n = -\infty}^\infty$ be the standard basis for $l^2(\ZZ)$.
+Note that $\{e_1 - e_2 - e_3 - \ldots -e_{n} + n e_{n+1}\}_{n=1}^\infty$ forms an orthogonal set. Let us call the normalized version $\{u_n\}_{n=1}^\infty$.
+
+Define $\pi(1)$ by mapping $e_n$ to $e_1 + e_{n+1}$ for all $n \ge 1$, where 
+
+This representation is not mixing because $\langle \pi(s) e_1, e_1 \rangle = \sum_{i=1}^s 2^{-s/2}$ does not go to $0$ as $s \to \infty$.
+
+This representation is weakly mixing because it has no nonzero finite dimensional subrepresentations.
 \end{proof}
 
 \p{8} Show that a subgroup $H$ of an amenable countable discrete group $G$ is amenable.
