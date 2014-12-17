@@ -19,32 +19,32 @@ I claim that $P$ is the orthogonal projection onto $\ker(I - U)$. If $v \in \ker
 
 \p{2} Prove Khintchine's recurrence theorem: If $G$ is a countable amenable group and $G$ acts on $(X,\mu)$ via a p.m.p. action then for every measurable
 set $A \subset X$ and $\epsilon > 0$ the set
-$\{ s \in G: \mu(sA \cap A) \ge \mu(A)^2 - \epsilon\}$
+$S:= \{ s \in G: \mu(sA \cap A) \ge \mu(A)^2 - \epsilon\}$
 is syndetic.
 \begin{proof}
-Let $\{F_n\}_{n=1}^\infty$ be a tempered Folner sequence in $G$. From the pointwise ergodic theorem, we have
+Let $t \in G$, $\{F_n\}_{n=1}^\infty$ be a tempered Folner sequence in $G$, and $P$ be the orthogonal projection onto the subspace of $G$-invariant functions in $L^2(X)$. From the mean ergodic theorem, we have
 \begin{align*}
- \lim_{n \to \infty} \frac 1 {|F_n|} \sum_{s \in F_n} \mu(sA \cap A) & =  
- \lim_{n \to \infty} \frac 1 {|F_n|} \sum_{s \in F_n} \langle  \chi_{sA}, \chi_{A} \rangle_L^2(X) \\
-& = \langle P \chi_{A} , \chi_{A} \rangle,
-\end{align*}
-where  $P$ is the orthogonal projection onto the subspace of $G$-invariant functions in $L^2(X)$. 
-
-On the other hand, we have
-\begin{align*}
-\mu(A)^2 & = \langle \chi_A, 1 \rangle ^2 \\
-& = \langle P\chi_A, 1 \rangle ^2 \\
-& \le \|P\chi_A\|_2^2 \\
-& = \langle P \chi_{A} , \chi_{A} \rangle.
+ \lim_{n \to \infty} \frac 1 {|F_n|} \sum_{s \in tF_n} \mu(sA \cap A) 
+& = \lim_{n \to \infty} \frac 1 {|F_n|} \sum_{s \in tF_n} \langle  \chi_{sA}, \chi_{A} \rangle \\
+& =  \langle \lim_{n \to \infty} \frac 1 {|F_n|} \sum_{s \in F_n}  s \chi_{A}, t^{-1} \chi_{A} \rangle \\
+& = \langle P \chi_{A} , t^{-1} \chi_{A} \rangle \\
+& = \langle t P \chi_{A} , \chi_{A} \rangle \\
+& = \langle P \chi_{A} , \chi_{A} \rangle \\
+& = \|P\chi_A\|_2^2 \\
+& \ge \langle P\chi_A, 1 \rangle ^2 \\
+& = \langle \chi_A, 1 \rangle ^2 \\
+& = \mu(A)^2.
 \end{align*}
 
-Hence,  $\mu(A)^2 \le  \lim_{n \to \infty} \frac 1 {|F_n|} \sum_{s \in F_n} \mu(sA \cap A)$.
+Note that in the limiting step the error is 
+$$
+|\langle P \chi_{A} - \frac 1 {|F_n|} \sum_{s \in F_n}  s \chi_{A}, t^{-1} \chi_{A} \rangle| \le \|P \chi_{A} - \frac 1 {|F_n|} \sum_{s \in F_n}  s \chi_{A}\|_2 \|\chi_{A}\|_2,
+$$
+and the last bound is independent of $t$.
 
-Pick $n$ so large that $$
-
- It follows that $\mu(sA \cap A) \ge \mu(A)^2 - \epsilon$ for some $s \in F_n$.
-
-
+It follows that by choosing $n$ sufficiently large we can ensure that 
+$$\frac 1 {|F_n|} \sum_{s \in tF_n} \mu(sA \cap A) \ge \mu(A)^2 - \epsilon$$
+for all $t \in G$. This implies that for any $t \in G$ there exists $s \in F_n$ such that $ts \in S$. Thus $S$ is syndetic.
 \end{proof}
 
 \p{5} Give examples of unitary representations $\pi$ and $\rho$ of $\ZZ$ such that $\pi \otimes \rho$ is ergodic but neither $\pi$ nor $\rho$ is weakly mixing.
