@@ -26,4 +26,26 @@ In view of part (i), for the functor to be right-exact is the same as saying tha
 
 \end{enumerate}
 
+\p{2} Given an $R$-module $M$ and a short exact sequence of $R$-modules
+$$0 \to A \to B \to C \to 0,$$
+use the previous problem to show that the sequence induces a long exact sequence:
+$$0 \to \Hom_R(M, A) \to \Hom_R(M, B) \to \Hom_R(M,C) \to Ext_R^1(M, A) \to \cdots$$
+\begin{proof}
+Let $P_*$ be a projective resolution of $M$. Since the $P_i$ are projective we get a s.e.s. of chain complexes
+$0 \to \Hom_R(P_*, A) \to \Hom_R(P_*, B) \to \Hom_R(P_*, C) \to 0.$ Applying the cohomology functor and the snake lemma gives 
+the desired long exact sequence.
+\end{proof}
+
+\p{3} Regarding $\Z_2$ as a module over the ring $\Z_4$, construct a resolution of $\Z_2$ by free modules over $\Z_4$
+and use this to show that $\Ext_{\Z_4}^n(\Z_2, \Z_2)$ is nonzero for all $n$.
+\begin{proof}
+A free resolution is the following:
+$$ \cdots \overset{\times 2} \to \Z_4 \overset{\times 2} \to \Z_4 \overset{\times 2} \to \Z_4 \overset{\text{mod } 2} \to \Z_2 \to 0.$$
+Applying the $\Hom_{\Z_4}(-, \Z_2)$ functor, we get
+$$ \cdots \overset{0} \gets \Z_2 \overset{0} \gets  \Z_2  \overset{0} \gets \Z_2 \overset{\id} \gets \Z_2 \gets 0.$$
+Thus $\Ext_{\Z_4}^n(\Z_2, \Z_2) = \Z_2$ for all $n \ge 1$.
+\end{proof}
+
+
+
 \end{document}
