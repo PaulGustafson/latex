@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 644
+
+\subsection*{HW 1}
+\p{1} Given a (left) $R$-module show:
+\begin{enumerate}[i.]
+\item The covariant functor $\Hom_R(M,-)$ is a left-exact functor.
+\begin{proof}
+Let $0 \to A \overset f \to B \overset g \to C \to 0$ be a short exact sequence. Application of the functor gives a complex
+$$0 \to \Hom_R(M, A) \overset {f_*} \to \Hom_R(M, B) \overset {g_*} \to 
+\Hom_R(M,C) \to 0.$$
+
+For exactness at $\Hom_R(M, A)$, suppose $f_*(\alpha) = 0$ for some $\alpha: M \to A$.  Then $f(\alpha(m)) = 0$ for all $m \in M$.  Thus, $\alpha(m) = 0$ for all $m \in M$ since $f$ is injective.  Thus $f_*$ is injective.
+
+For the exactness at $\Hom_R(M, B)$, suppose $g_*(\beta) = 0$ for some $\beta: M \to B$. Then $\im(\beta) \subset \ker(g)$. Since $f$ is an isomorphism from $A$ to $\im(A)$, the map $f^{-1}\beta : M \to A$ is well-defined. Thus, $\beta = f_*(f^{-1}\beta)$ is in the image of $f_*$. Thus $\ker(g_*) = \im(f_*)$.
+\end{proof}
+
+\item This functor is right-exact iff $M$ is a projective $R$-module.
+\begin{proof}
+In view of part (i), for the functor to be right-exact is the same as saying that $g_*$ surjects onto $\Hom_R(M, C)$ for every surjection $g: B \to C$. This is the same as saying that every map $M \to C$ lifts through every surjection $B \to C$, i.e. $M$ satisfies the definition of projective $R$-module.
+\end{proof}
+
+\end{enumerate}
+
+\end{document}
