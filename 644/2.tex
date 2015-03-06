@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 644
+
+\subsection*{HW 1}
+\p{1} To see that $(L, \phi^*)$ is compatible with the directed system, suppose $i \prec j$. Let $x \in C_i$. We have $\phi^j \circ \phi^i_j(x) = q(\phi^i_j(x)) = q(x) = \phi^i(x)$.
+
+To see that $L$ is the colimit, suppose $(D, f^*)$ is compatible with the directed system. Let $\tilde f: \oplus_{i \in I} C_i \to D$ be the unique map such that $f_i = \tilde f \circ \iota_i$ for all $i$, where $\iota_i: C_i \to \oplus_{i \in I} C_i$ is the inclusion.   To see that $\tilde f$ descends to $L$, let $x \in C_i$ for some $i$, and suppose $i \prec j$.  Then $\tilde f(\phi^i_j(x) - x) = f_j \circ \phi^i_j (x) - f_i(x) = 0$.  Hence $\tilde f$ is $0$ on $H_\phi$, so $\tilde f$ descends to a function $f: L \to D$. The uniqueness of $f$ follows from the uniqueness of $\tilde f$ (if an $f'$ replaced $f$, then $f' \circ q$ would coincide with $\tilde f$).
+
+For the second part of the problem, pick any $\tilde l \in q^{-1}(l)$.  Pick $j \in I$ dominating the finite support of $\tilde l$. Let $x = \sum_{i \in I} \phi^i_j(\tilde l)$ where $\phi^i_j$ is extended to be 0 outside of $C_i$. Then $x - \tilde l \in H_\phi$, so $\phi^j(x) = l$.
+
+\p{2} Let $(L, \psi^*)$ be the colimit as defined in Problem 1.  Define $\alpha: \oplus_i C_i \to \Q$ by $\alpha \circ \iota_i(a) = a/i$. This map is a surjective homomorphism, so it suffices to show that its kernel is $H_\phi$. To see that $H_\phi \subset \ker \alpha$, suppose $x \in C_i$ and $i \prec j$.   Then $\alpha(\iota_i x - \iota_j \phi^i_j(x)) = x/i - (j/i)  (x/j) = 0$.  For the reverse inclusion, suppose $\alpha(l) = 0$.  Let $k$ dominate the the support of $l$ (i.e. $k$ is a multiple of all indices of nonzero coordinates of $l$).  We have $0 = \alpha(l) = \sum_{i \in I}  l_i/i= \sum_{i \in I}  (k/i) l_i /k$. Hence $0 = \sum_{i \in I} (k/i) l_i = \sum_{i \in I} \phi^i_k(l_i)$.  Hence $l \in H_\phi$.
+
+\p{3} \begin{enumerate}[i.]
+\item In the inclusion order, property (b) implies that the partial order is directed.  In the reverse inclusion order, property (a) implies that the empty set is in $\Phi$, which dominates every other set.
+
+\item A closed subset of a compact Hausdorff set is compact. A finite union of compact sets is compact.
+
+\item If $F \subset G$, we have a map of pairs $(X, X - G) \to (X, X - F)$ given by $\id_X$. Let $\phi^F_G$ be the image of this map under the contravariant functor $H^n$.  
+\end{enumerate}
+
+\p{4} \begin{enumerate}[i.]
+\item Let $\phi_i: C_i \to \colim_{i \in I} C_i$ and $\psi_k: C_k \to \colim_{k \in K} C_k$ be the compatible families of morphisms satisfying the respective universal properties. Let $\alpha: \colim_{k \in K} C_k \to \colim_{i \in I} C_i$ be the unique map such that $\psi_k = \alpha \phi_k$ for all $k \in K$.
+
+
+\end{enumerate}
+
+\end{document}
