@@ -8,7 +8,7 @@
 \subsection*{HW 1}
 \p{1} To see that $(L, \phi^*)$ is compatible with the directed system, suppose $i \prec j$. Let $x \in C_i$. We have $\phi^j \circ \phi^i_j(x) = q(\phi^i_j(x)) = q(x) = \phi^i(x)$.
 
-To see that $L$ is the colimit, suppose $(D, f^*)$ is compatible with the directed system. Let $\tilde f: \oplus_{i \in I} C_i \to D$ be the unique map such that $f_i = \tilde f \circ \iota_i$ for all $i$, where $\iota_i: C_i \to \oplus_{i \in I} C_i$ is the inclusion.   To see that $\tilde f$ descends to $L$, let $x \in C_i$ for some $i$, and suppose $i \prec j$.  Then $\tilde f(\phi^i_j(x) - x) = f_j \circ \phi^i_j (x) - f_i(x) = 0$.  Hence $\tilde f$ is $0$ on $H_\phi$, so $\tilde f$ descends to a function $f: L \to D$. The uniqueness of $f$ follows from the uniqueness of $\tilde f$ (if an $f'$ replaced $f$, then $f' \circ q$ would coincide with $\tilde f$).
+To see that $L$ is the colimit, suppose $(D, f^*)$ is compatible with the directed system. Let $\tilde f: \oplus_{i \in I} C_i \to D$ be the unique map such that $f^i = \tilde f \circ \iota_i$ for all $i$, where $\iota_i: C_i \to \oplus_{i \in I} C_i$ is the inclusion.   To see that $\tilde f$ descends to $L$, let $x \in C_i$ for some $i$, and suppose $i \prec j$.  Then $\tilde f(\phi^i_j(x) - x) = f_j \circ \phi^i_j (x) - f^i(x) = 0$.  Hence $\tilde f$ is $0$ on $H_\phi$, so $\tilde f$ descends to a function $f: L \to D$. The uniqueness of $f$ follows from the uniqueness of $\tilde f$ (if an $f'$ replaced $f$, then $f' \circ q$ would coincide with $\tilde f$).
 
 For the second part of the problem, pick any $\tilde l \in q^{-1}(l)$.  Pick $j \in I$ dominating the finite support of $\tilde l$. Let $x = \sum_{i \in I} \phi^i_j(\tilde l)$ where $\phi^i_j$ is extended to be 0 outside of $C_i$. Then $x - \tilde l \in H_\phi$, so $\phi^j(x) = l$.
 
@@ -23,9 +23,28 @@ For the second part of the problem, pick any $\tilde l \in q^{-1}(l)$.  Pick $j 
 \end{enumerate}
 
 \p{4} \begin{enumerate}[i.]
-\item Let $\phi_i: C_i \to \colim_{i \in I} C_i$ and $\psi_k: C_k \to \colim_{k \in K} C_k$ be the compatible families of morphisms satisfying the respective universal properties. Let $\alpha: \colim_{k \in K} C_k \to \colim_{i \in I} C_i$ be the unique map such that $\psi_k = \alpha \phi_k$ for all $k \in K$.
+\item Let $\phi^i: C_i \to \colim_{i \in I} C_i$ and $\psi^k: C_k \to \colim_{k \in K} C_k$ be the compatible families of morphisms satisfying the respective universal properties. Let $g: \colim_{k \in K} C_k \to \colim_{i \in I} C_i$ be the unique map such that $\phi^k = g \psi^k$ for all $k \in K$.
 
+For each $i \in I$, pick any $k \in K$ with $i \prec k$, and define $f^i = \psi^{k} \phi^i_{k}$. To see that the particular choice of $k$ does not matter, let $k' \in K$ with $i \prec k'$. Pick any $j \in K$ with $k, k' \prec j$.  We have $\psi^{k} \phi^i_{k} = \psi^j \phi^k_j \phi^i_k = \psi^j \phi^i_j$, and the same for $k'$ in place of $k$. Hence $f^i$ is independent of the choice of $k$.
 
+I claim $(f^i)_{i\in I}$ is compatible with the directed system $(C_i)_{i \in I}$. Indeed if $i \prec j \in I$, pick $k \in K$ such that $i,j \prec k$. Then  $f^j \phi^i_j = \psi^k \phi^j_k \phi^i_j = \psi^k \phi^i_k = f^i$.
+
+Thus there exists a unique map $f: \colim_{i \in I} C_i \to \colim_{k \in K} C_k$ such that $f^i = f \phi^i$ for all $i \in I$.
+
+I claim that $f$ is a left and right inverse for $g$.  For all $k \in K$, we have $fg \psi^k = f \phi^k = f^k = \psi^k$. Hence $fg = \id$, by the uniqueness of the map in the colimit universal property.  
+
+Similarly, for all $i \in I$, we have $gf \phi^i = g f^i = g \psi^k \phi^i_k = \phi^k \phi^i_k = \phi^i$, where $k \in K$ is any index such that $i \prec k$. This implies $gf = \id$.  
+
+Hence $f$ and $g$ are isomorphisms.
+
+\item Any compact subset of $\R^n$ is bounded.
+
+\item From (ii), we have $H^r_c(\R^n; R) = \colim_{i \in \N} H^r(\R^n, \R^n - B_i(0); R)$, where the $\phi^i_j$ are induced by inclusions. From the long exact sequence of a pair, we get $\tilde H^{r-1}(\R^n - B_i(0); R) \cong \tilde H^r(\R^n, \R^n - B_i(0); R)$ for all $r$.  Thus $H^r(\R^n, \R^n - B_i(0); R) = \tilde  H^r(\R^n, \R^n - B_i(0); R) = R$ if $r = n$, and $0$ otherwise.
+
+Since the inclusion $\R^n - B_j \to \R^n - B_i$ is a homotopy equivalence for any $i < j$, the maps $\phi^i_j$ are isomorphisms. It follows that $H^r_c(\R^n; R) = \colim_{i \in \N} H^r(\R^n, \R^n - B_i(0); R) = H^r(\R^n, \R^n - B_1(0); R) = R$ if $r = n$, and $0$ otherwise.
 \end{enumerate}
+
+\p{5} Let $\Phi$ be the cofinal system of neighborhoods mentioned in the problem. 
+We have $H^r_c(U; R) = \colim_{K \text{ compact}} H^r(X - Y, X - Y - K; R) = \colim_{N \in \Phi} H^r(X - Y, X - K; R) $, 
 
 \end{document}
