@@ -79,9 +79,10 @@ On the other hand, the square of a generator of $H^2(X;Z_p)$ is a non-zero eleme
 \begin{align*}
 H^n(X; \Z_p) & = \Hom(H_n(X; \Z), \Z_p) \\
 & = \Hom(\bigoplus_{i \in I} \Z, \Z_p) \\
-& = \bigoplus_{i \in I} \Hom(\Z, \Z_p) \\
-& = \bigoplus_{i \in I} \Z_p \\
-& = \bigoplus_{i \in I} \Z \otimes \Z_p \\
+& = \prod_{i \in I} \Hom(\Z, \Z_p) \\
+& = \prod_{i \in I} \Z_p \\
+& = \prod_{i \in I} (\Z \otimes \Z_p) \\
+& = \left( \prod_{i \in I} \Z \right) \otimes \Z_p \\
 & = \Hom(H_n(X; \Z), \Z) \otimes \Z_p \\
 & = H^n(X; \Z) \otimes \Z_p.
 \end{align*}
