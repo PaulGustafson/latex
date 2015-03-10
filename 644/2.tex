@@ -8,9 +8,9 @@
 \subsection*{HW 1}
 \p{1} To see that $(L, \phi^*)$ is compatible with the directed system, suppose $i \prec j$. Let $x \in C_i$. We have $\phi^j \circ \phi^i_j(x) = q(\phi^i_j(x)) = q(x) = \phi^i(x)$.
 
-To see that $L$ is the colimit, suppose $(D, f^*)$ is compatible with the directed system. Let $\tilde f: \oplus_{i \in I} C_i \to D$ be the unique map such that $f^i = \tilde f \circ \iota_i$ for all $i$, where $\iota_i: C_i \to \oplus_{i \in I} C_i$ is the inclusion.   To see that $\tilde f$ descends to $L$, let $x \in C_i$ for some $i$, and suppose $i \prec j$.  Then $\tilde f(\phi^i_j(x) - x) = f_j \circ \phi^i_j (x) - f^i(x) = 0$.  Hence $\tilde f$ is $0$ on $H_\phi$, so $\tilde f$ descends to a function $f: L \to D$. The uniqueness of $f$ follows from the uniqueness of $\tilde f$ (if an $f'$ replaced $f$, then $f' \circ q$ would coincide with $\tilde f$).
+To see that $L$ is the colimit, suppose $(D, f^*)$ is compatible with the directed system. Let $\widetilde f: \oplus_{i \in I} C_i \to D$ be the unique map such that $f^i = \widetilde f \circ \iota_i$ for all $i$, where $\iota_i: C_i \to \oplus_{i \in I} C_i$ is the inclusion.   To see that $\widetilde f$ descends to $L$, let $x \in C_i$ for some $i$, and suppose $i \prec j$.  Then $\widetilde f(\phi^i_j(x) - x) = f_j \circ \phi^i_j (x) - f^i(x) = 0$.  Hence $\widetilde f$ is $0$ on $H_\phi$, so $\widetilde f$ descends to a function $f: L \to D$. The uniqueness of $f$ follows from the uniqueness of $\widetilde f$ (if an $f'$ replaced $f$, then $f' \circ q$ would coincide with $\widetilde f$).
 
-For the second part of the problem, pick any $\tilde l \in q^{-1}(l)$.  Pick $j \in I$ dominating the finite support of $\tilde l$. Let $x = \sum_{i \in I} \phi^i_j(\tilde l)$ where $\phi^i_j$ is extended to be 0 outside of $C_i$. Then $x - \tilde l \in H_\phi$, so $\phi^j(x) = l$.
+For the second part of the problem, pick any $\widetilde l \in q^{-1}(l)$.  Pick $j \in I$ dominating the finite support of $\widetilde l$. Let $x = \sum_{i \in I} \phi^i_j(\widetilde l)$ where $\phi^i_j$ is extended to be 0 outside of $C_i$. Then $x - \widetilde l \in H_\phi$, so $\phi^j(x) = l$.
 
 \p{2} Let $(L, \psi^*)$ be the colimit as defined in Problem 1.  Define $\alpha: \oplus_i C_i \to \Q$ by $\alpha \circ \iota_i(a) = a/i$. This map is a surjective homomorphism, so it suffices to show that its kernel is $H_\phi$. To see that $H_\phi \subset \ker \alpha$, suppose $x \in C_i$ and $i \prec j$.   Then $\alpha(\iota_i x - \iota_j \phi^i_j(x)) = x/i - (j/i)  (x/j) = 0$.  For the reverse inclusion, suppose $\alpha(l) = 0$.  Let $k$ dominate the the support of $l$ (i.e. $k$ is a multiple of all indices of nonzero coordinates of $l$).  We have $0 = \alpha(l) = \sum_{i \in I}  l_i/i= \sum_{i \in I}  (k/i) l_i /k$. Hence $0 = \sum_{i \in I} (k/i) l_i = \sum_{i \in I} \phi^i_k(l_i)$.  Hence $l \in H_\phi$.
 
@@ -39,7 +39,7 @@ Hence $f$ and $g$ are isomorphisms.
 
 \item Any compact subset of $\R^n$ is bounded.
 
-\item From (ii), we have $H^r_c(\R^n; R) = \colim_{i \in \N} H^r(\R^n, \R^n - B_i(0); R)$, where the $\phi^i_j$ are induced by inclusions. From the long exact sequence of a pair, we get $\tilde H^{r-1}(\R^n - B_i(0); R) \cong \tilde H^r(\R^n, \R^n - B_i(0); R)$ for all $r$.  Thus $H^r(\R^n, \R^n - B_i(0); R) = \tilde  H^r(\R^n, \R^n - B_i(0); R) = R$ if $r = n$, and $0$ otherwise.
+\item From (ii), we have $H^r_c(\R^n; R) = \colim_{i \in \N} H^r(\R^n, \R^n - B_i(0); R)$, where the $\phi^i_j$ are induced by inclusions. From the long exact sequence of a pair, we get $\widetilde H^{r-1}(\R^n - B_i(0); R) \cong \widetilde H^r(\R^n, \R^n - B_i(0); R)$ for all $r$.  Thus $H^r(\R^n, \R^n - B_i(0); R) = \widetilde  H^r(\R^n, \R^n - B_i(0); R) = R$ if $r = n$, and $0$ otherwise.
 
 Since the inclusion $\R^n - B_j \to \R^n - B_i$ is a homotopy equivalence for any $i < j$, the maps $\phi^i_j$ are isomorphisms. It follows that $H^r_c(\R^n; R) = \colim_{i \in \N} H^r(\R^n, \R^n - B_i(0); R) = H^r(\R^n, \R^n - B_1(0); R) = R$ if $r = n$, and $0$ otherwise.
 \end{enumerate}
@@ -48,22 +48,42 @@ Since the inclusion $\R^n - B_j \to \R^n - B_i$ is a homotopy equivalence for an
  
 We have $H^r_c(U; R) = \colim_{F \in \Phi} H^r(U, U - F; R) = \colim_{F \in \Phi} H^r(X, X - F; R)$, where the last equality is by excision since $Y = \overline Y \subset (X - F)^\circ = X - F \subset X$. Since $X - F$ strong deformation retracts to $Y$ for all $F$, any inclusion $X - F \to X - F'$ for $F, F' \in \Phi$  maps to $\id_Y$ under the homotopy equivalences induced by the deformation retractions. Thus, $H^r_c(U; R) = \colim_{F \in \Phi} H^r(X, Y; R)$, where the morphisms of the directed system are all isomorphisms.  Thus, $H^r_c(U; R) = \colim_{F \in \Phi} H^r(X, Y; R)$.
 
-\p{6} 3.2.2. Since $A$ and $B$ are contractible, we have an isomorphism $f^*: \tilde H^k(X;R) \to H^k(X, A;R)$ induced from a map $f:(X,a) \to (X,A)$ for some $a \in A$. Similarly, we have an isomorphism $g^*: \tilde H^l(X;R) \to H^l(X,A;R)$. Also, the cup product 
+\p{6} 3.2.2. Since $A$ and $B$ are contractible, we have an isomorphism $f^*: \widetilde H^k(X;R) \to H^k(X, A;R)$ induced from a map $f:(X,a) \to (X,A)$ for some $a \in A$. Similarly, we have an isomorphism $g^*: \widetilde H^l(X;R) \to H^l(X,A;R)$. Also, the cup product 
 $H^k(X,A;R) \times H^l(X,B;R) \to H^{k+l}(X, A \cup B; R) = H^{k+l}(X, X; R) = 0$ must be 0.  Hence, by relative cohomology version of Proposition 3.10, if $\alpha \in H^k(X;R)$ and $\beta \in H^l(X;R)$ for $k, l > 0$, we have $\alpha \cup \beta = 0$. The same proof works for the general case.
 
 \p{7} 3.2.3. 
 \begin{enumerate}[(a)]
 \item Suppose such a map $f: \R P^n \to \R P^m$ exists. We have $H^*(\R P^n;\Z_2) \cong \Z_2[\alpha]/\alpha^{n+1}$ with $|\alpha| = 1$. Hence $f^*:\Z_2[\alpha]/\alpha^{m+1} \to \Z_2[\beta]/\beta^{n+1}$ is a ring homomorphism mapping $\alpha$ to $\beta$. This implies $\beta^{m+1} = 0$, a contradiction.
 
-In the complex case, $|alpha| = 2$, so the corresponding result would replace $H^1$ with $H^2$.
+In the complex case, $|\alpha| = 2$, so the corresponding result would replace $H^1$ with $H^2$.
 
 \item To see that $g$ is nonzero, use the same proof as the proof of Prop. 2B.6 on p. 175 with $g$ replacing $f$, using cohomology instead of homology.
 \end{enumerate}
 
-\p 8 3.2.7 The $\Z_2$-cohomology ring of $\R P^3$ is $Z_2[\alpha]/\alpha^4$ where $|\alpha| = 1$. The reduced $\Z_2$-cohomology ring of $\RP^2 \vee S^3$ is
-$\tilde H^*(\R P^2) \oplus \tilde H^*(S^3)$. In particular, the cube of any element of $H^1(\RP^2 \vee S^3)$ is $0$, which does not hold for $H^1(\R P^3)$.
+\p 8 3.2.7. The $\Z_2$-cohomology ring of $\R P^3$ is $Z_2[\alpha]/\alpha^4$ where $|\alpha| = 1$. The reduced $\Z_2$-cohomology ring of $\R P^2 \vee S^3$ is
+$\widetilde H^*(\R P^2) \oplus \widetilde H^*(S^3)$. In particular, the cube of any element of $H^1(\R P^2 \vee S^3)$ is $0$, which does not hold for $H^1(\R P^3)$.
 
-\p 9 3.2.8
+\p 9 3.2.8. We have $H^*(\C P^2; \Z) = \Z[\alpha]/\alpha^3$ where $|\alpha| = 2$.
+The attachment of the 3-cell removes the $H^2$ cohomology and makes $H^3(X) = \Z^p$.
 
-\p{10} 3.2.9
+On the other hand, $\widetilde H^*(M(\Z_p, 2) \vee S^4; \Z) = \widetilde H^*(M(\Z_p, 2)) \oplus \widetilde H^*(S^4)$.  By the universal coefficient theorem, $\widetilde H^r(M(\Z_p, 2)) = \Z_p$ if $r = 3$ and $0$ otherwise.
+
+Both reduced cohomology rings only have cohomology in dimensions 3 and 4, so the cup product is zero.  Hence, mapping 1 to 1 for $H^0$ and a generator to a generator for $H^3$ and $H^4$ defines an isomorphism of the two unreduced cohomology rings.
+
+Using the universal coefficient theorem in the $\Z_p$-coefficients case, we get 
+$H^r(X) = \Z_p$ if $r = 0,2,4$, and the same for $H^r((M(\Z_p, 2) \vee S^4)$.  In the latter case, multiplying any two elements of $H^2$ gives $0$. In fact, the square of any element of the reduced cohomology ring is $0$.
+
+On the other hand, the square of a generator of $H^2(X;Z_p)$ is a non-zero element of $H^4(X;Z_p)$, so the rings cannot be isomorphic.
+
+\p{10} 3.2.9 Let $I$ be a basis for $H_n(X; \Z)$. Using the universal coefficient theorem for the first and last equalities, we have
+\begin{align*}
+H^n(X; \Z_p) & = \Hom(H_n(X; \Z), \Z_p) \\
+& = \Hom(\bigoplus_{i \in I} \Z, \Z_p) \\
+& = \bigoplus_{i \in I} \Hom(\Z, \Z_p) \\
+& = \bigoplus_{i \in I} \Z_p \\
+& = \bigoplus_{i \in I} \Z \otimes \Z_p \\
+& = \Hom(H_n(X; \Z), \Z) \otimes \Z_p \\
+& = H^n(X; \Z) \otimes \Z_p.
+\end{align*}
+
 \end{document}
