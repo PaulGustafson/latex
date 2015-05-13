@@ -1,5 +1,6 @@
 \documentclass{article}
 \usepackage{../m}
+\usepackage{tikz-cd}
 
 \begin{document}
 \noindent Paul Gustafson\\
@@ -8,7 +9,23 @@
 \subsection*{Final}
 \p 1 Show that $H_c^{n+1}(X \times \R; G) \cong H_c^n(X; G)$ for all $n$.
 \begin{proof}
-Let $K \subset X$ be compact.
+To compute $\colim H^{n+1}(X \times \R, X \times \R - K'; G)$, it suffices to let $K'$ range over sets of the form $K' = K \times I$ for a compact $K \subset X$ and $I$ a compact interval. WLOG $I = [0,1]$.  Applying the relative Meyer-Vietoris sequence in the same way as in the proof of the suspension isomorphism gives the desired result.
+\end{proof}
+
+\p 2 Show that for any connected oriented closed manifold $M$ of dimension $n$ there is a map $f : M \to S^n$ having degree 1.
+\begin{proof}
+Let $U \subset M$ be an open neighborhood homeomorphic to a ball in $\R^n$.  Let $f$ be the quotient map $f: M \to M/(M-U) \simeq S^n$.
+Since $M$ is orientable, we have $H^n(M) \simeq H^n(M, M - U)$ in the long exact sequence of a pair. Applying $f$ to both sides, the 
+naturality of the long exact sequence gives a commutative diagram
+
+\[
+\begin{tikzcd}
+H_n(M) \arrow{r} \arrow{d}{f_*} &  H^n(M, M - U) \arrow{d} \\
+H_n(M/(M - U)) \arrow{r} & H_n(M/(M - U), (M - U)/(M - U))
+\end{tikzcd}
+\]
+The rightmost arrow and bottom arrows are isomorphisms since $(M, M-U)$ is a good pair.  Thus, $f_*$ is an isomorphism, and in particular a 
+degree 1 map.
 \end{proof}
 
 \p 4 If $g \get 1$ show that for each nonzero $\alpha \in H^1(M_g; \Z)$ there exists $\beta \in H^1(M_g;\ZZ)$ with
