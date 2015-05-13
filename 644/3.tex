@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 644
+
+\subsection*{Final}
+\p 1 Show that $H_c^{n+1}(X \times \R; G) \cong H_c^n(X; G)$ for all $n$.
+\begin{proof}
+Let $K \subset X$ be compact.
+\end{proof}
+
+\p 4 If $g \get 1$ show that for each nonzero $\alpha \in H^1(M_g; \Z)$ there exists $\beta \in H^1(M_g;\ZZ)$ with
+$\alpha \smile \beta \neq 0$. Use this fact to show that $M_g$ is not homotopy equivalent to a wedge $X \vee Y$ of 
+CW-complexes with non trivial reduced homology.
+
+\begin{proof}
+We proved on a homework that $H^1(M_g) = \Z^{2g}$. Hatcher's Prop. 3.38 implies that the the cup product pairing
+$H^1(M_g) \times H^1(M_g) \to \Z$ given by evaluation of the cup product at the fundamental class is nonsingular. 
+In particular, the first part of this problem holds.
+
+For the second part, suppose that $M_g = X \vee Y$. Then $\Z = H_2(M_g) = H_2(X) \oplus H_2(Y)$.  Hence WLOG $H_2(X) = \Z$ and $H_2(Y) = 0$. 
+Let $\alpha \in H^1(Y)$. Pick $\beta \in H^1(M_g)$ such that $\alpha \smile \beta \neq 0$.
+Let $\phi \in C_2(X)$ be any chain representative of a generator of $H_2(X) = H_2(M_g)$.  Since $\alpha \in H^1(Y)$, we have
+$(\alpha \smile \beta)(\phi) = 0$.  Since this holds for a representative of a generator of $H_2(M_g)$, we have $\alpha \smile \beta = 0$, a contradiction.
+\end{proof}
+
+\p 5 Let $f: M \to N$ be a map between closed connected oriented manifolds of dimensions $m$ and $n$, respectively, and let $R$ be a commutative ring with 1.
+\begin{enumerate}[a.]
+\item Explain how this map makes $H^*(M; R)$ into an algebra over $H^*(N; R)$.
+\begin{proof}
+The map $H^*(M; R) \times H^*(N; R) \to  H^*(M; R)$ defined by $(\alpha, \beta) \mapsto \alpha \smile f^*(beta)$ gives the right action. Linearity is obvious, and associativity follows from the fact that $f^*(\beta \smile \gamma) = f^*(\alpha) \smile f^*(\gamma)$.
+\end{proof}
+\item Explain how to use Poincare duality to define group homomorphisms $f_!: H^i(M;R) \to H^{i+n-m}(N;R)$.
+\begin{proof}
+Poincare duality gives an isomorphisms $\phi:H^i(M;R) \simeq H_{m-i}(M;R)$, and 
+$\psi:H_{m-i}(N;R) \simeq H^{i+n-m}(N;R)$. Let $f_! = \psi f_* \phi$.
+\end{proof}
+\item Show that these maps assemble to give a homomorphism $f_!:H^*(M;R) \to H^*(N;R)$ of right $H^*(N;R)$-modules.
+\begin{proof}
+The assembled map is clearly a morphism of abelian groups. If $\alpha \in H^i(M;R)$ and $\beta \in H^j(N;R)$,
+we have $f_!(\alpha \beta)= f_!(\alpha \smile f^*(beta)) = \psi f_* \phi (\alpha \smile f^*(beta))
+= f_!(\alpha) \smile f^*(beta)
+= f_!(\alpha) beta,$ 
+where we used the fact that $\psi, \phi$ commute with the cup product by the definition of the Poincare dual map as
+the cup product with the fundamental class.
+\end{proof}
+\end{enumerate}
+
+\end{document}

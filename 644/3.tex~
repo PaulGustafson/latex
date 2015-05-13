@@ -1,0 +1,15 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 644
+
+\subsection*{Final}
+\p 1 Show that $H_c^{n+1}(X \times \R; G) \cong H_c^n(X; G)$ for all $n$.
+\begin{proof}
+Let $K \subset X$ be compact.
+\end{proof}
+
+
+\end{document}
