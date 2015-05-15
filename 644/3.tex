@@ -14,19 +14,35 @@ To compute $\colim H^{n+1}(X \times \R, X \times \R - K'; G)$, it suffices to le
 
 \p 2 Show that for any connected oriented closed manifold $M$ of dimension $n$ there is a map $f : M \to S^n$ having degree 1.
 \begin{proof}
-Let $U \subset M$ be an open neighborhood homeomorphic to a ball in $\R^n$.  Let $f$ be the quotient map $f: M \to M/(M-U) \simeq S^n$.
-Since $M$ is orientable, we have $H^n(M) \simeq H^n(M, M - U)$ in the long exact sequence of a pair. Applying $f$ to both sides, the 
+Let $B \subset M$ be an open neighborhood homeomorphic to a ball in $\R^n$.  Let $f$ be the quotient map $f: M \to M/(M-B) \simeq S^n$.
+Since $M$ is orientable, we have $H^n(M) \simeq H^n(M, M - B)$ in the long exact sequence of a pair. Applying $f$ to both sides, the 
 naturality of the long exact sequence gives a commutative diagram
 
 \[
 \begin{tikzcd}
-H_n(M) \arrow{r} \arrow{d}{f_*} &  H^n(M, M - U) \arrow{d} \\
-H_n(M/(M - U)) \arrow{r} & H_n(M/(M - U), (M - U)/(M - U))
+H_n(M) \arrow{r} \arrow{d}{f_*} &  H^n(M, M - B) \arrow{d} \\
+H_n(M/(M - B)) \arrow{r} & H_n(M/(M - B), (M - B)/(M - B))
 \end{tikzcd}
 \]
-The rightmost arrow and bottom arrows are isomorphisms since $(M, M-U)$ is a good pair.  Thus, $f_*$ is an isomorphism, and in particular a 
-degree 1 map.
+The rightmost arrow is an isomorphism since $(M, M-U)$ is a good pair, and the bottom arrow is an obvious isomorphism.  Thus, $f_*$ is an isomorphism, and in particular a degree $\pm 1$ map. If the degree is $-1$, compose $f$ with a reflection of $S^n$ through an equator to get a degree $1$ map.
 \end{proof}
+
+\p 3 Let $f : M \to N$ be a map between closed connected oriented manifolds of same dimension $n$.
+\begin{enumerate}[a.]
+\item Suppose there is a ball $B \subset N$ such that $f^{-1}(B)$ is the disjoint union of balls $B_i$ each 
+mapped homeomorphically by $f$ onto $B$. Show the degree of $f$ is $\sum_i \epsilon_i$ where $\episilon_i$
+is $1$ or $-1$ according to whether $f:B_i \to B$ preserves or reverses local orientations induced from
+given fundamental classes $[M]$ and $[N]$.
+\begin{proof} 
+Using the relative Mayer-Vietoris sequence, we have $H_n(M, M- B_i -B_j) \simeq H_n(M, M- B_i) \oplus H_n(M, M- B_i)$.
+
+For each $i$, the induced map $f_i: H_n(M|B_i) \to H_n(N|B)$ is an isomorphism, so either m
+\end{proof}
+
+\end{enumerate}
+
+
+
 
 \p 4 If $g \get 1$ show that for each nonzero $\alpha \in H^1(M_g; \Z)$ there exists $\beta \in H^1(M_g;\ZZ)$ with
 $\alpha \smile \beta \neq 0$. Use this fact to show that $M_g$ is not homotopy equivalent to a wedge $X \vee Y$ of 
@@ -63,6 +79,53 @@ we have $f_!(\alpha \beta)= f_!(\alpha \smile f^*(beta)) = \psi f_* \phi (\alpha
 where we used the fact that $\psi, \phi$ commute with the cup product by the definition of the Poincare dual map as
 the cup product with the fundamental class.
 \end{proof}
+\end{enumerate}
+
+\p 6 Let $p:E \to X$ be a vector bundle of rank $n$ over a paracompact space $X$.
+\begin{enumerate}[(1)]
+\item Show that if $E$ has $k$ sections $s_1, \ldots, s_k$ that are linearly independent at each $x \in X$ that
+it has a trivial subbundle of rank $k$.
+\begin{proof}
+Let $h: X \times \R^k \to E$ be defined by $h(x,t_1, \ldots, t_n) = \sum_i t_i s_i(x)$. 
+Then $h$ is continuous (since it is continuous on each local trivialization), and a linear injection on each fiber since the $s_i$ are independent.  Thus, by a lemma shown in class, $h$ is a subbundle map.
+\end{proof}
+\item Assume that $E$ has $k$ sections $s_1, \ldots, s_k$ such that at each $x$ the elements $s_1(x), \ldots, s_k(x)$
+generate the fiber $E_x$ as a vector space. Show that $E$ is a quotient of a trivial bundle of rank $k$.
+\begin{proof}
+Define $h:X \times \R^k \to E$ by $h(x, t_1, \ldots, t_n) = \sum_i t_i s_i(x)$.  This map is continuous and preserves fibres, hence a bundle map. It is also a linear surjection on fibers, so $E$ is a quotient of the trivial bundle of rank $k$.
+\end{proof}
+\item Under the assumptions of the previous question, let $x \in X$ and define $p_x: \CC^k \to E_x$ as the surjective linear map sending
+$(\lambda_1, \ldots, \lambda_k)$ to $\sum_j \lambda_j s_j(x)$.  Show that the map $\phi : X \to Gr_{k-n}(\CC^k)$ sending $x \in X$ to $\ker p_x$ is a continuous map.
+\begin{proof}
+By restricting to a local trivialization, WLOG $E$ is a trivial bundle.  Then $\ker p_x$ is the orthogonal complement of $\spn\{s_1(x), \ldots, s_k(x)\}$. 
+Since the $s_j$ are continuous and taking orthogonal complements of subspaces is a continous map from $Gr_{n-k}$ to $Gr_{k-n}$, the map $\phi$ is continuous.
+\end{proof}
+\item Let $q: \Q^n \to Gr_{k-n}(\CC^k)$ denote the quotient bundle $\varepsilon^k/E_{k-n}$, where $E_{k-n}$ is the tautological bundle. Show that if $\phi$ is defined in the previous section then $\phi* Q_n \cong E$.
+\begin{proof}
+To show that $E$ is this pullback, we need to find a map $f:  E \to Q^n$ mapping the fiber of each $x \in X$ to the fiber of $\phi(x)$ isomorphically. Define $f_x$ by $f_x(\sum_i \lambda_i s_i(x)) = \pi(\lambda_1, \ldots, \lambda_k)$, where $\pi$ is the orthogonal projection onto the orthogonal complement of $\ker p_x$ in $\CC^k$. By the rank-nullity theorem, the projection $\pi$ is an isomorphism.
+\end{proof}
+
+\end{enumerate}
+
+\p 7 Let $X$ be a finite CW-complex with only even-dimensional cells.
+\begin{enumerate}[a.]
+\item Show that $K(X)$ is a free abelian group on the set of cells of $X$ and that $K(SX) = \ZZ$.  Explain why $K^{-1}(X) = 0$.
+\begin{proof}
+To see that $K(X)$ is free abelian on the cells of $X$, use induction on the number of cells. WLOG $X$ is connected. The base case, a point, is trivial.  For the inductive step, assume that $X$ is constructed by attaching a $k$-cell to a subcomplex $A$, for some $k$. This gives a short exact sequence
+$\widetilde K^*(X/A) \to \widetilde  K^*(X) \to \widetilde  K^*(A)$.  
+Since $X/A = S^k$, we have $\widetilde  K(X/A) = \ZZ$. By induction $\widetilde K(A)$ is free, hence projective, so the s.e.s splits.  Hence $\widetilde K(X)$ is free on the positive dimensional cells, so $K(X)$ is free on all the cells.
+
+
+Since all the cells are even dimensional, the first term of the s.e.s. 
+$K^1(X/A) \to K^1(X) \to K^1(A)$ is always 0. Thus, by induction on the number of cells, $K^1(X) = 0$. Thus $K(SX) = \Z \oplus \widetilde K(SX) = \Z \oplus K^1(X) = \Z$ and $K^{-1}(X) = K^1(X) = 0$.
+
+\item Compute $K^*(\CC\PP^n)$ and express as a module of $K^*(\text{pt})$.
+\begin{proof}
+The CW-complex structure of $\CC\PP^n$ has cell in each even dimension up to $2n$. So $K^0(\CC\PP^n) = \Z^{n+1}$ and $K^1(\CC\PP^n) = 0$.  Since $K^0(\text{pt}) = \Z$ and $K^1(\text{pt}) = 0$,  the action of $K^*(\text{pt})$ is given by $1 \in K^0(\text{pt}) = \Z$ maps to the $\id:K^*(\CC\PP^n) \to K^*(\CC\PP^n)$.
+\end{proof}
+\end{proof}
+
+
 \end{enumerate}
 
 \end{document}
