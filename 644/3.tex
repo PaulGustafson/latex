@@ -30,21 +30,41 @@ The rightmost arrow is an isomorphism since $(M, M-U)$ is a good pair, and the b
 \p 3 Let $f : M \to N$ be a map between closed connected oriented manifolds of same dimension $n$.
 \begin{enumerate}[a.]
 \item Suppose there is a ball $B \subset N$ such that $f^{-1}(B)$ is the disjoint union of balls $B_i$ each 
-mapped homeomorphically by $f$ onto $B$. Show the degree of $f$ is $\sum_i \epsilon_i$ where $\episilon_i$
+mapped homeomorphically by $f$ onto $B$. Show the degree of $f$ is $\sum_i \epsilon_i$ where $\epsilon_i$
 is $1$ or $-1$ according to whether $f:B_i \to B$ preserves or reverses local orientations induced from
 given fundamental classes $[M]$ and $[N]$.
 \begin{proof} 
-Using the relative Mayer-Vietoris sequence, we have $H_n(M, M- B_i -B_j) \simeq H_n(M, M- B_i) \oplus H_n(M, M- B_i)$.
-
-For each $i$, the induced map $f_i: H_n(M|B_i) \to H_n(N|B)$ is an isomorphism, so either m
+Using the relative Mayer-Vietoris sequence, we have 
+$$0 \to H_n(M, M- B_i -B_j) \to H_n(M, M- B_i) \oplus H_n(M, (M- B_i) \to H_n(M, (M- B_i) \cup (M - B_j))$$.
+For $i \neq j$, the last term is $0$, so the middle terms are naturally isomorphic. Continuing in this way, we get
+$H_n(M | \bigcup_i B_i) \cong \bigoplus_i H_n(M | B_i)$. By the naturality of the long exact sequence,
+ we have $f_*:H_n(M) \cong H_n(M | \bigcup_i B_i) \to H_n( N | B) \cong H_n(N)$ is given by
+$f_* = \sum_i f_i$, where $f_i: H_n(M|B_i) \to H_n(N|B)$ are the maps induced by $f$.  Since $f_{|B_i}$ is
+a homeomorphism onto $B$ for each $i$, each $f_i$ is an isomorphism and the sign of $f_i$ is determined 
+by whether it reverses local orientations.  
 \end{proof}
+\item Show that if $f$ is a $p$-sheeted covering projection then $\deg(f) = \pm p$.
+\begin{proof}
+It suffices to show that the set on which $f$ preserves local orientations is open. Let $x \in M$
+such that $f$ preserves local orientations at $x$. Pick an evenly covered neighborhood $U$ of $f(x)$.  
+Then $f$ also preserves local orientations on the component of $f^{-1}(U)$ containing $x$.
+\end{proof}
+
+\item If $M_g$ denotes the closed orientable surface of genus $g$, show that if $g \ge h$ there exists 
+a map $f: M_g \to M_h$ of degree 1.
+\begin{proof}
+Think of $M_g$ as the connected sum of $M_h$ and $M_{g-h}$. 
+Let $f$ be a map sending the $M_{g-h}$ part to a sphere and leaving the $M_h$ part alone.
+ Applying part (a) to any untouched neighborhood in $M_h$ tells us that the degree of $f$ is $1$.
+\end{proof}
+
 
 \end{enumerate}
 
 
 
 
-\p 4 If $g \get 1$ show that for each nonzero $\alpha \in H^1(M_g; \Z)$ there exists $\beta \in H^1(M_g;\ZZ)$ with
+\p 4 If $g \geq 1$ show that for each nonzero $\alpha \in H^1(M_g; \Z)$ there exists $\beta \in H^1(M_g;\ZZ)$ with
 $\alpha \smile \beta \neq 0$. Use this fact to show that $M_g$ is not homotopy equivalent to a wedge $X \vee Y$ of 
 CW-complexes with non trivial reduced homology.
 
@@ -63,7 +83,7 @@ $(\alpha \smile \beta)(\phi) = 0$.  Since this holds for a representative of a g
 \begin{enumerate}[a.]
 \item Explain how this map makes $H^*(M; R)$ into an algebra over $H^*(N; R)$.
 \begin{proof}
-The map $H^*(M; R) \times H^*(N; R) \to  H^*(M; R)$ defined by $(\alpha, \beta) \mapsto \alpha \smile f^*(beta)$ gives the right action. Linearity is obvious, and associativity follows from the fact that $f^*(\beta \smile \gamma) = f^*(\alpha) \smile f^*(\gamma)$.
+The map $H^*(M; R) \times H^*(N; R) \to  H^*(M; R)$ defined by $(\alpha, \beta) \mapsto \alpha \smile f^*(\beta)$ gives the right action. Linearity is obvious, and associativity follows from the fact that $f^*(\beta \smile \gamma) = f^*(\alpha) \smile f^*(\gamma)$.
 \end{proof}
 \item Explain how to use Poincare duality to define group homomorphisms $f_!: H^i(M;R) \to H^{i+n-m}(N;R)$.
 \begin{proof}
@@ -73,9 +93,9 @@ $\psi:H_{m-i}(N;R) \simeq H^{i+n-m}(N;R)$. Let $f_! = \psi f_* \phi$.
 \item Show that these maps assemble to give a homomorphism $f_!:H^*(M;R) \to H^*(N;R)$ of right $H^*(N;R)$-modules.
 \begin{proof}
 The assembled map is clearly a morphism of abelian groups. If $\alpha \in H^i(M;R)$ and $\beta \in H^j(N;R)$,
-we have $f_!(\alpha \beta)= f_!(\alpha \smile f^*(beta)) = \psi f_* \phi (\alpha \smile f^*(beta))
-= f_!(\alpha) \smile f^*(beta)
-= f_!(\alpha) beta,$ 
+we have $f_!(\alpha \beta)= f_!(\alpha \smile f^*(\beta)) = \psi f_* \phi (\alpha \smile f^*(\beta))
+= f_!(\alpha) \smile f^*(\beta)
+= f_!(\alpha) \beta,$ 
 where we used the fact that $\psi, \phi$ commute with the cup product by the definition of the Poincare dual map as
 the cup product with the fundamental class.
 \end{proof}
@@ -118,11 +138,12 @@ Since $X/A = S^k$, we have $\widetilde  K(X/A) = \ZZ$. By induction $\widetilde 
 
 Since all the cells are even dimensional, the first term of the s.e.s. 
 $K^1(X/A) \to K^1(X) \to K^1(A)$ is always 0. Thus, by induction on the number of cells, $K^1(X) = 0$. Thus $K(SX) = \Z \oplus \widetilde K(SX) = \Z \oplus K^1(X) = \Z$ and $K^{-1}(X) = K^1(X) = 0$.
+\end{proof}
+
 
 \item Compute $K^*(\CC\PP^n)$ and express as a module of $K^*(\text{pt})$.
 \begin{proof}
 The CW-complex structure of $\CC\PP^n$ has cell in each even dimension up to $2n$. So $K^0(\CC\PP^n) = \Z^{n+1}$ and $K^1(\CC\PP^n) = 0$.  Since $K^0(\text{pt}) = \Z$ and $K^1(\text{pt}) = 0$,  the action of $K^*(\text{pt})$ is given by $1 \in K^0(\text{pt}) = \Z$ maps to the $\id:K^*(\CC\PP^n) \to K^*(\CC\PP^n)$.
-\end{proof}
 \end{proof}
 
 
