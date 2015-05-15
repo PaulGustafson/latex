@@ -9,13 +9,24 @@
 \subsection*{Final}
 \p 1 Show that $H_c^{n+1}(X \times \R; G) \cong H_c^n(X; G)$ for all $n$.
 \begin{proof}
-To compute $\colim H^{n+1}(X \times \R, X \times \R - K'; G)$, it suffices to let $K'$ range over sets of the form $K' = K \times I$ for a compact $K \subset X$ and $I$ a compact interval. WLOG $I = [0,1]$.  Applying the relative Meyer-Vietoris sequence in the same way as in the proof of the suspension isomorphism gives the desired result.
+To compute $\colim_{K \text{ compact}} H^{n+1}(X \times \R, X \times \R - K)$, it suffices to let $K$ range over sets of the form $K' = K \times I$ for a compact $K \subset X$ and $I$ a compact interval.  Since the groups in the colimit do not vary with $I$, WLOG $I = [-2,2]$.
+
+To apply the relative Mayer-Vietoris sequence, let $A = X \times (-\infty, 1)$,
+$B = X \times (-1, \infty)$, $C = (X \times \R - K') \cap A$, and $D = (X \times \R - K') \cap B$. Then we have
+$$
+\cdots \to H^n(X \times \R | K) \to H^n(A, C) \oplus H^n(B,D) \to H^n(A \cap B,
+C \cap D) \to  \cdots
+$$
+We also have that $(A, C)$ strong deformation retracts onto $(X \times \{-3\} , X \times \{-3\})$, and a similar retraction holds for $(B, D)$. Thus all the direct sum terms in the long exact sequence above are 0.
+
+ Moreover, $(A \cap B, C \cap D) = (X \times (-1,1), (X - K') \times (-1,1))$ strong deformation retracts to $(X, X - K')$.  Thus, from the l.e.s., we get
+$H^n(X | K') \cong H^{n+1}(X \times \R | K')$.  Passing to the colimit gives the desired isomorphism.
 \end{proof}
 
 \p 2 Show that for any connected oriented closed manifold $M$ of dimension $n$ there is a map $f : M \to S^n$ having degree 1.
 \begin{proof}
-Let $B \subset M$ be an open neighborhood homeomorphic to a ball in $\R^n$.  Let $f$ be the quotient map $f: M \to M/(M-B) \simeq S^n$.
-Since $M$ is orientable, we have $H^n(M) \simeq H^n(M, M - B)$ in the long exact sequence of a pair. Applying $f$ to both sides, the 
+Let $B \subset M$ be an open neighborhood homeomorphic to a ball in $\R^n$.  Let $f$ be the quotient map $f: M \to M/(M-B) \cong S^n$.
+Since $M$ is orientable, we have $H^n(M) \cong H^n(M, M - B)$ in the long exact sequence of a pair. Applying $f$ to both sides, the 
 naturality of the long exact sequence gives a commutative diagram
 
 \[
@@ -35,7 +46,7 @@ is $1$ or $-1$ according to whether $f:B_i \to B$ preserves or reverses local or
 given fundamental classes $[M]$ and $[N]$.
 \begin{proof} 
 Using the relative Mayer-Vietoris sequence, we have 
-$$0 \to H_n(M, M- B_i -B_j) \to H_n(M, M- B_i) \oplus H_n(M, (M- B_i) \to H_n(M, (M- B_i) \cup (M - B_j))$$.
+$$0 \to H_n(M, M- B_i -B_j) \to H_n(M, M- B_i) \oplus H_n(M, (M- B_i) \to H_n(M, (M- B_i) \cup (M - B_j))$$
 For $i \neq j$, the last term is $0$, so the middle terms are naturally isomorphic. Continuing in this way, we get
 $H_n(M | \bigcup_i B_i) \cong \bigoplus_i H_n(M | B_i)$. By the naturality of the long exact sequence,
  we have $f_*:H_n(M) \cong H_n(M | \bigcup_i B_i) \to H_n( N | B) \cong H_n(N)$ is given by
@@ -69,7 +80,7 @@ $\alpha \smile \beta \neq 0$. Use this fact to show that $M_g$ is not homotopy e
 CW-complexes with non trivial reduced homology.
 
 \begin{proof}
-We proved on a homework that $H^1(M_g) = \Z^{2g}$. Hatcher's Prop. 3.38 implies that the the cup product pairing
+We proved on a homework that $H^1(M_g) = \Z^{2g}$. Hatcher's Prop. 3.38 implies that the pairing
 $H^1(M_g) \times H^1(M_g) \to \Z$ given by evaluation of the cup product at the fundamental class is nonsingular. 
 In particular, the first part of this problem holds.
 
@@ -87,8 +98,8 @@ The map $H^*(M; R) \times H^*(N; R) \to  H^*(M; R)$ defined by $(\alpha, \beta) 
 \end{proof}
 \item Explain how to use Poincare duality to define group homomorphisms $f_!: H^i(M;R) \to H^{i+n-m}(N;R)$.
 \begin{proof}
-Poincare duality gives an isomorphisms $\phi:H^i(M;R) \simeq H_{m-i}(M;R)$, and 
-$\psi:H_{m-i}(N;R) \simeq H^{i+n-m}(N;R)$. Let $f_! = \psi f_* \phi$.
+Poincare duality gives an isomorphisms $\phi:H^i(M;R) \cong H_{m-i}(M;R)$, and 
+$\psi:H_{m-i}(N;R) \cong H^{i+n-m}(N;R)$. Let $f_! = \psi f_* \phi$.
 \end{proof}
 \item Show that these maps assemble to give a homomorphism $f_!:H^*(M;R) \to H^*(N;R)$ of right $H^*(N;R)$-modules.
 \begin{proof}
