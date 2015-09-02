@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  15 MAY 2015 05:14
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.1.27)  15 MAY 2015 09:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -547,7 +547,7 @@ m/n/10 ) \OMS/cmsy/m/n/10 !
 Here is how much of TeX's memory you used:
  11836 strings out of 495059
  227373 string characters out of 3182030
- 273143 words of memory out of 3000000
+ 273144 words of memory out of 3000000
  14768 multiletter control sequences out of 15000+200000
  6598 words of font info for 26 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191

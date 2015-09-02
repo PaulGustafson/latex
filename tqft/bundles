@@ -1,0 +1,11 @@
+Let $G$ be a finite group.
+
+A principle $G$-bundle is a fiber bundle $C \to X$ with each fiber a $G$-torsor.
+
+A morphism of $G$-bundles over $X$ is a $G$-map from $C \to D$ that commutes with the projections.
+
+WTS: the space of $G$-bundles over $X$ up to isomorphism is
+$$\Hom(pi_1(X), G)/G$$
+where the $G$ acts by conjugation.
+
+Ideas: holonomy representation?
