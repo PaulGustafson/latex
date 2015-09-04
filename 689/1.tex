@@ -9,10 +9,10 @@
 All rings are commutative with $1 \neq 0$.
 \p 1 Let $A$ be a ring and let $\mathfrak S$ be the set of all multiplicative subsets of $A$ that do not contain $0$, ordered by inclusion.  Prove that an element $S$ of $\mathfrak S$ is maximal in $\mathfrak S$ if and only if $R - S$ is a minimal prime ideal.
 \begin{proof}
-Suppose $S$ is a maximal element of $\mathfrak S$. By a proposition from class, there exists a prime ideal $I$ disjoint from $S$.  Suppose $J$ is a prime ideal contained in $I$.  Then $R - J$ is a multiplicative subset of $A$ not containing $0$, i.e, an element of $\mathfrak S$.  But we also have $S \subset R - I \subset R -J$. Thus, by the maximality of $S$, we have $S = R - I = R - J$.  Hence $I = J$. Hence $I$ is a minimal prime ideal.
+Suppose $S$ is a maximal element of $\mathfrak S$. By a proposition from class, there exists a prime ideal $I$ disjoint from $S$.  Suppose $J$ is a prime ideal contained in $I$.  Then $R - J$ is a multiplicative subset of $A$ not containing $0$, i.e, an element of $\mathfrak S$.  But we also have $S \subset R - I \subset R -J$. Thus, by the maximality of $S$, we have $S = R - I = R - J$.  Hence $I = J$. Since this for all prime ideals $J \subset I$, $I$ is a minimal prime ideal.
 
-For the opposite implication, suppose $R - S$ is a minimal prime ideal. Then $S$ is in $\mathfrak S$.  Suppose $S$ is an 
-
+For the opposite implication, suppose $S$ is not a maximal element of $\mathfrak S$. Pick $T \in \mathfrak S$ with $S$ properly contained in $T$.  Pick a prime ideal $I$ disjoint from $T$. Then
+$I \subset R - T \subset R - S$, where the last inclusion is proper.  Therefore, $R - S$ is not a minimal prime ideal.
 \end{proof}
 
 \p 2 Let $I$ and $J$ be ideals of a ring $A$. Show that 
