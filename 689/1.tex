@@ -52,7 +52,7 @@ Let $a \in \rad(A)$ and $b \in B$.  Since $\phi$ is surjective, there exists $c 
 \end{proof}
 \item Give an example to show that the inclusion need not be an equality.
 \begin{proof}
-Let $\phi:k[[X]] \to k[[X]]$ be defined by $X \mapsto X+1$.  Then $X-1$
+
 \end{proof}
 \end{enumerate}
 
@@ -63,8 +63,7 @@ Suppose not.  Let $a \in A - \{0,1\}$ be idempotent.  Then $a(1-a) = 0$.  Thus $
 
 \p 7 Let $A$ be a local ring and $M,N$ finitely generated $A$-modules. Prove that if $M \otimes_A  N = 0$, then $M = 0$ or $N = 0$.
 \begin{proof}
-
-
+Let $k$ be the residue field of $A$, and $\mathfrak{m}$ the maximal ideal.  We have $0 = (M \otimes_A N) \otimes_A (k \otimes_A k) = (M \otimes_A k) \otimes_A (N \otimes_A k) = (M \otimes_A k) \otimes_k (N \otimes_A k)$.  The last expression is just a tensor product of finite dimensional vector spaces over a field, so either $(M \otimes_A k)$ or $(N \otimes_A k)$ is 0.  WLOG suppose the former is 0. Then $0 = M \otimes_A k = M/\mathfrak{m}M$, so by Nakayama's lemma $M = 0$.
 \end{proof}
 
 \p 8 Let $A$ be a ring. Suppose that $A^m \cong A^n$ as $A$-modules.  Show that $m = n$. (Hint: reduce to the case of a field.)
@@ -75,7 +74,9 @@ Let $M$ be a maximal ideal of $A$.  Then $A^m/MA^m \cong A^n/MA^n$ as $A/MA$-vec
 
 \p 9 Let $I_1, \ldots, I_n$ be ideals of a ring for which $I_1 \cap \ldots \cap I_n = (0)$. Prove that if $A/I_j$ is Noetherian for each $j$, then $A$ is Noetherian.
 \begin{proof}
+To prove this, I'll use induction on $n$.  When $n = 1$, it is trivially true.
 
+Suppose the theorem holds for any collection of $n-1$ or fewer ideals.  Let $\phi:A \to A/I_n$ be the canonical surjection.  Then we have $\phi(I_1) \cap \ldots \cap \phi(I_{n-1})$
 \end{proof}
 
 \p 10 Let $A, B, C$ be rings and suppose that $\phi: A \to C, \psi: B \to C$ are surjective ring homomorphisms. Prove that if $A$ and $B$ are Noetherian, then $A \times_C B$ is Noetherian. (Hint: use 9.).
