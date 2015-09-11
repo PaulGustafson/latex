@@ -74,9 +74,13 @@ Let $M$ be a maximal ideal of $A$.  Then $A^m/MA^m \cong A^n/MA^n$ as $A/MA$-vec
 
 \p 9 Let $I_1, \ldots, I_n$ be ideals of a ring for which $I_1 \cap \ldots \cap I_n = (0)$. Prove that if $A/I_j$ is Noetherian for each $j$, then $A$ is Noetherian.
 \begin{proof}
-To prove this, I'll use induction on $n$.  When $n = 1$, it is trivially true.
+I will use induction on $n$.  The case $n=1$ is easy.
 
-Suppose the theorem holds for any collection of $n-1$ or fewer ideals.  Let $\phi:A \to A/I_n$ be the canonical surjection.  Then we have $\phi(I_1) \cap \ldots \cap \phi(I_{n-1})$
+Now suppose the theorem holds for
+
+Let $J \subset A$ be an ideal.  For each $j$, let $\phi_j: A \to A/I_j$ be the canonical map.  Since $I_j$ is Noetherian, there exists a finite set $X_j$ generating $\phi_j(J)$.  Let $Y_j \subset J$ be a complete set of representatives of $X_j$.
+
+Pick $x \in J$.  Then $x = \sum_{y \in Y_1} c_y y + u_1$ for some $u_1 \in I_1 \cap J$.  Similarly $u_1 = \sum_{z \in Y_2} d_z z + u_2$ for some $u_2 \in 
 \end{proof}
 
 \p 10 Let $A, B, C$ be rings and suppose that $\phi: A \to C, \psi: B \to C$ are surjective ring homomorphisms. Prove that if $A$ and $B$ are Noetherian, then $A \times_C B$ is Noetherian. (Hint: use 9.).
