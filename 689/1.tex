@@ -74,15 +74,18 @@ Let $M$ be a maximal ideal of $A$.  Then $A^m/MA^m \cong A^n/MA^n$ as $A/MA$-vec
 
 \p 9 Let $I_1, \ldots, I_n$ be ideals of a ring for which $I_1 \cap \ldots \cap I_n = (0)$. Prove that if $A/I_j$ is Noetherian for each $j$, then $A$ is Noetherian.
 \begin{proof}
-I will use induction on $n$.  The case $n=1$ is easy.
+I will use induction on $n$.  The case $n=1$ is trivial.
 
-Now suppose the theorem holds for
+Let $J \subset A$ be an ideal. Let $\phi: A \to A/I_n$ be the canonical map.  Since $I_n$ is Noetherian, there exists a finite set $X$ generating $\phi(J)$.  For each $x \in X$, pick $y \in J$ such that $\phi(y) = x$.  Let $Y$ by the union of all these $y$.
 
-Let $J \subset A$ be an ideal.  For each $j$, let $\phi_j: A \to A/I_j$ be the canonical map.  Since $I_j$ is Noetherian, there exists a finite set $X_j$ generating $\phi_j(J)$.  Let $Y_j \subset J$ be a complete set of representatives of $X_j$.
+By the induction hypothesis applied to $A \cap I_n$ with ideals $I_j \cap I_n$, we have that $A \cap I_n$ is Noetherian. Let $Z$ be a generating set for $I_n \cap J$. 
 
-Pick $x \in J$.  Then $x = \sum_{y \in Y_1} c_y y + u_1$ for some $u_1 \in I_1 \cap J$.  Similarly $u_1 = \sum_{z \in Y_2} d_z z + u_2$ for some $u_2 \in 
+Pick $x \in J$.  Then $x = \sum_{y \in Y} c_y y + u$ for some $c_y \in A$ and $u \in I_n \cap J$.  Then we can write $u = \sum_{z \in Z} c_z z$ for some $c_z \in A$.  Thus, $x = \sum_{y \in Y} c_y y +  \sum_{z \in Z} c_z z$.  Hence, the finite set $Y \cup Z$ generates $J$.  Since this holds for all $J$, $A$ is Noetherian.
 \end{proof}
 
 \p 10 Let $A, B, C$ be rings and suppose that $\phi: A \to C, \psi: B \to C$ are surjective ring homomorphisms. Prove that if $A$ and $B$ are Noetherian, then $A \times_C B$ is Noetherian. (Hint: use 9.).
+\begin{proof}
+Let $I,J \subset A \times_C B$ be the ideals defined by $I = A \times 0$ and $J = 0 \times B$. Then $I \cap J = 0$, and $A \times_C B/I = B$ and $A \times_C B/J = A$ which are Noetherian.  Hence, exercise 9 implies that $A \times_C B$ is Noetherian.
+\end{proof}
 
 \end{document}
