@@ -1,0 +1,191 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url,tikz}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+\newcommand{\name}[1]{\noindent\textbf{Name: #1}}
+\newcommand{\honor}{\noindent On my honor, as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the
+  academic work included in this assignment. Furthermore, I have
+  disclosed all resources (people, books, web sites, etc.) that have
+  been used to prepare this homework. \\[1ex]
+ \textbf{Signature:} \underline{\hspace*{5cm}} }
+
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+\begin{compactitem}[$\Box$] 
+\item Did you add your name? 
+\item Did you disclose all resources that you have used? \\
+(This includes all people, books, websites, etc. that you have consulted)
+\item Did you sign that you followed the Aggie honor code? 
+\item Did you solve all problems? 
+\item Did you submit the pdf file resulting from your latex file
+  of your homework?
+\item Did you submit a hardcopy of the pdf file in class? 
+\end{compactitem}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Problem Set #1}\\ 
+CSCE 440/640 Fall 2012\end{center}}
+\newcommand{\duedate}[2]{\begin{quote}\textbf{Due dates:} Electronic submission of .tex
+    and .pdf files of this homework is due on \textbf{#1} on ecampus.tamu.edu, a signed paper copy
+    of the pdf file is due on \textbf{#2} at the beginning of
+    class. \end{quote} }
+
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\Z}{\mathbf{Z}}
+
+
+\begin{document}
+\problemset{1}
+\duedate{9/7/2016 before 2:40pm}{9/7/2016}
+\name{ (put your name here)}
+\begin{resources} (All people, books, articles, web pages, etc. that
+  have been consulted when producing your answers to this homework)
+\end{resources}
+\honor
+
+\newpage
+
+\textbf{Important: } 
+Read Chapter 1 in our textbook (Kaye, Laflamme, Mosca). Read Chapter 1
+and Appendix A in the lecture notes (Quantum Algorithms). 
+
+\begin{problem} (20 points) Get familiar with \LaTeX. Let $a+ib$ be a
+  complex number, where $a$ and $b$ are real numbers and
+  $i^2=-1$. Nicely typeset how to convert the representation $(a,b)$
+  to polar coordinates $(r,\theta)$. Find out how you can include a
+  helpful graph or picture (tikz is my current personal favorite). 
+
+  If you need to refresh your memory how the conversion to polar
+  coordinates is done in practice, then watch the Khan Academy
+  videos. 
+\end{problem}
+\begin{solution}
+The polar representation of the complex number $z = a + bi$ is given by
+$z = r e^{i \theta}$, where $r = \sqrt{a^2 + b^2}$ is the modulus and
+$\theta$ is the angle from $(a,b)$ to the positive $x$-axis.  See Figure \ref{fig:help}
+for a depiction.
+\begin{figure}
+\centering
+\begin{tikzpicture}[scale=3]
+ %\draw[step=.5cm, gray, very thin] (-1.2,-1.2) grid (1.2,1.2); 
+ \filldraw[fill=green!20,draw=green!50!black] (0,0) -- (3mm,0mm) arc  (0:30:3mm) -- node[right=4pt] {$\theta$} cycle ; 
+ \draw[->] (-1.25,0) -- (1.25,0) coordinate (x axis);
+ \draw[->] (0,-1.25) -- (0,1.25) coordinate (y axis);
+ \draw[very thick,red] (30:1cm) -- node[left,fill=white] {$a$} (30:1cm |- x axis);
+ \draw[very thick,blue] (30:1cm |- x axis) -- node[below=2pt,fill=white] {$b$} (0,0);
+ \draw (0,0) -- node[above=2pt] {$r$} (30:1cm);
+  \end{tikzpicture}
+\caption{Helpful graph comparing polar to Cartesian coordinates}
+\label{fig:help}
+\end{figure}
+
+\end{solution}
+
+\begin{problem} (15 points) 
+Find the real and imaginary part of the following complex numbers
+\begin{compactenum}[(a)]
+\item $(i-1)/(i+1)$.
+\item $(3+4i)/(1-2i)$. 
+\item $i^n$ for any integer $n$.
+\end{compactenum}
+\end{problem} 
+\begin{solution}
+\begin{compactenum}[(a)]
+\item 
+\begin{align*}
+(i-1)/(i+1) & = \frac{(i-1)^2}{-2} \\
+& = i 
+\end{align*}
+\item 
+\begin{align*}
+(3+4i)/(1-2i) & = \frac{(3+4i)(1+2i)}{1 + 4}\\
+& = \frac{-5 + 10i}{5}\\
+& = -1 + 2i
+\end{align*}
+\item 
+\[
+i^n = \begin{cases} 
+      1 & n \equiv 0 \pmod 4 \\
+      i & n \equiv 1 \pmod 4 \\
+      -1 & n \equiv 2 \pmod 4 \\
+      -i & n \equiv 3 \pmod 4 \\
+   \end{cases}
+\]
+\end{compactenum}
+\end{solution}
+
+\begin{problem} (15 points) 
+Calculate the modulus (=absolute value) of the following complex numbers: 
+\begin{compactenum}[(a)]
+\item $-3+i$.
+\item $2+3i$.
+\item $i^n$ for all integers $n$. 
+\end{compactenum}
+\end{problem}
+\begin{solution}
+\begin{compactenum}[(a)]
+\item $|-3+i| = \sqrt{9 + 1} = \sqrt{10}$
+\item $|2+3i| = \sqrt{4 + 9} = \sqrt{13}$
+\item $|i^n| = 1$
+\end{compactenum}
+\end{solution}
+
+
+
+\begin{problem} (10 points) 
+Exercise 1.2 in the lecture notes.
+\end{problem}
+\begin{solution}
+It is called circularly polarized because the elecromagnetic wave looks like
+$ e^{it} | \leftrightarrow \rangle + e^{i(t + \pi/2)} |\updownarrow \rangle$.
+Both the real and complex parts of this factor parametrize circles.  For example, the 
+real part is $\cos(t) | \leftrightarrow \rangle - \sin(t) |\updownarrow \rangle $, which turns to the right.
+
+An example of left hand polarization would be a real part of the form $ -\sin(t) | \leftrightarrow \rangle + \cos(t) |\updownarrow \rangle $.  This
+corresponds to a complex amplitude of the form $ e^{i(t + \pi/2)}| \leftrightarrow \rangle + e^{it} |\updownarrow \rangle $.  This
+corresponds to the state $\frac{1}{\sqrt 2} \left( i | \leftrightarrow \rangle + |\updownarrow \rangle \right)$.
+\end{solution}
+
+\begin{problem} (10 points) 
+Exercise 2.1 in the lecture notes.
+\end{problem}
+\begin{solution}
+The probability of observing $0$ is $1/10$.  The probability of $1$ is $9/10$.
+\end{solution}
+
+\begin{problem} (10 points) 
+Exercise 2.2 in the lecture notes.
+\end{problem}
+\begin{solution}
+The probability of observing $0$ is $1/2$.  The probability of $1$ is also $1/2$.
+\end{solution}
+
+\begin{problem} (10 points) 
+Exercise 2.3 in the lecture notes.
+\end{problem}
+\begin{solution}
+The probability of observing $11$ is $1/2$.  After observing $11$, the system collapses to the state $|11\rangle$.
+\end{solution}
+
+\begin{problem} (10 points) 
+Exercise 2.4 in the lecture notes.
+\end{problem}
+\begin{solution}
+Any such state is of the form $\frac{\alpha_1}{\sqrt 2}|00 \rangle + \frac{\alpha_2}{2} |01\rangle + \frac{\alpha_3}{2} |11\rangle$, where the $\alpha_i$ are phases.
+\end{solution}
+
+
+
+
+
+
+
+\goodbreak
+\checklist
+\end{document}
