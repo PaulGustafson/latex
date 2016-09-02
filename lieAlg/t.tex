@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Representations of Lie Algebras
+
+\subsection*{HW 1}
+\p 1 Prove that over an algebraically closed field of characteristic not equal 2, if $B$ is a nondegenerate symmetric bilinear form over an f.d. vector space $V$, then $\mathfrak{so}(V,B) \simeq \mathfrak{so}(V)$.
+\begin{proof}
+I claim that there exists a vector $v \in V$ such that $B(v,v) \neq 0$.  Suppose not.  By nondegeneracy, there exist vectors $x,y$ with $B(x,y) \neq 0$.  By assumption, $0 = B(x+y, x+y) = B(x,x) + 2B(x,y) + B(y,y) = 2B(x,y)$, a contradiction.
+
+Thus, we may choose a vector $v$ such that $B(v,v) \neq 0$. By dividing if necessary, WLOG $B(v,v) = 1$.  Let $W = \{w \in V : B(v,w) = 0\}$.  
+
+I claim that $W$ has codimension $1$.  Suppose $x \in V$.  Let $p = B(x,v) v$.   It suffices to show that $x - p \in W$.  We have $B(x-p, v) = B(x,v) - B(p,v) = B(x,v) - B(x,v) B(v,v) = 0$.  Thus $V = W + \lambda v$.  Since $B(v,v) \neq 0$, this is a direct sum.
+
+By induction, we get an orthonormal basis $v_1, \ldots, v_n$ for $V$ with respect to $B$.
+\end{proof}
+
+\p 2  Show that $(\RR^3, \times)$ is a real Lie algebra.  Is this related to $\mathfrak{su}(2)$?
+\begin{proof}
+The cross-product is antisymmetric.  For the Jacobi identity, we only need to check each cyclic ordering of basis vectors $i, j, k$.  For the cyclic ordering $(ijk)$, we have
+$i \times (j \times k) + k \times (i \times j) + j \times (k \times i) = i \times i + k \times k + j \times j = 0$.  The other cyclic ordering is similar.
+
+
+\end{proof}
+
+\p 3 Consider $\HH$.
+\end{document}
