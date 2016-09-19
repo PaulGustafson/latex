@@ -77,11 +77,11 @@ $$v_1 = \left| 01 \right\rangle.$$
 Exercise 2.26 in the lecture notes. 
 \end{problem}
 \begin{solution}
+The quantum circuit begins by inserting a $\ket{0}$-valued qubit at the least significant position.
+The resulting state is $\ket{0000}$.
 
-%Can we use additional single qubits a la pg 77 of textbook?
+Now apply (c) of problem 2.27.  At the end of this circuit, first three qubits are in the desired state.
 
-%(H \otimes 1 \otimes 1)(\left| 000 \right\rangle) & = \frac{1}{\sqrt 2}(\left| 000 \right\rangle + \left| 100 \right\rangle) \\
-%& = \\
 \end{solution}
 
 \begin{problem}(20 points)
@@ -89,9 +89,27 @@ Exercise 2.27 in the lecture notes. (a) Design the circuit,
 (b) prove the correctness of the
 circuit and (c) show how to create the state. 
 \end{problem}
-%Same as 26
 \begin{solution}
+(a) Insert a qubit in the $\ket{0}$ state in the least significant position. Let's denote the position as
+$-1$.  Then execute $\Lambda_{0,-1} \circ \Lambda_{1,-1} \circ \Lambda_{2,-1}$.
 
+(b) Each controlled-not $\Lambda_{x,-1}$ flips the $-1$-bit iff the $x$-qubit has value $\ket{1}$.
+In other words, if $v_i$ denotes the value of the $i$-th bit, then $\Lambda_{x,-1}$'s only effect
+is to replaces $v_{-1}$ with $v_{-1} \oplus v_x$.
+Hence, the final value of the $-1$-bit is
+$0 \oplus x_2 \oplus x_1 \oplus x_0 = x_2 \oplus x_1 \oplus x_0$.
+
+(c) Starting with $\ket{0000}$,  apply the map $H \otimes H \otimes H \otimes 1$.  
+After this application, the state is a uniformly distributed superposition between $\ket{0}$ and
+ $\ket{1}$ in the three most significant bits, and the state of the least
+significant bit is $\ket{0}$.  
+
+Apply the circuit in (a) to the three most significant bits, inserting the
+new bit at position $-1$.  The state of the other four qubits remains unchanged, but the new
+qubit is in state $\ket{0}$ if the first three qubits have even parity, and $\ket{1}$ otherwise.
+
+Finally apply a $\Lambda_{-1, 1}$.  This turns the odd parity states into even parity states.  
+By inspection, this gives the desired state in the most significant four qubits.
 \end{solution}
 
 \begin{problem}(20 points)
