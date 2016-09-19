@@ -1,13 +1,9 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  15 SEP 2016 09:16
-=======
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.2)  17 SEP 2016 20:34
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.2)  17 SEP 2016 19:19
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**nbd3.tex
-(./nbd3.tex
+**figures.tex
+(./figures.tex
 LaTeX2e <2011/06/27>
 Babel <3.9h> and hyphenation patterns for 2 languages loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/amscls/amsart.cls
@@ -283,15 +279,6 @@ Package: framed 2011/10/22 v 0.96: framed or shaded text with page breaks
 \FrameSep=\dimen121
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
-<<<<<<< HEAD
-Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2016/01/03 v1.0q Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-=======
 Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphics.sty
@@ -299,16 +286,11 @@ Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/trig.sty
 Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
 )
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/graphics.cfg
 File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
 )
-<<<<<<< HEAD
-Package graphics Info: Driver file: pdftex.def on input line 95.
-=======
 Package graphics Info: Driver file: pdftex.def on input line 91.
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
@@ -318,16 +300,6 @@ File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 \Gin@req@width=\dimen123
 )
 (/usr/share/texlive/texmf-dist/tex/latex/caption/subcaption.sty
-<<<<<<< HEAD
-Package: subcaption 2016/02/20 v1.1-142 Sub-captions (AR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2016/02/21 v3.3-144 Customizing captions (AR)
-
-(/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2016/02/04 v1.7-139 caption3 kernel (AR)
-Package caption3 Info: TeX engine: e-TeX on input line 67.
-=======
 Package: subcaption 2013/02/03 v1.1-62 Sub-captions (AR)
 
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption.sty
@@ -336,7 +308,6 @@ Package: caption 2013/05/02 v3.3-89 Customizing captions (AR)
 (/usr/share/texlive/texmf-dist/tex/latex/caption/caption3.sty
 Package: caption3 2013/05/02 v1.6-88 caption3 kernel (AR)
 Package caption3 Info: TeX engine: e-TeX on input line 57.
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
 \captionmargin=\dimen124
 \captionmargin@=\dimen125
 \captionwidth=\dimen126
@@ -365,121 +336,11 @@ Package textcomp Info: Sub-encoding information:
 (textcomp)             only a restricted character set as indicated.
 (textcomp)             Family '?' is the default used for unknown fonts.
 (textcomp)             See the documentation for details.
-<<<<<<< HEAD
-Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 79.
-=======
 Package textcomp Info: Setting ? sub-encoding to TS1/1 on input line 71.
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1enc.def
 File: ts1enc.def 2001/06/05 v3.0e (jk/car/fm) Standard LaTeX file
 )
-<<<<<<< HEAD
-LaTeX Info: Redefining \oldstylenums on input line 334.
-Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 349.
-Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 350.
-Package textcomp Info: Setting cmtt sub-encoding to TS1/0 on input line 351.
-Package textcomp Info: Setting cmvtt sub-encoding to TS1/0 on input line 352.
-Package textcomp Info: Setting cmbr sub-encoding to TS1/0 on input line 353.
-Package textcomp Info: Setting cmtl sub-encoding to TS1/0 on input line 354.
-Package textcomp Info: Setting ccr sub-encoding to TS1/0 on input line 355.
-Package textcomp Info: Setting ptm sub-encoding to TS1/4 on input line 356.
-Package textcomp Info: Setting pcr sub-encoding to TS1/4 on input line 357.
-Package textcomp Info: Setting phv sub-encoding to TS1/4 on input line 358.
-Package textcomp Info: Setting ppl sub-encoding to TS1/3 on input line 359.
-Package textcomp Info: Setting pag sub-encoding to TS1/4 on input line 360.
-Package textcomp Info: Setting pbk sub-encoding to TS1/4 on input line 361.
-Package textcomp Info: Setting pnc sub-encoding to TS1/4 on input line 362.
-Package textcomp Info: Setting pzc sub-encoding to TS1/4 on input line 363.
-Package textcomp Info: Setting bch sub-encoding to TS1/4 on input line 364.
-Package textcomp Info: Setting put sub-encoding to TS1/5 on input line 365.
-Package textcomp Info: Setting uag sub-encoding to TS1/5 on input line 366.
-Package textcomp Info: Setting ugq sub-encoding to TS1/5 on input line 367.
-Package textcomp Info: Setting ul8 sub-encoding to TS1/4 on input line 368.
-Package textcomp Info: Setting ul9 sub-encoding to TS1/4 on input line 369.
-Package textcomp Info: Setting augie sub-encoding to TS1/5 on input line 370.
-Package textcomp Info: Setting dayrom sub-encoding to TS1/3 on input line 371.
-Package textcomp Info: Setting dayroms sub-encoding to TS1/3 on input line 372.
-
-Package textcomp Info: Setting pxr sub-encoding to TS1/0 on input line 373.
-Package textcomp Info: Setting pxss sub-encoding to TS1/0 on input line 374.
-Package textcomp Info: Setting pxtt sub-encoding to TS1/0 on input line 375.
-Package textcomp Info: Setting txr sub-encoding to TS1/0 on input line 376.
-Package textcomp Info: Setting txss sub-encoding to TS1/0 on input line 377.
-Package textcomp Info: Setting txtt sub-encoding to TS1/0 on input line 378.
-Package textcomp Info: Setting lmr sub-encoding to TS1/0 on input line 379.
-Package textcomp Info: Setting lmdh sub-encoding to TS1/0 on input line 380.
-Package textcomp Info: Setting lmss sub-encoding to TS1/0 on input line 381.
-Package textcomp Info: Setting lmssq sub-encoding to TS1/0 on input line 382.
-Package textcomp Info: Setting lmvtt sub-encoding to TS1/0 on input line 383.
-Package textcomp Info: Setting lmtt sub-encoding to TS1/0 on input line 384.
-Package textcomp Info: Setting qhv sub-encoding to TS1/0 on input line 385.
-Package textcomp Info: Setting qag sub-encoding to TS1/0 on input line 386.
-Package textcomp Info: Setting qbk sub-encoding to TS1/0 on input line 387.
-Package textcomp Info: Setting qcr sub-encoding to TS1/0 on input line 388.
-Package textcomp Info: Setting qcs sub-encoding to TS1/0 on input line 389.
-Package textcomp Info: Setting qpl sub-encoding to TS1/0 on input line 390.
-Package textcomp Info: Setting qtm sub-encoding to TS1/0 on input line 391.
-Package textcomp Info: Setting qzc sub-encoding to TS1/0 on input line 392.
-Package textcomp Info: Setting qhvc sub-encoding to TS1/0 on input line 393.
-Package textcomp Info: Setting futs sub-encoding to TS1/4 on input line 394.
-Package textcomp Info: Setting futx sub-encoding to TS1/4 on input line 395.
-Package textcomp Info: Setting futj sub-encoding to TS1/4 on input line 396.
-Package textcomp Info: Setting hlh sub-encoding to TS1/3 on input line 397.
-Package textcomp Info: Setting hls sub-encoding to TS1/3 on input line 398.
-Package textcomp Info: Setting hlst sub-encoding to TS1/3 on input line 399.
-Package textcomp Info: Setting hlct sub-encoding to TS1/5 on input line 400.
-Package textcomp Info: Setting hlx sub-encoding to TS1/5 on input line 401.
-Package textcomp Info: Setting hlce sub-encoding to TS1/5 on input line 402.
-Package textcomp Info: Setting hlcn sub-encoding to TS1/5 on input line 403.
-Package textcomp Info: Setting hlcw sub-encoding to TS1/5 on input line 404.
-Package textcomp Info: Setting hlcf sub-encoding to TS1/5 on input line 405.
-Package textcomp Info: Setting pplx sub-encoding to TS1/3 on input line 406.
-Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 407.
-Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 408.
-Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 409.
-)
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks26
-\pgfutil@tempdima=\dimen131
-\pgfutil@tempdimb=\dimen132
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
-ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
-\pgfutil@abb=\box29
-(/usr/share/texlive/texmf-dist/tex/latex/ms/everyshi.sty
-Package: everyshi 2001/05/15 v3.00 EveryShipout Package (MS)
-))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex
-Package: pgfrcs 2015/08/07 v3.0.1a (rcs-revision 1.31)
-))
-Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
-
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
-Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks27
-\pgfkeys@temptoks=\toks28
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
-ex
-\pgfkeys@tmptoks=\toks29
-))
-\pgf@x=\dimen133
-\pgf@y=\dimen134
-\pgf@xa=\dimen135
-\pgf@ya=\dimen136
-\pgf@xb=\dimen137
-\pgf@yb=\dimen138
-\pgf@xc=\dimen139
-\pgf@yc=\dimen140
-=======
 LaTeX Info: Redefining \oldstylenums on input line 266.
 Package textcomp Info: Setting cmr sub-encoding to TS1/0 on input line 281.
 Package textcomp Info: Setting cmss sub-encoding to TS1/0 on input line 282.
@@ -580,40 +441,12 @@ Package: pgfsys 2010/06/30 v2.10 (rcs-revision 1.37)
 \pgf@yb=\dimen136
 \pgf@xc=\dimen137
 \pgf@yc=\dimen138
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
 \c@pgf@counta=\count113
 \c@pgf@countb=\count114
 \c@pgf@countc=\count115
 \c@pgf@countd=\count116
-<<<<<<< HEAD
-\t@pgf@toka=\toks30
-\t@pgf@tokb=\toks31
-\t@pgf@tokc=\toks32
- (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
-File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
-)
-Driver file for pgf: pgfsys-pdftex.def
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
-File: pgfsys-pdftex.def 2014/10/11  (rcs-revision 1.35)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.de
-f
-File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
-)))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
-tex
-File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count117
-\pgfsyssoftpath@bigbuffer@items=\count118
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
-tex
-File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
-)) (/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty
-=======
 
 (/usr/share/texmf/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
@@ -635,7 +468,6 @@ File: pgfsyssoftpath.code.tex 2008/07/18  (rcs-revision 1.7)
 File: pgfsysprotocol.code.tex 2006/10/16  (rcs-revision 1.4)
 ))
 (/usr/share/texmf/tex/latex/xcolor/xcolor.sty
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
 Package: xcolor 2007/01/21 v2.11 LaTeX color extensions (UK)
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/color.cfg
@@ -652,75 +484,6 @@ Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1358.
 Package xcolor Info: Model `Gray' substituted by `gray' on input line 1359.
 Package xcolor Info: Model `wave' substituted by `hsb' on input line 1360.
 )
-<<<<<<< HEAD
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
-Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen141
-\pgfmath@count=\count119
-\pgfmath@box=\box30
-\pgfmath@toks=\toks33
-\pgfmath@stack@operand=\toks34
-\pgfmath@stack@operation=\toks35
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
-.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonomet
-ric.code.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.cod
-e.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison
-.code.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.
-tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code
-.tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.
-tex)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
-thmetics.code.tex)))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count120
-))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
-x
-File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
-\pgf@picminx=\dimen142
-\pgf@picmaxx=\dimen143
-\pgf@picminy=\dimen144
-\pgf@picmaxy=\dimen145
-\pgf@pathminx=\dimen146
-\pgf@pathmaxx=\dimen147
-\pgf@pathminy=\dimen148
-\pgf@pathmaxy=\dimen149
-\pgf@xx=\dimen150
-\pgf@xy=\dimen151
-\pgf@yx=\dimen152
-\pgf@yy=\dimen153
-\pgf@zx=\dimen154
-\pgf@zy=\dimen155
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
-code.tex
-File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
-\pgf@path@lastx=\dimen156
-\pgf@path@lasty=\dimen157
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
-.tex
-File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
-\pgf@shorten@end@additional=\dimen158
-\pgf@shorten@start@additional=\dimen159
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
-x
-File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
-=======
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcore.code.tex
 Package: pgfcore 2010/04/11 v2.10 (rcs-revision 1.7)
 
@@ -775,115 +538,11 @@ File: pgfcorepathusage.code.tex 2008/04/22  (rcs-revision 1.12)
 )
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
 File: pgfcorescopes.code.tex 2010/09/08  (rcs-revision 1.34)
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
 \pgfpic=\box31
 \pgf@hbox=\box32
 \pgf@layerbox@main=\box33
 \pgf@picture@serial@count=\count121
 )
-<<<<<<< HEAD
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
-ode.tex
-File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
-\pgflinewidth=\dimen160
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
-s.code.tex
-File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
-\pgf@pt@x=\dimen161
-\pgf@pt@y=\dimen162
-\pgf@pt@temp=\dimen163
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
-File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.t
-ex
-File: pgfcoreobjects.code.tex 2006/10/11  (rcs-revision 1.2)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing
-.code.tex
-File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
-x
-File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
-\pgfarrowsep=\dimen164
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
-File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
-\pgf@max=\dimen165
-\pgf@sys@shading@range@num=\count122
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
-File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.
-tex
-File: pgfcoreexternal.code.tex 2014/07/09  (rcs-revision 1.21)
-\pgfexternal@startupbox=\box34
-))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.te
-x
-File: pgfcorelayers.code.tex 2013/07/18  (rcs-revision 1.7)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.c
-ode.tex
-File: pgfcoretransparency.code.tex 2013/09/30  (rcs-revision 1.5)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.
-tex
-File: pgfcorepatterns.code.tex 2013/11/07  (rcs-revision 1.5)
-)))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
-File: pgfmoduleshapes.code.tex 2014/03/21  (rcs-revision 1.35)
-\pgfnodeparttextbox=\box35
-) (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
-File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
-)
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
-.sty
-Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen166
-\pgf@nodesepend=\dimen167
-)
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
-.sty
-Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
-)) (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgffor.sty
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex))
-(/usr/share/texlive/texmf-dist/tex/latex/pgf/math/pgfmath.sty
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
-Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen168
-\pgffor@skip=\dimen169
-\pgffor@stack=\toks36
-\pgffor@toks=\toks37
-))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
-Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
-.code.tex
-File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count123
-\pgfplotmarksize=\dimen170
-)
-\tikz@lastx=\dimen171
-\tikz@lasty=\dimen172
-\tikz@lastxsaved=\dimen173
-\tikz@lastysaved=\dimen174
-\tikzleveldistance=\dimen175
-\tikzsiblingdistance=\dimen176
-\tikz@figbox=\box36
-\tikz@figbox@bg=\box37
-\tikz@tempbox=\box38
-\tikz@tempbox@bg=\box39
-=======
 (/usr/share/texmf/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
 File: pgfcoregraphicstate.code.tex 2008/04/22  (rcs-revision 1.9)
 \pgflinewidth=\dimen158
@@ -968,74 +627,19 @@ File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
 \tikzsiblingdistance=\dimen173
 \tikz@figbox=\box36
 \tikz@tempbox=\box37
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
 \tikztreelevel=\count124
 \tikznumberofchildren=\count125
 \tikznumberofcurrentchild=\count126
 \tikz@fig@count=\count127
 
-<<<<<<< HEAD
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
-File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-=======
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
 \pgfmatrixcurrentrow=\count128
 \pgfmatrixcurrentcolumn=\count129
 \pgf@matrix@numberofcolumns=\count130
 )
 \tikz@expandcount=\count131
 
-<<<<<<< HEAD
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibrarytopaths.code.tex
-File: tikzlibrarytopaths.code.tex 2008/06/17 v3.0.1a (rcs-revision 1.2)
-)))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibraryshapes.geometric.code.tex
-File: tikzlibraryshapes.geometric.code.tex 2008/01/09 v3.0.1a (rcs-revision 1.1
-)
-
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/shapes/pgflibraryshape
-s.geometric.code.tex
-File: pgflibraryshapes.geometric.code.tex 2008/06/26 v3.0.1a (rcs-revision 1.1)
-
-))
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibrarycalc.code.tex
-File: tikzlibrarycalc.code.tex 2013/07/15 v3.0.1a (rcs-revision 1.9)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibraryscopes.code.tex
-File: tikzlibraryscopes.code.tex 2008/06/27 v3.0.1a (rcs-revision 1.2)
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibrarydecorations.markings.code.tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
-zlibrarydecorations.code.tex
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
-e.tex
-\pgfdecoratedcompleteddistance=\dimen177
-\pgfdecoratedremainingdistance=\dimen178
-\pgfdecoratedinputsegmentcompleteddistance=\dimen179
-\pgfdecoratedinputsegmentremainingdistance=\dimen180
-\pgf@decorate@distancetomove=\dimen181
-\pgf@decorate@repeatstate=\count132
-\pgfdecorationsegmentamplitude=\dimen182
-\pgfdecorationsegmentlength=\dimen183
-)
-\tikz@lib@dec@box=\box40
-)
-(/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
-decorations.markings.code.tex))
-\c@thm=\count133
- (./nbd3.aux
-
-LaTeX Warning: Label `fig:tikzTwist1' multiply defined.
-
-)
-=======
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
 hs.code.tex
 File: tikzlibrarytopaths.code.tex 2008/06/17 v2.10 (rcs-revision 1.2)
@@ -1075,9 +679,8 @@ ations.code.tex
 (/usr/share/texmf/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.m
 arkings.code.tex))
 \c@thm=\count133
- (./nbd3.aux)
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
-\openout1 = `nbd3.aux'.
+ (./figures.aux)
+\openout1 = `figures.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 67.
 LaTeX Font Info:    ... okay on input line 67.
@@ -1095,14 +698,9 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 67.
 LaTeX Font Info:    ... okay on input line 67.
 LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 67.
 LaTeX Font Info:    Try loading font information for TS1+cmr on input line 67.
-<<<<<<< HEAD
- (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
-File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-=======
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
 )
 LaTeX Font Info:    ... okay on input line 67.
 LaTeX Font Info:    Try loading font information for OT1+ptm on input line 67.
@@ -1150,11 +748,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 67.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <5> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 67.
-<<<<<<< HEAD
-\AtBeginShipoutBox=\box41
-=======
 \AtBeginShipoutBox=\box39
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
 Package hyperref Info: Link coloring OFF on input line 67.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
@@ -1169,26 +763,14 @@ LaTeX Info: Redefining \ref on input line 67.
 LaTeX Info: Redefining \pageref on input line 67.
 LaTeX Info: Redefining \nameref on input line 67.
 
-(./nbd3.out) (./nbd3.out)
+(./figures.out) (./figures.out)
 \@outlinefile=\write4
-\openout4 = `nbd3.out'.
+\openout4 = `figures.out'.
 
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count135
-<<<<<<< HEAD
-\scratchdimen=\dimen184
-\scratchbox=\box42
-\nofMPsegments=\count136
-\nofMParguments=\count137
-\everyMPshowfont=\toks38
-\MPscratchCnt=\count138
-\MPscratchDim=\dimen185
-\MPnumerator=\count139
-\makeMPintoPDFobject=\count140
-\everyMPtoPDFconversion=\toks39
-=======
 \scratchdimen=\dimen181
 \scratchbox=\box40
 \nofMPsegments=\count136
@@ -1199,7 +781,6 @@ LaTeX Info: Redefining \nameref on input line 67.
 \MPnumerator=\count139
 \makeMPintoPDFobject=\count140
 \everyMPtoPDFconversion=\toks36
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -1221,188 +802,36 @@ Package caption Info: End \AtBeginDocument code.
 ABD: EveryShipout initializing macros
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 80.
-
-
-Class amsart Warning: Abstract should precede \maketitle in AMS document classe
-s; reported on input line 80.
-
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 85.
-
-LaTeX Warning: Citation `nr' on page 1 undefined on input line 87.
-
-
-LaTeX Warning: Citation `fjfu' on page 1 undefined on input line 97.
-
-
-LaTeX Warning: Citation `Lyubashenko1996' on page 1 undefined on input line 97.
-
-
-
-LaTeX Warning: Citation `kirillovStringNets' on page 1 undefined on input line 
-97.
-
-
-LaTeX Warning: Citation `bantay' on page 1 undefined on input line 99.
-
-
-LaTeX Warning: Citation `0806.2493' on page 1 undefined on input line 101.
-
-
-LaTeX Warning: Citation `erw' on page 1 undefined on input line 101.
-
-
-LaTeX Warning: Citation `kirillovStringNets' on page 1 undefined on input line 
-107.
-
-[1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-<basis.jpg, id=34, 496.85625pt x 512.91624pt>
-File: basis.jpg Graphic file (type jpg)
- <use basis.jpg>
-Package pdftex.def Info: basis.jpg used on input line 131.
-(pdftex.def)             Requested size: 234.8775pt x 242.4716pt.
-<<<<<<< HEAD
- [2 <./basis.jpg>] <lickorish.png, id=44, 351.3125pt x 107.40125pt>
-=======
- [2 <./basis.jpg>]
-
-LaTeX Warning: Reference `fig:lickorish' on page 3 undefined on input line 161.
-
-
-<lickorish.png, id=43, 351.3125pt x 107.40125pt>
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
-File: lickorish.png Graphic file (type png)
- <use lickorish.png>
-Package pdftex.def Info: lickorish.png used on input line 164.
-(pdftex.def)             Requested size: 375.80544pt x 114.89851pt.
-
-<<<<<<< HEAD
-<1.jpeg, id=46, 502.87875pt x 468.75125pt>
-File: 1.jpeg Graphic file (type jpg)
- <use 1.jpeg>
-Package pdftex.def Info: 1.jpeg used on input line 228.
-(pdftex.def)             Requested size: 225.4804pt x 210.17793pt.
-
-<2.jpeg, id=47, 503.8825pt x 469.755pt>
-File: 2.jpeg Graphic file (type jpg)
- <use 2.jpeg>
-Package pdftex.def Info: 2.jpeg used on input line 229.
-(pdftex.def)             Requested size: 225.4804pt x 210.2051pt.
-
-<3.jpeg, id=48, 515.9275pt x 470.75874pt>
-File: 3.jpeg Graphic file (type jpg)
- <use 3.jpeg>
-Package pdftex.def Info: 3.jpeg used on input line 230.
-(pdftex.def)             Requested size: 225.4804pt x 205.74095pt.
-
-<4.jpeg, id=49, 512.91624pt x 486.81876pt>
-File: 4.jpeg Graphic file (type jpg)
- <use 4.jpeg>
-Package pdftex.def Info: 4.jpeg used on input line 231.
-(pdftex.def)             Requested size: 225.4804pt x 214.00778pt.
-
-<5.jpeg, id=50, 511.9125pt x 483.8075pt>
-File: 5.jpeg Graphic file (type jpg)
- <use 5.jpeg>
-Package pdftex.def Info: 5.jpeg used on input line 242.
-(pdftex.def)             Requested size: 225.4804pt x 213.09743pt.
-
-<7.jpeg, id=51, 511.9125pt x 500.87125pt>
-File: 7.jpeg Graphic file (type jpg)
- <use 7.jpeg>
-Package pdftex.def Info: 7.jpeg used on input line 243.
-(pdftex.def)             Requested size: 225.4804pt x 220.6133pt.
-
-<8.jpeg, id=52, 515.9275pt x 476.78125pt>
-File: 8.jpeg Graphic file (type jpg)
- <use 8.jpeg>
-Package pdftex.def Info: 8.jpeg used on input line 244.
-(pdftex.def)             Requested size: 225.4804pt x 208.37302pt.
-
-<9.jpeg, id=53, 510.90875pt x 447.6725pt>
-File: 9.jpeg Graphic file (type jpg)
- <use 9.jpeg>
-Package pdftex.def Info: 9.jpeg used on input line 245.
-(pdftex.def)             Requested size: 225.4804pt x 197.57079pt.
-
-No file nbd3.bbl.
-[3 <./lickorish.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 267.
- [4 <./1.jpeg> <./2.jpeg> <./3.jpeg> <./4.jpeg>] [5 <./5.jpeg> <./7.jpeg> <./8.
-jpeg> <./9.jpeg>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 267.
- (./nbd3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 267.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 267.
-=======
-
-LaTeX Warning: Reference `fig:dehn1' on page 3 undefined on input line 299.
-
-
-LaTeX Warning: Reference `fig:dehn2' on page 3 undefined on input line 299.
-
-No file nbd3.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 315.
-[3 <./lickorish.png>] [4]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 315.
- (./nbd3.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 315.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 315.
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
-Package rerunfilecheck Info: File `nbd3.out' has not changed.
-(rerunfilecheck)             Checksum: B299EE32AA9B8AE9355A2B0DA4A8CF27;149.
-
-
-LaTeX Warning: There were undefined references.
-
-
-<<<<<<< HEAD
-LaTeX Warning: There were multiply-defined labels.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 267.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 96.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 110.
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 110.
+ (./figures.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 110.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 110.
+Package rerunfilecheck Info: File `figures.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 110.
  ) 
 Here is how much of TeX's memory you used:
- 19219 strings out of 494440
- 363079 string characters out of 6173199
- 418335 words of memory out of 5000000
- 21978 multiletter control sequences out of 15000+600000
- 37199 words of font info for 83 fonts, out of 8000000 for 9000
- 591 hyphenation exceptions out of 8191
- 55i,12n,65p,959b,1128s stack positions out of 5000i,500n,10000p,200000b,80000s
-=======
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 315.
- ) 
-Here is how much of TeX's memory you used:
- 17499 strings out of 495028
- 313324 string characters out of 6181498
- 377533 words of memory out of 5000000
- 20197 multiletter control sequences out of 15000+600000
- 37199 words of font info for 83 fonts, out of 8000000 for 9000
+ 17433 strings out of 495028
+ 312563 string characters out of 6181498
+ 372511 words of memory out of 5000000
+ 20158 multiletter control sequences out of 15000+600000
+ 32422 words of font info for 73 fonts, out of 8000000 for 9000
  175 hyphenation exceptions out of 8191
- 56i,8n,61p,959b,1032s stack positions out of 5000i,500n,10000p,200000b,80000s
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
+ 56i,8n,61p,397b,975s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/
-public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
-amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/r
-sfs/rsfs10.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb><
-/usr/share/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
-times/utmri8a.pfb>
-<<<<<<< HEAD
-Output written on nbd3.pdf (5 pages, 444459 bytes).
-=======
-Output written on nbd3.pdf (4 pages, 149053 bytes).
->>>>>>> e4c332b5821e8b57c3e9044ba44aaea70dddda44
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
+/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.
+pfb>
+Output written on figures.pdf (1 page, 43364 bytes).
 PDF statistics:
- 105 PDF objects out of 1000 (max. 8388607)
- 83 compressed objects within 1 object stream
- 15 named destinations out of 1000 (max. 500000)
- 47 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 38 PDF objects out of 1000 (max. 8388607)
+ 29 compressed objects within 1 object stream
+ 3 named destinations out of 1000 (max. 500000)
+ 13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

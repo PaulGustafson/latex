@@ -1,0 +1,215 @@
+\documentclass{article}
+
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist}
+%\DeclareGraphicsRule{.1}{mps}{*}{}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+\newcommand{\ket}[1]{|#1\rangle} 
+
+\newcommand{\name}[1]{\noindent\textbf{Name: #1}}
+\newcommand{\honor}{\noindent On my honor, as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the
+  academic work included in this assignment. Furthermore, I have
+  disclosed all resources (people, books, web sites, etc.) that have
+  been used to prepare this homework. \\[1ex]
+ \textbf{Signature:} \underline{\hspace*{5cm}} }
+
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+\begin{compactitem}[$\Box$] 
+\item Did you add your name? 
+\item Did you disclose all resources that you have used? \\
+(This includes all people, books, websites, etc. that you have consulted)
+\item Did you sign that you followed the Aggie honor code? 
+\item Did you solve all problems? 
+\item Did you submit the pdf file resulting from your latex source
+  file on ecampus? 
+\item Did you submit a hardcopy of the pdf file in class? 
+\end{compactitem}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Problem Set #1}\\ 
+CSCE 440/640\end{center}}
+\newcommand{\duedate}[2]{\begin{quote}\textbf{Due dates:} Electronic
+    submission of the pdf file of this homework is due on \textbf{#1} on ecampus.tamu.edu, a signed paper copy
+    of the pdf file is due on \textbf{#2} at the beginning of
+    class. \end{quote} }
+
+\newcommand{\N}{\mathbf{N}}
+\newcommand{\R}{\mathbf{R}}
+\newcommand{\Z}{\mathbf{Z}}
+
+
+\begin{document}
+
+
+\problemset{3}
+\duedate{9/21/2016 before 2:50pm}{9/21/2014}
+\name{ (put your name here)}
+\begin{resources} I used the program ``julia'' to do some matrix multiplication.
+\end{resources}
+\honor
+
+\newpage
+
+\noindent Read chapter 4 in the lecture notes and make five insightful
+comments on perusall. Read chapter 6 in the textbook. \medskip
+
+
+\begin{problem}(10 points) 
+Exercise 2.24 in the lecture notes. 
+\end{problem}
+\begin{solution}
+$$P(0) = \left(\frac{1}{3}\right)^2 + \left(\frac{\sqrt 5}{3}\right)^2 =  \frac{1}{9} + \frac{5}{9} = \frac{2}{3},$$
+and
+$$P(1) = \left(\frac{\sqrt 3}{3}\right)^2 = \frac{1}{3}.$$
+The resulting states are
+$$v_0 = \frac{\sqrt 6}{6} \left| 00 \right\rangle + \frac{\sqrt{30}}{6} \left| 10 \right\rangle,$$
+and
+$$v_1 = \left| 01 \right\rangle.$$
+\end{solution}
+
+\begin{problem}(20 points) 
+Exercise 2.26 in the lecture notes. 
+\end{problem}
+\begin{solution}
+
+%Can we use additional single qubits a la pg 77 of textbook?
+
+%(H \otimes 1 \otimes 1)(\left| 000 \right\rangle) & = \frac{1}{\sqrt 2}(\left| 000 \right\rangle + \left| 100 \right\rangle) \\
+%& = \\
+\end{solution}
+
+\begin{problem}(20 points)
+Exercise 2.27 in the lecture notes. (a) Design the circuit, 
+(b) prove the correctness of the
+circuit and (c) show how to create the state. 
+\end{problem}
+%Same as 26
+\begin{solution}
+
+\end{solution}
+
+\begin{problem}(20 points)
+\begin{compactenum}[(a)]
+\item Exercise 6.1.1 (a) in the textbook KLM (should read Figure 6.1)
+\item Exercise 6.1.1 (b) in the textbook KLM
+\end{compactenum}
+\end{problem}
+\begin{solution}
+\begin{compactenum}[(a)]
+\item Since $U$ is unitary, $\overline U^T U = I$.  This means $\delta_{jk} = \sum_i \overline u_{ij}  u_{ik}$, i.e. that the
+columns of $U$ are orthormal.  Setting $k = j$, we get $1 = \sum_i |u_{ij}|^2$.
+\item Any example given from (a) will have the rows summing to zero as well because the rows of a unitary matrix are orthonormal, too.  But this
+doesn't have to be the case for a stochastic matrix of this type.  A counterexample is
+$$
+\begin{pmatrix}
+1 & 1 \\
+0 & 0
+\end{pmatrix}
+$$
+\end{compactenum}
+
+\end{solution}
+
+
+\begin{problem} (10 points)
+Exercise 3.4 in the lecture notes. 
+\end{problem}
+\begin{solution}
+Just write out where each basis vector goes and eyeball it.
+\begin{compactenum}[(a)]
+\item If $f(x) = 0$, then the corresponding circuit is just the identity.
+\item If $f(x) = 1$, then the corresponding circuit is $1 \otimes X$.
+\item If $f(x) = x$, then the corresponding circuit is $\Lambda_{1,0}$.
+\item If $f(x) = 1+x$, then the corresponding circuit is $(X \otimes 1) \Lambda_{1,0} (X \otimes 1)$.
+\end{compactenum}
+\end{solution}
+
+
+\begin{problem}(20 points) 
+  Consider a system of two quantum bits and a controlled-not gate
+  $\lambda_{0,1}(X)$ that has the least significant bit as a control
+  bit and acts on the most significant quantum bit. Dispel the myth
+  that the control bit of the controlled-not gate remains
+  unaffected. Specifically, describe the action of the controlled-not gate on the
+  following four states:
+$$ 
+\ket{0_H} \otimes \ket{0_H}, \quad 
+\ket{0_H} \otimes \ket{1_H}, \quad 
+\ket{1_H} \otimes \ket{0_H}, \quad 
+\ket{1_H} \otimes \ket{1_H},
+$$
+where 
+$$ \ket{0_H} = \frac{1}{\sqrt{2}}\ket{0} +
+\frac{1}{\sqrt{2}}\ket{1}\quad\text{and}\quad
+\ket{1_H} = \frac{1}{\sqrt{2}}\ket{0} -
+\frac{1}{\sqrt{2}}\ket{1}.$$
+Express the result in terms of the $\ket{0_H}$ and $\ket{1_H}$ basis. 
+\end{problem}
+\begin{solution}
+The transition matrices from the $H$-basis to the standard basis and vice versa are both
+$$S := \frac{1}{2}
+\begin{pmatrix}
+1 & 1 & 1 & 1 \\
+1 & -1 & 1 & -1 \\
+1 & 1 & -1 & -1 \\
+1 & -1 & -1 & 1
+\end{pmatrix}.
+$$
+
+In the standard basis,
+$$\Lambda_{0,1} = 
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0 \\
+0 & 1 & 0 & 0
+\end{pmatrix}.
+$$
+
+Conjugating by the transition matrix gives 
+$$
+\begin{pmatrix}
+1 & 0 & 0 & 0 \\
+0 & 1 & 0 & 0 \\
+0 & 0 & 0 & 1 \\
+0 & 0 & 1 & 0
+\end{pmatrix}.
+$$
+
+Thus,
+\begin{align*}
+\Lambda_{0,1} (\ket{0_H} \otimes \ket{0_H}) & = \ket{0_H} \otimes \ket{0_H} \\ 
+\Lambda_{0,1} (\ket{0_H} \otimes \ket{1_H}) & = \ket{0_H} \otimes \ket{1_H} \\
+\Lambda_{0,1} (\ket{1_H} \otimes \ket{0_H}) & = \ket{1_H} \otimes \ket{1_H} \\
+\Lambda_{0,1} (\ket{1_H} \otimes \ket{1_H}) & = \ket{1_H} \otimes \ket{0_H} 
+\end{align*}
+
+\end{solution}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\goodbreak
+\checklist
+
+\end{document}
