@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.2)  16 SEP 2016 23:41
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.2)  19 SEP 2016 17:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -149,21 +149,21 @@ LaTeX Font Info:    Try loading font information for U+lasy on input line 55.
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (1.67384pt too wide) in paragraph at lines 134--141
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+Overfull \hbox (1.67384pt too wide) in paragraph at lines 152--159
 \OT1/cmr/bx/n/10 Problem 6. \OT1/cmr/m/n/10 (20 points) Con-sider a sys-tem of 
 two quan-tum bits and a controlled-
  []
 
-[2] [3] (./hw3.aux) ) 
+[3] [4] (./hw3.aux) ) 
 Here is how much of TeX's memory you used:
  1329 strings out of 495028
  15377 string characters out of 6181498
- 69209 words of memory out of 5000000
+ 70209 words of memory out of 5000000
  4570 multiletter control sequences out of 15000+600000
  5965 words of font info for 26 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 27i,8n,26p,199b,253s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 27i,8n,26p,199b,271s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 ex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.p
@@ -171,11 +171,12 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share
 /texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/latxfont/lasy10.pfb>
-Output written on hw3.pdf (3 pages, 94952 bytes).
+-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf-dist/f
+onts/type1/public/amsfonts/latxfont/lasy10.pfb>
+Output written on hw3.pdf (4 pages, 105621 bytes).
 PDF statistics:
- 46 PDF objects out of 1000 (max. 8388607)
- 32 compressed objects within 1 object stream
+ 53 PDF objects out of 1000 (max. 8388607)
+ 37 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
