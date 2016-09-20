@@ -1,0 +1,8 @@
+\beamer@endinputifotherversion {3.36pt}
+\beamer@sectionintoc {1}{Input data}{12}{0}{1}
+\beamer@sectionintoc {2}{Generators for the mapping class group}{15}{0}{2}
+\beamer@sectionintoc {3}{The representation space}{16}{0}{3}
+\beamer@sectionintoc {4}{A spanning set for the representation space}{30}{0}{4}
+\beamer@sectionintoc {5}{Action of the generators on the spanning set}{31}{0}{5}
+\beamer@sectionintoc {6}{Sketch of a proof of finiteness}{39}{0}{6}
+\beamer@sectionintoc {7}{Future Directions}{43}{0}{7}
