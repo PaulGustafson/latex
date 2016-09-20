@@ -68,7 +68,7 @@ $$P(0) = \left(\frac{1}{3}\right)^2 + \left(\frac{\sqrt 5}{3}\right)^2 =  \frac{
 and
 $$P(1) = \left(\frac{\sqrt 3}{3}\right)^2 = \frac{1}{3}.$$
 The resulting states are
-$$v_0 = \frac{\sqrt 6}{6} \left| 00 \right\rangle + \frac{\sqrt{30}}{6} \left| 10 \right\rangle,$$
+$$v_0 = \frac{1}{\sqrt 6} \left| 00 \right\rangle + \sqrt{\frac{5}{6}} \left| 10 \right\rangle,$$
 and
 $$v_1 = \left| 01 \right\rangle.$$
 \end{solution}
@@ -121,7 +121,7 @@ By inspection, this gives the desired state in the most significant four qubits.
 \begin{solution}
 \begin{compactenum}[(a)]
 \item Since $U$ is unitary, $\overline U^T U = I$.  This means $\delta_{jk} = \sum_i \overline u_{ij}  u_{ik}$, i.e. that the
-columns of $U$ are orthormal.  Setting $k = j$, we get $1 = \sum_i |u_{ij}|^2$.
+columns of $U$ are orthonormal.  Setting $k = j$, we get $1 = \sum_i |u_{ij}|^2$.
 \item Any example given from (a) will have the rows summing to zero as well because the rows of a unitary matrix are orthonormal, too.  But this
 doesn't have to be the case for a stochastic matrix of this type.  A counterexample is
 $$
