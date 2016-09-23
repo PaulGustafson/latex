@@ -37,5 +37,5 @@ lex.yy.c: $(PROG).l
 	$(LEX) $(PROG).l
 
 clean:
-	rm *.o y.tab.c y.tab.h lex.yy.c 
+	rm *.o y.tab.c y.tab.h lex.yy.c $(PROG)
 

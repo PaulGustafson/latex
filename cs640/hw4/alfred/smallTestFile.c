@@ -26,7 +26,7 @@ int main(void) {
   applygate(2, 0, 2, 1, X, state);
   print_state();
 
-  measure_state(1, state);
+  measure_state(2, state);
   print_state();
 
   return 0;

@@ -1,8 +1,8 @@
-/* A Bison parser, made by GNU Bison 3.0.2.  */
+/* A Bison parser, made by GNU Bison 3.0.4.  */
 
 /* Bison implementation for Yacc-like parsers in C
 
-   Copyright (C) 1984, 1989-1990, 2000-2013 Free Software Foundation, Inc.
+   Copyright (C) 1984, 1989-1990, 2000-2015 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -44,7 +44,7 @@
 #define YYBISON 1
 
 /* Bison version.  */
-#define YYBISON_VERSION "3.0.2"
+#define YYBISON_VERSION "3.0.4"
 
 /* Skeleton name.  */
 #define YYSKELETON_NAME "yacc.c"
@@ -140,7 +140,7 @@ extern int yydebug;
 
 /* Value type.  */
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef union YYSTYPE YYSTYPE;
+
 union YYSTYPE
 {
 #line 24 "alfred.y" /* yacc.c:355  */
@@ -156,6 +156,8 @@ union YYSTYPE
 
 #line 158 "y.tab.c" /* yacc.c:355  */
 };
+
+typedef union YYSTYPE YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define YYSTYPE_IS_DECLARED 1
 #endif
@@ -169,7 +171,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 173 "y.tab.c" /* yacc.c:358  */
+#line 175 "y.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -1312,127 +1314,127 @@ yyreduce:
         case 4:
 #line 64 "alfred.y" /* yacc.c:1646  */
     { ; }
-#line 1316 "y.tab.c" /* yacc.c:1646  */
+#line 1318 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
 #line 65 "alfred.y" /* yacc.c:1646  */
     { ; }
-#line 1322 "y.tab.c" /* yacc.c:1646  */
+#line 1324 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
 #line 66 "alfred.y" /* yacc.c:1646  */
     { ; }
-#line 1328 "y.tab.c" /* yacc.c:1646  */
+#line 1330 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
 #line 67 "alfred.y" /* yacc.c:1646  */
     { ; }
-#line 1334 "y.tab.c" /* yacc.c:1646  */
+#line 1336 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
 #line 68 "alfred.y" /* yacc.c:1646  */
     { ; }
-#line 1340 "y.tab.c" /* yacc.c:1646  */
+#line 1342 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
 #line 69 "alfred.y" /* yacc.c:1646  */
     { ; }
-#line 1346 "y.tab.c" /* yacc.c:1646  */
+#line 1348 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
 #line 70 "alfred.y" /* yacc.c:1646  */
     { ; }
-#line 1352 "y.tab.c" /* yacc.c:1646  */
+#line 1354 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
 #line 71 "alfred.y" /* yacc.c:1646  */
     { ; }
-#line 1358 "y.tab.c" /* yacc.c:1646  */
+#line 1360 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
 #line 72 "alfred.y" /* yacc.c:1646  */
     { ; }
-#line 1364 "y.tab.c" /* yacc.c:1646  */
+#line 1366 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
 #line 75 "alfred.y" /* yacc.c:1646  */
     { normalize_state(); }
-#line 1370 "y.tab.c" /* yacc.c:1646  */
+#line 1372 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
 #line 77 "alfred.y" /* yacc.c:1646  */
     { measure_state(1<<(yyvsp[-1].inum), state); }
-#line 1376 "y.tab.c" /* yacc.c:1646  */
+#line 1378 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
 #line 79 "alfred.y" /* yacc.c:1646  */
     { set_bit( 1<<(yyvsp[-1].inum), state ); }
-#line 1382 "y.tab.c" /* yacc.c:1646  */
+#line 1384 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
 #line 81 "alfred.y" /* yacc.c:1646  */
     { erase_bit( 1<<(yyvsp[-1].inum), state); }
-#line 1388 "y.tab.c" /* yacc.c:1646  */
+#line 1390 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
 #line 83 "alfred.y" /* yacc.c:1646  */
     { clear_state(); }
-#line 1394 "y.tab.c" /* yacc.c:1646  */
+#line 1396 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 19:
 #line 85 "alfred.y" /* yacc.c:1646  */
     { state[(yyvsp[0].inum)].re =    1.0; state[(yyvsp[0].inum)].im =  0.0;   }
-#line 1400 "y.tab.c" /* yacc.c:1646  */
+#line 1402 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
 #line 86 "alfred.y" /* yacc.c:1646  */
     { state[(yyvsp[0].inum)].re =    1.0; state[(yyvsp[0].inum)].im =  0.0;   }
-#line 1406 "y.tab.c" /* yacc.c:1646  */
+#line 1408 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 21:
 #line 87 "alfred.y" /* yacc.c:1646  */
     { state[(yyvsp[0].inum)].re =  (yyvsp[-1].cnum).re; state[(yyvsp[0].inum)].im =  (yyvsp[-1].cnum).im; }
-#line 1412 "y.tab.c" /* yacc.c:1646  */
+#line 1414 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 22:
 #line 88 "alfred.y" /* yacc.c:1646  */
     { state[(yyvsp[0].inum)].re = -(yyvsp[-1].cnum).re; state[(yyvsp[0].inum)].im = -(yyvsp[-1].cnum).im; }
-#line 1418 "y.tab.c" /* yacc.c:1646  */
+#line 1420 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 23:
 #line 90 "alfred.y" /* yacc.c:1646  */
     { print_state(); }
-#line 1424 "y.tab.c" /* yacc.c:1646  */
+#line 1426 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 24:
 #line 92 "alfred.y" /* yacc.c:1646  */
     { printf("%s\n",(yyvsp[0].strg)); }
-#line 1430 "y.tab.c" /* yacc.c:1646  */
+#line 1432 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 25:
 #line 95 "alfred.y" /* yacc.c:1646  */
     { state = resize_state((yyvsp[0].inum), state); }
-#line 1436 "y.tab.c" /* yacc.c:1646  */
+#line 1438 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 26:
@@ -1440,7 +1442,7 @@ yyreduce:
     { (yyvsp[-2].symp)->mat[0] = (yyvsp[0].mat)[0]; (yyvsp[-2].symp)->mat[1] = (yyvsp[0].mat)[1];  
 	  (yyvsp[-2].symp)->mat[2] = (yyvsp[0].mat)[2]; (yyvsp[-2].symp)->mat[3] = (yyvsp[0].mat)[3]; 
         }
-#line 1444 "y.tab.c" /* yacc.c:1646  */
+#line 1446 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 27:
@@ -1448,7 +1450,7 @@ yyreduce:
     { applygate(Nbits, (yyvsp[-1].gate).ocnd,(yyvsp[-1].gate).icnd, 
                   (yyvsp[-1].gate).pos, (yyvsp[-1].gate).mat, state); 
       }
-#line 1452 "y.tab.c" /* yacc.c:1646  */
+#line 1454 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 28:
@@ -1456,7 +1458,7 @@ yyreduce:
     { (yyval.gate).ocnd = 0; (yyval.gate).icnd = 0; (yyval.gate).pos = (yyvsp[-2].inum); 
             (yyval.gate).mat[0]=(yyvsp[0].mat)[0]; (yyval.gate).mat[1]=(yyvsp[0].mat)[1]; 
             (yyval.gate).mat[2]=(yyvsp[0].mat)[2]; (yyval.gate).mat[3]=(yyvsp[0].mat)[3]; }
-#line 1460 "y.tab.c" /* yacc.c:1646  */
+#line 1462 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 29:
@@ -1464,13 +1466,13 @@ yyreduce:
     { (yyval.gate).ocnd = (yyvsp[-5].cond).ocnd; (yyval.gate).icnd = (yyvsp[-5].cond).icnd; (yyval.gate).pos = (yyvsp[-2].inum); 
 	    (yyval.gate).mat[0]=(yyvsp[0].mat)[0]; (yyval.gate).mat[1]=(yyvsp[0].mat)[1]; 
             (yyval.gate).mat[2]=(yyvsp[0].mat)[2]; (yyval.gate).mat[3]=(yyvsp[0].mat)[3]; }
-#line 1468 "y.tab.c" /* yacc.c:1646  */
+#line 1470 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 30:
 #line 117 "alfred.y" /* yacc.c:1646  */
     { (yyval.cond) = (yyvsp[0].cond); }
-#line 1474 "y.tab.c" /* yacc.c:1646  */
+#line 1476 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 31:
@@ -1478,126 +1480,126 @@ yyreduce:
     { (yyval.cond).ocnd = (yyvsp[-2].cond).ocnd + (yyvsp[0].cond).ocnd; 
               (yyval.cond).icnd = (yyvsp[-2].cond).icnd + (yyvsp[0].cond).icnd; 
             }
-#line 1482 "y.tab.c" /* yacc.c:1646  */
+#line 1484 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 32:
 #line 123 "alfred.y" /* yacc.c:1646  */
     { (yyval.cond).icnd = 1<<(yyvsp[0].inum); (yyval.cond).ocnd = 0; }
-#line 1488 "y.tab.c" /* yacc.c:1646  */
+#line 1490 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 33:
 #line 124 "alfred.y" /* yacc.c:1646  */
     { (yyval.cond).icnd = 0; (yyval.cond).ocnd = 1<<(yyvsp[0].inum); }
-#line 1494 "y.tab.c" /* yacc.c:1646  */
+#line 1496 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 34:
 #line 126 "alfred.y" /* yacc.c:1646  */
     { (yyval.inum) = 1<<(yyvsp[0].inum); }
-#line 1500 "y.tab.c" /* yacc.c:1646  */
+#line 1502 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 35:
 #line 129 "alfred.y" /* yacc.c:1646  */
     { (yyval.mat)[0] = (yyvsp[-7].cnum); (yyval.mat)[1] = (yyvsp[-5].cnum); (yyval.mat)[2] = (yyvsp[-3].cnum); (yyval.mat)[3] = (yyvsp[-1].cnum); }
-#line 1506 "y.tab.c" /* yacc.c:1646  */
+#line 1508 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 36:
 #line 131 "alfred.y" /* yacc.c:1646  */
     { (yyval.mat)[0] = (yyvsp[0].symp)->mat[0]; (yyval.mat)[1] = (yyvsp[0].symp)->mat[1];  
 	  (yyval.mat)[2] = (yyvsp[0].symp)->mat[2]; (yyval.mat)[3] = (yyvsp[0].symp)->mat[3]; }
-#line 1513 "y.tab.c" /* yacc.c:1646  */
+#line 1515 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 37:
 #line 139 "alfred.y" /* yacc.c:1646  */
     { (yyval.cnum).re = (yyvsp[0].fnum); (yyval.cnum).im =   0; }
-#line 1519 "y.tab.c" /* yacc.c:1646  */
+#line 1521 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 38:
 #line 140 "alfred.y" /* yacc.c:1646  */
     { (yyval.cnum).re = 0;  (yyval.cnum).im =  (yyvsp[0].fnum); }
-#line 1525 "y.tab.c" /* yacc.c:1646  */
+#line 1527 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 39:
 #line 141 "alfred.y" /* yacc.c:1646  */
     { (yyval.cnum).re = (yyvsp[-2].fnum); (yyval.cnum).im =  (yyvsp[0].fnum); }
-#line 1531 "y.tab.c" /* yacc.c:1646  */
+#line 1533 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 40:
 #line 142 "alfred.y" /* yacc.c:1646  */
     { (yyval.cnum).re = (yyvsp[-2].fnum); (yyval.cnum).im = -(yyvsp[0].fnum); }
-#line 1537 "y.tab.c" /* yacc.c:1646  */
+#line 1539 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 41:
 #line 143 "alfred.y" /* yacc.c:1646  */
     { (yyval.cnum).re = (yyvsp[-3].fnum); (yyval.cnum).im =  (yyvsp[-1].fnum); }
-#line 1543 "y.tab.c" /* yacc.c:1646  */
+#line 1545 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 42:
 #line 144 "alfred.y" /* yacc.c:1646  */
     { (yyval.cnum).re = (yyvsp[-3].fnum); (yyval.cnum).im = -(yyvsp[-1].fnum); }
-#line 1549 "y.tab.c" /* yacc.c:1646  */
+#line 1551 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 43:
 #line 147 "alfred.y" /* yacc.c:1646  */
     { (yyval.fnum) =  (yyvsp[0].fnum); }
-#line 1555 "y.tab.c" /* yacc.c:1646  */
+#line 1557 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 44:
 #line 148 "alfred.y" /* yacc.c:1646  */
     { (yyval.fnum) = -(yyvsp[0].fnum); }
-#line 1561 "y.tab.c" /* yacc.c:1646  */
+#line 1563 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 45:
 #line 150 "alfred.y" /* yacc.c:1646  */
     { (yyval.fnum) = (double)(yyvsp[0].inum); }
-#line 1567 "y.tab.c" /* yacc.c:1646  */
+#line 1569 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 46:
 #line 151 "alfred.y" /* yacc.c:1646  */
     { (yyval.fnum) = (yyvsp[0].fnum); }
-#line 1573 "y.tab.c" /* yacc.c:1646  */
+#line 1575 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 47:
 #line 153 "alfred.y" /* yacc.c:1646  */
     { (yyval.fnum) =  (yyvsp[0].fnum); }
-#line 1579 "y.tab.c" /* yacc.c:1646  */
+#line 1581 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 48:
 #line 154 "alfred.y" /* yacc.c:1646  */
     { (yyval.fnum) = -(yyvsp[0].fnum); }
-#line 1585 "y.tab.c" /* yacc.c:1646  */
+#line 1587 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 49:
 #line 156 "alfred.y" /* yacc.c:1646  */
     { (yyval.fnum) = 1.0; }
-#line 1591 "y.tab.c" /* yacc.c:1646  */
+#line 1593 "y.tab.c" /* yacc.c:1646  */
     break;
 
   case 50:
 #line 157 "alfred.y" /* yacc.c:1646  */
     { (yyval.fnum) =  (yyvsp[0].fnum); }
-#line 1597 "y.tab.c" /* yacc.c:1646  */
+#line 1599 "y.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1601 "y.tab.c" /* yacc.c:1646  */
+#line 1603 "y.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires

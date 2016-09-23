@@ -83,7 +83,7 @@ void measure_state(int pos, cplx *state) {
   // printf("Rand: %1.5f \n", ran);
 
   for (i = 0; i < (1 << Nbits); i++) {
-    if (((i >> pos) % 2) == 0) {
+    if (((i / pos) % 2) == 0) {
       prob += sq(state[i].re)+sq(state[i].im);
     }
   }
@@ -97,7 +97,7 @@ void measure_state(int pos, cplx *state) {
   
   // Apply the projection operator
   for (i = 0; i < (1 << Nbits); i++) {
-    if (((i >> pos) % 2) != measuredBit) {
+    if (((i / pos) % 2) != measuredBit) {
       state[i].re = 0;
       state[i].im = 0;
     }
