@@ -1,0 +1,20 @@
+# A simple example of a program in Alfred.
+# Call this with alfred < test
+
+# Define the number of qubits of the system. 
+N = 2
+|00)+(0.707+i*0.707)|01)
+print "The initial state is" 
+show
+print "Normalizing the state to unit length gives"
+normalize
+show
+print "Swap the content of the two qubits"
+X = [0,1,1,0]
+G([0],1,X)
+G([1],0,X)
+G([0],1,X)
+print "Resulting state"
+show
+
+

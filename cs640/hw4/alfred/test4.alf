@@ -1,0 +1,24 @@
+# This example shows that we can use macros in combination 
+# with Alfred. You have to run this file through m4. 
+# The output of m4 can be interpreted by Alfred. 
+define(`swap',`# swap($1,$2) 
+ G([$1],$2, [0,1,1,0]) 
+ G([$2],$1, [0,1,1,0]) 
+ G([$1],$2, [0,1,1,0]) ')
+define( `cyc',
+`ifelse($#,0, , $#,1, , `cyc(shift($@))
+swap($1,$2)')')
+N=8
+|00000001)
+show
+cyc(0,7,1)
+show
+cyc(0,7,1)
+show
+cyc(0,7,1)
+show
+cyc(0,7,1)
+show
+cyc(0,7,1)
+show
+

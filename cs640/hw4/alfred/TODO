@@ -1,0 +1,3 @@
+a gate with a new symbol does not give an error 
+e.g. G(0,ZZ) where ZZ has not been defined before
+

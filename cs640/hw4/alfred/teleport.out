@@ -1,0 +1,17 @@
+Alice possesses the 2 most significant bits
+Bob has the least significant bit
+The initial state is
+0.447|000)+0.894|100)
+Alice and Bob share an EPR pair
+on least 2 significant bits
+0.316|000)+0.316|011)+0.632|100)+0.632|111)
+Starting teleportation
+Alice measures her bits and communicates the result to Bob
+measured 1
+measured 1
+-0.894|110)+0.447|111)
+Bob performs necessary operations and obtains
+0.447|110)+0.894|111)
+Alice resets her qubits into the ground state
+Resulting state:
+0.447|000)+0.894|001)

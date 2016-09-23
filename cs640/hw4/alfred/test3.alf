@@ -1,0 +1,10 @@
+N = 2
+|00)+2|01)+3|10)+4|11)
+normalize
+print "The initial state is"
+show
+print "Swapping content of qubits yields"
+G([0],1,[0,1,1,0])
+G([1],0,[0,1,1,0])
+G([0],1,[0,1,1,0])
+show

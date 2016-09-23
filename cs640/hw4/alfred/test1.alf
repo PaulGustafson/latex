@@ -1,0 +1,12 @@
+N = 2
+# Describe the initial state
+|00)+(0.707+i*0.707)|01)
+print "The initial state is"
+show
+print "Normalizing the state to unit length gives"
+normalize
+show
+
+
+
+

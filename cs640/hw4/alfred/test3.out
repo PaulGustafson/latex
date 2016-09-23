@@ -1,0 +1,4 @@
+The initial state is
+0.183|00)+0.365|01)+0.548|10)+0.73|11)
+Swapping content of qubits yields
+0.183|00)+0.548|01)+0.365|10)+0.73|11)
