@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  20 SEP 2016 17:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  24 SEP 2016 15:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -847,8 +847,7 @@ Package: beamerinnerthemerounded 2010/06/17  (rcs-revision d02a7cf4d8ae)
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/themes/outer/beamerouterthemein
 folines.sty
 Package: beamerouterthemeinfolines 2012/10/16  (rcs-revision 51a8c72084af)
-))
-No file main.aux.
+)) (./main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 149.
@@ -865,6 +864,7 @@ LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 149.
 LaTeX Font Info:    ... okay on input line 149.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 149.
 LaTeX Font Info:    ... okay on input line 149.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -942,6 +942,8 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 149.
 LaTeX Info: Redefining \pageref on input line 149.
 LaTeX Info: Redefining \nameref on input line 149.
+
+(./main.out) (./main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
@@ -1023,9 +1025,7 @@ orem-dictionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
 LaTeX Info: Redefining \includegraphics on input line 149.
-
-No file main.nav.
-
+ (./main.nav)
 Overfull \hbox (124.5417pt too wide) in paragraph at lines 149--149
  [][][][]  
  []
@@ -1132,16 +1132,14 @@ Overfull \hbox (124.5417pt too wide) has occurred while \output is active
 
 [10
 
-]
-No file main.toc.
-
+] (./main.toc)
 Overfull \hbox (124.5417pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [11
 
-] <hatcher-genus-2.jpg, id=340, 679.53876pt x 228.855pt>
+] <hatcher-genus-2.jpg, id=386, 679.53876pt x 228.855pt>
 File: hatcher-genus-2.jpg Graphic file (type jpg)
 
 <use hatcher-genus-2.jpg>
@@ -1183,7 +1181,7 @@ Overfull \hbox (124.5417pt too wide) has occurred while \output is active
 LaTeX Warning: Citation `lickorish1964finite' on page 15 undefined on input lin
 e 257.
 
-<Dehn_twist.png, id=424, 285.065pt x 275.0275pt>
+<Dehn_twist.png, id=467, 285.065pt x 275.0275pt>
 File: Dehn_twist.png Graphic file (type png)
  <use Dehn_twist.png>
 Package pdftex.def Info: Dehn_twist.png used on input line 257.
@@ -1312,7 +1310,7 @@ Overfull \hbox (124.5417pt too wide) has occurred while \output is active
 
 [29
 
-] <basis.jpg, id=859, 496.85625pt x 512.91624pt>
+] <basis.jpg, id=898, 496.85625pt x 512.91624pt>
 File: basis.jpg Graphic file (type jpg)
  <use basis.jpg>
 Package pdftex.def Info: basis.jpg used on input line 483.
@@ -1324,7 +1322,7 @@ Overfull \hbox (124.5417pt too wide) has occurred while \output is active
 
 [30
 
- <./basis.jpg>] <1.jpeg, id=887, 502.87875pt x 468.75125pt>
+ <./basis.jpg>] <1.jpeg, id=925, 502.87875pt x 468.75125pt>
 File: 1.jpeg Graphic file (type jpg)
  <use 1.jpeg>
 Package pdftex.def Info: 1.jpeg used on input line 496.
@@ -1336,7 +1334,7 @@ Overfull \hbox (124.5417pt too wide) has occurred while \output is active
 
 [31
 
- <./1.jpeg>] <2.jpeg, id=918, 503.8825pt x 469.755pt>
+ <./1.jpeg>] <2.jpeg, id=955, 503.8825pt x 469.755pt>
 File: 2.jpeg Graphic file (type jpg)
  <use 2.jpeg>
 Package pdftex.def Info: 2.jpeg used on input line 505.
@@ -1348,7 +1346,7 @@ Overfull \hbox (124.5417pt too wide) has occurred while \output is active
 
 [32
 
- <./2.jpeg>] <3.jpeg, id=945, 515.9275pt x 470.75874pt>
+ <./2.jpeg>] <3.jpeg, id=982, 515.9275pt x 470.75874pt>
 File: 3.jpeg Graphic file (type jpg)
  <use 3.jpeg>
 Package pdftex.def Info: 3.jpeg used on input line 514.
@@ -1360,7 +1358,7 @@ Overfull \hbox (124.5417pt too wide) has occurred while \output is active
 
 [33
 
- <./3.jpeg>] <4.jpeg, id=972, 512.91624pt x 486.81876pt>
+ <./3.jpeg>] <4.jpeg, id=1009, 512.91624pt x 486.81876pt>
 File: 4.jpeg Graphic file (type jpg)
  <use 4.jpeg>
 Package pdftex.def Info: 4.jpeg used on input line 523.
@@ -1376,7 +1374,7 @@ Overfull \hbox (124.5417pt too wide) has occurred while \output is active
 
 [34
 
- <./4.jpeg>] <5.jpeg, id=1000, 511.9125pt x 483.8075pt>
+ <./4.jpeg>] <5.jpeg, id=1038, 511.9125pt x 483.8075pt>
 File: 5.jpeg Graphic file (type jpg)
  <use 5.jpeg>
 Package pdftex.def Info: 5.jpeg used on input line 532.
@@ -1388,7 +1386,7 @@ Overfull \hbox (124.5417pt too wide) has occurred while \output is active
 
 [35
 
- <./5.jpeg>] <7.jpeg, id=1028, 511.9125pt x 500.87125pt>
+ <./5.jpeg>] <7.jpeg, id=1065, 511.9125pt x 500.87125pt>
 File: 7.jpeg Graphic file (type jpg)
  <use 7.jpeg>
 Package pdftex.def Info: 7.jpeg used on input line 541.
@@ -1400,7 +1398,7 @@ Overfull \hbox (124.5417pt too wide) has occurred while \output is active
 
 [36
 
- <./7.jpeg>] <8.jpeg, id=1055, 515.9275pt x 476.78125pt>
+ <./7.jpeg>] <8.jpeg, id=1092, 515.9275pt x 476.78125pt>
 File: 8.jpeg Graphic file (type jpg)
  <use 8.jpeg>
 Package pdftex.def Info: 8.jpeg used on input line 550.
@@ -1412,7 +1410,7 @@ Overfull \hbox (124.5417pt too wide) has occurred while \output is active
 
 [37
 
- <./8.jpeg>] <9.jpeg, id=1083, 510.90875pt x 447.6725pt>
+ <./8.jpeg>] <9.jpeg, id=1119, 510.90875pt x 447.6725pt>
 File: 9.jpeg Graphic file (type jpg)
  <use 9.jpeg>
 Package pdftex.def Info: 9.jpeg used on input line 559.
@@ -1520,15 +1518,9 @@ Package atveryend Info: Empty hook `AfterLastShipout' on input line 616.
  (./main.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 616.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 616.
+Package rerunfilecheck Info: File `main.out' has not changed.
+(rerunfilecheck)             Checksum: 5910EF1C56ACE7FB7D77B1ABB0F30BC6;452.
 
-
-Package rerunfilecheck Warning: File `main.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `main.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  5910EF1C56ACE7FB7D77B1ABB0F30BC6;452.
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
@@ -1536,16 +1528,13 @@ LaTeX Font Warning: Size substitutions with differences
 
 LaTeX Warning: There were undefined references.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 616.
  ) 
 Here is how much of TeX's memory you used:
- 21877 strings out of 494440
- 437775 string characters out of 6173199
- 542522 words of memory out of 5000000
- 24553 multiletter control sequences out of 15000+600000
+ 21999 strings out of 494440
+ 439356 string characters out of 6173199
+ 544401 words of memory out of 5000000
+ 24665 multiletter control sequences out of 15000+600000
  20014 words of font info for 73 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
  56i,16n,71p,384b,1051s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1594,10 +1583,10 @@ xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/t
 exmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/texlive/texmf-d
 ist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (48 pages, 668414 bytes).
+Output written on main.pdf (48 pages, 670965 bytes).
 PDF statistics:
- 1472 PDF objects out of 1728 (max. 8388607)
- 1362 compressed objects within 14 object streams
+ 1503 PDF objects out of 1728 (max. 8388607)
+ 1392 compressed objects within 14 object streams
  115 named destinations out of 1000 (max. 500000)
- 134 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 196 words of extra memory for PDF output out of 10000 (max. 10000000)
 
