@@ -41,17 +41,25 @@ def w(a,b,c):
     return "\omega(" + a + ", " + b + ", " + c + ") "
 
 def ev(g):
-    return w((g)^{-1}. g, (g)^{-1})
+    return '\ev_{' + g + '}' #w((g)^{-1}. g, (g)^{-1})
 
-def evi(g):
-    return w(g. (g)^{-1}, g)
+def coev(g):
+    return '\coev_{' + g + '}' 
 
-## Fig 3
+
+
+## Fig 4
+
+# Add a coev
+print(coev('g'))
 
 # Rotate main vertex edges for composition
 edges = ['h','g','h^{-1}', 'hg^{-1}h^{-1}']
 print(rotateCCW(edges) + rotateCCW(edges))
 print(edges) 
+
+
+## Fig 5
 
 # Apply composition of ['h^{-1}', 'hg^{-1}h^{-1}', 'h', 'g'] with (g g^-1)
 edges.append('g')
@@ -61,8 +69,13 @@ edges.append('g^{-1}')
 print(wi(cat(edges[0:-2]), 'g', 'g^{-1}'))
 print(edges)
 
-## Fig 4
+## Fig 6
 
-#uncompose leftside (g^{-1} h^{-1})
+# uncompose leftside (g^{-1} h^{-1})
 print(rotateCCW(edges))
-evi
+print(edges)
+
+print(coev('g'))
+print(coev('h'))
+
+# Should I 
