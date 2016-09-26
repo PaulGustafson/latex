@@ -1,3 +1,17 @@
+# Composes e2 vertex into e1
+def compose(e1, e2):
+    x = e1.pop();
+    e2.pop();
+    ans = ev(x) + reassociateCCW([cat(e1)] + e2)
+    e1.extend(e2)
+    return ans
+
+def tensorLast2Edges(edges):
+    c = edges.pop()
+    b = edges.pop()
+    edges.append(cat([b, c]))
+    return w(cat(edges[0:-1]), b, c)
+                                 
 # Argument: list of strings labelling edges incident to a vertex
 # Returns: LaTeX of associators used for 1 counterclockwise 
 #          rotation of the reference frame
@@ -41,12 +55,13 @@ def w(a,b,c):
     return "\omega(" + a + ", " + b + ", " + c + ") "
 
 def ev(g):
-    return '\ev_{' + g + '}' #w((g)^{-1}. g, (g)^{-1})
+    return '\ev_{' + g + '} ' #w((g)^{-1}. g, (g)^{-1})
 
 def coev(g):
-    return '\coev_{' + g + '}' 
+    return '\coev_{' + g + '} ' 
 
-
+def show(edges):
+    print 'Edges: [%s]' % ', '.join(edges)
 
 ## Fig 4
 
@@ -56,7 +71,7 @@ print(coev('g'))
 # Rotate main vertex edges for composition
 edges = ['h','g','h^{-1}', 'hg^{-1}h^{-1}']
 print(rotateCCW(edges) + rotateCCW(edges))
-print(edges) 
+show(edges)
 
 
 ## Fig 5
@@ -67,15 +82,31 @@ edges.append('g^{-1}')
 
 # After composition: (edges) \otimes (g g^{-1}), fix this
 print(wi(cat(edges[0:-2]), 'g', 'g^{-1}'))
-print(edges)
+show(edges)
 
 ## Fig 6
 
-# uncompose leftside (g^{-1} h^{-1})
 print(rotateCCW(edges))
-print(edges)
-
+print(rotateCCW(edges))
+show(edges)
+# make new node for gh
 print(coev('g'))
 print(coev('h'))
+e1 = ['g','g^{-1}','1']
+e2 =  ['h^{-1}', 'h','1']
+print(compose(e1, e2))
+print(e1)
+print(rotateCW(e1))
+print(e1)
+print(w(cat(e1[0:-2]),e1[-2], e1[-3]))
+print(tensorLast2Edges(e1))
+print(e1)
+print(tensorLast2Edges(edges))
+show(edges) # [g, g^{-1}, h^{-1}, hg^{-1}h^{-1}, hg]
+print(w(edges[0], edges[1], edges[2]))
+a = edges.pop(1)
+b = edges.pop(1)
+edges.insert(1, cat([a, b]))
+print(compose(edges, e1))
+show(edges)
 
-# Should I 
