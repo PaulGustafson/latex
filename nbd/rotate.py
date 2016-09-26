@@ -6,11 +6,11 @@ def compose(e1, e2):
     e1.extend(e2)
     return ans
 
-def tensorLast2Edges(edges):
-    c = edges.pop()
-    b = edges.pop()
-    edges.append(cat([b, c]))
-    return w(cat(edges[0:-1]), b, c)
+def tensor(edges, i):
+    c = edges.pop(i)
+    b = edges.pop(i)
+    edges.insert(i, cat([b, c]))
+    return w(cat(edges[0:i]), b, c)
                                  
 # Argument: list of strings labelling edges incident to a vertex
 # Returns: LaTeX of associators used for 1 counterclockwise 
@@ -99,9 +99,9 @@ print(e1)
 print(rotateCW(e1))
 print(e1)
 print(w(cat(e1[0:-2]),e1[-2], e1[-3]))
-print(tensorLast2Edges(e1))
+print(tensor(e1,-1))
 print(e1)
-print(tensorLast2Edges(edges))
+print(tensor(edges, -1))
 show(edges) # [g, g^{-1}, h^{-1}, hg^{-1}h^{-1}, hg]
 print(w(edges[0], edges[1], edges[2]))
 a = edges.pop(1)
