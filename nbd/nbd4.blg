@@ -7,45 +7,45 @@ Warning--empty journal in nr
 Warning--empty journal in kirillovStringNets
 Warning--empty journal in bantay
 Warning--empty journal in 0806.2493
-You've used 7 entries,
+You've used 8 entries,
             1791 wiz_defined-function locations,
-            484 strings with 4479 characters,
-and the built_in function-call counts, 1088 in all, are:
-= -- 86
-> -- 47
+            488 strings with 4594 characters,
+and the built_in function-call counts, 1235 in all, are:
+= -- 98
+> -- 55
 < -- 0
-+ -- 19
-- -- 12
-* -- 46
-:= -- 187
-add.period$ -- 20
-call.type$ -- 7
-change.case$ -- 7
++ -- 22
+- -- 14
+* -- 49
+:= -- 210
+add.period$ -- 23
+call.type$ -- 8
+change.case$ -- 8
 chr.to.int$ -- 0
-cite$ -- 11
-duplicate$ -- 51
-empty$ -- 117
-format.name$ -- 12
-if$ -- 234
+cite$ -- 12
+duplicate$ -- 56
+empty$ -- 135
+format.name$ -- 14
+if$ -- 269
 int.to.chr$ -- 0
-int.to.str$ -- 7
+int.to.str$ -- 8
 missing$ -- 5
-newline$ -- 37
-num.names$ -- 7
-pop$ -- 34
+newline$ -- 42
+num.names$ -- 8
+pop$ -- 40
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 25
+skip$ -- 29
 stack$ -- 0
 substring$ -- 25
-swap$ -- 3
+swap$ -- 4
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 4
-while$ -- 9
-width$ -- 8
-write$ -- 67
+while$ -- 10
+width$ -- 9
+write$ -- 77
 (There were 4 warnings)

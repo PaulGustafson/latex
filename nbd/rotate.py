@@ -11,7 +11,9 @@ def tensor(edges, i):
     b = edges.pop(i)
     c = edges.pop(i)
     edges.insert(i, cat([b, c]))
-    return w(cat(edges[0:i]), b, c)
+    if (i > 0):
+        return w(cat(edges[0:i]), b, c)
+    return ''
                                  
 # Argument: list of strings labelling edges incident to a vertex
 # Returns: LaTeX of associators used for 1 counterclockwise 
@@ -61,56 +63,63 @@ def ev(g):
 def coev(g):
     return '\coev_{' + g + '} ' 
 
+
 def show(edges):
     print 'Edges: [%s]' % ', '.join(edges)
+    #pass
 
+def doc(msg):
+    print '\n***' + msg
+    #pass
+
+def newFactor(f):
+    # if (len(f) > 0):
+    #    print f
+    pass
+    
+    
 ## Fig 4
 
-# Add a coev
-print(coev('g'))
+doc("Add a coev vertex in the upper left corner")
+newFactor(coev('g'))
 
-# Rotate main vertex edges for composition
+doc('Rotate main vertex edges for composition')
 edges = ['h','g','h^{-1}', 'hg^{-1}h^{-1}']
-print(rotateCCW(edges) + rotateCCW(edges))
+show(edges)
+newFactor(rotateCCW(edges) + rotateCCW(edges))
 show(edges)
 
 
-## Fig 5
-
-# Apply composition of ['h^{-1}', 'hg^{-1}h^{-1}', 'h', 'g'] with (g g^-1)
-edges.append('g')
-edges.append('g^{-1}')
-
-# After composition: (edges) \otimes (g g^{-1}), fix this
-print(wi(cat(edges[0:-2]), 'g', 'g^{-1}'))
+doc("Apply composition of ['h^{-1}', 'hg^{-1}h^{-1}', 'h', 'g'] with (g g^-1)")
+edges.append('1')
+e2 = ['g', 'g^{-1}', '1']
+newFactor(compose(edges, e2))
 show(edges)
 
 ## Fig 6
 
-# make new node for gh
-print(coev('g'))
-print(coev('h'))
+doc('Make new node for gh')
+newFactor(coev('g'))
+newFactor(coev('h'))
 e1 = ['g','g^{-1}','1']
 e2 =  ['h^{-1}', 'h','1']
-print(compose(e1, e2))
-print(e1)
-print(rotateCW(e1))
-print(e1)
-#print(w(cat(e1[0:-2]),e1[-2], e1[-3]))
-print(tensor(e1,0))
-print(tensor(e1,-2))
-print(rotateCW(e1))
-print(e1)
+newFactor(compose(e1, e2))
+#show(e1)
+newFactor(rotateCW(e1))
+#show(e1)
+newFactor(tensor(e1,0))
+newFactor(tensor(e1,-2))
+newFactor(rotateCW(e1))
+#show(e1)
 
-print("New-------------")
-print(rotateCCW(edges))
+newFactor(rotateCCW(edges))
 show(edges)
-print(tensor(edges,0))
+newFactor(tensor(edges,0))
 show(edges)
-print(tensor(edges,-3))
-print(rotateCCW(edges))
+newFactor(tensor(edges,-3))
+newFactor(rotateCCW(edges))
 show(edges)
-print(compose(edges, e1))
+newFactor(compose(edges, e1))
 show(edges)
-print(rotateCCW(edges))
+newFactor(rotateCCW(edges))
 show(edges)

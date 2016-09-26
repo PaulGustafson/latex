@@ -101,13 +101,25 @@ The center $Z(\Vect_G^\omega))$ is equivalent to the category of representations
 
 This is an extension of the result of Fjelstad and Fuchs \cite{fjfu} showing that, given a surface with at most one boundary component, the mapping class group representations corresponding to the untwisted (i.e. $\omega = 1$ case) have finite image.  However, the method of proof employed in the current paper is substantially different than theirs.  In their paper, they use an algebraic method of Lyubashenko \cite{Lyubashenko1996} that gives a projective mapping class group representation to any factorizable ribbon Hopf algebra.  In this paper, I look at the mapping class group action on a vector space of $\Vect_G^\omega$-colored embedded graphs defined by Kirillov \cite{kirillovStringNets}.
 
-In \cite{bantay}, Bantay defined representations of mapping class groups on the Hilbert space of an orbifold model associated to $D^\omega(G)$.  These representations appear to coincide with the twisted Dijkgraaf-Witten representations. However, the connection is not clear to the current author.  Bantay even mentions that his representations are \emph{different} than TQFT representations because he treats boundary components differently.  
+In \cite{bantay}, Bantay defined representations of mapping class groups on the Hilbert space of an orbifold model associated to $D^\omega(G)$.  These representations appear to coincide with the twisted Dijkgraaf-Witten representations. However, the precise details of the connection are not clear to the current author.
 
 More is known when we fix a particular surface $M$. In the case where $M$ is a torus, it turns out that any Reshitikhin-Turaev representation of the mapping class group of the torus is always finite \cite{0806.2493}.  In particular, this implies that the Turaev-Viro representations are all finite.  In the case where $M$ is an $n$-punctured disk, the mapping class group of $M$ relative to the boundary of the disk is the braid group $B_n$.  In this case, it has been proved that the Turaev-Viro representations coming from pointed spherical categories are finite \cite{erw}.
 
 \section{Definitions}
 
-Let $M$ be a closed surface of genus $g$.  Let $G$ be finite group, and let $\Vect_G^\omega$ denote the category of $G$-graded vector spaces with associativity defined by the normalized 3-cocycle $\omega \in Z^3(G, k^\times)$. 
+Let $M$ be a closed surface of genus $g$.  Let $G$ be finite group, and let $\Vect_G^\omega$ denote the category of $G$-graded vector spaces with associativity defined by the normalized 3-cocycle $\omega \in Z^3(G, k^\times)$.  More explicitly, we will follow \cite{math/0601012} in the choice of structural morphisms :
+
+\begin{itemize} 
+\item The associator $a_{g,h,k}:(V_g \otimes V_h) \otimes V_k \to V_g \otimes (V_h \otimes V_k)$
+            $$ a_{g,h,k} = \omega(g,h,k)$$
+\item The evaluator $\ev_g:V_g^* \otimes V_g \to 1$
+            $$ \ev_g = \omega(g^{-1},g,g^{-1})$$
+\item The coevaluator $\coev_g:V_g \otimes V_g^* \to 1$
+            $$\coev_g = 1$$
+\item The pivotal structure $j_g:V_g^{**} \to V_g$
+            $$ j_g = \omega(g^{-1},g,g^{-1})$$
+\end{itemize}
+
 
 Following Kirillov \cite{kirillovStringNets}, let $H$ be the string-net vector space of $\Vect_G^\omega$-colored graph embeddings modulo null graphs. 
 
@@ -130,7 +142,7 @@ Let $\Gamma \in H$. Thinking of $X$ as a quotient of its fundamental polygon, by
 
 By the definition of the evaluation of a string-net and the definition of the quotient map identifying the sides of the fundamental polygon, the vertex $v$ is colored by an element $\phi(v) \in \Hom_{\Vect_G^\omega} (1, \bigotimes_{i=1}^n V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1}^*) \otimes V(e_{2i}^*))$, where $V(e_i) \in \Obj(\Vect_G^\omega)$ is the coloring of the edge $e_i$.  Since string-net evaluation is additive in the direct sum and linear in the vertex color, it follows that $H$ is spanned by the set of colored graphs
 $$ S := \{\Gamma \in H : V(e_i) \in \Irr(\Vect_G^\omega), \phi(v) = 1 \}, $$
-where $\Irr(\Vect_G^\omega)$ is the set of simple objects of $\Vect_G^\omega$.  See Figure \ref{fig:span} for a depiction.
+where $\Irr(\Vect_G^\omega)$ is the set of simple objects of $\Vect_G^\omega$, which correspond to the elements of $G$.  See Figure \ref{fig:span} for a depiction.
 
 \newdimen\R
 \R=0.8cm
@@ -690,7 +702,7 @@ Thus, the image of any such mapping class group representation is finite.
 
 \section{Calculations}
 
-In Figure \ref{fig:tikzTwist1_3}, we add the upper left vertex, which is labeled by a $\coev_g$.  We then connect the vertices with an unlabelled edge, which is shorthand for labelling by the object $1$ .  At this point, the vertices are in states $hg1h^{-1}(hgh^{-1})$ and $gg^{-1}1$.  To compose the two vertices, we must use the spherical structure on the former vertex and reassociate until it is in the state $h^{-1}(hgh^{-1})hg1$.  In doing so we pick up a factor of 
+In Figure \ref{fig:tikzTwist1_3}, we add the upper left vertex, which is labeled by  $\coev_g$.  We then connect the vertices with an unlabelled edge, which is shorthand for labelling by the object $1$ .  At this point, the vertices are in states $hg1h^{-1}(hgh^{-1})$ and $gg^{-1}1$.  To compose the two vertices, we use the spherical structure on the former vertex and reassociate until it is in the state $h^{-1}(hgh^{-1})hg1$.  In doing so we pick up a factor of 
 $$\omega^{-1}(hg^{-1}h^{-1}, hg, h^{-1}) \omega^{-1}(hg^{-1}h^{-1}, h, g) \omega^{-1}(h^{-1}, hg^{-1}, g) \omega^{-1}(h^{-1}, hg^{-1}h^{-1}, h) $$
 
 After performing the composition, we are in the situation of Figure $\ref{fig:tikzTwist1_3}$ with state $h^{-1}(hgh^{-1})hg(gg^{-1})$.  To get rid of the last pair of parentheses, we get a factor of $\omega^{-1}(h^{-1}hg^{-1}h^{-1}hg, g, g^{-1}) = \omega^{-1}(1, g, g^{-1}) = 1$.   
@@ -704,6 +716,16 @@ We are then in a position to compose the two vertices, giving a factor
 $\ev_{hg}$ and a vertex in state $g( g^{-1}h^{-1}) (hg^{-1}h^{-1})(hg)$.  Rotating the vertex into its initial configuration $(hg)g( g^{-1}h^{-1}) (hg^{-1}h^{-1})$ gives a factor 
 of 
 $$\omega^{-1}(hg, h^{-1}, hg^{-1}h^{-1}) \omega^{-1}(hg, g, g^{-1}h^{-1}).$$
+
+Put together, we have an overall factor of
+\begin{align*}
+\frac{\omega(g, g^{-1}, h^{-1}) \omega(g, g^{-1}h^{-1}, h) \omega(g^{-1}h^{-1}, h, g) \omega(g^{-2}h^{-1}, h, g) \omega(g^{-1}h^{-1}, hg, g^{-1}h^{-1})} 
+{\omega(hg^{-1}h^{-1}, hg, h^{-1}) \omega(hg^{-1}h^{-1}, h, g) \omega(h^{-1}, hg^{-1}, g) \omega(h^{-1}, hg^{-1}h^{-1}, h) } \cdot \\
+\omega^{-1}(g^{-1}, g^{-1}, g) \omega^{-1}(g^{-1}, g^{-1}h^{-1}, h) \omega^{-1}(g^{-1}, h^{-1}, hg^{-1}h^{-1}) 
+\omega^{-1}(g, g^{-2}h^{-1}, hg) \cdot \\ 
+\omega^{-1}(g, g^{-1}h^{-1}, hg^{-1}h^{-1}) 
+\omega^{-1}(hg, h^{-1}, hg^{-1}h^{-1}) \omega^{-1}(hg, g, g^{-1}h^{-1}).
+\end{align*}
 
 
 
