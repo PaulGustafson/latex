@@ -7,8 +7,9 @@ def compose(e1, e2):
     return ans
 
 def tensor(edges, i):
-    c = edges.pop(i)
+    i = i % len(edges)  # fix negative indices bug
     b = edges.pop(i)
+    c = edges.pop(i)
     edges.insert(i, cat([b, c]))
     return w(cat(edges[0:i]), b, c)
                                  
@@ -86,9 +87,6 @@ show(edges)
 
 ## Fig 6
 
-print(rotateCCW(edges))
-print(rotateCCW(edges))
-show(edges)
 # make new node for gh
 print(coev('g'))
 print(coev('h'))
@@ -98,15 +96,21 @@ print(compose(e1, e2))
 print(e1)
 print(rotateCW(e1))
 print(e1)
-print(w(cat(e1[0:-2]),e1[-2], e1[-3]))
-print(tensor(e1,-1))
+#print(w(cat(e1[0:-2]),e1[-2], e1[-3]))
+print(tensor(e1,0))
+print(tensor(e1,-2))
+print(rotateCW(e1))
 print(e1)
-print(tensor(edges, -1))
-show(edges) # [g, g^{-1}, h^{-1}, hg^{-1}h^{-1}, hg]
-print(w(edges[0], edges[1], edges[2]))
-a = edges.pop(1)
-b = edges.pop(1)
-edges.insert(1, cat([a, b]))
+
+print("New-------------")
+print(rotateCCW(edges))
+show(edges)
+print(tensor(edges,0))
+show(edges)
+print(tensor(edges,-3))
+print(rotateCCW(edges))
+show(edges)
 print(compose(edges, e1))
 show(edges)
-
+print(rotateCCW(edges))
+show(edges)
