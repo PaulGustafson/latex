@@ -6,6 +6,7 @@ def compose(e1, e2):
     e1.extend(e2)
     return ans
 
+# Tensors objects at i and i + 1
 def tensor(edges, i):
     i = i % len(edges)  # fix negative indices bug
     b = edges.pop(i)
@@ -66,16 +67,16 @@ def coev(g):
 
 def show(edges):
     print 'Edges: [%s]' % ', '.join(edges)
-    #pass
+    pass
 
 def doc(msg):
     print '\n***' + msg
     #pass
 
 def newFactor(f):
-    # if (len(f) > 0):
-    #    print f
-    pass
+     if (len(f) > 0):
+        print f
+    # pass
     
     
 ## Fig 4
@@ -105,13 +106,16 @@ e1 = ['g','g^{-1}','1']
 e2 =  ['h^{-1}', 'h','1']
 newFactor(compose(e1, e2))
 #show(e1)
+
+doc('Rotate and tensor new node for composition')
 newFactor(rotateCW(e1))
-#show(e1)
+show(e1)
 newFactor(tensor(e1,0))
 newFactor(tensor(e1,-2))
 newFactor(rotateCW(e1))
-#show(e1)
+show(e1)
 
+doc('Rotate and tensor old node')
 newFactor(rotateCCW(edges))
 show(edges)
 newFactor(tensor(edges,0))
@@ -123,3 +127,4 @@ newFactor(compose(edges, e1))
 show(edges)
 newFactor(rotateCCW(edges))
 show(edges)
+
