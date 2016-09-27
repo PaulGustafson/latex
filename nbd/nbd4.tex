@@ -88,7 +88,7 @@ midarrow/.default=0.5
 \maketitle
 
 \section{Introduction}
-Given a spherical category $\mathcal A$ over a field $k$ and compact surface $M$, possibly with boundary, the Turaev-Viro construction gives a projective representation of the mapping class group $\MCG(M)$.  A natural question is to determine the image of these representations.  In particular, when does such a representation have finite image?
+Given a spherical category $\mathcal A$ over a field $k$ and compact surface $M$, possibly with boundary, the Turaev-Viro construction gives a projective representation of the mapping class group $\MCG(M)$ \cite{TURAEV1992865, hep-th/9311155}.  A natural question is to determine the image of these representations.  In particular, when does such a representation have finite image?
 
 In this setting, the Property F conjecture \cite{nr} states that, for a fixed spherical category $\mathcal A$, all associated mapping class groups are finite if and only if  $\mathcal A$ is weakly integral. 
 
@@ -702,29 +702,42 @@ Thus, the image of any such mapping class group representation is finite.
 
 \section{Calculations}
 
-In Figure \ref{fig:tikzTwist1_3}, we add the upper left vertex, which is labeled by  $\coev_g$.  We then connect the vertices with an unlabelled edge, which is shorthand for labelling by the object $1$ .  At this point, the vertices are in states $hg1h^{-1}(hgh^{-1})$ and $gg^{-1}1$.  To compose the two vertices, we use the spherical structure on the former vertex and reassociate until it is in the state $h^{-1}(hgh^{-1})hg1$.  In doing so we pick up a factor of 
-$$\omega^{-1}(hg^{-1}h^{-1}, hg, h^{-1}) \omega^{-1}(hg^{-1}h^{-1}, h, g) \omega^{-1}(h^{-1}, hg^{-1}, g) \omega^{-1}(h^{-1}, hg^{-1}h^{-1}, h) $$
+In Figure \ref{fig:tikzTwist1_3}, we add the upper left vertex, which is labeled by  $\coev_g$.  We then connect the vertices with an unlabelled edge, which is shorthand for labelling by the object $1$ .  At this point, the vertices are in states $hg1h^{-1}(hg^{-1}h^{-1})$ and $gg^{-1}1$.  To compose the two vertices, we use the spherical structure on the former vertex and reassociate until it is in the state $h^{-1}(hg^{-1}h^{-1})hg1$.  In doing so we pick up a factor of 
+$$ \omega(h, g, h^{-1}) \omega(h, gh^{-1}, hg^{-1}h^{-1}) \omega(g, h^{-1}, hg^{-1}h^{-1}) \omega(g, g^{-1}h^{-1}, h) $$
+% $$\omega^{-1}(hg^{-1}h^{-1}, hg, h^{-1}) \omega^{-1}(hg^{-1}h^{-1}, h, g) \omega^{-1}(h^{-1}, hg^{-1}, g) \omega^{-1}(h^{-1}, hg^{-1}h^{-1}, h) $$
 
-After performing the composition, we are in the situation of Figure $\ref{fig:tikzTwist1_3}$ with state $h^{-1}(hgh^{-1})hg(gg^{-1})$.  To get rid of the last pair of parentheses, we get a factor of $\omega^{-1}(h^{-1}hg^{-1}h^{-1}hg, g, g^{-1}) = \omega^{-1}(1, g, g^{-1}) = 1$.   
+After performing the composition, we are in the situation of Figure $\ref{fig:tikzTwist1_3}$ with state $h^{-1}(hg^{-1}h^{-1})hg(gg^{-1})$.  To get rid of the last pair of parentheses, we get a factor of $\omega^{-1}(h^{-1}hg^{-1}h^{-1}hg, g, g^{-1}) = \omega^{-1}(1, g, g^{-1}) = 1$.   
 
-To tensor the parallel $g$ and $h$ edges together, we add $\coev_g$ and $\coev_h$ vertices in the middle of those edges and connect them with a $1$.  Composing along the $1$, we get a vertex in state $gg^{-1}h^{-1}h$.  To put this vertex in state $(g^{-1}h^{-1})(hg)$ we pick up a factor of $\omega(g, g^{-1}, h^{-1}) \omega(g, g^{-1}h^{-1}, h) \omega(g^{-1}h^{-1}, g, h)$.   We also put the original vertex in the state $(g^{-1}h^{-1})(hgh^{-1})(hg)g$ with a factor of
+To tensor the parallel $g$ and $h$ edges together, we add $\coev_g$ and $\coev_h$ vertices in the middle of those edges and connect them with a $1$.  Composing along the $1$, we get a vertex in state $gg^{-1}h^{-1}h$.  To put this vertex in state $(g^{-1}h^{-1})(hg)$ we pick up a factor of $\omega(g, g^{-1}, h^{-1}) \omega(g, g^{-1}h^{-1}, h) \omega(g^{-1}h^{-1}, h, g)$.   We also put the original vertex in the state $(g^{-1}h^{-1})(hg^{-1}h^{-1})(hg)g$ with a factor of
 $$\omega^{-1}(g^{-1}, g^{-1}, g) \omega^{-1}(g^{-1}, g^{-1}h^{-1}, h) \omega^{-1}(g^{-1}, h^{-1}, hg^{-1}h^{-1}) \omega(g^{-2}h^{-1}, h, g). $$
 
-To compose the two vertices, we rotate the original vertex to the state $g(g^{-1}h^{-1})(hgh^{-1})(hg)$ which yields a factor of 
-$$\omega^{-1}(g, g^{-1}h^{-1}hg^{-1}h^{-1}, hg) \omega^{-1}(g, g^{-1}h^{-1}, hg^{-1}h^{-1}) \omega^{-1}(g, g^{-1}, h^{-1}).$$
+To compose the two vertices, we rotate the original vertex to the state $g(g^{-1}h^{-1})(hg^{-1}h^{-1})(hg)$ which yields a factor of 
+$$\omega^{-1}(g, h^{-1}, hg) \omega^{-1}(g, g^{-1}h^{-1}, hg^{-1}h^{-1}) \omega^{-1}(g, g^{-1}, h^{-1}).$$
 We are then in a position to compose the two vertices, giving a factor 
-$\ev_{hg}$ and a vertex in state $g( g^{-1}h^{-1}) (hg^{-1}h^{-1})(hg)$.  Rotating the vertex into its initial configuration $(hg)g( g^{-1}h^{-1}) (hg^{-1}h^{-1})$ gives a factor 
+$\omega(g^{-1}h^{-1}, hg, g^{-1}h^{-1})  \ev_{g^{-1}h^{-1}} = 1$ and a vertex in state $g( g^{-1}h^{-1}) (hg^{-1}h^{-1})(hg)$.  Rotating the vertex into its initial configuration $(hg)g( g^{-1}h^{-1}) (hg^{-1}h^{-1})$ gives a factor 
 of 
 $$\omega^{-1}(hg, h^{-1}, hg^{-1}h^{-1}) \omega^{-1}(hg, g, g^{-1}h^{-1}).$$
 
 Put together, we have an overall factor of
 \begin{align*}
-\frac{\omega(g, g^{-1}, h^{-1}) \omega(g, g^{-1}h^{-1}, h) \omega(g^{-1}h^{-1}, h, g) \omega(g^{-2}h^{-1}, h, g) \omega(g^{-1}h^{-1}, hg, g^{-1}h^{-1})} 
-{\omega(hg^{-1}h^{-1}, hg, h^{-1}) \omega(hg^{-1}h^{-1}, h, g) \omega(h^{-1}, hg^{-1}, g) \omega(h^{-1}, hg^{-1}h^{-1}, h) } \cdot \\
-\omega^{-1}(g^{-1}, g^{-1}, g) \omega^{-1}(g^{-1}, g^{-1}h^{-1}, h) \omega^{-1}(g^{-1}, h^{-1}, hg^{-1}h^{-1}) 
-\omega^{-1}(g, g^{-2}h^{-1}, hg) \cdot \\ 
-\omega^{-1}(g, g^{-1}h^{-1}, hg^{-1}h^{-1}) 
-\omega^{-1}(hg, h^{-1}, hg^{-1}h^{-1}) \omega^{-1}(hg, g, g^{-1}h^{-1}).
+&  \frac{\omega(h, g, h^{-1}) \omega(h, gh^{-1}, hg^{-1}h^{-1}) \omega(g, h^{-1}, hg^{-1}h^{-1}) \omega(g, g^{-1}h^{-1}, h) } 
+{\omega(g^{-1}, g^{-1}, g) \omega(g^{-1}, g^{-1}h^{-1}, h) \omega(g^{-1}, h^{-1}, hg^{-1}h^{-1})  \omega(g, g^{-2}h^{-1}, hg)} \cdot \\ 
+& \qquad  \frac{\omega(g, g^{-1}, h^{-1}) \omega(g, g^{-1}h^{-1}, h) \omega(g^{-1}h^{-1}, h, g) \omega(g^{-2}h^{-1}, h, g)}
+{\omega(g, g^{-1}h^{-1}, hg^{-1}h^{-1}) \omega(hg, h^{-1}, hg^{-1}h^{-1}) \omega(hg, g, g^{-1}h^{-1})} \\
+& = \frac{\omega(h, g, g^{-1}h^{-1})\omega(g, g^{-1}h^{-1}, h) } 
+{\omega(g^{-1}, g^{-1}, g) \omega(g^{-1}, g^{-1}h^{-1}, h) \omega(g^{-1}, h^{-1}, hg^{-1}h^{-1})  \omega(g, g^{-2}h^{-1}, hg)} \cdot \\ 
+& \qquad \frac{\omega(g, g^{-1}, h^{-1}) \omega(g, g^{-1}h^{-1}, h) \omega(g^{-1}h^{-1}, h, g) \omega(g^{-2}h^{-1}, h, g)}
+{\omega(g, g^{-1}h^{-1}, hg^{-1}h^{-1}) \omega(hg, g, g^{-1}h^{-1}) } \\
+& = \frac{\omega(h, g, g^{-1}h^{-1})\omega(g, g^{-1}h^{-1}, h) } 
+{\omega(g^{-1}, g^{-1}, g) \omega(g^{-1}, g^{-1}h^{-1}, h)  \omega(g, g^{-2}h^{-1}, hg)} \cdot \\ 
+& \qquad \frac{\omega^2(g, g^{-1}, h^{-1}) \omega(g, g^{-1}h^{-1}, h) \omega(g^{-1}h^{-1}, h, g) \omega(g^{-2}h^{-1}, h, g)}
+{\omega(g, g^{-1}, g^{-1}h^{-1}) \omega(hg, g, g^{-1}h^{-1}) } \\
+& = \frac{\omega(h, g, g^{-1}h^{-1})\omega^2(g, g^{-1}h^{-1}, h) \omega^2(g, g^{-1}, h^{-1})  \omega^2(g^{-1}h^{-1}, h, g)} 
+{ \omega(g, g^{-2}h^{-1}, hg) \omega(g, g^{-1}, g^{-1}h^{-1}) \omega(hg, g, g^{-1}h^{-1}) \omega(g^{-1}, g^{-1}h^{-1}, hg)} \\
+& = \frac{\omega(h, g, g^{-1}h^{-1})\omega^2(g, g^{-1}h^{-1}, h) \omega^2(g, g^{-1}, h^{-1}) \omega^2(g^{-1}h^{-1}, h, g) } 
+{  \omega(hg, g, g^{-1}h^{-1}) } \\
+& = \frac{\omega(h, g, g^{-1}h^{-1})  \omega^2(g^{-1}h^{-1}, h, g) } 
+{\omega^2(g^{-1}, h^{-1},h)  \omega(hg, g, g^{-1}h^{-1}) } 
 \end{align*}
 
 
