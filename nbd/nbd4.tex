@@ -1,5 +1,5 @@
 \documentclass{amsart}
-\usepackage{amsmath,amssymb,amsthm,fullpage,mathptmx, hyperref,dsfont,framed, graphicx, subcaption, textcomp, tikz} % The usual suspects
+\usepackage{amsmath,amssymb,amsthm,fullpage,mathptmx, hyperref,dsfont,framed, graphicx, subcaption, textcomp} % The usual suspects
 
 %%%%%%%%%%%%%%%%%% Tikz %%%%%%%%%
 \usepackage{tikz}
@@ -56,6 +56,7 @@ midarrow/.default=0.5
 \newtheorem{ex}[thm]{Exercise}
 
 
+\DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\MCG}{MCG}
 \DeclareMathOperator{\Vect}{Vec}
 \DeclareMathOperator{\Homeo}{Homeo}
@@ -82,24 +83,21 @@ midarrow/.default=0.5
     
 
 \begin{abstract}
- Every twisted Dijkgraaf-Witten representation of a mapping class group of a closed surface has finite image.
+Any twisted Dijkgraaf-Witten representation of a mapping class group of a closed surface has finite image.
 \end{abstract}
 
 \maketitle
 
 \section{Introduction}
-Given a spherical category $\mathcal A$ over a field $k$ and compact surface $M$, possibly with boundary, the Turaev-Viro construction gives a projective representation of the mapping class group $\MCG(M)$ \cite{TURAEV1992865, hep-th/9311155}.  A natural question is to determine the image of these representations.  In particular, when does such a representation have finite image?
+Given a spherical category $\mathcal A$ over a field $k$ and compact surface $M$, possibly with boundary, the Turaev-Viro construction gives a projective representation of the mapping class group $\MCG(M)$ \cite{TURAEV1992865, hep-th/9311155}.  A natural question is to determine the image of these representations.  In particular,  when does such a representation have finite image?
 
-In this setting, the Property F conjecture \cite{nr} states that, for a fixed spherical category $\mathcal A$, all associated mapping class groups are finite if and only if  $\mathcal A$ is weakly integral. 
+It is conjectured that these representations have finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a mild modification of the Property F conjecture \cite{erw, nr}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral.
 
-
-The simplest examples of spherical categories are the pointed categories, i.e. categories in which every simple object is invertible.  Every pointed category is equivalent to a category $\Vect_G^\omega$, i.e. the category of $G$-graded vector spaces with associativity given by a cocycle $\omega \in Z^3(G, k^\times)$. In this case, the Turaev-Viro construction corresponds with the twisted Dijkgraaf-Witten theory.
-
-The center $Z(\Vect_G^\omega))$ is equivalent to the category of representations of the twisted quantum double of $G$, which is integral, so the property $F$ conjecture predicts that mapping class group representations from pointed categories should be finite.  The current paper verifies this conjecture in the case where the surface $M$ is closed and $G$ and $\omega$ are arbitrary.  
+This paper considers the case when $\mathcal A = \Vect_G^\omega$, i.e. the monoidal category of $G$-graded vector spaces with associativity given by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the Turaev-Viro construction corresponds to the twisted Dijkgraaf-Witten theory \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects that its associated mapping class group representations have finite image. The current paper verifies this in the case  where the surface $M$ is closed and $G$ and $\omega$ are arbitrary.  
 
 \section{Related Work}
 
-This is an extension of the result of Fjelstad and Fuchs \cite{fjfu} showing that, given a surface with at most one boundary component, the mapping class group representations corresponding to the untwisted (i.e. $\omega = 1$ case) have finite image.  However, the method of proof employed in the current paper is substantially different from theirs.  Their paper uses an algebraic method of Lyubashenko \cite{Lyubashenko1996} that gives a projective mapping class group representation to any factorizable ribbon Hopf algebra.  This paper considers the mapping class group action on a vector space of $\Vect_G^\omega$-colored embedded graphs defined by Kirillov \cite{kirillovStringNets}.
+This result is an extension of the result of Fjelstad and Fuchs \cite{fjfu} showing that, given a surface with at most one boundary component, the mapping class group representations corresponding to the untwisted (i.e. $\omega = 1$) case have finite image.  Their paper uses an algebraic method of Lyubashenko \cite{Lyubashenko1996} that gives a projective mapping class group representation to any factorizable ribbon Hopf algebra, in their case, the double $D(G)$. The current paper considers the mapping class group action on a vector space of $\Vect_G^\omega$-colored embedded graphs defined by Kirillov \cite{kirillovStringNets}, yielding a simpler, more geometric proof. 
 
 In \cite{bantay}, Bantay defined representations of mapping class groups on the Hilbert space of an orbifold model associated to $D^\omega(G)$.  These representations appear to coincide with the twisted Dijkgraaf-Witten representations. However, the precise details of the connection are not clear to the current author.
 
@@ -107,23 +105,43 @@ More is known when we fix a particular surface $M$. In the case where $M$ is a t
 
 \section{Definitions}
 
-Let $M$ be a closed surface of genus $g$.  Let $G$ be finite group, and let $\Vect_G^\omega$ denote the category of $G$-graded vector spaces with associativity defined by the  3-cocycle $\omega \in Z^3(G, k^\times)$.  More explicitly, we will follow \cite{math/0601012} in the choice of structural morphisms :
+Let $M$ be a closed surface of genus $g$.  Let $G$ be finite group, and let $\Vect_G^\omega$ denote the category of $G$-graded vector spaces with associativity defined by the  3-cocycle $\omega \in Z^3(G, k^\times)$.  More explicitly, we will follow \cite{math/0601012} in the choice of structural morphisms.  The associator $\alpha_{g,h,k}:(g \otimes h) \otimes k \to g \otimes (h \otimes k)$ is defined to be
+$$\alpha_{g,h,k} = \omega(g,h,k) \id_{ghk}.$$ 
+The evaluator $\ev_g:g^* \otimes g \to 1$ is 
+$$\ev_g = \omega(g^{-1},g,g^{-1}) \id_1.$$  
+The coevaluator $\coev_g:g \otimes g^* \to 1$ is 
+$$\coev_g = \id_1.$$ 
+The pivotal structure $j_g:g^{**} \to g$ is 
+$$j_g = \omega(g^{-1},g,g^{-1}) \id_{g}.$$
 
-\begin{itemize} 
-\item The associator $a_{g,h,k}:(V_g \otimes V_h) \otimes V_k \to V_g \otimes (V_h \otimes V_k)$
-            $$ a_{g,h,k} = \omega(g,h,k)$$
-\item The evaluator $\ev_g:V_g^* \otimes V_g \to 1$
-            $$ \ev_g = \omega(g^{-1},g,g^{-1})$$
-\item The coevaluator $\coev_g:V_g \otimes V_g^* \to 1$
-            $$\coev_g = 1$$
-\item The pivotal structure $j_g:V_g^{**} \to V_g$
-            $$ j_g = \omega(g^{-1},g,g^{-1})$$
+\newcommand{\ee}{\mathbf{e}}       % oriented edge
+\newcommand{\Ga}{\Gamma}
+
+The following definitions are due to Kirillov \cite{kirillovStringNets}.
+We will consider finite  graphs embedded in the surface $M$; for such a
+graph $\Ga$, let $E(\Ga)$ be the set of edges. Note that edges are not
+oriented. Let $E^{or}$ be the set of oriented edges, i.e. pairs $\ee=(e,
+\text{orientation of } e)$; for such an oriented edge $\ee$, we denote by
+$\bar{\ee}$ the edge with opposite orientation.
+
+\begin{definition}\label{d:coloring} Let  $\Ga \subset M$ be an embedded graph as
+defined above.  A {\em coloring} of $\Ga$ is the
+following data:
+
+  \begin{itemize}
+    \item Choice of an object $V(\ee)\in \Obj \A$ for every oriented edge
+        $\ee\in E^{or}(\Ga)$ so that $V(\ov{\ee})=V(\ee)^*$.
+    \item Choice of a vector $\ph(v)\in \<V(\ee_1),\dots,V(\ee_n)\>$ 
+      (see \eqref{e:vev})  for    every interior vertex $v$, where 
+      $\ee_1, \dots, \ee_n$ are edges incident to $v$, taken in counterclockwise 
+      order and with outward orientation (see \firef{f:coloring}). 
 \end{itemize}
 
 
-Following Kirillov \cite{kirillovStringNets}, let $H$ be the string-net vector space of $\Vect_G^\omega$-colored graph embeddings modulo null graphs. 
 
-Let $\Gamma \in H$. Thinking of $X$ as a quotient of its fundamental polygon, by isotopy we may assume vertices of $\Gamma$ lie in the interior of the polygon and that all the edges of $\Gamma$ do not intersect corners and meet the sides transversally.  Evaluating on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$ and $2n$ outgoing edges $e_1, \ldots e_{2n}$, each of which intersects precisely one side of the fundamental polygon.
+
+
+Let $H$ be the string-net vector space of $\Vect_G^\omega$-colored graph embeddings modulo null graphs. Let $\Gamma \in H$. Thinking of $X$ as a quotient of its fundamental polygon, by isotopy we may assume vertices of $\Gamma$ lie in the interior of the polygon and that all the edges of $\Gamma$ do not intersect corners and meet the sides transversally.  Evaluating on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$ and $2n$ outgoing edges $e_1, \ldots e_{2n}$, each of which intersects precisely one side of the fundamental polygon.
 
 
 %\begin{figure}
@@ -181,27 +199,27 @@ where $\Irr(\Vect_G^\omega)$ is the set of simple objects of $\Vect_G^\omega$, w
 
 \section{Result}
 
-\begin{prop}
-The action of the mapping class group on the vector space $H$ induced by the action of the orientation-preserving homeomorphisms on the surface $M$ is well-defined.
-\end{prop}
-\begin{proof}
-The orientation-preserving group $\Homeo^+(M)$ acts on colored embedded graphs in $M$.  To see that the mapping class group $\MCG(M)$ has a well-defined action on $H$, we need to check two things: first, that isotopic homeomorphisms acting on a colored graph take it to equivalent colored graphs and, second, that a homeomorphism maps equivalent colored graphs to equivalent colored graphs.
+%% \begin{prop}
+%% The action of the mapping class group on the vector space $H$ induced by the action of the orientation-preserving homeomorphisms on the surface $M$ is well-defined.
+%% \end{prop}
+%% \begin{proof}
+%% The orientation-preserving group $\Homeo^+(M)$ acts on colored embedded graphs in $M$.  To see that the mapping class group $\MCG(M)$ has a well-defined action on $H$, we need to check two things: first, that isotopic homeomorphisms acting on a colored graph take it to equivalent colored graphs and, second, that a homeomorphism maps equivalent colored graphs to equivalent colored graphs.
 
-For the first, suppose $f, g \in Homeo^+(M)$ are isotopic, with $H: M \times I \to M$ an isotopy from $f$ to $g$.  Let $i: \Gamma \to M$ be an graph embedding.  Then $H \circ i$ is an isotopy from $f \circ i$ to $g \circ i$.    
+%% For the first, suppose $f, g \in Homeo^+(M)$ are isotopic, with $H: M \times I \to M$ an isotopy from $f$ to $g$.  Let $i: \Gamma \to M$ be an graph embedding.  Then $H \circ i$ is an isotopy from $f \circ i$ to $g \circ i$.    
 
-For the second,  to check that a homeomorphism $f \in \Homeo^+(M)$ preserves equivalence of colored graphs, it suffices to check that it in the case of each local move.  Since the mapping class group is generated by Dehn twists, all the local moves reduce to the isotopy move. 
+%% For the second,  to check that a homeomorphism $f \in \Homeo^+(M)$ preserves equivalence of colored graphs, it suffices to check that it in the case of each local move.  Since the mapping class group is generated by Dehn twists, all the local moves reduce to the isotopy move. 
 
-To check that isotopic colored graphs get mapped to equivalent colored graphs, suppose $\Gamma$ is a graph and $i: \Gamma to M$ and $j: \Gamma \to M$ are isotopic embeddings. Let $H: \Gamma \times I \to M$ be an isotopy from $i$ to $j$.  Let $f \in \Homeo^+(M)$.  Then $f \circ H$ is an isotopy from $f \circ i$ to $f \circ j$.  
+%% To check that isotopic colored graphs get mapped to equivalent colored graphs, suppose $\Gamma$ is a graph and $i: \Gamma to M$ and $j: \Gamma \to M$ are isotopic embeddings. Let $H: \Gamma \times I \to M$ be an isotopy from $i$ to $j$.  Let $f \in \Homeo^+(M)$.  Then $f \circ H$ is an isotopy from $f \circ i$ to $f \circ j$.  
 
-Thus, the action of the mapping class group on $H$ is well-defined.
-\end{proof}
+%% Thus, the action of the mapping class group on $H$ is well-defined.
+%% \end{proof}
 
 
-\begin{figure}
-\includegraphics[width=.80\textwidth]{lickorish.png}
-\caption{Lickorish generating set (Source: \url{https://en.wikipedia.org/wiki/Dehn_twist})}
-\label{fig:lickorish}
-\end{figure}
+%% \begin{figure}
+%% \includegraphics[width=.80\textwidth]{lickorish.png}
+%% \caption{Lickorish generating set (Source: \url{https://en.wikipedia.org/wiki/Dehn_twist})}
+%% \label{fig:lickorish}
+%% \end{figure}
 
 
 \begin{thm}
