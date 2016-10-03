@@ -93,13 +93,13 @@ Given a spherical category $\mathcal A$ over a field $k$ and an oriented compact
 
 It is conjectured that these representations have finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a mild modification of the Property F conjecture \cite{erw, nr}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral.
 
-This paper considers the case when $\mathcal A = \Vect_G^\omega$, the monoidal category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the Turaev-Viro construction corresponds to the twisted Dijkgraaf-Witten theory \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects that its associated mapping class group representations have finite image.  The current paper verifies that this is indeed the case  when the surface $M$ is closed and ($G$, $\omega$) are arbitrary.  
+This paper considers the case when $\mathcal A = \Vect_G^\omega$, the monoidal category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the Turaev-Viro construction corresponds to the twisted Dijkgraaf-Witten theory \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects that its associated mapping class group representations have finite image.  Our main contribution is to verify this in the case  when the surface $M$ is closed and ($G$, $\omega$) are arbitrary.  
 
 \section{Related Work}
 
 This result is an extension of the result of Fjelstad and Fuchs \cite{fjfu} showing that, given a surface with at most one boundary component, the mapping class group representations corresponding to the untwisted (i.e. $\omega = 1$) case have finite image.  Their paper uses an algebraic method of Lyubashenko \cite{Lyubashenko1996} that gives a projective mapping class group representation to any factorizable ribbon Hopf algebra, in their case, the double $D(G)$. In our case, we will take the simpler, geometric approach of considering the mapping class group action on a vector space of $\Vect_G^\omega$-colored embedded graphs defined by Kirillov \cite{kirillovStringNets}. 
 
-In \cite{bantay}, Bantay defined representations of mapping class groups on the Hilbert space of an orbifold model associated to $D^\omega(G)$.  These representations appear to coincide with the twisted Dijkgraaf-Witten representations. However, the precise details of the connection are not clear to the current author.
+In \cite{bantay}, Bantay defined representations of mapping class groups on the Hilbert space of an orbifold model associated to $D^\omega(G)$.  These representations appear to coincide with the twisted Dijkgraaf-Witten representations. However, the precise details of the connection are not clear to me.
 
 More is known when we fix a particular surface $M$. In the case where $M$ is a torus, it turns out that any Reshitikhin-Turaev representation of the mapping class group of the torus is always finite \cite{0806.2493}.  In particular, this implies that the Turaev-Viro representations are all finite.  In the case where $M$ is an $n$-punctured disk, the mapping class group of $M$ relative to the boundary of the disk is the braid group $B_n$.  In this case, it has been proved that the Turaev-Viro representations coming from pointed spherical categories are finite \cite{erw}.
 
@@ -911,7 +911,7 @@ Thus, the image of any such mapping class group representation is a quotient of 
 \end{figure}
 
 \section{Example Calculation}
-This section contains a calculation of the matrix coefficient for the first Dehn twist (shown in Figure \ref{fig:tikzTwist1_1}).
+This section contains a calculation of the matrix coefficient for the first Dehn twist (shown in Figure \ref{fig:tikzTwist1_1}).   Assume that the main vertex is initially labeled with an element of $\Hom(1, h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1})$.   In the following, we will abbreviate by saying that the vertex is ``in state $h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1}$.''
 
 In Figure \ref{fig:tikzTwist1_3}, we add the upper left vertex, which is labeled by  $\coev_g$.  We then connect the vertices with an unlabelled edge, which is shorthand for labelling by the object $1$ .  At this point, the vertices are in states $h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1}$ and $g \otimes g^{-1}  \otimes 1$.  To compose the two vertices, we use the spherical structure on the former vertex and reassociate until it is in the state $h^{-1} \otimes h g^{-1} h^{-1} \otimes h \otimes g \otimes 1$.  In doing so, we pick up a factor of 
 $$ \omega(h, g, h^{-1}) \omega(h, gh^{-1}, hg^{-1}h^{-1}) \omega(g, h^{-1}, hg^{-1}h^{-1}) \omega(g, g^{-1}h^{-1}, h) $$
@@ -952,7 +952,10 @@ $$\omega^{-1}(hg, h^{-1}, hg^{-1}h^{-1}) \omega^{-1}(hg, g, g^{-1}h^{-1}).$$
 \end{align*}
 
 
-\section{Conclusion}
+\section{Further Directions}
+
+Given the fact that the braid group representations associated to $D^\omega(G)$ are also finite \cite{erw}, it should not be too much 
+of a stretch to prove that mapping class group representations associated to $D^\omega(G)$ for \emph{any} surface are finite.  
 
 
 \medskip
