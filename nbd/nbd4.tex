@@ -58,6 +58,7 @@ midarrow/.default=0.5
 
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\MCG}{MCG}
+\DeclareMathOperator{\Mod}{Mod}
 \DeclareMathOperator{\Vect}{Vec}
 \DeclareMathOperator{\Homeo}{Homeo}
 \DeclareMathOperator{\Hom}{Hom}
@@ -91,17 +92,18 @@ Any twisted Dijkgraaf-Witten representation of a mapping class group of a closed
 \section{Introduction}
 Given a spherical category $\mathcal A$ over a field $k$ and an oriented compact surface $M$, possibly with boundary, the Turaev-Viro construction gives a projective representation of the mapping class group $\MCG(M)$ \cite{TURAEV1992865, hep-th/9311155}.  A natural question is to determine the image of these representations.  In particular,  when does such a representation have finite image?
 
-It is conjectured that these representations have finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a mild modification of the Property F conjecture \cite{erw, nr}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral.
+It is conjectured that these representations have finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a mild modification of the Property F conjecture \cite{nr, erw}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral. 
 
 This paper considers the case when $\mathcal A = \Vect_G^\omega$, the monoidal category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the Turaev-Viro construction corresponds to the twisted Dijkgraaf-Witten theory \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects that its associated mapping class group representations have finite image.  Our main contribution is to verify this in the case  when the surface $M$ is closed and ($G$, $\omega$) are arbitrary.  
 
+\textbf{Acknowledgments.}  This paper would not have been written without the guidance of my advisor, Eric Rowell.  I am also grateful to Zhengan Wang and my father Robert Gustafson for their help.
 \section{Related Work}
 
 This result is an extension of the result of Fjelstad and Fuchs \cite{fjfu} showing that, given a surface with at most one boundary component, the mapping class group representations corresponding to the untwisted (i.e. $\omega = 1$) case have finite image.  Their paper uses an algebraic method of Lyubashenko \cite{Lyubashenko1996} that gives a projective mapping class group representation to any factorizable ribbon Hopf algebra, in their case, the double $D(G)$. In our case, we will take the simpler, geometric approach of considering the mapping class group action on a vector space of $\Vect_G^\omega$-colored embedded graphs defined by Kirillov \cite{kirillovStringNets}. 
 
 In \cite{bantay}, Bantay defined representations of mapping class groups on the Hilbert space of an orbifold model associated to $D^\omega(G)$.  These representations appear to coincide with the twisted Dijkgraaf-Witten representations. However, the precise details of the connection are not clear to me.
 
-More is known when we fix a particular surface $M$. In the case where $M$ is a torus, it turns out that any Reshitikhin-Turaev representation of the mapping class group of the torus is always finite \cite{0806.2493}.  In particular, this implies that the Turaev-Viro representations are all finite.  In the case where $M$ is an $n$-punctured disk, the mapping class group of $M$ relative to the boundary of the disk is the braid group $B_n$.  In this case, it has been proved that the Turaev-Viro representations coming from pointed spherical categories are finite \cite{erw}.
+More is known when we fix a particular surface $M$. In the case where $M$ is a torus, it turns out that any Reshitikhin-Turaev representation of the mapping class group of the torus is always finite \cite{0806.2493}.  In particular, this implies that the Turaev-Viro representations are all finite.  In the case where $M$ is an $n$-punctured disk, the mapping class group of $M$ relative to the boundary of the disk is the braid group $B_n$.  In this case, it has been proved that the Turaev-Viro representations coming from  are finite \cite{erw}.
 
 \section{Definitions}
 
@@ -917,7 +919,7 @@ In Figure \ref{fig:tikzTwist1_3}, we add the upper left vertex, which is labeled
 $$ \omega(h, g, h^{-1}) \omega(h, gh^{-1}, hg^{-1}h^{-1}) \omega(g, h^{-1}, hg^{-1}h^{-1}) \omega(g, g^{-1}h^{-1}, h) $$
 % $$\omega^{-1}(hg^{-1}h^{-1}, hg, h^{-1}) \omega^{-1}(hg^{-1}h^{-1}, h, g) \omega^{-1}(h^{-1}, hg^{-1}, g) \omega^{-1}(h^{-1}, hg^{-1}h^{-1}, h) $$
 
-After performing the composition, we are in the situation of Figure $\ref{fig:tikzTwist1_3}$ with state $h^{-1} \otimes hg^{-1}h^{-1} \otimes h \otimes g \otimes (g \otimes g^{-1})$.  To get rid of the last pair of parentheses, we get a factor of $\omega^{-1}(h^{-1}hg^{-1}h^{-1}hg, g, g^{-1}) = \omega^{-1}(1, g, g^{-1}) = 1$.   
+After performing the composition, we are in the situation of Figure $\ref{fig:tikzTwist1_4}$ with state $h^{-1} \otimes hg^{-1}h^{-1} \otimes h \otimes g \otimes (g \otimes g^{-1})$.  To get rid of the last pair of parentheses, we get a factor of $\omega^{-1}(h^{-1}hg^{-1}h^{-1}hg, g, g^{-1}) = \omega^{-1}(1, g, g^{-1}) = 1$.   
 
 To tensor the parallel $g$ and $h$ edges together, we add $\coev_g$ and $\coev_h$ vertices in the middle of those edges and connect them with a $1$.  Composing along the $1$, we get a vertex in state $g \otimes g^{-1} \otimes h^{-1} \otimes h$.  To put this vertex in state $g^{-1}h^{-1} \otimes hg$ we pick up a factor of $\omega(g, g^{-1}, h^{-1}) \omega(g, g^{-1}h^{-1}, h) \omega(g^{-1}h^{-1}, h, g)$.   We also put the original vertex in the state $g^{-1}h^{-1} \otimes hg^{-1}h^{-1} \otimes hg \otimes g$ with a factor of
 $$\omega^{-1}(g^{-1}, g^{-1}, g) \omega^{-1}(g^{-1}, g^{-1}h^{-1}, h) \omega^{-1}(g^{-1}, h^{-1}, hg^{-1}h^{-1}) \omega(g^{-2}h^{-1}, h, g). $$
@@ -925,12 +927,13 @@ $$\omega^{-1}(g^{-1}, g^{-1}, g) \omega^{-1}(g^{-1}, g^{-1}h^{-1}, h) \omega^{-1
 To compose the two vertices, we rotate the original vertex to the state $g  \otimes g^{-1}h^{-1}  \otimes hg^{-1}h^{-1} \otimes hg$ which yields a factor of 
 $$\omega^{-1}(g, h^{-1}, hg) \omega^{-1}(g, g^{-1}h^{-1}, hg^{-1}h^{-1}) \omega^{-1}(g, g^{-1}, h^{-1}).$$
 We are then in a position to compose the two vertices, giving a factor 
-$\omega(g^{-1}h^{-1}, hg, g^{-1}h^{-1})  \ev_{g^{-1}h^{-1}} = 1$ and a vertex in state $g( g^{-1}h^{-1}) (hg^{-1}h^{-1})(hg)$.  Rotating the vertex into its initial configuration $hg \otimes g \otimes  g^{-1}h^{-1} \otimes hg^{-1}h^{-1}$ gives a factor 
+$\omega(g^{-1}h^{-1}, hg, g^{-1}h^{-1})  \ev_{g^{-1}h^{-1}} = 1$ and a vertex in state $g \otimes g^{-1}h^{-1} \otimes hg^{-1}h^{-1} \otimes hg$.  Rotating the vertex into its initial configuration $hg \otimes g \otimes  g^{-1}h^{-1} \otimes hg^{-1}h^{-1}$ gives a factor 
 of 
 $$\omega^{-1}(hg, h^{-1}, hg^{-1}h^{-1}) \omega^{-1}(hg, g, g^{-1}h^{-1}).$$
 
  Thus, we have an overall factor of
-\begin{align*}
+{\allowdisplaybreaks
+\begin{align*} 
 &  \frac{\omega(h, g, h^{-1}) \omega(h, gh^{-1}, hg^{-1}h^{-1}) \omega(g, h^{-1}, hg^{-1}h^{-1}) \omega(g, g^{-1}h^{-1}, h) } 
 {\omega(g^{-1}, g^{-1}, g) \omega(g^{-1}, g^{-1}h^{-1}, h) \omega(g^{-1}, h^{-1}, hg^{-1}h^{-1})  \omega(g, g^{-2}h^{-1}, hg)} \cdot \\ 
 & \qquad  \frac{\omega(g, g^{-1}, h^{-1}) \omega(g, g^{-1}h^{-1}, h) \omega(g^{-1}h^{-1}, h, g) \omega(g^{-2}h^{-1}, h, g)}
@@ -950,14 +953,18 @@ $$\omega^{-1}(hg, h^{-1}, hg^{-1}h^{-1}) \omega^{-1}(hg, g, g^{-1}h^{-1}).$$
 & = \frac{\omega(h, g, g^{-1}h^{-1})  \omega^2(g^{-1}h^{-1}, h, g) } 
 {\omega^2(g^{-1}, h^{-1},h)  \omega(hg, g, g^{-1}h^{-1}) } 
 \end{align*}
+}
 
 
 \section{Further Directions}
+Given the fact that the braid group representations associated to $D^\omega(G)$ are also finite \cite{erw}, it should not be too much of a
+stretch to prove that mapping class group representations associated to $\Vect^\omega(G)$ for any surface, including boundary, are finite.  
+The basic idea is that one labels the boundary components with elements of the double category, in this case $\Mod(D^\omega(G))$, and the
+$\Vect_G^\omega$-colored embedded graphs must be compatible with the boundary labels, as detailed in \cite{kirillovStringNets}.  
 
-Given the fact that the braid group representations associated to $D^\omega(G)$ are also finite \cite{erw}, it should not be too much 
-of a stretch to prove that mapping class group representations associated to $D^\omega(G)$ for \emph{any} surface are finite.  
-
-
+One could also consider more complicated spherical categories than $\Vect^\omega(G)$, such as the 
+Tambara-Yamagami categories.  The main additional complication here is the appearance of multiplicity, i.e. the tensor product of 
+two simple objects can be a direct sum of multiple simple objects.  
 \medskip
 
 
