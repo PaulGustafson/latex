@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Representations of Lie Algebras
+
+\subsection*{HW 1}
+\p 1 Prove that over an algebraically closed field of characteristic not equal 2, if $B$ is a nondegenerate symmetric bilinear form over an f.d. vector space $V$, then $\mathfrak{so}(V,B) \simeq \mathfrak{so}(V)$.
+\begin{proof}
+I claim that there exists a vector $v \in V$ such that $B(v,v) \neq 0$.  Suppose not.  By nondegeneracy, there exist vectors $x,y$ with $B(x,y) \neq 0$.  By assumption, $0 = B(x+y, x+y) = B(x,x) + 2B(x,y) + B(y,y) = 2B(x,y)$, a contradiction.
+
+Thus, we may choose a vector $v$ such that $B(v,v) \neq 0$. By dividing if necessary, WLOG $B(v,v) = 1$.  Let $v^\perp = \{w \in V : B(v,w) = 0\}$.  
+
+I claim that $v^\perp$ has codimension $1$.  Suppose $x \in V$.  Let $p = B(x,v) v$.   It suffices to show that $x - p \in v^\perp$.  We have $B(x-p, v) = B(x,v) - B(p,v) = B(x,v) - B(x,v) B(v,v) = 0$.  Thus $V = v^\perp + \lambda v$.  Since $B(v,v) \neq 0$, $v^\perp \cap \lambda v = \{0\}$.  Thus $V = v^\perp \oplus \lambda v$.
+
+By induction, we get an orthonormal basis $v_1, \ldots, v_n$ for $V$ with respect to $B$.
+\end{proof}
+
+\p 2  Show that $(\RR^3, \times)$ is a real Lie algebra.  Is this related to $\mathfrak{su}(2)$?
+\begin{proof}
+The cross-product is antisymmetric and bilinear by definition.  To check that the Jacobi identity holds, it suffices to check it on basis vectors $i := e_1, j:= e_2, k := e_3$.  Moreover, the Jacobi identity is invariant under cyclic permutations of its arguments.  Hence, it suffices to check the following cases, where $v,w$ are arbitrary:
+\begin{align*}
+i \times (j \times k) + k \times (i \times j) + j \times (k \times i) & = i \times i + k \times k + j \times j = 0 \\
+j \times (i \times k) + k \times (j \times i) + i \times (k \times j) & = - j \times j  - k \times k - i \times i = 0 \\
+v \times (w \times w) + w \times (v \times w) + w \times (w \times v) & = 0 + w \times (v \times w) - w \times (v \times w) = 0
+\end{align*}
+
+For the comparison to $\mathfrak{su}(2)$, first we have the commutation relations
+\begin{align*}
+[i\sigma_x, i\sigma_y] & = -2 i\sigma_z \\
+[i\sigma_y, i\sigma_z] & = -2 i\sigma_x \\
+[i\sigma_z, i\sigma_x] & = -2 i\sigma_y 
+\end{align*}
+Thus, by swapping the cyclic orders, we get an isomorphism  $(\RR^3, \times) \simeq \mathfrak{su}(2)$.  For example $i \mapsto \frac{i}{2} \sigma_x$, $j \mapsto \frac{i}{2} \sigma_z$, and $k \mapsto \frac{i}{2} \sigma_y$.  
+\end{proof}
+
+\p 3 Consider $\HH$.
+\begin{proof}
+The quaternions are not a Lie algebra.  For example, the Jacobi identity fails since
+$1ij + j1i + ij1 = k -k + k \neq 0$.  However if we mod out the subspace spanned by $1$,
+ we have $\HH/\RR \simeq (\RR^3, \times) \simeq  \mathfrak{su}(2)$ as real Lie algebras.
+\end{proof}
+
+\newcommand{\mf}{\mathfrak}
+
+\p 4 Check that the radical $\rad(K)$ of the Killing form of $\mathfrak{g}$ satisfies
+the conditions of Cartan's criterion for solvability.
+\begin{proof}
+Let $v \in \rad(K)$ and $w \in \rad(K)'$. 
+By a lemma from class, the Killing form $K_{\rad(K)}$ of the Lie algebra $\rad(K)$ 
+is the restriction of the Killing form $K$ of $\mf g$ to $\rad(K) \times \rad(K)$.
+Thus $K_{\rad(K)}(v,w) = K(v,w) = 0$, by the definition of $\rad(K)$.
+\end{proof}
+\end{document}
