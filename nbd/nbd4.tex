@@ -92,18 +92,21 @@ Any twisted Dijkgraaf-Witten representation of a mapping class group of a closed
 \section{Introduction}
 Given a spherical category $\mathcal A$ over a field $k$ and an oriented compact surface $M$, possibly with boundary, the Turaev-Viro construction gives a projective representation of the mapping class group $\MCG(M)$ \cite{TURAEV1992865, hep-th/9311155}.  A natural question is to determine the image of these representations.  In particular,  when does such a representation have finite image?
 
-It is conjectured that these representations have finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a mild modification of the Property F conjecture \cite{nr, erw}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral. 
+It is conjectured that these representations have finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a modification of the Property F conjecture \cite{nr, erw}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral.  Instead of only considering braid group representations, one can consider mapping class groups of arbitrary orientable surfaces.  In this case, the input categories to construct the representations must be more specialized than just braided monoidal.  One can either apply the Reshitikhin-Turaev construction to a modular tensor category, or apply the Turaev-Viro construction to a spherical category.  The former is more general than the latter since the the Reshitikhin-Turaev construction for the Drinfeld center $Z(\mathcal A)$ of a spherical category $\mathcal A$ yields the same representation as the Turaev-Viro construction for $\mathcal A$.  However, for the case considered in this paper, the simpler Turaev-Viro construction suffices.
 
-This paper considers the case when $\mathcal A = \Vect_G^\omega$, the monoidal category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the Turaev-Viro construction corresponds to the twisted Dijkgraaf-Witten theory \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects that its associated mapping class group representations have finite image.  Our main contribution is to verify this in the case  when the surface $M$ is closed and ($G$, $\omega$) are arbitrary.  
+% ^ Double check this ^ Does it work for any BMC?
 
-\textbf{Acknowledgments.}  This paper would not have been written without the guidance of my advisor, Eric Rowell.  I am also grateful to Zhengan Wang and my father Robert Gustafson for their help.
+In this paper, our input category is  $\mathcal A = \Vect_G^\omega$, the monoidal category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the Turaev-Viro construction corresponds to the twisted Dijkgraaf-Witten theory of \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects that its associated mapping class group representations have finite image.  Our main contribution is to verify this in the case  when the surface $M$ is closed and ($G$, $\omega$) are arbitrary.  
+
+\textbf{Acknowledgments.}  This paper would not have been written without the guidance of my advisor, Eric Rowell.  I am also grateful to Zhengan Wang and my father Robert Gustafson for their advice.
+
 \section{Related Work}
 
-This result is an extension of the result of Fjelstad and Fuchs \cite{fjfu} showing that, given a surface with at most one boundary component, the mapping class group representations corresponding to the untwisted (i.e. $\omega = 1$) case have finite image.  Their paper uses an algebraic method of Lyubashenko \cite{Lyubashenko1996} that gives a projective mapping class group representation to any factorizable ribbon Hopf algebra, in their case, the double $D(G)$. In our case, we will take the simpler, geometric approach of considering the mapping class group action on a vector space of $\Vect_G^\omega$-colored embedded graphs defined by Kirillov \cite{kirillovStringNets}. 
+The closest related work is a result of Fjelstad and Fuchs \cite{fjfu} showing that, given a surface with at most one boundary component, the mapping class group representations corresponding to the untwisted (i.e. $\omega = 1$) Dijkgraaf-Witten theory have finite image.  Their paper uses an algebraic method of Lyubashenko \cite{Lyubashenko1996} that gives a projective mapping class group representation to any factorizable ribbon Hopf algebra, in their case, the double $D(G)$. In our case, we will considering the mapping class group action on a vector space of $\Vect_G^\omega$-colored embedded graphs defined by Kirillov \cite{kirillovStringNets}, yielding a simpler, more geometric proof.
 
 In \cite{bantay}, Bantay defined representations of mapping class groups on the Hilbert space of an orbifold model associated to $D^\omega(G)$.  These representations appear to coincide with the twisted Dijkgraaf-Witten representations. However, the precise details of the connection are not clear to me.
 
-More is known when we fix a particular surface $M$. In the case where $M$ is a torus, it turns out that any Reshitikhin-Turaev representation of the mapping class group of the torus is always finite \cite{0806.2493}.  In particular, this implies that the Turaev-Viro representations are all finite.  In the case where $M$ is an $n$-punctured disk, the mapping class group of $M$ relative to the boundary of the disk is the braid group $B_n$.  In this case, it has been proved that the Turaev-Viro representations coming from  are finite \cite{erw}.
+More is known when we fix a particular surface $M$. In the case where $M$ is a torus, Ng and Schauenburg showed that any Reshitikhin-Turaev representation of the mapping class group of the torus is always finite \cite{0806.2493}.   In the case where $M$ is an $n$-punctured disk, the mapping class group of $M$ relative to the boundary of the disk is the braid group $B_n$.  In this case, Etingof, Rowell, and Witherspoon proved that the representations associated to $\Mod(D^\omega(G))$ are finite \cite{erw}.
 
 \section{Definitions}
 
@@ -136,7 +139,8 @@ $$j_g = \omega(g^{-1},g,g^{-1}) \id_{g}.$$
 \newcommand{\firef}[1]{Figure~{\rm\ref{#1}}}
 \newcommand{\R}{\mathbb{R}}       % real numbers
 
-The following definitions are due to Kirillov \cite{kirillovStringNets}.
+The following definitions and theorem are from Kirillov's paper
+ \cite{kirillovStringNets}.
 We will consider finite  graphs embedded in the surface $M$; for such a
 graph $\Ga$, let $E(\Ga)$ be the set of edges. Note that edges are not
 oriented. Let $E^{or}$ be the set of oriented edges, i.e. pairs $\ee=(e,
@@ -376,11 +380,11 @@ The image of the twisted Dijkgraaf-Witten representation of a mapping class grou
 \end{thm}
 
 \begin{proof}
-Let $\Gamma$ be a $\Vect_G^\omega$-colored graph embedding . Thinking of $X$ as a quotient of its fundamental polygon, by isotopy we may assume vertices of $\Gamma$ lie in the interior of the polygon and that all the edges of $\Gamma$ do not intersect corners and meet the sides transversally.  Evaluating on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$ and $2n$ outgoing edges $e_1, \ldots e_{2n}$, each of which intersects precisely one side of the fundamental polygon.
+Let $\Gamma$ be a $\Vect_G^\omega$-colored graph embedding, and let $n$ be the genus of $M$ . Thinking of $M$ as a quotient of its fundamental $4n$-gon, by isotopy we may assume vertices of $\Gamma$ lie in the interior of the polygon and that all the edges of $\Gamma$ do not intersect corners and meet the sides transversally.  Evaluating on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$, outgoing edges $e_1, \ldots, e_{2n}$, and $2n$ incoming edges with the same labels as in Figure \ref{fig:span}.
 
 By the definition of the evaluation of a string-net and the definition of the quotient map identifying the sides of the fundamental polygon, the vertex $v$ is colored by an element $\phi(v) \in \Hom (1, \bigotimes_{i=1}^n V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1}^*) \otimes V(e_{2i}^*))$, where $V(e_i) \in \Obj(\Vect_G^\omega)$ is the coloring of the edge $e_i$.  Since string-net evaluation is additive in the direct sum and linear in the vertex color, it follows that $H$ is spanned by the set of colored graphs
 $$ S := \{\Gamma \in H : V(e_i) \in \Irr(\Vect_G^\omega), \phi(v) = 1 \}, $$
-where $\Irr(\Vect_G^\omega)$ is the set of simple objects of $\Vect_G^\omega$, which correspond to the elements of $G$.  See Figure \ref{fig:span} for a depiction.
+where $\Irr(\Vect_G^\omega)$ is the set of simple objects of $\Vect_G^\omega$, which correspond to the elements of $G$. 
 
 \newdimen\R
 \R=0.8cm
@@ -421,9 +425,9 @@ where $\Irr(\Vect_G^\omega)$ is the set of simple objects of $\Vect_G^\omega$, w
 \end{figure}
 
 
-The mapping class group of $M$ is generated by the Lickorish generating set consisting of Dehn twists around $3g-1$ simple closed curves (see Figure \ref{fig:lickorish}).  These can be divided into two types of twists: the ones around a single hole (the blue and green curves in Figure \ref{fig:lickorish}), and the ones connecting two holes (the red curves in Figure \ref{fig:lickorish}).
+The mapping class group of $M$ is generated by the Lickorish generating set consisting of Dehn twists around $3g-1$ simple closed curves.  These can be divided into two types of twists: the ones around a single hole (the blue and green curves in Figure \ref{fig:lickorish}), and the ones connecting two holes (the red curves).
 
- Using the local moves as in Figures \ref{fig:tikzTwist1_1} to \ref{fig:tikzTwist2_5}, one sees that the result of each of these Dehn twists lies in $\Img(\omega) S$.  It is a basic result in group cohomology that, by replacing $\omega$ with a cohomologous cocycle if necessary,  the image of $\omega$ lies in $\mu_{|G|}$, the set of $|G|$-th roots of unity.  Since cohomologous cocycles give rise to monoidally equivalent categories $Vect_G^\omega$, this replacement does not incur any loss in generality.
+ Using the local moves as in Figures \ref{fig:tikzTwist1_1} to \ref{fig:tikzTwist2_5}, one sees that the result of each of these Dehn twists lies in $\Img(\omega) S$ since the structural morphisms of $\Vect_G^\omega$ have coefficients in $\Img(\omega)$.  It is a basic result in group cohomology that, by replacing $\omega$ with a cohomologous cocycle if necessary,  the image of $\omega$ lies in $\mu_{|G|}$, the set of $|G|$-th roots of unity.  Since cohomologous cocycles give rise to monoidally equivalent categories $\Vect_G^\omega$, this replacement does not incur any loss in generality.
 
 Thus, the image of any such mapping class group representation is a quotient of the group of permutations of the finite set $\mu_{|G|} S$, hence finite.
 \end{proof}
@@ -913,7 +917,7 @@ Thus, the image of any such mapping class group representation is a quotient of 
 \end{figure}
 
 \section{Example Calculation}
-This section contains a calculation of the matrix coefficient for the first Dehn twist (shown in Figure \ref{fig:tikzTwist1_1}).   Assume that the main vertex is initially labeled with an element of $\Hom(1, h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1})$.   In the following, we will abbreviate by saying that the vertex is ``in state $h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1}$.''
+This section contains a calculation of the coefficient for the first Dehn twist shown in Figure \ref{fig:tikzTwist1_1}.   Assume that the main vertex is initially labeled with an element of $\Hom(1, h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1})$.   In the following, we will abbreviate by saying that the vertex is in state $h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1}$.
 
 In Figure \ref{fig:tikzTwist1_3}, we add the upper left vertex, which is labeled by  $\coev_g$.  We then connect the vertices with an unlabelled edge, which is shorthand for labelling by the object $1$ .  At this point, the vertices are in states $h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1}$ and $g \otimes g^{-1}  \otimes 1$.  To compose the two vertices, we use the spherical structure on the former vertex and reassociate until it is in the state $h^{-1} \otimes h g^{-1} h^{-1} \otimes h \otimes g \otimes 1$.  In doing so, we pick up a factor of 
 $$ \omega(h, g, h^{-1}) \omega(h, gh^{-1}, hg^{-1}h^{-1}) \omega(g, h^{-1}, hg^{-1}h^{-1}) \omega(g, g^{-1}h^{-1}, h) $$
@@ -957,8 +961,8 @@ $$\omega^{-1}(hg, h^{-1}, hg^{-1}h^{-1}) \omega^{-1}(hg, g, g^{-1}h^{-1}).$$
 
 
 \section{Further Directions}
-Given the fact that the braid group representations associated to $D^\omega(G)$ are also finite \cite{erw}, it should not be too much of a
-stretch to prove that mapping class group representations associated to $\Vect^\omega(G)$ for any surface, including boundary, are finite.  
+Given the fact that the braid group representations associated to $D^\omega(G)$ are also finite \cite{erw}, it should  be possible
+ to prove that mapping class group representations associated to $\Vect^\omega(G)$ for any orientable surface, including boundary, are finite.  
 The basic idea is that one labels the boundary components with elements of the double category, in this case $\Mod(D^\omega(G))$, and the
 $\Vect_G^\omega$-colored embedded graphs must be compatible with the boundary labels, as detailed in \cite{kirillovStringNets}.  
 
