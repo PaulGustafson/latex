@@ -1,0 +1,49 @@
+N = 2
+|00)+1.414|10)
+normalize
+print "If the state is of the form"
+show
+print "Then one expects that"
+print "0 will be observed with prob. 1/3"
+print "1 will be observed with prob. 2/3"
+|00)+1.414|10)
+normalize
+M(1)
+show
+|00)+1.414|10)
+normalize
+M(1)
+show
+|00)+1.414|10)
+normalize
+M(1)
+show
+|00)+1.414|10)
+normalize
+M(1)
+show
+|00)+1.414|10)
+normalize
+M(1)
+show
+|00)+1.414|10)
+normalize
+M(1)
+show
+|00)+1.414|10)
+normalize
+M(1)
+show
+|00)+1.414|10)
+normalize
+M(1)
+show
+|00)+1.414|10)
+normalize
+M(1)
+show
+|00)+1.414|10)
+normalize
+M(1)
+show
+

@@ -78,16 +78,18 @@ void measure_state(int pos, cplx *state) {
    * of the quantum computer
    */ 
 
+  // the probability of getting a zero in the ith position
   prob = 0;
 
-  // printf("Rand: %1.5f \n", ran);
-
+  // calculate prob by adding up the squared moduli of coefficients
+  // with 0 in the position "pos"
   for (i = 0; i < (1 << Nbits); i++) {
     if (((i / pos) % 2) == 0) {
       prob += sq(state[i].re)+sq(state[i].im);
     }
   }
 
+  // do the measurement
   int measuredBit;
 
   if(ran < prob) 
@@ -236,10 +238,10 @@ void applygate(int Nbits, int ocnd, int icnd, int gpos,
   for (i = 0; i < (1 << Nbits); i++) {
     if(((i & acnd) ^ icnd) == 0) {
       if(((i / gpos) % 2) == 0) {
-	tmp0 = state[i];
-	tmp1 = state[i + gpos];
-	state[i] =  add(mult(g[0], tmp0), mult(g[1], tmp1));
-	state[i + gpos] = add(mult(g[2], tmp0), mult(g[3], tmp1));
+        tmp0 = state[i];
+        tmp1 = state[i + gpos];
+        state[i] =  add(mult(g[0], tmp0), mult(g[1], tmp1));
+        state[i + gpos] = add(mult(g[2], tmp0), mult(g[3], tmp1));
       }
     }
   }

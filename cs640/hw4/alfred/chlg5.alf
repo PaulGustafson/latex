@@ -1,0 +1,54 @@
+N = 3
+H = [0.707,0.707,0.707,-0.707]
+print " "
+print "A controlled Hadamard gate that acts on the "
+print "most significant bit when the least significant"
+print "is 0 and the middle bit is 1:"
+print "------------------------" 
+|000)
+print "|000) -->"
+G([-0,1],2,H)
+show
+print "------------------------" 
+
+|001)
+print "|001) -->"
+G([-0,1],2,H)
+show
+print "------------------------" 
+
+|010)
+print "|010) -->"
+G([-0,1],2,H)
+show
+print "------------------------" 
+
+|011)
+print "|011) -->"
+G([-0,1],2,H)
+show
+print "------------------------" 
+
+|100)
+print "|100) -->"
+G([-0,1],2,H)
+show
+print "------------------------" 
+
+|101)
+print "|101) -->"
+G([-0,1],2,H)
+show
+print "------------------------" 
+
+|110)
+print "|110) -->"
+G([-0,1],2,H)
+show
+print "------------------------" 
+
+|111)
+print "|111) -->"
+G([-0,1],2,H)
+show
+
