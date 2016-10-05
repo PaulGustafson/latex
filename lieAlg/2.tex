@@ -7,10 +7,11 @@
 
 \newcommand{\mf}{\mathfrak}
 
+
 \subsection*{HW 1}
-\p 1 Let $\mf g$ be a real Lie algebra, and $\mf g_\CC$ its complexification: as a vector space it is $\mf g$ tensored with $\CC$ over $\RR$.  What is the bracket $[x,y]$ on $\mf g_\CC$?  
+\p 1 Let $\mf g$ be a real Lie algebra, and $\mf g_{\CC}$ its complexification: as a vector space it is $\mf g$ tensored with $\CC$ over $\RR$.  What is the bracket $[x,y]$ on $\mf g_{\CC}$?  
 \begin{proof}
-The bracket on $\mf g_\CC$ is given by $[a_1 + i b_1, a_2 + i b_2] = [a_1, a_2] - [b_1, b_2] + i([b_1,a_2] + [a_1, b_2])$.  This bracket is clearly $\R$-bilinear, antisymmetric, and restricts to the previous bracket of $\mf g$.  For $\CC$-bilinearity, we have, for $x_1,x_2 \in \R$,
+The bracket on $\mf g_{\CC}$ is given by $[a_1 + i b_1, a_2 + i b_2] = [a_1, a_2] - [b_1, b_2] + i([b_1,a_2] + [a_1, b_2])$.  This bracket is clearly $\R$-bilinear, antisymmetric, and restricts to the previous bracket of $\mf g$.  For $\CC$-bilinearity, we have, for $x_1,x_2 \in \R$,
 \begin{align*}
 [i (a_1 + i b_1), a_2 + i b_2] & = [- b_1 + ia_1, a_2 + i b_2] \\
 & = -[b_1, a_2] - [a_1, b_2] + i( [a_1,a_2] - [b_1, b_2]) \\
@@ -22,33 +23,69 @@ The bracket on $\mf g_\CC$ is given by $[a_1 + i b_1, a_2 + i b_2] = [a_1, a_2] 
 The Jacobi identity follows from the real form.
 \end{proof}
 
-\p 2 Determine the adjoint representation and Killing form for o(S,V) with V=C^3.  Is the Killing form non-degenerate?  Is the adjoint representation faithful? 
+\p 2 Determine the adjoint representation and Killing form for $\mf o(S,V)$ with $V=\CC^3$.  Is the Killing form non-degenerate?  Is the adjoint representation faithful? 
 \begin{proof}
 The Lie algebra $\mf o(3) \subset \mf{gl}(3)$ consists of the endomorphisms $E$ for which $S(Ev,w) + S(v,Ew) = 0$.  Restricting to the standard basis, we get the equivalent condition $E_{ij} = - E_{ij}$.  Hence, a basis for $\mf o(3)$ is the set $f_{ij} := e_{ij} - e_{ji}$ for $i < j$.  To calculate the adjoint representation, we have
 \begin{align*}
 [f_{ij}, f_{kl}] & = [e_{ij} - e_{ji}, e_{kl} - e_{lk}] \\
 & = [e_{ij}, e_{kl}] - [e_{ij}, e_{lk}] - [e_{ji}, e_{kl}] + [e_{ji}, e_{lk}] \\
- & = (\delta_{jk} e_{il} - \delta_{li}e_{kj}) - (\delta_{jl} e_{ik} - \delta_{ki}e_{lj}) - (\delta_{ik} e_{jl} - \delta_{lj}e_{ki }) + (\delta_{il} e_{jk} - \delta_{kj}e_{li }) \\
+& = (\delta_{jk} e_{il} - \delta_{li}e_{kj}) - (\delta_{jl} e_{ik} - \delta_{ki}e_{lj}) - (\delta_{ik} e_{jl} - \delta_{lj}e_{ki }) + (\delta_{il} e_{jk} - \delta_{kj}e_{li }) \\
 & = \delta_{jk} f_{il} + \delta_{il} f_{jk} + \delta_{jl} f_{ki} + \delta_{ik} f_{lj}
 \end{align*}
 
-Hence, in the basis $(f_{12}, f_{13}, f_{22}$, we have
+Hence, in the basis $(f_{12}, f_{13}, f_{23})$, we have
+$$
 \begin{array}{ccc}
-\ad(f_{12}) = \begin{pmatrix}
-
+\ad(f_{12}) = \begin{pmatrix} 
+0  &  0 & 0  \\ 
+0  &  0 & 1  \\
+0  & -1 & 0
+\end{pmatrix}
+&
+\ad(f_{13}) = \begin{pmatrix} 
+ 0 &  0 & -1  \\ 
+ 0 &  0 &  0  \\
+ 1 &  0 &  0
+\end{pmatrix}
+&
+\ad(f_{23}) = \begin{pmatrix} 
+  0 &  1 &  0  \\ 
+ -1 &  0 &  0  \\
+  0 &  0 &  0
 \end{pmatrix}
 \end{array}
-
+$$
 For the Killing form, we have
 \begin{align*}
-K(f_{ij}, f_{i'j'}) & = \tr(\ad(f_{ij}) \ad(f_{i'j'})) \\ 
-& = \tr((\delta_{jk} f_{il} + \delta_{il} f_{jk} + \delta_{jl} f_{ki} + \delta_{ik} f_{lj})_{jk} 
- (\delta_{j'k'} f_{i'l'} + \delta_{i'l'} f_{j'k'} + \delta_{j'l'} f_{k'i'} + \delta_{i'k'} f_{l'j'})_{j'<k'}  ) \\ 
-
+K(f_{12}, f_{13}) & = \tr 
+\begin{pmatrix} 
+  0 &  0 &  0  \\ 
+  1 &  0 &  0  \\
+  0 &  0 &  0
+\end{pmatrix}
+ = 0
+\\
+K(f_{12}, f_{23}) & = \tr 
+\begin{pmatrix} 
+  0 &  0 &  0  \\ 
+  0 &  0 &  0  \\
+  1 &  0 &  0
+\end{pmatrix}
+ = 0
+\\
+K(f_{13}, f_{23}) & = \tr 
+\begin{pmatrix} 
+  0 &  0 &  0  \\ 
+  0 &  0 &  0  \\
+  0 &  1 &  0
+\end{pmatrix}
+ = 0
 \end{align*}
 
+Hence the Killing form is degenerate, in fact, identically 0.  However, the adjoint representation is still faithful since the images of the $f_{ij}$'s are linearly independent.
 \end{proof}
-\p 3 Compute the Casimir for the 3-dimensional representation of o(S,V) with dim(V)=3 DIRECTLY, by finding a basis and dual basis.
+\p 3 Compute the Casimir for the 3-dimensional representation of o(S,V) with dim(V)=3 directly, by finding a basis and dual basis.
 \begin{proof}
+
 \end{proof}
 \end{document}
