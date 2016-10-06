@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  6 OCT 2016 15:52
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  6 OCT 2016 18:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -859,14 +859,14 @@ Overfull \hbox (7.88884pt too wide) in paragraph at lines 716--908
  []
 
 [4 <./lickorish.png>] [5] (./twistedDW_MCG.bbl [6]) [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 975.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 975.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 974.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 974.
  (./twistedDW_MCG.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 975.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 975.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 974.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 974.
 Package rerunfilecheck Info: File `twistedDW_MCG.out' has not changed.
 (rerunfilecheck)             Checksum: 0EAED123055E1F44F17CAA752EF05B00;352.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 975.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 974.
  ) 
 Here is how much of TeX's memory you used:
  19503 strings out of 494440
@@ -875,7 +875,7 @@ Here is how much of TeX's memory you used:
  22239 multiletter control sequences out of 15000+600000
  38647 words of font info for 88 fonts, out of 8000000 for 9000
  591 hyphenation exceptions out of 8191
- 55i,15n,69p,1149b,1190s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,15n,69p,1057b,1190s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -890,7 +890,7 @@ are/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on twistedDW_MCG.pdf (7 pages, 159319 bytes).
+Output written on twistedDW_MCG.pdf (7 pages, 159315 bytes).
 PDF statistics:
  198 PDF objects out of 1000 (max. 8388607)
  170 compressed objects within 2 object streams

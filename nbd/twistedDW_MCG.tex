@@ -90,11 +90,11 @@ Any twisted Dijkgraaf-Witten representation of a mapping class group of a closed
 \maketitle
 
 \section{Introduction}
-Given a spherical category $\mathcal A$ over a field $k$ and an oriented compact surface $M$, possibly with boundary, the Turaev-Viro construction gives a projective representation of the mapping class group $\MCG(M)$ \cite{TURAEV1992865, hep-th/9311155}.  A natural question is to determine the image of these representations.  In particular,  when does such a representation have finite image?
+Given a spherical category $\mathcal A$ over a field $k$ and an oriented compact surface $M$, possibly with boundary, the Turaev-Viro-Barrett-Westbury (TVBW) construction gives a projective representation of the mapping class group $\MCG(M)$ \cite{TURAEV1992865, hep-th/9311155}.  A natural question is to determine the image of these representations.  In particular,  when does such a representation have finite image?
 
-It is conjectured that these representations have finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a modification of the Property F conjecture \cite{nr, erw}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral.  Instead of only considering braid group representations, one can consider mapping class groups of arbitrary orientable surfaces.  In this case, the input categories to construct the representations must be more specialized than just braided monoidal.  One can either apply the Reshitikhin-Turaev construction to a modular tensor category, or apply the Turaev-Viro construction to a spherical category.  The former is more general than the latter since the the Reshitikhin-Turaev construction for the Drinfeld center $Z(\mathcal A)$ of a spherical category $\mathcal A$ yields the same representation as the Turaev-Viro construction for $\mathcal A$.  However, for the case considered in this paper, the simpler Turaev-Viro construction suffices.
+One partial answer to this question is given by the Property F conjecture \cite{nr, erw}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral.  Instead of only considering braid group representations, one can consider mapping class groups of arbitrary orientable surfaces.  In this case, the input categories to construct the representations must be more specialized than just braided monoidal.  One can either apply the Reshitikhin-Turaev construction to a modular tensor category, or apply the TVBW construction to a spherical category.  The former is more general than the latter since the the Reshitikhin-Turaev construction for the Drinfeld center $Z(\mathcal A)$ of a spherical category $\mathcal A$ yields the same representation as the TVBW construction for $\mathcal A$.  However, for the case considered in this paper, the simpler TVBW construction suffices.
 
-In this paper, our input category is  $\mathcal A = \Vect_G^\omega$, the spherical category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the Turaev-Viro construction corresponds to the twisted Dijkgraaf-Witten theory of \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects that its associated mapping class group representations have finite image.  Our main contribution is to verify this in the case  when the surface $M$ is closed and ($G$, $\omega$) are arbitrary.  
+In this paper, our input category is  $\mathcal A = \Vect_G^\omega$, the spherical category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the TVBW construction corresponds to the twisted Dijkgraaf-Witten theory of \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects that its associated mapping class group representations have finite image.  Our main contribution is to verify this in the case  when the surface $M$ is closed and ($G$, $\omega$) are arbitrary.  
 
 \textbf{Acknowledgments.}  This paper would not have been written without the guidance of my advisor, Eric Rowell.  I am also grateful to Zhengan Wang and my father Robert Gustafson for their advice.
 
@@ -142,7 +142,7 @@ The following definitions and theorem are from Kirillov's paper
 and surface $M$, he gives the following presentation of the Levin-Wen model
 as a vector space of colored graphs modulo
 local relations.  He also proves that this space 
-is canonically isomorphic to the Turaev-Viro vector space associated to $M$.   
+is canonically isomorphic to the TVBW vector space associated to $M$.   
 
 We will consider finite  graphs embedded in the surface $M$; for such a
 graph $\Ga$, let $E(\Ga)$ be the set of edges. Note that edges are not
@@ -961,8 +961,7 @@ The basic idea is that one labels the boundary components with elements of the d
 $\Vect_G^\omega$-colored embedded graphs must be compatible with the boundary labels, as detailed in \cite{kirillovStringNets}.  
 
 One could also consider more complicated spherical categories than $\Vect^\omega(G)$, such as the 
-Tambara-Yamagami categories.  The main additional complication here is the appearance of multiplicity, i.e. the tensor product of 
-two simple objects can be a direct sum of multiple simple objects.  
+Tambara-Yamagami categories.  The main additional complication here is the appearance of multifusion channels, i.e. the tensor product of two simple objects can be a direct sum of multiple simple objects.  
 \medskip
 
 
