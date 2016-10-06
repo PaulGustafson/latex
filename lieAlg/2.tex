@@ -1,11 +1,13 @@
 \documentclass{article}
 \usepackage{../m}
 
+\DeclareMathOperator{\Id}{Id}
+\newcommand{\mf}{\mathfrak}
+
+
 \begin{document}
 \noindent Paul Gustafson\\
 \noindent Representations of Lie Algebras
-
-\newcommand{\mf}{\mathfrak}
 
 
 \subsection*{HW 1}
@@ -79,13 +81,18 @@ K(f_{13}, f_{23}) & = \tr
   0 &  0 &  0  \\
   0 &  1 &  0
 \end{pmatrix}
- = 0
+ = 0,
 \end{align*}
-
-Hence the Killing form is degenerate, in fact, identically 0.  However, the adjoint representation is still faithful since the images of the $f_{ij}$'s are linearly independent.
+and
+$K(f_{ij}, f_{ij}) = -2$. Thus, the Killing form is nondegenerate. Hence $\mf o(S,V)$ is semisimple, so the adjoint representation is faithful.
 \end{proof}
 \p 3 Compute the Casimir for the 3-dimensional representation of o(S,V) with dim(V)=3 directly, by finding a basis and dual basis.
 \begin{proof}
-
+The set $(f_{ij})_{i < j}$ forms a basis, and the dual basis is $f_{ij}^* = -\frac{1}{2} f_{ij}$. Thus the Casimir element is
+\begin{align*}
+\Omega & = -\frac{1}{2} \sum_{i<j} f_{ij}^2 \\
+& = -\frac{1}{2} \sum_{i<j} - e_{ii} - e_{jj} \\
+& = \Id 
+\end{align*}
 \end{proof}
 \end{document}
