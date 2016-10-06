@@ -1,0 +1,33 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\spn}{span}
+
+\begin{document}
+\section{Resources}
+Book: Timmerman . ``Invitation to QG's and Duality.'' Section on $SU_q(2)$.
+
+Papers. Functional analysis.
+\begin{itemize}
+\item Woronowicz.  ``Twisted SU(2) group.''
+\item Woronowicz. ``Compact matrix pseudogroups.''
+\item Woronowicz. ``Compact Quantum Groups.''
+\end{itemize}
+
+Peter-Weyl theory.
+\begin{itemize}
+\item Koornwinder. ``Orthogonal polynomials in connection to QGs''
+\item Masuda, Mimachi, Makagami, et al. ``Representations of QGs and a q-analog of orthogonal polynomials.''
+\end{itemize}
+
+\section{Compact (Matrix) Quantum Groups}
+Vague idea: $G \subset M_N(\mathbf C)$, a compact group.  
+Things you'd like: representations, harmonic analysis.  
+$$L^2(G) = \bigoplus_{\pi \in \Irr(G)} L^2_\pi(G)$$
+where
+$$L^2_\pi(G) = \spn\{\pi_{ij}\}_{i,j \le \dim(\pi)}$$
+
+So, try to reformulate ``without points.'' I.e. think in terms of algebras in stead of matrices, etc. From Gelfand: $G \leftrightarrow C(G)$. Can recover topology. To encode group structure, take duals of multiplication maps.
+
+\end{document}

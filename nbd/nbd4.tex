@@ -94,8 +94,6 @@ Given a spherical category $\mathcal A$ over a field $k$ and an oriented compact
 
 It is conjectured that these representations have finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a modification of the Property F conjecture \cite{nr, erw}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral.  Instead of only considering braid group representations, one can consider mapping class groups of arbitrary orientable surfaces.  In this case, the input categories to construct the representations must be more specialized than just braided monoidal.  One can either apply the Reshitikhin-Turaev construction to a modular tensor category, or apply the Turaev-Viro construction to a spherical category.  The former is more general than the latter since the the Reshitikhin-Turaev construction for the Drinfeld center $Z(\mathcal A)$ of a spherical category $\mathcal A$ yields the same representation as the Turaev-Viro construction for $\mathcal A$.  However, for the case considered in this paper, the simpler Turaev-Viro construction suffices.
 
-% ^ Double check this ^ Does it work for any BMC?
-
 In this paper, our input category is  $\mathcal A = \Vect_G^\omega$, the spherical category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the Turaev-Viro construction corresponds to the twisted Dijkgraaf-Witten theory of \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects that its associated mapping class group representations have finite image.  Our main contribution is to verify this in the case  when the surface $M$ is closed and ($G$, $\omega$) are arbitrary.  
 
 \textbf{Acknowledgments.}  This paper would not have been written without the guidance of my advisor, Eric Rowell.  I am also grateful to Zhengan Wang and my father Robert Gustafson for their advice.
@@ -110,11 +108,11 @@ More is known when we fix a particular surface $M$. In the case where $M$ is a t
 
 \section{Definitions}
 
-Let $M$ be a closed surface of genus $g$.  Let $G$ be a finite group, and let $\Vect_G^\omega$ denote the category of $G$-graded vector spaces with associativity defined by the  3-cocycle $\omega \in Z^3(G, k^\times)$.  More explicitly, we will follow \cite{math/0601012} in the choice of structural morphisms.  The associator $\alpha_{g,h,k}:(g \otimes h) \otimes k \to g \otimes (h \otimes k)$ is defined to be
+Let $G$ be a finite group, and let $\Vect_G^\omega$ denote the category of $G$-graded vector spaces with associativity defined by the  3-cocycle $\omega \in Z^3(G, k^\times)$.  We will follow \cite{math/0601012} in the choice of structural morphisms.  The associator $\alpha_{g,h,k}:(g \otimes h) \otimes k \to g \otimes (h \otimes k)$ is defined to be
 $$\alpha_{g,h,k} = \omega(g,h,k) \id_{ghk}.$$ 
 The evaluator $\ev_g:g^* \otimes g \to 1$ is 
 $$\ev_g = \omega(g^{-1},g,g^{-1}) \id_1.$$  
-The coevaluator $\coev_g:g \otimes g^* \to 1$ is 
+The coevaluator $\coev_g:1 \to g \otimes g^*$ is 
 $$\coev_g = \id_1.$$ 
 The pivotal structure $j_g:g^{**} \to g$ is 
 $$j_g = \omega(g^{-1},g,g^{-1}) \id_{g}.$$
@@ -140,7 +138,11 @@ $$j_g = \omega(g^{-1},g,g^{-1}) \id_{g}.$$
 \newcommand{\R}{\mathbb{R}}       % real numbers
 
 The following definitions and theorem are from Kirillov's paper
- \cite{kirillovStringNets}.
+ \cite{kirillovStringNets}.  For any spherical category $\mathcal A$
+and surface $M$, he defines a vector space of colored graphs modulo
+local relations that he proves is equivalent to the Turaev-Viro 
+vector space associated to $M$.
+
 We will consider finite  graphs embedded in the surface $M$; for such a
 graph $\Ga$, let $E(\Ga)$ be the set of edges. Note that edges are not
 oriented. Let $E^{or}$ be the set of oriented edges, i.e. pairs $\ee=(e,
@@ -339,7 +341,7 @@ The vector $\<\Ga\>$ is called the {\em evaluation} of $\Ga$.
 
 To define local relations between graphs, Kirillov defines the space of
 null graphs as follows.  Let $D\subset M$ be an embedded disk, and let
-$\Ga=c_1\Ga_1+\dots+c_n\Ga_n$ be a linear
+$\Ga=c_1\Ga_1+\dots+c_n\Ga_n$ be a formal linear
 combination of colored graphs in $M$ such that
 \begin{enumerate}
   \item $\Ga$ is transversal to $\del D$ (i.e., no vertices of $\Ga_i$ 
@@ -351,7 +353,7 @@ combination of colored graphs in $M$ such that
 In this case $\Ga$ is called a null graph. 
 
 \begin{defn}
-The representation space $H$ is the vector space of formal linear combinations of $\Vect_G^\omega$-colored graph embeddings modulo the subspace spanned by the null graphs.
+The representation space $H$ associated to a closed, oriented surface $M$ is the vector space of formal linear combinations of $\Vect_G^\omega$-colored graph embeddings modulo the subspace spanned by the null graphs.
 \end{defn}
 %% The action of the mapping class group on H
 
@@ -380,9 +382,9 @@ The image of the twisted Dijkgraaf-Witten representation of a mapping class grou
 \end{thm}
 
 \begin{proof}
-Let $\Gamma$ be a $\Vect_G^\omega$-colored graph embedding, and let $n$ be the genus of $M$ . Thinking of $M$ as a quotient of its fundamental $4n$-gon, by isotopy we may assume vertices of $\Gamma$ lie in the interior of the polygon and that all the edges of $\Gamma$ do not intersect corners and meet the sides transversally.  Evaluating on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$, outgoing edges $e_1, \ldots, e_{2n}$, and $2n$ incoming edges with the same labels as in Figure \ref{fig:span}.
+Let $\Gamma$ be a $\Vect_G^\omega$-colored graph embedding, and let $g$ be the genus of $M$ . Thinking of $M$ as a quotient of its fundamental $4g$-gon, by isotopy we may assume vertices of $\Gamma$ lie in the interior of the polygon and that all the edges of $\Gamma$ do not intersect corners and meet the sides transversally.  Evaluating on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$, outgoing edges $e_1, \ldots, e_{2n}$, and $2n$ incoming edges with the same labels as in Figure \ref{fig:span}.
 
-By the definition of the evaluation of a string-net and the definition of the quotient map identifying the sides of the fundamental polygon, the vertex $v$ is colored by an element $\phi(v) \in \Hom (1, \bigotimes_{i=1}^n V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1}^*) \otimes V(e_{2i}^*))$, where $V(e_i) \in \Obj(\Vect_G^\omega)$ is the coloring of the edge $e_i$.  Since string-net evaluation is additive in the direct sum and linear in the vertex color, it follows that $H$ is spanned by the set of colored graphs
+By the definition of the evaluation of a string-net and the definition of the quotient map identifying the sides of the fundamental polygon, the vertex $v$ is colored by an element $\phi(v) \in \Hom (1, \bigotimes_{i=1}^n V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1}^*) \otimes V(e_{2i}^*))$, where $V(e_i) \in \Obj(\Vect_G^\omega)$ is the coloring of the edge $e_i$.  Since string-net evaluation is additive in the direct sum and linear in the vertex color, it follows that the representation space $H$ is spanned by the set of colored graphs
 $$ S := \{\Gamma \in H : V(e_i) \in \Irr(\Vect_G^\omega), \phi(v) = 1 \}, $$
 where $\Irr(\Vect_G^\omega)$ is the set of simple objects of $\Vect_G^\omega$, which correspond to the elements of $G$. 
 
@@ -908,7 +910,7 @@ Thus, the image of any such mapping class group representation is a quotient of 
 \end{table}
 
 \section{Example Calculation}
-This section contains a calculation of the coefficient for the first Dehn twist shown in Table \ref{fig:tikzTwist1_1}.   Assume that the main vertex is initially labeled with an element of $\Hom(1, h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1})$.   In the following, we will abbreviate by saying that the vertex is in state $h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1}$.
+This section contains a calculation of the coefficient for the first Dehn twist shown in Table \ref{fig:tikzTwist1_1}.   Assume that the main vertex is initially labeled with an element of $\Hom(1, h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1})$.   In the following, we will abbreviate this by saying that the vertex is in state $h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1}$.
 
 We add the upper left vertex, which is labeled by  $\coev_g$.  We then connect the vertices with an unlabelled edge, which is shorthand for labelling by the object $1$ .  At this point, the vertices are in states $h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1}$ and $g \otimes g^{-1}  \otimes 1$.  To compose the two vertices, we use the spherical structure on the former vertex and reassociate until it is in the state $h^{-1} \otimes h g^{-1} h^{-1} \otimes h \otimes g \otimes 1$.  In doing so, we pick up a factor of 
 $$ \omega(h, g, h^{-1}) \omega(h, gh^{-1}, hg^{-1}h^{-1}) \omega(g, h^{-1}, hg^{-1}h^{-1}) \omega(g, g^{-1}h^{-1}, h) $$
