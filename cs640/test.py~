@@ -1,0 +1,33 @@
+a = 91
+b = 256
+
+
+#continued fraction expansion
+def cfExp(p,q, cfE):
+    if q == 0 :
+        cfE = [p];
+    else:
+        cfExp(q, p - q*(p/q), cfE)
+        cfE.insert(0, p/q)
+
+print(cfExp(a,b,[]))
+
+# #Old convergents, initial conditions
+# p2 = 0
+# q2 = 1
+# p1 = 1
+# q1 = 0
+
+# while q != 0:
+#     p2 = p1
+#     q2 = q1
+#     p1 = p
+#     q1 = q
+#     p = 
+#     q =
+#     print(a/b)
+
+
+
+    
+
