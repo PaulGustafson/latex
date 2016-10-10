@@ -78,7 +78,9 @@ $$ \gcd(13^{r/2}\pm 1, 8633).$$
 Show that the order $r$ of a positive integer $a$ modulo $N$ cannot exceed $N$ assuming that $\gcd(a,N)=1$. In other words, show that the smallest positive integer exponent $r$ such that $a^r\equiv 1 \pmod N$ is bounded by $r\le N$. 
 \end{problem}
 \begin{solution}
-The element $a$ is in the group of units mod $N$.  The order of this group is less than $N$. Hence, the order of $a$ is less than $N$.
+I claim that $(a^k \pmod{N})_{k=0}^{r-1}$ are disjoint.  Suppose not. Then there exist $0 \le j< k < r$ such that $a^j = a^k$.  Hence $a^{k-j} = 1$.  Since $k - j < r$, the order of the group, this is a contradiction.
+
+Since there are only $N$ disjoint elements mod $N$, this implies that $r \le N$.
 \end{solution}
 
 \begin{problem} (10 points)
@@ -184,8 +186,19 @@ $$ \left| \frac{1}{q} \sum_{k: x^k = x^a \pmod{n}} \exp(2\pi i k c/q) \right|^2.
 Since $r$ is the multplicative order of $x$, those $k$ are parametrized by $k = a + br$ for nonnegative integers $b$.  Thus, the above probability is equal to
 $$ \left| \frac{1}{q} \sum_{b: a + br < q} \exp(2\pi i  b r c/q) \right|^2.$$ 
 
+\newcommand{\rcq}{\{rcq\}_q}
 
+Let $\rcq$ denote the representative of $rc$ mod $q$ such that $-q/2 \le \rcq \le q/2$.  When $\rcq$ is sufficiently small,
+ this sum is well-approximated (i.e. error with $O(1/q)$) by the integral
+\begin{align*}
+\frac{1}{q} \int_{b:0 \le a + br < q}  \exp(2\pi i  b \rcq /q) \, db & = \frac{1}{r} \int_{u:0 \le a + qu < q}  \exp(2\pi i u \rcq /r) \, du \\
+ & \approx \frac{1}{r} \int_{u:0 \le u < 1}  \exp(2\pi i  u \rcq /r) \, du,
+\end{align*}
+where the error in the last approximation is again $O(1/q)$.
 
+Letting $\rcq$ vary between $-r/2$ to $r/2$, the last absolute value of the last integral is minimized at the endpoints $\pm r/2$ at 
+a value of $2/(\pi r)$.  Thus, if $|\rcq| \le r/2$, the probability of measuring $\ket{c} \otimes \ket{x^a \pmod N}$ is 
+$\frac{4}{\pi^2 r^2} + O(1/n^2)$.  Hence for sufficiently large $n$, this probability is greater than $\frac{1}{3r^2}$.
 \end{solution}
 
 
