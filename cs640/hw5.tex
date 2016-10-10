@@ -78,9 +78,12 @@ $$ \gcd(13^{r/2}\pm 1, 8633).$$
 Show that the order $r$ of a positive integer $a$ modulo $N$ cannot exceed $N$ assuming that $\gcd(a,N)=1$. In other words, show that the smallest positive integer exponent $r$ such that $a^r\equiv 1 \pmod N$ is bounded by $r\le N$. 
 \end{problem}
 \begin{solution}
-I claim that $(a^k \pmod{N})_{k=0}^{r-1}$ are disjoint.  Suppose not. Then there exist $0 \le j< k < r$ such that $a^j = a^k$.  Hence $a^{k-j} = 1$.  Since $k - j < r$, the order of the group, this is a contradiction.
+I claim that $a$ is multiplicatively invertible mod $N$.  Since $\gcd(a,N)$, there exist integers $x,y$.
+$ax + Ny = 1$.  Hence, $a^{-1} = x$.
 
-Since there are only $N$ disjoint elements mod $N$, this implies that $r \le N$.
+I also claim that $(a^k)_{k=0}^{r-1}$ are disjoint mod $N$.  Suppose not. Then there exist $0 \le j< k < r$ such that $a^j = a^k \pmod N$.  Hence, since $a$ is invertible, $a^{k-j} = 1$.  Since $k - j < r$, this contradicts the assumption that $r$ is the order of $a$.
+
+Since there are only $N$ possible choices for the $a^k$ modulo $N$, this implies that $r \le N$.
 \end{solution}
 
 \begin{problem} (10 points)
@@ -177,16 +180,20 @@ Assuming the output was $6/256$, we know that there is a relatively high probabi
 \end{compactenum}
 \end{problem}
 \begin{solution}
+
+\subsubsection*{Background}
 The inputs are positive integers $x$ and $n$.  The problem is to find the least $r$ such that $x^r = 1 \pmod{n}$.  Let $q = 2^N$ be the least power of $2$ that is greater than or equal to $n^2$.  We requre $2N$ qubits.  The first $N$ qubits are grouped together into the first register, and the second $N$ qubits are the second register.  Assume all qubits are initialized into the state $\ket{0}$
 
-We apply Hadamards to each qubit in the first register to put it into a uniform superposition of all the standard basis vectors, leaving the second register alone. We then calculate $x^a \pmod{n}$ for each vector $ket{a}\otimes \ket{0}$ in the superposition and put the result in the second register.  This is a reversible operation since the only non-hardcoded input is $a$ for each vector in the superposition, and $a$ is left alone. We then apply the discrete Fourier transform on the first register, giving us a superposition of states $\exp(2\pi i a c/q) \ket{c} \otimes \ket{x^a \pmod{n}}$, where $a,c$ range over all integers from $0$ to $2^N-1$.  
+We apply Hadamards to each qubit in the first register to put it into a uniform superposition of all the standard basis vectors, leaving the second register alone. We then calculate $x^a \pmod{n}$ for each vector $\ket{a}\otimes \ket{0}$ in the superposition and put the result in the second register.  This is a reversible operation since the only non-hardcoded input is $a$ for each vector in the superposition, and $a$ is left alone. We then apply the discrete Fourier transform on the first register, giving us a superposition of states $\exp(2\pi i a c/q) \ket{c} \otimes \ket{x^a \pmod{n}}$, where $a,c$ range over all integers from $0$ to $2^N-1$.  
+
+\subsubsection*{Summary of Shor's explanation from (5.4) to (5.11)}
 
 We then take a measurement of all the qubits.  The probability of measuring $\ket{c} \otimes \ket{x^a \pmod{n}}$, for some $0 \le a < r$, is
 $$ \left| \frac{1}{q} \sum_{k: x^k = x^a \pmod{n}} \exp(2\pi i k c/q) \right|^2.$$ 
 Since $r$ is the multplicative order of $x$, those $k$ are parametrized by $k = a + br$ for nonnegative integers $b$.  Thus, the above probability is equal to
 $$ \left| \frac{1}{q} \sum_{b: a + br < q} \exp(2\pi i  b r c/q) \right|^2.$$ 
 
-\newcommand{\rcq}{\{rcq\}_q}
+\newcommand{\rcq}{\{rc\}_q}
 
 Let $\rcq$ denote the representative of $rc$ mod $q$ such that $-q/2 \le \rcq \le q/2$.  When $\rcq \le r/2$,
  this sum is well-approximated (i.e. error with $O(1/q)$) by the integral
