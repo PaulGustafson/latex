@@ -154,7 +154,7 @@ We can rewrite the above state as
 $$ \ket{\psi_0} = \sum_{b = 0}^{41} \frac{1}{\sqrt{2^n}} \sum_{z=0}^{m_b-1} \ket{42 z + b} \ket{14^x \pmod{129}}, $$
 where $$m_b  = \left \lfloor \frac{255 - b  }{42} \right \rfloor + 1 = 
 \begin{cases}
-7 & b \le 3
+7 & b \le 3 \\
 6 & b > 3
 \end{cases}
 $$
@@ -177,7 +177,7 @@ Assuming the output was $6/256$, we know that there is a relatively high probabi
 \begin{solution}
 The inputs are positive integers $x$ and $n$.  The problem is to find the least $r$ such that $x^r = 1 \pmod{n}$.  Let $q = 2^N$ be the least power of $2$ that is greater than or equal to $n^2$.  We requre $2N$ qubits.  The first $N$ qubits are grouped together into the first register, and the second $N$ qubits are the second register.  Assume all qubits are initialized into the state $\ket{0}$
 
-We apply Hadamards to each qubit in the first register to put it into a uniform superposition of all the standard basis vectors, leaving the second register alone. We then calculate $x^a \pmod{n}$ for each vector $ket{a}\tensor \ket{0}$ in the superposition and put the result in the second register.  This is a reversible operation since the only non-hardcoded input is $a$ for each vector in the superposition, and $a$ is left alone. We then apply the discrete Fourier transform on the first register, giving us a superposition of states $\exp(2\pi i a c/q) \ket{c} \otimes \ket{x^a \pmod{n}}$, where $a,c$ range over all integers from $0$ to $2^N-1$.  
+We apply Hadamards to each qubit in the first register to put it into a uniform superposition of all the standard basis vectors, leaving the second register alone. We then calculate $x^a \pmod{n}$ for each vector $ket{a}\otimes \ket{0}$ in the superposition and put the result in the second register.  This is a reversible operation since the only non-hardcoded input is $a$ for each vector in the superposition, and $a$ is left alone. We then apply the discrete Fourier transform on the first register, giving us a superposition of states $\exp(2\pi i a c/q) \ket{c} \otimes \ket{x^a \pmod{n}}$, where $a,c$ range over all integers from $0$ to $2^N-1$.  
 
 We then take a measurement of all the qubits.  The probability of measuring $\ket{c} \otimes \ket{x^a \pmod{n}}$, for some $0 \le a < r$, is
 $$ \left| \frac{1}{q} \sum_{k: x^k = x^a \pmod{n}} \exp(2\pi i k c/q) \right|^2.$$ 
