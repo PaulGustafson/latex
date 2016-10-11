@@ -108,7 +108,7 @@ More is known when we fix a particular surface $M$. In the case where $M$ is a t
 
 \section{Definitions}
 
-Let $G$ be a finite group, and let $\Vect_G^\omega$ denote the category of $G$-graded vector spaces with associativity defined by the  3-cocycle $\omega \in Z^3(G, k^\times)$.  We will follow \cite{math/0601012} in the choice of structural morphisms.  The associator $\alpha_{g,h,k}:(g \otimes h) \otimes k \to g \otimes (h \otimes k)$ is defined to be
+Let $G$ be a finite group, and let $\Vect_G^\omega$ denote the skeletal spherical category of $G$-graded vector spaces with associativity defined by the  3-cocycle $\omega \in Z^3(G, k^\times)$.  We will follow \cite{math/0601012} in the choice of structural morphisms.  The associator $\alpha_{g,h,k}:(g \otimes h) \otimes k \to g \otimes (h \otimes k)$ is defined to be
 $$\alpha_{g,h,k} = \omega(g,h,k) \id_{ghk}.$$ 
 The evaluator $\ev_g:g^* \otimes g \to 1$ is 
 $$\ev_g = \omega(g^{-1},g,g^{-1}) \id_1.$$  
@@ -142,7 +142,9 @@ The following definitions and theorem are from Kirillov's paper
 and surface $M$, he gives the following presentation of the Levin-Wen model
 as a vector space of colored graphs modulo
 local relations.  He also proves that this space 
-is canonically isomorphic to the TVBW vector space associated to $M$.   
+is canonically isomorphic to the TVBW vector space associated to $M$.  It is
+straightforward to check that this isomorphism, which amounts to replacing a 
+triangulation with its dual graph,  commutes with the mapping class group action.
 
 We will consider finite  graphs embedded in the surface $M$; for such a
 graph $\Ga$, let $E(\Ga)$ be the set of edges. Note that edges are not
@@ -354,7 +356,7 @@ combination of colored graphs in $M$ such that
 In this case $\Ga$ is called a null graph. 
 
 \begin{defn}
-The representation space $H$ associated to a closed, oriented surface $M$ is the vector space of formal linear combinations of $\Vect_G^\omega$-colored graph embeddings modulo the subspace spanned by the null graphs.
+The representation space associated to a closed, oriented surface $M$ by a spherical category $\mathcal A$ is the vector space of formal linear combinations of $\mathcal A$-colored graph embeddings modulo the subspace spanned by the null graphs.
 \end{defn}
 %% The action of the mapping class group on H
 
