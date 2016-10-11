@@ -957,12 +957,12 @@ $$\omega^{-1}(hg, h^{-1}, hg^{-1}h^{-1}) \omega^{-1}(hg, g, g^{-1}h^{-1}).$$
 
 
 \section{Further Directions}
-Given the fact that the braid group representations associated to $D^\omega(G)$ are also finite \cite{erw}, it should be straightforward 
- to prove that mapping class group representations associated to $\Vect_G^\omega$ for any orientable surface, including boundary, are finite.  
+Given the fact that the braid group representations associated to $D^\omega(G)$ are also finite \cite{erw}, it should be possible
+ to prove that mapping class group representations associated to $\Vect^\omega(G)$ for any orientable surface, including boundary, are finite.  
 The basic idea is that one labels the boundary components with elements of the double category, in this case $\Mod(D^\omega(G))$, and the
 $\Vect_G^\omega$-colored embedded graphs must be compatible with the boundary labels, as detailed in \cite{kirillovStringNets}.  
 
-One could also consider more complicated spherical categories than $\Vect^G_\omega$, such as the 
+One could also consider more complicated spherical categories than $\Vect^\omega(G)$, such as the 
 Tambara-Yamagami categories.  The main additional complication here is the appearance of multifusion channels, i.e. the tensor product of two simple objects can be a direct sum of multiple simple objects.  
 \medskip
 
