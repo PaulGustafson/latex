@@ -84,7 +84,7 @@ midarrow/.default=0.5
     
 
 \begin{abstract}
-Any twisted Dijkgraaf-Witten representation of a mapping class group of an orientable, compact surface with boundary has finite image.
+Any twisted Dijkgraaf-Witten representation of a mapping class group of a closed surface has finite image.
 \end{abstract}
 
 \maketitle
@@ -94,7 +94,7 @@ Given a spherical category $\mathcal A$ over a field $k$ and an oriented compact
 
 It is conjectured that these representations have finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a modification of the Property F conjecture \cite{nr, erw}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral. Instead of only considering braid group representations, one can consider mapping class groups of arbitrary orientable surfaces.  In this case, the input categories to construct the representations must be more specialized than just braided monoidal.  One can either apply the Reshitikhin-Turaev construction to a modular tensor category, or apply the TVBW construction to a spherical category.  The former is more general than the latter since the the Reshitikhin-Turaev construction for the Drinfeld center $Z(\mathcal A)$ of a spherical category $\mathcal A$ yields the same representation as the TVBW construction for $\mathcal A$.  However, for the case considered in this paper, the simpler TVBW construction suffices.
 
-In this paper, our input category is  $\mathcal A = \Vect_G^\omega$, the spherical category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the TVBW construction corresponds to the twisted Dijkgraaf-Witten theory of \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects that its associated mapping class group representations have finite image.  The main contribution of this paper is to verify this for arbitrary $G$ and $\omega$.
+In this paper, our input category is  $\mathcal A = \Vect_G^\omega$, the spherical category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the TVBW construction corresponds to the twisted Dijkgraaf-Witten theory of \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects that its associated mapping class group representations have finite image.  Our main contribution is to verify this in the case  when the surface $M$ is closed and ($G$, $\omega$) are arbitrary.  
 
 \textbf{Acknowledgments.}  This paper would not have been written without the guidance of my advisor, Eric Rowell.  I am also grateful to Zhengan Wang and my father Robert Gustafson for their advice.
 
@@ -146,39 +146,32 @@ is canonically isomorphic to the TVBW vector space associated to $M$.  It is
 straightforward to check that this isomorphism, which amounts to replacing a 
 triangulation with its dual graph,  commutes with the mapping class group action.
 
-We will consider finite  graphs embedded in an oriented surface $\Si$
-(which may have boundary); for such a
+We will consider finite  graphs embedded in the surface $M$; for such a
 graph $\Ga$, let $E(\Ga)$ be the set of edges. Note that edges are not
 oriented. Let $E^{or}$ be the set of oriented edges, i.e. pairs $\ee=(e,
 \text{orientation of } e)$; for such an oriented edge $\ee$, we denote by
 $\bar{\ee}$ the edge with opposite orientation.
 
-If $\Si$ has a boundary, the graph is allowed to have uncolored one-valent
-vertices on $\del \Si$ but no other common points with $\del \Si$; all
-other  vertices will  be called interior.  We will  call the edges of $\Ga$
-terminating at these  one-valent vertices {\em legs}.   
-%%%%%%%%%%%%%%%%%%%%%%
-\begin{definition}\label{d:coloring} Let $\Si$ an oriented surface
-(possibly with boundary) and $\Ga\subset \Si$ --- an embedded graph as
+\begin{defn}\label{d:coloring} Let  $\Ga \subset M$ be an embedded graph as
 defined above.  A {\em coloring} of $\Ga$ is the
 following data:
 
   \begin{itemize}
     \item Choice of an object $V(\ee)\in \Obj \A$ for every oriented edge
         $\ee\in E^{or}(\Ga)$ so that $V(\ov{\ee})=V(\ee)^*$.
-    \item Choice of a vector $\ph(v)\in \Hom(\one, V(\ee_1) \otimes \cdots \otimes V(\ee_n))$ 
-       for    every interior vertex $v$, where 
+    \item Choice of a vector $\ph(v)\in \Hom (1, V(\ee_1) \otimes \dots \otimes V(\ee_n))$  for   every vertex $v$, where 
       $\ee_1, \dots, \ee_n$ are edges incident to $v$, taken in counterclockwise 
       order and with outward orientation. 
 \end{itemize}
-\end{definition}
+\end{defn}
+
 
 The following theorem is a variation of result of Reshetikhin and Turaev. 
 \begin{thm}\label{t:RT}
   There is a unique  way to assign to every colored
   planar graph $\Ga$ in a disk $D\subset \R^2$ a vector
   \begin{equation}
-    \<\Ga\>_D\in \Hom (\one, V(\ee_1) \otimes \dots \otimes V(\ee_n))
+    \<\Ga\>_D\in \Hom (1, V(\ee_1) \otimes \dots \otimes V(\ee_n))
   \end{equation}
   where $\ee_1,\dots, \ee_n$ are the edges of $\Ga$ meeting the boundary
   of $D$ (legs), taken in counterclockwise order and with outgoing orientation,
@@ -394,7 +387,7 @@ The image of the twisted Dijkgraaf-Witten representation of a mapping class grou
 \begin{proof}
 Let $\Gamma$ be a $\Vect_G^\omega$-colored graph embedding, and let $g$ be the genus of $M$ . Thinking of $M$ as a quotient of its fundamental $4g$-gon, by isotopy we may assume vertices of $\Gamma$ lie in the interior of the polygon and that all the edges of $\Gamma$ do not intersect corners and meet the sides transversally.  Evaluating on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$, outgoing edges $e_1, \ldots, e_{2n}$, and $2n$ incoming edges with the same labels as in Figure \ref{fig:span}.
 
-By the definition of the evaluation of a string-net and the definition of the quotient map identifying the sides of the fundamental polygon, the vertex $v$ is colored by an element $\phi(v) \in \Hom (\one, \bigotimes_{i=1}^n V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1}^*) \otimes V(e_{2i}^*))$, where $V(e_i) \in \Obj(\Vect_G^\omega)$ is the coloring of the edge $e_i$.  Since string-net evaluation is additive in the direct sum and linear in the vertex color, it follows that the representation space $H$ is spanned by the set of colored graphs
+By the definition of the evaluation of a string-net and the definition of the quotient map identifying the sides of the fundamental polygon, the vertex $v$ is colored by an element $\phi(v) \in \Hom (1, \bigotimes_{i=1}^n V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1}^*) \otimes V(e_{2i}^*))$, where $V(e_i) \in \Obj(\Vect_G^\omega)$ is the coloring of the edge $e_i$.  Since string-net evaluation is additive in the direct sum and linear in the vertex color, it follows that the representation space $H$ is spanned by the set of colored graphs
 $$ S := \{\Gamma \in H : V(e_i) \in \Irr(\Vect_G^\omega), \phi(v) = 1 \}, $$
 where $\Irr(\Vect_G^\omega)$ is the set of simple objects of $\Vect_G^\omega$, which correspond to the elements of $G$. 
 
@@ -926,7 +919,7 @@ Thus, the image of any such mapping class group representation is a quotient of 
 
 
 \section{Example Calculation}
-This section contains a calculation of the coefficient for the first Dehn twist, shown in Table \ref{fig:tikzTwist1_1}.  WLOG we may assume that $\omega$ is normalized, i.e. that $\omega(1,x,y) = \omega(x,1,y) = \omega(x,y,1) = 1$ for all $x,y$.  We also assume that the main vertex is initially labeled with an element of $\Hom(\one, h \otimes g \otimes h^{-1} \otimes hg^{-1}h^{-1})$.   In the following, we will abbreviate this by saying that the vertex is in state $h \otimes g \otimes h^{-1} \otimes hg^{-1}h^{-1}$.
+This section contains a calculation of the coefficient for the first Dehn twist, shown in Table \ref{fig:tikzTwist1_1}.  WLOG we may assume that $\omega$ is normalized, i.e. that $\omega(1,x,y) = \omega(x,1,y) = \omega(x,y,1) = 1$ for all $x,y$.  We also assume that the main vertex is initially labeled with an element of $\Hom(1, h \otimes g \otimes h^{-1} \otimes hg^{-1}h^{-1})$.   In the following, we will abbreviate this by saying that the vertex is in state $h \otimes g \otimes h^{-1} \otimes hg^{-1}h^{-1}$.
 
 We add the upper left vertex, which is labeled by  $\coev_g$.  We then connect the vertices with an unlabelled edge, which is shorthand for labelling by the object $1$ .  At this point, the vertices are in states $h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1}$ and $g \otimes g^{-1}  \otimes 1$.  To compose the two vertices, we use the spherical structure on the former vertex and reassociate until it is in the state $h^{-1} \otimes h g^{-1} h^{-1} \otimes h \otimes g \otimes 1$.  In doing so, we pick up a factor of 
 $$ \omega(h, g, h^{-1}) \omega(h, gh^{-1}, hg^{-1}h^{-1}) \omega(g, h^{-1}, hg^{-1}h^{-1}) \omega(g, g^{-1}h^{-1}, h) $$
