@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  13 OCT 2016 12:58
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  13 OCT 2016 18:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -859,21 +859,21 @@ Overfull \hbox (7.88884pt too wide) in paragraph at lines 743--935
  []
 
 [4 <./lickorish.png>] [5] [6] (./twistedDW_MCG.bbl) [7]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1009.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1009.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1062.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1062.
  (./twistedDW_MCG.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1009.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1009.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1062.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1062.
 
 Package rerunfilecheck Info: File `twistedDW_MCG.out' has not changed.
-(rerunfilecheck)             Checksum: 8A732B15D47771715195FEE08C81A61B;403.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1009.
+(rerunfilecheck)             Checksum: 12966FCA14DEA675652E6528F19D88C4;403.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1062.
  ) 
 Here is how much of TeX's memory you used:
- 19530 strings out of 494440
- 368126 string characters out of 6173199
- 466492 words of memory out of 5000000
- 22262 multiletter control sequences out of 15000+600000
+ 19608 strings out of 494440
+ 369603 string characters out of 6173199
+ 466604 words of memory out of 5000000
+ 22339 multiletter control sequences out of 15000+600000
  38647 words of font info for 88 fonts, out of 8000000 for 9000
  591 hyphenation exceptions out of 8191
  55i,15n,69p,1127b,1190s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -891,10 +891,10 @@ are/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on twistedDW_MCG.pdf (7 pages, 162600 bytes).
+Output written on twistedDW_MCG.pdf (7 pages, 163517 bytes).
 PDF statistics:
- 208 PDF objects out of 1000 (max. 8388607)
- 180 compressed objects within 2 object streams
- 50 named destinations out of 1000 (max. 500000)
+ 209 PDF objects out of 1000 (max. 8388607)
+ 181 compressed objects within 2 object streams
+ 51 named destinations out of 1000 (max. 500000)
  82 words of extra memory for PDF output out of 10000 (max. 10000000)
 
