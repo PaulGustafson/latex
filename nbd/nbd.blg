@@ -1,0 +1,52 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: nbd.aux
+The style file: unsrt.bst
+Database file #1: stringnets.bib
+Warning--empty journal in hep-th/9311155
+Warning--empty journal in nr
+Warning--empty journal in kirillovStringNets
+Warning--empty journal in bantay
+Warning--empty journal in 0806.2493
+You've used 11 entries,
+            1791 wiz_defined-function locations,
+            510 strings with 5010 characters,
+and the built_in function-call counts, 1871 in all, are:
+= -- 156
+> -- 79
+< -- 0
++ -- 31
+- -- 20
+* -- 93
+:= -- 313
+add.period$ -- 32
+call.type$ -- 11
+change.case$ -- 11
+chr.to.int$ -- 0
+cite$ -- 16
+duplicate$ -- 82
+empty$ -- 199
+format.name$ -- 20
+if$ -- 408
+int.to.chr$ -- 0
+int.to.str$ -- 11
+missing$ -- 8
+newline$ -- 57
+num.names$ -- 11
+pop$ -- 47
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 40
+stack$ -- 0
+substring$ -- 77
+swap$ -- 6
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 5
+while$ -- 16
+width$ -- 13
+write$ -- 108
+(There were 5 warnings)

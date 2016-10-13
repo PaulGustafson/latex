@@ -68,6 +68,29 @@ midarrow/.default=0.5
 \DeclareMathOperator{\coev}{coev}
 \DeclareMathOperator{\ev}{ev}
 
+\newcommand{\vgo}{\Vect^G_\omega}
+
+\newcommand{\one}{1}
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\ga}{\gamma}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\de}{\delta}
+\newcommand{\De}{\Delta}
+\newcommand{\ka}{\varkappa}
+\newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda}
+\newcommand{\ph}{\varphi}
+\newcommand{\Ph}{\Phi} 
+\newcommand{\si}{\sigma}
+\newcommand{\Si}{\Sigma}
+\newcommand{\Sibar}{\overline{\Sigma}}
+\newcommand{\Sihat}{\widehat{\Sigma}}
+\newcommand{\om}{\omega}
+\newcommand{\Om}{\Omega}
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\th}{\theta}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 \begin{document}
@@ -118,8 +141,6 @@ The pivotal structure $j_g:g^{**} \to g$ is
 $$j_g = \omega(g^{-1},g,g^{-1}) \id_{g}.$$
 
 \newcommand{\ee}{\mathbf{e}}       % oriented edge
-\newcommand{\Ga}{\Gamma}
-\newcommand{\ph}{\varphi}
 \newcommand{\A}{\mathcal{A}}      % category 
 \newcommand{\st}{\; | \;}                               %%  such that
 \newcommand{\ttt}{\otimes}                              %% tensor product
@@ -158,7 +179,7 @@ vertices on $\del \Si$ but no other common points with $\del \Si$; all
 other  vertices will  be called interior.  We will  call the edges of $\Ga$
 terminating at these  one-valent vertices {\em legs}.   
 %%%%%%%%%%%%%%%%%%%%%%
-\begin{definition}\label{d:coloring} Let $\Si$ an oriented surface
+\begin{defn}\label{d:coloring} Let $\Si$ an oriented surface
 (possibly with boundary) and $\Ga\subset \Si$ --- an embedded graph as
 defined above.  A {\em coloring} of $\Ga$ is the
 following data:
@@ -171,7 +192,7 @@ following data:
       $\ee_1, \dots, \ee_n$ are edges incident to $v$, taken in counterclockwise 
       order and with outward orientation. 
 \end{itemize}
-\end{definition}
+\end{defn}
 
 The following theorem is a variation of result of Reshetikhin and Turaev. 
 \begin{thm}\label{t:RT}
@@ -384,15 +405,12 @@ The representation space associated to a closed, oriented surface $M$ by a spher
 %% Thus, the action of the mapping class group on $H$ is well-defined.
 %% \end{proof}
 
-
-
-
-\begin{thm}
+\begin{thm}\label{thm:closed}
 The image of the twisted Dijkgraaf-Witten representation of a mapping class group of any closed surface $M$ is finite.
 \end{thm}
 
 \begin{proof}
-Let $\Gamma$ be a $\Vect_G^\omega$-colored graph embedding, and let $g$ be the genus of $M$ . Thinking of $M$ as a quotient of its fundamental $4g$-gon, by isotopy we may assume vertices of $\Gamma$ lie in the interior of the polygon and that all the edges of $\Gamma$ do not intersect corners and meet the sides transversally.  Evaluating on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$, outgoing edges $e_1, \ldots, e_{2n}$, and $2n$ incoming edges with the same labels as in Figure \ref{fig:span}.
+Let $\Gamma$ be a $\Vect_G^\omega$-colored graph embedding, and let $g \ge 1$ be the genus of $M$. Thinking of $M$ as a quotient of its fundamental $4g$-gon, by isotopy we may assume vertices of $\Gamma$ lie in the interior of the polygon and that all the edges of $\Gamma$ do not intersect corners and meet the sides transversally.  Evaluating on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$, outgoing edges $e_1, \ldots, e_{2g}$, and $2g$ incoming edges with the same labels as in Figure \ref{fig:span}.
 
 By the definition of the evaluation of a string-net and the definition of the quotient map identifying the sides of the fundamental polygon, the vertex $v$ is colored by an element $\phi(v) \in \Hom (\one, \bigotimes_{i=1}^n V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1}^*) \otimes V(e_{2i}^*))$, where $V(e_i) \in \Obj(\Vect_G^\omega)$ is the coloring of the edge $e_i$.  Since string-net evaluation is additive in the direct sum and linear in the vertex color, it follows that the representation space $H$ is spanned by the set of colored graphs
 $$ S := \{\Gamma \in H : V(e_i) \in \Irr(\Vect_G^\omega), \phi(v) = 1 \}, $$
@@ -922,6 +940,11 @@ Thus, the image of any such mapping class group representation is a quotient of 
 
 \section{Boundary Case}
 
+When $M$ has boundary, there are mapping class group representations for every labelling of the boundary components of $M$ by objects in $Z(\vgo) \simeq \Mod(D^\omega(G))$ \cite{kirillovStringNets}.  In this case, the representation space is spanned by colored graphs for which the coloring of a leg ending in a boundary component coincides with the image of the forgetful functor $F: \Z(\vgo) \to \vgo$ on the labelling of that boundary component.  The same local relations are valid in this representation space, along with an additional local relation around each boundary component that we will not need.
+
+By a similar argument as in the proof of the Theorem $\ref{thm:closed}$, any such representation space is spanned by colored graphs consisting of a single vertex, loops for each of the usual generators of the fundamental group of $M$, and a leg from the vertex to each of the boundary components.  Each of the edges is labeled by a simple object, i.e. an element of the group $G$.
+
+If $g \ge 2$, the mapping class group $\MCG(M)$ is generated by the same Dehn twists as in the closed surface case, as well as braids interchanging boundary components and the Dehn twists corresponding to dragging a boundary component along a representative of a generator of the fundamental group of the closed surface given by filling in all the boundary components of $M$ with disks \cite{mcgSurvey, bellingeri} .
 
 
 
@@ -971,11 +994,11 @@ $$\omega^{-1}(hg, h^{-1}, hg^{-1}h^{-1}) \omega^{-1}(hg, g, g^{-1}h^{-1}).$$
 
 \section{Further Directions}
 Given the fact that the braid group representations associated to $D^\omega(G)$ are also finite \cite{erw}, it should be straightforward 
- to prove that mapping class group representations associated to $\Vect_G^\omega$ for any orientable surface, including boundary, are finite.  
+ to prove that mapping class group representations associated to $\vgo$ for any orientable surface, including boundary, are finite.  
 The basic idea is that one labels the boundary components with elements of the double category, in this case $\Mod(D^\omega(G))$, and the
 $\Vect_G^\omega$-colored embedded graphs must be compatible with the boundary labels, as detailed in \cite{kirillovStringNets}.  
 
-One could also consider more complicated spherical categories than $\Vect^G_\omega$, such as the 
+One could also consider more complicated spherical categories than $\vgo$, such as the 
 Tambara-Yamagami categories.  The main additional complication here is the appearance of multifusion channels, i.e. the tensor product of two simple objects can be a direct sum of multiple simple objects.  
 \medskip
 
