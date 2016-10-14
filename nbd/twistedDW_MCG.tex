@@ -951,7 +951,7 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 \nc{\leftX}{-\rightX} % right marked point x value
 \nc{\pY}{0.5}  % y value for marked points
 \nc{\loopR}{0.3}
-
+\renewcommand{\mv}{(0, -0.2)}
 
 \begin{table}
 \centering
@@ -959,7 +959,8 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 \begin{tabular}{|c|c|}
 
   \hline
-
+  
+  %Braid 1
     \begin{tikzpicture}[scale=4]
 
          
@@ -990,6 +991,38 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
     \end{scope}
     \end{tikzpicture}
 
+&
+
+  %Braid 2
+    \begin{tikzpicture}[scale=4]
+
+         
+    %graph edges
+    \begin{scope}[very thick,decoration={
+    markings,
+    mark=at position 0.5 with {\arrow{>}}}
+    ]  
+
+      % TODO: calculate tangent lines maybe
+
+       % left loop
+       \draw[postaction={decorate}]  \mv -- ({\leftX - \loopR}, \pY) node[pos=.5,below]{$g$};
+       \draw[very thick, domain=0:180]      plot ({\loopR*cos(\x) + \leftX}, {\loopR*sin(\x) + \pY});
+       \draw[postaction={decorate}]   ({\leftX + \loopR}, \pY) -- \mv;
+       
+       % left leg
+       \draw[postaction={decorate}]  \mv -- (\leftX, \pY) node[pos=.5,above]{$h$};
+
+       % right loop
+       \draw[postaction={decorate}]  \mv -- ({\rightX - \loopR}, \pY) node[pos=.5,left]{$k$};
+       \draw[very thick, domain=0:180]      plot ({\loopR*cos(\x) + \rightX}, {\loopR*sin(\x) + \pY});
+       \draw[postaction={decorate}]   ({\rightX + \loopR}, \pY) -- \mv;
+ 
+       % right leg
+       \draw[postaction={decorate}]  \mv -- (\rightX, \pY) node[pos=.5, above]{$l$};       
+  
+    \end{scope}
+    \end{tikzpicture}
 
 
 \\ \hline
