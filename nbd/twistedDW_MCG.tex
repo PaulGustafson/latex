@@ -977,6 +977,17 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 
 }
 
+%bottom right of right loop
+\nc{\bRight}{
+        \begin{scope}[very thick,decoration={
+           markings,
+           mark=at position 0.5 with {\arrow{>}}}
+       ]  
+       \draw[postaction={decorate}]   plot[domain=180:360] ({\loopR*cos(\x) + \leftX + 3*\loopR}, {\loopR*sin(\x) + \pY});
+       \node[below] at  ({\loopR*cos(270) + \leftX + 3*\loopR}, {\loopR*sin(270) + \pY}) {$g$};
+     \end{scope}
+   }
+
 \nc{\makeBraid}{
 
      \makeBase
@@ -996,31 +1007,90 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
        \node[above] at  ({2*\loopR*cos(90) + \leftX}, {2*\loopR*sin(90) + \pY}) {$g$};
        \draw[postaction={decorate}]      plot[domain=0:180] ({4*\loopR*cos(\x) + \leftX}, {4*\loopR*sin(\x) + \pY});
        \node[above] at  ({4*\loopR*cos(90) + \leftX}, {4*\loopR*sin(90) + \pY}) {$g$};
-       \draw[postaction={decorate}]      plot[domain=180:360] ({\loopR*cos(\x) + \leftX + 3*\loopR}, {\loopR*sin(\x) + \pY});
 
        %\right leg
        \draw[postaction={decorate}]      plot[domain=180:0] ({3*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
        \node[above] at  ({3*\loopR*cos(90) + \leftX}, {3*\loopR*sin(90) + \pY}) {$h$};
 
      \end{scope}
+
+     \bRight
        
 }
+
+
+\nc{\makeBraidOne}{
+
+     \makeBase
+
+     \begin{scope}[very thick,decoration={
+           markings,
+           mark=at position 0.25 with {\arrow{>}},
+          mark=at position 0.75 with {\arrow{>}}}
+       ]  
+
+       % left loop
+       \draw[postaction={decorate}]   plot[domain=180:0]  
+              ({\loopR*cos(\x) + \leftX}, {\loopR*sin(\x) + \pY});
+       \node[above] at  ({\loopR*cos(45) + \leftX}, {\loopR*sin(45) + \pY}) {$k$};
+       \node[above] at  ({\loopR*cos(135) + \leftX}, {\loopR*sin(135) + \pY}) {$k$};
+
+       % right loop
+       \draw[postaction={decorate}]     plot[domain=180:0] ({2*\loopR*cos(\x) + \leftX}, {2*\loopR*sin(\x) + \pY});
+       \node[above] at  ({2*\loopR*cos(45) + \leftX}, {2*\loopR*sin(45) + \pY}) {$g$};
+       \node[above] at  ({2*\loopR*cos(135) + \leftX}, {2*\loopR*sin(135) + \pY}) {$g$};
+       \draw[postaction={decorate}]      plot[domain=0:180] ({4*\loopR*cos(\x) + \leftX}, {4*\loopR*sin(\x) + \pY});
+       \node[above] at  ({4*\loopR*cos(45) + \leftX}, {4*\loopR*sin(45) + \pY}) {$g$};
+       \node[above] at  ({4*\loopR*cos(135) + \leftX}, {4*\loopR*sin(135) + \pY}) {$g$};
+
+       %\right leg
+       \draw[postaction={decorate}]      plot[domain=180:0] ({3*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \node[above] at  ({3*\loopR*cos(45) + \leftX}, {3*\loopR*sin(45) + \pY}) {$h$};
+       \node[above] at  ({3*\loopR*cos(135) + \leftX}, {3*\loopR*sin(135) + \pY}) {$h$};
+
+     \end{scope}
+
+     \bRight       
+}
+
 
 \nc{\makeBraidTwo}{
 
      \makeBase
 
+
+     \begin{scope}[very thick,decoration={
+           markings,
+           mark=at position 0.1 with {\arrow{>}},
+          mark=at position 0.9 with {\arrow{>}}}
+       ]  
+       % \right leg
+       \draw[postaction={decorate}]      plot[domain=180:0] ({3*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \node[right] at  ({3*\loopR*cos(18) + \leftX}, {3*\loopR*sin(18) + \pY}) {$h$};
+       \node[left] at  ({3*\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$h$};
+
        % left loop
-       \draw[very thick, domain=0:180]      plot ({\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \draw[postaction={decorate}]      plot[domain=180:0] ({\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \node[left] at  ({\loopR*cos(18) + \leftX}, {3*\loopR*sin(18) + \pY}) {$k$};
+       \node[left] at  ({\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$k$};
+     \end{scope}
 
        % right loop
-       \draw[very thick, domain=0:180]      plot ({2*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
-       \draw[very thick, domain=0:180]      plot ({4*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
-       \draw[very thick, domain=180:360]      plot ({\loopR*cos(\x) + \leftX + 3*\loopR}, {\loopR*sin(\x) + \pY});
-       
-       %\right leg
-       \draw[very thick, domain=0:180]      plot ({3*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
-       
+     \begin{scope}[very thick,decoration={
+           markings,
+           mark=at position 0.1 with {\arrow{>}}}]
+       \draw[postaction={decorate}]         plot[domain=180:0] ({2*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \node[left] at  ({2*\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$g$};
+     \end{scope}
+     \begin{scope}[very thick,decoration={
+           markings,
+           mark=at position 0.9 with {\arrow{>}}}]
+     \draw[postaction={decorate}]       plot[domain=0:180] ({4*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \node[left] at  ({4*\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$g$};
+     \end{scope}
+         
+
+       \bRight
 }
 
 
@@ -1032,7 +1102,7 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
   \hline
   
   %Braid 1
-    \begin{tikzpicture}[scale=4]
+    \begin{tikzpicture}[scale=2.5]
 
          
     %graph edges
@@ -1043,17 +1113,19 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 
 
        % left loop
-       \draw[postaction={decorate}]  \mv -- ({\leftX - \loopR}, \pY) node[pos=.5,below]{$g$};
-       \draw[very thick, domain=0:180]      plot ({\loopR*cos(\x) + \leftX}, {\loopR*sin(\x) + \pY});
-       \draw[postaction={decorate}]   ({\leftX + \loopR}, \pY) -- \mv  node[pos=.5,right]{$g$};
+       \draw  \mv -- ({\leftX - \loopR}, \pY);
+       \draw[postaction={decorate}]    plot[domain=180:0] ({\loopR*cos(\x) + \leftX}, {\loopR*sin(\x) + \pY});
+       \node[above] at ({\loopR*cos(90) + \leftX}, {\loopR*sin(90) + \pY}) {$g$};
+       \draw   ({\leftX + \loopR}, \pY) -- \mv;
        
        % left leg
        \draw[postaction={decorate}]  \mv -- (\leftX, \pY) node[pos=.5,above]{$h$};
 
        % right loop
-       \draw[postaction={decorate}]  \mv -- ({\rightX - \loopR}, \pY) node[pos=.5,left]{$k$};
-       \draw[very thick, domain=0:180]      plot ({\loopR*cos(\x) + \rightX}, {\loopR*sin(\x) + \pY});
-       \draw[postaction={decorate}]   ({\rightX + \loopR}, \pY) -- \mv  node[pos=.5,below]{$k$};
+       \draw  \mv -- ({\rightX - \loopR}, \pY);
+       \draw[postaction={decorate}] plot[domain=180:0] ({\loopR*cos(\x) + \rightX}, {\loopR*sin(\x) + \pY});
+       \node[above] at ({\loopR*cos(90) + \rightX}, {\loopR*sin(90) + \pY}) {$k$};
+       \draw   ({\rightX + \loopR}, \pY) -- \mv;
  
        % right leg
        \draw[postaction={decorate}]  \mv -- (\rightX, \pY) node[pos=.5, above]{$l$};       
@@ -1064,7 +1136,7 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 &
 
   %Braid 2
-    \begin{tikzpicture}[scale=4]
+    \begin{tikzpicture}[scale=2.5]
 
          
     %graph edges
@@ -1072,8 +1144,6 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
     markings,
     mark=at position 0.5 with {\arrow{>}}}
     ]  
-
-      % TODO: calculate tangent lines maybe
 
     \makeBraid
   
@@ -1083,16 +1153,15 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 \\ \hline
 
   %Braid 3
-    \begin{tikzpicture}[scale=4]
+    \begin{tikzpicture}[scale=2.5]
 
+      \makeBraidOne
          
     %graph edges
     \begin{scope}[very thick,decoration={
     markings,
     mark=at position 0.5 with {\arrow{>}}}
     ]  
-
-    \makeBraid
 
        % connecting edge
        \draw ({\leftX}, {\pY + \loopR}) -- ({\leftX}, {\pY + 4*\loopR});
@@ -1103,18 +1172,10 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 &
 
   %Braid 4
-    \begin{tikzpicture}[scale=4]
-
-         
-    %graph edges
-    \begin{scope}[very thick,decoration={
-    markings,
-    mark=at position 0.5 with {\arrow{>}}}
-    ]  
+    \begin{tikzpicture}[scale=2.5]
 
       \makeBraidTwo     
-  
-    \end{scope}
+         
     \end{tikzpicture}
 
 
