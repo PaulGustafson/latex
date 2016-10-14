@@ -953,6 +953,58 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 \nc{\loopR}{0.3}
 \renewcommand{\mv}{(0, -0.2)}
 
+\nc{\makeBase}{
+      % left loop
+       \draw[postaction={decorate}]  \mv -- ({\leftX - \loopR}, \pY) node[pos=.5,below]{$k$};
+       \draw[postaction={decorate}]   ({\leftX + \loopR}, \pY) -- \mv  node[pos=.5,right]{$k$};
+       
+       % left leg
+       \draw[postaction={decorate}]  \mv -- (\leftX, \pY) node[pos=.5,above]{$l$};
+
+       % new right loop and leg
+       \draw[postaction={decorate}]  \mv -- ({\leftX - 4*\loopR}, \pY) node[pos=.5,left]{$g$};
+
+       \draw[postaction={decorate}]   ({\leftX - 2*\loopR}, \pY) -- \mv node[pos=.5,right]{$g$};
+ 
+       % right leg
+       \draw[postaction={decorate}]  \mv -- ({\leftX - 3*\loopR}, \pY) node[pos=.5, above]{$h$};       
+}
+
+\nc{\makeBraid}{
+
+     \makeBase
+
+       % left loop
+       \draw[postaction={decorate}]   plot[domain=180:0]  ({\loopR*cos(\x) + \leftX}, {\loopR*sin(\x) + \pY});
+
+       % right loop
+       \draw[very thick, domain=0:180]      plot ({2*\loopR*cos(\x) + \leftX}, {2*\loopR*sin(\x) + \pY});
+       \draw[very thick, domain=0:180]      plot ({4*\loopR*cos(\x) + \leftX}, {4*\loopR*sin(\x) + \pY});
+       \draw[very thick, domain=180:360]      plot ({\loopR*cos(\x) + \leftX + 3*\loopR}, {\loopR*sin(\x) + \pY});
+       
+       %\right leg
+       \draw[very thick, domain=0:180]      plot ({3*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       
+}
+
+\nc{\makeBraidTwo}{
+
+     \makeBase
+
+       % left loop
+       \draw[very thick, domain=0:180]      plot ({\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+
+       % right loop
+       \draw[very thick, domain=0:180]      plot ({2*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \draw[very thick, domain=0:180]      plot ({4*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \draw[very thick, domain=180:360]      plot ({\loopR*cos(\x) + \leftX + 3*\loopR}, {\loopR*sin(\x) + \pY});
+       
+       %\right leg
+       \draw[very thick, domain=0:180]      plot ({3*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       
+}
+
+
 \begin{table}
 \centering
 
@@ -970,12 +1022,11 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
     mark=at position 0.5 with {\arrow{>}}}
     ]  
 
-      % TODO: calculate tangent lines maybe
 
        % left loop
        \draw[postaction={decorate}]  \mv -- ({\leftX - \loopR}, \pY) node[pos=.5,below]{$g$};
        \draw[very thick, domain=0:180]      plot ({\loopR*cos(\x) + \leftX}, {\loopR*sin(\x) + \pY});
-       \draw[postaction={decorate}]   ({\leftX + \loopR}, \pY) -- \mv;
+       \draw[postaction={decorate}]   ({\leftX + \loopR}, \pY) -- \mv  node[pos=.5,right]{$g$};
        
        % left leg
        \draw[postaction={decorate}]  \mv -- (\leftX, \pY) node[pos=.5,above]{$h$};
@@ -983,7 +1034,7 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
        % right loop
        \draw[postaction={decorate}]  \mv -- ({\rightX - \loopR}, \pY) node[pos=.5,left]{$k$};
        \draw[very thick, domain=0:180]      plot ({\loopR*cos(\x) + \rightX}, {\loopR*sin(\x) + \pY});
-       \draw[postaction={decorate}]   ({\rightX + \loopR}, \pY) -- \mv;
+       \draw[postaction={decorate}]   ({\rightX + \loopR}, \pY) -- \mv  node[pos=.5,below]{$k$};
  
        % right leg
        \draw[postaction={decorate}]  \mv -- (\rightX, \pY) node[pos=.5, above]{$l$};       
@@ -1005,21 +1056,44 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 
       % TODO: calculate tangent lines maybe
 
-       % left loop
-       \draw[postaction={decorate}]  \mv -- ({\leftX - \loopR}, \pY) node[pos=.5,below]{$g$};
-       \draw[very thick, domain=0:180]      plot ({\loopR*cos(\x) + \leftX}, {\loopR*sin(\x) + \pY});
-       \draw[postaction={decorate}]   ({\leftX + \loopR}, \pY) -- \mv;
-       
-       % left leg
-       \draw[postaction={decorate}]  \mv -- (\leftX, \pY) node[pos=.5,above]{$h$};
+    \makeBraid
+  
+    \end{scope}
+    \end{tikzpicture}
 
-       % right loop
-       \draw[postaction={decorate}]  \mv -- ({\rightX - \loopR}, \pY) node[pos=.5,left]{$k$};
-       \draw[very thick, domain=0:180]      plot ({\loopR*cos(\x) + \rightX}, {\loopR*sin(\x) + \pY});
-       \draw[postaction={decorate}]   ({\rightX + \loopR}, \pY) -- \mv;
- 
-       % right leg
-       \draw[postaction={decorate}]  \mv -- (\rightX, \pY) node[pos=.5, above]{$l$};       
+\\ \hline
+
+  %Braid 3
+    \begin{tikzpicture}[scale=4]
+
+         
+    %graph edges
+    \begin{scope}[very thick,decoration={
+    markings,
+    mark=at position 0.5 with {\arrow{>}}}
+    ]  
+
+    \makeBraid
+
+       % connecting edge
+       \draw ({\leftX}, {\pY + \loopR}) -- ({\leftX}, {\pY + 4*\loopR});
+  
+    \end{scope}
+    \end{tikzpicture}
+
+&
+
+  %Braid 4
+    \begin{tikzpicture}[scale=4]
+
+         
+    %graph edges
+    \begin{scope}[very thick,decoration={
+    markings,
+    mark=at position 0.5 with {\arrow{>}}}
+    ]  
+
+      \makeBraidTwo     
   
     \end{scope}
     \end{tikzpicture}
