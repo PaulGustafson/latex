@@ -955,35 +955,54 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 
 \nc{\makeBase}{
       % left loop
-       \draw[postaction={decorate}]  \mv -- ({\leftX - \loopR}, \pY) node[pos=.5,below]{$k$};
-       \draw[postaction={decorate}]   ({\leftX + \loopR}, \pY) -- \mv  node[pos=.5,right]{$k$};
+       \draw  \mv -- ({\leftX - \loopR}, \pY);
+       \draw   ({\leftX + \loopR}, \pY) -- \mv;
        
-       % left leg
-       \draw[postaction={decorate}]  \mv -- (\leftX, \pY) node[pos=.5,above]{$l$};
+       \begin{scope}[very thick,decoration={
+             markings,
+             mark=at position 0.5 with {\arrow{>}}}
+         ]  
+
+         % left leg
+         \draw[postaction={decorate}]  \mv -- (\leftX, \pY) node[pos=.5,above]{$l$};
+
+       \end{scope}
 
        % new right loop and leg
-       \draw[postaction={decorate}]  \mv -- ({\leftX - 4*\loopR}, \pY) node[pos=.5,left]{$g$};
-
-       \draw[postaction={decorate}]   ({\leftX - 2*\loopR}, \pY) -- \mv node[pos=.5,right]{$g$};
+       \draw  \mv -- ({\leftX - 4*\loopR}, \pY);
+       \draw   ({\leftX - 2*\loopR}, \pY) -- \mv;
  
        % right leg
-       \draw[postaction={decorate}]  \mv -- ({\leftX - 3*\loopR}, \pY) node[pos=.5, above]{$h$};       
+       \draw  \mv -- ({\leftX - 3*\loopR}, \pY);       
+
 }
 
 \nc{\makeBraid}{
 
      \makeBase
 
+     \begin{scope}[very thick,decoration={
+           markings,
+           mark=at position 0.5 with {\arrow{>}}}
+       ]  
+
        % left loop
-       \draw[postaction={decorate}]   plot[domain=180:0]  ({\loopR*cos(\x) + \leftX}, {\loopR*sin(\x) + \pY});
+       \draw[postaction={decorate}]   plot[domain=180:0]  
+              ({\loopR*cos(\x) + \leftX}, {\loopR*sin(\x) + \pY});
+       \node[above] at  ({\loopR*cos(90) + \leftX}, {\loopR*sin(90) + \pY}) {$k$};
 
        % right loop
-       \draw[very thick, domain=0:180]      plot ({2*\loopR*cos(\x) + \leftX}, {2*\loopR*sin(\x) + \pY});
-       \draw[very thick, domain=0:180]      plot ({4*\loopR*cos(\x) + \leftX}, {4*\loopR*sin(\x) + \pY});
-       \draw[very thick, domain=180:360]      plot ({\loopR*cos(\x) + \leftX + 3*\loopR}, {\loopR*sin(\x) + \pY});
-       
+       \draw[postaction={decorate}]     plot[domain=180:0] ({2*\loopR*cos(\x) + \leftX}, {2*\loopR*sin(\x) + \pY});
+       \node[above] at  ({2*\loopR*cos(90) + \leftX}, {2*\loopR*sin(90) + \pY}) {$g$};
+       \draw[postaction={decorate}]      plot[domain=0:180] ({4*\loopR*cos(\x) + \leftX}, {4*\loopR*sin(\x) + \pY});
+       \node[above] at  ({4*\loopR*cos(90) + \leftX}, {4*\loopR*sin(90) + \pY}) {$g$};
+       \draw[postaction={decorate}]      plot[domain=180:360] ({\loopR*cos(\x) + \leftX + 3*\loopR}, {\loopR*sin(\x) + \pY});
+
        %\right leg
-       \draw[very thick, domain=0:180]      plot ({3*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \draw[postaction={decorate}]      plot[domain=180:0] ({3*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \node[above] at  ({3*\loopR*cos(90) + \leftX}, {3*\loopR*sin(90) + \pY}) {$h$};
+
+     \end{scope}
        
 }
 
