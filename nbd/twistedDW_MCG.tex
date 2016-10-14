@@ -1036,10 +1036,10 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
        \node[above] at  ({\loopR*cos(135) + \leftX}, {\loopR*sin(135) + \pY}) {$k$};
 
        % right loop
-       \draw[postaction={decorate}]     plot[domain=180:0] ({2*\loopR*cos(\x) + \leftX}, {2*\loopR*sin(\x) + \pY});
+       \draw[postaction={decorate}]     plot[domain=0:180] ({2*\loopR*cos(\x) + \leftX}, {2*\loopR*sin(\x) + \pY});
        \node[above] at  ({2*\loopR*cos(45) + \leftX}, {2*\loopR*sin(45) + \pY}) {$g$};
        \node[above] at  ({2*\loopR*cos(135) + \leftX}, {2*\loopR*sin(135) + \pY}) {$g$};
-       \draw[postaction={decorate}]      plot[domain=0:180] ({4*\loopR*cos(\x) + \leftX}, {4*\loopR*sin(\x) + \pY});
+       \draw[postaction={decorate}]      plot[domain=180:0] ({4*\loopR*cos(\x) + \leftX}, {4*\loopR*sin(\x) + \pY});
        \node[above] at  ({4*\loopR*cos(45) + \leftX}, {4*\loopR*sin(45) + \pY}) {$g$};
        \node[above] at  ({4*\loopR*cos(135) + \leftX}, {4*\loopR*sin(135) + \pY}) {$g$};
 
@@ -1079,17 +1079,48 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
      \begin{scope}[very thick,decoration={
            markings,
            mark=at position 0.1 with {\arrow{>}}}]
-       \draw[postaction={decorate}]         plot[domain=180:0] ({2*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \draw[postaction={decorate}]         plot[domain=0:180] ({2*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
        \node[left] at  ({2*\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$g$};
      \end{scope}
      \begin{scope}[very thick,decoration={
            markings,
            mark=at position 0.9 with {\arrow{>}}}]
-     \draw[postaction={decorate}]       plot[domain=0:180] ({4*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+     \draw[postaction={decorate}]       plot[domain=180:0] ({4*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
        \node[left] at  ({4*\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$g$};
      \end{scope}
          
+       \bRight
+}
 
+
+\nc{\makeBraidTwo}{
+
+
+     \begin{scope}[very thick,decoration={
+           markings,
+           mark=at position 0.1 with {\arrow{>}},
+          mark=at position 0.9 with {\arrow{>}}}
+       ]  
+       % \right leg
+       \draw[postaction={decorate}]      plot[domain=180:0] ({3*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \node[right] at  ({3*\loopR*cos(18) + \leftX}, {3*\loopR*sin(18) + \pY}) {$h$};
+       \node[left] at  ({3*\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$h$};
+
+       % left loop
+       \draw[postaction={decorate}]      plot[domain=180:0] ({\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \node[left] at  ({\loopR*cos(18) + \leftX}, {3*\loopR*sin(18) + \pY}) {$k$};
+       \node[left] at  ({\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$k$};
+     \end{scope}
+
+       % left side
+     \begin{scope}[very thick,decoration={
+           markings,
+           mark=at position 0.1 with {\arrow{>}}}]
+       \draw[postaction={decorate}]         plot[domain=180:0] ({2*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \node[left] at  ({2*\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$kghg^{-1}$};
+     \end{scope}
+ 
+         
        \bRight
 }
 
