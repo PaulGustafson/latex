@@ -955,8 +955,8 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 
 \nc{\makeBase}{
       % left loop
-       \draw  \mv -- ({\leftX - \loopR}, \pY);
-       \draw   ({\leftX + \loopR}, \pY) -- \mv;
+       \draw[very thick]  \mv -- ({\leftX - \loopR}, \pY);
+       \draw[very thick]   ({\leftX + \loopR}, \pY) -- \mv;
        
        \begin{scope}[very thick,decoration={
              markings,
@@ -969,13 +969,33 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
        \end{scope}
 
        % new right loop and leg
-       \draw  \mv -- ({\leftX - 4*\loopR}, \pY);
-       \draw   ({\leftX - 2*\loopR}, \pY) -- \mv;
+       \draw[very thick]  \mv -- ({\leftX - 4*\loopR}, \pY);
+       \draw[very thick]   ({\leftX - 2*\loopR}, \pY) -- \mv;
  
        % right leg
-       \draw  \mv -- ({\leftX - 3*\loopR}, \pY);       
+       \draw[very thick]  \mv -- ({\leftX - 3*\loopR}, \pY);       
 
 }
+
+
+\nc{\makeBaseTwo}{
+    % left loop
+
+       \draw[very thick]   ({\leftX + \loopR}, \pY) -- \mv;
+       
+       \begin{scope}[very thick,decoration={
+             markings,
+             mark=at position 0.5 with {\arrow{>}}}
+         ]  
+
+         % left leg
+         \draw[postaction={decorate}]  \mv -- (\leftX, \pY) node[pos=.5,above]{$l$};
+
+       \end{scope}
+  
+       \draw[very thick]   ({\leftX - 2*\loopR}, \pY) -- \mv;
+}
+
 
 %bottom right of right loop
 \nc{\bRight}{
@@ -983,7 +1003,7 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
            markings,
            mark=at position 0.5 with {\arrow{>}}}
        ]  
-       \draw[postaction={decorate}]   plot[domain=180:360] ({\loopR*cos(\x) + \leftX + 3*\loopR}, {\loopR*sin(\x) + \pY});
+       \draw[postaction={decorate}]   plot[domain=360:180] ({\loopR*cos(\x) + \leftX + 3*\loopR}, {\loopR*sin(\x) + \pY});
        \node[below] at  ({\loopR*cos(270) + \leftX + 3*\loopR}, {\loopR*sin(270) + \pY}) {$g$};
      \end{scope}
    }
@@ -1003,9 +1023,9 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
        \node[above] at  ({\loopR*cos(90) + \leftX}, {\loopR*sin(90) + \pY}) {$k$};
 
        % right loop
-       \draw[postaction={decorate}]     plot[domain=180:0] ({2*\loopR*cos(\x) + \leftX}, {2*\loopR*sin(\x) + \pY});
+       \draw[postaction={decorate}]     plot[domain=0:180] ({2*\loopR*cos(\x) + \leftX}, {2*\loopR*sin(\x) + \pY});
        \node[above] at  ({2*\loopR*cos(90) + \leftX}, {2*\loopR*sin(90) + \pY}) {$g$};
-       \draw[postaction={decorate}]      plot[domain=0:180] ({4*\loopR*cos(\x) + \leftX}, {4*\loopR*sin(\x) + \pY});
+       \draw[postaction={decorate}]      plot[domain=180:0] ({4*\loopR*cos(\x) + \leftX}, {4*\loopR*sin(\x) + \pY});
        \node[above] at  ({4*\loopR*cos(90) + \leftX}, {4*\loopR*sin(90) + \pY}) {$g$};
 
        %\right leg
@@ -1078,13 +1098,13 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
        % right loop
      \begin{scope}[very thick,decoration={
            markings,
-           mark=at position 0.1 with {\arrow{>}}}]
+           mark=at position 0.9 with {\arrow{>}}}]
        \draw[postaction={decorate}]         plot[domain=0:180] ({2*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
        \node[left] at  ({2*\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$g$};
      \end{scope}
      \begin{scope}[very thick,decoration={
            markings,
-           mark=at position 0.9 with {\arrow{>}}}]
+           mark=at position 0.1 with {\arrow{>}}}]
      \draw[postaction={decorate}]       plot[domain=180:0] ({4*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
        \node[left] at  ({4*\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$g$};
      \end{scope}
@@ -1092,34 +1112,32 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
        \bRight
 }
 
+\nc{\makeBraidThree}{
 
-\nc{\makeBraidTwo}{
-
+  \makeBaseTwo
 
      \begin{scope}[very thick,decoration={
            markings,
-           mark=at position 0.1 with {\arrow{>}},
-          mark=at position 0.9 with {\arrow{>}}}
+          mark=at position 0.8 with {\arrow{>}}}
        ]  
        % \right leg
-       \draw[postaction={decorate}]      plot[domain=180:0] ({3*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \draw[postaction={decorate}]      plot[domain=90:0] ({3*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
        \node[right] at  ({3*\loopR*cos(18) + \leftX}, {3*\loopR*sin(18) + \pY}) {$h$};
-       \node[left] at  ({3*\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$h$};
 
        % left loop
-       \draw[postaction={decorate}]      plot[domain=180:0] ({\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
+       \draw[postaction={decorate}]      plot[domain=90:0] ({\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
        \node[left] at  ({\loopR*cos(18) + \leftX}, {3*\loopR*sin(18) + \pY}) {$k$};
-       \node[left] at  ({\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$k$};
      \end{scope}
 
-       % left side
+       % right loop
      \begin{scope}[very thick,decoration={
            markings,
            mark=at position 0.1 with {\arrow{>}}}]
        \draw[postaction={decorate}]         plot[domain=180:0] ({2*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
-       \node[left] at  ({2*\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$kghg^{-1}$};
+       \node[left] at  ({2*\loopR*cos(162) + \leftX}, {3*\loopR*sin(162) + \pY}) {$kg^{-1}hg$};
      \end{scope}
- 
+
+     \draw[very thick]       plot[domain=90:0] ({4*\loopR*cos(\x) + \leftX}, {3*\loopR*sin(\x) + \pY});
          
        \bRight
 }
@@ -1209,6 +1227,48 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
          
     \end{tikzpicture}
 
+\\ \hline
+
+    %Braid 5
+    \begin{tikzpicture}[scale=2.5]
+
+      \makeBraidThree
+         
+    \end{tikzpicture}
+
+&
+
+  %Braid 6
+    \begin{tikzpicture}[scale=2.5]
+
+         
+    %graph edges
+    \begin{scope}[very thick,decoration={
+    markings,
+    mark=at position 0.5 with {\arrow{>}}}
+    ]  
+
+
+       % left loop
+       \draw  \mv -- ({\leftX - \loopR}, \pY);
+       \draw[postaction={decorate}]    plot[domain=180:0] ({\loopR*cos(\x) + \leftX}, {\loopR*sin(\x) + \pY});
+       \node[above] at ({\loopR*cos(90) + \leftX}, {\loopR*sin(90) + \pY}) {$kg^{-1}hg$};
+       \draw   ({\leftX + \loopR}, \pY) -- \mv;
+       
+       % left leg
+       \draw[postaction={decorate}]  \mv -- (\leftX, \pY) node[pos=.5,above]{$l$};
+
+       % right loop
+       \draw  \mv -- ({\rightX - \loopR}, \pY);
+       \draw[postaction={decorate}] plot[domain=180:0] ({\loopR*cos(\x) + \rightX}, {\loopR*sin(\x) + \pY});
+       \node[above] at ({\loopR*cos(90) + \rightX}, {\loopR*sin(90) + \pY}) {$g$};
+       \draw   ({\rightX + \loopR}, \pY) -- \mv;
+ 
+       % right leg
+       \draw[postaction={decorate}]  \mv -- (\rightX, \pY) node[pos=.5, above]{$h$};       
+  
+    \end{scope}
+    \end{tikzpicture}
 
 \\ \hline
 \end{tabular}
