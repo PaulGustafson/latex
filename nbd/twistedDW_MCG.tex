@@ -117,7 +117,7 @@ Given a spherical category $\mathcal A$ over a field $k$ and an oriented compact
 
 It is conjectured that these representations have finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a modification of the Property F conjecture \cite{nr, erw}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral. Instead of only considering braid group representations, one can consider mapping class groups of arbitrary orientable surfaces.  In this case, the input categories to construct the representations must be more specialized than just braided monoidal.  One can either apply the Reshitikhin-Turaev construction to a modular tensor category, or apply the TVBW construction to a spherical category.  The former is more general than the latter since the the Reshitikhin-Turaev construction for the Drinfeld center $Z(\mathcal A)$ of a spherical category $\mathcal A$ yields the same representation as the TVBW construction for $\mathcal A$.  However, for the case considered in this paper, the simpler TVBW construction suffices.
 
-In this paper, our input category is  $\mathcal A = \Vect_G^\omega$, the spherical category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the TVBW construction corresponds to the twisted Dijkgraaf-Witten theory of \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects that its associated mapping class group representations have finite image.  The main contribution of this paper is to verify this for arbitrary $G$ and $\omega$.
+In this paper, our input category is  $\mathcal A = \Vect_G^\omega$, the spherical category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the TVBW construction corresponds to the twisted Dijkgraaf-Witten theory of \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects its associated mapping class group representations to have finite image.  The main contribution of this paper is to verify this for arbitrary $G$ and $\omega$.
 
 \textbf{Acknowledgments.}  This paper would not have been written without the guidance of my advisor, Eric Rowell.  I am also grateful to Zhengan Wang and my father Robert Gustafson for their advice.
 
@@ -127,7 +127,7 @@ The closest related work is a result of Fjelstad and Fuchs \cite{fjfu} showing t
 
 In \cite{bantay}, Bantay defined representations of mapping class groups on the Hilbert space of an orbifold model associated to $D^\omega(G)$.  These representations appear to coincide with the twisted Dijkgraaf-Witten representations. However, the precise details of the connection are not clear to me.
 
-More is known when we fix a particular surface $M$. In the case where $M$ is a torus, Ng and Schauenburg showed that any Reshitikhin-Turaev representation of the mapping class group of the torus is always finite \cite{0806.2493}.   In the case where $M$ is an $n$-punctured disk, the mapping class group of $M$ relative to the boundary of the disk is the braid group $B_n$.  In this case, Etingof, Rowell, and Witherspoon proved that the representations associated to $\Mod(D^\omega(G))$ are finite \cite{erw}.
+More is known when we fix a particular surface $M$. In the case where $M$ is a torus, Ng and Schauenburg showed that any Reshitikhin-Turaev representation of the mapping class group of the torus is finite \cite{0806.2493}.   In the case where $M$ is an $n$-punctured disk, the mapping class group of $M$ relative to the boundary of the disk is the braid group $B_n$.  In this case, Etingof, Rowell, and Witherspoon proved that the representations associated to $\Mod(D^\omega(G))$ are finite \cite{erw}.
 
 \section{Definitions}
 
@@ -1277,6 +1277,55 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 \label{fig:braid1}
 \end{table}
 
+
+%%%%%%%%%%%%%%%%%% Dragging along \pi_1 generator %%%%%%%%%
+
+\nc{boundaryComp}{(0.2,
+
+
+\begin{table}
+\centering
+
+\begin{tabular}{|c|c|}
+
+  \hline
+  
+  % Drag 1
+    \begin{tikzpicture}[scale=3]    
+
+      % boundary of polygon
+      \makeBdy
+
+
+    \begin{scope}[very thick,decoration={
+    markings,
+    mark=at position 0.5 with {\arrow{>}}}
+    ]  
+
+      % cut for Dehn twist
+      \draw[loosely dashed] \lcut -- \rcut;
+      
+
+      %graph edges
+
+      \draw[postaction={decorate}]   \mv -- (0.75, 0.433) node[pos=.5,sloped,above]{$h$};
+      \draw[postaction={decorate}]   \mv -- \mtop node[pos=.5,left]{$g$};
+      \draw[postaction={decorate}]  (-0.75, 0.433) -- \mv node[pos=.5,sloped,above]{$h$};
+      \outEdge
+
+    \end{scope}
+    \end{tikzpicture}
+
+
+&
+
+
+\\ \hline
+\end{tabular}
+
+\caption{Pulling a boundary component along a generator for the fundamental group of the corresponding closed surface. The figures are ordered from left to right, then top to bottom.}
+\label{fig:drag1}
+\end{table}
 
 
 \begin{thm}\label{thm:compact}
