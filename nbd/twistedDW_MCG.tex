@@ -463,6 +463,7 @@ Thus, the image of any such mapping class group representation is a quotient of 
 
 
 \newcommand{\nc}{\newcommand}
+\newcommand{\rnc}{\renewcommand}
 
 %% Definitions
 
@@ -1280,8 +1281,15 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 
 %%%%%%%%%%%%%%%%%% Dragging along \pi_1 generator %%%%%%%%%
 
-\nc{boundaryComp}{(0.2,
-
+\nc{\boundaryComponent}{(0.2, 0.3)}
+\nc{\uv}{(0.1, 0.5)}
+\nc{\rv}{(0.4, 0.3)}
+\nc{\cutRatio}{0.7}
+\rnc{\lcutx}{{\cutRatio*(-0.5) + (1-\cutRatio)*(-1)}}
+\rnc{\lcuty}{{\cutRatio*(0.866)}}
+\rnc{\lcut}{(\lcutx, \lcuty)}
+\rnc{\rcutx}{{\cutRatio*(0.5) + (1-\cutRatio)*(1)}}
+\rnc{\rcut}{(\rcutx, \lcuty)}
 
 \begin{table}
 \centering
@@ -1303,7 +1311,7 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
     ]  
 
       % cut for Dehn twist
-      \draw[loosely dashed] \lcut -- \rcut;
+      \draw[loosely dashed] \lcut -- \boundaryComponent --\rcut;
       
 
       %graph edges
