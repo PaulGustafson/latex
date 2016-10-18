@@ -1283,7 +1283,7 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 
 \rnc{\mv}{(-0.2,0.2)}
 \nc{\uv}{(0.1, 0.6)}
-\nc{\rv}{(0.4, 0.2)}
+\nc{\rv}{(0.3, 0.1)}
 \nc{\cutRatio}{0.5}
 \rnc{\lcutx}{{\cutRatio*(-0.5) + (1-\cutRatio)*(-1)}}
 \rnc{\lcuty}{{\cutRatio*(0.866)}}
@@ -1291,14 +1291,53 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 \rnc{\rcutx}{{\cutRatio*(0.5) + (1-\cutRatio)*(1)}}
 \rnc{\rcut}{(\rcutx, \lcuty)}
 \nc{\boundaryComponent}{(0.1, \lcuty)}
+\nc{\phInt}{(0.3, \lcuty)}
+\nc{\phgInt}{(-0.1, \lcuty)}
 
-\nc{\edgeRatio}{0.8}
+\nc{\edgeRatio}{0.9}
 \nc{\lex}{{\edgeRatio*(-1) + (1-\edgeRatio)*(\lcx)}}
 \nc{\ley}{{(1-\edgeRatio)*(\lcy)}}
 \nc{\lev}{(\lex, \ley)}
 %\nc{\rex}{{(-1)*(\lex)}}
 \nc{\rex}{{\edgeRatio*(1) + (1-\edgeRatio)*(\rcx)}}
 \nc{\revertex}{(\rex, \ley)}
+
+\nc{\eOneRatio}{0.8}
+\nc{\leOnex}{{\eOneRatio*(-1) + (1-\eOneRatio)*(\lcx)}}
+\nc{\leOney}{{(1-\eOneRatio)*(\lcy)}}
+\nc{\leOnev}{(\leOnex, \leOney)}
+\nc{\reOnex}{{\eOneRatio*(1) + (1-\eOneRatio)*(\rcx)}}
+\nc{\reOnev}{(\reOnex, \leOney)}
+
+\nc{\eTwoRatio}{0.7}
+\nc{\leTwox}{{\eTwoRatio*(-1) + (1-\eTwoRatio)*(\lcx)}}
+\nc{\leTwoy}{{(1-\eTwoRatio)*(\lcy)}}
+\nc{\leTwov}{(\leTwox, \leTwoy)}
+\nc{\reTwox}{{\eTwoRatio*(1) + (1-\eTwoRatio)*(\rcx)}}
+\nc{\reTwov}{(\reTwox, \leTwoy)}
+
+\nc{\eThreeRatio}{0.6}
+\nc{\leThreex}{{\eThreeRatio*(-1) + (1-\eThreeRatio)*(\lcx)}}
+\nc{\leThreey}{{(1-\eThreeRatio)*(\lcy)}}
+\nc{\leThreev}{(\leThreex, \leThreey)}
+\nc{\reThreex}{{\eThreeRatio*(1) + (1-\eThreeRatio)*(\rcx)}}
+\nc{\reThreev}{(\reThreex, \leThreey)}
+
+\nc{\eFourRatio}{0.4}
+\nc{\leFourx}{{\eFourRatio*(-1) + (1-\eFourRatio)*(\lcx)}}
+\nc{\leFoury}{{(1-\eFourRatio)*(\lcy)}}
+\nc{\leFourv}{(\leFourx, \leFoury)}
+\nc{\reFourx}{{\eFourRatio*(1) + (1-\eFourRatio)*(\rcx)}}
+\nc{\reFourv}{(\reFourx, \leFoury)}
+
+\nc{\eFiveRatio}{0.2}
+\nc{\leFivex}{{\eFiveRatio*(-1) + (1-\eFiveRatio)*(\lcx)}}
+\nc{\leFivey}{{(1-\eFiveRatio)*(\lcy)}}
+\nc{\leFivev}{(\leFivex, \leFivey)}
+\nc{\reFivex}{{\eFiveRatio*(1) + (1-\eFiveRatio)*(\rcx)}}
+\nc{\reFivev}{(\reFivex, \leFivey)}
+
+\nc{\lv}{(0, 0)}
 
 \nc{\dby}{-0.2} %diagram bottom
 
@@ -1328,12 +1367,13 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
       %graph edges
       \draw[postaction={decorate}]   \mv -- \boundaryComponent node[pos=.5,sloped,below]{$k$};
       \draw[postaction={decorate}]   \rv -- \revertex node[pos=.5,sloped,below]{$h$};
-      \draw[postaction={decorate}]   \rv -- (\rex, \dby) node[pos=.5,sloped,below]{$p$};
+      \draw[postaction={decorate}]   \rv -- \lv node[pos=.5,below]{$p$};
       \draw[postaction={decorate}]   \uv -- \rv  node[pos=.5,sloped,above]{$ph$};
-      \draw[postaction={decorate}]   \mv -- \uv node[pos=.5,left]{$ghp$};
+      \draw[postaction={decorate}]   \mv -- \uv node[pos=.5,left]{$phg$};
       \draw[postaction={decorate}]   \uv -- \mtop node[pos=.5,left]{$g$};
       \draw[postaction={decorate}]   \lev -- \mv node[pos=.5,sloped,below]{$h$};
-      \draw[postaction={decorate}]   (0,\dby) -- \mv node[pos=.5,left]{$q$};
+      \draw[postaction={decorate}]   \lv -- \mv node[pos=.5,left]{$q$};
+      \draw[postaction={decorate}]  (0,\dby)  -- \lv node[pos=.5,left]{$p^{-1}q$};
 
     \end{scope}
     \end{tikzpicture}
@@ -1359,14 +1399,26 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
       
 
       %graph edges
-      \draw[postaction={decorate}]   \mv -- \boundaryComponent node[pos=.5,sloped,below]{$k$};
-      \draw[postaction={decorate}]   \rv -- \revertex node[pos=.5,sloped,above]{$h$};
-      \draw[postaction={decorate}]   \rv -- (\rex, \dby) node[pos=.5,sloped,below]{$p$};
-      \draw[postaction={decorate}]   \uv -- \rv  node[pos=.5,sloped,above]{$ph$};
-      \draw[postaction={decorate}]   \mv -- \uv node[pos=.5,left]{$ghp$};
-      \draw[postaction={decorate}]   \uv -- \mtop node[pos=.5,left]{$g$};
-      \draw[postaction={decorate}]   \lev -- \mv node[pos=.5,sloped,above]{$h$};
-      \draw[postaction={decorate}]   (0,\dby) -- \mv node[pos=.5,left]{$q$};
+      \draw[postaction={decorate}]   \mv -- \reTwov node[pos=.5,sloped,right,red]{$k$};
+      \draw[postaction={decorate}]   \leTwov -- \boundaryComponent node[pos=.5,sloped,left,red]{$k$};
+
+      \draw[postaction={decorate}]   \rv -- \revertex node[pos=.5,sloped,below,red]{$h$};
+      \draw[postaction={decorate}]   \rv -- \lv node[pos=.5,below,red]{$p$};
+
+      \draw[postaction={decorate}]   \reOnev -- \rv   node[pos=.5,sloped,right,red]{$ph$};
+      \draw[postaction={decorate}]    \phInt -- \leOnev  node[pos=.5,sloped,left,red]{$ph$};
+      \draw[postaction={decorate}]     \leFivev -- \phInt  node[pos=.5,sloped,above,red]{$ph$};
+      \draw[postaction={decorate}]    \uv -- \reFivev    node[pos=.5,sloped,above,red]{$ph$};
+
+      \draw[postaction={decorate}]   \mv -- \reThreev node[pos=.5,left,red]{$phg$};
+      \draw[postaction={decorate}]   \leThreev -- \phgInt node[pos=.5,left,red]{$phg$};
+      \draw[postaction={decorate}]   \phgInt -- \leFourv node[pos=.5,left,red]{$phg$};
+      \draw[postaction={decorate}]   \reFourv -- \uv node[pos=.5,sloped,right,red]{$phg$};
+
+      \draw[postaction={decorate}]   \uv -- \mtop node[pos=.5,left,red]{$g$};
+      \draw[postaction={decorate}]   \lev -- \mv node[pos=.5,sloped,below,red]{$h$};
+      \draw[postaction={decorate}]   \lv -- \mv node[pos=.5,left,red]{$q$};
+      \draw[postaction={decorate}]  (0,\dby)  -- \lv node[pos=.5,left,red]{$p^{-1}q$};
 
     \end{scope}
     \end{tikzpicture}
