@@ -481,7 +481,7 @@ Thus, the image of any such mapping class group representation is a quotient of 
              mark=at position 0.5 with {\arrow{>}}}
          ]  
 
-         \draw(-1,0) -- (\lcx, \lcy); 
+         \draw (-1,0) -- (\lcx, \lcy); 
          \draw (\lcx, \lcy) -- (\rcx, \rcy); 
          \draw  (1, 0) -- (\rcx, \rcy);
        \end{scope}
@@ -1281,15 +1281,26 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 
 %%%%%%%%%%%%%%%%%% Dragging along \pi_1 generator %%%%%%%%%
 
-\nc{\boundaryComponent}{(0.2, 0.3)}
-\nc{\uv}{(0.1, 0.5)}
-\nc{\rv}{(0.4, 0.3)}
-\nc{\cutRatio}{0.7}
+\rnc{\mv}{(-0.2,0.2)}
+\nc{\uv}{(0.1, 0.6)}
+\nc{\rv}{(0.4, 0.2)}
+\nc{\cutRatio}{0.5}
 \rnc{\lcutx}{{\cutRatio*(-0.5) + (1-\cutRatio)*(-1)}}
 \rnc{\lcuty}{{\cutRatio*(0.866)}}
 \rnc{\lcut}{(\lcutx, \lcuty)}
 \rnc{\rcutx}{{\cutRatio*(0.5) + (1-\cutRatio)*(1)}}
 \rnc{\rcut}{(\rcutx, \lcuty)}
+\nc{\boundaryComponent}{(0.1, \lcuty)}
+
+\nc{\edgeRatio}{0.8}
+\nc{\lex}{{\edgeRatio*(-1) + (1-\edgeRatio)*(\lcx)}}
+\nc{\ley}{{(1-\edgeRatio)*(\lcy)}}
+\nc{\lev}{(\lex, \ley)}
+%\nc{\rex}{{(-1)*(\lex)}}
+\nc{\rex}{{\edgeRatio*(1) + (1-\edgeRatio)*(\rcx)}}
+\nc{\revertex}{(\rex, \ley)}
+
+\nc{\dby}{-0.2} %diagram bottom
 
 \begin{table}
 \centering
@@ -1315,17 +1326,51 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
       
 
       %graph edges
-
-      \draw[postaction={decorate}]   \mv -- (0.75, 0.433) node[pos=.5,sloped,above]{$h$};
-      \draw[postaction={decorate}]   \mv -- \mtop node[pos=.5,left]{$g$};
-      \draw[postaction={decorate}]  (-0.75, 0.433) -- \mv node[pos=.5,sloped,above]{$h$};
-      \outEdge
+      \draw[postaction={decorate}]   \mv -- \boundaryComponent node[pos=.5,sloped,below]{$k$};
+      \draw[postaction={decorate}]   \rv -- \revertex node[pos=.5,sloped,below]{$h$};
+      \draw[postaction={decorate}]   \rv -- (\rex, \dby) node[pos=.5,sloped,below]{$p$};
+      \draw[postaction={decorate}]   \uv -- \rv  node[pos=.5,sloped,above]{$ph$};
+      \draw[postaction={decorate}]   \mv -- \uv node[pos=.5,left]{$ghp$};
+      \draw[postaction={decorate}]   \uv -- \mtop node[pos=.5,left]{$g$};
+      \draw[postaction={decorate}]   \lev -- \mv node[pos=.5,sloped,below]{$h$};
+      \draw[postaction={decorate}]   (0,\dby) -- \mv node[pos=.5,left]{$q$};
 
     \end{scope}
     \end{tikzpicture}
 
 
 &
+
+
+  % Drag 2
+    \begin{tikzpicture}[scale=3]    
+
+      % boundary of polygon
+      \makeBdy
+
+
+    \begin{scope}[very thick,decoration={
+    markings,
+    mark=at position 0.5 with {\arrow{>}}}
+    ]  
+
+      % cut for Dehn twist
+      \draw[loosely dashed] \lcut -- \boundaryComponent --\rcut;
+      
+
+      %graph edges
+      \draw[postaction={decorate}]   \mv -- \boundaryComponent node[pos=.5,sloped,below]{$k$};
+      \draw[postaction={decorate}]   \rv -- \revertex node[pos=.5,sloped,above]{$h$};
+      \draw[postaction={decorate}]   \rv -- (\rex, \dby) node[pos=.5,sloped,below]{$p$};
+      \draw[postaction={decorate}]   \uv -- \rv  node[pos=.5,sloped,above]{$ph$};
+      \draw[postaction={decorate}]   \mv -- \uv node[pos=.5,left]{$ghp$};
+      \draw[postaction={decorate}]   \uv -- \mtop node[pos=.5,left]{$g$};
+      \draw[postaction={decorate}]   \lev -- \mv node[pos=.5,sloped,above]{$h$};
+      \draw[postaction={decorate}]   (0,\dby) -- \mv node[pos=.5,left]{$q$};
+
+    \end{scope}
+    \end{tikzpicture}
+
 
 
 \\ \hline
