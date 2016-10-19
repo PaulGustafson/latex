@@ -1281,18 +1281,24 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 
 %%%%%%%%%%%%%%%%%% Dragging along \pi_1 generator %%%%%%%%%
 
-\rnc{\mv}{(-0.2,0.2)}
-\nc{\uv}{(0.1, 0.6)}
-\nc{\rv}{(0.3, 0.1)}
+\rnc{\mv}{(0,0)}
+\nc{\uv}{(0, 0.7)}
+\nc{\rvx}{0.3}
+\nc{\rvy}{\lcuty}
+\nc{\rv}{(\rvx, \rvy)}
+\nc{\lv}{(-\rvx, \lcuty)}
+
 \nc{\cutRatio}{0.5}
 \rnc{\lcutx}{{\cutRatio*(-0.5) + (1-\cutRatio)*(-1)}}
 \rnc{\lcuty}{{\cutRatio*(0.866)}}
 \rnc{\lcut}{(\lcutx, \lcuty)}
 \rnc{\rcutx}{{\cutRatio*(0.5) + (1-\cutRatio)*(1)}}
 \rnc{\rcut}{(\rcutx, \lcuty)}
-\nc{\boundaryComponent}{(0.1, \lcuty)}
-\nc{\phInt}{(0.3, \lcuty)}
-\nc{\phgInt}{(-0.1, \lcuty)}
+\nc{\boundaryComponentx}{0}
+\nc{\boundaryComponenty}{\lcuty}
+\nc{\boundaryComponent}{(\boundaryComponentx, \boundaryComponenty)}
+
+\nc{\connectorEnd}{({0.5*(-0.85)}, {0.5*0.2598 + 0.5*0.433})};
 
 \nc{\edgeRatio}{0.9}
 \nc{\lex}{{\edgeRatio*(-1) + (1-\edgeRatio)*(\lcx)}}
@@ -1300,7 +1306,7 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 \nc{\lev}{(\lex, \ley)}
 %\nc{\rex}{{(-1)*(\lex)}}
 \nc{\rex}{{\edgeRatio*(1) + (1-\edgeRatio)*(\rcx)}}
-\nc{\revertex}{(\rex, \ley)}
+\nc{\rev}{(\rex, \ley)}
 
 \nc{\eOneRatio}{0.8}
 \nc{\leOnex}{{\eOneRatio*(-1) + (1-\eOneRatio)*(\lcx)}}
@@ -1337,7 +1343,6 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 \nc{\reFivex}{{\eFiveRatio*(1) + (1-\eFiveRatio)*(\rcx)}}
 \nc{\reFivev}{(\reFivex, \leFivey)}
 
-\nc{\lv}{(0, 0)}
 
 \nc{\dby}{-0.2} %diagram bottom
 
@@ -1361,19 +1366,21 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
     ]  
 
       % cut for Dehn twist
-      \draw[loosely dashed] \lcut -- \boundaryComponent --\rcut;
+      \draw[loosely dashed] \lcut -- \rcut;
       
 
       %graph edges
-      \draw[postaction={decorate}]   \mv -- \boundaryComponent node[pos=.5,sloped,below]{$k$};
-      \draw[postaction={decorate}]   \rv -- \revertex node[pos=.5,sloped,below]{$h$};
-      \draw[postaction={decorate}]   \rv -- \lv node[pos=.5,below]{$p$};
-      \draw[postaction={decorate}]   \uv -- \rv  node[pos=.5,sloped,above]{$ph$};
-      \draw[postaction={decorate}]   \mv -- \uv node[pos=.5,left]{$phg$};
-      \draw[postaction={decorate}]   \uv -- \mtop node[pos=.5,left]{$g$};
+      \draw[postaction={decorate}]   (0, \dby) -- \mv node[pos=.5,right]{$p:=hglkl^{-1}h^{-1}$};
+      \draw[postaction={decorate}]   \mv -- \rev node[pos=.5,sloped,above]{$h$};
+      \draw[postaction={decorate}]   \mv -- \rv node[pos=.5,right]{$gl$};
+      \draw[postaction={decorate}]   \mv -- \boundaryComponent node[pos=.5,left]{$k$};
+      \draw[postaction={decorate}]   \lv -- \mv node[pos=.5,left]{$l$};
       \draw[postaction={decorate}]   \lev -- \mv node[pos=.5,sloped,below]{$h$};
-      \draw[postaction={decorate}]   \lv -- \mv node[pos=.5,left]{$q$};
-      \draw[postaction={decorate}]  (0,\dby)  -- \lv node[pos=.5,left]{$p^{-1}q$};
+
+      \draw[postaction={decorate}]   \rv -- \uv;
+      \draw[postaction={decorate}]   \uv -- \mtop node[pos=.5,right]{$g$};
+      \draw[postaction={decorate}]   \uv -- \lv;
+
 
     \end{scope}
     \end{tikzpicture}
@@ -1394,38 +1401,162 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
     mark=at position 0.5 with {\arrow{>}}}
     ]  
 
-      % cut for Dehn twist
-      \draw[loosely dashed] \lcut -- \boundaryComponent --\rcut;
-      
 
       %graph edges
-      \draw[postaction={decorate}]   \mv -- \reTwov node[pos=.5,sloped,right,red]{$k$};
-      \draw[postaction={decorate}]   \leTwov -- \boundaryComponent node[pos=.5,sloped,left,red]{$k$};
+      \draw[postaction={decorate}]   (0, \dby) -- \mv node[pos=.5,right]{$p$};
+      \draw[postaction={decorate}]   \mv -- \rev node[pos=.5,sloped,below]{$h$};
 
-      \draw[postaction={decorate}]   \rv -- \revertex node[pos=.5,sloped,below,red]{$h$};
-      \draw[postaction={decorate}]   \rv -- \lv node[pos=.5,below,red]{$p$};
+      \draw[postaction={decorate}]   \mv -- \reOnev node[pos=.8,sloped,red]{$gl$};
+      \draw[postaction={decorate}]   \leOnev -- \rv node[pos=.5,sloped,below]{$gl$};
+      \draw[postaction={decorate}]   \rv -- \leFivev node[pos=.5,sloped,above]{$gl$};
+      \draw[postaction={decorate}]   \reFivev -- \uv node[pos=.5,sloped,above]{$gl$};
 
-      \draw[postaction={decorate}]   \reOnev -- \rv   node[pos=.5,sloped,right,red]{$ph$};
-      \draw[postaction={decorate}]    \phInt -- \leOnev  node[pos=.5,sloped,left,red]{$ph$};
-      \draw[postaction={decorate}]     \leFivev -- \phInt  node[pos=.5,sloped,above,red]{$ph$};
-      \draw[postaction={decorate}]    \uv -- \reFivev    node[pos=.5,sloped,above,red]{$ph$};
+      \draw[postaction={decorate}]   \mv -- \reTwov node[pos=.6,sloped,red]{$k$};
+      \draw[postaction={decorate}]   \leTwov -- \boundaryComponent node[pos=.5,sloped,red]{$k$};
 
-      \draw[postaction={decorate}]   \mv -- \reThreev node[pos=.5,left,red]{$phg$};
-      \draw[postaction={decorate}]   \leThreev -- \phgInt node[pos=.5,left,red]{$phg$};
-      \draw[postaction={decorate}]   \phgInt -- \leFourv node[pos=.5,left,red]{$phg$};
-      \draw[postaction={decorate}]   \reFourv -- \uv node[pos=.5,sloped,right,red]{$phg$};
+      \draw[postaction={decorate}]   \reThreev -- \mv node[pos=.5,sloped,above]{$l$};
+      \draw[postaction={decorate}]   \lv -- \leThreev;
+      \draw[postaction={decorate}]   \leFourv -- \lv node[pos=.5,sloped,above]{$l$};
+      \draw[postaction={decorate}]   \uv -- \reFourv node[pos=.5,sloped,below]{$l$};
 
-      \draw[postaction={decorate}]   \uv -- \mtop node[pos=.5,left,red]{$g$};
-      \draw[postaction={decorate}]   \lev -- \mv node[pos=.5,sloped,below,red]{$h$};
-      \draw[postaction={decorate}]   \lv -- \mv node[pos=.5,left,red]{$q$};
-      \draw[postaction={decorate}]  (0,\dby)  -- \lv node[pos=.5,left,red]{$p^{-1}q$};
+      \draw[postaction={decorate}]   \lev -- \mv node[pos=.5,sloped,below]{$h$};
+
+      \draw[postaction={decorate}]   \uv -- \mtop node[pos=.5,right]{$g$};
+
 
     \end{scope}
     \end{tikzpicture}
 
+\\ \hline
+
+
+  % Drag 3
+    \begin{tikzpicture}[scale=3]    
+
+      % boundary of polygon
+      \makeBdy
+
+    \begin{scope}[very thick,decoration={
+    markings,
+    mark=at position 0.5 with {\arrow{>}}}
+    ]  
+
+
+      %graph edges
+      \draw[postaction={decorate}]   (0, \dby) -- \mv node[pos=.5,right]{$p$};
+      \draw[postaction={decorate}]   \mv -- \rev node[pos=.5,sloped,below]{$h$};
+
+      \draw[postaction={decorate}]   \mv -- \reOnev node[pos=.8,sloped,red]{$gl$};
+      \draw[postaction={decorate}]   \leOnev --  (-0.35, 0.3031) node[pos=.5,sloped,below]{$gl$};
+      \draw[postaction={decorate}]   (-0.35, 0.3031) -- \rv node[pos=.5,sloped,below]{$gl$};
+
+      \draw[postaction={decorate}]   \rv -- \leFivev node[pos=.5,sloped,above]{$gl$};
+      \draw[postaction={decorate}]   \reFivev -- \uv node[pos=.5,sloped,above]{$gl$};
+
+      \draw[postaction={decorate}]   \mv -- \reTwov node[pos=.6,sloped,red]{$k$};
+      \draw[postaction={decorate}]   \leTwov -- \connectorEnd node[pos=.5,sloped,red]{$k$};
+      \draw[postaction={decorate}]   \connectorEnd -- \boundaryComponent node[pos=.5,sloped,red]{$k$};
+
+
+      \draw[postaction={decorate}]   \reThreev -- \mv node[pos=.5,sloped,above]{$l$};
+      \draw[postaction={decorate}]   \lv -- \leThreev;
+      \draw[postaction={decorate}]   \leFourv -- \lv node[pos=.5,sloped,above]{$l$};
+      \draw[postaction={decorate}]   \uv -- \reFourv node[pos=.5,sloped,below]{$l$};
+
+      \draw[postaction={decorate}]   \lev -- \mv node[pos=.5,sloped,below]{$h$};
+
+      \draw[postaction={decorate}]   \uv -- \mtop node[pos=.5,right]{$g$};
+
+      \draw \lcut -- \lv;
+      \draw \rv -- \rcut;
+      \draw \mv -- \connectorEnd;
+     
+    \end{scope}
+    \end{tikzpicture}
+
+&
+
+
+  % Drag 4
+    \begin{tikzpicture}[scale=3]    
+
+      % boundary of polygon
+      \makeBdy
+
+    \begin{scope}[very thick,decoration={
+    markings,
+    mark=at position 0.5 with {\arrow{>}}}
+    ]  
+
+
+      %graph edges
+      \draw[postaction={decorate}]   (0, \dby) -- \mv node[pos=.5,right]{$p$};
+      \draw[postaction={decorate}]   \mv -- \rev node[pos=.5,sloped,below]{$h$};
+
+      \draw[postaction={decorate}]   \mv -- \reOnev node[pos=.5,sloped,above]{$glk$};
+      \draw[postaction={decorate}]   \leOnev --  (-0.35, 0.3031) node[pos=.5,sloped,above]{$glk$};
+      \draw[postaction={decorate}]   (-0.35, 0.3031) -- \rv node[pos=.5,sloped,below]{$gl$};
+
+      \draw[postaction={decorate}]   \rv -- \leFivev node[pos=.5,sloped,above]{$gl$};
+      \draw[postaction={decorate}]   \reFivev -- \uv node[pos=.5,sloped,above]{$gl$};
+
+      \draw[postaction={decorate}]    (-0.35, 0.3031)  -- \boundaryComponent node[pos=.5,sloped,above]{$k$};
+
+
+      \draw[postaction={decorate}]   \rv -- \mv node[pos=.5,right]{$l$};
+      \draw[postaction={decorate}]   \uv -- \rv node[pos=.5,right]{$l$};
+
+      \draw[postaction={decorate}]   \lev -- \mv node[pos=.5,sloped,below]{$h$};
+
+      \draw[postaction={decorate}]   \uv -- \mtop node[pos=.5,right]{$g$};
+
+
+      \draw \mv --  (-0.35, 0.3031);
+     
+    \end{scope}
+    \end{tikzpicture}
 
 
 \\ \hline
+
+  % Drag 5
+
+ \begin{tikzpicture}[scale=3]    
+
+      % boundary of polygon
+      \makeBdy
+
+    \begin{scope}[very thick,decoration={
+    markings,
+    mark=at position 0.5 with {\arrow{>}}}
+    ]  
+
+
+      %graph edges
+      \draw[postaction={decorate}]   (0, \dby) -- \mv node[pos=.5,right]{$p$};
+      \draw[postaction={decorate}]   \mv -- \rev node[pos=.5,sloped,below]{$hglk$};
+
+      \draw[postaction={decorate}]   \rv -- \leFivev node[pos=.5,sloped,above]{$gl$};
+      \draw[postaction={decorate}]   \reFivev -- \uv node[pos=.5,sloped,above]{$gl$};
+
+      \draw[postaction={decorate}]    \mv  -- \boundaryComponent node[pos=.5,left]{$k$};
+
+
+      \draw[postaction={decorate}]   \rv -- \mv node[pos=.5,right]{$l^{-1}gl$};
+      \draw[postaction={decorate}]   \uv -- \rv node[pos=.5,right]{$l$};
+
+      \draw[postaction={decorate}]   \lev -- \mv node[pos=.5,sloped,below]{$hglk$};
+
+      \draw[postaction={decorate}]   \uv -- \mtop node[pos=.5,right]{$g$};
+     
+    \end{scope}
+    \end{tikzpicture}
+
+&
+
+\\ \hline
+
+
 \end{tabular}
 
 \caption{Pulling a boundary component along a generator for the fundamental group of the corresponding closed surface. The figures are ordered from left to right, then top to bottom.}
@@ -1439,6 +1570,7 @@ The image of any twisted Dijkgraaf-Witten representation of a mapping class grou
 
 
 \section{Example Calculation}
+
 This section contains a calculation of the coefficient for the first Dehn twist, shown in Table \ref{fig:tikzTwist1_1}.  WLOG we may assume that $\omega$ is normalized, i.e. that $\omega(1,x,y) = \omega(x,1,y) = \omega(x,y,1) = 1$ for all $x,y$.  We also assume that the main vertex is initially labeled with an element of $\Hom(\one, h \otimes g \otimes h^{-1} \otimes hg^{-1}h^{-1})$.   In the following, we will abbreviate this by saying that the vertex is in state $h \otimes g \otimes h^{-1} \otimes hg^{-1}h^{-1}$.
 
 We add the upper left vertex, which is labeled by  $\coev_g$.  We then connect the vertices with an unlabelled edge, which is shorthand for labelling by the object $1$ .  At this point, the vertices are in states $h \otimes g \otimes 1 \otimes h^{-1} \otimes hg^{-1}h^{-1}$ and $g \otimes g^{-1}  \otimes 1$.  To compose the two vertices, we use the spherical structure on the former vertex and reassociate until it is in the state $h^{-1} \otimes h g^{-1} h^{-1} \otimes h \otimes g \otimes 1$.  In doing so, we pick up a factor of 
@@ -1484,6 +1616,9 @@ $$\omega^{-1}(hg, h^{-1}, hg^{-1}h^{-1}) \omega^{-1}(hg, g, g^{-1}h^{-1}).$$
 
 \section{Further Directions}
 The next step towards the Property F conjecture is to consider more complicated spherical categories than $\vgo$.  The Tambara-Yamagami categories \cite{tambara} should be a good candidate.  The main additional complication here is the appearance of multifusion channels, i.e. the tensor product of two simple objects can be a direct sum of multiple simple objects.  
+
+(0.5*\leOnex + 0.5*\rvx, 0.5*\leOney + 0.5*\rvy)
+
 \medskip
 
 
