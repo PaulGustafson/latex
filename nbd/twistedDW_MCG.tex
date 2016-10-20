@@ -463,6 +463,14 @@ Thus, the image of any such mapping class group representation is a quotient of 
 \end{proof}
 
 
+\begin{rmk} 
+When $\omega = 1$ and $M$ is closed, this representation is a permutation representation.  
+\end{rmk}
+
+\begin{proof}
+This fact follows from Theorem 2.6 in \cite{fjfu}, but we can also see this in the colored graph setting by first noting that $G$ acts on $S$ by simultaneously conjugation of all edge labels by a single element $g \in G$.  If $s \in S$ and $g \in G$, then we can retrieve $s$ from $gs$ by separating $g$ edges from each edge in the embedded graph $gs$.  This results in a loop labeled by $g$, whose evaluation is $1$.  Thus $gs$ is equivalent to $s$.  Moreover, the cardinality $|S/G| = |\Hom(\pi_1(M), G)|/|G|$ is equal to the dimension of the untwisted Dijkgraaf-Witten representation space $H$ \cite{dijkgraaf1990}.  Hence, $S/G$ is a basis for $H$.  The mapping class group action on $S$ commutes with the $G$-action, so the mapping class group permutes $S/G$, i.e. $H$ is a permutation representation.
+\end{proof}
+
 \newcommand{\nc}{\newcommand}
 \newcommand{\rnc}{\renewcommand}
 
@@ -1748,7 +1756,7 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 
 
 \begin{thm}\label{thm:compact}
-The image of any twisted Dijkgraaf-Witten representation of a mapping class group of an orientable, compact surface $M$ is finite.  In addition, any such braid group representation is also finite.
+The image of any twisted Dijkgraaf-Witten representation of a mapping class group of an orientable, compact surface with boundary is finite.  In particular, any such braid group representation is also finite.
 \end{thm}
 
 
