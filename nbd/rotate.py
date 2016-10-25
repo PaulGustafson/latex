@@ -1,3 +1,5 @@
+# Vertices are represented by lists of outgoing edges in CCW order
+
 # Composes e2 vertex into e1
 def compose(e1, e2):
     x = e1.pop();
