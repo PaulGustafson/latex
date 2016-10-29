@@ -196,16 +196,15 @@ which is approximately
 Exercise 3.5.4 (a) on page 57 in our textbook KLM. 
 \end{problem}
 \begin{solution}
-For any pure state $\ket{a} \otimes \ket{b} \in \mathcal{H}_A \otimes \mathcal{H}_B$,
+For any state of the form $\ket{a} \otimes \ket{b} \in \mathcal{H}_A \otimes \mathcal{H}_B$,
 \begin{align*}
 \tr_B((U \otimes I) \ket{a} \bra{a} \otimes \ket{b} \bra{b} (U^\dagger \otimes I)) 
 & = \tr_B(U \ket{a} \bra{a} U^\dagger \otimes \ket{b} \bra{b}) 
-\\  & = U \ket{a} \bra{a} U^\dagger) \langle b | b \rangle 
-\\  & = U \ket{a} \bra{a} \langle b | b \rangle  U^\dagger)  
+\\  & = U \ket{a} \bra{a} U^\dagger \langle b | b \rangle 
+\\  & = U \ket{a} \bra{a} \langle b | b \rangle  U^\dagger
 \\  & = U \tr_B(\ket{a} \bra{a} \otimes \ket{b} \bra{b})   U^\dagger)  
 \end{align*}
-Since the trace $\tr_B$ is linear, the same identity holds for any linear
-combination of density matrices of pure states.  Hence, it holds for all states.
+Extending linearly, the same identity holds for any state.
 \end{solution}
 
 \begin{problem}{(20 points)}
