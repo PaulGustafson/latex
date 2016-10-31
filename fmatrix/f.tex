@@ -1,0 +1,54 @@
+\documentclass{article}
+
+
+\usepackage{fullpage}
+\usepackage{xcolor}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url} 
+\usepackage{epsfig}
+%\usepackage{diagrams}
+\usepackage{subfigure}	
+\usepackage{amsthm}
+\usepackage{enumerate}
+\usepackage[colorlinks=true,breaklinks, linkcolor= DarkGray,citecolor= DarkGray,urlcolor= DarkGray]{hyperref}	
+%\usepackage[usenames,dvipsnames]{pstricks}
+%\usepackage{pst-node}
+
+
+
+ % directed fusion diagrams
+ \newcommand*{\fusethreedirected}[5]{\raisebox{-3.0ex}{
+\begin{picture}(39,28)(-2,-4)
+\put(0,0){\includegraphics[scale=.5]{SVG/fusiondiagramthreedirected_first}}
+\put(-4,20){\small $#1$}
+\put(12,20){\small $#2$}
+\put(28,20){\small $#3$}
+\put(1,4){\small $#4$}
+\put(24,-4){\small $#5$}
+\end{picture}}
+} % fuse three inputs  +intermediate label + output (diagonal diagram)
+ 
+\newcommand*{\fusethreesdirected}[5]{\raisebox{-3.0ex}{
+\begin{picture}(39,28)(-2,-4)
+\put(0,0){\includegraphics[scale=.5]{SVG/fusiondiagramthreedirected_second}}
+\put(-4,20){\small $#1$}
+\put(12,20){\small $#2$}
+\put(28,20){\small $#3$}
+\put(22,5){\small $#4$}
+\put(24,-4){\small $#5$}
+\end{picture}}
+}
+
+
+\begin{document}
+
+
+%Source: Kuperberg paper
+The fusion tensor, or $F$-move, for changing fusion bases has entries
+\begin{equation}
+\fusethreedirected{i}{j}{k}{m}{\ell} = \sum_n F^{i j m^*}_{k \ell^* n} 
+\fusethreesdirected{i}{j}{k}{n}{\ell}
+ \enspace .
+\end{equation}
+\end{document}
