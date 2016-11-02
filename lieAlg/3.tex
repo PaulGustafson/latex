@@ -4,6 +4,20 @@
 \DeclareMathOperator{\Id}{Id}
 \newcommand{\mf}{\mathfrak}
 
+\newtheorem*{uthm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem*{ulem}{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+%\newtheorem*{uprop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{prob}[thm]{Open problem}
+\newtheorem{ques}[thm]{Question}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{ex}[thm]{Exercise}
+
 
 \begin{document}
 \noindent Paul Gustafson\\
@@ -51,14 +65,28 @@ are isomorphic.
 
 \p Let $(R,E)$ be a roots system, with Weyl group $W$.  Show that $W$ is a normal subgroup of the group of automorphisms of $(R,E)$ (that is, the group of linear automorphisms of $E$, preserving $R$ as a set, and preserving the Cartan integers). 
 \begin{proof}
-Let $g \in \Aut(R,E)$, $\sigma_\alpha$ be the reflection through the hyperplane normal to a root $\alpha$, and $\beta$ another root.
-Then $g \sigma_\alpha g^{-1} (\beta) = $
-
+This follows from the Lemma on page 43 of Humphreys.  In fact, any automorphism of $E$ preserving $R$ automatically preserves the Cartan integers.
 \end{proof}
 
 \p Fill in the details of the proofs of the results in 10.2 and 10.3 of Humphreys book.
 
+\begin{lem} If $\alpha$ is positive but not simple, then $\alpha - \beta$ is a root 
+(necessarily positive) for some $\beta \in \Delta$
+\end{lem}
 \begin{proof}
+If $(\alpha, \beta) \le 0$ for all $\beta \in \Delta$, suppose
+$0 = \sum_{\beta \in \Delta \cup \{ \alpha \}} r_\beta \beta$.  Separating into 
+sets for which $r_\beta \ge 0$ and $r_\beta \le 0$, we can rewrite this as
+$\sum s_\beta \beta = \sum t_\gamma \gamma$ where $s_\beta$ and $t_\gamma$
+are nonnegative with disjoint support.  Let $\epsilon$ denote the value
+of these two sums.  Then
+$$(\epsilon, \epsilon) = \sum_{\beta, \gamma \in \beta \in \Delta \cup \{ \alpha \}} s_\beta t_\gamma (\beta, \gamma).$$
+If $\beta \neq \gamma \in \Delta$, then $(\beta, \gamma) \le 0$ since $\Delta$ is a root base. By assumption,
+$(\alpha, \beta) \le 0$ for all $\beta \in \Delta$.  Hence, 
+$$(\epsilon, \epsilon) \le 0.$$
+
+
+
 \end{proof}
 
 \end{document}
