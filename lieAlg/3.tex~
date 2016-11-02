@@ -1,0 +1,98 @@
+\documentclass{article}
+\usepackage{../m}
+
+\DeclareMathOperator{\Id}{Id}
+\newcommand{\mf}{\mathfrak}
+
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Representations of Lie Algebras
+
+
+\subsection*{HW 2}
+\p 1 Let $\mf g$ be a real Lie algebra, and $\mf g_{\CC}$ its complexification: as a vector space it is $\mf g$ tensored with $\CC$ over $\RR$.  What is the bracket $[x,y]$ on $\mf g_{\CC}$?  
+\begin{proof}
+The bracket on $\mf g_{\CC}$ is given by $[a_1 + i b_1, a_2 + i b_2] = [a_1, a_2] - [b_1, b_2] + i([b_1,a_2] + [a_1, b_2])$.  This bracket is clearly $\R$-bilinear, antisymmetric, and restricts to the previous bracket of $\mf g$.  For $\CC$-bilinearity, we have, for $x_1,x_2 \in \R$,
+\begin{align*}
+[i (a_1 + i b_1), a_2 + i b_2] & = [- b_1 + ia_1, a_2 + i b_2] \\
+& = -[b_1, a_2] - [a_1, b_2] + i( [a_1,a_2] - [b_1, b_2]) \\
+& = -[b_1, a_2] - [a_1, b_2] + i( [a_1,a_2] - [b_1, b_2]) \\
+& = -[b_1, a_2] - [a_1, b_2] + i( [a_1,a_2] - [b_1, b_2]) \\
+& = i ([a_1, a_2] - [b_1, b_2] + i([b_1,a_2] + [a_1, b_2])) \\
+& = [a_1 + i b_1, a_2 + i b_2]
+\end{align*}
+The Jacobi identity follows from the real form.
+\end{proof}
+
+\p 2 Determine the adjoint representation and Killing form for $\mf o(S,V)$ with $V=\CC^3$.  Is the Killing form non-degenerate?  Is the adjoint representation faithful? 
+\begin{proof}
+The Lie algebra $\mf o(3) \subset \mf{gl}(3)$ consists of the endomorphisms $E$ for which $S(Ev,w) + S(v,Ew) = 0$.  Restricting to the standard basis, we get the equivalent condition $E_{ij} = - E_{ij}$.  Hence, a basis for $\mf o(3)$ is the set $f_{ij} := e_{ij} - e_{ji}$ for $i < j$.  To calculate the adjoint representation, we have
+\begin{align*}
+[f_{ij}, f_{kl}] & = [e_{ij} - e_{ji}, e_{kl} - e_{lk}] \\
+& = [e_{ij}, e_{kl}] - [e_{ij}, e_{lk}] - [e_{ji}, e_{kl}] + [e_{ji}, e_{lk}] \\
+& = (\delta_{jk} e_{il} - \delta_{li}e_{kj}) - (\delta_{jl} e_{ik} - \delta_{ki}e_{lj}) - (\delta_{ik} e_{jl} - \delta_{lj}e_{ki }) + (\delta_{il} e_{jk} - \delta_{kj}e_{li }) \\
+& = \delta_{jk} f_{il} + \delta_{il} f_{jk} + \delta_{jl} f_{ki} + \delta_{ik} f_{lj}
+\end{align*}
+
+Hence, in the basis $(f_{12}, f_{13}, f_{23})$, we have
+$$
+\begin{array}{ccc}
+\ad(f_{12}) = \begin{pmatrix} 
+0  &  0 & 0  \\ 
+0  &  0 & 1  \\
+0  & -1 & 0
+\end{pmatrix}
+&
+\ad(f_{13}) = \begin{pmatrix} 
+ 0 &  0 & -1  \\ 
+ 0 &  0 &  0  \\
+ 1 &  0 &  0
+\end{pmatrix}
+&
+\ad(f_{23}) = \begin{pmatrix} 
+  0 &  1 &  0  \\ 
+ -1 &  0 &  0  \\
+  0 &  0 &  0
+\end{pmatrix}
+\end{array}
+$$
+For the Killing form, we have
+\begin{align*}
+K(f_{12}, f_{13}) & = \tr 
+\begin{pmatrix} 
+  0 &  0 &  0  \\ 
+  1 &  0 &  0  \\
+  0 &  0 &  0
+\end{pmatrix}
+ = 0
+\\
+K(f_{12}, f_{23}) & = \tr 
+\begin{pmatrix} 
+  0 &  0 &  0  \\ 
+  0 &  0 &  0  \\
+  1 &  0 &  0
+\end{pmatrix}
+ = 0
+\\
+K(f_{13}, f_{23}) & = \tr 
+\begin{pmatrix} 
+  0 &  0 &  0  \\ 
+  0 &  0 &  0  \\
+  0 &  1 &  0
+\end{pmatrix}
+ = 0,
+\end{align*}
+and
+$K(f_{ij}, f_{ij}) = -2$. Thus, the Killing form is nondegenerate. Hence $\mf o(S,V)$ is semisimple, so the adjoint representation is faithful.
+\end{proof}
+\p 3 Compute the Casimir for the 3-dimensional representation of o(S,V) with dim(V)=3 directly, by finding a basis and dual basis.
+\begin{proof}
+The set $(f_{ij})_{i < j}$ forms a basis, and the dual basis is $f_{ij}^* = -\frac{1}{2} f_{ij}$. Thus the Casimir element is
+\begin{align*}
+\Omega & = -\frac{1}{2} \sum_{i<j} f_{ij}^2 \\
+& = -\frac{1}{2} \sum_{i<j} - e_{ii} - e_{jj} \\
+& = \Id 
+\end{align*}
+\end{proof}
+\end{document}
