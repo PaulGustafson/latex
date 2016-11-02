@@ -14,6 +14,35 @@
 \p Prove that the roots systems for $\mf{so}(5)$ and $\mf{sp}(4)$ are isomorphic.
 
 \begin{proof}
+We already proved in class that the root system for $\mf{so}(5)$ is isomorphic to 
+$$\{(\pm 1, 0) , (0, \pm 1), (\pm 1, \pm)}, \RR^2\}.$$
+
+Using the representation of $\mf{sp}(4)$ on pages 72-73 of Goodman and Wallach,
+the Lie algebra $\mf{sp}(4)$ consists of all matrices
+$$ A = 
+\begin{pmatrix}
+    a_{11} & a_{12} & b_{11} & b_{12}
+\\  a_{21} & a_{22} & b_{21} & b_{11}
+\\  c_{11} & c_{12} & -a_{22} & -a_{12}
+\\  c_{21} & c_{11} & -a_{21} & -a_{11}
+\end{pmatrix}
+$$
+with basis
+$$\{e_{11} - e_{44}, e_{22} - e_{33}, e_{12} - e_{34}, e_{21} - e_{43},  
+e_{13} + e_{24}, e_{14}, e_{23}, e_{31} + e_{42}, e_{32}, e_{41} \}$$
+
+The choice of Cartan subalgebra $\mf{h}$ is the span of the first two basis elements,
+$x_1 := e_{11} - e_{44}$ and $x_2 := e_{22} - e_{33}$.
+
+The adjoint action of the Cartan subalgebra $\mf{h}$ on $\mf{sp}(4)$ is 
+$$
+\begin{array}{c}
+    \ad(x_1) = \diag(0, 0, 1, -1, 1, 2, 0, -1, 0, -2)
+ \\ \ad(x_2) = \diag(0, 0, -1, 1, 1, 0, 2, -1, -2, 0)
+\end{array}
+$$
+
+Hence, $K(x_1, x_1) = K(x_2, x_2) = 12$ and $K(x_1, x_2) = 0$.
 
 \end{proof}
 
