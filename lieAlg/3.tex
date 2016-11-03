@@ -75,8 +75,8 @@ This follows from the Lemma on page 43 of Humphreys.  In fact, any automorphism 
 \end{lem}
 \begin{proof}
 If $(\alpha, \beta) \le 0$ for all $\beta \in \Delta$, suppose
-$0 = \sum_{\beta \in \Delta \cup \{ \alpha \}} r_\beta \beta$.  Separating into 
-sets for which $r_\beta \ge 0$ and $r_\beta \le 0$, we can rewrite this as
+$0 = \sum_{\beta \in \Delta \cup \{ \alpha \}} r_\beta \beta$. Let $\delta \in \mf{C}(\Delta)$.
+ Separating into sets for which $r_\beta \ge 0$ and $r_\beta \le 0$, we can rewrite this as
 $\sum s_\beta \beta = \sum t_\gamma \gamma$ where $s_\beta$ and $t_\gamma$
 are nonnegative with disjoint support.  Let $\epsilon$ denote the value
 of these two sums.  Then
@@ -85,9 +85,11 @@ If $\beta \neq \gamma \in \Delta$, then $(\beta, \gamma) \le 0$ since $\Delta$ i
 $(\alpha, \beta) \le 0$ for all $\beta \in \Delta$.  Hence, 
 $(\epsilon, \epsilon) \le 0,$
 so $\epsilon = 0$ since the inner product is positive-definite.  
+Since $\alpha$ is a positive root, $(\delta, \alpha) > 0$.  Hence,
+$$0 = (\delta, \epsilon) = \sum_{\beta \in \Delta \cup \{ \alpha \}} s_\beta (\delta, \beta) = \sum_{\gamma \in \Delta \cup \{ \alpha \}} t_\gamma (\delta, \gamma).$$
+Thus, $s_\beta = t_\gamma = 0$ for all $\beta, \gamma \Delta \cup \{ \alpha \}$.  Hence, $\Delta \cup \{ \alpha \}$ is linearly independent, a contradiction.
 
-
-
+Thus, there exists $\beta \in \Delta$ such that $(\alpha, \beta) > 0$.  Hence, $\alpha - \beta$ is a root by Lemma 9.4.
 \end{proof}
 
 \end{document}
