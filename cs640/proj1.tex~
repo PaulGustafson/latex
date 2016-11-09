@@ -1,0 +1,25 @@
+\documentclass{article}
+\begin{document}
+\noindent\textbf{Name:} [Replace with full name]
+\medskip
+
+\noindent\textbf{Project 1:} [Replace with project title of favorite project, urls of relevant papers, websites, short description]
+\medskip
+
+\noindent\textbf{Project 2:} [Replace with project title of second favorite project, urls of relevant papers, websites, short description]
+\medskip
+
+\noindent\textbf{Project 3:} [Replace with project title of third choice project, urls of relevant papers, websites, short description]
+\medskip
+
+\noindent\textbf{Team partner:} [My team partner will be... / I do not have a team partner (state your interests in case you are still looking for a partner)]
+
+
+
+
+
+ 
+
+
+
+\end{document}
