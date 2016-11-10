@@ -61,10 +61,10 @@ def cat(edges):
     return ans
 
 def wi(a,b,c):
-    return "\omega^{-1}(" + a + ", " + b + ", " + c + ") "
+    return "\alpha^{-1}(" + a + ", " + b + ", " + c + ") "
 
 def w(a,b,c):
-    return "\omega(" + a + ", " + b + ", " + c + ") "
+    return "\alpha(" + a + ", " + b + ", " + c + ") "
 
 def ev(g):
     return '\ev_{' + g + '} ' #w((g)^{-1}. g, (g)^{-1})
@@ -102,63 +102,59 @@ show(e1)
 show(e2)
 
 
+#doc("Add a coev vertex in the upper left corner")
+#newFactor(coev('g'))
 
-
-doc("Add a coev vertex in the upper left corner")
-newFactor(coev('g'))
-
-doc('Rotate main vertex edges for composition')
-edges = ['h','g','h^{-1}', 'hg^{-1}h^{-1}']
-show(edges)
-newFactor(rotateCW(edges) + rotateCW(edges))
-show(edges)
+#doc('Rotate main vertex edges for composition')
+#edges = ['h','g','h^{-1}', 'hg^{-1}h^{-1}']
+#show(edges)
+#newFactor(rotateCW(edges) + rotateCW(edges))
+#show(edges)
 
 
 
-doc("Apply composition of ['h^{-1}', 'hg^{-1}h^{-1}', 'h', 'g'] with (g g^-1)")
-edges.append('1')
-e2 = ['g', 'g^{-1}', '1']
-newFactor(compose(edges, e2))
-show(edges)
+doc("Compose")
+newFactor(compose(e1, e2))
+show(e1)
 
 ## Fig 6
 
-doc('Make new node for gh')
-newFactor(coev('g'))
-newFactor(coev('h'))
-e1 = ['g','g^{-1}','1']
-e2 =  ['h^{-1}', 'h','1']
-newFactor(compose(e1, e2))
-#show(e1)
+# doc('Make new node for gh')
+# newFactor(coev('g'))
+# newFactor(coev('h'))
+# e1 = ['g','g^{-1}','1']
+# e2 =  ['h^{-1}', 'h','1']
+# newFactor(compose(e1, e2))
+# #show(e1)
 
-doc('Rotate new node')
-newFactor(rotateCW(e1))
-show(e1)
-doc('Tensor new node')
-newFactor(tensor(e1,0))
-newFactor(tensor(e1,-2))
-newFactor(rotateCW(e1))
-show(e1)
+# doc('Rotate new node')
+# newFactor(rotateCW(e1))
+# show(e1)
+# doc('Tensor new node')
+# newFactor(tensor(e1,0))
+# newFactor(tensor(e1,-2))
+# newFactor(rotateCW(e1))
+# show(e1)
 
-doc('Rotate old node')
-newFactor(rotateCCW(edges))
-show(edges)
+# doc('Rotate old node')
+# newFactor(rotateCCW(edges))
+# show(edges)
 
-doc('Tensor old node')
-newFactor(tensor(edges,0))
-show(edges)
-newFactor(tensor(edges,-3))
+# doc('Tensor old node')
+# newFactor(tensor(edges,0))
+# show(edges)
+# newFactor(tensor(edges,-3))
 
-doc('Rotate old node for composition')
-newFactor(rotateCCW(edges))
-show(edges)
+# doc('Rotate old node for composition')
+# newFactor(rotateCCW(edges))
+# show(edges)
 
-doc('Compose new node with old node')
-newFactor(compose(edges, e1))
-show(edges)
+# doc('Compose new node with old node')
+# newFactor(compose(edges, e1))
+# show(edges)
 
-doc('Rotate old node to get back in initial postion')
-newFactor(rotateCCW(edges))
-show(edges)
+# doc('Rotate old node to get back in initial postion')
+# newFactor(rotateCCW(edges))
+# show(edges)
 
 
