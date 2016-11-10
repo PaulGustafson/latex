@@ -1,4 +1,9 @@
+    
 # Vertices are represented by lists of outgoing edges in CCW order
+
+
+
+############ Methods ############
 
 # Composes e2 vertex into e1
 def compose(e1, e2):
@@ -80,9 +85,24 @@ def newFactor(f):
      if (len(f) > 0):
         print f
     # pass
+
+
     
+############ Calculations ############
+
+
+#TODO: Calculate F matrix compositions
     
 ## Fig 4
+
+doc('Initial states')
+e1 = ['j^*', 'i*', 'm'];
+e2 = ['m^*', 'l', 'k^*']
+show(e1)
+show(e2)
+
+
+
 
 doc("Add a coev vertex in the upper left corner")
 newFactor(coev('g'))
@@ -92,6 +112,8 @@ edges = ['h','g','h^{-1}', 'hg^{-1}h^{-1}']
 show(edges)
 newFactor(rotateCW(edges) + rotateCW(edges))
 show(edges)
+
+
 
 doc("Apply composition of ['h^{-1}', 'hg^{-1}h^{-1}', 'h', 'g'] with (g g^-1)")
 edges.append('1')
@@ -138,4 +160,5 @@ show(edges)
 doc('Rotate old node to get back in initial postion')
 newFactor(rotateCCW(edges))
 show(edges)
+
 
