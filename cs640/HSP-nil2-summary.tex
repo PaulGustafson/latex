@@ -1,31 +1,51 @@
 \documentclass{article}
 
-\title{Summary of Nil-2 HSP Algorithm}
+\newcommand{\ket}[1]{\left| #1 \right\rangle} 
 
-
+%\title{Summary of Nil-2 HSP Algorithm}
 
 \begin{document}
 
-\maketitle
+%\maketitle
 
-\subsection{Classical Reduction}
+\section{Summary of Nil-2 HSP Algorithm}
 
-Problem: solve the HSP for $H \leq G$.
+\textbf{Problem:} Solve the HSP for $H \leq G$, where $G$ is a nil-2 group.
+
+\subsection{Reduction Steps}
 
 \begin{enumerate}
 \item Calculate the refined polycyclic representation of $G$.
 \item Reduce to HSP in nil-2 $p$-groups
 \item Reduce to case where $H$ is either trivial or order $p$
 \item Reduce to case where $G$ has exponent $p$.
+\item Reduce to finding a quantum hiding function for  $HG'$
+\item Reduce to finding an appropriate triple
+\item Reduce to solving a large system of linear and quadratic equations
+\end{enumerate}
+
+\subsection{Quantum Algorithm}
+
+All of the above steps have efficient classical algorithms, except for the step of generating a quantum hiding function for $HG'$ given an appropriate triple.   I'll focus on this step.
+
+\textbf{Summary:}
+\begin{enumerate}
+\item Compute the superposition $\sum_{u \in G'} \ket{u} \ket{aHG'_u}$ for random $a \in G$, where $G_u = DFT(\ket{u})$.
+\item Do the last step $n$ times in parallel for some large $n$
+\item Solve the system of equations to get $\bar j \in (\mathbf{Z}_p)^n$
+\item $\ket{\Psi_g^{\bar a, \bar u, \bar j}} = \bigotimes_{i=1}^n \ket {a_i H G'_{u_i} \phi_{j_i}(g)}$ as a function of $g \in G$ is a hiding function for $H G'$, where $\phi_j$ are nice automorphisms of $G$.
+\end{enumerate}
+
+Properties of the $\phi_j$ that are used in the proof:
+\begin{enumerate}
+\item $\ket{aHG'_u}$ is an eigenvector for right multiplication by $\phi_j(g)$
+\item $\phi_j$ maps $HG'$ to $HG'$
 \end{enumerate}
 
 
-\subsection{Quantum Algorithm}
+\textbf{Questions:}
 \begin{enumerate}
-\item Reduce to finding a quantum hiding function for  $HG'$
-\item Reduce to finding an appropriate triple
-\item Finding an appropriate triple can be done efficiently classically 
-  by solving a large system of equations
+\item In Lemma 6, why is $HG'$ a normal subgroup of $G$ ?
 \end{enumerate}
 
 \end{document}
