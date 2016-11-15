@@ -1,2 +1,0 @@
-public class Stringnet {
-    ArrayList<Vertex> vertices = new ArrayList<Vertex>();
