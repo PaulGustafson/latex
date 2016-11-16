@@ -1,0 +1,80 @@
+\documentclass{article}
+
+
+
+%\title{Summary of Nil-2 HSP Algorithm}
+
+\begin{document}
+
+%\maketitle
+\section{Description of the problem}
+\textbf{Problem:} Solve the HSP for $H \leq G$, where $G$ is a nil-2 group.
+
+\section{Discussion of background}
+\subsection{Preliminaries}
+Here is a summary about the preliminaries for HSP and nilpotent groups:
+
+\begin{enumerate}
+	\item There is an extension of the standard algorithm for HSP in terms of quantum hiding function, which is given in section 2.1.
+	\item A group G is called nilpotent if its lower central series stops in $ \{e\} $ after finitely many steps.
+	\item A nilpotent group $ G $ is said to be a \emph{nil-n } group if it is of class at most $ n $.
+	\item A group $ G $ is a nil-2 group if $ G' $ is contained in the center of $ G $, where $ G' $ is the derived subgroup of $ G $.
+	\item If $ G $ is a p-group of exponent p and of class 2, the structure of $ G $,  $ G' $ and $ G/G' $ is well studied and is summarized in section 2.3 in this paper.
+	\item If $ G $ is a p-group of exponent p and of class 2, there is an automorphism $ \phi_{j} $ , which has certain properties. This automorphism is used in the quantum algorithm described in this paper. 
+\end{enumerate}
+
+\subsection{Related Work}
+HSP can be solved efficiently for abelian groups using quantum algorithms. Many efforts have been made to solve the HSP in finite non-abelian groups. Many groups where the HSP have been efficiently solved are somehow groups that are very close to be abelian groups, e.g. \cite{Grigni}, \cite{Beth} and \cite{Moore}.
+
+Some previous work for this paper have been done is about solving the HSP for extraspecial groups \cite{Ivanyos}, which are groups in nil-2 groups. This paper follows a similar procedure, which uses theoretical tools to reduce the problem to the HSP in abelian groups.
+
+\section{Summary of Nil-2 HSP Algorithm}
+
+
+
+\subsection{Reduction Steps}
+
+\begin{enumerate}
+\item Calculate the refined polycyclic representation of $G$.
+\item Reduce to HSP in nil-2 $p$-groups
+\item Reduce to case where $H$ is either trivial or order $p$
+\item Reduce to case where $G$ has exponent $p$.
+\item Reduce to finding a quantum hiding function for  $HG'$
+\item Reduce to finding an appropriate triple
+\item Reduce to solving a large system of linear and quadratic equations
+\end{enumerate}
+
+\subsection{Quantum Algorithm}
+
+All of the above steps have efficient classical algorithms, except for the step of generating a quantum hiding function for $HG'$ given an appropriate triple, so  I'll focus on this step.
+\textbf{Summary:}
+\begin{enumerate}
+\item Compute the superposition $\sum_{u \in G'} \ket{u} \ket{aHG'_u}$ for random $a \in G$, where $G_u = DFT(\ket{u})$.
+\item Do the last step $n$ times in parallel for some large $n$
+\item Solve the system of equations to get $\bar j \in (\mathbf{Z}_p)^n$
+\item $\ket{\Psi_g^{\bar a, \bar u, \bar j}} = \bigotimes_{i=1}^n \ket {a_i H G'_{u_i} \phi_{j_i}(g)}$ as a function of $g \in G$ is a hiding function for $H G'$, where $\phi_j$ are nice automorphisms of $G$.
+\end{enumerate}
+
+The following properties of the automorphisms $\phi_j$ are used in the proof:
+\begin{enumerate}
+\item $\ket{aHG'_u}$ is an eigenvector for right multiplication by $\phi_j(g)$
+\item $\phi_j$ maps $HG'$ to $HG'$
+\end{enumerate}
+
+\begin{thebibliography}{9}
+	\bibitem{Grigni} M. Grigni, L. Schulman, M. Vazirani, and U. Vazirani. \textit{Quantum mechanical algorithms for the non- abelian Hidden Subgroup Problem}. In Proc. 33rd ACM STOC, pages 68–74, 2001.
+	
+	\bibitem{Moore} 
+	C. Moore, D. Rockmore, A. Russell, and L. Schulman. \textit{The power of basis selection in Fourier sampling: Hidden subgroup problems in affine groups}. In Proc. 15th ACM-SIAM SODA, pages 1106–1115, 2004.
+
+	\bibitem{Beth} 
+    M. R{\"o}tteler and T. Beth.
+	\textit{Polynomial-time solution to the Hidden Subgroup Problem for a class of non-abelian groups}. \\\texttt{http://xxx.lanl.gov/abs/quant-ph/9812070}
+	
+	\bibitem{Ivanyos} 
+	G. Ivanyos, L. Sanselme, and M. Santha. \textit{An efficient quantum algorithm for the hidden subgroup problem in extraspecial groups}. Proc. 24th STACS, LNCS vol. 4393, pages 586–597, 2007.
+	
+	
+\end{thebibliography}
+
+\end{document}

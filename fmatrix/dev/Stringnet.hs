@@ -4,11 +4,25 @@
 -- along with the parenthesization.  This should be represented by a
 -- binary tree whose leaves are the outgoing edges.
 
-import Data.Graph
+
+-- index of braid move diagram
+type Diagram = Int
+
+type Edge = Int
+
+type Vertex = Int
+
+type Object = String
+
+data Morphism = Morphism { source :: Object
+                         , target :: Object }
 
 
-label :: Vertex -> Morphism
+source :: Diagram -> Edge -> Vertex
 
 
+vLabel :: Vertex -> Morphism
+vLabel 1 = "(k^{-1} \otimes l \otimes k) \otimes (g^{-1} \otimes h \otimes g)"
 
-fnet :: Stringnet
+eLabel :: Edge -> Object
+eLabel 
