@@ -1,0 +1,160 @@
+    
+# Vertices are represented by lists of outgoing edges in CCW order
+
+
+
+############ Methods ############
+
+# Composes e2 vertex into e1
+def compose(e1, e2):
+    x = e1.pop();
+    y = e2.pop();
+    # current state : (e1 x) (y e2)
+    ans = w(cat(e1), x, y) +  ev(y) + reassociateCCW([cat(e1)] + e2)
+    e1.extend(e2)
+    return ans
+
+# Tensors objects at i and i + 1
+def tensor(edges, i):
+    i = i % len(edges)  # fix negative indices bug
+    b = edges.pop(i)
+    c = edges.pop(i)
+    edges.insert(i, cat([b, c]))
+    if (i > 0):
+        return w(cat(edges[0:i]), b, c)
+    return ''
+                                 
+# Argument: list of strings labelling edges incident to a vertex
+# Returns: LaTeX of associators used for 1 counterclockwise 
+#          rotation of the reference frame
+# Side Effect: rotates input list
+# Example: (a,b,c) \mapsto (c,a,b)
+def rotateCCW(edges):
+    edges.insert(0, edges.pop())
+    return reassociateCCW(edges)
+
+def reassociateCCW(edges):
+    if (len(edges) < 3):
+        return ""
+    return wi(edges[0], cat(edges[1:-1]), edges[-1]) + reassociateCCW(edges[0:-1])
+
+# Argument: list of strings labelling edges incident to a vertex
+# Returns: LaTeX of associators used for 1 clockwise rotation
+#          of the reference frame
+# Side Effect: rotates input list
+# Example: (a,b,c) \mapsto (b,c,a)
+def rotateCW(edges):
+    ans =  reassociateCW(edges, 2)
+    edges.append(edges.pop(0))
+    return ans
+
+def reassociateCW(edges, n):
+    if (n >= len(edges)):
+        return ""
+    return w(edges[0], cat(edges[1:n]), edges[n]) + reassociateCW(edges, n + 1)
+
+
+def cat(edges):
+    ans = ""
+    for e in edges:
+        ans = ans + e
+    return ans
+
+def wi(a,b,c):
+    return "\alpha^{-1}(" + a + ", " + b + ", " + c + ") "
+
+def w(a,b,c):
+    return "\alpha(" + a + ", " + b + ", " + c + ") "
+
+def ev(g):
+    return '\ev_{' + g + '} ' #w((g)^{-1}. g, (g)^{-1})
+
+def coev(g):
+    return '\coev_{' + g + '} ' 
+
+
+def show(edges):
+    print 'Edges: [%s]' % ', '.join(edges)
+    pass
+
+def doc(msg):
+    print '\n***' + msg
+    #pass
+
+def newFactor(f):
+     if (len(f) > 0):
+        print f
+    # pass
+
+
+    
+############ Calculations ############
+
+
+#TODO: Calculate F matrix compositions
+    
+## Fig 4
+
+doc('Initial states')
+e1 = ['j^*', 'i*', 'm'];
+e2 = ['m^*', 'l', 'k^*']
+show(e1)
+show(e2)
+
+
+#doc("Add a coev vertex in the upper left corner")
+#newFactor(coev('g'))
+
+#doc('Rotate main vertex edges for composition')
+#edges = ['h','g','h^{-1}', 'hg^{-1}h^{-1}']
+#show(edges)
+#newFactor(rotateCW(edges) + rotateCW(edges))
+#show(edges)
+
+
+
+doc("Compose")
+newFactor(compose(e1, e2))
+show(e1)
+
+## Fig 6
+
+# doc('Make new node for gh')
+# newFactor(coev('g'))
+# newFactor(coev('h'))
+# e1 = ['g','g^{-1}','1']
+# e2 =  ['h^{-1}', 'h','1']
+# newFactor(compose(e1, e2))
+# #show(e1)
+
+# doc('Rotate new node')
+# newFactor(rotateCW(e1))
+# show(e1)
+# doc('Tensor new node')
+# newFactor(tensor(e1,0))
+# newFactor(tensor(e1,-2))
+# newFactor(rotateCW(e1))
+# show(e1)
+
+# doc('Rotate old node')
+# newFactor(rotateCCW(edges))
+# show(edges)
+
+# doc('Tensor old node')
+# newFactor(tensor(edges,0))
+# show(edges)
+# newFactor(tensor(edges,-3))
+
+# doc('Rotate old node for composition')
+# newFactor(rotateCCW(edges))
+# show(edges)
+
+# doc('Compose new node with old node')
+# newFactor(compose(edges, e1))
+# show(edges)
+
+# doc('Rotate old node to get back in initial postion')
+# newFactor(rotateCCW(edges))
+# show(edges)
+
+
