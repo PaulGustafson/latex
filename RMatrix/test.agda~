@@ -1,26 +1,22 @@
 -- Aids in computing the evaluation of a stringnet
 
 -- Edges are labeled by objects of the input category
-type Object = String
+data Edge
 
--- Binary tree of objects
+-- Binary tree
 -- Deals with parenthesization
-data Tree = Leaf Object
-          | Node Tree Tree
+data Tree t = Leaf t
+            | Node Tree Tree
 
--- Vertices correspond to lists of outgoing edges in CCW order
--- and the morphism label.  
-type Vertex = (Tree, Morphism)
+-- Vertices are represented by lists of outgoing edges in CCW order
+data Vertex = (EdgeTree, Morphism)
 
 -- Morphism in the input category
-type Morphism = String 
+data Morphism = String 
 
 -- Remove rightmost leaf
---
 removeRight :: Tree -> Tree
-removeRight Node leftTree (Leaf l) = Node leftTree 
-removeRight Leaf _ = error "Can't prune size 1 tree"
-
+removeRight Leaf
 
 
 -- Preconditions:
