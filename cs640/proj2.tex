@@ -1,3 +1,48 @@
+%
+% An idea for what to do next:  
+%
+% Probably the best idea is to try to reduce from arbitrary subgroups $H$
+% to normal subgroups, such as $G'H$ in the Ivanyos paper.  We can try to 
+% do this in the 4x4-unipotent, upper-triangular case.
+%
+%
+% If we want to use an extension of the finite Heisenberg group $H := \Heis(\ZZ_p)$
+% as a toy example for the nil-3 case, we should look at automorphisms
+% $\phi: G \to \Aut(H)$, for some group $G$.  
+% The arguments of the first paper above should imply
+% that $\Aut(H)$ is a semidirect product  $(\ZZ_p \oplus \ZZ_p) \rtimes
+% GL_2(\ZZ_p)$.  They give a fairly explicit description of the action.
+% The inner automorphism group $\Inn(H)$ is the normal subgroup $\ZZ_p \oplus \ZZ_p$.
+% 
+% The simplest thing to do is to calculate the lower central series for
+% the semidirect product $H \rtimes \Z_p$, where the $\Z_p$-action on $H$
+% is the same as the action of a factor of $\Inn(H)$.  This doesn't seem like it
+% does much, so I suspect that this new semidirect product group will be nil-2.
+% If that doesn't work, we can start looking at maps into $GL_2(\ZZ_p)$.
+%
+% If we're feeling more ambitious, we can try to look at the definition of
+% of the free nil-3 group on $n$ generators in the link to Terry Tao's blog,
+% and try to construct "nice" automorphisms that generalize the ones in the 
+% Ivanyos paper.
+%
+%
+% Useful links:
+%
+% Survey paper:
+% http://journals.aps.org/rmp/pdf/10.1103/RevModPhys.82.1
+%
+% Automorphisms of the discrete Heisenberg group: 
+% https://arxiv.org/pdf/1505.00348.pdf
+% 
+% Terry Tao blog post on free nilpotent groups: 
+% https://terrytao.wordpress.com/2009/12/21/the-free-nilpotent-group/
+%
+
+
+
+
+
+
 
 %% bare_conf.tex
 %% V1.4b
@@ -314,6 +359,11 @@
 
 %%%%%%%%%% NEW COMMANDS %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\Z}{\mathbb{Z}}
+
 \newcommand{\ket}[1]{\left| #1 \right\rangle} 
 
 
@@ -386,9 +436,8 @@ zhangqing@math.tamu.edu}
 % As a general rule, do not put math, special symbols or citations
 % in the abstract
 \begin{abstract}
-We summarize the important techniques in Ivanyos, Sanselme, and Santha's solution  \cite{Ivanyos} to the hidden subgroup problem (HSP) for nilpotent groups of class 2.  We  plan 
-to extend these techniques to some simple examples of nilpotent groups of class 3 -- for example,
-a semidirect product of a cyclic group and the Heisenberg group of a finite field.
+We summarize the important techniques in Ivanyos, Sanselme, and Santha's solution  \cite{Ivanyos} to the hidden subgroup problem (HSP) for nilpotent groups of class 2.  We  plan to extend these techniques to some simple examples of nilpotent groups of class 3 -- for example,
+the group of unipotent $4 \times 4$-upper triangular matrices over a finite field.
 \end{abstract}
 
 % no keywords
@@ -405,17 +454,14 @@ a semidirect product of a cyclic group and the Heisenberg group of a finite fiel
 \IEEEpeerreviewmaketitle
 
 
-\section{Description of the problem}
-\textbf{Problem:} Solve the HSP for $H \leq G$, where $G$ is a nil-2 group.
-
-\section{Discussion of background}
+\section{Introduction}
 \subsection{Preliminaries}
 Here is a summary about the preliminaries for HSP and nilpotent groups:
 
 \begin{enumerate}
-	\item There is an extension of the standard algorithm for HSP in terms of quantum hiding function, which is given in section 2.1.
+	\item There is an extension of the standard algorithm for HSP in terms of quantum hiding function, which is given in section 2.1 of \cite{Ivanyos}.
 	\item A group G is called nilpotent if its lower central series stops in $ \{e\} $ after finitely many steps.
-	\item A nilpotent group $ G $ is said to be a \emph{nil-n } group if it is of class at most $ n $.
+	\item A nilpotent group $ G $ is said to be a \emph{nil-n } group if it is of class at most $ n $, i.e. it has a lower central series of length less than or equal to $n$.
 	\item A group $ G $ is a nil-2 group if $ G' $ is contained in the center of $ G $, where $ G' $ is the derived subgroup of $ G $.
 	\item If $ G $ is a p-group of exponent p and of class 2, the structure of $ G $,  $ G' $ and $ G/G' $ is well studied and is summarized in section 2.3 in this paper.
 	\item If $ G $ is a p-group of exponent p and of class 2, then there exist a class of automorphisms $ \phi_{j}$ with certain nice properties. These automorphisms are used in the quantum algorithm described in this paper. 
@@ -443,9 +489,9 @@ Some previous work for this paper have been done is about solving the HSP for ex
 
 \subsection{Quantum Algorithm}
 
-All of the above steps have efficient classical algorithms, except for the step of generating a quantum hiding function for $HG'$ given an appropriate triple, so  we will focus on this step.  The following is a summary of this algorithm:
+All of the above steps have efficient classical algorithms, except for the step of generating a quantum hiding function for $HG'$ given an appropriate triple.  The following is a summary of this quantum algorithm:
 \begin{enumerate}
-\item Compute the superposition $\sum_{u \in G'} \ket{u} \ket{aHG'_u}$ for random $a \in G$, where $G_u = DFT(\ket{u})$.
+\item Compute the superposition $\sum_{u \in G'} \ket{u} \ket{aHG'_u}$ for random $a \in G$, where $G'_u = DFT_{G'}(\ket{u})$.
 \item Do the last step $n$ times in parallel for some large $n$
 \item Solve the system of equations to get $\bar j \in (\mathbf{Z}_p)^n$
 \item $\ket{\Psi_g^{\bar a, \bar u, \bar j}} = \bigotimes_{i=1}^n \ket {a_i H G'_{u_i} \phi_{j_i}(g)}$ as a function of $g \in G$ is a hiding function for $H G'$, where $\phi_j$ are nice automorphisms of $G$.
@@ -453,9 +499,32 @@ All of the above steps have efficient classical algorithms, except for the step 
 
 The following properties of the automorphisms $\phi_j$ are used in the proof:
 \begin{enumerate}
-\item $\ket{aHG'_u}$ is an eigenvector for right multiplication by $\phi_j(g)$
+\item $\ket{aHG'_u}$ is an eigenvector for right multiplication by $\phi_j(g)$ if $g \in HG'$
 \item $\phi_j$ maps $HG'$ to $HG'$
 \end{enumerate}
+
+The following properties of $HG'$ are used:
+\begin{enumerate}
+\item $HG'$ is a normal subgroup  of $G$.  
+\end{enumerate}
+
+\section{Ideas for extending their algorithm}
+
+Given that $HG'$ is normal in $G$, the hiding function for $HG'$ can alternatively be constructed using the methods of \cite{HRT00}.  In fact, given an arbitrary group $G$ and subgroup $H < G$, the group $HG'$ is normal in $G$.  To see this, let $g \in G$, $g' \in G'$, and $h \in H$.  Using the facts that $ghg^{-1} \in hG'$ and that $G' \triangleleft G$, we have
+\begin{align*}
+ghg'g^{-1} & = (ghg^{-1}) (g g' g^{-1}) \\
+& \in h G' \cdot G' \\
+& = h G'
+\end{align*}
+
+Hence, one candidate for extending their algorithm is the class of groups $G$ for which $G'$ is abelian, but not in the center of $G$.    To do this, we will analyze their classical algorithm to find conditions on $H$ that guarantee we can recover $H$ from $HG'$.
+
+
+\section{Heisenberg group calculations}
+We looked at the Heisenberg group $G$ over a finite field $\mathbb{F}_{p}$. This group has two generators $x=\begin{bmatrix}1&1&0\\0&1&0\\0&0&1\end{bmatrix}$, $y=\begin{bmatrix}1&0&0\\1&1&0\\0&0&1\end{bmatrix}$. This is a group of exponent $p$ and the order of $G$ is $p^{3}$. The center of $G$ equals $G'$, which is the derived subgroup of $G$. The generator of the center is $z=\begin{bmatrix}1&0&1\\0&1&0\\0&0&1\end{bmatrix}$. Moreover, $z=x^{-1}y^{-1}xy$, and $G/G'$ is isomorphic to $\mathbb{Z}_{p}^{2}$. As I followed the procedure in this paper, things fits the results as it supposed to. Here I just tried with some subgroup generated either by $x$ and $z$ or $x$ itself. The previous subgroup is isomorphic to $\mathbb{Z}_{p}^{2}$ and the other one is just $\mathbb{Z}_{p}$.\\
+
+To consider the case for Nil-3 groups, we can look at the example of 4 by 4 upper-triangular unipotent matrices over a finite field $\mathbb{F}_{p}$. This group has order $p^{6}$. The derived subgroup has order $p^{3}$. The center has order $p$. One problem is that the derived subgroup is not in the center compared with Nil-2 case. The classical reductions given in section 3 will work. But the properties like $G'$ is contained in $C(G)$ is not true. One thing we can do next is to find some similar properties that is parallel to those maps($\phi_{j}$) and subgroups(like $HG'$) constructed in this paper.
+
 
 
 % An example of a floating figure using the graphicx package.
@@ -608,6 +677,12 @@ The following properties of the automorphisms $\phi_j$ are used in the proof:
 	
 	\bibitem{Ivanyos} 
 	G. Ivanyos, L. Sanselme, and M. Santha. \textit{An efficient quantum algorithm for the hidden subgroup problem in extraspecial groups}. Proc. 24th STACS, LNCS vol. 4393, pages 586–597, 2007.
+    
+    \bibitem{HRT00}
+  S. Hallgren, A. Russell, and A. Ta-Shma,
+  {\em Normal subgroup reconstruction and quantum computation using group
+  representations},
+  Proc. 32nd ACM Symposium on the Theory of Computing, 627 (2000).
 	
 	
 \end{thebibliography}

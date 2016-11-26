@@ -1,14 +1,17 @@
 \documentclass{article}
 \usepackage{../m}
+\usepackage{amsmath,amssymb,amsthm,fullpage,mathptmx, hyperref,dsfont,framed, graphicx, subcaption, textcomp} 
 
-\DeclareMathOperator{\ht}{ht}
+\DeclareMathOperator{\hht}{ht}
 \DeclareMathOperator{\Id}{Id}
+\DeclareMathOperator{\diag}{diag}
 \newcommand{\mf}{\mathfrak}
 
+\newtheorem{thm}{Theorem}[section]
 \newtheorem*{uthm}{Theorem}
 \newtheorem{lem}[thm]{Lemma}
 \newtheorem*{ulem}{Lemma}
-\newtheorem{prop}[thm]{Proposition}
+%\newtheorem{prop}[thm]{Proposition}
 %\newtheorem*{uprop}[thm]{Proposition}
 \newtheorem{cor}[thm]{Corollary}
 \newtheorem{conj}[thm]{Conjecture}
@@ -26,11 +29,11 @@
 
 
 \subsection*{HW 3}
-\p Prove that the roots systems for $\mf{so}(5)$ and $\mf{sp}(4)$ are isomorphic.
+\p 1 Prove that the roots systems for $\mf{so}(5)$ and $\mf{sp}(4)$ are isomorphic.
 
 \begin{proof}
 We already proved in class that the root system for $\mf{so}(5)$ is isomorphic to 
-$$\{(\pm 1, 0) , (0, \pm 1), (\pm 1, \pm)}, \RR^2\}.$$
+$$( \{ (\pm 1, 0) , (0, \pm 1), (\pm 1, \pm 1)\}, \RR^2 ).$$
 
 Using the representation of $\mf{sp}(4)$ on pages 72-73 of Goodman and Wallach,
 the Lie algebra $\mf{sp}(4)$ consists of all matrices
@@ -64,12 +67,12 @@ on the full Lie algebra determines the root system, it follows that the correspo
 are isomorphic.
 \end{proof}
 
-\p Let $(R,E)$ be a roots system, with Weyl group $W$.  Show that $W$ is a normal subgroup of the group of automorphisms of $(R,E)$ (that is, the group of linear automorphisms of $E$, preserving $R$ as a set, and preserving the Cartan integers). 
+\p 2 Let $(R,E)$ be a roots system, with Weyl group $W$.  Show that $W$ is a normal subgroup of the group of automorphisms of $(R,E)$ (that is, the group of linear automorphisms of $E$, preserving $R$ as a set, and preserving the Cartan integers). 
 \begin{proof}
-This follows from the Lemma on page 43 of Humphreys.  In fact, any automorphism of $E$ preserving $R$ automatically preserves the Cartan integers.
+This follows from the Lemma on page 43 of Humphreys.  
 \end{proof}
 
-\p Fill in the details of the proofs of the results in 10.2 and 10.3 of Humphreys book.
+\p 3 Fill in the details of the proofs of the results in 10.2 and 10.3 of Humphreys book.
 
 \begin{lem} If $\alpha$ is positive but not simple, then $\alpha - \beta$ is a root 
 (necessarily positive) for some $\beta \in \Delta$
@@ -97,7 +100,7 @@ Thus, there exists $\beta \in \Delta$ such that $(\alpha, \beta) > 0$.  Hence, L
 necessarily distinct) in such a way that each partial sum is a root.
 \end{cor}
 \begin{proof}
-Use the lemma and induction on $\ht(\beta)$.  Given $\beta \in \Phi^+$ not simple, write it as a sum of simple roots with $\ht(\beta)$ terms.
+Use the lemma and induction on $\hht(\beta)$.  Given $\beta \in \Phi^+$ not simple, write it as a sum of simple roots with $\hht(\beta)$ terms.
 Applying the lemma, we get another positive root with lower height.
 \end{proof}
 
@@ -107,7 +110,8 @@ Applying the lemma, we get another positive root with lower height.
 The proof in the book shows that $\sigma_\alpha$ maps $\Phi^+ - \{\alpha\}$ to itself.  Since $\sigma_\alpha$ is invertible, its restriction to $\Phi^+ - \{\alpha\}$ must be a permutation.
 \end{proof}
 
-\begin{cor} Set $\delta = \frac{1}{2} \sum_{\beta \succurly 0} \beta$. Then $\sigma_\alpha(\delta) = \delta - \alpha$ for all $\alpha \in \Delta$.
+\begin{cor} Set $\delta = \frac{1}{2} \sum_{\beta \succ 0} \beta$. Then $\sigma_\alpha(\delta) = \delta - \alpha$ for all $\alpha \in \Delta$.
+\end{cor}
 \begin{proof}
 The map $\sigma_\alpha$ permutes the roots other than $\alpha$, but maps $\alpha$ to $-\alpha$.  
 Thus $\sigma_\alpha(\delta) - \delta = \frac{1}{2} (-\alpha - \alpha) = -\alpha$.
@@ -117,6 +121,7 @@ Thus $\sigma_\alpha(\delta) - \delta = \frac{1}{2} (-\alpha - \alpha) = -\alpha$
 If $\sigma_1 \ldots \sigma_{t-1}(\alpha_t)$ is negative, then for some index 
 $1 \le s < t$, $\sigma_1 \ldots \sigma_t = \sigma_1 \ldots \sigma_{s-1} \sigma_{s+1} \ldots
 \sigma_{t-1}$.
+\end{lem}
 \begin{proof}
 A slight clarification of the last sentence of the proof:
 \begin{align*}
@@ -131,12 +136,12 @@ Substituting this value for $\sigma_s$ into the product $\sigma_1 \ldots \sigma_
 the desired identity.
 \end{proof}
 
-\begin{cor} If $\sigma = \sigma_1 \ldots \sigma_2$ is an experession for $\sigma \in \mathcal W$ in terms of reflections corresponding to simple roots, with $t$ as small as possible, then $\sigma(\alpha_t) \predcurly 0$.
+\begin{cor} If $\sigma = \sigma_1 \ldots \sigma_2$ is an experession for $\sigma \in \mathcal W$ in terms of reflections corresponding to simple roots, with $t$ as small as possible, then $\sigma(\alpha_t) \prec 0$.
 \end{cor}
 \begin{proof}
 Suppose not.  Then 
 \begin{align*}
-0 & \predcurly \sigma(\alpha_t) 
+0 & \prec \sigma(\alpha_t) 
 \\ &  = \sigma_1 \ldots \sigma_t (\alpha_t)
 \\ &  = - \sigma_1 \ldots \sigma_{t-1} (\alpha_t)
 \end{align*}
@@ -147,7 +152,7 @@ This implies that $\sigma_1 \ldots \sigma_{t-1} (\alpha_t)$ is negative, which c
 \begin{enumerate}[(a)]
 \item If $\gamma \in E$, $\gamma$ regular, there exists $\sigma \in \mathcal W$ such that $(\sigma(\gamma), \alpha) > 0$ for all $\alpha \in \Delta$ (so $\mathcal W$ acts transitively on Weyl chambers).
 \item If $\Delta'$ is another base of $\Phi$, then $\sigma(\Delta') = \Delta$ for some $\sigma \in \mathcal W$ (so $\mathcal W$ acts transitively on bases).
-\item If $\alpha$ is any root, there exists $\sigam \in \mathcal W$ such that $\sigma(\alpha) \in \Delta$.
+\item If $\alpha$ is any root, there exists $\sigma \in \mathcal W$ such that $\sigma(\alpha) \in \Delta$.
 \item $\mathcal W$ is generated by the $\sigma_\alpha$ ($\alpha \in \Delta$).
 \item If $\sigma(\Delta = \Delta$, $\sigma \in \mathcal W$, then $\sigma = 1$ (so $\mathcal W$ acts simply transitively on bases.
 \end{enumerate}
@@ -157,14 +162,15 @@ This implies that $\sigma_1 \ldots \sigma_{t-1} (\alpha_t)$ is negative, which c
 \item The only thing to add here is that  the fact that $\sigma_\alpha$ is orthogonal follows from considering its action on $\RR \alpha \oplus \alpha^\perp$.
 \item Weyl chambers are in 1-1 correspondence with bases.  Since $\mathcal W'$ consists of orthogonal linear maps,  positive roots for a Weyl chamber get mapped to positive roots for the image of that Weyl chamber, and simple roots get mapped to simple roots.
 \item Suppose $\alpha$ were decomposable with respect to the base $\Delta(\gamma')$.  Then $\alpha$ is a $\Z_+$-linear combination of elements $\alpha$ of $\Delta(\gamma')$, each of which satisfies $(\alpha, \gamma') > \epsilon$, a contradiction.
-\item The proof in Humphreys is proof is clear.
+\item The proof in Humphreys is clear.
 \item Suppose not.  The we can write $\sigma = \sigma_1 \ldots \sigma_t$, with $\alpha_t$ the simple root corresponding to $\sigma_t$, as in Lemma 10.2C and its corollary.  Since $\sigma(\Delta) = \Delta$ and $\alpha_t$ is a positive root,  $\sigma(\alpha_t)$ is a positive root by the orthogonality of $\sigma$.  This contradicts the corrollary to Lemma 10.2C.
 \end{enumerate}
 \end{proof}
 
-\begin{lem} For all $\sigma \in \mathcal W$, $l(\sigma) = n(\sigma)$, where $l$ is the length and $n(\sigma)$ is the number of positive roots for which $\sigma(\alpha) \predcurly 0$.
+\begin{lem} For all $\sigma \in \mathcal W$, $l(\sigma) = n(\sigma)$, where $l$ is the length and $n(\sigma)$ is the number of positive roots for which $\sigma(\alpha) \prec 0$.
+\end{lem}
 \begin{proof}
-To see that $n(\sigma \sigma_\alpha) = n(\sigma) -1$,  Lemma 10.2B says that $\sigma_\alpha$ permutes the positive roots other than $\alpha$.   Hence the only possible change between $n(\sigma)$ and $n(\sigma \sigma_\alpha)$ is due to $\alpha$. As mentioned earlier in the proof, $\sigma(\alpha) \predcurly 0$.  Thus $\sigma \sigma_\alpha (\alpha) = - \sigma(\alpha) \succurly 0$.  Hence $n(\sigma \sigma_\alpha) = n(\sigma) -1$.
+To see that $n(\sigma \sigma_\alpha) = n(\sigma) -1$,  Lemma 10.2B says that $\sigma_\alpha$ permutes the positive roots other than $\alpha$.   Hence the only possible change between $n(\sigma)$ and $n(\sigma \sigma_\alpha)$ is due to $\alpha$. As mentioned earlier in the proof, $\sigma(\alpha) \prec 0$.  Thus $\sigma \sigma_\alpha (\alpha) = - \sigma(\alpha) \succ 0$.  Hence $n(\sigma \sigma_\alpha) = n(\sigma) -1$.
 \end{proof}
 
 \begin{lem} Let $\lambda, \mu \in \overline{\mf{C}(\Delta)}$.  If $\sigma \lambda = \mu$ for some $\sigma \in \mathcal W$, then $\sigma$ is a product of simple reflections which fix $\lambda$; in particular, $\lambda = \mu$.
