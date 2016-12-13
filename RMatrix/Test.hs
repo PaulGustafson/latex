@@ -22,7 +22,6 @@ removeRight Node leftTree (Leaf l) = Node leftTree
 removeRight Leaf _ = error "Can't prune size 1 tree"
 
 
-
 -- Preconditions:
 -- First vertex is in state X_1 X_2 ... X_N
 -- Second vertex is in state Y_1 Y_2 ... Y_M X_N*

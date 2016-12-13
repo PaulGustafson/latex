@@ -1,0 +1,4 @@
+
+
+data TestType = TestType {firstString :: String,
+                          secondString :: String}
