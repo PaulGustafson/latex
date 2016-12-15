@@ -1,13 +1,27 @@
 
-data Kappa = Kappa1 | Kappa2 | Kappa3 | Kappa4 String String
+import Data.Char
+
+data Kappa = Kappa1 | Kappa2 | Kappa3 | Kappa4 String String deriving (Show, Eq)
+
+data Keepo = B Kappa | C String deriving (Show, Eq)
 
 data TestType = TestType {firstString :: String,
                           myMap :: Kappa -> String}
+
+
+bar :: TestType -> String
+bar TestType {firstString = "ga"} = "OOG"
+bar other = "BAA"
+
 
 f :: Kappa -> String
 f Kappa1 = "KappaOne"
 f a@(Kappa4 "goop" "gaap")  = "OO"
 f other  = "WAA"
+
+foo :: String -> String
+foo "gop" = "gep"
+foo "gep" = "baa"
 
 
 -- switch :: TestType -> TestType
