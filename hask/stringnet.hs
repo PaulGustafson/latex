@@ -9,7 +9,8 @@ type AMorphism = phi | Id AObject | Coev AObject | Ev AObject | Prod AMorphism A
 data Vertex = Main | LeftHole | RightHole | Top1 | Top2 | Top3 | Top4
 
 data HalfEdge = { vertex    :: Vertex
-                , nextEdge  :: Edge}
+                , nextEdge  :: Edge
+                }
 
 data Orientation = ZeroOne | OneZero
 
@@ -18,27 +19,31 @@ data Edge = Edge { halfEdges   :: [HalfEdge]
                    orientation :: Orientation
                  } 
 
-data Stringnet = Stringnet { edges     :: [Edge]
-                           , vertices  :: [Vertex]
-                           , vLabel    :: Vertex -> AMorphism
-                           , eLabel    :: Edge   -> AObject 
+data Stringnet = Stringnet { edges     :: [(Edge, AObject)]
+                           , vertices  :: [(Vertex, AMorphism)]
                            } 
+
+end :: Edge -> Vertex
+end e = (halfEdges e) !! [if orientation e == ZeroOne then 1 else 0]
 
 
 -- replace the starting vertex with the composition, make the end vertex empty
 -- cEdge stands for "contracted edge"
 compose :: Stringnet -> Edge -> Stringnet
-compose (Stringnet edges1 vertices1 vLabel1 eLabel1) cEdge@(Edge cStart cEnd _ _ ) =  Stringnet edges2 vertices2 vLabel2 eLabel2
-  where
-    edges2 = [e | e <- edges1, end e != cEnd, start e != cEnd]
+compose sn cEdge =   Stringnet newEdges newVertices
+               where  
+                 newEdges = [e | e <- edges sn, not $ elem (end cEdge) $ map vertex (halfEdges e)] -- kill all edges touching the end node
+                            ++ [ ]
                 
-    vLabel2 cStart = Just $ Prod (vLabel cStart cEnd) (Prod (Ev $ Inverse $ eLabel1 cEdge) (vLabel1 cEnd))
-        vLabel2 cStart = Nothing
-        vLabel2 other  = vlabel other
-        eLabel2 Edge {end = cEnd}    = Nothing  -- kill all edges into endNode
-        eLabel2 Edge {start = cEnd}  = Nothing
-        eLabel2 Edge {nextEdgeAtStart = cEdge} = 
-        eLabel2 other = eLabel other
+
+
+    -- vLabel2 cStart = Just $ Prod (vLabel cStart cEnd) (Prod (Ev $ Inverse $ eLabel1 cEdge) (vLabel1 cEnd))
+    --     vLabel2 cStart = Nothing
+    --     vLabel2 other  = vlabel other
+    --     eLabel2 Edge {end = cEnd}    = Nothing  -- kill all edges into endNode
+    --     eLabel2 Edge {start = cEnd}  = Nothing
+    --     eLabel2 Edge {nextEdgeAtStart = cEdge} = 
+    --     eLabel2 other = eLabel other
 
                
         
