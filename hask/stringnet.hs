@@ -8,32 +8,35 @@ type AMorphism = phi | Id AObject | Coev AObject | Ev AObject | Prod AMorphism A
 
 data Vertex = Main | LeftHole | RightHole | Top1 | Top2 | Top3 | Top4
 
-data HalfEdge = { vertex    :: Vertex
-                , nextEdge  :: Edge
+data HalfEdge = { vertex           :: Vertex
+                , nextHalfEdge     :: HalfEdge
+                , oppositeHalfEdge :: HalfEdge
                 }
 
-data Orientation = ZeroOne | OneZero
-
--- nextEdge is the next edge in CCW order around the specified endpoint
-data Edge = Edge { halfEdges   :: [HalfEdge]
-                   orientation :: Orientation
-                 } 
+type Edge = (HalfEdge, HalfEdge)
+    
 
 data Stringnet = Stringnet { edges     :: [(Edge, AObject)]
                            , vertices  :: [(Vertex, AMorphism)]
                            } 
 
+
+start :: Edge -> Vertex
+start = fst
+
 end :: Edge -> Vertex
-end e = (halfEdges e) !! [if orientation e == ZeroOne then 1 else 0]
+end = snd 
 
 
 -- replace the starting vertex with the composition, make the end vertex empty
 -- cEdge stands for "contracted edge"
 compose :: Stringnet -> Edge -> Stringnet
 compose sn cEdge =   Stringnet newEdges newVertices
-               where  
-                 newEdges = [e | e <- edges sn, not $ elem (end cEdge) $ map vertex (halfEdges e)] -- kill all edges touching the end node
-                            ++ [ ]
+               where
+                 -- all edges touching the end node should touch the start node now
+                 let endEdges =  [e | e <- edges sn, elem (end cEdge) $ map vertex (halfEdges e)] in --FIXME
+                   newEdges = [e | e <- edges, not $ elem e endEdges]
+                              ++ [Edge    | e <- endEdges,  
                 
 
 
