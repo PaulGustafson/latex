@@ -6,7 +6,7 @@ data AObject =  g | h | k | l | One | Inverse AObject | Product AObject AObject
 
 type AMorphism = phi | Id AObject | Coev AObject | Ev AObject | Prod AMorphism AMorphism
 
-data Vertex = Main | LeftHole | RightHole | Top1 | Top2 | Top3 | Top4
+data Vertex = Main | LeftPuncture | RightPuncture | Top1 | Top2 | Top3 | Top4
 
 data HalfEdge = { vertex           :: Vertex
                 , nextHalfEdge     :: HalfEdge
@@ -14,29 +14,45 @@ data HalfEdge = { vertex           :: Vertex
                 }
 
 type Edge = (HalfEdge, HalfEdge)
-    
 
-data Stringnet = Stringnet { edges     :: [(Edge, AObject)]
-                           , vertices  :: [(Vertex, AMorphism)]
+type ColoredEdge = (Edge, AObject)
+
+type ColoredVertex = (Vertex, AMorphism)
+    
+data Stringnet = Stringnet { coloredEdges     :: [ColoredEdge]
+                           , coloredVertices  :: [ColoredVertex]
                            } 
 
 
-start :: Edge -> Vertex
-start = fst
+start :: ColoredEdge -> Vertex
+start = vertex . fst . fst
 
-end :: Edge -> Vertex
-end = snd 
+end :: ColoredEdge -> Vertex
+end = vertex . snd . fst
 
+
+-- calculates image of new edge 
+composeHelper :: Stringnet -> ColoredEdge -> ColoredEdge -> ColoredEdge
+composeHelper oldStringnet contractedEdge oldEdge = newEdge
+  where
+    -- all edges touching the end node should touch the start node now
+    let startsWithCEnd = [ c | c <- coloredEdges oldStringnet,  end contractedEdge == start c]
+        endsWithCEnd   = [ c | c <- coloredEdges oldStringnet,  end contractedEdge == end   c]
+        touchesCEnd    = startsWithCEnd ++ endsWithCEnd
+      in 
+               
 
 -- replace the starting vertex with the composition, make the end vertex empty
--- cEdge stands for "contracted edge"
-compose :: Stringnet -> Edge -> Stringnet
-compose sn cEdge =   Stringnet newEdges newVertices
+compose :: Stringnet -> ColoredEdge -> -> Stringnet
+compose oldStringnet contractedEdge =  Stringnet newColoredEdges newColoredVertices
                where
                  -- all edges touching the end node should touch the start node now
-                 let endEdges =  [e | e <- edges sn, elem (end cEdge) $ map vertex (halfEdges e)] in --FIXME
-                   newEdges = [e | e <- edges, not $ elem e endEdges]
-                              ++ [Edge    | e <- endEdges,  
+                 let startsWithCEnd = [ c | c <- coloredEdges oldStringnet,  end contractedEdge == start c]
+                     endsWithCEnd   = [ c | c <- coloredEdges oldStringnet,  end contractedEdge == end   c]
+                     touchesCEnd    = startsWithCEnd ++ endsWithCEnd
+                   in 
+                  newEdges = [c | c <- coloredEdges oldStingnet, not $ c `elem` touchesCEnd]
+                              ++ [ | (( <- startsWithCEnd,  ]
                 
 
 
