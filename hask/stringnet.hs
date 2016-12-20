@@ -1,58 +1,41 @@
 
-
 -- need isotopy information.  Encode as triangulation?
 
-data AObject =  g | h | k | l | One | Inverse AObject | Product AObject AObject
+data AObject =  G | H | K | L | One | Inverse AObject | Product AObject AObject
 
-type AMorphism = phi | Id AObject | Coev AObject | Ev AObject | Prod AMorphism AMorphism
+data AMorphism = Phi | Id AObject | Coev AObject | Ev AObject | Prod AMorphism AMorphism
 
 data Vertex = Main | LeftPuncture | RightPuncture | Top1 | Top2 | Top3 | Top4
 
-data HalfEdge = { vertex           :: Vertex
-                , nextHalfEdge     :: HalfEdge
-                , oppositeHalfEdge :: HalfEdge
-                }
+data Edge = (Vertex, Vertex, FundamentalGroupoidElt) 
 
-type Edge = (HalfEdge, HalfEdge)
+data EdgeOrientation = Out | In
 
-type ColoredEdge = (Edge, AObject)
+type ColoredEdge = (AObject, Vertex, EdgeOrientation)
 
-type ColoredVertex = (Vertex, AMorphism)
-    
-data Stringnet = Stringnet { coloredEdges     :: [ColoredEdge]
-                           , coloredVertices  :: [ColoredVertex]
-                           } 
+data EdgeTree =  Leaf ColoredEdge | Times EdgeTree EdgeTree
 
+type VertexColoring = (AMorphism, EdgeTree) 
 
-start :: ColoredEdge -> Vertex
-start = vertex . fst . fst
+type Stringnet = Vertex ->  Maybe VertexColoring
 
-end :: ColoredEdge -> Vertex
-end = vertex . snd . fst
+-- How can I match up half-edges?  Adjacency matrix?
 
-
--- calculates image of new edge 
-composeHelper :: Stringnet -> ColoredEdge -> ColoredEdge -> ColoredEdge
-composeHelper oldStringnet contractedEdge oldEdge = newEdge
-  where
-    -- all edges touching the end node should touch the start node now
-    let startsWithCEnd = [ c | c <- coloredEdges oldStringnet,  end contractedEdge == start c]
-        endsWithCEnd   = [ c | c <- coloredEdges oldStringnet,  end contractedEdge == end   c]
-        touchesCEnd    = startsWithCEnd ++ endsWithCEnd
-      in 
-               
+firstFrame :: StringNet
+firstFrame Main = Just (Phi, (Leaf (G, Main, Out)) `Times` (Leaf H) `Times` (Leaf G)
+                             `Times` (Leaf K) `Times` (Leaf L) `Times` (Leaf K))
 
 -- replace the starting vertex with the composition, make the end vertex empty
-compose :: Stringnet -> ColoredEdge -> -> Stringnet
-compose oldStringnet contractedEdge =  Stringnet newColoredEdges newColoredVertices
-               where
-                 -- all edges touching the end node should touch the start node now
-                 let startsWithCEnd = [ c | c <- coloredEdges oldStringnet,  end contractedEdge == start c]
-                     endsWithCEnd   = [ c | c <- coloredEdges oldStringnet,  end contractedEdge == end   c]
-                     touchesCEnd    = startsWithCEnd ++ endsWithCEnd
-                   in 
-                  newEdges = [c | c <- coloredEdges oldStingnet, not $ c `elem` touchesCEnd]
-                              ++ [ | (( <- startsWithCEnd,  ]
+-- compose :: Stringnet -> ColoredEdge -> -> Stringnet
+-- compose oldStringnet contractedEdge =  Stringnet newColoredEdges newColoredVertices
+--                where
+--                  -- all edges touching the end node should touch the start node now
+--                  let startsWithCEnd = [ c | c <- coloredEdges oldStringnet,  end contractedEdge == start c]
+--                      endsWithCEnd   = [ c | c <- coloredEdges oldStringnet,  end contractedEdge == end   c]
+--                      touchesCEnd    = startsWithCEnd ++ endsWithCEnd
+--                    in 
+--                   newEdges = [c | c <- coloredEdges oldStingnet, not $ c `elem` touchesCEnd]
+--                               ++ [ | (( <- startsWithCEnd,  ]
                 
 
 
