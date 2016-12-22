@@ -1,1 +1,3 @@
-module Stringnet where
+module stringnet where
+  
+  data

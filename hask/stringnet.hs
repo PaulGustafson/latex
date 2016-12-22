@@ -1,20 +1,21 @@
 -- Encode as marked CW-complex.
 
-type Vertex = Integer  -- Main | LeftPuncture | RightPuncture | Between Vertex Vertex
-
-type EdgeIndex = Integer  -- unique id for each edge, not the array index in OneComplex
-
-type Edge =  ([Vertex], EdgeIndex)  
-
 data AObject  =  G | H | K | L | One | Inverse AObject | Product AObject AObject
 
 data AMorphism = Phi | Id AObject | Coev AObject | Ev AObject | Prod AMorphism AMorphism
+
+type Vertex = Integer
+
+type EdgeIndex = Integer  -- unique id for each edge, not the array index in OneComplex
+
+-- change into a record?
+type Edge = ([Vertex], EdgeIndex)
 
 type Disk = [Edge] -- a cycle, i.e. snd edge1 = fst edge2 ..
 
 validDisk :: Disk -> Bool
 validDisk [] = False
-validDisk es = and $ zipWith (==)  [vs !! 1 | (vs, i) <- es] [vs !! 0 | (vs, i) <- tail $ cycles es]
+validDisk es = and $ zipWith (==)  [vs !! 1 | (vs, _) <- es] [vs !! 0 | (vs, _) <- tail $ cycles es]
 
 -- Consider changing this to a map Fin n -> Edge
 data OneComplex = [Edge]
@@ -29,13 +30,19 @@ toDisk oc am = [oc !! i | (i,o) <- am]
 validAttachingMap :: OneComplex -> AttachingMap -> Bool
 validAttachingMap oc am = (and [ i < length oc | (i,o) <- am]) && validDisk $ toDisk oc am
 
-type TwoComplex = (OneComplex, [AttachingMap] )
+data TwoComplex = TwoComplex { oneComplex :: OneComplex,
+                             , attachingMaps :: [AttachingMap]
+                             }
 
 validTwoComplex :: TwoComplex -> Bool
-validTwoComplex (oc, ams) = and $ map (validAttachingMap oc) ams
+validTwoComplex tc = and $ map (validAttachingMap $ oneCompex tc) $ attachingMaps tc
 
 -- label the complex
-type Stringnet = (TwoComplex, [AObject], [AMorphism])
+-- TODO: Make the pattern-matching exhaustive (get rid of Maybe)
+data Stringnet = Stringnet {twoComplex :: TwoComplex
+                           , edgeLabel :: Edge -> Maybe AObject,
+                           , vertexLabel :: Vertex -> Maybe AMorphism
+                           }
 
 -- TODO
 -- validEdgeLabelling :: Stringnet -> Bool
@@ -50,10 +57,10 @@ data InitialVertex = Main | LeftPuncture | RightPuncture  deriving (Enum)
 data InitialEdge = LeftLoop | RightLoop | LeftLeg | RightLeg deriving (Enum)
 
 vertices :: InitialEdge -> [Vertex]
-vertices LeftLoop   = map fromEnum [Main, Main]
+vertices LeftLoop  = map fromEnum [Main, Main]
 vertices RightLoop = map fromEnum [Main, Main]
-vertices LeftLeg     = map fromEnum [Main, LeftPuncture]
-vertices RightLeg   = map fromEnum [Main, RightPuncture]
+vertices LeftLeg   = map fromEnum [Main, LeftPuncture]
+vertices RightLeg  = map fromEnum [Main, RightPuncture]
 
 
 initialOneComplex :: OneComplex
@@ -65,7 +72,10 @@ initialTwoComplex = (initialOneComplex, map (map (fromEnum, id))
                      ,[(LeftLoop, Minus), (LeftLeg, Plus), (LeftLeg, Minus)]
                      ,[(RightLoop, Minus), (RightLeg, Plus), (RightLeg, Minus)]
                      ])
-  
+
+                    
+
+                    
 contract :: Stringnet -> EdgeIndex -> Stringnet
-contract sn i = 
+contract sn i = Stringnet
 
