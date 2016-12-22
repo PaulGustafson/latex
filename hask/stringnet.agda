@@ -1,3 +1,0 @@
-module stringnet where
-  
-  data
