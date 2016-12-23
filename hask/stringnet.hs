@@ -85,7 +85,7 @@ contract :: Stringnet -> EdgeIndex -> Stringnet
 contract sn i = Stringnet { twoComplex = TwoComplex { oneComplex = oneComplex twoComplex sn
                                                     , attachingMaps = d
                                                     }                               
-                          , edgeLabel  = edgeLabel sn
+                          , edgeLabel   = edgeLabel sn
                           , vertexLabel = --FIXME vertexLabel sn
                           }
                 
