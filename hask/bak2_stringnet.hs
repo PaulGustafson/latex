@@ -7,6 +7,12 @@ data InitialEdge = LeftLoop | RightLoop | LeftLeg | RightLeg deriving (Enum, Bou
 
 data InitialDisk = OutsideDisk | LeftDisk | RightDisk  deriving (Enum, Bounded, Show)
 
+data Edge = InitialEdge | FirstHalf Edge | SecondHalf Edge | Connector Vertex Vert
+
+data Vertex = InitialVertex | Midpoint Edge
+
+
+
 -- initial conditions
 initialEdgeBoundary :: InitialEdge -> [InitialVertex]
 initialEdgeBoundary LeftLoop   = [Main, Main]

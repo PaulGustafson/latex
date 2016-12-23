@@ -1,19 +1,14 @@
 -- Encode as marked CW-complex.
--- TODO: Make the label pattern-matching exhaustive 
+-- TODO:
+-- Code up the local relations
+-- Consider using simplicial complex library
+-- Make better types for Vertex and Edge 
 
 data InitialVertex = Main | LeftPuncture | RightPuncture deriving (Enum, Bounded, Show)
 
 data InitialEdge = LeftLoop | RightLoop | LeftLeg | RightLeg deriving (Enum, Bounded, Show)
 
 data InitialDisk = OutsideDisk | LeftDisk | RightDisk  deriving (Enum, Bounded, Show)
-
--- initial conditions
-initialEdgeBoundary :: InitialEdge -> [InitialVertex]
-initialEdgeBoundary LeftLoop   = [Main, Main]
-initialEdgeBoundary RightLoop = [Main, Main]
-initialEdgeBoundary LeftLeg     = [Main, LeftPuncture]
-initialEdgeBoundary RightLeg   = [Main, RightPuncture]
-
 
 data AObject = X InitialEdge | One | Dual AObject | ObTensor AObject AObject
 
@@ -82,18 +77,39 @@ data Stringnet = Stringnet
 -- validStringnet (tc@(oc, _), aos, label) = validTwoComplex tc && validEdgeLabelling oc aos
 
 
+-- initial conditions
+initialZeroBoundary :: InitialEdge -> [InitialVertex]
+initialZeroBoundary LeftLoop   = [Main, Main]
+initialZeroBoundary RightLoop = [Main, Main]
+initialZeroBoundary LeftLeg     = [Main, LeftPuncture]
+initialZeroBoundary RightLeg   = [Main, RightPuncture]
+
+initialOneBoundary :: InitialDisk -> [(InitialEdge, Orientation]
+initialOneBoundary OutsideDisk = [(LeftLoop, Plus), (RightLoop, Plus)]
+initialOneBoundary LeftDisk       = [(LeftLoop, Minus), (LeftLeg, Plus), (LeftLeg, Minus)]
+initialOneBoundary RightDisk     = [(RightLoop, Minus), (RightLeg, Plus), (RightLeg, Minus)]
+
 ivToVertex :: InitialVertex -> Vertex
 ivToVertex iv = Vertex
                 { vertexID = fromEnum iv
                 ,  vertexName = show iv
                 }
 
+vertexToInitial :: Vertex -> InitialVertex
+vertexToInitial v = toEnum vertexID v
+
+edgeToInitial :: Edge -> InitialEdge
+edgeToInitial e = toEnum vertexID e
+
+diskToInitial :: Disk -> InitialDisk
+diskToInitial d = toEnum diskID d
+
 ieToEdge :: InitialEdge -> Edge
 ieToEdge ie = Edge { edgeID = fromEnum ie }
 
-
 initialVertices = [(minBound :: InitialVertex) ..]
 initialEdges = [(minBound :: InitialEdge) ..]
+initialDisks = [(minBound :: Disks) ..]
 
 initialZeroComplex :: ZeroComplex
 initialZeroComplex = map ivToVertex initialVertices
@@ -102,29 +118,25 @@ initialOneComplex :: OneComplex
 initialOneComplex = OneComplex
                   { zeroSkeleton  = initialZeroComplex
                   ,  edges             :: map ieToEdge initialEdges
-                  ,  zeroBoundary :: map ivToVertex $ initialEdgeBoundary toEnum
+                  ,  zeroBoundary :: map ivToVertex $ initialZeroBoundary toEnum
                   }
 
 initialTwoComplex :: TwoComplex
 initialTwoComplex = TwoComplex
                     { oneSkeleton = initialOneComplex
-                    ,  disks = 
-
-initialOneComplex $ map (map f)
-                     [[(LeftLoop, Plus), (RightLoop, Plus)]
-                     ,[(LeftLoop, Minus), (LeftLeg, Plus), (LeftLeg, Minus)]
-                     ,[(RightLoop, Minus), (RightLeg, Plus), (RightLeg, Minus)]
-                     ]
-                    where f (a, b) = (fromEnum a, b)
+                    ,  disks = initialDisks
+                    ,  oneBoundary = map f $ initialOneBoundary diskToInitial
+                                     where f(ie, _) = (ieToEdge ie, _)
+                    }
 
 initialStringnet :: Stringnet
 initialStringnet = Stringnet
-                   { twoComplex  = initialTwoComplex
-                   , edgeLabel   = X . toEnum . snd
-                   , vertexLabel = Phi . toEnum
+                   { twoComplex = initialTwoComplex
+                   , edgeLabel     = X . edgeToInitial
+                   , vertexLabel = Phi . vertexToInitial
                    }
 
-contract :: Stringnet -> EdgeID -> Stringnet
+contract :: Stringnet -> Edge -> Stringnet
 contract sn i = Stringnet
                 { twoComplex = TwoComplex
                                { oneComplex = oneComplex twoComplex sn
@@ -132,7 +144,7 @@ contract sn i = Stringnet
                                }                               
                 , edgeLabel  = edgeLabel sn
                 , vertexLabel = --FIXME vertexLabel sn
-                    }
+                }
                 
                  
 
