@@ -1,167 +1,90 @@
 -- Encode as marked CW-complex.
--- TODO:
--- Code up the local relations
--- Consider using simplicial complex library
--- Make better types for Vertex and Edge 
+-- TODO: Make the label pattern-matching exhaustive
+-- TODO: Refactor using Simplex n
 
-data InitialVertex = Main | LeftPuncture | RightPuncture deriving (Enum, Bounded, Show)
+-- Left and right refer to positions before the braiding operation
+-- Orientations are given by arrows in the paper
+data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Edge | Contract Edge
 
-data InitialEdge = LeftLoop | RightLoop | LeftLeg | RightLeg deriving (Enum, Bounded, Show)
+data Edge = LeftLoop | RightLoop | LeftLeg | RightLeg -- initial edges
+          | FirstHalf Edge | SecondHalf Edge -- result of adding coev vertex
+          | Connect Vertex Vertex -- connecting with a 1 edge
+          | TensorE Edge Edge     -- stick together parallel edges
+          | ContractedNeighbor
+            { contractedNeighbor :: Edge
+            , preimage  :: Edge
+            , commonVertex :: Vertex  -- what if they share both endpoints? 
+            }
+          deriving (Show)
 
-data InitialDisk = OutsideDisk | LeftDisk | RightDisk  deriving (Enum, Bounded, Show)
+data Disk = OutsideDisk | LeftDisk | RightDisk | Cut Disk Vertex Vertex
+          deriving (Show)
 
-data AObject = X InitialEdge | One | Dual AObject | ObTensor AObject AObject  deriving (Show)
+data Object = G | H | K | L | One | Star Object | TensorO Object Object
 
-data AMorphism = Phi InitialVertex | Id AObject | Coev AObject | Ev AObject | MorTensor AMorphism AMorphism deriving (Show)
-
--- TODO: Add a name String
-data Vertex = Vertex
-              { vertexId       :: Int
-              ,  vertexName :: String
-              }  deriving (Eq)
-
-data Edge = Edge
-            { edgeId     :: Int
-            } deriving (Eq)
-
-data Disk = Disk
-            { diskId     :: Int
-            } deriving (Eq)
-
-nextId :: [Int] -> Int
-nextId xs = 1 + maximum xs
-
--- Should I make a dependent type of CW complexes with dimension as a parameter?
-data ZeroComplex = ZeroComplex { zcVertices :: [Vertex] }
-
--- Consider changing this to a map Fin n -> Edge
-data OneComplex = OneComplex
-                  { ocZeroSkeleton   :: ZeroComplex
-                  ,  ocEdges             :: [Edge]
-                  ,  ocZeroBoundary :: Edge -> [Vertex]
-                  }
+-- TODO: add typing to Compose
+data Morphism = Phi | Id AObject | Coev Object | Ev Object | TensorM Morphism Morphism | Compose Morphism Morphism
 
 data Orientation = Plus | Minus
 
-type OrientedEdge = (Edge, Orientation)
+endpoints :: Edge -> [Vertex]
+endpoints LeftLoop  = [Main, Main]
+endpoints RightLoop = [Main, Main]
+endpoints LeftLeg   = [Main, LeftPuncture]
+endpoints RightLeg  = [Main, RightPuncture]
+endpoints FirstHalf e = [(endpoints e) !! 0, Midpoint e]
+endpoints SecondHalf e = [Midpoint e, (endpoints e) !! 1]
+endpoints Connect v1 v2 = [v1, v2]
+endpoints TensorE e1 _ = endpoints e1
 
-oeBoundary :: OrientedEdge -> [Vertex]
-oeBoundary (e, Plus) = zeroBoundary e
-oeBoundary (e, Minus) = reverse zeroBoundary e
+start :: Edge -> Vertex
+start e = (endpoints e) !! 0
 
-data TwoComplex = TwoComplex
-                  { tcOneSkeleton  :: OneComplex
-                  ,  tcDisks             :: Disk
-                  ,  tcOneBoundary :: Disk -> [OrientedEdge] 
-                  }
+end :: Edge -> Vertex
+end e = (endpoints e) !! 1
 
-validOneBoundary :: [(OrientedEdge)] -> Bool
-validOneBoundary [] = False
-validOneBoundary es = and $ zipWith (==)  [(oeBoundary e) !! 1 | e <- es] [(oeBoundary e) !! 0 | e <- tail $ cycle es]
+-- TODO: deal with edge compositions changing this function
+perimeter :: Disk -> [(Edge, Orientation)]
+perimeter OutsideDisk = [(LeftLoop, Plus), (RightLoop, Plus)]
+perimeter LeftDisk    = [(LeftLoop, Minus), (LeftLeg, Plus), (LeftLeg, Minus)]
+perimeter RightDisk   = [(RightLoop, Minus), (RightLeg, Plus), (RightLeg, Minus)]
+perimeter Cut d v1 v2 = [(Connect v2 v1, Plus)] ++ (takeWhile (f v2) dropWhile (f v1) $ cycle $ perimeter d) 
+                              where f v (e, o) = v != start e
+                                    
+objectLabel :: Edge -> Object
+objectLabel LeftLoop = G
+objectLabel LeftLeg = H
+objectLabel RightLoop = K
+objectLabel RightLeg = L
+objectLabel FirstHalf e = edgeLabel e
+objectLabel SecondHalf e = Star (edgeLabel e)
+objectLabel Connect v1 v2 = One
 
-validTwoComplex :: TwoComplex -> Bool
-validTwoComplex tc = and $ map validOneBoundary $ disks tc
+morphismLabel :: Vertex -> Maybe Morphism
+morphismLabel Main = Just Phi
+morphismLabel LeftPuncture = None
+morphismLabel RightPuncture = None
+morphismLabel Midpoint e = Just $ Coev e
+morphismLabel Contract e = Just $ Compose (Ev e) (TensorM (morphismLabel (start e)) (morphismLabel (end e)))
 
-data Stringnet = Stringnet
-                 { twoComplex :: TwoComplex
-                 , edgeLabel :: Edge -> AObject
-                 , vertexLabel :: Vertex -> AMorphism
-                 }
+-- vX corresponds to figure number X from the paper
+v1 = [Main, LeftPuncture, RightPuncture]
+v2 = v1
+-- topX means X from the top
+top1 = Midpoint LeftLoop
+top2 = Midpoint LeftLeg
+top3 = Midpoint (SecondHalf LeftLoop)
+top4 = Midpoint RightLoop
+v3 = v1 ++ [top1, top2, top3, top4]
+e12 = Connect top1 top2
+e23 = Connect top2 top3
+e34 = Connect top3 top4
 
-disks :: Stringnet -> [Disk]
-disks sn = tcDisks . twoComplex
-
-edges :: Stringnet ->  [Edge]
-edges sn = ocEdges . tcOneSkeleton . twoComplex
-
-vertices :: Stringnet -> [Vertex]
-vertices sn = zcVertices . ocZeroSkeleton . tcOneSkeleton . twoComplex
-
--- TODO: Make sure vertex labels agree with edge labels
--- validEdgeLabelling :: Stringnet -> Bool
-
--- validStringnet :: Stringnet -> Bool
--- validStringnet (tc@(oc, _), aos, label) = validTwoComplex tc && validEdgeLabelling oc aos
-
-
--- initial conditions
-
-initialZeroBoundary :: InitialEdge -> [InitialVertex]
-initialZeroBoundary LeftLoop   = [Main, Main]
-initialZeroBoundary RightLoop = [Main, Main]
-initialZeroBoundary LeftLeg     = [Main, LeftPuncture]
-initialZeroBoundary RightLeg   = [Main, RightPuncture]
-
-initialOneBoundary :: InitialDisk -> [(InitialEdge, Orientation]
-initialOneBoundary OutsideDisk = [(LeftLoop, Plus), (RightLoop, Plus)]
-initialOneBoundary LeftDisk       = [(LeftLoop, Minus), (LeftLeg, Plus), (LeftLeg, Minus)]
-initialOneBoundary RightDisk     = [(RightLoop, Minus), (RightLeg, Plus), (RightLeg, Minus)]
-
-vertexFromIV :: InitialVertex -> Vertex
-vertexFromIV iv = Vertex
-                { vertexId = fromEnum iv
-                ,  vertexName = show iv
-                }
-
-ivFromVertex :: Vertex -> InitialVertex
-ivFromVertex v = toEnum vertexId v
-
-ieFromEdge :: Edge -> InitialEdge
-ieFromEdge e = toEnum vertexId e
-
-diskFromID :: Disk -> InitialDisk
-diskFromID d = toEnum diskId d
-
-edgeFromIE :: InitialEdge -> Edge
-edgeFromIE ie = Edge { edgeId = fromEnum ie }
-
-initialVertices = [(minBound :: InitialVertex) ..]
-initialEdges = [(minBound :: InitialEdge) ..]
-initialDisks = [(minBound :: Disks) ..]
-
-initialZeroComplex :: ZeroComplex
-initialZeroComplex = map vertexFromIV initialVertices
-
-initialOneComplex :: OneComplex
-initialOneComplex = OneComplex
-                  { zeroSkeleton  = initialZeroComplex
-                  ,  edges             :: map edgeFromIE initialEdges
-                  ,  zeroBoundary :: map vertexFromIV $ initialZeroBoundary toEnum
-                  }
-
-initialTwoComplex :: TwoComplex
-initialTwoComplex = TwoComplex
-                    { oneSkeleton = initialOneComplex
-                    ,  disks = initialDisks
-                    ,  oneBoundary = map f $ initialOneBoundary diskFromID
-                                     where f(ie, _) = (edgeFromIE ie, _)
-                    }
-
-initialStringnet :: Stringnet
-initialStringnet = Stringnet
-                   { twoComplex = initialTwoComplex
-                   , edgeLabel     = X . ieFromEdge
-                   , vertexLabel = Phi . ivFromVertex
-                   }
+top12 = (Contract top1)
 
 
--- local relations
 
--- Pushes the starting vertex of the oriented edge into the end
-contract :: Stringnet -> OrientedEdge -> Stringnet
-contract sn oe = Stringnet
-  let tc = twoComplex sn in
-    { twoComplex = tc {
-        tcOneSkeleton = [v | v <- vertices sn, v != oeBoundary !! 0]
-                       ocEdges = [e | e <- edges sn,  e != fst oe]
-                       ocZeroBoundary = ocZeroBoundary 
-                                                         }
-                                              
-                               , attachingMaps = d
-                               }                               
-                , edgeLabel  = edgeLabel sn
-                , vertexLabel = --FIXME vertexLabel sn
-                }
+
                 
                  
 
