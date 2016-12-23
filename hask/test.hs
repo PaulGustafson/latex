@@ -1,7 +1,26 @@
 
 import Data.Char
 
+data Gomp = Goop
+            | Geebo {
+              unk :: String
+              , monk :: String
+              }
+
+
+
 data Kappa = Kappa1 | Kappa2 | Kappa3 | Kappa4 String String deriving (Show, Eq)
+
+data Catpa = Cat Kappa | Magma  deriving (Show)
+
+m = Magma
+
+e :: Catpa
+e = Cat Kappa2
+
+h :: Catpa -> String
+h = show
+
 
 data Keepo = B Kappa | C String deriving (Show, Eq)
 
