@@ -1,0 +1,110 @@
+
+./stringnet.hs,2629
+data Vertex Vertex11,12
+data Vertex = Main Main11,12
+data Vertex = Main | LeftPuncture LeftPuncture11,12
+data Vertex = Main | LeftPuncture | RightPuncture RightPuncture11,12
+data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Midpoint11,12
+data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Edge | Contract Contract11,12
+data Edge Edge15,16
+data Edge = LeftLoop LeftLoop15,16
+data Edge = LeftLoop | RightLoop RightLoop15,16
+data Edge = LeftLoop | RightLoop | LeftLeg LeftLeg15,16
+data Edge = LeftLoop | RightLoop | LeftLeg | RightLeg RightLeg15,16
+          | FirstHalf FirstHalf16,17
+          | FirstHalf Edge | SecondHalf SecondHalf16,17
+          | Connect Connect17,18
+          | TensorE TensorE18,19
+          | ContractedNeighborContractedNeighbor19,20
+            { contractedEdge contractedEdge20,21
+            , preimage preimage21,22
+data TwoComplex TwoComplex25,26
+data TwoComplex = TwoComplexTwoComplex25,26
+                  { vertices vertices26,27
+                  , edges edges27,28
+data Object Object33,34
+data Object = G G33,34
+data Object = G | H H33,34
+data Object = G | H | K K33,34
+data Object = G | H | K | L L33,34
+data Object = G | H | K | L | One One33,34
+data Object = G | H | K | L | One | Star Star33,34
+data Object = G | H | K | L | One | Star Object | TensorO TensorO33,34
+data Morphism Morphism36,37
+data Morphism = Phi Phi36,37
+data Morphism = Phi | Id Id36,37
+data Morphism = Phi | Id Object | Coev Coev36,37
+data Morphism = Phi | Id Object | Coev Object | Ev Ev36,37
+data Morphism = Phi | Id Object | Coev Object | Ev Object | TensorM TensorM36,37
+data Morphism = Phi | Id Object | Coev Object | Ev Object | TensorM Morphism Morphism | Compose Compose36,37
+data Orientation Orientation38,39
+data Orientation = Plus Plus38,39
+data Orientation = Plus | MinusMinus38,39
+endpoints endpoints40,41
+endpoints endpoints41,42
+start start53,54
+start start54,55
+end end56,57
+end end57,58
+objectLabel objectLabel67,68
+objectLabel objectLabel68,69
+morphismLabel morphismLabel77,78
+morphismLabel morphismLabel80,81
+touches touches84,85
+touches touches85,86
+contract contract89,90
+contract contract90,91
+connect connect98,99
+connect connect99,100
+addCoev addCoev104,105
+addCoev addCoev105,106
+tc1 tc1111,112
+tc2 tc2114,115
+tc2_5 tc2_5115,116
+newVertices newVertices116,117
+tc3 tc3117,118
+v1 v1122,123
+v2 v2123,124
+top1 top1125,126
+top2 top2126,127
+top3 top3127,128
+top4 top4128,129
+v3 v3129,130
+e12 e12130,131
+e23 e23131,132
+e34 e34132,133
+
+./test.hs,892
+testMaybe testMaybe3,4
+testMaybe testMaybe4,5
+data Gomp Gomp8,9
+data Gomp = GoopGoop8,9
+            | Geebo Geebo9,10
+              unk unk10,11
+              , monk monk11,12
+data Kappa Kappa16,17
+data Kappa = Kappa1 Kappa116,17
+data Kappa = Kappa1 | Kappa2 Kappa216,17
+data Kappa = Kappa1 | Kappa2 | Kappa3 Kappa316,17
+data Kappa = Kappa1 | Kappa2 | Kappa3 | Kappa4 Kappa416,17
+data Catpa Catpa18,19
+data Catpa = Cat Cat18,19
+data Catpa = Cat Kappa | Magma Magma18,19
+m m20,21
+e e22,23
+e e23,24
+h h25,26
+h h26,27
+data Keepo Keepo29,30
+data Keepo = B B29,30
+data Keepo = B Kappa | C C29,30
+data TestType TestType31,32
+data TestType = TestType TestType31,32
+data TestType = TestType {firstString firstString31,32
+                          myMap myMap32,33
+bar bar35,36
+bar bar36,37
+f f40,41
+f f41,42
+foo foo45,46
+foo foo46,47

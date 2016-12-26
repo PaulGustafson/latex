@@ -115,8 +115,8 @@ tc1 = TwoComplex { vertices = [Main, LeftPuncture, RightPuncture]
 tc2 = tc1
 tc2_5 = addCoev RightLoop $ addCoev (SecondHalf LeftLoop) $ addCoev LeftLeg $ addCoev LeftLoop tc2
 newVertices = take 4 $ vertices tc2_5
-tc3 = foldl f tc2_5  [(x,y) | x <- newVertices, y <- cycle $ tail newVertices]
-      where f a (x,y)  = connect x y a
+tc3 = zipWith f newVertices (tail cycle newVertices)
+      where f a b = connect a b
 
 
 

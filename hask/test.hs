@@ -1,6 +1,11 @@
 
 import Data.Char
 
+testMaybe :: Int -> Maybe Int
+testMaybe 1 = 1
+testMaybe _ = Nothing
+
+
 data Gomp = Goop
             | Geebo {
               unk :: String
