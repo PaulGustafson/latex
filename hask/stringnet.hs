@@ -114,30 +114,8 @@ tc1 = TwoComplex { vertices = [Main, LeftPuncture, RightPuncture]
                  }
 tc2 = tc1
 tc2_5 = addCoev RightLoop $ addCoev (SecondHalf LeftLoop) $ addCoev LeftLeg $ addCoev LeftLoop tc2
-newVertices = take 4 $ vertices tc2_5
-tc3 = foldl f tc2_5  [(x,y) | x <- newVertices, y <- cycle $ tail newVertices]
-      where f a (x,y)  = connect x y a
-
-
-
-v1 = vertices tc1
-v2 = v1
--- topX means X from the top
-top1 = Midpoint LeftLoop
-top2 = Midpoint LeftLeg
-top3 = Midpoint (SecondHalf LeftLoop)
-top4 = Midpoint RightLoop
-v3 = v1 ++ [top1, top2, top3, top4]
-e12 = Connect top1 top2
-e23 = Connect top2 top3
-e34 = Connect top3 top4
-
--- top12V = (Contract top1)
-
-
-
-
-
-
-
-
+newV = take 4 $ vertices tc2_5
+tc3 = foldl f tc2_5 $ zipWith (,) newV $ tail newV
+  where f a (x,y)  = connect x y a
+tc4 = foldl f tc3 [1..3]
+  where f a _ = contract (edges a !! 1) a
