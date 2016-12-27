@@ -1,78 +1,68 @@
 
-./stringnet.hs,2629
-data Vertex Vertex11,12
-data Vertex = Main Main11,12
-data Vertex = Main | LeftPuncture LeftPuncture11,12
-data Vertex = Main | LeftPuncture | RightPuncture RightPuncture11,12
-data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Midpoint11,12
-data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Edge | Contract Contract11,12
-data Edge Edge15,16
-data Edge = LeftLoop LeftLoop15,16
-data Edge = LeftLoop | RightLoop RightLoop15,16
-data Edge = LeftLoop | RightLoop | LeftLeg LeftLeg15,16
-data Edge = LeftLoop | RightLoop | LeftLeg | RightLeg RightLeg15,16
-          | FirstHalf FirstHalf16,17
-          | FirstHalf Edge | SecondHalf SecondHalf16,17
-          | Connect Connect17,18
-          | TensorE TensorE18,19
-          | ContractedNeighborContractedNeighbor19,20
-            { contractedEdge contractedEdge20,21
-            , preimage preimage21,22
-data TwoComplex TwoComplex25,26
-data TwoComplex = TwoComplexTwoComplex25,26
-                  { vertices vertices26,27
-                  , edges edges27,28
-data Object Object33,34
-data Object = G G33,34
-data Object = G | H H33,34
-data Object = G | H | K K33,34
-data Object = G | H | K | L L33,34
-data Object = G | H | K | L | One One33,34
-data Object = G | H | K | L | One | Star Star33,34
-data Object = G | H | K | L | One | Star Object | TensorO TensorO33,34
-data Morphism Morphism36,37
-data Morphism = Phi Phi36,37
-data Morphism = Phi | Id Id36,37
-data Morphism = Phi | Id Object | Coev Coev36,37
-data Morphism = Phi | Id Object | Coev Object | Ev Ev36,37
-data Morphism = Phi | Id Object | Coev Object | Ev Object | TensorM TensorM36,37
-data Morphism = Phi | Id Object | Coev Object | Ev Object | TensorM Morphism Morphism | Compose Compose36,37
-data Orientation Orientation38,39
-data Orientation = Plus Plus38,39
-data Orientation = Plus | MinusMinus38,39
-endpoints endpoints40,41
-endpoints endpoints41,42
-start start53,54
-start start54,55
-end end56,57
-end end57,58
-objectLabel objectLabel67,68
-objectLabel objectLabel68,69
-morphismLabel morphismLabel77,78
-morphismLabel morphismLabel80,81
-touches touches84,85
-touches touches85,86
-contract contract89,90
-contract contract90,91
-connect connect98,99
-connect connect99,100
-addCoev addCoev104,105
-addCoev addCoev105,106
-tc1 tc1111,112
-tc2 tc2114,115
-tc2_5 tc2_5115,116
-newVertices newVertices116,117
-tc3 tc3117,118
-v1 v1122,123
-v2 v2123,124
-top1 top1125,126
-top2 top2126,127
-top3 top3127,128
-top4 top4128,129
-v3 v3129,130
-e12 e12130,131
-e23 e23131,132
-e34 e34132,133
+./stringnet.hs,2480
+data Vertex Vertex15,16
+data Vertex = Main Main15,16
+data Vertex = Main | LeftPuncture LeftPuncture15,16
+data Vertex = Main | LeftPuncture | RightPuncture RightPuncture15,16
+data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Midpoint15,16
+data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Edge | Contract Contract15,16
+data Edge Edge19,20
+data Edge = LeftLoop LeftLoop19,20
+data Edge = LeftLoop | RightLoop RightLoop19,20
+data Edge = LeftLoop | RightLoop | LeftLeg LeftLeg19,20
+data Edge = LeftLoop | RightLoop | LeftLeg | RightLeg RightLeg19,20
+          | FirstHalf FirstHalf20,21
+          | FirstHalf Edge | SecondHalf SecondHalf20,21
+          | Connect Connect21,22
+          | TensorE TensorE22,23
+data Orientation Orientation25,26
+data Orientation = Plus Plus25,26
+data Orientation = Plus | MinusMinus25,26
+data OrientedEdge OrientedEdge27,28
+data OrientedEdge = (E(27,28
+data TwoComplex TwoComplex39,40
+data TwoComplex = TwoComplexTwoComplex39,40
+                  { vertices vertices40,41
+                  , edges edges41,42
+                  , image image42,43
+data Object Object47,48
+data Object = G G47,48
+data Object = G | H H47,48
+data Object = G | H | K K47,48
+data Object = G | H | K | L L47,48
+data Object = G | H | K | L | One One47,48
+data Object = G | H | K | L | One | Star Star47,48
+data Object = G | H | K | L | One | Star Object | TensorO TensorO47,48
+data Morphism Morphism51,52
+data Morphism = Phi Phi51,52
+data Morphism = Phi | Id Id51,52
+data Morphism = Phi | Id Object | Coev Coev51,52
+data Morphism = Phi | Id Object | Coev Object | Ev Ev51,52
+data Morphism = Phi | Id Object | Coev Object | Ev Object | TensorM TensorM51,52
+data Morphism = Phi | Id Object | Coev Object | Ev Object | TensorM Morphism Morphism | Compose Compose51,52
+initialEndpoints initialEndpoints55,56
+initialEndpoints initialEndpoints56,57
+endpoints endpoints67,68
+endpoints endpoints68,69
+start start70,71
+start start71,72
+end end73,74
+end end74,75
+objectLabel objectLabel85,86
+objectLabel objectLabel86,87
+morphismLabel morphismLabel97,98
+morphismLabel morphismLabel100,101
+tensor tensor106,107
+tensor tensor107,108
+contract contract111,112
+contract contract112,113
+connect connect128,129
+connect connect129,130
+addCoev addCoev133,134
+addCoev addCoev134,135
+initialTC initialTC146,147
+slide slide151,152
+finalTC finalTC168,169
 
 ./test.hs,892
 testMaybe testMaybe3,4

@@ -1,11 +1,15 @@
 import           Data.List
+import Control.Monad.State
 
 -- Encode as marked CW-complex.
 -- TODO: Finish computing TwoComplex transformations for figures
 -- TODO: Make Edge equality take disks into account.  Currently, two
 -- Connect Edges are equal if they have the same endpoints.  This is a bug.
 --
+-- TODO: Typify stack-like usage of vertices, edges
 -- IDEA: Refactor using Simplex n
+
+
 
 -- Left and right refer to positions before the braiding operation
 -- TODO: Separate into interior vertex and puncture types
@@ -21,7 +25,19 @@ data Edge = LeftLoop | RightLoop | LeftLeg | RightLeg -- initial edges
             { contractedEdge :: Edge
             , preimage       :: Edge
             }
-          deriving (Show, Eq)
+          deriving (Eq)
+
+instance Show Edge where
+  show LeftLoop = "LeftLoop"  
+  show RightLoop = "RightLoop"
+  show LeftLeg = "LeftLeg"
+  show RightLeg = "RightLeg"
+  show (FirstHalf e) = show e ++ "0"
+  show (SecondHalf e) = show e ++ "1"
+  show (Connect v1 v2) = (show v1) ++ "-" ++ (show v2)
+  show (TensorE e1 e2) = "(" ++  (show e1) ++ ")*(" ++ (show e2) ++ ")"
+  show (ContractedNeighbor c p) = show p
+                                      
 
 data TwoComplex = TwoComplex
                   { vertices :: [Vertex]
@@ -65,6 +81,10 @@ end e = (endpoints e) !! 1
 -- perimeter Cut d v1 v2 = [(Connect v2 v1, Plus)] ++ (takeWhile (f v2) dropWhile (f v1) $ cycle $ perimeter d)
 --                               where f v (e, o) = v /= start e
 
+firstPreImage :: Edge -> Edge
+firstPreImage (ContractedNeighbor c p) = firstPreImage p
+firstPreImeage e = e
+
 objectLabel :: Edge -> Object
 objectLabel LeftLoop = G
 objectLabel LeftLeg = H
@@ -86,6 +106,12 @@ touches :: Edge -> Edge -> Bool
 touches e1 e2 = if  length (intersect (endpoints e1) (endpoints e2)) > 0
                                         then True
                                         else False
+
+tensor :: Edge -> Edge -> TwoComplex -> TwoComplex
+tensor e1 e2 tc = TwoComplex 
+                  { vertices = vertices tc
+                  , edges = [TensorE e1 e2] ++ [e | e <- edges tc, e /= e1, e /= e2]
+                  }
 
 contract :: Edge -> TwoComplex -> TwoComplex
 contract contractedEdge tc = TwoComplex
@@ -114,30 +140,10 @@ tc1 = TwoComplex { vertices = [Main, LeftPuncture, RightPuncture]
                  }
 tc2 = tc1
 tc2_5 = addCoev RightLoop $ addCoev (SecondHalf LeftLoop) $ addCoev LeftLeg $ addCoev LeftLoop tc2
-newVertices = take 4 $ vertices tc2_5
-tc3 = zipWith f newVertices (tail cycle newVertices)
-      where f a b = connect a b
-
-
-
-v1 = vertices tc1
-v2 = v1
--- topX means X from the top
-top1 = Midpoint LeftLoop
-top2 = Midpoint LeftLeg
-top3 = Midpoint (SecondHalf LeftLoop)
-top4 = Midpoint RightLoop
-v3 = v1 ++ [top1, top2, top3, top4]
-e12 = Connect top1 top2
-e23 = Connect top2 top3
-e34 = Connect top3 top4
-
--- top12V = (Contract top1)
-
-
-
-
-
-
-
-
+newV = take 4 $ vertices tc2_5
+tc3 = foldl f tc2_5 $ zipWith (,) newV $ tail newV
+  where f a (x,y)  = connect x y a
+tc4 = foldl f tc3 [1..3]
+  where f a _ = contract (edges a !! 0) a
+e4 = edges tc4
+tc5 = tensor (e4) $ tensor (e4 !! 0) (e4 !! 3) tc4
