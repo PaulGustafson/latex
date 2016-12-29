@@ -1,6 +1,7 @@
 import           Control.Monad.State
 import           Data.List
 
+
 -- Encode as marked CW-complex.
 -- TODO: Finish computing TwoComplex transformations for figures
 -- TODO: Make Edge equality take disks into account.  Currently, two
@@ -18,11 +19,13 @@ data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Edge | Contract Edg
 
 -- Orientations of initial edges are given by arrows in the figures in the paper
 data Edge = LeftLoop | RightLoop | LeftLeg | RightLeg -- initial edges
-          | FirstHalf Edge | SecondHalf Edge -- result of adding coev vertex
+          | FirstHalf Edge | SecondHalf Edge -- result of adding coev vertex (--(e)-->(coev e) --(e) -->
           | Connect Vertex Vertex -- connecting with a 1 edge
           | TensorE Edge Edge     -- stick together parallel edges
-          | Reverse Edge
+          | Reverse Edge -- don't use this constructor except to pattern match, use "rev" instead
           deriving (Show, Eq)
+
+data Tree a = Node (Tree a) (Tree a) | Leaf a
 
 -- instance Show Edge where
 --   show LeftLoop = "LeftLoop"
@@ -39,21 +42,31 @@ data TwoComplex = TwoComplex
                   , edges    :: [Edge]
                   , image :: Vertex -> Vertex
                   , morphismLabel :: Vertex -> Morphism
+                  , edgeTree :: Vertex ->  Tree Edge
                   } 
 
 -- data Disk = OutsideDisk | LeftDisk | RightDisk | Cut Disk Vertex Vertex
 --           deriving (Show)
-data Object = G | H | K | L | One | Star Object | TensorO Object Object
+data Object = G | H | K | L
+            | One
+            | Star Object  -- Don't use this constructor except to pattern match, use "star" instead
+            | TensorO Object Object
             deriving (Show)
                                                            
 -- TODO: add typing to Compose
 data Morphism = Phi | Id Object | Coev Object | Ev Object | TensorM Morphism Morphism | Compose Morphism Morphism
               deriving (Show)
 
+
+rev :: Edge -> Edge
+rev (Reverse e) = e
+rev e = Reverse e
+
 star :: Object -> Object
 star (Star o) = o
 star o = Star o
 
+-- endpoints before finding the images of the vertices under contractions
 initialEndpoints :: Edge -> [Vertex]
 initialEndpoints edge  = case edge of
   LeftLoop  -> [Main, Main]
@@ -64,7 +77,7 @@ initialEndpoints edge  = case edge of
   SecondHalf e -> [Midpoint e, (initialEndpoints e) !! 1]
   Connect v1 v2 -> [v1, v2]
   TensorE e1 _ -> initialEndpoints e1
-  Reverse e -> reverse $ initialEndpoints e
+  Reverse e -> reverse (initialEndpoints e)
 
 initialStart :: Edge -> Vertex
 initialStart e =  (initialEndpoints e) !! 0
@@ -73,7 +86,7 @@ initialEnd :: Edge -> Vertex
 initialEnd e =  (initialEndpoints e) !! 1
 
 endpoints :: Edge -> TwoComplex -> [Vertex]
-endpoints e tc = map (image tc) $ initialEndpoints e
+endpoints e tc = map (image tc) (initialEndpoints e)
 
 start :: Edge -> TwoComplex -> Vertex
 start e tc =  (endpoints e tc) !! 0
@@ -103,12 +116,11 @@ objectLabel (Connect v1 v2) = One
 objectLabel (TensorE e1 e2) = TensorO (objectLabel e1) (objectLabel e2)
 objectLabel (Reverse e)  = star (objectLabel e)
 
-                                       
+
+-- associator ::
 
 reverseEdge :: Edge -> State TwoComplex Edge
 reverseEdge e0 = state $ \tc ->
-  let rev (Reverse e1) = e1
-      rev e1 = Reverse e1 in
   (rev e0
   , tc
        { edges = [rev e0] ++ [e | e <- edges tc
@@ -137,6 +149,9 @@ contract contractedEdge  = state $ \tc ->
                                                (TensorM (morphismLabel tc (start contractedEdge tc))
                                                 (morphismLabel tc (end contractedEdge tc)))
                                          else morphismLabel tc v )
+                , edgeTree = \v -> if v == composition
+                                   then Node (edgeTree tc $ start contractedEdge tc) (edgeTree tc $ end contractedEdge tc)
+                                   else edgeTree tc v
                 }
   )
 
@@ -157,6 +172,9 @@ addCoev e = state $ \tc ->
                 , morphismLabel = \v -> if v == mp
                                         then Coev $ objectLabel e
                                         else morphismLabel tc v
+                , edgeTree = \v -> if v == mp
+                                   then Node (Leaf $ rev $ FirstHalf e) (Leaf $ SecondHalf e)
+                                   else edgeTree tc v
                 }
   )
 
@@ -165,6 +183,22 @@ initialTC = TwoComplex { vertices = [Main, LeftPuncture, RightPuncture]
                        , edges    = [LeftLoop, RightLoop, LeftLeg, RightLeg]
                        , image    = id
                        , morphismLabel  =  (\m -> case m of Main -> Phi)
+                       , edgeTree = \v -> case v of Main ->
+                                                       Node
+                                                         (Node
+                                                          (Node
+                                                           (Leaf LeftLoop)
+                                                           (Leaf LeftLeg)
+                                                          )
+                                                          (Leaf $ Reverse LeftLoop)
+                                                         )
+                                                         (Node
+                                                          (Node
+                                                           (Leaf RightLoop)
+                                                           (Leaf RightLeg)
+                                                          )
+                                                          (Leaf $ Reverse RightLoop)
+                                                         )
                        }
             
 slide = do
@@ -183,7 +217,6 @@ slide = do
   lt42 <- tensor lt43 lt2
   lt41 <- tensor lt42 lt1
   contract rt4
-
 
 finalTC = execState slide initialTC
 
