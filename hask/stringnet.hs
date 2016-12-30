@@ -2,7 +2,7 @@ import           Control.Monad.State
 import           Data.List
 
 
--- Encode as marked CW-complex.
+-- Encode a stringnet as a marked CW-complex.
 -- TODO: Finish computing TwoComplex transformations for figures
 -- TODO: Make Edge equality take disks into account.  Currently, two
 -- Connect Edges are equal if they have the same endpoints.  This is a bug.
@@ -25,35 +25,27 @@ data Edge = LeftLoop | RightLoop | LeftLeg | RightLeg -- initial edges
           | Reverse Edge -- don't use this constructor except to pattern match, use "rev" instead
           deriving (Show, Eq)
 
+data Disk = Outside | LeftDisk | RightDisk
+          | FirstCut Disk Vertex Vertex  -- [v1 .. v2] + [v1 v2]
+          | SecondCut Disk Vertex Vertex -- [v2 .. v1] + [v1 v2]
+
 data Tree a = Node (Tree a) (Tree a) | Leaf a
 
--- instance Show Edge where
---   show LeftLoop = "LeftLoop"
---   show RightLoop = "RightLoop"
---   show LeftLeg = "LeftLeg"
---   show RightLeg = "RightLeg"
---   show (FirstHalf e) = show e ++ "0"
---   show (SecondHalf e) = show e ++ "1"
---   show (Connect v1 v2) = (show v1) ++ "-" ++ (show v2)
---   show (TensorE e1 e2) = "(" ++  (show e1) ++ ")*(" ++ (show e2) ++ ")"
-
 data TwoComplex = TwoComplex
-                  { vertices :: [Vertex]
-                  , edges    :: [Edge]
-                  , image :: Vertex -> Vertex
+                  { vertices      :: [Vertex]
+                  , edges         :: [Edge]
+                  , disks         :: [Disk]                  , 
+                  , image         :: Vertex -> Vertex
                   , morphismLabel :: Vertex -> Morphism
-                  , edgeTree :: Vertex ->  Tree Edge
+                  , edgeTree      :: Vertex -> Tree Edge
                   } 
 
--- data Disk = OutsideDisk | LeftDisk | RightDisk | Cut Disk Vertex Vertex
---           deriving (Show)
 data Object = G | H | K | L
             | One
             | Star Object  -- Don't use this constructor except to pattern match, use "star" instead
             | TensorO Object Object
             deriving (Show)
                                                            
--- TODO: add typing to Compose
 data Morphism = Phi | Id Object | Coev Object | Ev Object | TensorM Morphism Morphism | Compose Morphism Morphism
               deriving (Show)
 
@@ -95,14 +87,14 @@ end :: Edge -> TwoComplex -> Vertex
 end e tc =  (endpoints e tc) !! 1
 
 
-
--- TODO: deal with edge compositions changing this function
--- perimeter :: Disk -> [(Edge, Orientation)]
--- perimeter OutsideDisk = [(LeftLoop, Plus), (RightLoop, Plus)]
--- perimeter LeftDisk    = [(LeftLoop, Minus), (LeftLeg, Plus), (LeftLeg, Minus)]
--- perimeter RightDisk   = [(RightLoop, Minus), (RightLeg, Plus), (RightLeg, Minus)]
--- perimeter Cut d v1 v2 = [(Connect v2 v1, Plus)] ++ (takeWhile (f v2) dropWhile (f v1) $ cycle $ perimeter d)
---                               where f v (e, o) = v /= start e
+perimeter :: Disk -> [Edge]
+perimeter OutsideDisk = [LeftLoop, RightLoop]
+perimeter LeftDisk    = [Reverse LeftLoop, LeftLeg, Reverse LeftLeg]
+perimeter RightDisk   = [Reverse RightLoop, RightLeg, Reverse RightLeg]
+perimeter FirstCut d v1 v2 = [Connect d v1 v2] ++ (takeWhile (f v2) dropWhile (f v1) $ cycle $ perimeter d)
+  where f v (e, o) = v /= start e
+perimeter SecondCut d v1 v2 = [Connect d v1 v2] ++ (takeWhile (f v1) dropWhile (f v2) $ cycle $ perimeter d)
+  where f v (e, o) = v /= start e 
 
 
 objectLabel :: Edge -> Object
@@ -117,14 +109,23 @@ objectLabel (TensorE e1 e2) = TensorO (objectLabel e1) (objectLabel e2)
 objectLabel (Reverse e)  = star (objectLabel e)
 
 
--- associator ::
-
 reverseEdge :: Edge -> State TwoComplex Edge
 reverseEdge e0 = state $ \tc ->
   (rev e0
   , tc
        { edges = [rev e0] ++ [e | e <- edges tc
                                     , e /= e0] })
+
+flatten :: Tree a -> [a]
+flatten (Leaf x) = [x]
+flatten (Node x y) = (flatten x) ++ (flatten y)
+
+associateR :: Tree a -> Tree a
+associateR (Node (Node x y) z) = Node x (Node y z)
+
+associateL :: Tree a -> Tree a
+associateL (Node x (Node y z)) = Node (Node x y) z
+
 
 tensor :: Edge -> Edge -> State TwoComplex Edge
 tensor e1 e2 = state $ \tc -> let product = TensorE e1 e2 in
@@ -158,7 +159,9 @@ contract contractedEdge  = state $ \tc ->
 connect :: Vertex -> Vertex -> State TwoComplex Edge
 connect v1 v2  = state $ \tc -> 
   let connection = Connect v1 v2 in
-  ( connection, tc { edges = [connection] ++ edges tc} )
+  ( connection, tc { edges = [connection] ++ edges tc
+                   , edgeTree = 
+                   } )
 
 addCoev :: Edge -> State TwoComplex (Vertex, Edge, Edge)
 addCoev e = state $ \tc ->
@@ -220,8 +223,12 @@ slide = do
 
 finalTC = execState slide initialTC
 
-
--- tc4 = foldl f tc3 [1..3]
---   where f a _ = contract (edges a !! 0) a
--- e4 = edges tc4
--- tc5 = tensor (e4) $ tensor (e4 !! 0) (e4 !! 3) tc4
+-- instance Show Edge where
+--   show LeftLoop = "LeftLoop"
+--   show RightLoop = "RightLoop"
+--   show LeftLeg = "LeftLeg"
+--   show RightLeg = "RightLeg"
+--   show (FirstHalf e) = show e ++ "0"
+--   show (SecondHalf e) = show e ++ "1"
+--   show (Connect v1 v2) = (show v1) ++ "-" ++ (show v2)
+--   show (TensorE e1 e2) = "(" ++  (show e1) ++ ")*(" ++ (show e2) ++ ")"
