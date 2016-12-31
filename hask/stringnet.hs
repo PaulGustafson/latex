@@ -1,7 +1,6 @@
 import           Control.Monad.State
 import           Data.List
 
-
 -- Encode a stringnet as a marked CW-complex.
 -- TODO: Finish computing TwoComplex transformations for figures
 -- TODO: Make Edge equality take disks into account.  Currently, two
@@ -20,24 +19,26 @@ data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Edge | Contract Edg
 -- Orientations of initial edges are given by arrows in the figures in the paper
 data Edge = LeftLoop | RightLoop | LeftLeg | RightLeg -- initial edges
           | FirstHalf Edge | SecondHalf Edge -- result of adding coev vertex (--(e)-->(coev e) --(e) -->
-          | Connect Vertex Vertex -- connecting with a 1 edge
+          | Connect Edge Edge Disk -- connects the start of the two edges with a 1 in the disk
           | TensorE Edge Edge     -- stick together parallel edges
           | Reverse Edge -- don't use this constructor except to pattern match, use "rev" instead
           deriving (Show, Eq)
 
+
 data Disk = Outside | LeftDisk | RightDisk
-          | FirstCut Disk Vertex Vertex  -- [v1 .. v2] + [v1 v2]
-          | SecondCut Disk Vertex Vertex -- [v2 .. v1] + [v1 v2]
+          | Cut Edge  -- Edge should be of type Connect
+          deriving (Show, Eq)
 
 data Tree a = Node (Tree a) (Tree a) | Leaf a
+            deriving (Eq)
 
 data TwoComplex = TwoComplex
                   { vertices      :: [Vertex]
                   , edges         :: [Edge]
-                  , disks         :: [Disk]                  , 
+                  , disks         :: [Disk]                  
                   , image         :: Vertex -> Vertex
                   , morphismLabel :: Vertex -> Morphism
-                  , edgeTree      :: Vertex -> Tree Edge
+                  , edgeTree      :: Vertex -> Tree Edge  --outgoing orientation
                   } 
 
 data Object = G | H | K | L
@@ -67,7 +68,7 @@ initialEndpoints edge  = case edge of
   RightLeg  -> [Main, RightPuncture]
   FirstHalf e -> [(initialEndpoints e) !! 0, Midpoint e]
   SecondHalf e -> [Midpoint e, (initialEndpoints e) !! 1]
-  Connect v1 v2 -> [v1, v2]
+  Connect e1 e2 _ -> [initialStart e1, initialStart e2]
   TensorE e1 _ -> initialEndpoints e1
   Reverse e -> reverse (initialEndpoints e)
 
@@ -87,14 +88,12 @@ end :: Edge -> TwoComplex -> Vertex
 end e tc =  (endpoints e tc) !! 1
 
 
-perimeter :: Disk -> [Edge]
-perimeter OutsideDisk = [LeftLoop, RightLoop]
-perimeter LeftDisk    = [Reverse LeftLoop, LeftLeg, Reverse LeftLeg]
-perimeter RightDisk   = [Reverse RightLoop, RightLeg, Reverse RightLeg]
-perimeter FirstCut d v1 v2 = [Connect d v1 v2] ++ (takeWhile (f v2) dropWhile (f v1) $ cycle $ perimeter d)
-  where f v (e, o) = v /= start e
-perimeter SecondCut d v1 v2 = [Connect d v1 v2] ++ (takeWhile (f v1) dropWhile (f v2) $ cycle $ perimeter d)
-  where f v (e, o) = v /= start e 
+perimeter :: Disk -> TwoComplex -> [Edge]
+perimeter Outside   _  = [LeftLoop, RightLoop]
+perimeter LeftDisk  _  = [Reverse LeftLoop, LeftLeg, Reverse LeftLeg]
+perimeter RightDisk _  = [Reverse RightLoop, RightLeg, Reverse RightLeg]
+perimeter (Cut c@(Connect e1 e2 d)) tc = [c] ++ (takeWhile (/= e1) $ dropWhile (/= e2) $ cycle $ perimeter d tc)
+perimeter (Cut c@(Reverse (Connect e1 e2 d))) tc = [c] ++ (takeWhile (/= e2) $ dropWhile  (/= e1) $ cycle $ perimeter d tc)
 
 
 objectLabel :: Edge -> Object
@@ -104,7 +103,7 @@ objectLabel RightLoop = K
 objectLabel RightLeg = L
 objectLabel (FirstHalf e) = objectLabel e
 objectLabel (SecondHalf e) = objectLabel e
-objectLabel (Connect v1 v2) = One
+objectLabel (Connect _ _ _) = One
 objectLabel (TensorE e1 e2) = TensorO (objectLabel e1) (objectLabel e2)
 objectLabel (Reverse e)  = star (objectLabel e)
 
@@ -117,7 +116,7 @@ reverseEdge e0 = state $ \tc ->
                                     , e /= e0] })
 
 flatten :: Tree a -> [a]
-flatten (Leaf x) = [x]
+flatten (Leaf x) = [x] 
 flatten (Node x y) = (flatten x) ++ (flatten y)
 
 associateR :: Tree a -> Tree a
@@ -126,6 +125,14 @@ associateR (Node (Node x y) z) = Node x (Node y z)
 associateL :: Tree a -> Tree a
 associateL (Node x (Node y z)) = Node (Node x y) z
 
+replace :: (Eq a) => Tree a -> Tree a -> Tree a -> Tree a
+replace subTree1 subTree2 bigTree = 
+  if bigTree == subTree1
+  then subTree2
+  else case bigTree of
+    Leaf x  -> Leaf x
+    Node x y -> Node (replace subTree1 subTree2 x)
+                (replace subTree1 subTree2 y)
 
 tensor :: Edge -> Edge -> State TwoComplex Edge
 tensor e1 e2 = state $ \tc -> let product = TensorE e1 e2 in
@@ -156,13 +163,24 @@ contract contractedEdge  = state $ \tc ->
                 }
   )
 
-connect :: Vertex -> Vertex -> State TwoComplex Edge
-connect v1 v2  = state $ \tc -> 
-  let connection = Connect v1 v2 in
-  ( connection, tc { edges = [connection] ++ edges tc
-                   , edgeTree = 
-                   } )
 
+-- Connect the starting point of the first edge to that of the second
+-- through the disk
+connect :: Edge -> Edge -> Disk -> State TwoComplex Edge
+connect e1 e2 d = state $ \tc -> 
+  let connection = Connect e1 e2 d in
+  ( connection, tc { edges = [connection] ++ edges tc
+                   , disks = [Cut connection, Cut $ rev connection]
+                             ++ [d2 | d2 <- disks tc
+                                    , d2 /= d]
+                   , edgeTree = \v -> f v                   
+                   } )
+    where
+      f v
+        | v == start e1 = replace (Leaf e1) (Node (Leaf e1) (Leaf $ rev connection)) 
+        | v == start e2 = replace (Leaf e2) (Node (Leaf e1) (Leaf $ connection)) 
+        | otherwise     = edgeTree tc
+      
 addCoev :: Edge -> State TwoComplex (Vertex, Edge, Edge)
 addCoev e = state $ \tc ->
   let mp  = Midpoint e
@@ -184,6 +202,7 @@ addCoev e = state $ \tc ->
 -- tcX corresponds to figure number X from the paper
 initialTC = TwoComplex { vertices = [Main, LeftPuncture, RightPuncture]
                        , edges    = [LeftLoop, RightLoop, LeftLeg, RightLeg]
+                       , disks    = [Outside, LeftDisk, RightDisk]
                        , image    = id
                        , morphismLabel  =  (\m -> case m of Main -> Phi)
                        , edgeTree = \v -> case v of Main ->
@@ -204,24 +223,29 @@ initialTC = TwoComplex { vertices = [Main, LeftPuncture, RightPuncture]
                                                          )
                        }
             
-slide = do
-  (top1,lt1,_) <- addCoev LeftLoop
-  (top2,lt2,rt2) <- addCoev LeftLeg
-  (top3,rt13,lt3) <- addCoev (SecondHalf LeftLoop)
-  (top4,lt4,rt4) <- addCoev RightLoop
-  e1 <- connect top1 top2
-  e2 <- connect top2 top3
-  e3 <- connect top3 top4
-  contract e1
-  contract e2
-  contract e3
-  rlt3 <- reverseEdge lt3
-  lt43 <- tensor lt4 rlt3
-  lt42 <- tensor lt43 lt2
-  lt41 <- tensor lt42 lt1
-  contract rt4
+-- slide = do
+--   (top1,lt1,_) <- addCoev LeftLoop
+--   (top2,lt2,rt2) <- addCoev LeftLeg
+--   (top3,rt13,lt3) <- addCoev (SecondHalf LeftLoop)
+--   (top4,lt4,rt4) <- addCoev RightLoop
+--   e1 <- connect top1 top2
+--   e2 <- connect top2 top3
+--   e3 <- connect top3 top4
+--   contract e1
+--   contract e2
+--   contract e3
+--   rlt3 <- reverseEdge lt3
+--   lt43 <- tensor lt4 rlt3
+--   lt42 <- tensor lt43 lt2
+--   lt41 <- tensor lt42 lt1
+--   contract rt4
 
-finalTC = execState slide initialTC
+-- finalTC = execState slide initialTC
+
+
+
+
+
 
 -- instance Show Edge where
 --   show LeftLoop = "LeftLoop"
