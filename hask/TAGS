@@ -1,100 +1,98 @@
 
-./stringnet.hs,3225
+./stringnet.hs,3113
 data Vertex Vertex15,16
 data Vertex = Main Main15,16
 data Vertex = Main | LeftPuncture LeftPuncture15,16
 data Vertex = Main | LeftPuncture | RightPuncture RightPuncture15,16
 data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Midpoint15,16
 data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Edge | Contract Contract15,16
-data Edge Edge20,21
-data Edge = LeftLoop LeftLoop20,21
-data Edge = LeftLoop | RightLoop RightLoop20,21
-data Edge = LeftLoop | RightLoop | LeftLeg LeftLeg20,21
-data Edge = LeftLoop | RightLoop | LeftLeg | RightLeg RightLeg20,21
-          | FirstHalf FirstHalf21,22
-          | FirstHalf Edge | SecondHalf SecondHalf21,22
-          | Connect Connect22,23
-          | TensorE TensorE23,24
-          | Reverse Reverse24,25
-data Disk Disk28,29
-data Disk = Outside Outside28,29
-data Disk = Outside | LeftDisk LeftDisk28,29
-data Disk = Outside | LeftDisk | RightDiskRightDisk28,29
-          | Cut Cut29,30
-data Tree Tree32,33
-data Tree a = Node Node32,33
-data Tree a = Node (Tree a) (Tree a) | Leaf Leaf32,33
-data TwoComplex TwoComplex35,36
-data TwoComplex = TwoComplexTwoComplex35,36
-                  { vertices vertices36,37
-                  , edges edges37,38
-                  , disks disks38,39
-                  , image image39,40
-                  , morphismLabel morphismLabel40,41
-                  , edgeTree edgeTree41,42
-data Object Object44,45
-data Object = G G44,45
-data Object = G | H H44,45
-data Object = G | H | K K44,45
-data Object = G | H | K | LL44,45
-            | OneOne45,46
-            | Star Star46,47
-            | TensorO TensorO47,48
-data Morphism Morphism50,51
-data Morphism = PhiPhi50,51
-              | Id Id51,52
-              | Coev Coev52,53
-              | Ev Ev53,54
-              | Alpha Alpha54,55
-rev rev61,62
+data Edge Edge21,22
+data Edge = LeftLoop LeftLoop21,22
+data Edge = LeftLoop | RightLoop RightLoop21,22
+data Edge = LeftLoop | RightLoop | LeftLeg LeftLeg21,22
+data Edge = LeftLoop | RightLoop | LeftLeg | RightLeg RightLeg21,22
+          | FirstHalf FirstHalf22,23
+          | FirstHalf Edge | SecondHalf SecondHalf22,23
+          | Connect Connect23,24
+          | TensorE TensorE24,25
+          | Reverse Reverse25,26
+data Disk Disk29,30
+data Disk = Outside Outside29,30
+data Disk = Outside | LeftDisk LeftDisk29,30
+data Disk = Outside | LeftDisk | RightDiskRightDisk29,30
+          | Cut Cut30,31
+data Tree Tree33,34
+data Tree a = Node Node33,34
+data Tree a = Node (Tree a) (Tree a) | Leaf Leaf33,34
+data TwoComplex TwoComplex36,37
+data TwoComplex = TwoComplexTwoComplex36,37
+                  { vertices vertices37,38
+                  , edges edges38,39
+                  , disks disks39,40
+                  , image image40,41
+                  , morphismLabel morphismLabel41,42
+                  , edgeTree edgeTree42,43
+data Object Object45,46
+data Object = G G45,46
+data Object = G | H H45,46
+data Object = G | H | K K45,46
+data Object = G | H | K | LL45,46
+            | OneOne46,47
+            | Star Star47,48
+            | TensorO TensorO48,49
+data Morphism Morphism51,52
+data Morphism = PhiPhi51,52
+              | Id Id52,53
+              | Coev Coev53,54
+              | Ev Ev54,55
+              | Alpha Alpha55,56
 rev rev62,63
-star star65,66
+rev rev63,64
 star star66,67
-initialEndpoints initialEndpoints70,71
+star star67,68
 initialEndpoints initialEndpoints71,72
-initialStart initialStart82,83
+initialEndpoints initialEndpoints72,73
 initialStart initialStart83,84
-initialEnd initialEnd85,86
+initialStart initialStart84,85
 initialEnd initialEnd86,87
-endpoints endpoints88,89
+initialEnd initialEnd87,88
 endpoints endpoints89,90
-start start91,92
+endpoints endpoints90,91
 start start92,93
-end end94,95
+start start93,94
 end end95,96
-perimeter perimeter98,99
+end end96,97
 perimeter perimeter99,100
-objectLabel objectLabel106,107
+perimeter perimeter100,101
 objectLabel objectLabel107,108
-reverseEdge reverseEdge118,119
-reverseEdge reverseEdge119,120
-flatten flatten125,126
-flatten flatten126,127
-replace replace129,130
-replace replace130,131
-associateR associateR138,139
-associateR associateR139,140
-associateRHelper associateRHelper142,143
-associateRHelper associateRHelper143,144
-associateL associateL145,146
-associateL associateL146,147
-isolateRHelper isolateRHelper148,149
-isolateRHelper isolateRHelper149,150
-isolateR isolateR163,164
+objectLabel objectLabel108,109
+treeLabel treeLabel119,120
+treeLabel treeLabel120,121
+reverseEdge reverseEdge124,125
+reverseEdge reverseEdge125,126
+flatten flatten131,132
+flatten flatten132,133
+replace replace135,136
+replace replace136,137
+isolateRHelper isolateRHelper145,146
+isolateRHelper isolateRHelper146,147
 isolateR isolateR164,165
-zRotate zRotate168,169
-zRotate zRotate169,170
-zRotateInv zRotateInv177,178
-zRotateInv zRotateInv178,179
-tensor tensor182,183
-tensor tensor183,184
-contract contract205,206
-contract contract206,207
-connect connect232,233
-connect connect233,234
-addCoev addCoev253,254
-addCoev addCoev254,255
-initialTC initialTC272,273
+isolateR isolateR165,166
+swap swap168,169
+swap swap169,170
+zRotate zRotate171,172
+zRotate zRotate172,173
+zRotateInv zRotateInv191,192
+zRotateInv zRotateInv192,193
+tensor tensor196,197
+tensor tensor197,198
+contract contract219,220
+contract contract220,221
+connect connect246,247
+connect connect247,248
+addCoev addCoev267,268
+addCoev addCoev268,269
+initialTC initialTC286,287
 
 ./test.hs,892
 testMaybe testMaybe3,4

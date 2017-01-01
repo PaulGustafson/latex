@@ -16,6 +16,7 @@ import           Data.List
 data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Edge | Contract Edge
   deriving (Show, Eq)
 
+
 -- TODO: rename to BasicEdge and make Edge = State TwoComplex BasicEdge
 -- Orientations of initial edges are given by arrows in the figures in the paper
 data Edge = LeftLoop | RightLoop | LeftLeg | RightLeg -- initial edges
@@ -32,7 +33,7 @@ data Disk = Outside | LeftDisk | RightDisk
 
 data Tree a = Node (Tree a) (Tree a) | Leaf a
             deriving (Eq)
-
+                     
 data TwoComplex = TwoComplex
                   { vertices      :: [Vertex]
                   , edges         :: [Edge]
@@ -116,6 +117,11 @@ objectLabel (TensorE e1 e2) = TensorO (objectLabel e1) (objectLabel e2)
 objectLabel (Reverse e)  = star (objectLabel e)
 
 
+treeLabel :: Tree Edge -> Object
+treeLabel (Leaf e) = objectLabel e
+treeLabel (Node x y) = TensorO (treeLabel x) (treeLabel y)
+
+
 reverseEdge :: Edge -> State TwoComplex Edge
 reverseEdge e0 = state $ \tc ->
   (rev e0
@@ -136,15 +142,6 @@ replace subTree1 subTree2 bigTree =
     Node x y -> Node (replace subTree1 subTree2 x)
                 (replace subTree1 subTree2 y)
 
-associateR :: Tree Edge -> Tree Edge -> Vertex -> TwoComplex -> TwoComplex
-associateR subTree v0 tc = 
-
-  
-associateRHelper :: Tree a -> Tree a -> Tree a
-associateRHelper (Node (Node x y) z) = Node x (Node y z)
-
-associateL :: Tree a -> Tree a
-associateL (Node x (Node y z)) = Node (Node x y) z
 
 isolateRHelper :: Vertex -> Tree Edge -> TwoComplex -> TwoComplex
 isolateRHelper v0 t@(Node x (Leaf y)) tc = tc
@@ -157,21 +154,38 @@ isolateRHelper v0 subTree@(Node x (Node y z)) tc =
        ) . edgeTree tc v
        
     , morphismLabel = \v ->
-      
+       (if v == v0
+        then Compose (AlphaI (treeLabel x) (treeLabel y) (treeLabel z))
+             (morphismLabel tc v)
+        else morphismLabel tc v
+       )      
     }
   
                                      
-isolateR :: Vertex -> State TwoComplex
+isolateR :: Vertex -> State TwoComplex ()
 isolateR v0 = state $ \tc ->
-  runState $ isolateRHelper v0 $ edgeTree tc v
-    
+  isolateRHelper v0 (edgeTree tc v) tc
+
+swap :: Tree a -> Tree a
+swap (Node x y) = Node y x
 
 zRotate :: Vertex -> State TwoComplex ()
 zRotate v0 = state $ \tc ->
-  ( ()
-  , tc
-    { edgeTree = \v -> isolate $ edgeTree tc v
-      
+  let newTree = swap $ isolate $ edgeTree tc v
+  in
+   ( ()
+   , tc
+     { edgeTree = \v ->
+        (if v == v0
+         then newTree
+         else edgeTree tc v
+        ) 
+
+     ,  morphismLabel = \v ->
+        (if v == v0 
+         then case newTree of
+           Node (Leaf x) 
+           }  
       
 -- zRotate (Node x (Leaf y)) = Node (Leaf y) x 
 
