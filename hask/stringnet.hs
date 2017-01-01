@@ -16,6 +16,7 @@ import           Data.List
 data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Edge | Contract Edge
   deriving (Show, Eq)
 
+-- TODO: rename to BasicEdge and make Edge = State TwoComplex BasicEdge
 -- Orientations of initial edges are given by arrows in the figures in the paper
 data Edge = LeftLoop | RightLoop | LeftLeg | RightLeg -- initial edges
           | FirstHalf Edge | SecondHalf Edge -- result of adding coev vertex (--(e)-->(coev e) --(e) -->
@@ -47,7 +48,14 @@ data Object = G | H | K | L
             | TensorO Object Object
             deriving (Show)
                                                            
-data Morphism = Phi | Id Object | Coev Object | Ev Object | TensorM Morphism Morphism | Compose Morphism Morphism
+data Morphism = Phi
+              | Id Object
+              | Coev Object
+              | Ev Object
+              | Alpha Object Object Object -- associator (xy)z = x(yz)
+              | AlphaI Object Object Object -- inverse associator
+              | TensorM Morphism Morphism
+              | Compose Morphism Morphism
               deriving (Show)
 
 
@@ -119,12 +127,6 @@ flatten :: Tree a -> [a]
 flatten (Leaf x) = [x] 
 flatten (Node x y) = (flatten x) ++ (flatten y)
 
-associateR :: Tree a -> Tree a
-associateR (Node (Node x y) z) = Node x (Node y z)
-
-associateL :: Tree a -> Tree a
-associateL (Node x (Node y z)) = Node (Node x y) z
-
 replace :: (Eq a) => Tree a -> Tree a -> Tree a -> Tree a
 replace subTree1 subTree2 bigTree = 
   if bigTree == subTree1
@@ -134,9 +136,71 @@ replace subTree1 subTree2 bigTree =
     Node x y -> Node (replace subTree1 subTree2 x)
                 (replace subTree1 subTree2 y)
 
-tensor :: Edge -> Edge -> State TwoComplex Edge
-tensor e1 e2 = state $ \tc -> let product = TensorE e1 e2 in
-  (product, tc { edges = [product] ++ [e | e <- edges tc, e /= e1, e /= e2] })
+associateR :: Tree Edge -> Tree Edge -> Vertex -> TwoComplex -> TwoComplex
+associateR subTree v0 tc = 
+
+  
+associateRHelper :: Tree a -> Tree a -> Tree a
+associateRHelper (Node (Node x y) z) = Node x (Node y z)
+
+associateL :: Tree a -> Tree a
+associateL (Node x (Node y z)) = Node (Node x y) z
+
+isolateRHelper :: Vertex -> Tree Edge -> TwoComplex -> TwoComplex
+isolateRHelper v0 t@(Node x (Leaf y)) tc = tc
+isolateRHelper v0 subTree@(Node x (Node y z)) tc =
+  isolateRHelper v0 z tc
+    { edgeTree = \v ->
+       (if v == v0
+        then replace subTree (Node (Node x y) z)
+        else id
+       ) . edgeTree tc v
+       
+    , morphismLabel = \v ->
+      
+    }
+  
+                                     
+isolateR :: Vertex -> State TwoComplex
+isolateR v0 = state $ \tc ->
+  runState $ isolateRHelper v0 $ edgeTree tc v
+    
+
+zRotate :: Vertex -> State TwoComplex ()
+zRotate v0 = state $ \tc ->
+  ( ()
+  , tc
+    { edgeTree = \v -> isolate $ edgeTree tc v
+      
+      
+-- zRotate (Node x (Leaf y)) = Node (Leaf y) x 
+
+zRotateInv :: Tree a -> Tree a
+zRotateInv (Node (Leaf y) x) = Node x (Leaf y)
+zRotateInv
+
+-- The disk's perimeter should only have two edges
+tensor :: Disk -> State TwoComplex Edge
+tensor d0 = state $ \tc ->
+  let
+    e1 = (perimeter d0 tc) !! 0
+    e2 = rev $ (perimeter d0 tc) !! 1
+    product = TensorE e1 e2
+  in
+   ( product
+   , tc
+      { edges = [product] ++ [e | e <- edges tc
+                                , e /= e1
+                                , e /= e2]
+      , disks = [d | d <- disks tc
+                   , d /= d0]
+      , edgeTree =  \v -> (case () of
+                              _ | v == start e1 tc -> replace (Node (Leaf e1) (Leaf e2)) (Leaf product) 
+                                | v == start e1 tc -> replace (Node (Leaf $ rev e2) (Leaf $ rev e1)) (Leaf product) 
+                                | otherwise -> id
+                          ) $ edgeTree tc v
+      }
+  )
 
 
 contract :: Edge -> State TwoComplex Vertex
@@ -169,18 +233,24 @@ contract contractedEdge  = state $ \tc ->
 connect :: Edge -> Edge -> Disk -> State TwoComplex Edge
 connect e1 e2 d = state $ \tc -> 
   let connection = Connect e1 e2 d in
-  ( connection, tc { edges = [connection] ++ edges tc
-                   , disks = [Cut connection, Cut $ rev connection]
-                             ++ [d2 | d2 <- disks tc
-                                    , d2 /= d]
-                   , edgeTree = \v -> f v                   
-                   } )
-    where
-      f v
-        | v == start e1 = replace (Leaf e1) (Node (Leaf e1) (Leaf $ rev connection)) 
-        | v == start e2 = replace (Leaf e2) (Node (Leaf e1) (Leaf $ connection)) 
-        | otherwise     = edgeTree tc
+  ( connection
+  , tc
+      { edges = [connection] ++ edges tc
+      , disks = [Cut connection, Cut $ rev connection]
+                ++ [d2 | d2 <- disks tc
+                       , d2 /= d]
+      , edgeTree = \v -> case () of
+        _ | v == start e1 tc -> replace (Leaf e1)
+                                (Node (Leaf e1) (Leaf $ rev connection))
+                                $ edgeTree tc v
+          | v == start e2 tc -> replace (Leaf e2)
+                                (Node (Leaf e1) (Leaf $ connection))
+                                $ edgeTree tc v
+          | otherwise        -> edgeTree tc v
       
+      }
+  )
+        
 addCoev :: Edge -> State TwoComplex (Vertex, Edge, Edge)
 addCoev e = state $ \tc ->
   let mp  = Midpoint e

@@ -1,5 +1,4 @@
-
-
+# Vertices are represented by lists of outgoing edges in CCW order
 
 # Composes e2 vertex into e1
 def compose(e1, e2):
@@ -21,7 +20,7 @@ def tensor(edges, i):
     return ''
                                  
 # Argument: list of strings labelling edges incident to a vertex
-# Returns: LaTeX of associators used for 1 counterclockwise 
+# Returns: LaTeX of associators used for 1 counter                                     clockwise 
 #          rotation of the reference frame
 # Side Effect: rotates input list
 # Example: (a,b,c) \mapsto (c,a,b)
