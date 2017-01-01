@@ -1,8 +1,12 @@
 import           Control.Monad.State
 import           Data.List
+import           Data.Semigroup
 
 -- Encode a stringnet as a marked CW-complex.
+-- For now, we assume left and right duals are the same
+--
 -- TODO: Finish computing TwoComplex transformations for figures
+-- TODO: Deal with left/right duals.
 -- TODO: Make Edge equality take disks into account.  Currently, two
 -- Connect Edges are equal if they have the same endpoints.  This is a bug.
 --
@@ -51,13 +55,29 @@ data Object = G | H | K | L
                                                            
 data Morphism = Phi
               | Id Object
-              | Coev Object
-              | Ev Object
+              | Lambda Object -- 1 V -> V
+              | LambdaI Object
+              | Rho Object    -- V 1 -> V
+              | RhoI Object
               | Alpha Object Object Object -- associator (xy)z = x(yz)
               | AlphaI Object Object Object -- inverse associator
+              | Coev Object 
+              | Ev Object
               | TensorM Morphism Morphism
+              | PivotalJ Object -- X -> X**
+              | PivotalJI Object -- X** -> X
               | Compose Morphism Morphism
               deriving (Show)
+
+-- domain :: Morphism -> Object
+-- domain Phi = 
+
+newtype MorphismCompose = MorphismCompose Morphism
+
+newtype MorphismTensor = MorphismTensor Morphism
+
+instance Semigroup MorphismTensor where
+  MorphismTensor a <> MorphismTensor b = MorphismTensor (TensorM a b)
 
 
 rev :: Edge -> Edge
@@ -67,6 +87,7 @@ rev e = Reverse e
 star :: Object -> Object
 star (Star o) = o
 star o = Star o
+
 
 -- endpoints before finding the images of the vertices under contractions
 initialEndpoints :: Edge -> [Vertex]
@@ -143,55 +164,68 @@ replace subTree1 subTree2 bigTree =
                 (replace subTree1 subTree2 y)
 
 
-isolateRHelper :: Vertex -> Tree Edge -> TwoComplex -> TwoComplex
-isolateRHelper v0 t@(Node x (Leaf y)) tc = tc
-isolateRHelper v0 subTree@(Node x (Node y z)) tc =
-  isolateRHelper v0 z tc
-    { edgeTree = \v ->
-       (if v == v0
-        then replace subTree (Node (Node x y) z)
-        else id
-       ) . edgeTree tc v
+-- isolateRHelper :: Vertex -> Tree Edge -> TwoComplex -> TwoComplex
+-- isolateRHelper v0 t@(Node x (Leaf y)) tc = tc
+-- isolateRHelper v0 subTree@(Node x (Node y z)) tc =
+--   isolateRHelper v0 z tc
+--     { edgeTree = \v ->
+--        (if v == v0
+--         then replace subTree (Node (Node x y) z)
+--         else id
+--        ) . edgeTree tc v
        
-    , morphismLabel = \v ->
-       (if v == v0
-        then Compose (AlphaI (treeLabel x) (treeLabel y) (treeLabel z))
-             (morphismLabel tc v)
-        else morphismLabel tc v
-       )      
-    }
+--     , morphismLabel = \v ->
+--        (if v == v0
+--         then Compose (AlphaI (treeLabel x) (treeLabel y) (treeLabel z))
+--              (morphismLabel tc v)
+--         else morphismLabel tc v
+--        )      
+--     }
   
                                      
-isolateR :: Vertex -> State TwoComplex ()
-isolateR v0 = state $ \tc ->
-  isolateRHelper v0 (edgeTree tc v) tc
+-- isolateR :: Vertex -> State TwoComplex ()
+-- isolateR v0 = state $ \tc ->
+--   isolateRHelper v0 (edgeTree tc v0) tc
 
-swap :: Tree a -> Tree a
-swap (Node x y) = Node y x
+-- swap :: Tree a -> Tree a
+-- swap (Node x y) = Node y x
 
-zRotate :: Vertex -> State TwoComplex ()
-zRotate v0 = state $ \tc ->
-  let newTree = swap $ isolate $ edgeTree tc v
-  in
-   ( ()
-   , tc
-     { edgeTree = \v ->
-        (if v == v0
-         then newTree
-         else edgeTree tc v
-        ) 
+-- zRotate :: Vertex -> State TwoComplex ()
+-- zRotate v0 = state $ \tc ->
+--   let newTree = swap $ isolateR $ edgeTree tc v0
+--   in
+--    ( ()
+--    , tc
+--      { edgeTree = \v ->
+--         (if v == v0
+--          then newTree
+--          else edgeTree tc v
+--         ) 
 
-     ,  morphismLabel = \v ->
-        (if v == v0 
-         then case newTree of
-           Node (Leaf x) 
-           }  
+--      ,  morphismLabel = \v ->
+--         (if v == v0 
+--          then case newTree of
+--            Node (Leaf x) y ->
+--              let xl = objectLabel x
+--              in
+              
+--               Compose 
+--                 (TensorM (Id xl) (morphismLabel tc v) (Id xl) -- X 1 *X -> X Y (X *X)
+--                 (Compose         
+--                  (TensorM         -- **X *X -> X 1 *X
+--                   (PivotalJI xl) -- **X -> X
+--                   (Lambda $ star xl) -- *X -> 1 *X
+--                  )
+--                  (Coev $ star xl)  -- 1 -> **X *X
+--                 )
+--      }
+--    )
       
 -- zRotate (Node x (Leaf y)) = Node (Leaf y) x 
 
-zRotateInv :: Tree a -> Tree a
-zRotateInv (Node (Leaf y) x) = Node x (Leaf y)
-zRotateInv
+-- zRotateInv :: Tree a -> Tree a
+-- zRotateInv (Node (Leaf y) x) = Node x (Leaf y)
+-- zRotateInv
 
 -- The disk's perimeter should only have two edges
 tensor :: Disk -> State TwoComplex Edge
