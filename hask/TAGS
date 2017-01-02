@@ -1,5 +1,5 @@
 
-./stringnet.hs,3174
+./stringnet.hs,3339
 data Vertex Vertex19,20
 data Vertex = Main Main19,20
 data Vertex = Main | LeftPuncture LeftPuncture19,20
@@ -48,48 +48,56 @@ data Morphism = PhiPhi55,56
               | Rho Rho59,60
               | RhoI RhoI60,61
               | Alpha Alpha61,62
-newtype MorphismCompose MorphismCompose74,75
-newtype MorphismCompose = MorphismCompose MorphismCompose74,75
-newtype MorphismTensor MorphismTensor76,77
-newtype MorphismTensor = MorphismTensor MorphismTensor76,77
-instance instance78,79
-rev rev82,83
-rev rev83,84
-star star86,87
-star star87,88
-initialEndpoints initialEndpoints92,93
+newtype MorphismC MorphismC75,76
+newtype MorphismC = MorphismC MorphismC75,76
+instance instance76,77
+newtype MorphismT MorphismT80,81
+newtype MorphismT = MorphismT MorphismT80,81
+rev rev84,85
+rev rev85,86
+star star88,89
+star star89,90
 initialEndpoints initialEndpoints93,94
-initialStart initialStart104,105
+initialEndpoints initialEndpoints94,95
 initialStart initialStart105,106
-initialEnd initialEnd107,108
+initialStart initialStart106,107
 initialEnd initialEnd108,109
-endpoints endpoints110,111
+initialEnd initialEnd109,110
 endpoints endpoints111,112
-start start113,114
+endpoints endpoints112,113
 start start114,115
-end end116,117
+start start115,116
 end end117,118
+end end118,119
 perimeter perimeter120,121
 perimeter perimeter121,122
-objectLabel objectLabel128,129
-objectLabel objectLabel129,130
-treeLabel treeLabel140,141
-treeLabel treeLabel141,142
-reverseEdge reverseEdge145,146
-reverseEdge reverseEdge146,147
-flatten flatten152,153
-flatten flatten153,154
-replace replace156,157
-replace replace157,158
-tensor tensor230,231
-tensor tensor231,232
-contract contract253,254
-contract contract254,255
-connect connect280,281
-connect connect281,282
-addCoev addCoev301,302
-addCoev addCoev302,303
-initialTC initialTC320,321
+objectLabel objectLabel130,131
+objectLabel objectLabel131,132
+treeLabel treeLabel142,143
+treeLabel treeLabel143,144
+reverseEdge reverseEdge147,148
+reverseEdge reverseEdge148,149
+flatten flatten154,155
+flatten flatten155,156
+replace replace158,159
+replace replace159,160
+isolateRHelper isolateRHelper168,169
+isolateRHelper isolateRHelper169,170
+isolateR isolateR186,187
+isolateR isolateR187,188
+swap swap189,190
+swap swap190,191
+zRotate zRotate192,193
+zRotate zRotate193,194
+tensor tensor227,228
+tensor tensor228,229
+contract contract250,251
+contract contract251,252
+connect connect277,278
+connect connect278,279
+addCoev addCoev298,299
+addCoev addCoev299,300
+initialTC initialTC317,318
 
 ./test.hs,892
 testMaybe testMaybe3,4

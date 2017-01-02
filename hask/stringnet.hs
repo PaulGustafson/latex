@@ -72,13 +72,15 @@ data Morphism = Phi
 -- domain :: Morphism -> Object
 -- domain Phi = 
 
-newtype MorphismCompose = MorphismCompose Morphism
+-- composable
+newtype MorphismC = MorphismC Morphism
+instance Semigroup MorphismC where
+  (MorphismC a) <> (MorphismC b) = MorphismC $ Compose a b
 
-newtype MorphismTensor = MorphismTensor Morphism
-
-instance Semigroup MorphismTensor where
-  MorphismTensor a <> MorphismTensor b = MorphismTensor (TensorM a b)
-
+-- tensorable
+newtype MorphismT = MorphismT Morphism 
+instance Semigroup MorphismT where
+  MorphismT a <> MorphismT b = MorphismT (TensorM a b)
 
 rev :: Edge -> Edge
 rev (Reverse e) = e
@@ -87,7 +89,6 @@ rev e = Reverse e
 star :: Object -> Object
 star (Star o) = o
 star o = Star o
-
 
 -- endpoints before finding the images of the vertices under contractions
 initialEndpoints :: Edge -> [Vertex]
@@ -103,27 +104,28 @@ initialEndpoints edge  = case edge of
   Reverse e -> reverse (initialEndpoints e)
 
 initialStart :: Edge -> Vertex
-initialStart e =  (initialEndpoints e) !! 0
+initialStart e = (initialEndpoints e) !! 0
 
 initialEnd :: Edge -> Vertex
-initialEnd e =  (initialEndpoints e) !! 1
+initialEnd e = (initialEndpoints e) !! 1
 
 endpoints :: Edge -> TwoComplex -> [Vertex]
 endpoints e tc = map (image tc) (initialEndpoints e)
 
 start :: Edge -> TwoComplex -> Vertex
-start e tc =  (endpoints e tc) !! 0
+start e tc = (endpoints e tc) !! 0
 
 end :: Edge -> TwoComplex -> Vertex
-end e tc =  (endpoints e tc) !! 1
-
+end e tc = (endpoints e tc) !! 1
 
 perimeter :: Disk -> TwoComplex -> [Edge]
 perimeter Outside   _  = [LeftLoop, RightLoop]
 perimeter LeftDisk  _  = [Reverse LeftLoop, LeftLeg, Reverse LeftLeg]
 perimeter RightDisk _  = [Reverse RightLoop, RightLeg, Reverse RightLeg]
-perimeter (Cut c@(Connect e1 e2 d)) tc = [c] ++ (takeWhile (/= e1) $ dropWhile (/= e2) $ cycle $ perimeter d tc)
-perimeter (Cut c@(Reverse (Connect e1 e2 d))) tc = [c] ++ (takeWhile (/= e2) $ dropWhile  (/= e1) $ cycle $ perimeter d tc)
+perimeter (Cut c@(Connect e1 e2 d)) tc =
+  [c] ++ (takeWhile (/= e1) $ dropWhile (/= e2) $ cycle $ perimeter d tc)
+perimeter (Cut c@(Reverse (Connect e1 e2 d))) tc =
+  [c] ++ (takeWhile (/= e2) $ dropWhile  (/= e1) $ cycle $ perimeter d tc)
 
 
 objectLabel :: Edge -> Object
@@ -164,62 +166,57 @@ replace subTree1 subTree2 bigTree =
                 (replace subTree1 subTree2 y)
 
 
--- isolateRHelper :: Vertex -> Tree Edge -> TwoComplex -> TwoComplex
--- isolateRHelper v0 t@(Node x (Leaf y)) tc = tc
--- isolateRHelper v0 subTree@(Node x (Node y z)) tc =
---   isolateRHelper v0 z tc
---     { edgeTree = \v ->
---        (if v == v0
---         then replace subTree (Node (Node x y) z)
---         else id
---        ) . edgeTree tc v
+isolateRHelper :: Vertex -> Tree Edge -> TwoComplex -> TwoComplex
+isolateRHelper v0 t@(Node x (Leaf y)) tc = tc
+isolateRHelper v0 subTree@(Node x (Node y z)) tc =
+  isolateRHelper v0 z tc
+    { edgeTree = \v ->
+       if v == v0
+       then replace subTree (Node (Node x y) z) $ edgeTree tc v
+       else edgeTree tc v
+
        
---     , morphismLabel = \v ->
---        (if v == v0
---         then Compose (AlphaI (treeLabel x) (treeLabel y) (treeLabel z))
---              (morphismLabel tc v)
---         else morphismLabel tc v
---        )      
---     }
+    , morphismLabel = \v ->
+       if v == v0
+       then Compose (AlphaI (treeLabel x) (treeLabel y) (treeLabel z))
+            (morphismLabel tc v)
+       else morphismLabel tc v
+    }
   
                                      
--- isolateR :: Vertex -> State TwoComplex ()
--- isolateR v0 = state $ \tc ->
---   isolateRHelper v0 (edgeTree tc v0) tc
+isolateR :: Vertex -> TwoComplex -> TwoComplex
+isolateR v0 tc =  isolateRHelper v0 (edgeTree tc v0) tc
 
--- swap :: Tree a -> Tree a
--- swap (Node x y) = Node y x
+swap :: Tree a -> Tree a
+swap (Node x y) = Node y x
 
--- zRotate :: Vertex -> State TwoComplex ()
--- zRotate v0 = state $ \tc ->
---   let newTree = swap $ isolateR $ edgeTree tc v0
---   in
---    ( ()
---    , tc
---      { edgeTree = \v ->
---         (if v == v0
---          then newTree
---          else edgeTree tc v
---         ) 
-
---      ,  morphismLabel = \v ->
---         (if v == v0 
---          then case newTree of
---            Node (Leaf x) y ->
---              let xl = objectLabel x
---              in
+zRotate :: Vertex -> TwoComplex -> TwoComplex
+zRotate v0 tc =
+  let newTree = swap $ isolateR $ edgeTree tc v0
+  in tc
+     { edgeTree = \v ->
+        if v == v0
+        then newTree
+        else edgeTree tc v
+        
+     ,  morphismLabel = \v ->
+        (if v == v0 
+         then case newTree of
+           Node (Leaf x) y ->
+             let xl = objectLabel x
+             in
               
---               Compose 
---                 (TensorM (Id xl) (morphismLabel tc v) (Id xl) -- X 1 *X -> X Y (X *X)
---                 (Compose         
---                  (TensorM         -- **X *X -> X 1 *X
---                   (PivotalJI xl) -- **X -> X
---                   (Lambda $ star xl) -- *X -> 1 *X
---                  )
---                  (Coev $ star xl)  -- 1 -> **X *X
---                 )
---      }
---    )
+              Compose 
+                (TensorM (Id xl) (morphismLabel tc v) (Id xl) -- X 1 *X -> X Y (X *X)
+                (Compose         
+                 (TensorM         -- **X *X -> X 1 *X
+                  (PivotalJI xl) -- **X -> X
+                  (Lambda $ star xl) -- *X -> 1 *X
+                 )
+                 (Coev $ star xl)  -- 1 -> **X *X
+                )
+     }
+
       
 -- zRotate (Node x (Leaf y)) = Node (Leaf y) x 
 
