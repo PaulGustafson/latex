@@ -37,15 +37,21 @@ data Disk = Outside | LeftDisk | RightDisk
 
 data Tree a = Node (Tree a) (Tree a) | Leaf a
             deriving (Eq)
-                     
+
+
+-- How should I change my Two Complex definition?
+-- I need to keep track of the attaching maps.
+
+
+-- TODO: combine morphismLabel and edgeTree into Vertex -> Tree (Edge, Morphism)
 data TwoComplex = TwoComplex
                   { vertices      :: [Vertex]
                   , edges         :: [Edge]
-                  , disks         :: [Disk]                  
-                  , image         :: Vertex -> Vertex
-                  , morphismLabel :: Vertex -> Morphism
-                  , edgeTree      :: Vertex -> Tree Edge  --outgoing orientation
-                  } 
+                  , disks         :: [Disk]
+                  , image         :: Vertex -> Vertex     -- image under contractions
+                  , morphismLabel :: Vertex -> Morphism   -- TODO: Change to Tree based on tensor structure
+                  , edgeTree      :: Vertex -> Tree Edge  -- outgoing orientation
+                  }
 
 data Object = G | H | K | L
             | One
@@ -73,14 +79,9 @@ data Morphism = Phi
 -- domain Phi = 
 
 -- composable
-newtype MorphismC = MorphismC Morphism
-instance Semigroup MorphismC where
-  (MorphismC a) <> (MorphismC b) = MorphismC $ Compose a b
+instance Semigroup Morphism where
+  a <> b = Compose a b
 
--- tensorable
-newtype MorphismT = MorphismT Morphism 
-instance Semigroup MorphismT where
-  MorphismT a <> MorphismT b = MorphismT (TensorM a b)
 
 rev :: Edge -> Edge
 rev (Reverse e) = e
@@ -118,6 +119,7 @@ start e tc = (endpoints e tc) !! 0
 end :: Edge -> TwoComplex -> Vertex
 end e tc = (endpoints e tc) !! 1
 
+-- Move this to TC def?
 perimeter :: Disk -> TwoComplex -> [Edge]
 perimeter Outside   _  = [LeftLoop, RightLoop]
 perimeter LeftDisk  _  = [Reverse LeftLoop, LeftLeg, Reverse LeftLeg]
@@ -174,7 +176,6 @@ isolateRHelper v0 subTree@(Node x (Node y z)) tc =
        if v == v0
        then replace subTree (Node (Node x y) z) $ edgeTree tc v
        else edgeTree tc v
-
        
     , morphismLabel = \v ->
        if v == v0
@@ -191,45 +192,40 @@ swap :: Tree a -> Tree a
 swap (Node x y) = Node y x
 
 zRotate :: Vertex -> TwoComplex -> TwoComplex
-zRotate v0 tc =
-  let newTree = swap $ isolateR $ edgeTree tc v0
-  in tc
+zRotate v0 tc0 =
+  let itc = isolateR v0 tc0
+  in itc
      { edgeTree = \v ->
-        if v == v0
-        then newTree
-        else edgeTree tc v
+         (
+           if v == v0
+           then swap 
+           else id
+         )
+         $ edgeTree itc v
         
      ,  morphismLabel = \v ->
-        (if v == v0 
-         then case newTree of
-           Node (Leaf x) y ->
+         if v == v0 
+         then case (edgeTree itc v0) of
+           Node y (Leaf x) ->
              let xl = objectLabel x
+                 yl = treeLabel y
              in
-              
-              Compose 
-                (TensorM (Id xl) (morphismLabel tc v) (Id xl) -- X 1 *X -> X Y (X *X)
-                (Compose         
-                 (TensorM         -- **X *X -> X 1 *X
-                  (PivotalJI xl) -- **X -> X
-                  (Lambda $ star xl) -- *X -> 1 *X
-                 )
-                 (Coev $ star xl)  -- 1 -> **X *X
-                )
+                 ((Id xl) `TensorM`  (Rho yl))
+                 <> ((Id xl) `TensorM` ((Id yl) `TensorM` (Ev $ star xl))) -- X (Y 1)
+                 <> ((Id xl) `TensorM` (Alpha yl xl (star xl))) -- X (Y (X *X))
+                 <> ((Id xl) `TensorM` ((morphismLabel itc v) `TensorM` (Id $ star xl))) -- X 1 *X -> X ((Y X) *X)
+                 <> ((PivotalJI xl) `TensorM` (LambdaI $ star xl))       -- **X *X -> X (1 *X)
+                 <> (Coev $ star xl)  -- 1 -> **X *X
+         else morphismLabel itc v
      }
-
-      
--- zRotate (Node x (Leaf y)) = Node (Leaf y) x 
-
--- zRotateInv :: Tree a -> Tree a
--- zRotateInv (Node (Leaf y) x) = Node x (Leaf y)
--- zRotateInv
+ 
 
 -- The disk's perimeter should only have two edges
 tensor :: Disk -> State TwoComplex Edge
 tensor d0 = state $ \tc ->
   let
     e1 = (perimeter d0 tc) !! 0
-    e2 = rev $ (perimeter d0 tc) !! 1
+    e2 = rev ((perimeter d0 tc) !! 1)
     product = TensorE e1 e2
   in
    ( product
@@ -251,7 +247,7 @@ tensor d0 = state $ \tc ->
 contract :: Edge -> State TwoComplex Vertex
 contract contractedEdge  = state $ \tc ->
   let composition = Contract contractedEdge in
-  (composition, TwoComplex
+  (composition, tc
                 { vertices = [composition] ++
                              [v | v <- vertices tc
                                 , not $ v `elem` (endpoints contractedEdge tc)]
