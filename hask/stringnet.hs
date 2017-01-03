@@ -13,27 +13,38 @@ import           Data.Semigroup
 -- TODO: Typify stack-like usage of vertices, edges
 -- IDEA: Refactor using Simplex n
 
-
-
 -- Left and right refer to positions before the braiding operation
--- TODO: Separate into interior vertex and puncture types
-data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Edge | Contract Edge
-  deriving (Show, Eq)
+data Puncture = LeftPuncture | RightPuncture
 
+data InitialInteriorVertex = MainVertex
 
--- TODO: rename to BasicEdge and make Edge = State TwoComplex BasicEdge
--- Orientations of initial edges are given by arrows in the figures in the paper
-data Edge = LeftLoop | RightLoop | LeftLeg | RightLeg -- initial edges
-          | FirstHalf Edge | SecondHalf Edge -- result of adding coev vertex (--(e)-->(coev e) --(e) -->
-          | Connect Edge Edge Disk -- connects the start of the two edges with a 1 in the disk
-          | TensorE Edge Edge     -- stick together parallel edges
-          | Reverse Edge -- don't use this constructor except to pattern match, use "rev" instead
-          deriving (Show, Eq)
+data InitialVertex = Punc Puncture | Interior InitialInteriorVertex
 
+data InitialEdge = LeftLoop | RightLoop | LeftLeg | RightLeg
 
-data Disk = Outside | LeftDisk | RightDisk
-          | Cut Edge  -- Edge should be of type Connect
-          deriving (Show, Eq)
+data InitialDisk = Outside | LeftDisk | RightDisk
+
+data PreVertex = IV InitialVertex | Punc Puncture -- | Midpoint Edge | Contract Edge
+
+data Vertex =   | Midpoint Edge 
+
+-- unflipped preEdge
+data UFPreEdge = IE InitialEdge 
+               | FirstHalf PreEdge | SecondHalf Edge -- result of adding coev vertex (--(e)-->(coev e) --(e) -->
+               | Connect PreEdge PreEdge PreDisk -- connects the start of the two edges with a 1 in the disk
+               | TensorE PreEdge PreEdge     -- stick together parallel edges
+
+instance Semigroup UFPreEdge where
+  a <> b = TensorE a b
+
+data PreEdge = NoFlip UFPreEdge | Flip UFPreEdge 
+
+data PreDisk = ID InitialDisk  | Cut PreEdge  
+
+data TwoComplex = 
+
+data Vertex = Vertex State Stringnet PreVertex
+
 
 data Tree a = Node (Tree a) (Tree a) | Leaf a
             deriving (Eq)
