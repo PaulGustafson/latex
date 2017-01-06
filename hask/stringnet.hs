@@ -5,14 +5,12 @@ import           Data.Semigroup
 -- Encode a stringnet as a marked CW-complex.
 -- For now, we assume left and right duals are the same
 --
--- TODO: move perimeter into TwoComplex
+-- TODO: Monadify all TwoComplex functions
 -- TODO: Finish computing TwoComplex transformations for figures
 -- TODO: Deal with left/right duals.
--- TODO: Make Edge equality take disks into account.  Currently, two
--- Connect Edges are equal if they have the same endpoints.  This is a bug.
 --
--- TODO: Typify stack-like usage of vertices, edges
--- IDEA: Refactor using Simplex n
+--
+-- TODO: Refactor using Simplex n
 
 
 
@@ -61,18 +59,24 @@ data TwoComplex = TwoComplex
                   { vertices      :: [Vertex]
                   , edges         :: [Edge]
                   , disks         :: [Disk]
+                  }
 
-                  -- The edges returned by perimeter should
-                  -- form a cycle (the end point of an edge should be the
-                  -- the starting point of the next edges).  Additionally,
-                  -- the edges should either lie in the edges of the
-                  -- TwoComplex or be the reverse of such an edge.
-                  , perimeter     :: Disk -> [Edge]       
+-- The edges returned by perimeter should
+-- form a cycle (the end point of an edge should be the
+-- the starting point of the next edges).  Additionally,
+-- the edges should either lie in the edges of the
+-- TwoComplex or be the reverse of such an edge.
+perimeter :: Disk -> [Edge]       
 
                   , imageVertex    :: Vertex -> Vertex     -- image under contractions
                   , morphismLabel :: Vertex -> Morphism   -- TODO: Change to Tree based on tensor structure
                   , edgeTree      :: Vertex -> Tree Edge  -- outgoing orientation
-                  }
+
+
+
+
+
+
 
 data Object = G | H | K | L
             | One
@@ -222,6 +226,27 @@ associateR v0 subTree@(Node xy z) =
                     }
                   )
 
+-- Precondition: X = Y*
+-- evalR :: Vertex -> Tree Edge -> State TwoComplex (Tree Edge)
+-- associateR v0 subTree@(Node x y) =
+--       let newSubTree = (Node ) in
+--         state $ \tc ->
+--                   (newSubTree,
+--                    tc
+--                     { edgeTree = \v ->
+--                         if v == v0
+--                         then replace subTree newSubTree $ edgeTree tc v
+--                         else edgeTree tc v
+                         
+--                     , morphismLabel = \v ->
+--                         if v == v0
+--                         then Compose (Alpha (treeLabel x) (treeLabel y) (treeLabel z))
+--                              (morphismLabel tc v)
+--                         else morphismLabel tc v
+--                     }
+--                   )
+
+
 
 isolateRHelper :: Vertex -> Tree Edge -> State TwoComplex ()
 isolateRHelper v0 t@(Node x (Leaf y)) = modify id
@@ -277,8 +302,7 @@ minimalSuperTree a1 a2 t@(Node x y)
   | otherwise                    = t
 
 
-
-
+-- Easy optimization: calculate t from previous t
 isolate2Helper ::  Edge -> Edge -> Tree Edge -> Vertex -> State TwoComplex (Tree Edge)
 isolate2Helper e1 e2 t0 v =
   let
@@ -286,54 +310,54 @@ isolate2Helper e1 e2 t0 v =
   in
     case t of
       Node x y -> case x of
-        Node x1 x2 -> associateR t
+        Node x1 x2 -> associateR v t
+                      >> isolate2Helper e1 e2 t v 
         Leaf x0 -> case y of
-          Node y1 y2 -> associateL t
-          Leaf y0 -> return t
-            
-               
-        (state $ \tc -> (t, id))
-      Node x (Node (Leaf y) (Leaf z)) ->
-        associateL t
+          Node y1 y2 -> associateL v t
+                        >> isolate2Helper e1 e2 t v 
+          Leaf y0 -> return t               
 
 
---isolate2 e1 e2 t@(Node (Node x (Leaf e1)) (Node (Leaf e2) y)) = associateL t
+edgeTreeM :: Vertex -> State TwoComplex (Tree Edge)
+edgeTreeM v = state $ \tc -> (edgeTree tc v, tc)
 
--- -- TODO: put (rev) e1 and e2 on same node          
--- -- isolateR left edge,  isolateL right edge
--- isolate2 :: Edge -> Edge -> Tree Edge -> Vertex -> State TwoComplex (Tree Edge)
--- isolate2 e1 e2 t0 v =
---   (if e2 == (flatten t0) !! 0
---    then zRotate v
---    else return ()
---   )
---   >> isolate2Helper e1 e2 t0 v
+-- Put (rev) e1 and e2 on same node          
+isolate2 :: Edge -> Edge -> Vertex -> State TwoComplex (Tree Edge)
+isolate2 e1 e2 v0 =
+    do 
+      if (e2 == (flatten . get $ edgeTreeM v0) !! 0)
+      then zRotate v0
+      else return ()
+      isolate2Helper e1 e2 (get $ edgeTreeM v0) v0 
+  
 
 
-
-
--- -- The disk's perimeter should only have two edges
--- -- The start and end of these edges should coincide.
--- tensor :: Disk -> State TwoComplex Edge
--- tensor d0 = state $ \tc ->
---   let
---     e1 = (perimeter tc d0) !! 0
---     e2 = rev ((perimeter tc d0) !! 1)
---     product = TensorE e1 e2
---     edgeImage e = case () of
---       _ | e `elem` [e1, e2] -> product
---         | e `elem` [rev e1, rev e2] -> rev product
---         | otherwise -> e
---   in
---    ( product
---    , tc
---       { edges = map edgeImage (edges tc)
---       , perimeter = (map edgeImage) . (perimeter tc)
---       , edgeTree =  (replace (Node (Leaf e1) (Leaf e2)) (Leaf product))
---         . (replace (Node (Leaf $ rev e2) (Leaf $ rev e1)) (Leaf $ rev product))
---         . (edgeTree tc)
---       }
---   )
+-- The disk's perimeter should only have two edges
+-- The start and end of these edges should coincide.
+tensor :: Disk -> State TwoComplex Edge
+tensor d0 = state $ \tc0 ->
+  let
+    e1 = (perimeter tc0 d0) !! 0
+    e2 = rev ((perimeter tc0 d0) !! 1)
+    v0 = (endpoints e1 tc0) !! 0
+    v1 = (endpoints e1 tc0) !! 1
+    product = TensorE e1 e2
+    edgeImage e = case () of
+      _ | e `elem` [e1, e2] -> product
+        | e `elem` [rev e1, rev e2] -> rev product
+        | otherwise -> e
+    tc1 = runState (isolate2 e1 e2 v0) tc0
+    tc = runState (isolate2 (rev e2) (rev e1) v1) tc1
+  in
+    ( product
+    , tc
+      { edges = map edgeImage (edges tc)
+      , perimeter = (map edgeImage) . (perimeter tc)
+      , edgeTree =  (replace (Node (Leaf e1) (Leaf e2)) (Leaf product))
+                    . (replace (Node (Leaf $ rev e2) (Leaf $ rev e1)) (Leaf $ rev product))
+                    . (edgeTree tc)
+      }
+    )
 
 
 -- contract :: Edge -> State TwoComplex Vertex
