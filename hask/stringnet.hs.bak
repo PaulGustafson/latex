@@ -5,7 +5,7 @@ import           Data.Semigroup
 -- Encode a stringnet as a marked CW-complex.
 -- For now, we assume left and right duals are the same
 --
--- TODO: Monadify all TwoComplex functions
+-- 
 -- TODO: Finish computing TwoComplex transformations for figures
 -- TODO: Deal with left/right duals.
 --
@@ -59,24 +59,18 @@ data TwoComplex = TwoComplex
                   { vertices      :: [Vertex]
                   , edges         :: [Edge]
                   , disks         :: [Disk]
-                  }
 
--- The edges returned by perimeter should
--- form a cycle (the end point of an edge should be the
--- the starting point of the next edges).  Additionally,
--- the edges should either lie in the edges of the
--- TwoComplex or be the reverse of such an edge.
-perimeter :: Disk -> [Edge]       
+                  -- The edges returned by perimeter should
+                  -- form a cycle (the end point of an edge should be the
+                  -- the starting point of the next edges).  Additionally,
+                  -- the edges should either lie in the edges of the
+                  -- TwoComplex or be the reverse of such an edge.
+                  , perimeter     :: Disk -> [Edge]       
 
                   , imageVertex    :: Vertex -> Vertex     -- image under contractions
                   , morphismLabel :: Vertex -> Morphism   -- TODO: Change to Tree based on tensor structure
                   , edgeTree      :: Vertex -> Tree Edge  -- outgoing orientation
-
-
-
-
-
-
+                  }
 
 data Object = G | H | K | L
             | One
