@@ -1,5 +1,5 @@
 
-./stringnet.hs,3759
+./stringnet.hs,3693
 data Vertex Vertex22,23
 data Vertex = Main Main22,23
 data Vertex = Main | LeftPuncture LeftPuncture22,23
@@ -72,8 +72,6 @@ objectLabel objectLabel153,154
 objectLabel objectLabel154,155
 treeLabel treeLabel165,166
 treeLabel treeLabel166,167
-reverseEdge reverseEdge170,171
-reverseEdge reverseEdge171,172
 flatten flatten177,178
 flatten flatten178,179
 replace replace181,182
@@ -113,7 +111,7 @@ initialPerimeter initialPerimeter465,466
 initialPerimeter initialPerimeter466,467
 initialTC initialTC472,473
 slide slide498,499
-finalTC finalTC516,517
+finalTC finalTC514,515
 
 ./test.hs,892
 testMaybe testMaybe3,4

@@ -168,12 +168,12 @@ treeLabel (Leaf e) = objectLabel e
 treeLabel (Node x y) = TensorO (treeLabel x) (treeLabel y)
 
 
-reverseEdge :: Edge -> State TwoComplex Edge
-reverseEdge e0 = state $ \tc ->
-  (rev e0
-  , tc
-       { edges = [rev e0] ++ [e | e <- edges tc
-                                    , e /= e0] })
+-- reverseEdge :: Edge -> State TwoComplex Edge
+-- reverseEdge e0 = state $ \tc ->
+--   (rev e0
+--   , tc
+--        { edges = [rev e0] ++ [e | e <- edges tc
+--                                     , e /= e0] })
 
 flatten :: Tree a -> [a]
 flatten (Leaf x) = [x] 
@@ -497,22 +497,20 @@ initialTC = TwoComplex { vertices = [Main, LeftPuncture, RightPuncture]
             
 -- TODO: Linear logic/monadify these variables
 slide = do
-  (top1,lt1,rt1) <- addCoev LeftLoop
-  (top2,lt2,rt2) <- addCoev LeftLeg
-  (top3,rt13,lt3) <- addCoev rt1
-  (top4,lt4,rt4) <- addCoev RightLoop
-  e1 <- connect (rev lt1) rt2 LeftDisk
-  e2 <- connect (rev lt2) (rev rt13) (Cut $ rev e1)
-  -- e3 <- connect lt3 rt4
-  return () 
-  -- contract e1
-  -- contract e2
-  -- contract e3
-  -- rlt3 <- reverseEdge lt3
-  -- lt43 <- tensor lt4 rlt3
-  -- lt42 <- tensor lt43 lt2
-  -- lt41 <- tensor lt42 lt1
-  -- contract rt4
+  (top1,l1,r1) <- addCoev LeftLoop
+  (top2,l2,r2) <- addCoev LeftLeg
+  (top3,r13,l3) <- addCoev r1
+  (top4,l4,r4) <- addCoev RightLoop
+  e1 <- connect (rev l1) r2 LeftDisk
+  e2 <- connect (rev l2) (rev r13) (Cut $ e1)
+  e3 <- connect l3 r4 Outside
+  contract e1
+  contract e2
+  contract e3
+  -- tensor (Cut $ rev e1)
+  -- tensor (Cut $ rev e2)
+  -- tensor (Cut $ rev e3)
+  contract r4
 
 finalTC = execState slide initialTC
 
