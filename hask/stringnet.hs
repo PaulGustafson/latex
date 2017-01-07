@@ -1,6 +1,3 @@
-import           Control.Monad.State
-import           Data.List
-import           Data.Semigroup
 
 -- Encode a stringnet as a marked CW-complex.
 -- For now, we assume left and right duals are the same
@@ -12,6 +9,13 @@ import           Data.Semigroup
 --
 -- TODO: Refactor using Simplex n
 
+-- Notes: Should I be function-centric instead of TwoComplex-centric?
+-- For example, can I pull morphismLabel out?
+--
+
+import           Control.Monad.State
+import           Data.List
+import           Data.Semigroup
 
 
 -- Left and right refer to positions before the braiding operation
@@ -357,72 +361,81 @@ tensor d0 =
     )
 
 
--- contract :: Edge -> State TwoComplex Vertex
--- contract contractedEdge  = state $ \tc ->
---   let
---     v0 = (endpoints contractedEdge) !! 0
---     v1 = (endpoints contractedEdge) !! 1
---     composition = Contract contractedEdge
---     newTC = execState (
---       isolate RightSide v0
---   in
---   (composition, newTC
---                 { vertices = [composition] ++
---                              [v | v <- vertices tc
---                                 , not $ v `elem` (endpoints contractedEdge tc)]
---                 , edges = [e | e <- edges tc
---                              , contractedEdge /= e]
---                 , imageVertex = (\v -> if (v `elem` (endpoints contractedEdge tc))
---                                  then composition
---                                  else v
---                           ) . (imageVertex tc)
---                 , morphismLabel = (\v -> if (v == composition) 
---                                          then  Compose (Ev $ objectLabel contractedEdge)
---                                                (TensorM (morphismLabel tc (start contractedEdge tc))
---                                                 (morphismLabel tc (end contractedEdge tc)))
---                                          else morphismLabel tc v )
---                 , edgeTree = \v ->
---                     if v == composition
---                     then Node (edgeTree tc $ start contractedEdge tc)
---                          (edgeTree tc $ end contractedEdge tc)
---                     else edgeTree tc v
---                 , perimeter = \d -> [e | e <- perimeter tc d
---                                        , e /= contractedEdge
---                                        , e /= rev contractedEdge
---                                        ]
---                 }
---   )
+contract :: Edge -> State TwoComplex Vertex
+contract contractedEdge  = state $ \tc ->
+  let
+    v0 = (endpoints contractedEdge tc) !! 0
+    v1 = (endpoints contractedEdge tc) !! 1
+    composition = Contract contractedEdge
+    newTC = execState (
+      isolate RightSide v0
+      >> isolate LeftSide v1
+      ) tc
+  in
+  (composition, newTC
+                { vertices = [composition] ++
+                             [v | v <- vertices tc
+                                , not $ v `elem` (endpoints contractedEdge tc)]
+                , edges = [e | e <- edges tc
+                             , e /= contractedEdge
+                             , e /= rev contractedEdge]
+                , imageVertex = (\v -> if (v `elem` (endpoints contractedEdge tc))
+                                 then composition
+                                 else v
+                          ) . (imageVertex tc)
+                , morphismLabel = (\v -> if (v == composition) 
+                                         then  Compose (Ev $ objectLabel contractedEdge)
+                                               (TensorM (morphismLabel tc (start contractedEdge tc))
+                                                (morphismLabel tc (end contractedEdge tc)))
+                                         else morphismLabel tc v )
+                , edgeTree = \v ->
+                    if v == composition
+                    then Node (edgeTree tc $ start contractedEdge tc)
+                         (edgeTree tc $ end contractedEdge tc)
+                    else edgeTree tc v
+                , perimeter = \d -> [e | e <- perimeter tc d
+                                       , e /= contractedEdge
+                                       , e /= rev contractedEdge
+                                       ]
+                }
+  )
 
 
--- -- Connect the starting point of the first edge to that of the second
--- -- through the disk
--- -- The edges e1 and e2 should be elements of perimeter d.
--- connect :: Edge -> Edge -> Disk -> State TwoComplex Edge
--- connect e1 e2 d = state $ \tc -> 
---   let connection = Connect e1 e2 d in
---   ( connection
---   , tc
---       { edges = [connection] ++ edges tc
---       , disks = [Cut connection, Cut $ rev connection]
---                 ++ [d2 | d2 <- disks tc
---                        , d2 /= d]
---       , edgeTree = \v -> case () of
---         _ | v == start e1 tc -> replace (Leaf e1)
---                                 (Node (Leaf e1) (Leaf $ rev connection))
---                                 $ edgeTree tc v
---           | v == start e2 tc -> replace (Leaf e2)
---                                 (Node (Leaf e1) (Leaf $ connection))
---                                 $ edgeTree tc v
---           | otherwise        -> edgeTree tc v
+-- Connect the starting point of the first edge to that of the second
+-- through the disk
+-- The edges e1 and e2 should be elements of perimeter d.
+connect :: Edge -> Edge -> Disk -> State TwoComplex Edge
+connect e1 e2 d = state $ \tc -> 
+  let connection = Connect e1 e2 d in
+  ( connection
+  , tc
+      { edges = [connection] ++ edges tc
+      , disks = [Cut connection, Cut $ rev connection]
+                ++ [d2 | d2 <- disks tc
+                       , d2 /= d]
+      , edgeTree = \v -> case () of
+        _ | v == start e1 tc -> replace (Leaf e1)
+                                (Node (Leaf e1) (Leaf $ rev connection))
+                                $ edgeTree tc v
+          | v == start e2 tc -> replace (Leaf e2)
+                                (Node (Leaf e2) (Leaf $ connection))
+                                $ edgeTree tc v
+          | otherwise        -> edgeTree tc v
+
+      , morphismLabel = \v -> case () of
+        _ | v == start e1 tc -> (RhoI $ objectLabel e1) <> morphismLabel tc v
+          | v == start e2 tc -> (RhoI $ objectLabel e2) <> morphismLabel tc v
+          | otherwise        -> morphismLabel tc v
           
---       , perimeter = \d0 -> case () of
---           _ | d0 == Cut connection -> [connection] ++
---               (takeWhile (/= e1) $ dropWhile (/= e2) $ cycle $ perimeter tc d)
---             | d0 == Cut (rev connection) -> [rev connection] ++
---               (takeWhile (/= e2) $ dropWhile  (/= e1) $ cycle $ perimeter tc d)
---             | otherwise -> perimeter tc d0
---       }
---   )
+
+      , perimeter = \d0 -> case () of
+          _ | d0 == Cut connection -> [connection] ++
+              (takeWhile (/= e1) $ dropWhile (/= e2) $ cycle $ perimeter tc d)
+            | d0 == Cut (rev connection) -> [rev connection] ++
+              (takeWhile (/= e2) $ dropWhile  (/= e1) $ cycle $ perimeter tc d)
+            | otherwise -> perimeter tc d0
+      }
+  )
         
 -- addCoev :: Edge -> State TwoComplex (Vertex, Edge, Edge)
 -- addCoev e = state $ \tc ->
