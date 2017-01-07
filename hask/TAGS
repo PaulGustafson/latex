@@ -1,5 +1,5 @@
 
-./stringnet.hs,3304
+./stringnet.hs,3472
 data Vertex Vertex18,19
 data Vertex = Main Main18,19
 data Vertex = Main | LeftPuncture LeftPuncture18,19
@@ -33,71 +33,76 @@ data TwoComplex = TwoComplexTwoComplex57,58
                   , imageVertex imageVertex69,70
                   , morphismLabel morphismLabel70,71
                   , edgeTree edgeTree71,72
-data Object Object74,75
-data Object = G G74,75
-data Object = G | H H74,75
-data Object = G | H | K K74,75
-data Object = G | H | K | LL74,75
-            | OneOne75,76
-            | Star Star76,77
-            | TensorO TensorO77,78
-data Morphism Morphism80,81
-data Morphism = PhiPhi80,81
-              | Id Id81,82
-              | Lambda Lambda82,83
-              | LambdaI LambdaI83,84
-              | Rho Rho84,85
-              | RhoI RhoI85,86
-              | Alpha Alpha86,87
-instance instance100,101
-rev rev104,105
-rev rev105,106
-star star108,109
-star star109,110
-initialEndpoints initialEndpoints113,114
-initialEndpoints initialEndpoints114,115
-initialStart initialStart125,126
-initialStart initialStart126,127
-initialEnd initialEnd128,129
-initialEnd initialEnd129,130
-endpoints endpoints133,134
-endpoints endpoints134,135
-start start136,137
-start start137,138
-end end139,140
-end end140,141
-objectLabel objectLabel143,144
-objectLabel objectLabel144,145
-treeLabel treeLabel155,156
-treeLabel treeLabel156,157
-reverseEdge reverseEdge160,161
-reverseEdge reverseEdge161,162
-flatten flatten167,168
-flatten flatten168,169
-replace replace171,172
-replace replace172,173
-associateL associateL180,181
-associateL associateL181,182
-associateR associateR201,202
-associateR associateR202,203
-isolateRHelper isolateRHelper244,245
-isolateRHelper isolateRHelper245,246
-isolateR isolateR250,251
-isolateR isolateR251,252
-swap swap254,255
-swap swap255,256
-zRotate zRotate257,258
-zRotate zRotate258,259
-elemT elemT289,290
-minimalSuperTree minimalSuperTree291,292
-isolate2Helper isolate2Helper299,300
-isolate2Helper isolate2Helper300,301
-edgeTreeM edgeTreeM314,315
-edgeTreeM edgeTreeM315,316
+edgeTreeM edgeTreeM76,77
+edgeTreeM edgeTreeM77,78
+data Object Object82,83
+data Object = G G82,83
+data Object = G | H H82,83
+data Object = G | H | K K82,83
+data Object = G | H | K | LL82,83
+            | OneOne83,84
+            | Star Star84,85
+            | TensorO TensorO85,86
+data Morphism Morphism88,89
+data Morphism = PhiPhi88,89
+              | Id Id89,90
+              | Lambda Lambda90,91
+              | LambdaI LambdaI91,92
+              | Rho Rho92,93
+              | RhoI RhoI93,94
+              | Alpha Alpha94,95
+instance instance108,109
+rev rev112,113
+rev rev113,114
+star star116,117
+star star117,118
+initialEndpoints initialEndpoints121,122
+initialEndpoints initialEndpoints122,123
+initialStart initialStart133,134
+initialStart initialStart134,135
+initialEnd initialEnd136,137
+initialEnd initialEnd137,138
+endpoints endpoints141,142
+endpoints endpoints142,143
+start start144,145
+start start145,146
+end end147,148
+end end148,149
+objectLabel objectLabel151,152
+objectLabel objectLabel152,153
+treeLabel treeLabel163,164
+treeLabel treeLabel164,165
+reverseEdge reverseEdge168,169
+reverseEdge reverseEdge169,170
+flatten flatten175,176
+flatten flatten176,177
+replace replace179,180
+replace replace180,181
+associateL associateL188,189
+associateL associateL189,190
+associateR associateR209,210
+associateR associateR210,211
+data Side Side231,232
+data Side = LeftSide LeftSide231,232
+data Side = LeftSide | RightSideRightSide231,232
+isolateHelper isolateHelper233,234
+isolateHelper isolateHelper234,235
+isolate isolate243,244
+isolate isolate244,245
+swap swap248,249
+swap swap249,250
+zRotate zRotate251,252
+zRotate zRotate252,253
+rotateToEnd rotateToEnd283,284
+rotateToEnd rotateToEnd284,285
+elemT elemT292,293
+minimalSuperTree minimalSuperTree294,295
+isolate2Helper isolate2Helper302,303
+isolate2Helper isolate2Helper303,304
 isolate2 isolate2318,319
 isolate2 isolate2319,320
-tensor tensor330,331
 tensor tensor331,332
+tensor tensor332,333
 
 ./test.hs,892
 testMaybe testMaybe3,4

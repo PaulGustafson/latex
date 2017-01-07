@@ -5,7 +5,7 @@ import           Data.Semigroup
 -- Encode a stringnet as a marked CW-complex.
 -- For now, we assume left and right duals are the same
 --
--- 
+-- TODO: finish contract function.  Use rotateToEnd 
 -- TODO: Finish computing TwoComplex transformations for figures
 -- TODO: Deal with left/right duals.
 --
@@ -71,6 +71,14 @@ data TwoComplex = TwoComplex
                   , morphismLabel :: Vertex -> Morphism   -- TODO: Change to Tree based on tensor structure
                   , edgeTree      :: Vertex -> Tree Edge  -- outgoing orientation
                   }
+
+-- Monadic versions of methods
+
+edgeTreeM :: Vertex -> State TwoComplex (Tree Edge)
+edgeTreeM v = state $ \tc -> (edgeTree tc v, tc)
+
+
+
 
 data Object = G | H | K | L
             | One
@@ -220,44 +228,30 @@ associateR v0 subTree@(Node xy z) =
                     }
                   )
 
--- Precondition: X = Y*
--- evalR :: Vertex -> Tree Edge -> State TwoComplex (Tree Edge)
--- associateR v0 subTree@(Node x y) =
---       let newSubTree = (Node ) in
---         state $ \tc ->
---                   (newSubTree,
---                    tc
---                     { edgeTree = \v ->
---                         if v == v0
---                         then replace subTree newSubTree $ edgeTree tc v
---                         else edgeTree tc v
-                         
---                     , morphismLabel = \v ->
---                         if v == v0
---                         then Compose (Alpha (treeLabel x) (treeLabel y) (treeLabel z))
---                              (morphismLabel tc v)
---                         else morphismLabel tc v
---                     }
---                   )
 
+data Side = LeftSide | RightSide
 
-
-isolateRHelper :: Vertex -> Tree Edge -> State TwoComplex ()
-isolateRHelper v0 t@(Node x (Leaf y)) = modify id
-isolateRHelper v0 subTree@(Node x (Node y z)) =
-    associateL v0 subTree >> isolateRHelper v0 z 
+isolateHelper :: Side -> Vertex -> Tree Edge -> State TwoComplex ()
+isolateHelper RightSide _ (Node _ (Leaf y)) = return ()
+isolateHelper RightSide v0 subTree@(Node x (Node y z)) =
+    associateL v0 subTree >> isolateHelper RightSide v0 z
+isolateHelper LeftSide _  (Node (Leaf x) _) = return ()
+isolateHelper LeftSide v0 subTree@(Node (Node x y) z) =
+    associateR v0 subTree >> isolateHelper LeftSide v0 z 
      
--- Turns the far right leaf into a depth one leaf                                     
-isolateR :: Vertex -> State TwoComplex ()
-isolateR v0 = state $ \tc ->
-  ((), execState (isolateRHelper v0 (edgeTree tc v0)) tc)
+     
+-- Turns the far Side leaf into a depth one leaf  
+isolate :: Side -> Vertex -> State TwoComplex ()
+isolate s v0 = state $ \tc ->
+  ((), execState (isolateHelper s v0 (edgeTree tc v0)) tc)
+
 
 swap :: Tree a -> Tree a
 swap (Node x y) = Node y x
 
 zRotate :: Vertex -> State TwoComplex ()
 zRotate v0 =
-  isolateR v0 
+  isolate RightSide v0 
   >> ( state $ \tc ->
   ((), tc
        { edgeTree = \v ->
@@ -286,7 +280,16 @@ zRotate v0 =
      }
   )
   )
-  
+
+rotateToEnd :: Edge -> Vertex -> State TwoComplex ()
+rotateToEnd e0 v0 = do
+    et <- (edgeTreeM v0)
+    let el = flatten et
+    if el !! (length el - 1) == e0
+    then return ()
+    else zRotate v0 >> rotateToEnd e0 v0
+    
+
 elemT u = (elem u) . flatten 
 
 minimalSuperTree :: (Eq a) => a -> a -> Tree a -> Tree a
@@ -312,24 +315,23 @@ isolate2Helper e1 e2 t0 v =
           Leaf y0 -> return t               
 
 
-edgeTreeM :: Vertex -> State TwoComplex (Tree Edge)
-edgeTreeM v = state $ \tc -> (edgeTree tc v, tc)
-
 -- Put (rev) e1 and e2 on same node          
 isolate2 :: Edge -> Edge -> Vertex -> State TwoComplex (Tree Edge)
 isolate2 e1 e2 v0 =
-    do 
-      if (e2 == (flatten . get $ edgeTreeM v0) !! 0)
-      then zRotate v0
-      else return ()
-      isolate2Helper e1 e2 (get $ edgeTreeM v0) v0 
-  
+  do
+    et <- edgeTreeM v0
+    if (e2 == (flatten et) !! 0)
+    then zRotate v0
+    else return ()
+    isolate2Helper e1 e2 et v0
 
+  
 
 -- The disk's perimeter should only have two edges
 -- The start and end of these edges should coincide.
 tensor :: Disk -> State TwoComplex Edge
-tensor d0 = state $ \tc0 ->
+tensor d0 =
+  state $ \tc0 ->
   let
     e1 = (perimeter tc0 d0) !! 0
     e2 = rev ((perimeter tc0 d0) !! 1)
@@ -340,8 +342,9 @@ tensor d0 = state $ \tc0 ->
       _ | e `elem` [e1, e2] -> product
         | e `elem` [rev e1, rev e2] -> rev product
         | otherwise -> e
-    tc1 = runState (isolate2 e1 e2 v0) tc0
-    tc = runState (isolate2 (rev e2) (rev e1) v1) tc1
+    tc = execState (isolate2 e1 e2 v0
+                    >> isolate2 (rev e2) (rev e1) v1
+                   ) tc0
   in
     ( product
     , tc
@@ -356,8 +359,14 @@ tensor d0 = state $ \tc0 ->
 
 -- contract :: Edge -> State TwoComplex Vertex
 -- contract contractedEdge  = state $ \tc ->
---   let composition = Contract contractedEdge in
---   (composition, tc
+--   let
+--     v0 = (endpoints contractedEdge) !! 0
+--     v1 = (endpoints contractedEdge) !! 1
+--     composition = Contract contractedEdge
+--     newTC = execState (
+--       isolate RightSide v0
+--   in
+--   (composition, newTC
 --                 { vertices = [composition] ++
 --                              [v | v <- vertices tc
 --                                 , not $ v `elem` (endpoints contractedEdge tc)]
