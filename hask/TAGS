@@ -54,64 +54,64 @@ data Morphism = PhiPhi90,91
 instance instance110,111
 rev rev114,115
 rev rev115,116
-star star118,119
 star star119,120
-initialEndpoints initialEndpoints123,124
+star star120,121
 initialEndpoints initialEndpoints124,125
-initialStart initialStart135,136
+initialEndpoints initialEndpoints125,126
 initialStart initialStart136,137
-initialEnd initialEnd138,139
+initialStart initialStart137,138
 initialEnd initialEnd139,140
-endpoints endpoints143,144
+initialEnd initialEnd140,141
 endpoints endpoints144,145
-start start146,147
+endpoints endpoints145,146
 start start147,148
-end end149,150
+start start148,149
 end end150,151
-objectLabel objectLabel153,154
+end end151,152
 objectLabel objectLabel154,155
-treeLabel treeLabel165,166
+objectLabel objectLabel155,156
 treeLabel treeLabel166,167
-flatten flatten177,178
+treeLabel treeLabel167,168
 flatten flatten178,179
-replace replace181,182
+flatten flatten179,180
 replace replace182,183
-associateL associateL190,191
+replace replace183,184
 associateL associateL191,192
-associateR associateR211,212
+associateL associateL192,193
 associateR associateR212,213
-data Side Side233,234
-data Side = LeftSide LeftSide233,234
-data Side = LeftSide | RightSideRightSide233,234
-isolateHelper isolateHelper235,236
+associateR associateR213,214
+data Side Side234,235
+data Side = LeftSide LeftSide234,235
+data Side = LeftSide | RightSideRightSide234,235
 isolateHelper isolateHelper236,237
-isolate isolate245,246
+isolateHelper isolateHelper237,238
 isolate isolate246,247
-swap swap250,251
+isolate isolate247,248
 swap swap251,252
-zRotate zRotate253,254
+swap swap252,253
 zRotate zRotate254,255
-rotateToEnd rotateToEnd285,286
+zRotate zRotate255,256
 rotateToEnd rotateToEnd286,287
-elemT elemT294,295
-minimalSuperTree minimalSuperTree296,297
-isolate2Helper isolate2Helper304,305
+rotateToEnd rotateToEnd287,288
+elemT elemT295,296
+minimalSuperTree minimalSuperTree297,298
 isolate2Helper isolate2Helper305,306
-isolate2 isolate2320,321
+isolate2Helper isolate2Helper306,307
 isolate2 isolate2321,322
+isolate2 isolate2322,323
 tensor tensor333,334
 tensor tensor334,335
-contract contract361,362
-contract contract362,363
-connect connect404,405
-connect connect405,406
-addCoev addCoev437,438
-addCoev addCoev438,439
-initialPerimeter initialPerimeter465,466
-initialPerimeter initialPerimeter466,467
-initialTC initialTC472,473
-slide slide498,499
-finalTC finalTC514,515
+contract contract363,364
+contract contract364,365
+connect connect406,407
+connect connect407,408
+addCoev addCoev439,440
+addCoev addCoev440,441
+initialPerimeter initialPerimeter467,468
+initialPerimeter initialPerimeter468,469
+initialTC initialTC474,475
+slide slide500,501
+finalTC finalTC517,518
 
 ./test.hs,892
 testMaybe testMaybe3,4

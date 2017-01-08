@@ -54,7 +54,7 @@ data Disk =
 
 
 data Tree a = Node (Tree a) (Tree a) | Leaf a
-            deriving (Eq)
+            deriving (Eq, Show)
 
 
 data TwoComplex = TwoComplex
@@ -114,6 +114,7 @@ instance Semigroup Morphism where
 
 rev :: Edge -> Edge
 rev (Reverse e) = e
+rev (TensorE a b) = TensorE (rev a) (rev b)
 rev e = Reverse e
 
 star :: Object -> Object
@@ -330,7 +331,6 @@ isolate2 e1 e2 v0 =
   
 
 -- The disk's perimeter should only have two edges
--- The start and end of these edges should coincide.
 tensor :: Disk -> State TwoComplex Edge
 tensor d0 =
   state $ \tc0 ->
@@ -344,9 +344,11 @@ tensor d0 =
       _ | e `elem` [e1, e2] -> product
         | e `elem` [rev e1, rev e2] -> rev product
         | otherwise -> e
-    tc = execState (isolate2 e1 e2 v0
-                    >> isolate2 (rev e2) (rev e1) v1
-                   ) tc0
+
+        -- FIXME
+    tc = -- execState (isolate2 e1 e2 v0
+         --           >> isolate2 (rev e2) (rev e1) v)
+         tc0
   in
     ( product
     , tc
@@ -507,10 +509,11 @@ slide = do
   contract e1
   contract e2
   contract e3
-  -- tensor (Cut $ rev e1)
-  -- tensor (Cut $ rev e2)
-  -- tensor (Cut $ rev e3)
+  tensor (Cut $ rev e1)
+  tensor (Cut $ rev e2)
+  tensor (Cut $ rev e3)
   contract r4
+  return ()
 
 finalTC = execState slide initialTC
 
