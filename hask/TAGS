@@ -1,149 +1,155 @@
 
-./stringnet.hs,3693
-data Vertex Vertex22,23
-data Vertex = Main Main22,23
-data Vertex = Main | LeftPuncture LeftPuncture22,23
-data Vertex = Main | LeftPuncture | RightPuncture RightPuncture22,23
-data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Midpoint22,23
-data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Edge | Contraction Contraction22,23
-data Edge Edge28,29
-  LeftLoop LeftLoop30,31
-  LeftLoop | RightLoop RightLoop30,31
-  LeftLoop | RightLoop | LeftLeg LeftLeg30,31
-  LeftLoop | RightLoop | LeftLeg | RightLegRightLeg30,31
-  | FirstHalf FirstHalf33,34
-  | FirstHalf Edge | SecondHalf SecondHalf33,34
-  | Connector Connector36,37
-  | TensorE TensorE39,40
-  | Reverse Reverse42,43
-data Disk Disk46,47
-  Outside Outside48,49
-  Outside | LeftDisk LeftDisk48,49
-  Outside | LeftDisk | RightDiskRightDisk48,49
-  | Cut Cut51,52
-data Tree Tree55,56
-data Tree a = Node Node55,56
-data Tree a = Node (Tree a) (Tree a) | Leaf Leaf55,56
-data TwoComplex TwoComplex59,60
-data TwoComplex = TwoComplexTwoComplex59,60
-                  { vertices vertices60,61
-                  , edges edges61,62
-                  , disks disks62,63
-                  , perimeter perimeter69,70
-                  , imageVertex imageVertex71,72
-                  , morphismLabel morphismLabel72,73
-                  , edgeTree edgeTree73,74
-edgeTreeM edgeTreeM78,79
-edgeTreeM edgeTreeM79,80
-data Object Object84,85
-data Object = G G84,85
-data Object = G | H H84,85
-data Object = G | H | K K84,85
-data Object = G | H | K | LL84,85
-            | OneOne85,86
-            | Star Star86,87
-            | TensorO TensorO87,88
-data Morphism Morphism90,91
-data Morphism = PhiPhi90,91
-              | Id Id91,92
-              | Lambda Lambda92,93
-              | LambdaI LambdaI93,94
-              | Rho Rho94,95
-              | RhoI RhoI95,96
-              | Alpha Alpha96,97
-instance instance110,111
-rev rev114,115
-rev rev115,116
-star star119,120
-star star120,121
-initialEndpoints initialEndpoints124,125
-initialEndpoints initialEndpoints125,126
-initialStart initialStart136,137
-initialStart initialStart137,138
-initialEnd initialEnd139,140
-initialEnd initialEnd140,141
-endpoints endpoints144,145
-endpoints endpoints145,146
-start start147,148
-start start148,149
-end end150,151
-end end151,152
-objectLabel objectLabel154,155
-objectLabel objectLabel155,156
-treeLabel treeLabel166,167
-treeLabel treeLabel167,168
-flatten flatten178,179
-flatten flatten179,180
-replace replace182,183
-replace replace183,184
-associateL associateL191,192
-associateL associateL192,193
-associateR associateR212,213
-associateR associateR213,214
-data Side Side234,235
-data Side = LeftSide LeftSide234,235
-data Side = LeftSide | RightSideRightSide234,235
-isolateHelper isolateHelper236,237
-isolateHelper isolateHelper237,238
-isolate isolate246,247
-isolate isolate247,248
-swap swap251,252
-swap swap252,253
-zRotate zRotate254,255
-zRotate zRotate255,256
-rotateToEnd rotateToEnd286,287
-rotateToEnd rotateToEnd287,288
-elemT elemT295,296
-minimalSuperTree minimalSuperTree297,298
-isolate2Helper isolate2Helper305,306
-isolate2Helper isolate2Helper306,307
-isolate2 isolate2321,322
-isolate2 isolate2322,323
-tensor tensor333,334
-tensor tensor334,335
-contract contract363,364
-contract contract364,365
-connect connect406,407
-connect connect407,408
-addCoev addCoev439,440
-addCoev addCoev440,441
-initialPerimeter initialPerimeter467,468
-initialPerimeter initialPerimeter468,469
-initialTC initialTC474,475
-slide slide500,501
-finalTC finalTC517,518
+./stringnet.hs,3855
+module Stringnet Stringnet19,20
+data Vertex Vertex29,30
+data Vertex = Main Main29,30
+data Vertex = Main | LeftPuncture LeftPuncture29,30
+data Vertex = Main | LeftPuncture | RightPuncture RightPuncture29,30
+data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Midpoint29,30
+data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Edge | Contraction Contraction29,30
+data Edge Edge35,36
+  LeftLoop LeftLoop37,38
+  LeftLoop | RightLoop RightLoop37,38
+  LeftLoop | RightLoop | LeftLeg LeftLeg37,38
+  LeftLoop | RightLoop | LeftLeg | RightLegRightLeg37,38
+  | FirstHalf FirstHalf40,41
+  | FirstHalf Edge | SecondHalf SecondHalf40,41
+  | Connector Connector43,44
+  | TensorE TensorE46,47
+  | Reverse Reverse49,50
+data Disk Disk53,54
+  Outside Outside55,56
+  Outside | LeftDisk LeftDisk55,56
+  Outside | LeftDisk | RightDiskRightDisk55,56
+  | Cut Cut58,59
+data Tree Tree62,63
+data Tree a = Leaf Leaf62,63
+data Tree a = Leaf a | Node Node62,63
+toDataTree toDataTree66,67
+toDataTree toDataTree67,68
+pprint pprint70,71
+pprint pprint71,72
+data TwoComplex TwoComplex74,75
+data TwoComplex = TwoComplexTwoComplex74,75
+                  { vertices vertices75,76
+                  , edges edges76,77
+                  , disks disks77,78
+                  , perimeter perimeter84,85
+                  , imageVertex imageVertex86,87
+                  , morphismLabel morphismLabel87,88
+                  , edgeTree edgeTree88,89
+edgeTreeM edgeTreeM93,94
+edgeTreeM edgeTreeM94,95
+data Object Object97,98
+data Object = G G97,98
+data Object = G | H H97,98
+data Object = G | H | K K97,98
+data Object = G | H | K | LL97,98
+            | OneOne98,99
+            | Star Star99,100
+            | TensorO TensorO100,101
+data Morphism Morphism103,104
+data Morphism = PhiPhi103,104
+              | Id Id104,105
+              | Lambda Lambda105,106
+              | LambdaI LambdaI106,107
+              | Rho Rho107,108
+              | RhoI RhoI108,109
+              | Alpha Alpha109,110
+instance instance123,124
+rev rev127,128
+rev rev128,129
+star star132,133
+star star133,134
+initialEndpoints initialEndpoints137,138
+initialEndpoints initialEndpoints138,139
+initialStart initialStart149,150
+initialStart initialStart150,151
+initialEnd initialEnd152,153
+initialEnd initialEnd153,154
+endpoints endpoints157,158
+endpoints endpoints158,159
+start start160,161
+start start161,162
+end end163,164
+end end164,165
+objectLabel objectLabel167,168
+objectLabel objectLabel168,169
+treeLabel treeLabel179,180
+treeLabel treeLabel180,181
+flatten flatten191,192
+flatten flatten192,193
+replace replace195,196
+replace replace196,197
+associateL associateL204,205
+associateL associateL205,206
+associateR associateR225,226
+associateR associateR226,227
+data Side Side247,248
+data Side = LeftSide LeftSide247,248
+data Side = LeftSide | RightSideRightSide247,248
+isolateHelper isolateHelper249,250
+isolateHelper isolateHelper250,251
+isolate isolate260,261
+isolate isolate261,262
+swap swap265,266
+swap swap266,267
+zRotate zRotate268,269
+zRotate zRotate269,270
+rotateToEnd rotateToEnd301,302
+rotateToEnd rotateToEnd302,303
+elemT elemT310,311
+minimalSuperTree minimalSuperTree313,314
+isolate2Helper isolate2Helper321,322
+isolate2Helper isolate2Helper322,323
+isolate2 isolate2337,338
+isolate2 isolate2338,339
+tensor tensor350,351
+tensor tensor351,352
+contract contract380,381
+contract contract381,382
+connect connect423,424
+connect connect424,425
+addCoev addCoev456,457
+addCoev addCoev457,458
+initialPerimeter initialPerimeter484,485
+initialPerimeter initialPerimeter485,486
+initialTC initialTC491,492
+slide slide517,518
+finalTC finalTC534,535
+testTC2 testTC2542,543
 
-./test.hs,892
-testMaybe testMaybe3,4
-testMaybe testMaybe4,5
-data Gomp Gomp8,9
-data Gomp = GoopGoop8,9
-            | Geebo Geebo9,10
-              unk unk10,11
-              , monk monk11,12
-data Kappa Kappa16,17
-data Kappa = Kappa1 Kappa116,17
-data Kappa = Kappa1 | Kappa2 Kappa216,17
-data Kappa = Kappa1 | Kappa2 | Kappa3 Kappa316,17
-data Kappa = Kappa1 | Kappa2 | Kappa3 | Kappa4 Kappa416,17
-data Catpa Catpa18,19
-data Catpa = Cat Cat18,19
-data Catpa = Cat Kappa | Magma Magma18,19
-m m20,21
-e e22,23
-e e23,24
-h h25,26
-h h26,27
-data Keepo Keepo29,30
-data Keepo = B B29,30
-data Keepo = B Kappa | C C29,30
-data TestType TestType31,32
-data TestType = TestType TestType31,32
-data TestType = TestType {firstString firstString31,32
-                          myMap myMap32,33
-bar bar35,36
-bar bar36,37
-f f40,41
-f f41,42
-foo foo45,46
-foo foo46,47
+./test.hs,901
+testMaybe testMaybe11,12
+testMaybe testMaybe12,13
+data Gomp Gomp16,17
+data Gomp = GoopGoop16,17
+            | Geebo Geebo17,18
+              unk unk18,19
+              , monk monk19,20
+data Kappa Kappa24,25
+data Kappa = Kappa1 Kappa124,25
+data Kappa = Kappa1 | Kappa2 Kappa224,25
+data Kappa = Kappa1 | Kappa2 | Kappa3 Kappa324,25
+data Kappa = Kappa1 | Kappa2 | Kappa3 | Kappa4 Kappa424,25
+data Catpa Catpa26,27
+data Catpa = Cat Cat26,27
+data Catpa = Cat Kappa | Magma Magma26,27
+m m28,29
+e e30,31
+e e31,32
+h h33,34
+h h34,35
+data Keepo Keepo37,38
+data Keepo = B B37,38
+data Keepo = B Kappa | C C37,38
+data TestType TestType39,40
+data TestType = TestType TestType39,40
+data TestType = TestType {firstString firstString39,40
+                          myMap myMap40,41
+bar bar43,44
+bar bar44,45
+f f48,49
+f f49,50
+foo foo53,54
+foo foo54,55

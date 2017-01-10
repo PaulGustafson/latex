@@ -2,10 +2,14 @@
 -- Encode a stringnet as a marked CW-complex.
 -- For now, we assume left and right duals are the same
 --
--- TODO: finish contract function.  Use rotateToEnd 
--- TODO: Finish computing TwoComplex transformations for figures
--- TODO: Deal with left/right duals.
+-- TODO: Find where the infinite loop is showing up in isolate2
+--             by tracing code?  DEMONADIFY
 --
+-- TODO: Show and read for Tree
+-- 
+-- TODO: Do everything in terms of left duals
+--
+-- TODO: Refactor interior TC methods into State methods
 --
 -- TODO: Refactor using Simplex n
 
@@ -13,10 +17,13 @@
 -- For example, can I pull morphismLabel out?
 --
 
+module Stringnet where
+
 import           Control.Monad.State
 import           Data.List
 import           Data.Semigroup
-
+import qualified Data.Tree as T
+  
 
 -- Left and right refer to positions before the braiding operation
 -- TODO: Separate into interior vertex and puncture types
@@ -53,8 +60,16 @@ data Disk =
           deriving (Show, Eq)
 
 
-data Tree a = Node (Tree a) (Tree a) | Leaf a
+data Tree a = Leaf a | Node (Tree a) (Tree a)
             deriving (Eq, Show)
+
+
+toDataTree :: Tree a -> T.Tree (Maybe a)
+toDataTree (Leaf x) = T.Node (Just x) []
+toDataTree (Node x y) = T.Node Nothing [toDataTree x, toDataTree y]
+
+pprint :: (Show a) => Tree a -> IO ()
+pprint = putStr . T.drawTree . fmap show . toDataTree
 
 
 data TwoComplex = TwoComplex
@@ -78,8 +93,6 @@ data TwoComplex = TwoComplex
 
 edgeTreeM :: Vertex -> State TwoComplex (Tree Edge)
 edgeTreeM v = state $ \tc -> (edgeTree tc v, tc)
-
-
 
 
 data Object = G | H | K | L
@@ -235,6 +248,7 @@ associateR v0 subTree@(Node xy z) =
 data Side = LeftSide | RightSide
 
 isolateHelper :: Side -> Vertex -> Tree Edge -> State TwoComplex ()
+isolateHelper _ _ (Leaf _) = return ()
 isolateHelper RightSide _ (Node _ (Leaf y)) = return ()
 isolateHelper RightSide v0 subTree@(Node x (Node y z)) =
     associateL v0 subTree >> isolateHelper RightSide v0 z
@@ -284,6 +298,7 @@ zRotate v0 =
   )
   )
 
+
 rotateToEnd :: Edge -> Vertex -> State TwoComplex ()
 rotateToEnd e0 v0 = do
     et <- (edgeTreeM v0)
@@ -295,15 +310,16 @@ rotateToEnd e0 v0 = do
 
 elemT u = (elem u) . flatten 
 
+
 minimalSuperTree :: (Eq a) => a -> a -> Tree a -> Tree a
 minimalSuperTree a1 a2 t@(Node x y) 
-  | a1 `elemT` x && a2 `elemT` x = x
-  | a1 `elemT` y && a2 `elemT` y = y
+  | a1 `elemT` x && a2 `elemT` x = minimalSuperTree a1 a2 x
+  | a1 `elemT` y && a2 `elemT` y = minimalSuperTree a1 a2 y
   | otherwise                    = t
 
 
 -- Easy optimization: calculate t from previous t
-isolate2Helper ::  Edge -> Edge -> Tree Edge -> Vertex -> State TwoComplex (Tree Edge)
+isolate2Helper ::  Edge -> Edge -> Tree Edge -> Vertex -> State TwoComplex ()
 isolate2Helper e1 e2 t0 v =
   let
     t = minimalSuperTree e1 e2 t0
@@ -315,18 +331,19 @@ isolate2Helper e1 e2 t0 v =
         Leaf x0 -> case y of
           Node y1 y2 -> associateL v t
                         >> isolate2Helper e1 e2 t v 
-          Leaf y0 -> return t               
+          Leaf y0 -> return ()               
 
-
--- Put (rev) e1 and e2 on same node          
-isolate2 :: Edge -> Edge -> Vertex -> State TwoComplex (Tree Edge)
-isolate2 e1 e2 v0 =
+-- Put (rev) e1 and e2 on same node
+-- TODO: infer Edge Tree argument
+isolate2 :: Edge -> Edge -> Vertex  -> State TwoComplex ()
+isolate2 e1 e2 v0  =
   do
     et <- edgeTreeM v0
-    if (e2 == (flatten et) !! 0)
+    let firstEdge = (flatten et) !! 0
+    if (e2 == firstEdge)
     then zRotate v0
     else return ()
-    isolate2Helper e1 e2 et v0
+    isolate2Helper e1 e2 (Leaf LeftLoop) v0 --FIXME
 
   
 
@@ -345,9 +362,9 @@ tensor d0 =
         | e `elem` [rev e1, rev e2] -> rev product
         | otherwise -> e
 
-        -- FIXME
+
     tc = -- execState (isolate2 e1 e2 v0
-         --           >> isolate2 (rev e2) (rev e1) v)
+         --            >> isolate2 (rev e2) (rev e1) v1)
          tc0
   in
     ( product
@@ -516,4 +533,18 @@ slide = do
   return ()
 
 finalTC = execState slide initialTC
+
+
+-- PASS
+-- testTC = execState (isolate2 LeftLoop LeftLeg Main) initialTC
+-- pprint $ edgeTree testTC Main
+
+-- FAIL
+testTC2 = execState  (isolate2 (rev RightLoop) LeftLoop Main) initialTC
+-- testTC2 = execState  (isolate2 (rev RightLoop) LeftLoop Main (edgeTree initialTC Main)) initialTC 
+-- pprint $ edgeTree testTC2 Main
+
+-- PASS
+-- testTC3 = execState  (zRotate Main) initialTC
+
 
