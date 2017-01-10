@@ -1,34 +1,34 @@
 
-./stringnet.hs,4300
+./stringnet.hs,4581
 module Stringnet Stringnet19,20
-data Vertex Vertex29,30
-data Vertex = Main Main29,30
-data Vertex = Main | LeftPuncture LeftPuncture29,30
-data Vertex = Main | LeftPuncture | RightPuncture RightPuncture29,30
-data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Midpoint29,30
-data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Edge | Contraction Contraction29,30
-data Edge Edge35,36
-  LeftLoop LeftLoop37,38
-  LeftLoop | RightLoop RightLoop37,38
-  LeftLoop | RightLoop | LeftLeg LeftLeg37,38
-  LeftLoop | RightLoop | LeftLeg | RightLegRightLeg37,38
-  | FirstHalf FirstHalf40,41
-  | FirstHalf Edge | SecondHalf SecondHalf40,41
-  | Connector Connector43,44
-  | TensorE TensorE46,47
-  | Reverse Reverse49,50
-data Disk Disk53,54
-  Outside Outside55,56
-  Outside | LeftDisk LeftDisk55,56
-  Outside | LeftDisk | RightDiskRightDisk55,56
-  | Cut Cut58,59
-data Tree Tree62,63
-data Tree a = Leaf Leaf62,63
-data Tree a = Leaf a | Node Node62,63
-toDataTree toDataTree66,67
-toDataTree toDataTree67,68
-pprint pprint70,71
-pprint pprint71,72
+data Puncture Puncture30,31
+data Puncture = LeftPuncture LeftPuncture30,31
+data Puncture = LeftPuncture | RightPunctureRightPuncture30,31
+data IVertex IVertex34,35
+data IVertex = Main Main34,35
+data IVertex = Main | Midpoint Midpoint34,35
+data IVertex = Main | Midpoint Edge | Contraction Contraction34,35
+data Vertex Vertex37,38
+data Vertex = Punc Punc37,38
+data Vertex = Punc Puncture | IV IV37,38
+data Edge Edge43,44
+  LeftLoop LeftLoop45,46
+  LeftLoop | RightLoop RightLoop45,46
+  LeftLoop | RightLoop | LeftLeg LeftLeg45,46
+  LeftLoop | RightLoop | LeftLeg | RightLegRightLeg45,46
+  | FirstHalf FirstHalf48,49
+  | FirstHalf Edge | SecondHalf SecondHalf48,49
+  | Connector Connector51,52
+  | TensorE TensorE54,55
+  | Reverse Reverse57,58
+data Disk Disk61,62
+  Outside Outside63,64
+  Outside | LeftDisk LeftDisk63,64
+  Outside | LeftDisk | RightDiskRightDisk63,64
+  | Cut Cut66,67
+data Tree Tree70,71
+data Tree a = Leaf Leaf70,71
+data Tree a = Leaf a | Node Node70,71
 data TwoComplex TwoComplex74,75
 data TwoComplex = TwoComplexTwoComplex74,75
                   { vertices vertices75,76
@@ -38,100 +38,113 @@ data TwoComplex = TwoComplexTwoComplex74,75
                   , imageVertex imageVertex86,87
                   , morphismLabel morphismLabel87,88
                   , edgeTree edgeTree88,89
-edgeTreeM edgeTreeM93,94
-edgeTreeM edgeTreeM94,95
-data Object Object97,98
-data Object = G G97,98
-data Object = G | H H97,98
-data Object = G | H | K K97,98
-data Object = G | H | K | LL97,98
-            | OneOne98,99
-            | Star Star99,100
-            | TensorO TensorO100,101
-data Morphism Morphism103,104
-data Morphism = PhiPhi103,104
-              | Id Id104,105
-              | Lambda Lambda105,106
-              | LambdaI LambdaI106,107
-              | Rho Rho107,108
-              | RhoI RhoI108,109
-              | Alpha Alpha109,110
-instance instance123,124
-rev rev127,128
-rev rev128,129
-star star132,133
-star star133,134
-initialEndpoints initialEndpoints137,138
-initialEndpoints initialEndpoints138,139
-initialStart initialStart149,150
-initialStart initialStart150,151
-initialEnd initialEnd152,153
-initialEnd initialEnd153,154
-endpoints endpoints157,158
-endpoints endpoints158,159
-endpointsM endpointsM160,161
-endpointsM endpointsM161,162
-perimeterM perimeterM163,164
-perimeterM perimeterM164,165
-start start166,167
-start start167,168
-end end169,170
-end end170,171
-objectLabel objectLabel173,174
-objectLabel objectLabel174,175
-treeLabel treeLabel185,186
-treeLabel treeLabel186,187
-flatten flatten197,198
-flatten flatten198,199
-replace replace201,202
-replace replace202,203
-associateL associateL210,211
-associateL associateL211,212
-associateR associateR231,232
-associateR associateR232,233
-isolateHelperR isolateHelperR254,255
-isolateHelperR isolateHelperR255,256
-isolateHelperL isolateHelperL261,262
-isolateHelperL isolateHelperL262,263
-isolateR isolateR270,271
-isolateR isolateR271,272
-isolateL isolateL274,275
-isolateL isolateL275,276
-swap swap280,281
-swap swap281,282
-zRotate zRotate283,284
-zRotate zRotate284,285
-rotateToEndHelper rotateToEndHelper316,317
-rotateToEndHelper rotateToEndHelper317,318
-rotateToEnd rotateToEnd325,326
-rotateToEnd rotateToEnd326,327
-elemT elemT329,330
-minimalSuperTree minimalSuperTree331,332
-isolate2Helper isolate2Helper339,340
-isolate2Helper isolate2Helper340,341
-isolate2 isolate2354,355
-isolate2 isolate2355,356
-tensorHelper tensorHelper366,367
-tensorHelper tensorHelper367,368
-tensorN tensorN395,396
-tensorN tensorN396,397
-tensor tensor409,410
-tensor tensor410,411
-contract contract422,423
-contract contract423,424
-contractHelper contractHelper434,435
-contractHelper contractHelper435,436
-connect connect478,479
-connect connect479,480
-addCoev addCoev513,514
-addCoev addCoev514,515
-initialPerimeter initialPerimeter547,548
-initialPerimeter initialPerimeter548,549
-initialTC initialTC554,555
-slide slide580,581
-finalTC finalTC597,598
-test test605,606
-p p623,624
+data Object Object92,93
+data Object = G G92,93
+data Object = G | H H92,93
+data Object = G | H | K K92,93
+data Object = G | H | K | LL92,93
+            | OneOne93,94
+            | Star Star94,95
+            | TensorO TensorO95,96
+data Morphism Morphism98,99
+data Morphism = PhiPhi98,99
+              | Id Id99,100
+              | Lambda Lambda100,101
+              | LambdaI LambdaI101,102
+              | Rho Rho102,103
+              | RhoI RhoI103,104
+              | Alpha Alpha104,105
+instance instance118,119
+toDataTree toDataTree122,123
+toDataTree toDataTree123,124
+pprint pprint126,127
+pprint pprint127,128
+toIV toIV130,131
+toIV toIV131,132
+rev rev133,134
+rev rev134,135
+star star138,139
+star star139,140
+initialEndpoints initialEndpoints143,144
+initialEndpoints initialEndpoints144,145
+initialStart initialStart155,156
+initialStart initialStart156,157
+initialEnd initialEnd158,159
+initialEnd initialEnd159,160
+endpoints endpoints163,164
+endpoints endpoints164,165
+edgeTreeM edgeTreeM167,168
+edgeTreeM edgeTreeM168,169
+endpointsM endpointsM171,172
+endpointsM endpointsM172,173
+perimeterM perimeterM174,175
+perimeterM perimeterM175,176
+start start177,178
+start start178,179
+end end180,181
+end end181,182
+objectLabel objectLabel184,185
+objectLabel objectLabel185,186
+treeLabel treeLabel196,197
+treeLabel treeLabel197,198
+flatten flatten208,209
+flatten flatten209,210
+replace replace212,213
+replace replace213,214
+associateL associateL221,222
+associateL associateL222,223
+associateR associateR242,243
+associateR associateR243,244
+isolateHelperR isolateHelperR265,266
+isolateHelperR isolateHelperR266,267
+isolateHelperL isolateHelperL272,273
+isolateHelperL isolateHelperL273,274
+isolateR isolateR281,282
+isolateR isolateR282,283
+isolateL isolateL285,286
+isolateL isolateL286,287
+swap swap289,290
+swap swap290,291
+zRotate zRotate292,293
+zRotate zRotate293,294
+rotateToEndHelper rotateToEndHelper325,326
+rotateToEndHelper rotateToEndHelper326,327
+rotateToEnd rotateToEnd334,335
+rotateToEnd rotateToEnd335,336
+elemT elemT338,339
+minimalSuperTree minimalSuperTree340,341
+isolate2Helper isolate2Helper348,349
+isolate2Helper isolate2Helper349,350
+isolate2 isolate2363,364
+isolate2 isolate2364,365
+tensorHelper tensorHelper375,376
+tensorHelper tensorHelper376,377
+tensorN tensorN404,405
+tensorN tensorN405,406
+tensor tensor418,419
+tensor tensor419,420
+contract contract431,432
+contract contract432,433
+contractHelper contractHelper443,444
+contractHelper contractHelper444,445
+connect connect487,488
+connect connect488,489
+addCoev addCoev522,523
+addCoev addCoev523,524
+initialPerimeter initialPerimeter556,557
+initialPerimeter initialPerimeter557,558
+initialTC initialTC563,564
+slide slide588,589
+finalTC finalTC605,606
+testDisk testDisk611,612
+testPerim testPerim612,613
+testE1 testE1613,614
+testE2 testE2614,615
+testV0 testV0615,616
+testV1 testV1616,617
+testIndex testIndex618,619
+test test629,630
+p p647,648
 
 ./test.hs,901
 testMaybe testMaybe11,12

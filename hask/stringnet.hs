@@ -27,7 +27,15 @@ import qualified Data.Tree as T
 
 -- Left and right refer to positions before the braiding operation
 -- TODO: Separate into interior vertex and puncture types
-data Vertex = Main | LeftPuncture | RightPuncture | Midpoint Edge | Contraction Edge
+
+data Puncture = LeftPuncture | RightPuncture
+  deriving (Show, Eq)
+
+--interior vertex
+data IVertex = Main | Midpoint Edge | Contraction Edge
+  deriving (Show, Eq)
+
+data Vertex = Punc Puncture | IV IVertex
   deriving (Show, Eq)
 
 
@@ -64,16 +72,8 @@ data Tree a = Leaf a | Node (Tree a) (Tree a)
             deriving (Eq, Show)
 
 
-toDataTree :: Tree a -> T.Tree (Maybe a)
-toDataTree (Leaf x) = T.Node (Just x) []
-toDataTree (Node x y) = T.Node Nothing [toDataTree x, toDataTree y]
-
-pprint :: (Show a) => Tree a -> IO ()
-pprint = putStr . T.drawTree . fmap show . toDataTree
-
-
 data TwoComplex = TwoComplex
-                  { vertices      :: ![Vertex]
+                  { vertices      :: ![IVertex]
                   , edges         :: ![Edge]
                   , disks         :: ![Disk]
 
@@ -85,14 +85,9 @@ data TwoComplex = TwoComplex
                   , perimeter     :: !(Disk -> [Edge])
 
                   , imageVertex    :: !(Vertex -> Vertex)     -- image under contractions
-                  , morphismLabel :: !(Vertex -> Morphism)   -- TODO: Change to Tree based on tensor structure
-                  , edgeTree      :: !(Vertex -> Tree Edge)  -- outgoing orientation
+                  , morphismLabel :: !(IVertex -> Morphism)   -- TODO: Change to Tree based on tensor structure
+                  , edgeTree      :: !(IVertex -> Tree Edge)  -- outgoing orientation
                   }
-
--- Monadic versions of methods
-
-edgeTreeM :: Vertex -> State TwoComplex (Tree Edge)
-edgeTreeM v = state $ \tc -> (edgeTree tc v, tc)
 
 
 data Object = G | H | K | L
@@ -125,6 +120,17 @@ instance Semigroup Morphism where
   a <> b = Compose a b
 
 
+toDataTree :: Tree a -> T.Tree (Maybe a)
+toDataTree (Leaf x) = T.Node (Just x) []
+toDataTree (Node x y) = T.Node Nothing [toDataTree x, toDataTree y]
+
+pprint :: (Show a) => Tree a -> IO ()
+pprint = putStr . T.drawTree . fmap show . toDataTree
+
+-- non-exhaustive type cast 
+toIV :: Vertex -> IVertex
+toIV (IV v) = v
+
 rev :: Edge -> Edge
 rev (Reverse e) = e
 rev (TensorE a b) = TensorE (rev a) (rev b)
@@ -137,12 +143,12 @@ star o = Star o
 -- endpoints before finding the images of the vertices under contractions
 initialEndpoints :: Edge -> [Vertex]
 initialEndpoints edge  = case edge of
-  LeftLoop  -> [Main, Main]
-  RightLoop -> [Main, Main]
-  LeftLeg   -> [Main, LeftPuncture]
-  RightLeg  -> [Main, RightPuncture]
-  FirstHalf e -> [(initialEndpoints e) !! 0, Midpoint e]
-  SecondHalf e -> [Midpoint e, (initialEndpoints e) !! 1]
+  LeftLoop  -> [IV Main, IV Main]
+  RightLoop -> [IV Main, IV Main]
+  LeftLeg   -> [IV Main, Punc LeftPuncture]
+  RightLeg  -> [IV Main, Punc RightPuncture]
+  FirstHalf e -> [(initialEndpoints e) !! 0, IV $ Midpoint e]
+  SecondHalf e -> [IV $ Midpoint e, (initialEndpoints e) !! 1]
   Connector e1 e2 _ -> [initialStart e1, initialStart e2]
   TensorE e1 _ -> initialEndpoints e1
   Reverse e -> reverse (initialEndpoints e)
@@ -157,6 +163,11 @@ initialEnd e = (initialEndpoints e) !! 1
 --       also, eliminate "image"
 endpoints :: Edge -> TwoComplex -> [Vertex]
 endpoints e tc = map (imageVertex tc) (initialEndpoints e)
+
+-- Monadic versions of methods
+edgeTreeM :: IVertex -> State TwoComplex (Tree Edge)
+edgeTreeM v = state $ \tc -> (edgeTree tc v, tc)
+
 
 endpointsM :: Edge -> State TwoComplex [Vertex]
 endpointsM e = state $ \tc -> (endpoints e tc, tc)
@@ -208,7 +219,7 @@ replace subTree1 subTree2 bigTree =
     Node x y -> Node (replace subTree1 subTree2 x)
                 (replace subTree1 subTree2 y)
 
-associateL :: Vertex -> Tree Edge -> State TwoComplex (Tree Edge)
+associateL :: IVertex -> Tree Edge -> State TwoComplex (Tree Edge)
 associateL v0 subTree@(Node x yz) =
   case yz of
     Node y z ->
@@ -229,7 +240,7 @@ associateL v0 subTree@(Node x yz) =
          }
         )
 
-associateR :: Vertex -> Tree Edge -> State TwoComplex (Tree Edge)
+associateR :: IVertex -> Tree Edge -> State TwoComplex (Tree Edge)
 associateR v0 subTree@(Node xy z) =
   case xy of
     Node x y ->
@@ -252,14 +263,14 @@ associateR v0 subTree@(Node xy z) =
 
 
 
-isolateHelperR :: Vertex ->  TwoComplex -> TwoComplex
+isolateHelperR :: IVertex ->  TwoComplex -> TwoComplex
 isolateHelperR v tc =
   let t = edgeTree tc v in
     case t of
       Node _ (Leaf x) -> tc
       Node _ (Node x y) -> isolateHelperR v $ execState (associateL v t) tc
   
-isolateHelperL :: Vertex ->  TwoComplex -> TwoComplex
+isolateHelperL :: IVertex ->  TwoComplex -> TwoComplex
 isolateHelperL v tc =
   let t = edgeTree tc v in
     case t of
@@ -268,20 +279,18 @@ isolateHelperL v tc =
   
      
 -- Turns the far right leaf into a depth one leaf  
-isolateR :: Vertex -> State TwoComplex ()
+isolateR :: IVertex -> State TwoComplex ()
 isolateR v0 = state $ \tc ->
   ((), isolateHelperR v0 tc)
 
-isolateL :: Vertex -> State TwoComplex ()
+isolateL :: IVertex -> State TwoComplex ()
 isolateL v0 = state $ \tc ->
   ((), isolateHelperL v0 tc)
-
-
 
 swap :: Tree a -> Tree a
 swap (Node x y) = Node y x
 
-zRotate :: Vertex -> State TwoComplex ()
+zRotate :: IVertex -> State TwoComplex ()
 zRotate v0 =
   isolateR v0 
   >> ( state $ \tc ->
@@ -314,7 +323,7 @@ zRotate v0 =
   )
 
 
-rotateToEndHelper :: Edge -> Vertex -> TwoComplex -> TwoComplex
+rotateToEndHelper :: Edge -> IVertex -> TwoComplex -> TwoComplex
 rotateToEndHelper e0 v0 tc = 
   let
     es = flatten $ edgeTree tc v0
@@ -323,7 +332,7 @@ rotateToEndHelper e0 v0 tc =
     then tc
     else rotateToEndHelper e0 v0 $ execState (zRotate v0) tc
 
-rotateToEnd :: Edge -> Vertex -> State TwoComplex ()
+rotateToEnd :: Edge -> IVertex -> State TwoComplex ()
 rotateToEnd e0 v0 = (state $ \tc ->
   ((), rotateToEndHelper e0 v0 tc)) >> isolateR v0
 
@@ -337,7 +346,7 @@ minimalSuperTree a1 a2 t@(Node x y)
 
 
 -- Easy optimization: calculate t from previous t
-isolate2Helper ::  Edge -> Edge -> Vertex -> TwoComplex -> TwoComplex
+isolate2Helper ::  Edge -> Edge -> IVertex -> TwoComplex -> TwoComplex
 isolate2Helper e1 e2 v0 tc0 =
   let
     t = minimalSuperTree e1 e2 (edgeTree tc0 v0)
@@ -352,7 +361,7 @@ isolate2Helper e1 e2 v0 tc0 =
 
 -- Put (rev) e1 and e2 on same node
 -- TODO: infer Edge Tree argument
-isolate2 :: Edge -> Edge -> Vertex  -> State TwoComplex ()
+isolate2 :: Edge -> Edge -> IVertex  -> State TwoComplex ()
 isolate2 e1 e2 v0 = state $ \tc0 ->
   let
     firstEdge = (flatten $ edgeTree tc0 v0) !! 0
@@ -370,8 +379,8 @@ tensorHelper d0 =
   let
     e1 = (perimeter tc0 d0) !! 0
     e2 = rev ((perimeter tc0 d0) !! 1)
-    v0 = (endpoints e1 tc0) !! 0
-    v1 = (endpoints e1 tc0) !! 1
+    v0 = toIV ((endpoints e1 tc0) !! 0)
+    v1 = toIV ((endpoints e1 tc0) !! 1)
     product = TensorE e1 e2
     edgeImage e = case () of
       _ | e `elem` [e1, e2] -> product
@@ -398,11 +407,11 @@ tensorN d0 tc0 =
   let
     e1 = (perimeter tc0 d0) !! 0
     e2 = rev ((perimeter tc0 d0) !! 1)
-    v0 = (endpoints e1 tc0) !! 0
-    v1 = (endpoints e1 tc0) !! 1
+    v0 = toIV ((endpoints e1 tc0) !! 0)
+    v1 = toIV ((endpoints e1 tc0) !! 1)
   in
     execState (isolate2 e1 e2 v0
-               >> isolate2 (rev e2) (rev e1) v1
+              --  >> isolate2 (rev e2) (rev e1) v1
               --  tensorHelper d0 --FIXME
               ) tc0
 
@@ -422,8 +431,8 @@ tensor d = state $ \tc -> ((), tensorN d tc)
 
 contract :: Edge -> State TwoComplex ()
 contract e = do
-  v0 <- fmap (!! 0) $ endpointsM e 
-  v1 <- fmap (!! 1) $ endpointsM e 
+  v0 <- fmap (toIV . (!! 0)) $ endpointsM e 
+  v1 <- fmap (toIV . (!! 1)) $ endpointsM e 
   rotateToEnd e v0  
   rotateToEnd (rev e) v1
   zRotate v1  
@@ -432,14 +441,14 @@ contract e = do
   return () 
   
 
-contractHelper :: Edge -> State TwoComplex Vertex
+contractHelper :: Edge -> State TwoComplex ()
 contractHelper contractedEdge  = state $ \tc ->
   let
-    v0 = (endpoints contractedEdge tc) !! 0
-    v1 = (endpoints contractedEdge tc) !! 1
-    composition = Contraction contractedEdge
+    v0 = toIV $ (endpoints contractedEdge tc) !! 0
+    v1 = toIV $ (endpoints contractedEdge tc) !! 1
+    composition =  Contraction contractedEdge
   in
-  (composition, tc
+  ((), tc
                 { vertices = [composition] ++
                              [v | v <- vertices tc
                                 , not $ v `elem` [v0, v1]]
@@ -448,21 +457,21 @@ contractHelper contractedEdge  = state $ \tc ->
                              , e /= contractedEdge
                              , e /= rev contractedEdge]
 
-                , imageVertex = (\v -> if v `elem` [v0, v1]
-                                       then composition
+                , imageVertex = (\v -> if v `elem` [IV v0, IV v1]
+                                       then IV composition
                                        else v
                           ) . (imageVertex tc)
 
                 , morphismLabel = (\v -> if (v == composition) 
                                          then  Compose (Ev $ objectLabel contractedEdge)
-                                               (TensorM (morphismLabel tc (start contractedEdge tc))
-                                                (morphismLabel tc (end contractedEdge tc)))
+                                               (TensorM (morphismLabel tc v0)
+                                                (morphismLabel tc v1))
                                          else morphismLabel tc v )
 
                 , edgeTree = \v ->
                     if v == composition
-                    then Node (edgeTree tc $ start contractedEdge tc)
-                         (edgeTree tc $ end contractedEdge tc)
+                    then Node (edgeTree tc v0)
+                         (edgeTree tc v1)
                     else edgeTree tc v
 
                 , perimeter = \d -> [e | e <- perimeter tc d
@@ -488,10 +497,10 @@ connect e1 e2 d = state $ \tc ->
                        , d2 /= d]
 
       , edgeTree = \v -> case () of
-        _ | v == start e1 tc -> replace (Leaf e1)
+        _ | v == toIV  (start e1 tc) -> replace (Leaf e1)
                                 (Node (Leaf e1) (Leaf $ connection))
                                 $ edgeTree tc v
-          | v == start e2 tc -> replace (Leaf e2)
+          | v == toIV (start e2 tc) -> replace (Leaf e2)
                                 (Node (Leaf e2) (Leaf $ rev connection))
                                 $ edgeTree tc v
           | otherwise        -> edgeTree tc v
@@ -504,14 +513,14 @@ connect e1 e2 d = state $ \tc ->
             | otherwise -> perimeter tc d0
 
       , morphismLabel = \v -> case () of
-        _ | v == start e1 tc -> (RhoI $ objectLabel e1) <> morphismLabel tc v
-          | v == start e2 tc -> (RhoI $ objectLabel e2) <> morphismLabel tc v
+        _ | v == toIV (start e1 tc) -> (RhoI $ objectLabel e1) <> morphismLabel tc v
+          | v == toIV (start e2 tc) -> (RhoI $ objectLabel e2) <> morphismLabel tc v
           | otherwise        -> morphismLabel tc v
           
       }
   )
         
-addCoev :: Edge -> State TwoComplex (Vertex, Edge, Edge)
+addCoev :: Edge -> State TwoComplex (IVertex, Edge, Edge)
 addCoev e = state $ \tc ->
   let mp  = Midpoint e
       fh = FirstHalf e
@@ -552,7 +561,7 @@ initialPerimeter RightDisk  = [Reverse RightLoop, RightLeg, Reverse RightLeg]
 
 
 -- tcX corresponds to figure number X from the paper
-initialTC = TwoComplex { vertices = [Main, LeftPuncture, RightPuncture]
+initialTC = TwoComplex { vertices = [Main]
                        , edges    = [LeftLoop, RightLoop, LeftLeg, RightLeg]
                        , disks    = [Outside, LeftDisk, RightDisk]
                        , imageVertex    = id
@@ -577,7 +586,6 @@ initialTC = TwoComplex { vertices = [Main, LeftPuncture, RightPuncture]
                        }
 
             
--- TODO: Linear logic/monadify these variables
 slide = do
   (top1,l1,r1) <- addCoev LeftLoop
   (top2,l2,r2) <- addCoev LeftLeg
@@ -587,23 +595,39 @@ slide = do
   e2 <- connect (rev l2) (rev r13) (Cut $ e1)
   e3 <- connect l3 r4 Outside
   contract e1                   
-  contract e2
-  contract e3
+  -- contract e2
+  -- contract e3
   -- tensor (Cut $ rev e1)
   -- tensor (Cut $ rev e2)
   -- tensor (Cut $ rev e3)
   -- contract r4
-  -- return ()
+  return (Cut $ rev e1)
 
 finalTC = execState slide initialTC
 
+
+-- TODO: figure out why testV0's edgeTree
+-- doesn't have testE1 adjacnet to testE2
+
+testDisk = evalState slide initialTC
+testPerim = perimeter finalTC testDisk
+testE1 = testPerim !! 0
+testE2 = rev (testPerim !! 1)
+testV0 = (endpoints testE1 finalTC) !! 0
+testV1 = (endpoints testE1 finalTC) !! 1
+
+testIndex tc e v = elemIndex e $ flatten $ edgeTree tc $ v
+
+
+
+-- TESTS
 
 -- PASS
 -- testTC = execState (isolate2 LeftLoop LeftLeg Main) initialTC
 -- pprint $ edgeTree testTC Main
 
 -- PASS
-test =  execState (isolate2 (rev RightLoop) LeftLoop Main) initialTC
+test =  execState (isolate2 (rev RightLoop) LeftLoop  Main) initialTC
 -- p =  pprint $ edgeTree testTC2 Main
 
 -- PASS
