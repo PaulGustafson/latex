@@ -3,7 +3,7 @@
 -- For now, we assume left and right duals are the same
 --
 -- TODO: Find where the infinite loop is showing up in isolate2
---             by tracing code?  DEMONADIFY
+--             by tracing code?  
 --
 -- TODO: Show and read for Tree
 -- 
@@ -73,20 +73,20 @@ pprint = putStr . T.drawTree . fmap show . toDataTree
 
 
 data TwoComplex = TwoComplex
-                  { vertices      :: [Vertex]
-                  , edges         :: [Edge]
-                  , disks         :: [Disk]
+                  { vertices      :: ![Vertex]
+                  , edges         :: ![Edge]
+                  , disks         :: ![Disk]
 
                   -- The edges returned by perimeter should
                   -- form a cycle (the end point of an edge should be the
                   -- the starting point of the next edges).  Additionally,
                   -- the edges should either lie in the edges of the
                   -- TwoComplex or be the reverse of such an edge.
-                  , perimeter     :: Disk -> [Edge]       
+                  , perimeter     :: !(Disk -> [Edge])
 
-                  , imageVertex    :: Vertex -> Vertex     -- image under contractions
-                  , morphismLabel :: Vertex -> Morphism   -- TODO: Change to Tree based on tensor structure
-                  , edgeTree      :: Vertex -> Tree Edge  -- outgoing orientation
+                  , imageVertex    :: !(Vertex -> Vertex)     -- image under contractions
+                  , morphismLabel :: !(Vertex -> Morphism)   -- TODO: Change to Tree based on tensor structure
+                  , edgeTree      :: !(Vertex -> Tree Edge)  -- outgoing orientation
                   }
 
 -- Monadic versions of methods
@@ -157,6 +157,12 @@ initialEnd e = (initialEndpoints e) !! 1
 --       also, eliminate "image"
 endpoints :: Edge -> TwoComplex -> [Vertex]
 endpoints e tc = map (imageVertex tc) (initialEndpoints e)
+
+endpointsM :: Edge -> State TwoComplex [Vertex]
+endpointsM e = state $ \tc -> (endpoints e tc, tc)
+
+perimeterM :: Disk -> State TwoComplex [Edge]
+perimeterM d = state $ \tc -> (perimeter tc d, tc)
 
 start :: Edge -> TwoComplex -> Vertex
 start e tc = (endpoints e tc) !! 0
@@ -308,18 +314,18 @@ zRotate v0 =
   )
 
 
-rotateToEndHelper :: Edge -> Vertex -> State TwoComplex ()
-rotateToEndHelper e0 v0 = state $ \tc ->
-  ((),
-   let
-     es = flatten $ edgeTree tc v0
-   in
-     if es !! (length es - 1) == e0
-     then tc
-     else  execState (zRotate v0 >> rotateToEnd e0 v0) tc
-  )
-  
-rotateToEnd e0 v0 = rotateToEndHelper e0 v0 >> isolateR v0
+rotateToEndHelper :: Edge -> Vertex -> TwoComplex -> TwoComplex
+rotateToEndHelper e0 v0 tc = 
+  let
+    es = flatten $ edgeTree tc v0
+  in
+    if es !! (length es - 1) == e0
+    then tc
+    else rotateToEndHelper e0 v0 $ execState (zRotate v0) tc
+
+rotateToEnd :: Edge -> Vertex -> State TwoComplex ()
+rotateToEnd e0 v0 = (state $ \tc ->
+  ((), rotateToEndHelper e0 v0 tc)) >> isolateR v0
 
 elemT u = (elem u) . flatten 
 
@@ -358,8 +364,8 @@ isolate2 e1 e2 v0 = state $ \tc0 ->
 
 
 -- The disk's perimeter should only have two edges
-tensor :: Disk -> State TwoComplex Edge
-tensor d0 =
+tensorHelper :: Disk -> State TwoComplex Edge
+tensorHelper d0 =
   state $ \tc0 ->
   let
     e1 = (perimeter tc0 d0) !! 0
@@ -387,42 +393,78 @@ tensor d0 =
       }
     )
 
+tensorN :: Disk -> TwoComplex -> TwoComplex 
+tensorN d0 tc0 =
+  let
+    e1 = (perimeter tc0 d0) !! 0
+    e2 = rev ((perimeter tc0 d0) !! 1)
+    v0 = (endpoints e1 tc0) !! 0
+    v1 = (endpoints e1 tc0) !! 1
+  in
+    execState (isolate2 e1 e2 v0
+               >> isolate2 (rev e2) (rev e1) v1
+              --  tensorHelper d0 --FIXME
+              ) tc0
 
-contract :: Edge -> State TwoComplex Vertex
-contract contractedEdge  = state $ \tc ->
+
+tensor :: Disk -> State TwoComplex ()
+tensor d = state $ \tc -> ((), tensorN d tc)
+
+-- do
+--   e1 <- fmap (!! 0) (perimeter d0)
+--   e2 <- fmap rev $ fmap (!! 1) (perimeterM d0)
+--   v0 <- fmap (!! 0) (endpointsM e1)
+--   v1 <- fmap (!! 1) (endpointsM e1)
+--   isolate2 e1 e2 v0
+--   isolate2 (rev e2) (rev e1) v1
+--  tensorHelper d0 
+
+
+contract :: Edge -> State TwoComplex ()
+contract e = do
+  v0 <- fmap (!! 0) $ endpointsM e 
+  v1 <- fmap (!! 1) $ endpointsM e 
+  rotateToEnd e v0  
+  rotateToEnd (rev e) v1
+  zRotate v1  
+  isolateL v1
+  contractHelper e
+  return () 
+  
+
+contractHelper :: Edge -> State TwoComplex Vertex
+contractHelper contractedEdge  = state $ \tc ->
   let
     v0 = (endpoints contractedEdge tc) !! 0
     v1 = (endpoints contractedEdge tc) !! 1
     composition = Contraction contractedEdge
-    newTC = execState (
-      do 
-        rotateToEnd contractedEdge v0
-        rotateToEnd (rev contractedEdge) v1
-        zRotate v1  
-        isolateL v1
-      ) tc
   in
-  (composition, newTC
+  (composition, tc
                 { vertices = [composition] ++
                              [v | v <- vertices tc
-                                , not $ v `elem` (endpoints contractedEdge tc)]
+                                , not $ v `elem` [v0, v1]]
+
                 , edges = [e | e <- edges tc
                              , e /= contractedEdge
                              , e /= rev contractedEdge]
-                , imageVertex = (\v -> if (v `elem` (endpoints contractedEdge tc))
-                                 then composition
-                                 else v
+
+                , imageVertex = (\v -> if v `elem` [v0, v1]
+                                       then composition
+                                       else v
                           ) . (imageVertex tc)
+
                 , morphismLabel = (\v -> if (v == composition) 
                                          then  Compose (Ev $ objectLabel contractedEdge)
                                                (TensorM (morphismLabel tc (start contractedEdge tc))
                                                 (morphismLabel tc (end contractedEdge tc)))
                                          else morphismLabel tc v )
+
                 , edgeTree = \v ->
                     if v == composition
                     then Node (edgeTree tc $ start contractedEdge tc)
                          (edgeTree tc $ end contractedEdge tc)
                     else edgeTree tc v
+
                 , perimeter = \d -> [e | e <- perimeter tc d
                                        , e /= contractedEdge
                                        , e /= rev contractedEdge
@@ -440,23 +482,19 @@ connect e1 e2 d = state $ \tc ->
   ( connection
   , tc
       { edges = [connection] ++ edges tc
+
       , disks = [Cut connection, Cut $ rev connection]
                 ++ [d2 | d2 <- disks tc
                        , d2 /= d]
+
       , edgeTree = \v -> case () of
         _ | v == start e1 tc -> replace (Leaf e1)
-                                (Node (Leaf e1) (Leaf $ rev connection))
+                                (Node (Leaf e1) (Leaf $ connection))
                                 $ edgeTree tc v
           | v == start e2 tc -> replace (Leaf e2)
-                                (Node (Leaf e2) (Leaf $ connection))
+                                (Node (Leaf e2) (Leaf $ rev connection))
                                 $ edgeTree tc v
           | otherwise        -> edgeTree tc v
-
-      , morphismLabel = \v -> case () of
-        _ | v == start e1 tc -> (RhoI $ objectLabel e1) <> morphismLabel tc v
-          | v == start e2 tc -> (RhoI $ objectLabel e2) <> morphismLabel tc v
-          | otherwise        -> morphismLabel tc v
-          
 
       , perimeter = \d0 -> case () of
           _ | d0 == Cut connection -> [connection] ++
@@ -464,6 +502,12 @@ connect e1 e2 d = state $ \tc ->
             | d0 == Cut (rev connection) -> [rev connection] ++
               (takeWhile (/= e2) $ dropWhile  (/= e1) $ cycle $ perimeter tc d)
             | otherwise -> perimeter tc d0
+
+      , morphismLabel = \v -> case () of
+        _ | v == start e1 tc -> (RhoI $ objectLabel e1) <> morphismLabel tc v
+          | v == start e2 tc -> (RhoI $ objectLabel e2) <> morphismLabel tc v
+          | otherwise        -> morphismLabel tc v
+          
       }
   )
         
@@ -474,15 +518,15 @@ addCoev e = state $ \tc ->
       sh = SecondHalf e in
   ((mp, fh, sh), tc 
                 { vertices =  [mp] ++ vertices tc
+
                 , edges = [fh, sh] ++ [f | f <- edges tc
                                          , f /= e
                                          , f /= rev e]
-                , morphismLabel = \v -> if v == mp
-                                        then Coev $ objectLabel e
-                                        else morphismLabel tc v
+
                 , edgeTree = \v -> if v == mp
                                    then Node (Leaf $ rev $ FirstHalf e) (Leaf $ SecondHalf e)
                                    else edgeTree tc v
+                
                 , perimeter =  flip (>>=) (\es ->
                                              if es == [e]
                                              then [fh, sh]
@@ -490,6 +534,12 @@ addCoev e = state $ \tc ->
                                              then [rev sh, rev fh]
                                              else es
                                           ) . (map return) . perimeter tc
+
+                , morphismLabel = \v -> if v == mp
+                                        then Coev $ objectLabel e
+                                        else morphismLabel tc v
+
+                
                 }
 
   )
@@ -536,14 +586,14 @@ slide = do
   e1 <- connect (rev l1) r2 LeftDisk
   e2 <- connect (rev l2) (rev r13) (Cut $ e1)
   e3 <- connect l3 r4 Outside
-  contract e1
+  contract e1                   
   contract e2
   contract e3
   -- tensor (Cut $ rev e1)
   -- tensor (Cut $ rev e2)
   -- tensor (Cut $ rev e3)
   -- contract r4
-  return ()
+  -- return ()
 
 finalTC = execState slide initialTC
 
@@ -553,16 +603,14 @@ finalTC = execState slide initialTC
 -- pprint $ edgeTree testTC Main
 
 -- PASS
--- testTC2 =  execState (isolate2 (rev RightLoop) LeftLoop Main) initialTC
--- testTC2 = execState  (isolate2 (rev RightLoop) LeftLoop Main (edgeTree initialTC Main)) initialTC 
+test =  execState (isolate2 (rev RightLoop) LeftLoop Main) initialTC
 -- p =  pprint $ edgeTree testTC2 Main
 
 -- PASS
 -- testTC3 = execState  (zRotate Main) initialTC
 
---FAIL
-test = execState (rotateToEnd LeftLeg Main) initialTC
-p =  pprint $ edgeTree test Main
+--PASS
+-- test = execState (rotateToEnd RightLoop Main) initialTC
 
 -- test = execState (
 --   do
@@ -572,5 +620,6 @@ p =  pprint $ edgeTree test Main
 --     isolateR Main
 --   )
 --   initialTC
--- p =  pprint $ edgeTree test Main
+
+p x =  pprint $ edgeTree x Main
 
