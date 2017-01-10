@@ -1,5 +1,5 @@
 
-./stringnet.hs,3855
+./stringnet.hs,3945
 module Stringnet Stringnet19,20
 data Vertex Vertex29,30
 data Vertex = Main Main29,30
@@ -85,39 +85,42 @@ associateL associateL204,205
 associateL associateL205,206
 associateR associateR225,226
 associateR associateR226,227
-data Side Side247,248
-data Side = LeftSide LeftSide247,248
-data Side = LeftSide | RightSideRightSide247,248
-isolateHelper isolateHelper249,250
-isolateHelper isolateHelper250,251
-isolate isolate260,261
-isolate isolate261,262
-swap swap265,266
-swap swap266,267
-zRotate zRotate268,269
-zRotate zRotate269,270
-rotateToEnd rotateToEnd301,302
-rotateToEnd rotateToEnd302,303
-elemT elemT310,311
-minimalSuperTree minimalSuperTree313,314
-isolate2Helper isolate2Helper321,322
-isolate2Helper isolate2Helper322,323
-isolate2 isolate2337,338
-isolate2 isolate2338,339
-tensor tensor350,351
-tensor tensor351,352
-contract contract380,381
-contract contract381,382
-connect connect423,424
-connect connect424,425
-addCoev addCoev456,457
-addCoev addCoev457,458
-initialPerimeter initialPerimeter484,485
-initialPerimeter initialPerimeter485,486
-initialTC initialTC491,492
-slide slide517,518
-finalTC finalTC534,535
-testTC2 testTC2542,543
+isolateHelperR isolateHelperR248,249
+isolateHelperR isolateHelperR249,250
+isolateHelperL isolateHelperL255,256
+isolateHelperL isolateHelperL256,257
+isolateR isolateR264,265
+isolateR isolateR265,266
+isolateL isolateL268,269
+isolateL isolateL269,270
+swap swap274,275
+swap swap275,276
+zRotate zRotate277,278
+zRotate zRotate278,279
+rotateToEndHelper rotateToEndHelper310,311
+rotateToEndHelper rotateToEndHelper311,312
+rotateToEnd rotateToEnd321,322
+elemT elemT323,324
+minimalSuperTree minimalSuperTree325,326
+isolate2Helper isolate2Helper333,334
+isolate2Helper isolate2Helper334,335
+isolate2 isolate2348,349
+isolate2 isolate2349,350
+tensor tensor360,361
+tensor tensor361,362
+contract contract390,391
+contract contract391,392
+connect connect436,437
+connect connect437,438
+addCoev addCoev469,470
+addCoev addCoev470,471
+initialPerimeter initialPerimeter497,498
+initialPerimeter initialPerimeter498,499
+initialTC initialTC504,505
+slide slide530,531
+finalTC finalTC547,548
+test test563,564
+p p564,565
 
 ./test.hs,901
 testMaybe testMaybe11,12

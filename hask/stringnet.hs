@@ -245,22 +245,31 @@ associateR v0 subTree@(Node xy z) =
                   )
 
 
-data Side = LeftSide | RightSide
 
-isolateHelper :: Side -> Vertex -> Tree Edge -> State TwoComplex ()
-isolateHelper _ _ (Leaf _) = return ()
-isolateHelper RightSide _ (Node _ (Leaf y)) = return ()
-isolateHelper RightSide v0 subTree@(Node x (Node y z)) =
-    associateL v0 subTree >> isolateHelper RightSide v0 z
-isolateHelper LeftSide _  (Node (Leaf x) _) = return ()
-isolateHelper LeftSide v0 subTree@(Node (Node x y) z) =
-    associateR v0 subTree >> isolateHelper LeftSide v0 z 
+isolateHelperR :: Vertex ->  TwoComplex -> TwoComplex
+isolateHelperR v tc =
+  let t = edgeTree tc v in
+    case t of
+      Node _ (Leaf x) -> tc
+      Node _ (Node x y) -> isolateHelperR v $ execState (associateL v t) tc
+  
+isolateHelperL :: Vertex ->  TwoComplex -> TwoComplex
+isolateHelperL v tc =
+  let t = edgeTree tc v in
+    case t of
+      Node (Leaf x) _ -> tc
+      Node (Node x y) _ -> isolateHelperL v $ execState (associateR v t) tc
+  
      
-     
--- Turns the far Side leaf into a depth one leaf  
-isolate :: Side -> Vertex -> State TwoComplex ()
-isolate s v0 = state $ \tc ->
-  ((), execState (isolateHelper s v0 (edgeTree tc v0)) tc)
+-- Turns the far right leaf into a depth one leaf  
+isolateR :: Vertex -> State TwoComplex ()
+isolateR v0 = state $ \tc ->
+  ((), isolateHelperR v0 tc)
+
+isolateL :: Vertex -> State TwoComplex ()
+isolateL v0 = state $ \tc ->
+  ((), isolateHelperL v0 tc)
+
 
 
 swap :: Tree a -> Tree a
@@ -268,7 +277,7 @@ swap (Node x y) = Node y x
 
 zRotate :: Vertex -> State TwoComplex ()
 zRotate v0 =
-  isolate RightSide v0 
+  isolateR v0 
   >> ( state $ \tc ->
   ((), tc
        { edgeTree = \v ->
@@ -299,17 +308,20 @@ zRotate v0 =
   )
 
 
-rotateToEnd :: Edge -> Vertex -> State TwoComplex ()
-rotateToEnd e0 v0 = do
-    et <- (edgeTreeM v0)
-    let el = flatten et
-    if el !! (length el - 1) == e0
-    then return ()
-    else zRotate v0 >> rotateToEnd e0 v0
-    
+rotateToEndHelper :: Edge -> Vertex -> State TwoComplex ()
+rotateToEndHelper e0 v0 = state $ \tc ->
+  ((),
+   let
+     es = flatten $ edgeTree tc v0
+   in
+     if es !! (length es - 1) == e0
+     then tc
+     else  execState (zRotate v0 >> rotateToEnd e0 v0) tc
+  )
+  
+rotateToEnd e0 v0 = rotateToEndHelper e0 v0 >> isolateR v0
 
 elemT u = (elem u) . flatten 
-
 
 minimalSuperTree :: (Eq a) => a -> a -> Tree a -> Tree a
 minimalSuperTree a1 a2 t@(Node x y) 
@@ -319,33 +331,31 @@ minimalSuperTree a1 a2 t@(Node x y)
 
 
 -- Easy optimization: calculate t from previous t
-isolate2Helper ::  Edge -> Edge -> Tree Edge -> Vertex -> State TwoComplex ()
-isolate2Helper e1 e2 t0 v =
+isolate2Helper ::  Edge -> Edge -> Vertex -> TwoComplex -> TwoComplex
+isolate2Helper e1 e2 v0 tc0 =
   let
-    t = minimalSuperTree e1 e2 t0
+    t = minimalSuperTree e1 e2 (edgeTree tc0 v0)
   in
     case t of
-      Node x y -> case x of
-        Node x1 x2 -> associateR v t
-                      >> isolate2Helper e1 e2 t v 
-        Leaf x0 -> case y of
-          Node y1 y2 -> associateL v t
-                        >> isolate2Helper e1 e2 t v 
-          Leaf y0 -> return ()               
+      Node x y -> 
+        case x of
+          Node x1 x2 -> isolate2Helper e1 e2 v0 $ execState (associateR v0 t) tc0
+          Leaf x0 -> case y of
+              Node y1 y2 -> isolate2Helper e1 e2 v0 $ execState (associateL v0 t) tc0
+              Leaf y0 -> tc0
 
 -- Put (rev) e1 and e2 on same node
 -- TODO: infer Edge Tree argument
 isolate2 :: Edge -> Edge -> Vertex  -> State TwoComplex ()
-isolate2 e1 e2 v0  =
-  do
-    et <- edgeTreeM v0
-    let firstEdge = (flatten et) !! 0
-    if (e2 == firstEdge)
-    then zRotate v0
-    else return ()
-    isolate2Helper e1 e2 (Leaf LeftLoop) v0 --FIXME
+isolate2 e1 e2 v0 = state $ \tc0 ->
+  let
+    firstEdge = (flatten $ edgeTree tc0 v0) !! 0
+    tc1 = if (e2 == firstEdge)
+          then execState (zRotate v0) tc0
+          else tc0
+  in   
+    ((), isolate2Helper e1 e2 v0 tc1)
 
-  
 
 -- The disk's perimeter should only have two edges
 tensor :: Disk -> State TwoComplex Edge
@@ -363,8 +373,8 @@ tensor d0 =
         | otherwise -> e
 
 
-    tc = -- execState (isolate2 e1 e2 v0
-         --            >> isolate2 (rev e2) (rev e1) v1)
+    tc =  execState (isolate2 e1 e2 v0
+                     >> isolate2 (rev e2) (rev e1) v1)
          tc0
   in
     ( product
@@ -385,8 +395,11 @@ contract contractedEdge  = state $ \tc ->
     v1 = (endpoints contractedEdge tc) !! 1
     composition = Contraction contractedEdge
     newTC = execState (
-      isolate RightSide v0
-      >> isolate LeftSide v1
+      do 
+        rotateToEnd contractedEdge v0
+        rotateToEnd (rev contractedEdge) v1
+        zRotate v1  
+        isolateL v1
       ) tc
   in
   (composition, newTC
@@ -526,10 +539,10 @@ slide = do
   contract e1
   contract e2
   contract e3
-  tensor (Cut $ rev e1)
-  tensor (Cut $ rev e2)
-  tensor (Cut $ rev e3)
-  contract r4
+  -- tensor (Cut $ rev e1)
+  -- tensor (Cut $ rev e2)
+  -- tensor (Cut $ rev e3)
+  -- contract r4
   return ()
 
 finalTC = execState slide initialTC
@@ -539,12 +552,25 @@ finalTC = execState slide initialTC
 -- testTC = execState (isolate2 LeftLoop LeftLeg Main) initialTC
 -- pprint $ edgeTree testTC Main
 
--- FAIL
-testTC2 = execState  (isolate2 (rev RightLoop) LeftLoop Main) initialTC
+-- PASS
+-- testTC2 =  execState (isolate2 (rev RightLoop) LeftLoop Main) initialTC
 -- testTC2 = execState  (isolate2 (rev RightLoop) LeftLoop Main (edgeTree initialTC Main)) initialTC 
--- pprint $ edgeTree testTC2 Main
+-- p =  pprint $ edgeTree testTC2 Main
 
 -- PASS
 -- testTC3 = execState  (zRotate Main) initialTC
 
+--FAIL
+test = execState (rotateToEnd LeftLeg Main) initialTC
+p =  pprint $ edgeTree test Main
+
+-- test = execState (
+--   do
+--     zRotate Main
+--     zRotate Main
+--     zRotate Main
+--     isolateR Main
+--   )
+--   initialTC
+-- p =  pprint $ edgeTree test Main
 
