@@ -439,7 +439,12 @@ contract e = do
   isolateL v1
   contractHelper e
   return () 
-  
+
+leftSubTree :: Tree a -> Tree a
+leftSubTree (Node x y) = x
+
+rightSubTree :: Tree a -> Tree a
+rightSubTree (Node x y) = y
 
 contractHelper :: Edge -> State TwoComplex ()
 contractHelper contractedEdge  = state $ \tc ->
@@ -462,17 +467,18 @@ contractHelper contractedEdge  = state $ \tc ->
                                        else v
                           ) . (imageVertex tc)
 
+                , edgeTree = \v ->
+                    if v == composition
+                    then Node (leftSubTree $ edgeTree tc v0)
+                         (rightSubTree $ edgeTree tc v1)
+                    else edgeTree tc v
+
+
                 , morphismLabel = (\v -> if (v == composition) 
                                          then  Compose (Ev $ objectLabel contractedEdge)
                                                (TensorM (morphismLabel tc v0)
                                                 (morphismLabel tc v1))
                                          else morphismLabel tc v )
-
-                , edgeTree = \v ->
-                    if v == composition
-                    then Node (edgeTree tc v0)
-                         (edgeTree tc v1)
-                    else edgeTree tc v
 
                 , perimeter = \d -> [e | e <- perimeter tc d
                                        , e /= contractedEdge
@@ -524,7 +530,10 @@ addCoev :: Edge -> State TwoComplex (IVertex, Edge, Edge)
 addCoev e = state $ \tc ->
   let mp  = Midpoint e
       fh = FirstHalf e
-      sh = SecondHalf e in
+      sh = SecondHalf e
+      v0 = toIV $ (endpoints e tc) !! 0
+      v1 = toIV $ (endpoints e tc) !! 1
+  in
   ((mp, fh, sh), tc 
                 { vertices =  [mp] ++ vertices tc
 
@@ -532,9 +541,11 @@ addCoev e = state $ \tc ->
                                          , f /= e
                                          , f /= rev e]
 
-                , edgeTree = \v -> if v == mp
-                                   then Node (Leaf $ rev $ FirstHalf e) (Leaf $ SecondHalf e)
-                                   else edgeTree tc v
+                , edgeTree = \v -> case () of
+                    _ | v == mp -> Node (Leaf $ rev $ FirstHalf e) (Leaf $ SecondHalf e)
+                      | v == v0 -> replace (Leaf e) (Leaf fh) $ edgeTree tc v
+                      | v == v0 -> replace (Leaf $ rev e) (Leaf $ rev sh) $ edgeTree tc v
+                      | otherwise ->  edgeTree tc v
                 
                 , perimeter =  flip (>>=) (\es ->
                                              if es == [e]
@@ -595,30 +606,31 @@ slide = do
   e2 <- connect (rev l2) (rev r13) (Cut $ e1)
   e3 <- connect l3 r4 Outside
   contract e1                   
-  -- contract e2
-  -- contract e3
-  -- tensor (Cut $ rev e1)
-  -- tensor (Cut $ rev e2)
-  -- tensor (Cut $ rev e3)
-  -- contract r4
+  contract e2
+  contract e3
+  tensor (Cut $ rev e1)
+  tensor (Cut $ rev e2)
+  tensor (Cut $ rev e3)
+  contract r4
   return (Cut $ rev e1)
 
 finalTC = execState slide initialTC
 
 
 -- TODO: figure out why testV0's edgeTree
--- doesn't have testE1 adjacnet to testE2
+-- doesn't have testE1 adjacent to testE2
 
 testDisk = evalState slide initialTC
 testPerim = perimeter finalTC testDisk
 testE1 = testPerim !! 0
 testE2 = rev (testPerim !! 1)
-testV0 = (endpoints testE1 finalTC) !! 0
-testV1 = (endpoints testE1 finalTC) !! 1
+testV0 = toIV $ (endpoints testE1 finalTC) !! 0
+testV1 = toIV $ (endpoints testE1 finalTC) !! 1
 
 testIndex tc e v = elemIndex e $ flatten $ edgeTree tc $ v
 
-
+ti1 = testIndex finalTC testE1 testV0
+ti2 = testIndex finalTC testE2 testV0
 
 -- TESTS
 
@@ -646,4 +658,5 @@ test =  execState (isolate2 (rev RightLoop) LeftLoop  Main) initialTC
 --   initialTC
 
 p x =  pprint $ edgeTree x Main
+
 

@@ -1,5 +1,5 @@
 
-./stringnet.hs,4581
+./stringnet.hs,4751
 module Stringnet Stringnet19,20
 data Puncture Puncture30,31
 data Puncture = LeftPuncture LeftPuncture30,31
@@ -125,26 +125,32 @@ tensor tensor418,419
 tensor tensor419,420
 contract contract431,432
 contract contract432,433
-contractHelper contractHelper443,444
-contractHelper contractHelper444,445
-connect connect487,488
-connect connect488,489
-addCoev addCoev522,523
-addCoev addCoev523,524
-initialPerimeter initialPerimeter556,557
-initialPerimeter initialPerimeter557,558
-initialTC initialTC563,564
-slide slide588,589
-finalTC finalTC605,606
-testDisk testDisk611,612
-testPerim testPerim612,613
-testE1 testE1613,614
-testE2 testE2614,615
-testV0 testV0615,616
-testV1 testV1616,617
-testIndex testIndex618,619
-test test629,630
-p p647,648
+leftSubTree leftSubTree442,443
+leftSubTree leftSubTree443,444
+rightSubTree rightSubTree445,446
+rightSubTree rightSubTree446,447
+contractHelper contractHelper448,449
+contractHelper contractHelper449,450
+connect connect493,494
+connect connect494,495
+addCoev addCoev528,529
+addCoev addCoev529,530
+initialPerimeter initialPerimeter567,568
+initialPerimeter initialPerimeter568,569
+initialTC initialTC574,575
+slide slide599,600
+finalTC finalTC616,617
+testDisk testDisk622,623
+testPerim testPerim623,624
+testE1 testE1624,625
+testE2 testE2625,626
+testV0 testV0626,627
+testV1 testV1627,628
+testIndex testIndex629,630
+ti1 ti1631,632
+ti2 ti2632,633
+test test641,642
+p p659,660
 
 ./test.hs,901
 testMaybe testMaybe11,12
