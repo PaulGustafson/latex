@@ -1,19 +1,21 @@
 
 -- Encode a stringnet as a marked CW-complex.
--- For now, we assume left and right duals are the same
+-- For now, we only use right duals.
 --
--- TODO: Find where the infinite loop is showing up in isolate2
---             by tracing code?  
+-- TODO: Calculate an actual R-matrix.
 --
--- TODO: Show and read for Tree
+-- TODO: Style refactoring
+--     - consistent parameter naming, e.g. v0, d0
+--     - consistent use of State TwoComplex
 -- 
--- TODO: Do everything in terms of left duals
+-- MAYBE: add left duals
 --
 -- TODO: Refactor interior TC methods into State methods
 --
 -- TODO: Refactor using Simplex n
-
--- Notes: Should I be function-centric instead of TwoComplex-centric?
+--
+-- Ideas: Make a LocalMoves type.  
+-- Should I be function-centric instead of TwoComplex-centric?
 -- For example, can I pull morphismLabel out?
 --
 
@@ -85,8 +87,11 @@ data TwoComplex = TwoComplex
                   -- CCW ordering.
                   , perimeter     :: !(Disk -> [Edge])
 
-                  , imageVertex    :: !(Vertex -> Vertex)     -- image under contractions
-                  , morphismLabel :: !(IVertex -> Morphism)   -- TODO: Change to Tree based on tensor structure
+                  -- image under contractions
+                  , imageVertex    :: !(Vertex -> Vertex)     
+
+                  -- TODO: Change to Tree based on tensor structure
+                  , morphismLabel :: !(IVertex -> Morphism)   
 
                   -- CCW ordering, outgoing orientation
                   , edgeTree      :: !(Vertex -> Tree Edge)  
@@ -107,7 +112,7 @@ data Morphism = Phi
               | RhoI Object
               | Alpha Object Object Object -- associator (xy)z = x(yz)
               | AlphaI Object Object Object -- inverse associator
-              | Coev Object   -- currently right coev
+              | Coev Object   --  right coev
               | Ev Object     -- right ev
               | TensorM Morphism Morphism
               | PivotalJ Object -- X -> X**
@@ -118,19 +123,18 @@ data Morphism = Phi
 -- domain :: Morphism -> Object
 -- domain Phi = 
 
--- composable
 instance Semigroup Morphism where
   a <> b = Compose a b
-
 
 toDataTree :: Tree a -> T.Tree (Maybe a)
 toDataTree (Leaf x) = T.Node (Just x) []
 toDataTree (Node x y) = T.Node Nothing [toDataTree x, toDataTree y]
 
+-- Pretty print
 pprint :: (Show a) => Tree a -> IO ()
 pprint = putStr . T.drawTree . fmap show . toDataTree
 
--- non-exhaustive type cast 
+-- type cast 
 toIV :: Vertex -> IVertex
 toIV (IV v) = v
 
@@ -602,8 +606,7 @@ initialTC = TwoComplex { vertices = [Main]
                                                           (Node
                                                            (Leaf LeftLeg)
                                                            (Leaf LeftLoop)
-                                                          )
-                                                          
+                                                          )                                                          
                                                          )
                                                          
                        }
