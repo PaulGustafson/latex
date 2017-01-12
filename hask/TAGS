@@ -1,0 +1,177 @@
+
+./stringnet.hs,4529
+module Stringnet Stringnet21,22
+data Puncture Puncture32,33
+data Puncture = LeftPuncture LeftPuncture32,33
+data Puncture = LeftPuncture | RightPunctureRightPuncture32,33
+data IVertex IVertex36,37
+data IVertex = Main Main36,37
+data IVertex = Main | Midpoint Midpoint36,37
+data IVertex = Main | Midpoint Edge | Contraction Contraction36,37
+data Vertex Vertex39,40
+data Vertex = Punc Punc39,40
+data Vertex = Punc Puncture | IV IV39,40
+data Edge Edge45,46
+  LeftLoop LeftLoop47,48
+  LeftLoop | RightLoop RightLoop47,48
+  LeftLoop | RightLoop | LeftLeg LeftLeg47,48
+  LeftLoop | RightLoop | LeftLeg | RightLegRightLeg47,48
+  | FirstHalf FirstHalf50,51
+  | FirstHalf Edge | SecondHalf SecondHalf50,51
+  | Connector Connector53,54
+  | TensorE TensorE56,57
+  | Reverse Reverse59,60
+data Disk Disk63,64
+  Outside Outside65,66
+  Outside | LeftDisk LeftDisk65,66
+  Outside | LeftDisk | RightDiskRightDisk65,66
+  | Cut Cut68,69
+data Tree Tree72,73
+data Tree a = Leaf Leaf72,73
+data Tree a = Leaf a | Node Node72,73
+data TwoComplex TwoComplex76,77
+data TwoComplex = TwoComplexTwoComplex76,77
+                  { vertices vertices77,78
+                  , edges edges78,79
+                  , disks disks79,80
+                  , perimeter perimeter87,88
+                  , imageVertex imageVertex90,91
+                  , morphismLabel morphismLabel93,94
+                  , edgeTree edgeTree96,97
+data Object Object100,101
+data Object = G G100,101
+data Object = G | H H100,101
+data Object = G | H | K K100,101
+data Object = G | H | K | LL100,101
+            | OneOne101,102
+            | Star Star102,103
+            | TensorO TensorO103,104
+data Morphism Morphism106,107
+data Morphism = PhiPhi106,107
+              | Id Id107,108
+              | Lambda Lambda108,109
+              | LambdaI LambdaI109,110
+              | Rho Rho110,111
+              | RhoI RhoI111,112
+              | Alpha Alpha112,113
+instance instance125,126
+toDataTree toDataTree128,129
+toDataTree toDataTree129,130
+pprint pprint133,134
+pprint pprint134,135
+toIV toIV137,138
+toIV toIV138,139
+rev rev140,141
+rev rev141,142
+star star146,147
+star star147,148
+initialEndpoints initialEndpoints151,152
+initialEndpoints initialEndpoints152,153
+initialStart initialStart163,164
+initialStart initialStart164,165
+initialEnd initialEnd166,167
+initialEnd initialEnd167,168
+endpoints endpoints171,172
+endpoints endpoints172,173
+edgeTreeM edgeTreeM175,176
+edgeTreeM edgeTreeM176,177
+endpointsM endpointsM179,180
+endpointsM endpointsM180,181
+perimeterM perimeterM182,183
+perimeterM perimeterM183,184
+start start185,186
+start start186,187
+end end188,189
+end end189,190
+objectLabel objectLabel192,193
+objectLabel objectLabel193,194
+treeLabel treeLabel204,205
+treeLabel treeLabel205,206
+flatten flatten216,217
+flatten flatten217,218
+replace replace220,221
+replace replace221,222
+associateL associateL229,230
+associateL associateL230,231
+associateR associateR250,251
+associateR associateR251,252
+isolateHelperR isolateHelperR273,274
+isolateHelperR isolateHelperR274,275
+isolateHelperL isolateHelperL280,281
+isolateHelperL isolateHelperL281,282
+isolateR isolateR289,290
+isolateR isolateR290,291
+isolateL isolateL293,294
+isolateL isolateL294,295
+swap swap297,298
+swap swap298,299
+zRotate zRotate300,301
+zRotate zRotate301,302
+rotateToEndHelper rotateToEndHelper333,334
+rotateToEndHelper rotateToEndHelper334,335
+rotateToEnd rotateToEnd342,343
+rotateToEnd rotateToEnd343,344
+elemT elemT346,347
+minimalSuperTree minimalSuperTree348,349
+isolate2Helper isolate2Helper356,357
+isolate2Helper isolate2Helper357,358
+isolate2 isolate2371,372
+isolate2 isolate2372,373
+tensorHelper tensorHelper385,386
+tensorHelper tensorHelper386,387
+tensorN tensorN415,416
+tensorN tensorN416,417
+tensor tensor429,430
+tensor tensor430,431
+contract contract442,443
+contract contract443,444
+leftSubTree leftSubTree453,454
+leftSubTree leftSubTree454,455
+rightSubTree rightSubTree456,457
+rightSubTree rightSubTree457,458
+contractHelper contractHelper459,460
+contractHelper contractHelper460,461
+connect connect504,505
+connect connect505,506
+addCoev addCoev539,540
+addCoev addCoev540,541
+initialPerimeter initialPerimeter578,579
+initialPerimeter initialPerimeter579,580
+initialTC initialTC585,586
+slide slide614,615
+finalTC finalTC631,632
+
+./test.hs,901
+testMaybe testMaybe11,12
+testMaybe testMaybe12,13
+data Gomp Gomp16,17
+data Gomp = GoopGoop16,17
+            | Geebo Geebo17,18
+              unk unk18,19
+              , monk monk19,20
+data Kappa Kappa24,25
+data Kappa = Kappa1 Kappa124,25
+data Kappa = Kappa1 | Kappa2 Kappa224,25
+data Kappa = Kappa1 | Kappa2 | Kappa3 Kappa324,25
+data Kappa = Kappa1 | Kappa2 | Kappa3 | Kappa4 Kappa424,25
+data Catpa Catpa26,27
+data Catpa = Cat Cat26,27
+data Catpa = Cat Kappa | Magma Magma26,27
+m m28,29
+e e30,31
+e e31,32
+h h33,34
+h h34,35
+data Keepo Keepo37,38
+data Keepo = B B37,38
+data Keepo = B Kappa | C C37,38
+data TestType TestType39,40
+data TestType = TestType TestType39,40
+data TestType = TestType {firstString firstString39,40
+                          myMap myMap40,41
+bar bar43,44
+bar bar44,45
+f f48,49
+f f49,50
+foo foo53,54
+foo foo54,55

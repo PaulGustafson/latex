@@ -2,20 +2,15 @@
 -- Encode a stringnet as a marked CW-complex.
 -- For now, we only use right duals.
 --
--- TODO: Calculate an actual R-matrix.
---
--- TODO: Style refactoring
---     - consistent parameter naming, e.g. v0, d0
---     - consistent use of State TwoComplex
+-- TODO: Show and read for Tree
 -- 
--- MAYBE: add left duals
+-- TODO: Do everything for  left duals
 --
 -- TODO: Refactor interior TC methods into State methods
 --
 -- TODO: Refactor using Simplex n
---
--- Ideas: Make a LocalMoves type.  
--- Should I be function-centric instead of TwoComplex-centric?
+
+-- Notes: Should I be function-centric instead of TwoComplex-centric?
 -- For example, can I pull morphismLabel out?
 --
 
@@ -112,7 +107,7 @@ data Morphism = Phi
               | RhoI Object
               | Alpha Object Object Object -- associator (xy)z = x(yz)
               | AlphaI Object Object Object -- inverse associator
-              | Coev Object   --  right coev
+              | Coev Object   -- currently right coev
               | Ev Object     -- right ev
               | TensorM Morphism Morphism
               | PivotalJ Object -- X -> X**
@@ -123,18 +118,19 @@ data Morphism = Phi
 -- domain :: Morphism -> Object
 -- domain Phi = 
 
+-- composable
 instance Semigroup Morphism where
   a <> b = Compose a b
+
 
 toDataTree :: Tree a -> T.Tree (Maybe a)
 toDataTree (Leaf x) = T.Node (Just x) []
 toDataTree (Node x y) = T.Node Nothing [toDataTree x, toDataTree y]
 
--- Pretty print
 pprint :: (Show a) => Tree a -> IO ()
 pprint = putStr . T.drawTree . fmap show . toDataTree
 
--- type cast 
+-- non-exhaustive type cast 
 toIV :: Vertex -> IVertex
 toIV (IV v) = v
 
