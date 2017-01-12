@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.2)  11 JAN 2017 22:56
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2016.9.2)  12 JAN 2017 10:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -920,12 +920,12 @@ LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
 ] [6
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 87.
+LaTeX Font Info:    Try loading font information for U+msa on input line 86.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 87.
+LaTeX Font Info:    Try loading font information for U+msb on input line 86.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -946,6 +946,28 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 ] [14
 
+] [15
+
+] [16
+
+] [17
+
+] [18
+
+] [19
+
+] [20
+
+] [21
+
+] [22
+
+] [23
+
+] [24
+
+] [25
+
 ]
 \tf@nav=\write6
 \openout6 = `Section1_1.nav'.
@@ -956,11 +978,12 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 \tf@snm=\write8
 \openout8 = `Section1_1.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 165.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 165.
- (./Section1_1.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 165.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 165.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 269.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 269.
+
+(./Section1_1.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 269.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 269.
 Package rerunfilecheck Info: File `Section1_1.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -968,30 +991,32 @@ Package rerunfilecheck Info: File `Section1_1.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 165.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 269.
  ) 
 Here is how much of TeX's memory you used:
- 16756 strings out of 495028
- 307604 string characters out of 6181498
- 398905 words of memory out of 5000000
- 19514 multiletter control sequences out of 15000+600000
+ 16801 strings out of 495028
+ 308003 string characters out of 6181498
+ 401905 words of memory out of 5000000
+ 19537 multiletter control sequences out of 15000+600000
  16454 words of font info for 43 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  49i,16n,53p,399b,563s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/a/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0800.600pk> </home/a/.te
-xmf-var/fonts/pk/ljfour/jknappen/ec/ecsi1095.600pk> </home/a/.texmf-var/fonts/p
-k/ljfour/jknappen/ec/ecsx1095.600pk> </home/a/.texmf-var/fonts/pk/ljfour/jknapp
-en/ec/ecss1200.600pk> </home/a/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0600.
-600pk> </home/a/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1095.600pk> </home/a
-/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1440.600pk></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmsy10.pfb>
-Output written on Section1_1.pdf (14 pages, 106025 bytes).
+ </home/a/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsi0800.600pk> </home/a/.te
+xmf-var/fonts/pk/ljfour/jknappen/ec/ecss0800.600pk> </home/a/.texmf-var/fonts/p
+k/ljfour/jknappen/ec/ecsi1095.600pk> </home/a/.texmf-var/fonts/pk/ljfour/jknapp
+en/ec/ecsx1095.600pk> </home/a/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1200.
+600pk> </home/a/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0600.600pk> </home/a
+/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss1095.600pk> </home/a/.texmf-var/fon
+ts/pk/ljfour/jknappen/ec/ecss1440.600pk></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
+msy8.pfb>
+Output written on Section1_1.pdf (25 pages, 139113 bytes).
 PDF statistics:
- 615 PDF objects out of 1000 (max. 8388607)
- 411 compressed objects within 5 object streams
- 29 named destinations out of 1000 (max. 500000)
+ 937 PDF objects out of 1000 (max. 8388607)
+ 701 compressed objects within 8 object streams
+ 51 named destinations out of 1000 (max. 500000)
  67 words of extra memory for PDF output out of 10000 (max. 10000000)
 
