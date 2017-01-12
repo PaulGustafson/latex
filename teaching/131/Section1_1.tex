@@ -1,0 +1,165 @@
+\documentclass[t]{beamer}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\title{Introduction and Functions}
+\author{Math 131, Section 501}
+\date{January 17, 2017}
+
+\begin{document}
+\frame{\titlepage}
+
+
+\begin{frame}{Introduction}
+\begin{fpi}
+\item Paul Gustafson
+\item 4th year PhD student
+\item Topological phases of matter 
+\item Functional programming
+\item Piano (favorite musician: marasy8)
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Motivation for the course}
+\begin{fpi}
+\item Work ethic
+\item Critical thinking skills
+\item Attention to detail
+\item Mathematical maturity 
+\item Signalling 
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Course information}
+\begin{fpi}
+\item Course webpage: http://math.tamu.edu/~pgustafs/math131
+\item Office hours: 2:00-3:00 PM Mon, 11:00-12:30 AM Thurs 
+\item Exam dates: Feb 16, Mar 23, Apr 20, May 4
+\item Lowest exam grade
+\item Take-home quizzes (must turn them in yourself!)
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Book and Webassign}
+\begin{fpi}
+\item Stewart Calculus 4.0
+\item Hard copy or ebook
+\item Must pay for webassign
+\begin{itemize}
+\item Hard copy purchase includes webassign
+\item Can just buy webassign/ebook
+\item 2 week free trial 
+\end{itemize}
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Teaching Philosopy}
+\begin{fpi}
+\item Respect
+\item I'm here to help you
+\item No such thing as a stupid question
+\end{fpi}
+\end{frame}
+
+\begin{frame}
+\frametitle{Functions}
+\begin{block}{Definition}
+A \textbf{function} $f$ is a rule that assigns to each element in a set $D$ exactly one element, called $f(x)$
+in a set $E$.
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Ways to define a function}
+\begin{fpi}
+\item Words
+\item A table
+\item An algebraic rule
+\item A graph
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Applying functions}
+\begin{fpi}
+\item Let $\displaystyle f(x) = \frac{x^2 + 1}{x+3}$.
+\item $f(1)$
+\item $f(a)$
+\item $f(2z -1)$
+\item $f(g(x))$ where $g(x) = x^2 - 1$
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Domain and range}
+\begin{block}{Definition}
+The \textbf{domain} of $f$ is the set of values $x$ for which $f(x)$ is defined.
+\end{block}
+\begin{block}{Definition}
+The \textbf{range} of $f$ is the set of all possible values $f(x)$.
+\end{block}
+\end{frame}
+
+\begin{frame}{Finding domains}
+Rules:
+\begin{itemize}
+\item Cannot divide by 0
+\item Cannot take even roots of negative numbers  
+\item Cannot take logarithms of numbers $\le 0$
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Even and odd functions}
+\begin{block}{Definition}
+A function $f$ is \textbf{even} if the values $f(-x) = f(x)$ for all $x$.
+\end{block}
+The graph of an even function is symmetric about the $y$-axis.
+\begin{block}{Definition}
+A function $f$ is \textbf{odd} if the values $f(-x) = -f(-x)$ for all $x$.
+\end{block}
+The graph of an odd function is symmetric about the origin.
+\end{frame}
+
+\begin{frame}
+\frametitle{Piecewise functions}
+\begin{block}{Definition}
+A \textbf{piecewise function} is a function that has different rules for different parts of its domain.
+\end{block}
+\begin{block}{Example}
+$$
+|x| = \begin{cases}
+x, & x \ge 0 \\
+-x, &  x < 0
+\end{cases}
+$$
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Increasing and decreasing functions}
+\begin{block}{Definition}
+A function $f$ is \textbf{increasing} if $f(x)$ increases as $x$ increases.
+\end{block}
+\begin{block}{Definition}
+A function $f$ is \textbf{decreasing} if $f(x)$ increases as $x$ increases.
+\end{block}
+\end{frame}
+
+\end{document}
