@@ -1,4 +1,4 @@
-\documentclass[t]{beamer}
+\documentclass[t,handout]{beamer}
 
 \mode<handout>
 {
@@ -86,6 +86,7 @@ Exponential Functions}
 
 \begin{frame}{Review of Section 1.2}
 \begin{fpi}
+\item Reminder: Week-in-Review, Help Sessions, Office Hours
 \item Mathematical Models
 \item Linear Regression
 \item Function classes
@@ -174,238 +175,152 @@ $$y = -f(x)$$
 \end{frame}
 
 \begin{frame}{Important note}
-Remember: to reflect across the $x$-axis, multiply the $y$-value by $-1$.
-To reflect across the $y$-axis, multiply the $x$-value by $-1$
+Remember: To reflect across the \textbf{x}-axis, multiply the \textbf{y}-value by $-1$.
+To reflect across the \textbf{y}-axis, multiply the \textbf{x}-value by $-1$
 \end{frame}
 
 \begin{frame}{Summary}
+\vfill
+\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{shifts}
+\vfill
 \end{frame}
 
-\begin{frame}{Linear functions}
+\begin{frame}{Function composition}
 \begin{itemize}
-\item Linear refers to the fact that the graph forms a (straight) line
-\vfill
-\item Slope-intercept form:
-$$y = mx + b$$
-\vfill
-\item Point-slope form:
-$$y - y_0 = m(x - x_0)$$
-\vfill
+\item The composition $(f \circ g)(x)= f(g(x))$ means plugging $g(x)$ into $f(x)$
+\item Think of functions like machines
 \end{itemize}
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{machines}
+\vfill
 \end{frame}
 
-\begin{frame}{Linear function example}
+\begin{frame}{Function composition}
+Example:
+$$ f(x) = \sin(x), \qquad g(x) = x^2 + \frac{1}{x}$$
+\end{frame}
+
+\begin{frame}{Function composition}
+Example:
+$$ f(x) = \sqrt{x+1}, \qquad g(x) = \frac{x+1}{x-1},  \quad h(x) = x^{9}$$
+\end{frame}
+
+
+\begin{frame}{Function composition}
+Example:
+$$ f(x) = \sin^2(x +2)$$
+Find a functions $g,h,k$ such that $f = g \circ h \circ k$.
+\end{frame}
+
+\begin{frame}{Function composition}
+Example:
+$$ f(x) = -2x^2 + 2x - 1, \qquad g(x) = -2x + 1$$
+Find a function $h(x)$ such that $(g \circ h)(x) = f(x)$
+\end{frame}
+
+\begin{frame}{Function composition}
+Example:
+$$ f(x) = x^2 -4x + 1, \qquad g(x) = -x + 2$$
+Find a function $h(x)$ such that $(h \circ g)(x) = f(x)$
+\end{frame}
+
+\begin{frame}{Function composition}
+Example:
+$$ f(x) = 3x^2 +6x -2, \qquad g(x) = 3x + 1$$
+Find a function $h(x)$ such that $(g \circ h)(x) = f(x)$
+\end{frame}
+
+
+\begin{frame}{Domain review}
+Find the domain of $$f(x) = \log(2 - \sqrt{x + 1})$$.
+\end{frame}
+
+\begin{frame}{Outline of Section 1.5}
 \begin{fpi}
-\item $\displaystyle y = \frac{1}{2}x + 4$
-\item $\displaystyle y - 1 = -2(x  +2)$
+\item Exponential functions
+\item Rules for manipulating exponential functions
+\item Applications: Exponential growth and decay
+\item Compound interest
+\item Rate of growth of exponential functions
 \end{fpi}
 \end{frame}
 
 
-\begin{frame}{Example}
-Find the point-slope form of the line passing through the points
-$(1,2)$ and $(0,3)$.
+\begin{frame}{Exponential functions revisited}
+\begin{block}{Recall}
+An \textbf{exponential function} is a function of the form
+$$f(x) = a^x,$$
+where $a$ is a postive constant.
+\end{block}
 \end{frame}
 
-\begin{frame}{Linear models}
+\begin{frame}{Exponential rules}
+\begin{block}{Exponential rules}
+If $a$ and $b$ are positive numbers then,
+$$a^{x+y} = a^x a^y \qquad a^{x-y} = \frac{a^x}{a^y}  \qquad (a^x)^y = a^{xy} \qquad (ab)^x = a^x b^x$$
+\end{block}
+\end{frame}
+
+\begin{frame}{Exponential rules}
 \begin{fpi}
-\item Given a table of $(x,y)$ data, we can approximate the data
-with a linear function
-\item This allows us to interpolate between the points and extrapolate beyond them
-\item We can also make inferences about the whole data set
+\item $3^0$
+\item $81^{1/2}$
+\item $8^{4/3}$
+\item $4^{-1/2}$
+\item $5^3 \cdot 5^{-5}$
 \end{fpi}
 \end{frame}
 
-\begin{frame}{Finding a linear regression using a TI-84}
+\begin{frame}{Exponential rules}
 \begin{fpi}
-\item Press the STAT key.
-\item Press Enter on the EDIT menu option
-\item Fill the $x$ values into $L1$ and the $y$ values into $L2$.
-\item Go to CALC menu option and select LinReg($ax + b$).
-\item This gives you the equation of the line.
-\item Press Y= to see the graph.
+\item $(3^2)^3$
+\item $7^2 \cdot 4^2$
+\item $(2 + 3)^2$
+\item $\sqrt{4 + 9}$
 \end{fpi}
 \end{frame}
 
-\begin{frame}{Finding a linear regression using Wolfram Alpha}
-Type in ``Linear Regression'' and then list your $(x,y)$ pairs, e.g.
-$$\text{Linear Regression } [[1,2], [2,2],[3,4]]$$
+\begin{frame}{Exponential rules}
+Simplify the expression
+$$(4x^6)^{-1/2} \cdot x^2$$
+\end{frame}
+
+\begin{frame} {Exponential decay}
+The half-life of Carbon-14 is 5730 years.  If a sample initially
+contains 5mg of Carbon-14 at time $t=0$, calculate the amount
+of Carbon-14 in the sample at an arbitrary time $t \ge 0$.
+\end{frame}
+
+\begin{frame} {Exponential growth}
+Suppose that a population of bacteria doubles every two hours, and the initial
+population of a sample is 300.  Find the population of the sample 5 hours later.
+\end{frame}
+
+\begin{frame} {Exponential growth}
+A country has an annual population growth rate of 3\%. Assuming exponential growth, how many
+years will it take for the population to double?
+\end{frame}
+
+\begin{frame}{Converting to base $e$}
+Convert the equation $P = 121 (0.89)^t$ to the form $P = P_0 e^{kt}$.
+\end{frame}
+
+\begin{frame}{Compound Interest}
+If $P$ dollars are invested at an annual rate $r$ compounded $n$ times per year, then the 
+amount accumulated after $t$ years is
+$$A(t) = P (1 + \frac{r}{n})^{nt}$$
+\end{frame}
+
+\begin{frame}{Continuously compounded Interest}
+If $P$ dollars are invested at an annual rate $r$ compounded continuously, then the 
+amount accumulated after $t$ years is
+$$A(t) = P e^{rt}$$
 \end{frame}
 
 
-\begin{frame}{Linear model example}
-The Dallas News reported these attendance
-numbers from 2014:
-\begin{fpi}
-\item Baylor – 46,710
-\item North Texas – 19,271
-\item  Oklahoma – 85,162
-\item  SMU – 21,528
-\item  TCU – 44,719
-\item  Texas – 94,103
-\item  Texas A\&M –105,123
-\item  Texas Tech – 58,934
-\end{fpi}
+\begin{frame}{Rate of growth of exponential functions}
+Out of all the function classes we've discussed so far, exponential functions of positive
+base grow the fastest. 
 \end{frame}
-
-\begin{frame}{Linear model example}
-\vfill
- How much does the size of the school affect football attendence?  
-\vfill
-\end{frame}
-
-\begin{frame}{Linear model example}
-\vfill
-\includegraphics[width=\textwidth]{football}
-\vfill
-\end{frame}
-
-\begin{frame}{Linear model example}
-The linear regression line is
-$$y = 1.3x + 19202$$
-\end{frame}
-
-
-\begin{frame}{Linear model example}
-\vfill
-\includegraphics[width=\textwidth]{football2}
-\vfill
-\end{frame}
-
-\begin{frame}{Football example: Interpolation}
-If a new university in Texas had a student population of
-$10000$, what would be the expected football attendance?
-\end{frame}
-
-\begin{frame}{Polynomials}
-\begin{fpi}
-\item A \textbf{polynomial} is a function that looks like
-$$y = 2x^5 + 3x^3 -2x^2 + 3x + 1$$
-\item The general form of a polynomial is
-$$y = a_n x^n + a_{n-1} x^{n-1} + \cdots + a_1 x + a_0$$
-where the \textbf{coefficients} $a_i$ are just numbers.  
-\item The highest 
-exponent of $x$ appearing in the polynomial is called its \textbf{degree}.
-\end{fpi}
-\end{frame}
-
-\begin{frame}{Quadratic polynomials}
-\begin{block}{Definition}
-A \textbf{quadratic polynomial} is a polynomial of degree 2.
-\end{block}
-\begin{block}{Example}
-$$f(x) = 3x^2 - 2x + 1$$
-\end{block}
-\begin{block}{General form}
-$$f(x) = ax^2 + bx + c$$
-\end{block}
-\end{frame}
-
-\begin{frame}{Graphs of quadratic functions}
-\vfill
-\includegraphics[width=\textwidth]{quadratic}
-\vfill
-\end{frame}
-
-\begin{frame}{Graphs of more general polynomials}
-\vfill
-\includegraphics[width=\textwidth]{poly}
-\vfill
-\end{frame}
-
-\begin{frame}{Power functions}
-\begin{block}{Definition}
-A \textbf{power function} is a function of the form
-$$y = x^a,$$
-where $a$ is a constant.
-\end{block}
-Three cases:
-\begin{itemize}
-\item $a$ is a positive integer.
-\item $a$ is a fraction
-\item $a$ is a negative number.
-\end{itemize}
-\end{frame}
-
-\begin{frame}{Power functions with positive integer exponents}
-\vfill
-\includegraphics[width=\textwidth]{posint}
-\vfill
-\end{frame}
-
-\begin{frame}{Power functions with fractional exponents}
-\vfill
-\includegraphics[width=\textwidth]{fraction}
-\vfill
-\end{frame}
-
-\begin{frame}{Power functions with negative exponents}
-\vfill
-\includegraphics[width=\textwidth]{negative}
-\vfill
-\end{frame}
-
-\begin{frame}{Rational functions}
-\begin{block}{Definition}
-A \textbf{rational function} is a ratio of two polynomials.
-\end{block}
-\begin{block}{Example}
-$$f(x) = \frac{3x^2 - x+ 3}{2x+1}$$
-\end{block}
-\begin{block}{General form}
-$$f(x) = \frac{P(x)}{Q(x)},$$
-where $P(x)$ and $Q(x)$ are polynomials.
-\end{block}
-\end{frame}
-
-\begin{frame}{Rational functions}
-\vfill
-\includegraphics[width=\textwidth]{rational}
-\vfill
-\end{frame}
-
-\begin{frame}{Algebraic functions}
-An \textbf{algebraic function} is like rational function, but we also
-allow taking roots.
-\begin{block}{Example}
-$$f(x) = \frac{\sqrt{3x^2 - x}}{3x+1} + x\sqrt[3]{x-1}$$
-\end{block}
-\end{frame}
-
-\begin{frame}{Algebraic functions}
-\begin{figure}
-\vfill
-\includegraphics[width=0.5\textwidth]{algebraic}
-\caption{$\displaystyle y = \frac{\sqrt{x^2 -1}}{x + 2}$}
-\end{figure}
-\vfill
-\end{frame}
-
-\begin{frame}{Trig functions}
-\begin{fpi}
-\item The trig functions are $\sin(x)$, $ \cos(x)$ and their ratios and inverses.
-\item All of them are $2\pi$-periodic
-\item For all $x$,
-$$-1 \le sin(x) \le 1 \qquad \text{ and }\qquad -1 \le \cos(x) \le 1$$
-\end{fpi}
-\end{frame}
-
-
-\begin{frame}{Exponential functions}
-\begin{block}{Definition}
-An exponential function is a function of the form
-$$ f(x) = a^x,$$
-where $a$ is a positive number.
-\end{block}
-\end{frame}
-
-\begin{frame}{Logarithmic functions}
-\begin{block}{Definition}
-A logarithmic function is a function of the form
-$$ f(x) = \log_a x,$$
-where $a$ is positive constant.
-\end{block}
-\end{frame}
-
 
 \end{document}
