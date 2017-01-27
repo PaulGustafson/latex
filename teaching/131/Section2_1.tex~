@@ -1,0 +1,230 @@
+\documentclass[t]{beamer}
+
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{4 on 1 boxed}[a4paper, border shrink=5mm, landscape]
+  \nofiles
+}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Inverse Functions and \\
+Logarithms}
+\date{January 26, 2017 \\ 9:35 - 10:50 AM}
+
+\begin{document}
+\frame{\titlepage}
+
+
+\begin{frame}{Outline of Section 1.6}
+\begin{fpi}
+\item One-to-one functions
+\item Horizontal line test
+\item Inverse functions
+\item Logarithms
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Motivation}
+\begin{fpi}
+\item To solve equations involving nontrivial functions, we need their inverse functions.
+\item One-to-one functions have well-defined inverses
+\end{fpi}
+\end{frame}
+
+\begin{frame}{One-to-One (1-1) functions}
+A \textbf{one-to-one} (or injective) function is a function for which there is a unique $x$-value for every $y$-value.
+\end{frame}
+
+\begin{frame}{Horizontal line test}
+A function is one-to-one if and only if no horizontal line intersects its graph more than once.
+\end{frame}
+
+\begin{frame}{Inverse functions}
+A one-to-one function $f$ has an inverse function, written
+$$f^{-1}(x)$$
+Defining rule: If $f(x) = y$, then $f^{-1}(y) = x$.
+\end{frame}
+
+\begin{frame}{Graphing inverse functions}
+\end{frame}
+
+\begin{frame}{Inverse functions}
+If a one-to-one function $f(x)$ has domain $A$ and range $B$, then 
+its inverse function $f^{-1}(x)$ has domain $B$ and range $A$.
+\end{frame}
+
+
+
+\begin{frame}{Don't confuse $f^{-1}(x)$ with $(f(x))^{-1}$}
+Don't confuse
+$$f^{-1}(x)$$
+with the fraction
+$$(f(x))^{-1} = \frac{1}{f(x)}.$$
+\end{frame}
+
+\begin{frame}{Example}
+Let $f(x) = \sqrt{x}$. 
+\end{frame}
+
+\begin{frame}{Example}
+\img{inv}
+\end{frame}
+
+\begin{frame}{Calculating inverses}
+To calculate the inverse of the function $f(x)$:
+\begin{itemize}
+\item Write the function as $y = f(x)$
+\item Swap the $x$ and $y$.
+\item Solve for $y$.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Using inverse functions}
+The inverse function \emph{undoes} a function
+$$ f (f^{-1}(x))  = x $$
+and
+$$ f^{-1} (f(x))  = x $$
+\end{frame}
+
+\begin{frame}{Logarithms}
+The inverse of the exponential function is called the \textbf{logarithm}.
+
+If $f(x) = a^x$, then 
+$$f^{-1}(x) = \log_a(x)$$
+
+The number $a$ is called the \textbf{base} of the logarithm.
+\end{frame}
+
+\begin{frame}{Logarithms}
+This means logarithms and exponentials undo each other:
+$$\log_a(a^x) = x$$
+and 
+$$a^{\log_a(x)} = x$$
+\end{frame}
+
+\begin{frame}{Example}
+Logarithms grow very slowly.  Example: solve for  $\log_{10}(x) = 8$.
+\end{frame}
+
+\begin{frame}{Logarithm rules}
+\begin{fpi}
+\item  $\displaystyle \log_a(a)$
+\item  $\displaystyle \log_2(5 \cdot 6)$
+\item  $\displaystyle \log_5(\frac{7}{10})$
+\item $\displaystyle \log_{10}(3^7)$
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Example}
+Apply the logarithm rules to simplify 
+$$\log_2(10) + \log_2(14) - \log_2(35)$$
+\end{frame}
+
+\begin{frame}{Natural logarithm}
+The inverse of the natural exponential function is
+the natural logarithm.
+$$f(x) = e^x$$
+$$f^{-1}(x) = \ln(x) = \log_e(x) = \log_{2.718 \ldots} (x)$$
+\end{frame}
+
+\begin{frame}{Change of base formula}
+$$\log_a(x) = \frac{\ln(x)}{\ln(a)}$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the domain and inverse of 
+$$f(x) = \sqrt{e^{2x} -1}$$
+\end{frame}
+
+
+\begin{frame}{Example}
+Find the domain and inverse of 
+$$f(x) = \ln(\ln(x) -1)$$
+\end{frame}
+
+
+\begin{frame}{Example}
+Find the domain and inverse of 
+$$f(x) = \sqrt{\ln(x +5)}$$
+\end{frame}
+
+
+
+\end{document}
