@@ -1,0 +1,60 @@
+%% LyX 2.2.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+\setlength{\parskip}{\bigskipamount}
+\setlength{\parindent}{0pt}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+\usepackage{babel}
+\begin{document}
+\textbf{Take Home Quiz 1 }
+
+Official name (printed):\bigskip{}
+
+Preferred name to be called: \bigskip{}
+
+UIN: \bigskip{}
+
+NetID: \bigskip{}
+
+\textbf{\uline{Authorization to return graded papers}}:
+
+Quizzes will be vertical-line folded with the grade inside the fold.
+Exams will have the grade on an inside page. Both quizzes and exams
+to be returned will be placed in piles at the front of the room alphabetized
+by last name. Please indicate which one of the following is true:
+
+\uline{\_\_\_\_\_\_\_} I agree to have my papers returned in this
+manner.\bigskip{}
+
+\uline{\_\_\_\_\_\_\_} I do not agree to have my papers returned
+in this manner. Instead, I will pick up my papers in my instructor's
+office during official office hours after they are returned to the
+rest of the class.\bigskip{}
+
+Signature: \uline{\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_}\\
+
+\vfill
+
+1. A person will build a fence to enclose a rectangle of $2400$ square feet. The front of the fence is
+made of a material priced at $\$20$ per linear foot. The other three sides are made of a material
+priced at $\$12$ per foot of length. Find the cost of the fence as a function of the length of the
+front.
+\vfill
+Steps: Draw the rectangle and label the side lengths as x or y.
+\vfill
+Find the cost as a function of the two variables x and y.
+\vfill
+Use the fact that the area is 2400 to eliminate one of the variables.
+\vfill
+
+\includegraphics{}
+
+2. 
+
+
+\end{document}
