@@ -1,0 +1,249 @@
+\documentclass[t]{beamer}
+
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{4 on 1 boxed}[a4paper, border shrink=5mm, landscape]
+  \nofiles
+}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Calculating Limits (Section 2.3)}
+
+\date{Feb 2, 2017 \\ 9:35 - 10:50 AM}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Outline}
+\begin{fpi}
+\item Limits of continuous functions -- Plug it in
+\item Cancelling fractions
+\item Rationalizing fractions
+\item Limits of piecewise functions
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Plug it in}
+If there is nothing weird going on, then we can evaluate the limit
+by plugging the number in.
+\vfill
+Example:
+$$ \lim_{x \to 2} x^2 + 1 $$
+\vfill
+Example:
+$$ \lim_{x \to 0} e^{2x} + 3x - 2$$
+\vfill
+\end{frame}
+
+\begin{frame}{Plug it in}
+``Nothing weird going on'' means that the function is continuous at the limit point.
+
+In particular, we are not dividing by 0, plugging in negative numbers to square roots, or taking logs of negative numbers.
+\end{frame}
+
+\begin{frame}{Limit Laws}
+\begin{fpi}
+\item $\displaystyle \lim_{x \to a} f(x) + g(x) = \lim_{x \to a} f(x) + \lim_{x \to a} g(x)$
+\item $\displaystyle \lim_{x \to a} c f(x) = c \lim_{x \to a} f(x) $
+\item $\displaystyle \lim_{x \to a} f(x) \cdot g(x) = \lim_{x \to a} f(x) \cdot  \lim_{x \to a} g(x)$
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Limit Laws}
+\begin{fpi}
+\item $\displaystyle \lim_{x \to a} \frac{f(x)}{g(x)} = \frac{\lim_{x \to a} f(x)}{\lim_{x \to a} g(x)}$ (as long as you aren't dividing by 0)
+\item $\displaystyle \lim_{x \to a} (f(x))^n = \left(\lim_{x \to a} f(x)\right)^n$
+\item More generally, you can take limits inside of continuous functions.
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Cancelling to get limit}
+If you get $\frac 0 0$ when trying to evaluate the limit of a fraction, you can try to factor and cancel.
+
+Example:
+$$\lim_{x \to 3} \frac{x^2 -9}{x-3}$$
+
+\end{frame}
+
+\begin{frame}{Example}
+Calculate the limit of $f(x)$ as $x \to -1$.
+$$f(x) = \frac{x^2 -2x -3}{x+1}$$
+\end{frame}
+
+\begin{frame}{Example}
+Calculate the limit 
+$$ \lim_{x \to 5}\frac{x^2 - 2x - 15}{x^2 -6x +5}$$
+\end{frame}
+
+\begin{frame}{Rationalizing the Numerator}
+Example:
+$$\lim_{h \to 0} \frac{\sqrt{25 + h} - 5}{h}$$
+\end{frame}
+
+\begin{frame}{Rationalizing the Numerator}
+Technique:
+$$\frac{\sqrt{a} - b}{c}$$
+\begin{itemize}
+\item Multiply top and bottom by $\sqrt{a} + b$
+\item Multiply out the numerator (the cross-terms will cancel)
+\item Cancel out a common term on top and bottom
+\item Plug in the limit
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Rationalizing the Numerator}
+Example:
+$$\lim_{x \to 5} \frac{\sqrt{x^2 + 144} - 13}{x-5}$$
+\end{frame}
+
+\begin{frame}{Rationalizing the Numerator}
+Example:
+$$\lim_{x \to 16}\frac{4 - \sqrt{x}}{16x - x^2}$$
+\end{frame}
+
+\begin{frame}{Piecewise functions}
+For piecewise functions, calculate the limit by plugging in for $x$, but you need to decide which equation to plug it into.
+
+\[
+f(x) = 
+\begin{cases}
+x^3 - x + 10, & x < -2 \\
+2x -2 & x \ge -2
+\end{cases}
+\]
+
+Calculate:
+\begin{itemize}
+\item $\displaystyle \lim_{x \to -2^-} f(x)$
+\item $\displaystyle \lim_{x \to -2^+} f(x)$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+For the following function, calculate the limit as $x \to 1^-$, $x \to 1^+$, and $x \to 1$.
+$$f(x) = 
+\begin{cases}
+x^3 + x - 2, & x < 1 \\
+2,           & x = 1 \\
+e^{x-1} - 1,  & x > 1
+\end{cases}
+$$
+\end{frame}
+
+\begin{frame}{Example}
+For the following function, calculate the limit as $x \to -2^-$, $x \to -2^+$, and $x \to -2$.
+\[
+f(x) = 
+\begin{cases}
+x^2 + 5x, & x < -2 \\
+0,           & x = -2 \\
+\ln(x+3),  & x > 2
+\end{cases}
+\]
+
+\end{frame}
+
+\begin{frame}{Summary}
+When calculating limits, follow these steps:
+\begin{itemize}
+\item Can I plug in the limit and get a simple answer (not $\frac 0 0$ or a piecewise function)?
+\begin{itemize}
+\item Plug it in and get the answer.
+\end{itemize}
+\item Is the function a fraction where I can factor then cancel or rationalize the numerator?
+\begin{itemize}
+\item Factor the numerator and cancel, plug it in to get answer.
+\end{itemize}
+\item Is the function piecewise?
+\begin{itemize}
+\item Calculate the left and right limits separately.
+\item If they match, this is the answer.
+\item If they do not match, the limit does not exist.
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{One more problem}
+Find the limit 
+$$ \lim_{x \to 0} \frac{x}{\sqrt{1 + 3x} -1}$$
+\end{frame}
+
+
+
+\end{document}
