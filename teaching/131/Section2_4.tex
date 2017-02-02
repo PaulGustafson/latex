@@ -1,0 +1,230 @@
+\documentclass[t]{beamer}
+
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{4 on 1 boxed}[a4paper, border shrink=5mm, landscape]
+  \nofiles
+}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Continuity (Section 2.4)}
+
+\date{Feb 7, 2017 \\ 9:35 - 10:50 AM}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Outline}
+\begin{fpi}
+\item Definition of continuous
+\item Discontinuity examples
+\item One sided continuity
+\item Harder examples
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Intuitive idea}
+A \textbf{continuous function} is a function that doesn't have
+any gaps, jumps, or holes.  (You can draw its graph without taking your pencil off the paper.)
+\end{frame}
+
+\begin{frame}{Continuity at a point}
+Idea: Look at tiny neighborhood around the point to determine continuity of the function
+at the point.
+\end{frame}
+
+\begin{frame}{Definition using limits (IMPORTANT)}
+The function $f(x)$ is continuous at $x = a$ if 
+\begin{fpi}
+\item The limit $\displaystyle \lim_{x \to a} f(x)$ exists.
+\item The function $f(x)$ is defined at $x = a$
+\item The two match: $\displaystyle \lim_{x \to a} f(x) = f(a)$.
+\end{fpi}
+\end{frame}
+
+\begin{frame}{First requirement: $\displaystyle \lim_{x \to a} f(x)$ exists}
+This means that 
+\begin{itemize}
+\item The limit from the left $\displaystyle \lim_{x \to a^-} f(x)$ exists,
+\item the limit from the right $\displaystyle \lim_{x \to a^+} f(x)$ exists,
+\item and they are both equal $\displaystyle  \lim_{x \to a^-} f(x) = \lim_{x \to a^+} f(x)$
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Second requirement:  $f(x)$ is defined at $x = a$}
+\begin{fpi}
+\item This means that the number $a$ is in the domain of $f(x)$.
+\item Recall: Possible issues include dividing by 0, even roots of negative numbers,
+and $\log$'s of nonpositive numbers.
+\end{fpi}
+\end{frame}
+
+
+\begin{frame}{Third requirement:  $\displaystyle \lim_{x \to a} f(x) = f(a)$}
+\begin{fpi}
+\item Calculate both sides, see if they agree.
+\item Usually only piecewise functions violate this rule.
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Continuity on an interval}
+If a function $f(x)$ is continous at every point in the interval $(a,b)$,
+then we say that $f(x)$ is continuous on $(a,b)$.
+\end{frame}
+
+\begin{frame}{Discontinuities}
+\begin{fpi}
+\item Removable discontinuities
+\item Jump discontinuities
+\item Infinite discontinuities
+\item Other types
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Which of the three rules does $f(x)$ break at:}
+\img{discontinuous1}
+\end{frame}
+
+\begin{frame}{Example}
+Identify the discontinuities of the following function:
+$$f(x) = \frac{x^2 + 6x + 5}{x^2 - 2x -3}$$
+\end{frame}
+
+\begin{frame}{Example}
+Identify the discontinuities of the following function:
+$$f(x) = e^{1/x} + \frac{x^2 - 1}{x+1}$$
+\end{frame}
+
+\begin{frame}{One sided continuity}
+Take the definition of continuity, and replace each limit with a one-sided
+limit.
+\end{frame}
+
+\begin{frame}{One sided continuity}
+Take the definition of continuity, and replace each limit with a one-sided
+limit.
+\end{frame}
+
+\begin{frame}{One sided continuity}
+The function $f(x)$ is continuous at $x = a$  \textbf{from the left} if 
+\begin{itemize}
+\item The limit $\displaystyle \lim_{x \to a^-} f(x)$ exists.
+\item The function $f(x)$ is defined at $x = a$
+\item The two match: $\displaystyle \lim_{x \to a^-} f(x) = f(a)$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{One sided continuity}
+The function $f(x)$ is continuous at $x = a$  \textbf{from the right} if 
+\begin{itemize}
+\item The limit $\displaystyle \lim_{x \to a^+} f(x)$ exists.
+\item The function $f(x)$ is defined at $x = a$
+\item The two match: $\displaystyle \lim_{x \to a^+} f(x) = f(a)$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Is $f(x)$ continuous from the left/right at $x = 2$?}
+\img{onesided}
+\end{frame}
+
+\begin{frame}{Harder example}
+Find the number $c$ such that $f(x)$ is continuous at $x = 3$.
+$$
+f(x) = 
+\begin{cases}
+cx^2 + 6x, & x < 3 \\
+x^3 - cx, & x \ge 3
+\end{cases}
+$$
+\end{frame}
+
+\begin{frame}{Harder example}
+Find the number $c$ such that $f(x)$ is continuous at $x = -1$.
+$$
+f(x) = 
+\begin{cases}
+x^3 -2x^2 + cx, & x < -1 \\
+cx^2 + 7x, & x \ge -1
+\end{cases}
+$$
+\end{frame}
+
+
+\end{document}
