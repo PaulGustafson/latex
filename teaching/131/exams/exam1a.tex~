@@ -1,0 +1,290 @@
+\documentclass[11pt]{article}
+
+%opening
+\usepackage{caption}
+\usepackage{mcexam}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{float}
+\usepgflibrary{arrows}
+\usepackage{todo}
+\everymath{\displaystyle}
+\pagestyle{empty}
+\usepackage{lastpage} % this calculates the page number of the last page
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{\textsf{Spring 2016}}
+\chead{\textsf{Math 131 -- Midterm Exam 1A}}
+\rhead{\textsf{Page \thepage\ of \pageref{LastPage}}}
+\cfoot{}
+\rfoot{\textsf{\thepage}}
+
+\newcommand{\series}[3]{\displaystyle \sum_{{#1}={#2}}^{#3} }
+\newcommand{\limit}[2]{\displaystyle \lim_{{#1} \rightarrow {#2}} }
+\newcommand{\din}[2]{\displaystyle \int_{#1}^{#2}}
+\newcommand{\Int}{\displaystyle \int}
+\newcommand{\Q}{\ensuremath \mathbb{Q}}
+\newcommand{\R}{\ensuremath \mathbb{R}}
+\newcommand{\C}{\ensuremath \mathbb{C}}
+\newcommand{\Z}{\ensuremath \mathbb{Z}}
+\newcommand{\N}{\ensuremath \mathbb{N}}
+\newcommand{\isom}{\ensuremath \cong}
+\newcommand{\inv}{\ensuremath ^{-1}}
+\newcommand{\ot}{\ensuremath \otimes}
+\newcommand{\op}{\ensuremath \oplus}
+
+\Course{Math 131}{Principles of Calculus}
+%\Instructor{Steven McKay}
+\TestName{Exam 1A\hfill{\bfseries\Huge RED}}
+\Date{}
+%\Section{}
+
+
+\begin{document}
+\Head
+\begin{instructions}
+\item For questions which require a written answer, show all your work.  Full credit will be given only if the necessary work is shown justifying your answer.
+\item Simplify your answers.
+\item Calculators are allowed.
+\item Should you have need for more space than is allocated to answer a question, use the back of the exam.
+\item Please do not talk about the test with other students until exams are handed back.
+\end{instructions}
+\PointTable{2}
+%\hrule width \linewidth height 2pt\vspace{2pt}%
+%\hrule width \linewidth height 1pt\vspace{2pt}%
+%\hrule width \linewidth height 1pt%
+%\vspace{4mm}%
+%\noindent {\bf For Instructor use only.}\\ \vspace{-.2in}%
+%\begin{center}
+%{\Large
+%\begin{tabular}{|p{0.75in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|p{0.4in}|}
+%\hline
+%Question&MC&11&12&13&14&15&16&17&Total\\\hline
+%Points&30&10&10&10&10&10&10&10&100\\\hline
+%Earned&&&&&&&&&\\\hline
+%\end{tabular}
+%}
+%\end{center}
+\nextpage
+
+\vspace{.2in}
+
+\noindent \emph{{\bf Part I: Multiple Choice (5 points each)} Mark the correct
+answer on the bubble sheet.}
+For questions 1-4, use the following graph of $f(x)$:\\
+
+\begin{minipage}{\linewidth}% to keep image and caption on one page
+\makebox[\linewidth]{}
+\includegraphics{exam1graph1.pdf}
+\captionof{figure}{$f(x)$}\label{graph1exam1}%      only if needed  
+\end{minipage}
+
+\begin{questions}
+\begin{multiplechoice}{5}
+%8.5,8.6
+
+\question According to the graph of $f(x)$, the $\lim_{x\to -5^-}f(x) $ equals which of the following.
+\begin{answers}{3}
+\ans $3$
+\ans $2$
+\ans $0$
+\ans $-4$
+\ans The limit does not exist.
+\end{answers}
+
+%\textbf{Solution: d}
+
+
+\question According to the graph of $f(x)$, the $\lim_{x\to 10^+}f(x) $ equals which of the following.
+\begin{answers}{3}
+\ans $+\infty$
+\ans $0$
+\ans $-2$
+\ans $-4$
+\ans The limit does not exist.
+\end{answers}
+
+%\textbf{Solution: a}\\
+
+\question According to the graph of $f(x)$, the $\lim_{x\to 5}f(x) $ equals which of the following.
+\begin{answers}{3}
+\ans $2$
+\ans $0$
+\ans $-3$
+\ans $-4$
+\ans The limit does not exist.
+\end{answers}
+
+%\textbf{Solution: b}\\
+
+
+
+
+\question According to the graph of $f(x)$, the function $f(x)$ is not continuous at $x=5$ because
+\begin{answers}{3}
+\ans $f(x)$ is not defined at $x=5$.
+\ans $\lim_{x\to 5}f(x) \neq f(5)$.
+\ans $\lim_{x\to 5}f(x)$ does not exist.
+\ans $\lim_{x\to 5^-}f(x) \neq \lim_{x\to 5^+}f(x) $.
+\ans there is a vertical asymptote at $x=5$.
+\end{answers}
+
+%\textbf{Solution: e}
+
+%11.1,2
+
+
+
+\question The graph of $g(x)$ is given below.\\
+
+\begin{minipage}{\linewidth}% to keep image and caption on one page
+\makebox[\linewidth]{}
+\includegraphics{exam1graph2.pdf}
+\captionof{figure}{$g(x)$}\label{graph2exam1}%      only if needed  
+\end{minipage}
+According to the graph above, the domain and range of $g(x)$ are
+\begin{answers}{2}
+\ans Domain: $[-6,8]$, Range: $[-4,-1/2]$
+\ans Domain: $[-4,2]$, Range: $[-6,8]$
+\ans Domain: $[-6,8]$, Range: $[-4,2]$
+\ans Domain: $[-12,12]$, Range: $[-8,8]$
+\ans Domain: $[-4,-1/2]$, Range: $[-6,8]$
+\end{answers}
+% Answer: 232/99
+
+
+
+\question Jane notices that football game attendance is higher when the weather is warmer.  She finds that 100,000 fans attended a game when the temperature was $80^\circ$ and that 60,000 fans attended when the temperature was $40^\circ$.  Make a linear model that describes Jane's findings, where $t$ is the temperature in degrees and $F(t)$ is the number of fans attending a game.
+\begin{answers}{3}
+\ans $F(t) = 1000t+20,000$
+\ans $F(t) = 1000t-40,000$
+\ans $F(t) = 500t+30,000$
+\ans $F(t) = 500t - 60,000$
+\ans none of these
+\end{answers}
+
+\question The Mitten Crab is an invasive species in Washington State.  Suppose there were 8 crabs introduced into Mason Lake in 2000 and that they multiply by a factor of 5 every 3 years.  Approximately how many crabs would there be in the lake in 2020?
+\begin{answers}{2}
+\ans 1526
+\ans 365,502
+\ans 3125
+\ans 244,140,625,000
+\ans 25,124
+\end{answers}
+
+\question Given a function $f(x)$, then the graph of $-3f(x-3)$ will be 
+\begin{answers}{2}
+\ans the graph of $f(x)$ stretched vertically by a factor of 3, shifted 3 units to the right and reflected vertically.
+\ans the graph of $f(x)$ stretched horizontally by a factor of 3, shifted 3 units to the left and reflected vertically.
+\ans the graph of $f(x)$ shrunk vertically by a factor of 3, shifted 3 units to the right.
+\ans the graph of $f(x)$ shrunk horizontally by a factor of 3, shifted 3 units up and reflected horizontally.
+\ans the graph of $f(x)$ stretched vertically by a factor of 3, shifted 3 units up and reflected horizontally.
+\end{answers}
+
+
+
+\question Let $f(x) = \sqrt{4-x^2}$ and $g(x)=\sqrt{1+x}$.  What is the domain of $f(x)+g(x)$?
+\begin{answers}{2}
+\ans $[-2,2]$
+\ans $[-1,2]$
+\ans $[-2,\infty]$
+\ans $[-1,\infty]$
+\ans $[-2,1]$
+\end{answers}
+
+\end{multiplechoice}
+\vspace{.2in}
+
+\noindent \emph{{\bf Part II: True or False}}
+%8.3,8.5
+For the following statements enter True or False on the bubble sheet (you don't need to show work):\\
+\question[2] True/False: Henry runs a 40 yard dash for football practice.  His time for the 40 yard dash was 5 seconds.  This means that his instantaneous velocity was 8 yards per second during the whole race.
+\begin{answers}{2}
+\ans True
+\ans False
+\end{answers}
+%\textbf{Solution: b}
+
+
+\question[2] True/False: An exponential model is appropriate to use when there is very slow, constant growth in a population.
+\begin{answers}{2}
+\ans True
+\ans False
+\end{answers}
+% Answer: 1/12
+
+\nextpage
+\noindent \emph{{\bf Part III: Free Response}{  Show all work}}
+\question[12] Let $f(x)=x^2-1$ and $g(x) = x+3$.\\
+
+a.) (2 points) Calculate the domain of $\frac{g(x)}{f(x)}$.
+\vspace{1.25in}
+
+b.) (10 points) Calculate and simplify $h(x) = \frac{f(g(x))-f(3)}{x}$.
+\vspace{2.25in}
+
+
+
+
+\question[10] Evaluate the limit algebraically (show all your work!)
+\[\lim_{x\to 3} \frac{\sqrt{x^2+16} - 5}{x-3}.\]
+\vspace{3.25in}
+
+\question[8] For the function 
+\[f(x) = \frac{x^2-4x+3}{x^2+3x+2},\]
+a.) (4 points) Find the vertical asymptotes of $f(x)$.
+\vspace{2.25in}
+
+b.) (4 points) Find the limit $\lim_{x\to \infty} f(x)$.
+\vspace{2.25in}
+
+
+
+\question[10] Find $f\inv(x)$ for the following function,
+\[f(x) = \frac{e^{5x+1}}{e^{2x-3}} - 3.\]
+
+\vspace{3.25in}
+
+
+\question[11] Natalie believes that football teams that throw long passes tend to perform better.  She collects data on five football teams describing the longest pass the team throws during the season and the average number of points their football teams scored in a season.  The data is given in the table below.  Natalie wishes to construct a linear model representing this data set.\\
+\begin{center}
+  \begin{tabular}{| c | c |}
+    \hline
+    Longest Pass (yds) & Average Points \\ \hline \hline
+    25 & 8.8  \\ \hline
+    35 & 11.6  \\ \hline
+    55 & 26.1  \\ \hline
+    60 & 26.8  \\ \hline
+    70 & 32.7  \\ \hline
+  \end{tabular}
+\end{center}
+
+a.) (5 points) Find a linear model for this data set by \textbf{using the first and last points} in the table.
+\vspace{2.00in}
+
+
+b.) (3 points) Natalie enters the points into her calculator and computes that the linear regression line for her data is $P(x) = y = 0.558x - 6.1434$, where $x$ is the length of the longest pass a team throws and $P(x)$ is the average number of points scored per game.  Use her linear model to predict the average number of points a team would score whose longest pass is 45 yards.
+\vspace{1.25in}
+
+c.) (3 points) Use her model to predict the average number of points a team would score whose longest pass is 5 yards.  Is this a realistic prediction?  Why or why not?
+
+%\begin{minipage}{\linewidth}% to keep image and caption on one page
+%\makebox[\linewidth]{}
+%\begin{center}
+%\includegraphics{exam1graph3.pdf}
+%\end{center}
+%\captionof{figure}{Average Points per Game}\label{graph3exam1}%      only if needed  
+%\end{minipage}
+
+
+
+
+\mbox{}
+\end{questions}
+\end{document}
+
+*************************************************************************
+*************************************************************************
