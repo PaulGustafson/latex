@@ -1,0 +1,222 @@
+\documentclass[t]{beamer}
+
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{4 on 1 boxed}[a4paper, border shrink=5mm, landscape]
+  \nofiles
+}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Limits Involving Infinity (Section 2.5)}
+
+\date{Feb 9, 2017 \\ 9:35 - 10:50 AM}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Outline}
+\begin{fpi}
+\item Infinity in the answer
+\item Infinity in the problem
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Infinity in the answer}
+Plug a number into an expression and get infinity out
+\end{frame}
+
+\begin{frame}{Infinity in the answer}
+When we write 
+$$ \lim_{x \to a} f(x) = \infty$$
+or 
+$$ \lim_{x \to a} f(x) = -\infty,$$
+we are saying that the limit \textbf{does not exist}, and 
+we are \textbf{describing} the way it does not exist.
+\end{frame}
+
+\begin{frame}{Example}
+\begin{fpi}
+\item $\displaystyle f(x) = \frac{1}{x}$
+\item You can a calculator to see the behavior near 0.
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Example}
+$$f(x) = \frac{1}{(x-1)^2}$$
+\end{frame}
+
+\begin{frame}{Example}
+$$f(x) = \frac{x}{x+5}$$
+\end{frame}
+
+
+\begin{frame}{Example}
+$$f(x) = \frac{(x+5)(x-3)}{(x+2)(x-5)}$$
+\end{frame}
+
+\begin{frame}{Procedure for determining the sign of an infinite limit}
+\begin{fpi}
+\item Plug the limit $x$-value into all non-zero factors
+\item Use a number line to determine signs of zero factors ($0^+$ and $0^-$)
+\item Count the number of negatives
+\item Even -> $+\infty$,  odd -> $-\infty$
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Example}
+$$f(x) = \frac{(x+4)(x-8)}{(x+1)(x-6)}$$
+\end{frame}
+
+\begin{frame}{Vertical asymptotes}
+Whenever there is an infinite discontinuity in a graph at $x=a$, we
+say that there is a vertical asymptote at $x=a$.
+\end{frame}
+
+\begin{frame}{Log limit}
+Note: 
+$$ \lim_{x \to 0^+} \ln(x) = -\infty $$
+\end{frame}
+
+\begin{frame}{Infinity in the problem}
+\begin{fpi}
+\item $ \displaystyle \lim_{x \to \infty} \frac{x+1}{x-2}$
+\item You can use a calculator to understand the behavior as $x \to \infty$
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Procedure for limits of fractions as $x \to \pm \infty$}
+\begin{fpi}
+\item Identify the highest power term in the fraction
+\item Multiply the top and bottom with $\frac{1}{x^n}$ for that term
+\item Plug in $\infty$, everything with $\infty$ in the denominator goes away
+\item What's left is the answer
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Horizontal asymptotes}
+If $$\lim_{x \to \infty} f(x) = c$$ for some number $c$
+or $$\lim_{x \to -\infty} f(x) = c$$ for some number $c$,
+then we say $f(x)$ has a \textbf{horizontal asymptote} at
+$y = c$.
+\end{frame}
+
+\begin{frame}{Example}
+\begin{fpi}
+$$\lim_{x \to -\infty} \frac{x^2 -4x +1}{3x^2 -5}$$
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Example}
+$$\lim_{x \to \infty} \frac{5x^2 - 4x +1}{2x -5}$$
+\end{frame}
+
+\begin{frame}{Example}
+$$\lim_{x \to \infty} \frac{x^2 -3x +4}{x^3 +1}$$
+\end{frame}
+
+
+\begin{frame}{Example}
+$$\lim_{x \to -\infty} \frac{10x^3 -4x + 1}{4x^3 + 8 x^2 +x -5}$$
+\end{frame}
+
+\begin{frame}{Fractions involving exponential functions}
+$$\lim_{x \to \infty} e^x = \infty$$
+and
+$$\lim_{x \to -\infty} e^x = 0.$$
+
+The function $e^x$ grows faster than any polynomial as $x \to \infty$ .
+\end{frame}
+
+
+\begin{frame}{Example}
+$$\lim_{x \to \infty} \frac{3e^x -2x + 1}{2e^x +x -5}$$
+\end{frame}
+
+\begin{frame}{Example}
+$$\lim_{x \to -\infty} \frac{3e^x -2x + 1}{2e^x +x -5}$$
+\end{frame}
+
+
+
+\begin{frame}
+We learned two different ways of dealing with limits with infinities,
+depending on whether the infinities appear in the question or the answer.
+\end{frame}
+
+\end{document}
