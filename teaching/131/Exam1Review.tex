@@ -83,137 +83,90 @@
 } 
 
 
-\title{Derivatives and Rates of Change (Section 2.6)}
+\title{Exam 1 review}
 
 \date{Feb 9, 2017 \\ 9:35 - 10:50 AM}
 
 \begin{document}
 \frame{\titlepage}
 
-\begin{frame}{Outline}
-\begin{fpi}
-\item Infinity in the answer
-\item Infinity in the problem
-\end{fpi}
+\begin{frame}{Domain and range}
+For $f(x) = \sqrt{x^2 -4}$ and $g(x) = \sqrt{3-x}$, find the 
+domain of $f(x) + g(x)$.
 \end{frame}
 
-\begin{frame}{Infinity in the answer}
-Plug a number into an expression and get infinity out
+\begin{frame}{Domain and range}
+Find the domain and range of the following function:
 \end{frame}
 
-\begin{frame}{Infinity in the answer}
-When we write 
-$$ \lim_{x \to a} f(x) = \infty$$
-or 
-$$ \lim_{x \to a} f(x) = -\infty,$$
-we are saying that the limit \textbf{does not exist}, and 
-we are \textbf{describing} the way it does not exist.
+\begin{frame}{Mathematical models}
+Make a linear model using the first and last data points:
+\begin{table}
+\begin{tabular}{c c}
+Mascot height (in) & Running yards \\
+38 & 200 \\
+59 & 390 \\
+70 & 280 \\
+82 & 420
+\end{tabular}
+\end{table}
 \end{frame}
 
-\begin{frame}{Example}
-\begin{fpi}
-\item $\displaystyle f(x) = \frac{1}{x}$
-\item You can a calculator to see the behavior near 0.
-\end{fpi}
+\begin{frame}{Mathematical models}
+Make a linear model using linear regression, pre
+\begin{table}
+\begin{tabular}{c c}
+Mascot height (in) & Running yards \\
+38 & 200 \\
+59 & 390 \\
+70 & 280 \\
+82 & 420
+\end{tabular}
+\end{table}
 \end{frame}
 
-\begin{frame}{Example}
-$$f(x) = \frac{1}{(x-1)^2}$$
+\begin{frame}{Function composition}
+For $f(x) = \sqrt{1 - x}$ and $g(x) = \frac{x}{x+1}$ and
+$h(x) = x^2 +1$, find and simplify
+$$f(g(h(x))$$
 \end{frame}
 
-\begin{frame}{Example}
-$$f(x) = \frac{x}{x+5}$$
+\begin{frame}{Exponential growth/decay}
+A bacteria population grows by a factor of 15 every
+20 minutes. If there are 1000 bacteria in the starting
+population, how many bacteria will there be in 2
+hours?
 \end{frame}
 
-
-\begin{frame}{Example}
-$$f(x) = \frac{(x+5)(x-3)}{(x+2)(x-5)}$$
+\begin{frame}{Inverses, logs, and exponentials}
+Find $f^{-1}(x)$ for
+$$f(x) = \ln(x+5) - \ln(x+2)$$
 \end{frame}
 
-\begin{frame}{Procedure for determining the sign of an infinite limit}
-\begin{fpi}
-\item Plug the limit $x$-value into all non-zero factors
-\item Use a number line to determine signs of zero factors ($0^+$ and $0^-$)
-\item Count the number of negatives
-\item Even -> $+\infty$,  odd -> $-\infty$
-\end{fpi}
+\begin{frame}{Tangent lines}
+For $f(x) = x^2 + x -1$, estimate the slope of the
+graph at $x = 1$ by using intervals of length $1$ and $.1$
 \end{frame}
 
-\begin{frame}{Example}
-$$f(x) = \frac{(x+4)(x-8)}{(x+1)(x-6)}$$
+\begin{frame}{Limits and continuity from graphs}
 \end{frame}
 
-\begin{frame}{Vertical asymptotes}
-Whenever there is an infinite discontinuity in a graph at $x=a$, we
-say that there is a vertical asymptote at $x=a$.
+\begin{frame}{Limits and continuity from graphs}
 \end{frame}
 
-\begin{frame}{Log limit}
-Note: 
-$$ \lim_{x \to 0^+} \ln(x) = -\infty $$
+\begin{frame}{Calculating limits}
+Find the limit
+$$\lim_{x \to -3} \frac{\sqrt{x^2 - 5} -2}{x + 3}$$
 \end{frame}
 
-\begin{frame}{Infinity in the problem}
-\begin{fpi}
-\item $ \displaystyle \lim_{x \to \infty} \frac{x+1}{x-2}$
-\item You can use a calculator to understand the behavior as $x \to \infty$
-\end{fpi}
+\begin{frame}{Calculating limits with infinity}
+Find the limit
+$$\lim_{x \to 4^{-}} \frac{(x-3)(x+9)}{(x-2)(x-4)}$$
 \end{frame}
 
-\begin{frame}{Procedure for limits of fractions as $x \to \pm \infty$}
-\begin{fpi}
-\item Identify the highest power term in the fraction
-\item Multiply the top and bottom with $\frac{1}{x^n}$ for that term
-\item Plug in $\infty$, everything with $\infty$ in the denominator goes away
-\item What's left is the answer
-\end{fpi}
-\end{frame}
-
-\begin{frame}{Horizontal asymptotes}
-If $$\lim_{x \to \infty} f(x) = c$$ for some number $c$
-or $$\lim_{x \to -\infty} f(x) = c$$ for some number $c$,
-then we say $f(x)$ has a \textbf{horizontal asymptote} at
-$y = c$.
-\end{frame}
-
-\begin{frame}{Example}
-$$\lim_{x \to -\infty} \frac{x^2 -4x +1}{3x^2 -5}$$
-\end{frame}
-
-\begin{frame}{Example}
-$$\lim_{x \to \infty} \frac{5x^2 - 4x +1}{2x -5}$$
-\end{frame}
-
-\begin{frame}{Example}
-$$\lim_{x \to \infty} \frac{x^2 -3x +4}{x^3 +1}$$
-\end{frame}
-
-
-\begin{frame}{Example}
-$$\lim_{x \to -\infty} \frac{10x^3 -4x + 1}{4x^3 + 8 x^2 +x -5}$$
-\end{frame}
-
-\begin{frame}{Fractions involving exponential functions}
-$$\lim_{x \to \infty} e^x = \infty$$
-and
-$$\lim_{x \to -\infty} e^x = 0.$$
-
-The function $e^x$ grows faster than any polynomial as $x \to \infty$ .
-\end{frame}
-
-
-\begin{frame}{Example}
-$$\lim_{x \to \infty} \frac{3e^x -2x + 1}{2e^x +x -5}$$
-\end{frame}
-
-\begin{frame}{Example}
-$$\lim_{x \to -\infty} \frac{3e^x -2x + 1}{2e^x +x -5}$$
-\end{frame}
-
-
-\begin{frame}{Summary}
-We learned two different ways of dealing with limits with infinities,
-depending on whether the infinities appear in the question or the answer.
+\begin{frame}{Calculating limits with infinity}
+Find the limit
+$$\lim_{x \to \infty} \frac{(4x-1)(6x+1)}{(2x-1)(3x+11)}$$
 \end{frame}
 
 \end{document}
