@@ -1,0 +1,200 @@
+\documentclass[t]{beamer}
+
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{4 on 1 boxed}[a4paper, border shrink=5mm, landscape]
+  \nofiles
+}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Derivatives and Rates of Change (Section 2.6)}
+
+\date{Feb 9, 2017 \\ 9:35 - 10:50 AM}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Outline}
+\begin{fpi}
+\item Concept of derivative
+\item Word problems
+\item Math examples
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Derivative = Rate of change}
+The \textbf{derivative} of a function is the instantaneous rate of change of the function.
+\begin{itemize}
+\item Derivative of position = velocity
+\item Derivative of volume in tank = rate of drainage
+\item Derivative of mass of a type of molecule = rate of reaction
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Derivative = Slope of graph}
+The derivative at $x = a$ is also the slope of the graph
+at a given $x = a$.
+\end{frame}
+
+
+\begin{frame}{Formal definition of derivative}
+The derivative of $f(x)$ at $x = a$ is defined as:
+$$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}$$
+\end{frame}
+
+\begin{frame}{Slopes of secant lines vs derivatives}
+\begin{table}
+\begin{tabular}{c|c c}
+        & Slope of secant line & Derivative \\
+\hline
+Physical meaning & Average velocity   & Instantaneous velocity \\
+Formula  & $\frac{y_2 - y_1}{x_2 - x_1} = \frac{f(x_2) - f(x_1)}{x_2 - x_1}$  &  $f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x - a}$$
+\end{tabular}
+\end{table}
+\end{frame}
+
+\begin{frame}{Example}
+Alfred runs a 100 meter dash in 10 seconds.  The
+equation for his position during the race is
+$p(t) = t^2$.
+\begin{itemize}
+\item Compute his average velocity over the whole race.
+\item Compute his instantaneous velocity at $t = 2$ and
+$t = 8$
+\item How do these compare?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Draw the graph of the derivative from a graph}
+\end{frame}
+
+\begin{frame}{Derivative - Easier to use formula}
+Instead of 
+$$f'(a) = \lim_{x \to a} \frac{f(x) - f(a)}{x-a}$$,
+we can also use
+$$f'(a) = \lim_{h \to 0} \frac{f(a+h) - f(a)}{h}$$
+\end{frame}
+
+\begin{frame}{Example}
+Calculate the derivative of the function at $x = 2$
+$$f(x) = 3x^2 -5x$$
+\end{frame}
+
+\begin{frame}{Example}
+Calculate the derivative of the function at $x = -1$
+$$f(x) = \frac{5x}{4-x}$$
+\end{frame}
+
+\begin{frame}{Example}
+Calculate the derivative of the function at $x = 8$
+$$f(x) = \sqrt{2x}$$
+\end{frame}
+
+\begin{frame}{Example}
+Calculate the derivative of the function at $x = 1$
+$$f(x) = 3x^2 - 6x +4 $$
+\end{frame}
+
+\begin{frame}{Tangent Lines}
+To find the tangent line at a point $(x_0, y_0)$,
+\begin{itemize}
+\item Calculate the derivative at $x = x_0$.  
+\item Use point-slope form with the slope $m = f'(x_0)$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+Calculate the equation of the tangent line to the curve $f(x)$ at
+the point $(2, -1)$.
+$$f(x) = \frac{1}{1-x}$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the equation of the tangent line to the curve $f(x)$ at the
+point $(9,2)$.
+$$f(x) = \sqrt{x - 5}$$
+\end{frame}
+
+\begin{frame}{Going backwards}
+The following limit is the derivative for some function $f(x)$ at $x=a$
+What could $f(x)$ and $a$ be?
+$$\lim_{h \to 0} \frac{\sin\left( h + \frac{\pi}{2}\right) -1}{h}$$
+\end{frame}
+
+\end{document}

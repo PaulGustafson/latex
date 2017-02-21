@@ -1,0 +1,189 @@
+\documentclass[t]{beamer}
+
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{4 on 1 boxed}[a4paper, border shrink=5mm, landscape]
+  \nofiles
+}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{The Derivative as a Function (Section 2.7)}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Introduction}
+\begin{fpi}
+\item The main point of this lecture is to plug the variable $x$ into the derivative, instead of a constant $a$.
+\item This means we are thinking of the derivative as a function of $x$, instead of just a number.
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Overview}
+\begin{fpi}
+\item Finish derivative examples from last time
+\item Derivative as a function
+\item Differentiability
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Derivative as Number}
+Last lecture we saw the formula for the derivative at $x = a$:
+$$ f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} $$
+We plugged in a number for $a$ and got a number.
+\end{frame}
+
+\begin{frame}{Derivative as Function}
+Today we replace $a$ with the variable $x$:
+$$ f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}$$
+The answer now is a function of $x$.  The $h$ will disappear after evaluating the limit.
+\end{frame}
+
+\begin{frame}{Derivative as Function}
+Connection:
+
+If we get $f'(x)$ as a function, we can plug in any number $a$ to get the same
+answer as last time.  
+\end{frame}
+
+\begin{frame}{Derivative as Function}
+In general, when we say ``calculate the derivative of $f(x)$'' we mean calculate
+its derivative as a function.
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative of
+$$f(x) = 2x^2 - 3$$
+\end{frame}
+
+\begin{frame}{Comparing the graphs from the last example}
+
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative of
+$$f(x) = \frac{1}{1-x} + 2$$
+\end{frame}
+
+\begin{frame}{Notation}
+Usually we write
+$$f'(x) = derivative$$
+Sometimes we write
+$$\frac{d}{dx} f(x) = \frac{df}{dx} = \frac{dy}{dx} = derivative$$
+\end{frame}
+
+\begin{frame}{Differentiability}
+A function $f(x)$ is \textbf{differentiable} at $x = a$ if the derivative exists at $x = a.$
+
+Ways to check:
+
+The limits match:
+$$\lim_{x \to a^-} \frac{f(x) - f(a)}{x - a} = \lim_{x \to a^+} \frac{f(x) - f(a)}{x-a}.$$
+
+OR
+
+Calculate the derivative $f'(x)$ and check that you can plug in $x = a$.
+\end{frame}
+
+\begin{frame}{Not Differentiable}
+Example of a function which is not differentiable at $x = 0$: 
+$$f(x) = |x|$$
+\end{frame}
+
+\begin{frame}{Not Differentiable}
+\img{notdiff}
+\end{frame}
+
+\begin{frame}{Differentiabity requires Continuity}
+If $f(x)$ is differentiable at $x=a$, the $f(x)$ must be continuous at $x = a$.
+
+Contrapositive:
+\end{frame}
+
+\begin{frame}{Higher derivatives}
+Doing the derivative twice or more:
+$$f''(x) = \text{ second derivative}$$
+$$ f'''(x) = \text{ third derivative}$$
+The second derivative of position wrt time is the instantaneous acceleration.
+
+The third derivative of position wrt time  is the ``jerk''.
+\end{frame}
+
+\end{document}
