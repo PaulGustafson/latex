@@ -92,99 +92,133 @@ and Derivatives of Polynomials and Exponential Functions (Section 3.1)}
 
 \begin{frame}{Introduction}
 \begin{fpi}
-\item The main point of this lecture is to plug the variable $x$ into the derivative, instead of a constant $a$.
-\item This means we are thinking of the derivative as a function of $x$, instead of just a number.
+\item The derivative of a function $f(x)$ gives a lot of information about the graph of $f(x)$.  It also tells you about the maxes and mins of $f(x)$.
 \end{fpi}
 \end{frame}
 
 \begin{frame}{Overview}
 \begin{fpi}
-\item Finish derivative examples from last time
-\item Derivative as a function
-\item Differentiability
+\item Derivative and Shape of Graph
+\item Maxes/Mins
+\item Second Derivative and Shape of Graph
+\item Shortcut rules for derivatives
 \end{fpi}
 \end{frame}
 
-\begin{frame}{Derivative as Number}
-Last lecture we saw the formula for the derivative at $x = a$:
-$$ f'(a) = \lim_{h \to 0} \frac{f(a + h) - f(a)}{h} $$
-We plugged in a number for $a$ and got a number.
+\begin{frame}{Recall}
+The derivative gives the slope of a graph.
+\begin{itemize}
+\item Plugging $x$-values into $f(x)$ gives the $y$-values of the graph of $f(x)$
+\item Plugging $x$ values into $f'(x)$ gives the slope of the graph of $f(x)$
+\item The value on the $f'(x)$ graph corresponds to the slope on the $f(x)$ graph
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Derivative as Function}
-Today we replace $a$ with the variable $x$:
-$$ f'(x) = \lim_{h \to 0} \frac{f(x + h) - f(x)}{h}$$
-The answer now is a function of $x$.  The $h$ will disappear after evaluating the limit.
+\begin{frame}{Examples}
 \end{frame}
 
-\begin{frame}{Derivative as Function}
-Connection:
-
-If we get $f'(x)$ as a function, we can plug in any number $a$ to get the same
-answer as last time.  
+\begin{frame}{Extrema}
+\begin{itemize}
+\item Local extrama on a graph are peaks and valleys
+\item The peaks are called local \textbf{maxima} (singular: maximum)
+\item The valleys are local \textbf{minima} (singular: minimum)
+\end{itemize}
 \end{frame}
 
-\begin{frame}{Derivative as Function}
-In general, when we say ``calculate the derivative of $f(x)$'' we mean calculate
-its derivative as a function.
+\begin{frame}{Extrema}
+\begin{itemize}
+\item Local extrama only occur at endpoints of the domain or
+where the slope = 0
+\item Points where the slope = 0 are called \textbf{critical points}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Examples}
+\end{frame}
+
+\begin{frame}{More precise definitions (Important to remember)}
+\begin{itemize} 
+\item When we say ``local max/min'' we mean a point $(x,y)$.
+\item The \textbf{value} of the max/min is the $y$-value.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Second derivatives}
+\begin{itemize}
+\item Remember: The \textbf{second derivative} of a function $f(x)$ is found by taking the derivative twice.
+\item In other words, find $f'(x)$ then do $(f'(x))'$
+\item The second derivative tells us how ``curved'' the graph is.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Concavity}
+The sign of $f''(x)$ tells us about which way the graph of $f(x)$ curves.
+\begin{itemize}
+\item If $f''(x) > 0$ on an interval $(a,b)$, then the function $f(x)$ is concave up on that interval.
+\item Concave up = ``smiley face''
+\item If $f''(x) < 0$ on an interval $(a,b)$, then the function $f(x)$ is concave up on that interval.
+\item Concave down = ``frowny face''
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Cubic function example}
+\end{frame}
+
+\begin{frame}{Cubic function example (all three graphs)}
+\end{frame}
+
+\begin{frame}{Power rule}
+The rule for taking the derivative of the function $f(x) = x^n$,
+where $n$ is any number is:
+$$ f'(x) = n x^{n-1}$$
+\end{frame}
+
+\begin{frame}{Examples}
+\begin{fpi}
+\item $\displaystyle f(x) = x$
+\item $\displaystyle f(x) = x^{11}$
+\item $\displaystyle f(x) = \sqrt{x}$
+\item $\displaystyle f(x) = \frac{1}{x^2}$
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Constant rule}
+The derivative of any number (i.e., the variable $x$ does not appear in the term) is $0$.
+\end{frame}
+
+\begin{frame}{Constant multiple rule}
+If a function has a number multiplied out front, then we can ignore
+that number while taking the derivative.
+$$\frac{d}{dx}(c f(x)) = c \frac{d}{dx}f(x)$$
+\end{frame}
+
+\begin{frame}{Addition/subtraction rule}
+If two pieces of a function are added/substracted to each other, we may
+calculate the derivative of each piece separately.
+$$(f(x) + g(x))' = f'(x) + g'(x)$$
+Note: Does NOT work when multiplied or divided!
 \end{frame}
 
 \begin{frame}{Example}
-Find the derivative of
-$$f(x) = 2x^2 - 3$$
-\end{frame}
-
-\begin{frame}{Comparing the graphs from the last example}
-
+Calculate the derivative of the following function:
+$$f(x) = 3x^{2/3} - \frac{1}{x^2} + 5\cdot 3^6$$
 \end{frame}
 
 \begin{frame}{Example}
-Find the derivative of
-$$f(x) = \frac{1}{1-x} + 2$$
+Calculate the equation of the tangent line to $f(x)$ at $x = 1$.
+$$f(x) = x^3 - \frac{2}{x^2}$$
 \end{frame}
 
-\begin{frame}{Notation}
-Usually we write
-$$f'(x) = derivative$$
-Sometimes we write
-$$\frac{d}{dx} f(x) = \frac{df}{dx} = \frac{dy}{dx} = derivative$$
+\begin{frame}{Example}
+Calculate the equation of the tangent line to $f(x)$ at $x = 4$.
+$$f(x) = \sqrt{x} - \frac{1}{x} + 2$$
 \end{frame}
 
-\begin{frame}{Differentiability}
-A function $f(x)$ is \textbf{differentiable} at $x = a$ if the derivative exists at $x = a.$
-
-Ways to check:
-
-The limits match:
-$$\lim_{x \to a^-} \frac{f(x) - f(a)}{x - a} = \lim_{x \to a^+} \frac{f(x) - f(a)}{x-a}.$$
-
-OR
-
-Calculate the derivative $f'(x)$ and check that you can plug in $x = a$.
-\end{frame}
-
-\begin{frame}{Not Differentiable}
-Example of a function which is not differentiable at $x = 0$: 
-$$f(x) = |x|$$
-\end{frame}
-
-\begin{frame}{Not Differentiable}
-\img{notdiff}
-\end{frame}
-
-\begin{frame}{Differentiabity requires Continuity}
-If $f(x)$ is differentiable at $x=a$, the $f(x)$ must be continuous at $x = a$.
-
-Contrapositive:
-\end{frame}
-
-\begin{frame}{Higher derivatives}
-Doing the derivative twice or more:
-$$f''(x) = \text{ second derivative}$$
-$$ f'''(x) = \text{ third derivative}$$
-The second derivative of position wrt time is the instantaneous acceleration.
-
-The third derivative of position wrt time  is the ``jerk''.
+\begin{frame}{Rule for $e^x$}
+The derivative of $f(x) = e^x$ is easy!
+$$\frac{d}{dx} e^x = e^x$$
+Note: This rule changes if there is anything else in the exponent,
+e.g. $e^{2x}$  (We'll talk about how to differentiate this next time.)
 \end{frame}
 
 \end{document}
