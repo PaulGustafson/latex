@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  23 FEB 2017 09:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.5)  23 FEB 2017 12:44
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Section2_8.tex
-(./Section2_8.tex
+**Section3_2.tex
+(./Section3_2.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 10 language(s) loaded.
 (/usr/share/texlive/texmf-dist/tex/latex/beamer/beamer.cls
@@ -776,30 +776,8 @@ Package: enumitem 2011/09/28 v3.5.2 Customized lists
 \enit@inbox=\box53
 \enitdp@description=\count155
 )
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 90.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 90.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 90.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (PDFDocEncoding):
-(hyperref)                removing `math shift' on input line 90.
-
-(./Section2_8.aux)
-\openout1 = `Section2_8.aux'.
+(./Section3_2.aux)
+\openout1 = `Section3_2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 90.
 LaTeX Font Info:    ... okay on input line 90.
@@ -894,9 +872,9 @@ LaTeX Info: Redefining \ref on input line 90.
 LaTeX Info: Redefining \pageref on input line 90.
 LaTeX Info: Redefining \nameref on input line 90.
 
-(./Section2_8.out) (./Section2_8.out)
+(./Section3_2.out) (./Section3_2.out)
 \@outlinefile=\write5
-\openout5 = `Section2_8.out'.
+\openout5 = `Section3_2.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 90.
@@ -984,15 +962,10 @@ LaTeX Info: Redefining \includegraphics on input line 90.
 
 (/usr/share/texlive/texmf-dist/tex/latex/ucs/ucsencs.def
 File: ucsencs.def 2011/01/21 Fixes to fontencodings LGR, T3
-) (./Section2_8.nav)
-LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
-line 90.
-
-(/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
-File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
-thkerncmss.
 )
-Overfull \hbox (254.92082pt too wide) in paragraph at lines 90--90
+No file Section3_2.nav.
+
+Overfull \hbox (172.66524pt too wide) in paragraph at lines 90--90
  [][][][]  
  []
 
@@ -1001,199 +974,204 @@ LaTeX Font Warning: Font shape `T1/cmss/m/n' in size <4> not available
 (Font)              size <5> substituted on input line 91.
 
 
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+LaTeX Font Info:    Try loading font information for U+msa on input line 102.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 102.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
+LaTeX Font Info:    Try loading font information for OT1+mathkerncmss on input 
+line 102.
+
+(/usr/share/texlive/texmf-dist/tex/latex/sansmathaccent/ot1mathkerncmss.fd
+File: ot1mathkerncmss.fd 2013/03/27 Fontinst v1.933 font definitions for OT1/ma
+thkerncmss.
+)
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [2
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [3
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [4
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [5
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [6
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [7
 
-] <pun1.png, id=218, 471.7625pt x 311.1625pt>
-File: pun1.png Graphic file (type png)
- <use pun1.png>
-Package pdftex.def Info: pun1.png used on input line 134.
-(pdftex.def)             Requested size: 197.45503pt x 130.2363pt.
-
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+]
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [8
 
- <./pun1.png>]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+]
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [9
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [10
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [11
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [12
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [13
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [14
 
-] <dosequis.jpg, id=408, 614.295pt x 614.295pt>
-File: dosequis.jpg Graphic file (type jpg)
- <use dosequis.jpg>
-Package pdftex.def Info: dosequis.jpg used on input line 176.
-(pdftex.def)             Requested size: 130.23366pt x 130.23366pt.
-
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+]
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [15
 
- <./dosequis.jpg>]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+] <trig.png, id=428, 917.4275pt x 244.915pt>
+File: trig.png Graphic file (type png)
+ <use trig.png>
+Package pdftex.def Info: trig.png used on input line 180.
+(pdftex.def)             Requested size: 342.43861pt x 91.41685pt.
+
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [16
 
-]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+ <./trig.png>]
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [17
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [18
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [19
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [20
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [21
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [22
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
+Overfull \hbox (172.66524pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [23
 
 ]
-Overfull \hbox (254.92082pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[24
-
-]
 \tf@nav=\write6
-\openout6 = `Section2_8.nav'.
+\openout6 = `Section3_2.nav'.
 
 \tf@toc=\write7
-\openout7 = `Section2_8.toc'.
+\openout7 = `Section3_2.toc'.
 
 \tf@snm=\write8
-\openout8 = `Section2_8.snm'.
+\openout8 = `Section3_2.snm'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 229.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 229.
- (./Section2_8.aux)
+ (./Section3_2.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 229.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 229.
-Package rerunfilecheck Info: File `Section2_8.out' has not changed.
+Package rerunfilecheck Info: File `Section3_2.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
@@ -1203,30 +1181,28 @@ LaTeX Font Warning: Size substitutions with differences
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 229.
  ) 
 Here is how much of TeX's memory you used:
- 17929 strings out of 494440
- 339389 string characters out of 6173199
- 423154 words of memory out of 5000000
- 20722 multiletter control sequences out of 15000+600000
- 22291 words of font info for 67 fonts, out of 8000000 for 9000
+ 17831 strings out of 494440
+ 338393 string characters out of 6173199
+ 422881 words of memory out of 5000000
+ 20640 multiletter control sequences out of 15000+600000
+ 14406 words of font info for 42 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 56i,18n,55p,390b,569s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,16n,55p,390b,569s stack positions out of 5000i,500n,10000p,200000b,80000s
  </u/pgustafs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecss0800.600pk> </u/pgus
 tafs/.texmf-var/fonts/pk/ljfour/jknappen/ec/ecsx1095.600pk> </u/pgustafs/.texmf
 -var/fonts/pk/ljfour/jknappen/ec/ecss1095.600pk> </u/pgustafs/.texmf-var/fonts/
 pk/ljfour/jknappen/ec/ecss0600.600pk> </u/pgustafs/.texmf-var/fonts/pk/ljfour/j
 knappen/ec/ecss1440.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss
-10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.pf
-b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi12.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on Section2_8.pdf (24 pages, 343418 bytes).
+fonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+s10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssi8.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
+re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on Section3_2.pdf (23 pages, 169479 bytes).
 PDF statistics:
- 897 PDF objects out of 1000 (max. 8388607)
- 675 compressed objects within 7 object streams
- 49 named destinations out of 1000 (max. 500000)
- 71 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 823 PDF objects out of 1000 (max. 8388607)
+ 643 compressed objects within 7 object streams
+ 47 named destinations out of 1000 (max. 500000)
+ 66 words of extra memory for PDF output out of 10000 (max. 10000000)
 
