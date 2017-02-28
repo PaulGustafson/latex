@@ -1,0 +1,229 @@
+\documentclass[t]{beamer}
+
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{4 on 1 boxed}[a4paper, border shrink=5mm, landscape]
+  \nofiles
+}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Product and Quotient Rules (Section 3.2)
+and Derivatives of Trigonometric Functions (Section 3.3)}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+
+\begin{frame}{Product Rule}
+When two functions are multiplied together, we use the \textbf{product rule} to take
+the derivative of the product.
+
+If 
+$$ f(x) = u(x) \cdot v(x),$$
+then 
+$$ f'(x) = u'(x)v(x) + u(x) v'(x)$$
+\end{frame}
+
+\begin{frame}{Example}
+Compute the derivative of $f(x)$.
+$$f(x) = e^x x^2$$
+\end{frame}
+
+\begin{frame}{Example}
+Compute the derivative of $f(x)$.
+$$f(x) = (x^2 + 1) (x^3 - 2x - 2)$$
+\end{frame}
+
+\begin{frame}{Example}
+Compute the derivative of $f(x)$.
+$$f(x) = (x - e^x) \left( \sqrt{x} - \frac{1}{x^5} \right)$$
+\end{frame}
+
+\begin{frame}{Combining multiple rules}
+When more than two functions are multiplied together, we have to apply the product rule
+multiple times.
+\end{frame}
+
+\begin{frame}{Example}
+Compute the derivative of $f(x)$.
+$$f(x) = (x^2 -x) (x^4 - 3x^2 -2)(5x - 3)$$
+\end{frame}
+
+\begin{frame}{Quotient rule}
+If $f(x)$ is a fraction, then we use the \textbf{quotient rule} to take the derivative.
+
+If 
+$$f(x) = \frac{u(x)}{v(x)},$$
+then
+$$f'(x) = \frac{u'(x)v(x) - u(x) v'(x)}{v^2(x)}$$
+\end{frame}
+
+\begin{frame}{Quotient rule}
+Abbreviated:
+
+If 
+$$f(x) = \frac{u}{v},$$
+then
+$$f'(x) = \frac{u'v - uv'}{v^2}$$
+\end{frame}
+
+\begin{frame}{Example}
+Compute the derivative of $f(x)$.
+$$f(x) = \frac{3x^2}{x^3 -1}$$
+\end{frame}
+
+\begin{frame}{Example}
+Compute the derivative of $f(x)$.
+$$f(x) = \frac{e^x + x^2}{5x^3 + x}$$
+\end{frame}
+
+\begin{frame}{Example}
+Compute the derivative of $f(x)$.
+$$f(x) = \frac{3x - 5e^x}{2x - x^3}$$
+\end{frame}
+
+\begin{frame}{Example}
+Compute the derivative of $f(x)$.
+$$f(x) = \frac{x^3 -2x^2 +1}{x^3}$$
+\end{frame}
+
+\begin{frame}{Example}
+Combine derivative rules to find the derivative of $f$.
+$$f(x) = \frac{-2e^{x} x^4}{x^3 - 3}$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative of $f$.
+$$f(x) = \frac{1 - \left(\frac{1}{\sqrt{x}} - x \right) e^x}{1 + \sqrt{x}}$$
+\end{frame}
+
+\begin{frame}{Trig functions}
+Recall the basic trig functions:
+\img{trig}
+\end{frame}
+
+\begin{frame}{Basic trig derivatives (Memorize!)}
+\begin{fpi}
+\item $\displaystyle (\sin(x))' = \cos(x)$
+\item $\displaystyle (\cos(x))' = -\sin(x)$
+\item $\displaystyle (\tan(x))' = (\sec(x))^2 = \sec^2(x)$
+\end{fpi}
+\end{frame}
+
+\begin{frame}{3 more trig derivatives (Memorize!)}
+\begin{fpi}
+\item $\displaystyle (\csc(x))' = -\csc(x) \cot(x)$
+\item $\displaystyle (\sec(x))' = \sec(x)\tan(x)$
+\item $\displaystyle (\cot(x))' = -(\csc(x))^2 = -\csc^2(x)$
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Example derivations}
+Find the derivative. 
+\begin{itemize}
+\item $\displaystyle f(x) = \csc(x)$
+\item $\displaystyle f(x) = \tan(x)$
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative:
+$$f(x) = \sin(x) \cos(x)$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative:
+$$f(x) = \frac{\tan(x)}{\sec(x)}$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative:
+$$f(x) = \frac{x^2 \cos(x)}{e^x + \cot(x)}$$
+\end{frame}
+
+\begin{frame}{Spring Example}
+When a spring is pulled and released, the position function for its free endpoint is given by
+$$p(t) = -5 \cos(t) + 5 $$
+\begin{itemize}
+\item How fast is the spring moving after 1 second?
+\item When is the spring moving the fastest?
+\end{itemize}
+\end{frame}
+\end{document}
