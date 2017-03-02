@@ -1,0 +1,166 @@
+\documentclass[t]{beamer}
+
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{4 on 1 boxed}[a4paper, border shrink=5mm, landscape]
+  \nofiles
+}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Chain Rule (Section 3.4)}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Intro}
+We use the chain rule to take the derivative of a composition of functions (one function is inside of another function).  It lets us take the derivative of nearly any combination of functions.
+\end{frame}
+
+\begin{frame}{Overview}
+\begin{fpi}
+\item The Chain Rule
+\item Examples of the Chain Rule
+\item Hard examples of the Chain Rule
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Chain rule}
+To take the derivative of a composition of two functions, we use the chain rule.
+
+If 
+$$f(x) = u(v(x)),$$
+then
+$$f'(x) = u'(v(x)) \cdot v'(x)$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative.
+$$f(x) = \sqrt{x^2 + 1}$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative.
+$$f(x) = (x^2 - e^x)^6$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative.
+$$f(x) = e^{x^3 - \frac{1}{x}}$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative.
+$$f(x) = \sin(4x^3 - e^x + 4)$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative.
+$$f(x) = (x^2 + 2x - 1)^6$$
+\end{frame}
+
+\begin{frame}{Example}
+Combine derivative rules to find the derivative of $f(x)$.
+$$f(x) = \cot\left( \frac{x}{x^2 - 1} \right)$$
+\end{frame}
+
+\begin{frame}{Example}
+Combine derivative rules to find the derivative of $f(x)$.
+$$f(x) = e^{(x^2 + 1)(x^3 - 1)}$$
+\end{frame}
+
+\begin{frame}{Example}
+Combine derivative rules to find the derivative of $f(x)$.
+$$f(x) = \tan((3x+1)^4)$$
+\end{frame}
+
+\begin{frame}{Pie chart}
+\vfill
+\url{http://data.iwastesomuchtime.com/November-19-2011-23-56-17-endlessorigami.jpg}
+\vfill
+\end{frame}
+
+\begin{frame}{Examples (Group work)}
+In groups, combine derivative rules to find the derivative of $f(x)$. If you get stuck on one, try the next.
+$$f(x) = e^x (x^2 +1(x^5-x)^2$$
+$$f(x) = \frac{\csc(4x^2)}{x^2}$$
+$$f(x) = e^{(e^{2x})/(2x+1)}$$
+\end{frame}
+
+\end{document}
