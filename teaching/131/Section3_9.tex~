@@ -1,0 +1,283 @@
+\documentclass[t]{beamer}
+
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{4 on 1 boxed}[a4paper, border shrink=5mm, landscape]
+  \nofiles
+}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Derivatives of Log Functions, Applications in Natural and Social Sciences (Sections 3.7 and 3.8)}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Intro}
+The lecture today goes over the last set of derivative rules
+we need for this class. We will cover logarithmic and
+(more) exponential derivative rules. Aftwerwards, we'll talk 
+about some applications.
+\end{frame}
+
+\begin{frame}{Exponential Rule}
+For any number $a$:
+
+If 
+$$f(x) = a^x,$$
+then
+$$f'(x) = \ln(a) a^x$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative.
+$$f(x) = 5^{\sin(x)}$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative.
+$$f(x) = \cot(8^x)$$
+\end{frame}
+
+\begin{frame}{Log Rule}
+New derivative rule:
+$$f(x) = \ln(x)$$
+$$f'(x) = \frac{1}{x}$$
+
+Note: this rule only works for the natural log ($\ln$).
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative.
+$$f(x) = \frac{\ln(x)}{x^5}$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative.
+$$f(x) = \ln(x^2 + \sqrt{x})$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative.
+$$f(x) = \cos(\ln(x^3 - e^x))$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative.
+$$f(x) = \ln\left( e^{2x} + \frac{x}{5+x}\right)$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative.
+$$f(x) = \ln \left(\frac{x^3 e^x (x^2 + 1)}{\sin(x)} \right)$$
+Hint: simply $f$ first.
+\end{frame}
+
+\begin{frame}{Log base $a$}
+For a base $a$ logarithm:
+$$f(x) = \log_a(x)$$
+$$f'(x) = \frac{1}{x \cdot \ln(a)}$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative.
+$$f(x) = \log_{10}(x^{3/2} + \sin(x))$$
+\end{frame}
+
+\begin{frame}{Example}
+The formula for calculating volume in Watts from decibel Watt units is
+$$P(x) = 10^{x/10}$$
+For example,  20 dBW corresponds to a volume of
+$$P(20) = 10^{20/10} = 100 \text{ W}$$
+What is the rate of change of the volume in W with respect to dBW at 30 dBW?
+\end{frame}
+
+
+\begin{frame}{Psychology}
+Psychologists model the spread of a rumor through a population as
+$$p(t) = \frac{1}{1 + 2e^{-t/5}}$$
+where $p(t)$ is the fraction of the population who know the rumor at time $t$ days.
+\end{frame}
+
+\begin{frame}{Psychology}
+Model: 
+$$p(t) = \frac{1}{1 + 2e^{-t/5}}$$
+\begin{itemize}
+\item After how many days with 90\% of the population know the
+rumor?
+\item How fast is the rumor spreading at that point?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Health}
+Body temperature fluctuates throughout the day. It
+is usually highest in the afternoon and lowest in the
+early morning (while asleep). It can be modelled
+approximately by a trigonometric function
+$$ f(t) = 98.5 - 1.1 \cos\left( \frac{\pi}{12}(t-4)\right), $$
+where $t$ is the number of hours after midnight.
+\end{frame}
+
+\begin{frame}{Health}
+Model:
+$$ f(t) = 98.5 - 1.1 \cos\left( \frac{\pi}{12}(t-4)\right) $$
+What are the local maxes/mins for body temperature?
+\end{frame}
+
+\begin{frame}{Kinesiology}
+Weight lifters value smooth, controlled motion for
+weightlifting. This means if we track the motion of
+the weight, we want to avoid areas where there is a
+sudden spike in the velocity of the lift.
+
+Suppose a bench press lift is modeled by
+$$h(t) = t^4 - 8t^3 + 23t^2 -28t + 14$$
+where $t$ is in seconds and $h$ is the height in inches.
+\end{frame}
+
+\begin{frame}{Kinesiology}
+Model:
+$$h(t) = t^4 - 8t^3 + 23t^2 -28t + 14$$
+\begin{itemize}
+\item Find the values where $h'(t)$ has a local max/min.
+\item How is the weight lifter doing?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Education}
+The learning curve represents how a student learns material
+based on time.
+\img{edu}
+\end{frame}
+
+\begin{frame}{Education}
+\begin{fpi}
+\item What does the derivative of the learning curve represent?
+\item When should the derivative be smallest? Largest?
+\item What is wrong with the graph on the previous slide?
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Biomedical Science}
+You perform an experiment using millions of
+bacterial microbes. A specialized laser is used to
+measure the success of the experiment. The data
+is then entered into a computer and the computer
+processes the data.  The time it takes to process the data is:
+$$t(s) = \ln(5s^2 + 3s - 1),$$
+where $s$ is the number of microbes and
+$t$ is the time in minutes
+\end{frame}
+
+\begin{frame}{Biomedical Science}
+Model:
+$$t(s) = \ln(5s^2 + 3s - 1)$$
+\begin{itemize}
+\item If you need to complete the computation in 1
+hours, what is the maximum number of
+microbes you can use for the experiment?
+\item What is the rate of change of the computation
+time if $s = 10^{10}$?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Sports Management}
+You manage the finances for a minor league
+baseball team (Brazos Bombers). You are tasked
+with setting ticket prices to maximize the team’s
+profits. After factoring in the costs, you find the
+profit equation:
+$$p(x) = -10x^2 + 400x - 1000$$
+\end{frame}
+
+\begin{frame}{Animal Science}
+\img{otters}
+In what years was there a  local max of the sea otter population?
+
+Does this have implications for conservation efforts?
+\end{frame}
+
+\begin{frame}{If time permits}
+More group problems?
+$$f(x) = (\ln(1 + e^x))^2$$
+$$f(x) = \sec\left( \ln \left( \frac{x^2 + 1}{x - e^x} \right)
+\right) $$
+\end{frame}
+
+\end{document}

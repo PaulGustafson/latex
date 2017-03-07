@@ -1,0 +1,146 @@
+\documentclass[t]{beamer}
+
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{4 on 1 boxed}[a4paper, border shrink=5mm, landscape]
+  \nofiles
+}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Linear Approximations and Differentials (Section 3.9)}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Intro}
+Linear approximations are one more way of applying derivatives
+to real world problems.  
+\end{frame}
+
+\begin{frame}{Linear approximation}
+A \textbf{linear approximation} is another name for a tangent line. 
+The tangent line at $x = a$ is a close estimate to the graph of the function,
+as long as we are close to $a$.
+\img{linapprox}
+\end{frame}
+
+\begin{frame}{Linear approximation}
+As long as a graph is differentiable at $a$, if we zoom
+in close enough it looks like a line.
+\end{frame}
+
+\begin{frame}{Example}
+Find the linear approximation of $f(x)$ at $x = -1$.
+$$f(x) = x^4 + 2x^2$$
+\end{frame}
+
+\begin{frame}{Example}
+Use a linearization to estimate the following number
+$$(32.06)^{4/5}$$
+\end{frame}
+
+\begin{frame}{Example}
+Use a linearization to estimate the following number
+$$\sin(0.99 \pi)$$
+\end{frame}
+
+\begin{frame}{Differential}
+The \textbf{differential} $dy$ is defined as
+$$dy = f'(x) dx$$
+To get a more rigorous definition, take Math 662.
+\end{frame}
+
+\begin{frame}{Example}
+Find the differential $dy$ for $\displaystyle y = \frac{u+1}{u-1}$.
+\end{frame}
+
+\begin{frame}{Example}
+Suppose that $f(1) = -2$ and that the graph of $f'(x)$ is
+\img{lla2}
+Estimate $f(0.99)$ and $f(1.01)$.
+\end{frame}
+
+\begin{frame}{Example}
+Find the linear approximation for $\sqrt{16-x}$. Use this to approximate
+$\sqrt{15.9}$ and $\sqrt{15.99}$
+\end{frame}
+
+
+\end{document}
