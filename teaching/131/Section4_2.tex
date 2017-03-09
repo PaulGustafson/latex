@@ -1,0 +1,221 @@
+\documentclass[t]{beamer}
+
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{4 on 1 boxed}[a4paper, border shrink=5mm, landscape]
+  \nofiles
+}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Local and Absolute Extrema (Section 4.2)}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Intro}
+Today we'll talk about how to find the highest and lowest points on a graph.
+\begin{itemize}
+\item Finding local extrema 
+\item Finding absolute extrema 
+\item Information from the second derivative 
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Recall}
+\begin{fpi}
+\item When we say local max/min, we mean a \textbf{point} (x,y)
+\item When we say \textbf{value} of a max/min, we mean the $y$-value
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Critical points}
+A \textbf{critical point} is a point where either
+\begin{itemize}
+\item $f'(x) = 0$, OR
+\item $f(x)$ exists, but $f'(x)$ does not exist
+\end{itemize}
+These are points where local extremum may (but do not have to) appear.
+\end{frame}
+
+
+\begin{frame}{Finding local maxs/mins}
+\begin{itemize}
+\item Find the derivative of $f(x)$
+\item Find the critical points of $f(x)$.  Usually, this just means
+solving for $x$ such that $f'(x) = 0$.
+\item Draw a chart showing where $f'(x)$ is positive or negative.
+\item Use this to determine which points are maxs/mins
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+Calculate the local maxs/mins of $f(x)$.
+$$f(x) = \frac{x^3}{3} - \frac{x^2}{2} - 6x + 1 $$
+\end{frame}
+
+\begin{frame}{Example}
+Calculate the local maxs/mins of $f(x)$.
+$$f(x) = x^{2/5} + 4 x^{-3/5}$$
+\end{frame}
+
+\begin{frame}{Warning}
+According to the definition in your book, local max/mins never occur at
+the edge of the graph.
+\end{frame}
+
+\begin{frame}{Absolute Maxs/Mins}
+\begin{fpi}
+\item Before we only cared about local maxs/mins, not the whole graph
+\item \textbf{Absolute maxs/mins} only care about the highest/lowest points
+on the whole graph
+\item We will only compute maxs/mins on closed intervals (e.g. $[-3,2]$)
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Example}
+\img{absolute}
+\end{frame}
+
+\begin{frame}{Absolute Maxs/Mins}
+\begin{fpi}
+\item Absolute maxs/mins must be either critical 
+points or end points
+\item So we jsut find each of these $x$-values, then 
+compare the $y$-values to see which is biggest/smallest
+\item Possible questions: location of maxs/mins 
+($x$-values) or value of max/min ($y$-value)
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Finding Absolute Extrema}
+\begin{fpi}
+\item Find the derivative of $f(x)$
+\item Find the critical points
+\item Make a table of $x$-values and $y$-values 
+containing all critical points and end points
+\item Select the points with the largest/smallest
+$y$-values
+\end{fpi}
+\end{frame}
+
+\begin{frame}{Example}
+Find the absolute maximum and minimum for
+$f(x)$ on the interval $[-2,3]$.
+$$f(x) = 2x^3 + 2x^2 -2x + 1$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the absolute maximum and minimum values for
+$f(x)$ on the interval $[0,5]$.
+$$f(x) = \sin \left( \frac{\pi}{4}(x + 1) \right)$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the absolute maximum and minimum values for
+$f(x)$ on the interval $[-1,2]$.
+$$f(x) = x^4 - 2x^2$$
+\end{frame}
+
+\begin{frame}{Extrema and Second Derivatives}
+The second derivative can help us determine if a 
+critical point is a max, a min, or neither.
+\begin{itemize}
+\item If $f'(a) = 0$ and $f''(a) > 0$ then the graph is a
+``smiley'' at $a$ and thus there is a min at $x = a$
+\item if $f'(a) = 0$ and $f''(a) < 0$ then the graph is a 
+``frowny'' at $a$ and thus there is a max at $x = a$
+\item If $f'(a) = 0$ and $f''(a) = 0$ then we cannot determine
+if it is a max/min/neither from the second derivative
+\item If $f'(a) \neq 0$ then there cannot be a max/min at
+$x = a$ no matter what $f''(a)$ is.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+Suppose that $f(x)$ is a function where
+\begin{itemize}
+\item $f'(a) = 0$, $f''(a) < 0$
+\item $f'(b) > 0$, $f'' b = 0$
+\end{itemize}
+Classify the points at $a,b$ as local maxs, mins, or neither.
+\end{frame}
+
+
+\end{document}
