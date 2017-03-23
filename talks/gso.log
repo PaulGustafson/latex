@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.3.22)  22 MAR 2017 17:29
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.3.22)  23 MAR 2017 15:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -660,8 +660,31 @@ Package: beamerinnerthemedefault 2012/05/01  (rcs-revision 67c48b3b652d)
 (/usr/share/texmf/tex/latex/beamer/base/themes/outer/beamerouterthemedefault.st
 y
 Package: beamerouterthemedefault 2012/10/02  (rcs-revision 5ed0f4010e8a)
-))) (./amsrefs.sty
-(/usr/share/texlive/texmf-dist/tex/latex/amsrefs/pcatcode.sty
+))) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count153
+\lst@gtempboxa=\box53
+\lst@token=\toks40
+\lst@length=\count154
+\lst@currlwidth=\dimen185
+\lst@column=\count155
+\lst@pos=\count156
+\lst@lostspace=\dimen186
+\lst@width=\dimen187
+\lst@newlines=\count157
+\lst@lineno=\count158
+\lst@maxwidth=\dimen188
+
+(/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2013/08/26 1.5b (Carsten Heinz)
+\c@lstnumber=\count159
+\lst@skipnumbers=\count160
+\lst@framebox=\box54
+)
+(/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2013/08/26 1.5b listings configuration
+))
+Package: listings 2013/08/26 1.5b (Carsten Heinz)
+ (./amsrefs.sty (/usr/share/texlive/texmf-dist/tex/latex/amsrefs/pcatcode.sty
 Package: pcatcode 2002/04/16 v1.04
 )
 Package: amsrefs 2004/06/07 v1.71
@@ -671,15 +694,15 @@ Package: ifoption 2002/03/04 v1.02
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsrefs/rkeyval.sty
 Package: rkeyval 2004/05/05 v1.08
-\@temptokenb=\toks40
-\rsk@toks=\toks41
+\@temptokenb=\toks41
+\rsk@toks=\toks42
 )
-\c@bib=\count153
-\@maxlabelwidth=\dimen185
-\c@bib@env=\count154
+\c@bib=\count161
+\@maxlabelwidth=\dimen189
+\c@bib@env=\count162
 \bib@dbfile=\read2
-\alpha@suffix=\count155
-\series@index=\count156
+\alpha@suffix=\count163
+\series@index=\count164
 )
 (/usr/share/texmf/tex/latex/pgf/frontendlayer/tikz.sty
 (/usr/share/texmf/tex/latex/pgf/basiclayer/pgf.sty
@@ -687,15 +710,15 @@ Package: pgf 2008/01/15 v2.10 (rcs-revision 1.12)
 
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
 File: pgfmoduleshapes.code.tex 2010/09/09  (rcs-revision 1.13)
-\pgfnodeparttextbox=\box53
+\pgfnodeparttextbox=\box55
 )
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmoduleplot.code.tex
 File: pgfmoduleplot.code.tex 2010/10/22  (rcs-revision 1.8)
 )
 (/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
 Package: pgfcomp-version-0-65 2007/07/03 v2.10 (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen186
-\pgf@nodesepend=\dimen187
+\pgf@nodesepstart=\dimen190
+\pgf@nodesepend=\dimen191
 )
 (/usr/share/texmf/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
 Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
@@ -705,39 +728,39 @@ Package: pgfcomp-version-1-18 2007/07/23 v2.10 (rcs-revision 1.1)
 (/usr/share/texmf/tex/generic/pgf/utilities/pgfkeys.code.tex))
 (/usr/share/texmf/tex/generic/pgf/utilities/pgffor.code.tex
 Package: pgffor 2010/03/23 v2.10 (rcs-revision 1.18)
-\pgffor@iter=\dimen188
-\pgffor@skip=\dimen189
-\pgffor@stack=\toks42
-\pgffor@toks=\toks43
+\pgffor@iter=\dimen192
+\pgffor@skip=\dimen193
+\pgffor@stack=\toks43
+\pgffor@toks=\toks44
 ))
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2010/10/13 v2.10 (rcs-revision 1.76)
 
 (/usr/share/texmf/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
 File: pgflibraryplothandlers.code.tex 2010/05/31 v2.10 (rcs-revision 1.15)
-\pgf@plot@mark@count=\count157
-\pgfplotmarksize=\dimen190
+\pgf@plot@mark@count=\count165
+\pgfplotmarksize=\dimen194
 )
-\tikz@lastx=\dimen191
-\tikz@lasty=\dimen192
-\tikz@lastxsaved=\dimen193
-\tikz@lastysaved=\dimen194
-\tikzleveldistance=\dimen195
-\tikzsiblingdistance=\dimen196
-\tikz@figbox=\box54
-\tikz@tempbox=\box55
-\tikztreelevel=\count158
-\tikznumberofchildren=\count159
-\tikznumberofcurrentchild=\count160
-\tikz@fig@count=\count161
+\tikz@lastx=\dimen195
+\tikz@lasty=\dimen196
+\tikz@lastxsaved=\dimen197
+\tikz@lastysaved=\dimen198
+\tikzleveldistance=\dimen199
+\tikzsiblingdistance=\dimen200
+\tikz@figbox=\box56
+\tikz@tempbox=\box57
+\tikztreelevel=\count166
+\tikznumberofchildren=\count167
+\tikznumberofcurrentchild=\count168
+\tikz@fig@count=\count169
 
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2010/08/24  (rcs-revision 1.4)
-\pgfmatrixcurrentrow=\count162
-\pgfmatrixcurrentcolumn=\count163
-\pgf@matrix@numberofcolumns=\count164
+\pgfmatrixcurrentrow=\count170
+\pgfmatrixcurrentcolumn=\count171
+\pgf@matrix@numberofcolumns=\count172
 )
-\tikz@expandcount=\count165
+\tikz@expandcount=\count173
 
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopat
 hs.code.tex
@@ -764,16 +787,16 @@ ations.markings.code.tex
 (/usr/share/texmf/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecor
 ations.code.tex
 (/usr/share/texmf/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
-\pgfdecoratedcompleteddistance=\dimen197
-\pgfdecoratedremainingdistance=\dimen198
-\pgfdecoratedinputsegmentcompleteddistance=\dimen199
-\pgfdecoratedinputsegmentremainingdistance=\dimen200
-\pgf@decorate@distancetomove=\dimen201
-\pgf@decorate@repeatstate=\count166
-\pgfdecorationsegmentamplitude=\dimen202
-\pgfdecorationsegmentlength=\dimen203
+\pgfdecoratedcompleteddistance=\dimen201
+\pgfdecoratedremainingdistance=\dimen202
+\pgfdecoratedinputsegmentcompleteddistance=\dimen203
+\pgfdecoratedinputsegmentremainingdistance=\dimen204
+\pgf@decorate@distancetomove=\dimen205
+\pgf@decorate@repeatstate=\count174
+\pgfdecorationsegmentamplitude=\dimen206
+\pgfdecorationsegmentlength=\dimen207
 )
-\tikz@lib@dec@box=\box56
+\tikz@lib@dec@box=\box58
 )
 (/usr/share/texmf/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.m
 arkings.code.tex))
@@ -796,20 +819,20 @@ Package: beamerouterthemeinfolines 2012/10/16  (rcs-revision 51a8c72084af)
 )) (./gso.aux)
 \openout1 = `gso.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 109.
-LaTeX Font Info:    ... okay on input line 109.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 110.
+LaTeX Font Info:    ... okay on input line 110.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -847,17 +870,17 @@ LaTeX Font Info:    ... okay on input line 109.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count167
-\scratchdimen=\dimen204
-\scratchbox=\box57
-\nofMPsegments=\count168
-\nofMParguments=\count169
-\everyMPshowfont=\toks44
-\MPscratchCnt=\count170
-\MPscratchDim=\dimen205
-\MPnumerator=\count171
-\makeMPintoPDFobject=\count172
-\everyMPtoPDFconversion=\toks45
+\scratchcounter=\count175
+\scratchdimen=\dimen208
+\scratchbox=\box59
+\nofMPsegments=\count176
+\nofMParguments=\count177
+\everyMPshowfont=\toks45
+\MPscratchCnt=\count178
+\MPscratchDim=\dimen209
+\MPnumerator=\count179
+\makeMPintoPDFobject=\count180
+\everyMPtoPDFconversion=\toks46
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
@@ -874,8 +897,8 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 ABD: EveryShipout initializing macros
-\AtBeginShipoutBox=\box58
-Package hyperref Info: Link coloring OFF on input line 109.
+\AtBeginShipoutBox=\box60
+Package hyperref Info: Link coloring OFF on input line 110.
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
@@ -883,58 +906,58 @@ Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count173
+\c@section@level=\count181
 )
-LaTeX Info: Redefining \ref on input line 109.
-LaTeX Info: Redefining \pageref on input line 109.
-LaTeX Info: Redefining \nameref on input line 109.
+LaTeX Info: Redefining \ref on input line 110.
+LaTeX Info: Redefining \pageref on input line 110.
+LaTeX Info: Redefining \nameref on input line 110.
 
 (./gso.out) (./gso.out)
 \@outlinefile=\write5
 \openout5 = `gso.out'.
 
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 109.
+(Font)                  OT1/cmr/m/n --> OT1/cmss/m/n on input line 110.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 109.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 110.
 \symnumbers=\mathgroup6
 \sympureletters=\mathgroup7
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 109.
-LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 109.
+(Font)                  OT1/cmss/m/n --> OT1/cmr/m/n on input line 110.
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 110.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 109.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 110.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 109.
-LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 109.
+(Font)                  OT1/cmr/bx/n --> OT1/cmss/bx/n on input line 110.
+LaTeX Font Info:    Redeclaring math alphabet \mathsf on input line 110.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 109.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/m/n on input line 110.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 109.
-LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 109.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/m/n on input line 110.
+LaTeX Font Info:    Redeclaring math alphabet \mathit on input line 110.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 109.
+(Font)                  OT1/cmr/m/it --> OT1/cmss/m/it on input line 110.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 109.
-LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 109.
+(Font)                  OT1/cmr/bx/it --> OT1/cmss/m/it on input line 110.
+LaTeX Font Info:    Redeclaring math alphabet \mathtt on input line 110.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 109.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 110.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 109.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/m/n on input line 110.
 LaTeX Font Info:    Overwriting symbol font `numbers' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 109.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 110.
 LaTeX Font Info:    Overwriting symbol font `pureletters' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 109.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 110.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 109.
+(Font)                  OT1/cmss/bx/n --> OT1/cmr/bx/n on input line 110.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 109.
+(Font)                  OT1/cmss/bx/n --> OT1/cmss/bx/n on input line 110.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 109.
+(Font)                  OT1/cmss/m/n --> OT1/cmss/bx/n on input line 110.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
-(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 109.
+(Font)                  OT1/cmss/m/it --> OT1/cmss/bx/it on input line 110.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 109.
+(Font)                  OT1/cmtt/m/n --> OT1/cmtt/bx/n on input line 110.
 
 (/usr/share/texmf/tex/latex/beamer/base/translator/dicts/translator-basic-dicti
 onary/translator-basic-dictionary-English.dict
@@ -960,15 +983,16 @@ Dictionary: translator-numbers-dictionary, Language: English
 tionary/translator-theorem-dictionary-English.dict
 Dictionary: translator-theorem-dictionary, Language: English 
 )
-LaTeX Info: Redefining \includegraphics on input line 109.
+LaTeX Info: Redefining \includegraphics on input line 110.
+\c@lstlisting=\count182
  (./gso.nav)
-Overfull \hbox (72.69939pt too wide) in paragraph at lines 109--109
+Overfull \hbox (72.69939pt too wide) in paragraph at lines 110--110
  [][][][]  
  []
 
 
 LaTeX Font Warning: Font shape `OT1/cmss/m/n' in size <4> not available
-(Font)              size <5> substituted on input line 110.
+(Font)              size <5> substituted on input line 111.
 
 
 Overfull \hbox (72.69939pt too wide) has occurred while \output is active
@@ -985,6 +1009,15 @@ Overfull \hbox (72.69939pt too wide) has occurred while \output is active
 [2
 
 ]
+LaTeX Font Info:    Try loading font information for U+msa on input line 149.
+ (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 149.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 Overfull \hbox (72.69939pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -999,15 +1032,6 @@ Overfull \hbox (72.69939pt too wide) has occurred while \output is active
 [4
 
 ]
-LaTeX Font Info:    Try loading font information for U+msa on input line 148.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 148.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
 Overfull \hbox (72.69939pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1071,18 +1095,18 @@ Overfull \hbox (72.69939pt too wide) has occurred while \output is active
 [13
 
 ]
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ú in font cmss10!
+Missing character: There is no ‚ in font cmss10!
+Missing character: There is no Ä in font cmss10!
+Missing character: There is no ù in font cmss10!
+
 Overfull \hbox (72.69939pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [14
-
-]
-Overfull \hbox (72.69939pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[15
 
 ]
 Missing character: There is no ‚ in font cmss10!
@@ -1092,6 +1116,13 @@ Missing character: There is no ‚ in font cmss10!
 Missing character: There is no Ä in font cmss10!
 Missing character: There is no ù in font cmss10!
 
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[15
+
+]
 Overfull \hbox (72.69939pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1231,18 +1262,23 @@ Overfull \hbox (72.69939pt too wide) has occurred while \output is active
 
 [35
 
-]
+] <t1.png, id=967, 605.26125pt x 363.3575pt>
+File: t1.png Graphic file (type png)
+ <use t1.png>
+Package pdftex.def Info: t1.png used on input line 474.
+(pdftex.def)             Requested size: 342.29648pt x 205.49141pt.
+
 Overfull \hbox (72.69939pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [36
 
-] <t1.png, id=994, 605.26125pt x 363.3575pt>
-File: t1.png Graphic file (type png)
- <use t1.png>
-Package pdftex.def Info: t1.png used on input line 461.
-(pdftex.def)             Requested size: 342.29648pt x 205.49141pt.
+ <./t1.png>] <t2.png, id=995, 668.4975pt x 515.9275pt>
+File: t2.png Graphic file (type png)
+ <use t2.png>
+Package pdftex.def Info: t2.png used on input line 478.
+(pdftex.def)             Requested size: 270.00557pt x 208.38268pt.
 
 Overfull \hbox (72.69939pt too wide) has occurred while \output is active
  [][][][]  
@@ -1250,11 +1286,11 @@ Overfull \hbox (72.69939pt too wide) has occurred while \output is active
 
 [37
 
- <./t1.png>] <t2.png, id=1022, 668.4975pt x 515.9275pt>
-File: t2.png Graphic file (type png)
- <use t2.png>
-Package pdftex.def Info: t2.png used on input line 465.
-(pdftex.def)             Requested size: 270.00557pt x 208.38268pt.
+ <./t2.png>] <t3.png, id=1023, 543.02875pt x 576.1525pt>
+File: t3.png Graphic file (type png)
+ <use t3.png>
+Package pdftex.def Info: t3.png used on input line 482.
+(pdftex.def)             Requested size: 196.40164pt x 208.38177pt.
 
 Overfull \hbox (72.69939pt too wide) has occurred while \output is active
  [][][][]  
@@ -1262,11 +1298,11 @@ Overfull \hbox (72.69939pt too wide) has occurred while \output is active
 
 [38
 
- <./t2.png>] <t3.png, id=1049, 543.02875pt x 576.1525pt>
-File: t3.png Graphic file (type png)
- <use t3.png>
-Package pdftex.def Info: t3.png used on input line 469.
-(pdftex.def)             Requested size: 196.40164pt x 208.38177pt.
+ <./t3.png>] <t4.png, id=1050, 568.1225pt x 669.50125pt>
+File: t4.png Graphic file (type png)
+ <use t4.png>
+Package pdftex.def Info: t4.png used on input line 486.
+(pdftex.def)             Requested size: 176.827pt x 208.38094pt.
 
 Overfull \hbox (72.69939pt too wide) has occurred while \output is active
  [][][][]  
@@ -1274,19 +1310,14 @@ Overfull \hbox (72.69939pt too wide) has occurred while \output is active
 
 [39
 
- <./t3.png>] <t4.png, id=1076, 568.1225pt x 669.50125pt>
-File: t4.png Graphic file (type png)
- <use t4.png>
-Package pdftex.def Info: t4.png used on input line 473.
-(pdftex.def)             Requested size: 176.827pt x 208.38094pt.
-
+ <./t4.png>]
 Overfull \hbox (72.69939pt too wide) has occurred while \output is active
  [][][][]  
  []
 
 [40
 
- <./t4.png>]
+]
 Overfull \hbox (72.69939pt too wide) has occurred while \output is active
  [][][][]  
  []
@@ -1314,26 +1345,193 @@ Overfull \hbox (72.69939pt too wide) has occurred while \output is active
 
 [44
 
-]
-Overfull \hbox (72.69939pt too wide) has occurred while \output is active
- [][][][]  
- []
-
-[45
-
-] <hard.png, id=1234, 488.82625pt x 394.47375pt>
+] <hard.png, id=1210, 488.82625pt x 394.47375pt>
 File: hard.png Graphic file (type png)
  <use hard.png>
-Package pdftex.def Info: hard.png used on input line 505.
+Package pdftex.def Info: hard.png used on input line 522.
 (pdftex.def)             Requested size: 258.22635pt x 208.3839pt.
 
 Overfull \hbox (72.69939pt too wide) has occurred while \output is active
  [][][][]  
  []
 
-[46
+[45
 
  <./hard.png>]
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[46
+
+]
+\openout4 = `gso.vrb'.
+
+ (./gso.vrb)
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[47
+
+]
+\openout4 = `gso.vrb'.
+
+ (./gso.vrb
+Overfull \hbox (8.37465pt too wide) in paragraph at lines 15--15
+[]\OT1/cmtt/m/n/10.95 data InteriorVertex = Main | Midpoint Edge | Contraction 
+Edge[] 
+ []
+
+
+Overfull \hbox (2.62596pt too wide) in paragraph at lines 15--15
+[]\OT1/cmtt/m/n/10.95 data InitialEdge = LeftLoop | RightLoop | LeftLeg | Right
+Leg[] 
+ []
+
+)
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[48
+
+]
+\openout4 = `gso.vrb'.
+
+ (./gso.vrb)
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[49
+
+]
+\openout4 = `gso.vrb'.
+
+ (./gso.vrb)
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[50
+
+]
+\openout4 = `gso.vrb'.
+
+ (./gso.vrb)
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[51
+
+]
+\openout4 = `gso.vrb'.
+
+ (./gso.vrb
+Overfull \hbox (2.62596pt too wide) in paragraph at lines 13--13
+[]  \OT1/cmtt/m/n/10.95 InteriorVertex -> Tree Edge -> State Stringnet (Tree Ed
+ge)[] 
+ []
+
+
+Overfull \hbox (2.62596pt too wide) in paragraph at lines 13--13
+[]  \OT1/cmtt/m/n/10.95 InteriorVertex -> Tree Edge -> State Stringnet (Tree Ed
+ge)[] 
+ []
+
+)
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[52
+
+]
+\openout4 = `gso.vrb'.
+
+ (./gso.vrb)
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[53
+
+]
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[54
+
+]
+\openout4 = `gso.vrb'.
+
+ (./gso.vrb)
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[55
+
+]
+\openout4 = `gso.vrb'.
+
+ (./gso.vrb)
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[56
+
+]
+\openout4 = `gso.vrb'.
+
+ (./gso.vrb)
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[57
+
+]
+\openout4 = `gso.vrb'.
+
+ (./gso.vrb)
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[58
+
+] <final.png, id=1581, 513.92pt x 616.3025pt>
+File: final.png Graphic file (type png)
+ <use final.png>
+Package pdftex.def Info: final.png used on input line 716.
+(pdftex.def)             Requested size: 173.76595pt x 208.38338pt.
+
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[59
+
+ <./final.png>]
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[60
+
+]
+Overfull \hbox (72.69939pt too wide) has occurred while \output is active
+ [][][][]  
+ []
+
+[61
+
+]
 \tf@nav=\write6
 \openout6 = `gso.nav'.
 
@@ -1343,11 +1541,11 @@ Overfull \hbox (72.69939pt too wide) has occurred while \output is active
 \tf@snm=\write8
 \openout8 = `gso.snm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 507.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 507.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 736.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 736.
  (./gso.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 507.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 507.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 736.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 736.
 Package rerunfilecheck Info: File `gso.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -1355,33 +1553,35 @@ Package rerunfilecheck Info: File `gso.out' has not changed.
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.0pt have occurred.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 507.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 736.
  ) 
 Here is how much of TeX's memory you used:
- 19973 strings out of 494985
- 381633 string characters out of 6180356
- 497717 words of memory out of 5000000
- 22624 multiletter control sequences out of 15000+600000
- 18191 words of font info for 67 fonts, out of 8000000 for 9000
+ 21244 strings out of 494985
+ 399854 string characters out of 6180356
+ 518342 words of memory out of 5000000
+ 23828 multiletter control sequences out of 15000+600000
+ 18359 words of font info for 68 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
  49i,16n,71p,392b,969s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share
-/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
-fonts/cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on gso.pdf (46 pages, 530593 bytes).
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmss12.pfb></usr/share/texlive/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmss8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmssbx10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmssi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
+cm/cmssi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
+y10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/
+texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on gso.pdf (61 pages, 604562 bytes).
 PDF statistics:
- 1330 PDF objects out of 1440 (max. 8388607)
- 1237 compressed objects within 13 object streams
- 94 named destinations out of 1000 (max. 500000)
- 104 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1742 PDF objects out of 2073 (max. 8388607)
+ 1627 compressed objects within 17 object streams
+ 124 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
 

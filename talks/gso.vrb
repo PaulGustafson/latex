@@ -1,0 +1,7 @@
+\frametitle{TambaraYamagami types}
+\begin{verbatim}
+data BasisElement = BasisElement
+  { initialLabel :: S.InitialEdge -> SimpleObject
+  , oneIndex :: Int
+  }
+\end{verbatim}

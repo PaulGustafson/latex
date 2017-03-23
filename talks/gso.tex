@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\usepackage{graphicx, amssymb}
+\usepackage{graphicx, amssymb, listings}
 %\usepackage[active]{srcltx}
 %\usepackage[all,xdvi]{xy}
 %\usepackage{showlabels}
@@ -53,6 +53,7 @@ midarrow/.default=0.5
 \DeclareMathOperator{\Hom}{Hom}
 \DeclareMathOperator{\ev}{ev}
 \DeclareMathOperator{\coev}{coev}
+\DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\End}{End}
 \DeclareMathOperator{\MCG}{MCG}
 \DeclareMathOperator{\Homeo}{Homeo}
@@ -113,11 +114,11 @@ midarrow/.default=0.5
 Why should we care about quantum mapping class group representations?
 \begin{itemize}
 \item Topological quantum computation
-\pause
 \vfill
-\item Understand mapping class groups 
+\item Understand mapping class groups  (algebraic geometry)
 \vfill
-\pause
+\item Understand tensor categories (representation theory, operator algebras)
+\vfill
 \item Intrinsic beauty
 
 \end{itemize}
@@ -179,7 +180,8 @@ satisfying certain coherence conditions (the triangle and pentagon axioms).
 
 
 \begin{frame}{Rigid monoidal categories}
-Let $X$ be an object of a monoidal category $\mathcal C$. A \textbf{left dual} to $X$ is an object $X^*$ equipped with 
+\begin{itemize}
+\item Let $X$ be an object of a monoidal category $\mathcal C$. A \textbf{left dual} to $X$ is an object $X^*$ equipped with 
 \begin{itemize}
 \item an evaluation morphism, $\ev_X : X^* \otimes X \to 1$
 \item a coevaluation morphism, $\coev_X: 1 \to X \otimes X^*$,
@@ -187,13 +189,21 @@ Let $X$ be an object of a monoidal category $\mathcal C$. A \textbf{left dual} t
 satisfying certain coherence conditions (the snake equations).
 
 \pause 
-Right duals are defined similarly. An object $X$ is \textbf{rigid} if it
-has both a left and right dual.  A monoidal category is rigid if all of
+\item Right duals are defined similarly. 
+\item An object $X$ is \textbf{rigid} if it
+has both a left and right dual.  
+\item A monoidal category is rigid if all of
 its objects are rigid.
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Fusion category}
-A \textbf{fusion category} is a rigid semisimple linear monoidal category (“tensor category”), with only finitely many isomorphism classes of simple objects, such that the endomorphisms of the unit object form just the ground field $k$.
+\begin{itemize}
+\item A \textbf{fusion category} is a rigid semisimple linear monoidal category (“tensor category”), with only finitely many isomorphism classes of simple objects, such that the endomorphisms of the unit object form just the ground field $k$.
+
+\pause
+\item Example: Representation category of a finite group
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Spherical categories}
@@ -201,9 +211,11 @@ A \textbf{fusion category} is a rigid semisimple linear monoidal category (“te
 \item A \textbf{pivotal category} is a rigid monoidal category equipped with
 a pivotal structure, i.e. a tensor natural automorphism $j_X : X \to (X^*)^*$.  
 
+\item A pivotal structure defines left and right traces $\End(X) \to \End(1)$ for every object $X$. 
+
 \pause
 
-\item A pivotal structure defines categorical left and right traces $\End(X) \to \End(1)$ for every object $X$. A \textbf{spherical category} is a monoidal category such that all left and right traces coincide.
+\item A \textbf{spherical category} is a monoidal category such that all left and right traces coincide.
 \end{itemize}
 \end{frame}
 
@@ -424,6 +436,7 @@ $X_1\oplus X_2\to X_2$), and similarly for $\psi_1,\psi_2$.
 \begin{conj}[Rowell]
 A TVBW mapping class group representation associated to a spherical fusion category $\mathcal A$ has finite image iff $\mathcal A$ is weakly integral, i.e. the squared dimension of every simple object is an integer.
 \end{conj}
+
 \end{frame}
 
 \begin{frame}{Related Work}
@@ -495,13 +508,229 @@ The image of any $\Vect^\omega_G$ TVBW representation $\rho$ of a mapping class 
 \begin{frame}{Next steps}
 \begin{itemize}
 \item Tambara-Yamagami categories
-\item Calculate actual matrices 
+\begin{itemize}
+\item Simple class of categories with ``multi-fusion channels''
+\item Simple examples of gauging (with respect to group inversion action)
+\end{itemize}
+\item Problem: Want to calculate actual matrices 
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Calculations = Hard}
-Easiest example (first Dehn twist):
+Easiest example (first Dehn twist, $\Vect^\omega_G$):
 \img{hard}
+\end{frame}
+
+\begin{frame}{Why is it hard?}
+\begin{itemize}
+\item Computationally intensive  
+\item High level of abstraction
+\end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]{Solution: Haskell}
+\begin{verbatim}
+data Stringnet = Stringnet
+                  { vertices      :: [InteriorVertex]
+                  , edges         :: [Edge]
+                  , disks         :: [Disk]
+                  , perimeter     :: Disk -> [Edge]
+
+                  -- image under contractions
+                  , imageVertex    :: Vertex -> Vertex     
+
+                  , edgeTree      :: Vertex -> Tree Edge
+                  , morphismLabel :: InteriorVertex 
+                                      -> Morphism
+                  , objectLabel   :: Edge -> Object
+                  }
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Two-Complex Datatypes}
+\begin{verbatim}
+data Puncture = LeftPuncture | RightPuncture
+data InteriorVertex = Main | Midpoint Edge | Contraction Edge
+data Vertex = Punc Puncture | IV InteriorVertex
+data InitialEdge = LeftLoop | RightLoop | LeftLeg | RightLeg
+data Edge
+  = IE InitialEdge
+  | FirstHalf Edge
+  | SecondHalf Edge
+  | Connector Edge Edge Disk
+  | TensorE Edge Edge
+  | Reverse Edge
+data Disk = Outside | LeftDisk | RightDisk | Cut Edge
+\end{verbatim}
+\end{frame}
+
+
+\begin{frame}[fragile]{Objects}
+\begin{verbatim}
+data Object
+  = OVar InitialEdge 
+  | One 
+  | Star Object 
+  | TensorO Object Object
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Morphisms}
+\begin{verbatim}
+data Morphism
+  = Phi
+  | Id Object
+  | Lambda Object
+  | LambdaI Object
+  | Rho Object
+  | RhoI Object
+  | Alpha Object Object Object
+  | AlphaI Object Object Object
+  | Coev Object
+  | Ev Object
+  | TensorM Morphism Morphism
+  | PivotalJ Object
+  | PivotalJI Object
+  | Compose Morphism Morphism
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Local Moves}
+\begin{verbatim}
+tensor :: Disk -> State Stringnet ()
+contract :: Edge -> State Stringnet InteriorVertex
+connect :: Edge -> Edge -> Disk -> State Stringnet Edge
+addCoev :: Edge 
+  -> State Stringnet (InteriorVertex, Edge, Edge)
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Vertex Hom-Space Moves}
+\begin{verbatim}
+associateL ::
+  InteriorVertex -> Tree Edge -> State Stringnet (Tree Edge)
+associateR ::
+  InteriorVertex -> Tree Edge -> State Stringnet (Tree Edge)
+isolateR :: InteriorVertex -> State Stringnet ()
+isolateL :: InteriorVertex -> State Stringnet ()
+zMorphism :: Object -> Object -> Morphism -> Morphism
+zRotate :: InteriorVertex -> State Stringnet ()
+isolate2 :: Edge -> Edge -> InteriorVertex 
+  -> State Stringnet ()
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{Braid move}
+\begin{verbatim}
+  (_,l1,r1) <- addCoev $ IE LeftLoop
+  (_,l2,r2) <- addCoev $ IE LeftLeg
+  (_,r13,l3) <- addCoev r1
+  (_,_,r4) <- addCoev $ IE RightLoop
+  e1 <- connect (rev l1) r2 LeftDisk
+  e2 <- connect (rev l2) (rev r13) (Cut $ e1)
+  e3 <- connect l3 r4 Outside
+  contract e1                   
+  contract e2
+  contract e3
+  tensor (Cut $ rev e1)
+  tensor (Cut $ rev e2)
+  tensor (Cut $ rev e3)
+  v <- contract r4
+\end{verbatim}
++ some reassociating 
+\end{frame}
+
+\begin{frame}{Tambara-Yamagami categories}
+Let $A$ be a finite abelian group, $\chi$ a bicharacter on $A$,
+and $\nu \in \{\pm 1\}$. The \textbf{Tamabara-Yamagami category} $\mathcal{TY}(A, \chi, \nu)$ is the skeletal spherical category with
+simple objects $\{a : a \in A\} \cup \{m\}$, fusion rules given by
+\[ a \otimes b = ab \text{ for $a,b \in A$ } \qquad 
+a \otimes m = m \qquad
+m \otimes m = \bigoplus_{a \in A} a, 
+\]
+and the following nontrivial structural morphisms
+\[
+\alpha_{a,m,b} = \chi(a,b) \id_m \qquad  
+\alpha_{m,a,m}  = \bigoplus_{b \in A} \chi(a,b) \id_b 
+\]
+\[
+\alpha_{m,m,m} = (\nu |A|^{-1/2} \chi^{-1}(a,b) \id_m)_{a,b \in A},
+\]
+\[
+j_m = \nu \id_m  \qquad  ev_m = \nu |A|^{1/2} \pi_1
+\]
+\end{frame}
+
+\begin{frame}[fragile]{TambaraYamagami types}
+\begin{verbatim}
+newtype AElement = AElement Int 
+
+newtype RootOfUnity = RootOfUnity AElement
+
+data Scalar =  Scalar 
+  { coeff :: [Int]
+  , tauExp :: Sum Int
+  } 
+\end{verbatim}
+
+A scalar is represented as $\tau^k \sum_{i=0}^{n-1} a_i \zeta_n^i$
+\end{frame}
+
+\begin{frame}[fragile]{TambaraYamagami types}
+\begin{verbatim}
+data SimpleObject =
+  -- Group-element-indexed simple objects
+  AE !AElement
+
+  -- non-group simple object
+  | M
+
+newtype Object = Object
+  { multiplicity_ :: [Int]
+  }
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{TambaraYamagami types}
+\begin{verbatim}
+data Morphism = Morphism 
+  { domain   :: Object
+  , codomain :: Object
+  , subMatrix_ :: [M.Matrix Scalar]
+  }
+\end{verbatim}
+\end{frame}
+
+\begin{frame}[fragile]{TambaraYamagami types}
+\begin{verbatim}
+data BasisElement = BasisElement
+  { initialLabel :: S.InitialEdge -> SimpleObject
+  , oneIndex :: Int
+  }
+\end{verbatim}
+\end{frame}
+
+
+\begin{frame}{Output Example}
+\img{final}
+\end{frame}
+
+\begin{frame}{Next steps}
+\begin{itemize}
+\item Distribute tensor products using dictionary ordering 
+\item Double check $\coev$ and $\ev$ definitions
+\item Verify snake equations
+\item Verify braid relations
+\item Compare with Ising $R$-matrices
+\item Optimize composition to be local wrt tensor products
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Thanks}
+
+Thanks for listening!
+
+Any questions?
 \end{frame}
 
 \end{document}
