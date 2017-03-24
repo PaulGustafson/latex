@@ -1,0 +1,180 @@
+\documentclass[t]{beamer}
+
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{4 on 1 boxed}[a4paper, border shrink=5mm, landscape]
+  \nofiles
+}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Derivatives and Shapes of Curves (Section 4.3)}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Intro}
+Previously we looked at the graphs of $f(x)$, $f'(x)$, and $f''(x)$ 
+to get information about the function.  Today we will do the same
+thing but instead work from equations.
+\end{frame}
+
+\begin{frame}{Overview}
+Today we will cover:
+\begin{itemize}
+\item Shape of a graph
+\item Sketching graphs
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Shape of a graph}
+The following information will help determing the shape of the
+graph of $f(x)$:
+
+\begin{itemize}
+\item Intervals where $f(x)$ is increasing or decreasing
+\item Local maxs/mins
+\item Inflection points
+\item Intervals where $f(x)$ is concave up/down
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Extended example}
+We will do an extended example with 
+$$f(x) = 2x^3 + 3x^2 - 36x + 5$$
+\end{frame}
+
+\begin{frame}{Intervals where $f(x)$ is increasing/decreasing}
+\begin{itemize}
+\item Find the derivative of $f(x)$
+\item Find critical points + undefined points
+\item Draw number line and plot these points
+\item Plug $x$-values in between these points into $f'(x)$ to determine
+slopes
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Maxs/mins}
+\begin{itemize}
+\item Examine the number line from the previous step
+\item Determine if the critical points are maxs/mins/neither
+\item Calculate corresponding $y$-values
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Inflection points}
+\begin{itemize}
+\item Find $f''(x)$ (take the derivative of $f'(x)$)
+\item Set it equal to 0, solve
+\item The inflection points are the roots where $f''(x)$ changes sign
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Concave up/Concave down}
+\begin{itemize}
+\item Draw a number line and plot inflection points
+\item Plug $x$-values in between inflection points to
+determine concavity
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+Calculate the 4 aspects for the function. Use this 
+information to sketch the function.
+$$f(x) = \frac{30x}{x^2 + 9}$$
+\end{frame}
+
+\begin{frame}{Short Survey}
+\begin{itemize}
+\item One thing we do that I would like to \textbf{keep}
+\item One thing we do that I'd like to \textbf{stop/change}
+\item One thing we don't do that I would like to \textbf{start}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+Calculate the 4 aspects for the function. Use this information 
+to sketch the function.
+$$f(x) = 10x^2 \ln(x)$$
+\end{frame}
+
+
+
+\end{document}
+
