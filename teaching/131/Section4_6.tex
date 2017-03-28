@@ -1,0 +1,97 @@
+\documentclass[t]{beamer}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+%\usepackage[utf8x]{inputenc}
+%\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+% \usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+%\usepackage{enumitem}
+
+% full page itemieze
+%% \newenvironment{fpi}
+%%   {\itemize[nolistsep,itemsep=\fill]}
+%%   {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Optimization (Section 4.6)}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Intro}
+Today is the most applied we get this semester.  We will 
+solve real life problems involving quantities that people
+actually get paid to optimize.
+
+\begin{itemize}
+\item Costs (minimize)
+\item Revenue and Profits (maximize)
+\item Time spent traveling (minimize)
+\item Materials for construction (minimize)
+\item Floor area for housing (maximize)
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+We want to draw a rectangle inside the top half of an ellipse that
+has the largest area possible.  The ellipse has equation 
+$$ 1 = \frac{x^2}{4^2} + \frac{y^2}{2.5^2}. $$
+How big should we make the base so that the area is maximized?
+\end{frame}
+
+\begin{frame}{Basic principles}
+\begin{itemize}
+\item Draw a picture of the scenario.  
+\item Label the relevant variables in your picture
+\item Identify what quantity you are optimizing.  Write down
+that equation
+\item Write down a second equation from the information given
+(the constraining equation).
+\item Solve the second equation for a variable.  Substitute it
+into the first equation.
+\item The first equation should now have only one variable. 
+Minimize/maximize it.
+\item Make sure to answer the question!
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+Find two numbers $a$ and $b$ such that their difference is $100$ and
+their product is as large as possible
+\end{frame}
+
+\begin{frame}{Example}
+Find the two positive numbers $a$ and $b$ such that their product equals $100$ and whose sum is minimized.
+\end{frame}
+
+\begin{frame}{Example}
+Find two numbers $a$ and $b$ such that the sum of $a$ and twice $b$ is $400$ and such that their product is maximized.
+\end{frame}
+
+\begin{frame}{Example}
+A cardboard box with a square base and an open top has a volume of 
+$10 \, m^3$. Find the dimensions of the box minimizing the amount of
+cardboard needed to build the box.  How much cardboard do we need?
+\end{frame}
+
+\begin{frame}{Example}
+We have $300 \, ft^2$ of plywood available to build a box with a 
+square base and open on the top.  Determine the dimensions which will
+maximize the volume of the box.  How much volume will we get?
+\end{frame}
+
+\end{document}
