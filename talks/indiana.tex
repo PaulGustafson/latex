@@ -106,7 +106,7 @@ midarrow/.default=0.5
 %\usetheme{Szeged}
 %\usetheme{Warsaw}
 
-\title{Computing Quantum Mapping Class Group Representations with Haskell}
+\title{Computing TVBW Mapping Class Group Representations}
 \date{Paul Gustafson \\ Texas A\&M University}
 
 \begin{document}
@@ -116,7 +116,7 @@ midarrow/.default=0.5
 \begin{frame}{The Property F conjecture}
 \begin{conj}[Rowell]
 Let $\mathcal C$ be a braided fusion category and let $X$ be a simple object in $\mathcal C$.  The braid group representations $\mathcal B_n$ on $\End(X^{\otimes n})$
-have finite image for all $n>0$ if and only if $\FPdim(X)^2 \in \mathbf Z$.
+have finite image for all $n>0$ if and only if  $X$ is weakly integral (i.e. $\FPdim(X)^2 \in \mathbf Z$).
 \end{conj}
 \end{frame}
 
@@ -129,8 +129,36 @@ Test cases:
 
 \begin{itemize}
 \item $\mathcal A = \Vect_G^\omega$
-\item $\mathcal A = \mathcal{TY}(\mathbf{Z}_N, \cdot, \cdot)$
+\item $\mathcal A = \mathcal{TY}(\mathbb{Z}_N, \cdot, \cdot)$
 \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Related Work ($\Vect_G^\omega$ case)}
+% ng schaumburg - genus 1, any modular category
+\begin{theorem}[Ng--Schauenberg]
+Every modular representation associated to a modular category has finite image.
+\end{theorem}
+
+\begin{theorem}[Etingof--Rowell--Witherspoon]
+The braid group representation associated to 
+the modular category $\Mod(D^\omega(G))$ has finite image.
+\end{theorem}
+
+\begin{theorem}[Fjelstad--Fuchs]
+Every mapping class group representation of a closed surface with at most one marked point associated to $\Mod(D(G))$ has finite image.
+\end{theorem}
+\end{frame}
+
+\begin{frame}{First result}
+\begin{theorem}[G.]
+The image of any $\Vect^\omega_G$ TVBW representation $\rho$ of a mapping class group of an orientable, compact surface $\Sigma$ with boundary is finite.
+\end{theorem}
+
+Idea of proof:
+
+Show that the representation of each Birman generator lies in a quotient of a finite group of monomial matrices.
+
 \end{frame}
 
 
@@ -142,7 +170,6 @@ Test cases:
         H := \frac{\text{$\mathcal A$-colored graphs in $\Sigma$}  }
         {\text{local relations}}
        \]
-    \pause
     \item The vector space $H$ is canonically isomorphic to the usual (triangulation-based) TVBW state sum vector space associated to $\Sigma$. 
    \end{itemize}
 \end{frame}
@@ -323,28 +350,6 @@ $X_1\oplus X_2\to X_2$), and similarly for $\psi_1,\psi_2$.
 \end{frame}
 
 
-\begin{frame}{Related Work ($\Vect_G^\omega$ case)}
-% ng schaumburg - genus 1, any modular category
-\begin{theorem}[Ng--Schauenberg]
-Every modular representation associated to a modular category has finite image.
-\end{theorem}
-
-\begin{theorem}[Etingof--Rowell--Witherspoon]
-The braid group representation associated to 
-the modular category $\Mod(D^\omega(G))$ has finite image.
-\end{theorem}
-
-\begin{theorem}[Fjelstad--Fuchs]
-Every mapping class group representation of a closed surface with at most one marked point associated to $\Mod(D(G))$ has finite image.
-\end{theorem}
-\end{frame}
-
-\begin{frame}{First result}
-\begin{theorem}[G.]
-The image of any $\Vect^\omega_G$ TVBW representation $\rho$ of a mapping class group of an orientable, compact surface $\Sigma$ with boundary is finite.
-\end{theorem}
-\end{frame}
-
 \begin{frame}{First Dehn twist}
 \img{t1}
 \end{frame}
@@ -436,22 +441,6 @@ data ColoredGraph = ColoredGraph
 \end{verbatim}
 \end{frame}
 
-\begin{frame}[fragile]{Two-Complex Datatypes}
-\begin{verbatim}
-data Puncture = LeftPuncture | RightPuncture
-data InteriorVertex = Main | Midpoint Edge | Contraction Edge
-data Vertex = Punc Puncture | IV InteriorVertex
-data InitialEdge = LeftLoop | RightLoop | LeftLeg | RightLeg
-data Edge
-  = IE InitialEdge
-  | FirstHalf Edge
-  | SecondHalf Edge
-  | Connector Edge Edge Disk
-  | TensorE Edge Edge
-  | Reverse Edge
-data Disk = Outside | LeftDisk | RightDisk | Cut Edge
-\end{verbatim}
-\end{frame}
 
 
 \begin{frame}[fragile]{Objects}
@@ -509,6 +498,23 @@ isolate2 :: Edge -> Edge -> InteriorVertex
 \end{verbatim}
 \end{frame}
 
+\begin{frame}[fragile]{Two-Complex Datatypes (partially specific to braid move)}
+\begin{verbatim}
+data Puncture = LeftPuncture | RightPuncture
+data InteriorVertex = Main | Midpoint Edge | Contraction Edge
+data Vertex = Punc Puncture | IV InteriorVertex
+data InitialEdge = LeftLoop | RightLoop | LeftLeg | RightLeg
+data Edge
+  = IE InitialEdge
+  | FirstHalf Edge
+  | SecondHalf Edge
+  | Connector Edge Edge Disk
+  | TensorE Edge Edge
+  | Reverse Edge
+data Disk = Outside | LeftDisk | RightDisk | Cut Edge
+\end{verbatim}
+\end{frame}
+
 \begin{frame}[fragile]{Braid move}
 \begin{verbatim}
   (_,l1,r1) <- addCoev $ IE LeftLoop
@@ -530,7 +536,7 @@ isolate2 :: Edge -> Edge -> InteriorVertex
 \end{frame}
 
 
-\begin{frame}[fragile]{TambaraYamagami types}
+\begin{frame}[fragile]{TambaraYamagami types ($A = \mathbb{Z}_N$)}
 \begin{verbatim}
 newtype AElement = AElement Int 
 
@@ -542,7 +548,7 @@ data Scalar =  Scalar
   } 
 \end{verbatim}
 
-A scalar is represented as $\tau^k \sum_{i=0}^{n-1} a_i \zeta_n^i$
+A scalar is represented as $\tau^k \sum_{i=0}^{N-1} a_i \zeta_N^i$
 \end{frame}
 
 \begin{frame}[fragile]{TambaraYamagami types}
