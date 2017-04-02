@@ -1,0 +1,232 @@
+\documentclass[t]{beamer}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+%\usepackage[utf8x]{inputenc}
+%\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+% \usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+%\usepackage{enumitem}
+
+% full page itemieze
+%% \newenvironment{fpi}
+%%   {\itemize[nolistsep,itemsep=\fill]}
+%%   {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Optimization (Section 4.8) and \\Approximating Area (Section 5.1)}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Intro}
+Today we'll start talking about integration, the opposite operation to
+taking a derivative.  We will find the antiderivative of a function in
+a few easy cases.
+\end{frame}
+
+
+\begin{frame}{Slope/Value Correspondences}
+\img{slopes}
+\end{frame}
+
+\begin{frame}{Going backwards}
+Question: Given a graph of $f'(x)$, can we draw a graph of the
+original function $f(x)$?
+
+\vspace{3in}
+
+Kind of.
+
+\end{frame}
+
+\begin{frame}{Going backwards: Example}
+$$f'(x) = 2x + 3$$
+\end{frame}
+
+\begin{frame}{Going backwards}
+We have many choices of the antiderivative of $f(x)$ by
+moving the graph up and down.
+\img{gb}
+\end{frame}
+
+\begin{frame}{Antiderivative}
+Given a function $f(x)$, we call $F(x)$ an antiderivative of $f(x)$ if
+$$F'(x) = f(x)$$
+\end{frame}
+
+\begin{frame}{Antiderivative}
+An antiderivative can always be moved up and down.  So we will
+write \emph{the} antiderivative as 
+$$F(x) = function + C,$$
+where $C$ denotes an unknown constant number.  If we know that
+the antiderivative passes through a particular point, we can 
+solve for $C$.
+\end{frame}
+
+\begin{frame}{Antiderivative}
+Think of the antiderivative as being the opposite operation of the 
+derivative, like $+/-$ or $*/\div$
+\end{frame}
+
+\begin{frame}{Antiderivative - Rules}
+Using guess and check, can we find an antiderivative of
+$f(x) = x$?
+\end{frame}
+
+\begin{frame}{Antiderivative - Rules}
+Antiderivative Power Rule for $f(x) = x^n$, as long as 
+$n \neq -1$:
+$$ F(x) = \frac{x^{n+1}}{n+1} + C$$
+Notice that this is the opposite of the power rule for
+derivatives.
+\end{frame}
+
+\begin{frame}{Antiderivative - Rules}
+In particular, this means that the antiderivative of $f(x) = 1$ is
+$$F(x) = x$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the antiderivative of 
+$$f(x) = \frac{3x^3 + 2\sqrt{x}}{x^2}$$
+\end{frame}
+
+\begin{frame}{Other antiderivatives}
+The antiderivative rules are just the derivative rules backwards:
+\begin{center}
+\begin{array}{|c|c|}
+\hline
+f(x) & F(x) \\
+\hline
+x^n & \frac{x^{n+1}}{n+1}  + C \\
+\frac{1}{x} & \ln{|x|}  + C \\
+e^x & e^x + C \\
+\sin(x) & -\cos(x) + C \\
+\cos(x) & \sin(x) + C \\
+\sec^2(x) & \tan(x) + C
+\hline
+\end{center}
+\end{frame}
+
+\begin{frame}{Warning!}
+The antiderivative of products and quotients works
+very differently.
+
+\vspace{3in}
+
+(We won't even cover them in this class)
+\end{frame}
+
+\begin{frame}{Example}
+Find the antiderivative of $f(x)$:
+$$f(x) = 5e^x + \frac{1}{x} + 3 \sin(x)$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the antiderivative of $f(x):
+$$f(x) = x^{3/4} + \sec^2(x) - \frac{10}{x}$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the exact antiderivative of $f'(x)$ if $f(-2) = 7$:
+$$f'(x) = 3x^2 + 6x + 2$$
+\end{frame}
+
+\begin{frame}{Example}
+Find $f(x)$ if 
+$$f''(x) = e^x + 10x$$
+\end{frame}
+
+\begin{frame}{Finding $f$ from $f''$}
+If you're given $f''(x)$ and asked for $f(x)$, you take
+two antiderivatives.  This will give you two unknown constants
+$C$ and $D$.  If you're given two points on $f(x)$, then you 
+can solve for both $C$ and $D$.
+\end{frame}
+
+\begin{frame}{Acceleration}
+Acceleration is he same thing as $f''(x)$. So if they give
+acceleration, take the antiderivative twice!
+\end{frame}
+
+\begin{frame}{Acceleration}
+Acceleration on earth equals about $-10 \, m/sec^2$. Suppose a ball
+is thrown in the air (from the ground) at $30 \, m/sec$. 
+Write the equation for the ball's position.
+\end{frame}
+
+\begin{frame}{Approximating Area}
+Now we'll discuss how to approximate the area under a curve
+using rectangles.  This leads to the definition of the integral.
+It turns out that integration involves taking antiderivatives.
+\end{frame}
+
+\begin{frame}{Formulas for Area}
+\img{area}
+\end{frame}
+
+\begin{frame}{Area under a Curve}
+We can get a rough estimate of area under a curve by breaking it into
+rectangles.
+\img{rect}
+\end{frame}
+
+\begin{frame}{Left Endpoint Formula}
+\begin{itemize}
+\item Break the interval $[a,b]$ up into $n$ pieces
+\item Write down the endpoints of each piece as
+$x_0, x_1, x_2, \ldots, x_n$
+\item The formula for the left endpoint estimate is
+$$\Delta x \cdot f(x_0) + \Delta x \cdot f(x_1) + \cdots +
+\Delta x \cdot f(x_{n-1})$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Left Endpoint Formula}
+\begin{itemize}
+\item Break the interval $[a,b]$ up into $n$ pieces
+\item Write down the endpoints of each piece as
+$x_0, x_1, x_2, \ldots, x_n$
+\item The formula for the left endpoint estimate is
+$$ =  \frac{b - a}{n} (f(x_0) + f(x_1) + \cdots + f(x_{n-1})$$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+Estimate the area under the curve $f(x) = x^2 - 3x + 4$ on 
+the interval  $[1,4]$ using 3 left endpoint rectangles.
+\img{rect1}
+\end{frame}
+
+\begin{frame}{Example}
+Estimate the area under the curve $f(x) = \sqrt{x}$ on 
+the interval  $[0,8]$ using 4 right endpoint rectangles.
+\img{rect2}
+\end{frame}
+
+\begin{frame}{Example}
+Estimate the area under the curve $f(x) = \ln(x) + x$ on 
+the interval  $[1,3]$ using 4 midpoint rectangles.
+\img{rect3}
+\end{frame}
+
+\begin{frame}{HW Tip}
+On the car problem, try making a table of distance traveled in 
+each time interval.
+\end{frame}
+
+\end{document}
