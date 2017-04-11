@@ -1,0 +1,166 @@
+\documentclass[t]{beamer}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+%\usepackage[utf8x]{inputenc}
+%\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+% \usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+%\usepackage{enumitem}
+
+% full page itemieze
+%% \newenvironment{fpi}
+%%   {\itemize[nolistsep,itemsep=\fill]}
+%%   {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\begin{center}
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\end{center}
+\vfill
+} 
+
+
+\title{Substitution Rule (Section 5.5) and \\
+Area between Curves (Section 6.1)}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Substitution Rules}
+If $u = g(x)$ is a differentiable function, then
+$$ \int f(g(x)) g'(x) \, dx = \int f(u) \, du $$
+
+Key Idea: We're looking for a factor of the integrand which looks like the
+derivative of another factor of the integrand
+\end{frame}
+
+\begin{frame}{Example}
+$$\int \sin(x^2) 2x \, dx $$
+\end{frame}
+
+\begin{frame}{Identify what to use for $u$}
+General principles for identifying $u$:
+\begin{itemize}
+\item Look for one part of the function whose derivative shows up
+elsewhere in the function
+\item Look for a substitution to make the problem simpler
+\item Look for a substitution to let us use a known integration rule
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+Use a substitution to solve the integral
+$$\int (5x^2 + 2)^{3/2} x \, dx$$
+\end{frame}
+
+\begin{frame}{Think: Chain Rule Backwards}
+Chain Rule:
+$$ \sin(x^3) = \cos(x^3) \cdot 3x^2 $$
+
+Integrate using substitution:
+$$ \int \cos(x^3) \cdot 3x^2 \, dx = \int \cos(u) \, du = \sin(x^3) + C $$
+\end{frame}
+
+\begin{frame}{Try it!}
+$$\int \left( \frac{x}{3} + 2 \right)^ {1/2} \, dx $$
+\end{frame}
+
+\begin{frame}{Example}
+$$ \int \sin(x)^2 \cos(x) \, dx $$
+\end{frame}
+
+\begin{frame}{Try it!}
+$$\int \tan(x) \, dx $$
+\end{frame}
+
+\begin{frame}{Example}
+$$ \int \frac{\ln(x)^2}{x} \, dx$$
+\end{frame}
+
+\begin{frame}{Substitution Rule for Definite Integrals}
+If $u = g(x)$ is a differentiable function, then
+$$ \int_a^b f(g(x)) g'(x) \, dx = \int_{g(a)}^{g(b)} f(u) \, du $$
+\end{frame}
+
+\begin{frame}{Example}
+$$ \int_0^2 e^{x^2} x \, dx $$
+\end{frame}
+
+\begin{frame}{Example}
+$$ \int_3^5 \frac{1}{ 1 - x} \, dx $$
+\end{frame}
+
+\begin{frame}{Try it!}
+$$ \int_2^4 \frac{x^2}{x^3 - 1} \, dx $$
+\end{frame}
+
+\begin{frame}{Area between two curves}
+Find the area between the two curves in the region shown.
+\img{twocurves}
+Any ideas?
+\end{frame}
+
+\begin{frame}{Process}
+\begin{itemize}
+\item The basic process is to compute 
+$$ \int_a^b f(x) - g(x) \, dx $$
+\item We need to pay attention to which curve is on top
+\item We might need to calculate $a$ and $b$ separately
+\item Answer should always be positive
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Negative Area?}
+What if one of the curves is negative?
+\img{twomore}
+The formula takes care of the negative signs on its own.
+\end{frame}
+
+\begin{frame}{Example}
+Find the area between the two curves in the region shown.
+\img{curves3}
+\end{frame}
+
+\begin{frame}{Steps}
+\begin{itemize}
+\item Set $f(x) = g(x)$ and solve for $x$ to get the limits of integration $(a,b)$.
+\item Find out which curve is the top curve (plot them or plug in an $x$-value)
+\item Use the formula
+$$\int_a^b f(x) - g(x) \, dx $$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Example}
+Find the area between the two curves in the region shown.
+\img{curves4}
+\end{frame}
+
+\begin{frame}{Try it!}
+Find the area between the two curves in the region shown.
+\img{curves5}
+\end{frame}
+
+\begin{frame}{Example in terms of $y$}
+\img{curves6}
+\end{frame}
+
+\begin{frame}{Try it!}
+What is the difference between this area and the area of a circle of radius $1$?
+\img{curves7}
+\end{frame}
+
+\begin{frame}{Example}
+Find the area between the two curves in the region shown.
+\img{curves8}
+\end{frame}
+
+\end{document}

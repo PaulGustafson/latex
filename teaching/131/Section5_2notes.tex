@@ -1,0 +1,149 @@
+\documentclass[t]{beamer}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+%\usepackage[utf8x]{inputenc}
+%\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+% \usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+%\usepackage{enumitem}
+
+% full page itemieze
+%% \newenvironment{fpi}
+%%   {\itemize[nolistsep,itemsep=\fill]}
+%%   {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\begin{center}
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\end{center}
+\vfill
+} 
+
+
+\title{The Definite Integral (Section 5.2)}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Intro}
+Today we'll introduce the integral.  We also make the connection between the integral and the shape of a graph.
+\end{frame}
+
+
+\begin{frame}{Overview}
+\begin{itemize}
+\item Notation for the definite integral
+\item Estimating integrals using Riemann sums
+\item Calculating integrals using shapes
+\item Properties of integrals
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Notation}
+The process of adding up smaller and smaller rectangles to calculate the area under the curve is called a ``definite integral.''
+
+To calculate the area under $f(x)$ from $[a,b]$, we write
+$$ \int_a^b f(x) \, dx$$
+\end{frame}
+
+\begin{frame}{Example}
+Use a left Riemann sum with $n = 5$ to estimate the integral
+$$ \int_2^7 x + \frac{6}{x} \, dx$$
+\begin{align*}
+ \int_2^7 x + \frac{6}{x} \, dx & \approx \Delta x ( f(x_0) + f(x_1) + f(x_2) + f(x_3) + f(x_4)) \\
+ & \approx \frac{7-2}{5} ( f(0) + f(1) + f(2) + f(3) + f(4)) \\
+\end{align*}
+\end{frame}
+
+\begin{frame}{``Negative'' Area}
+If there is area below the $x$-axis, we count it as negative in the integral.
+
+\img{negative_area}
+\end{frame}
+
+\begin{frame}{``Negative'' Area}
+So then 
+$$\int_a^b f(x) \, dx$$
+means we add up all the area above the $x$-axis  and subtract all the area below the $x$-axis.
+
+Note: we we use antidifferentiation to compute integrals, this will take care of itself.
+\end{frame}
+
+\begin{frame}{Integrals Using Shapes}
+Since we know that the integral equals the signed area between $f(x)$ and the $x$-axis, we can calculate integrals of functions whose graphs are simple shapes.
+\end{frame}
+
+\begin{frame}{Example}
+Use the shape of the graph to evaluate
+$$\int_{-4}^8 \left( \frac{1}{2}x - 3 \right) \, dx$$
+\end{frame}
+
+\begin{frame}{Example}
+Calculate the integral:
+$$\int_{-2}^5 f(x) \, dx $$
+For the function
+$$
+f(x) = \begin{cases}
+\sqrt{4 - x^2}, & -2 < x < 0 \\
+x +2, & x \ge 0
+\end{cases}
+$$
+\end{frame}
+
+\begin{frame}{Try it!}
+Use the geometric shape of the graph to evaluate the integral
+$$
+\int_{-3}^2 (3x + 1) \, dx
+$$
+\end{frame}
+
+\begin{frame}{Integral Rules}
+\begin{itemize}
+\item $\displaystyle \int_a^b f(x) \, dx = - \displaystyle \int_b^a f(x) \, dx$
+\item $\displaystyle \int_a^a f(x) \, dx = 0$
+\item $\displaystyle \int_a^b  \, dx = b - a$
+\item $\displaystyle \int_a^b  c \cdot f(x) \, dx =  c \cdot \int_a^b f(x) \, dx$
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Integral Rules}
+\begin{itemize}
+\item $\displaystyle \int_a^b f(x) + g(x) \, dx = 
+\int_a^b f(x) \, dx + \int_a^b  g(x) \, dx$
+\item $\displaystyle \int_a^b f(x) - g(x) \, dx = 
+\int_a^b f(x) \, dx - \int_a^b  g(x) \, dx$
+\item $\displaystyle \int_a^b f(x) \, dx + \int_b^c f(x) \, dx = 
+\int_a^c f(x) \, dx$
+\end{itemize}
+Question: Why is the last rule true?
+\end{frame}
+
+\begin{frame}{Example}
+Use integral rules to write the sum as a single integral
+$$ \int_{-2}^2 f(x) \, dx - \int_5^2 f(x) \, dx - \int_{-2}^{-1} f(x) \, dx $$
+\end{frame}
+
+\begin{frame}{Example}
+If we know that 
+$$\int_1^5 f(x) \, dx = 12$$
+and
+$$\int_4^5 f(x) \, dx = 4, $$
+find
+$$\int_1^4 2 \cdot f(x) \, dx$$
+\end{frame}
+
+\begin{frame}{Example}
+\img{reimann6}
+\end{frame}
+
+
+\end{document}

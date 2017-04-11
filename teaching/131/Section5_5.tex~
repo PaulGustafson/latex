@@ -1,0 +1,226 @@
+\documentclass[t]{beamer}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+%\usepackage[utf8x]{inputenc}
+%\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+% \usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+%\usepackage{enumitem}
+
+% full page itemieze
+%% \newenvironment{fpi}
+%%   {\itemize[nolistsep,itemsep=\fill]}
+%%   {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\begin{center}
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\end{center}
+\vfill
+} 
+
+
+\title{Evaluating Integrals (Section 5.3) and \\
+the Fundamental Theorem of Calculus (Section (5.4)}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Intro to 5.3}
+Today we'll go through the math of how to evaluate integrals using antiderivatives.
+\end{frame}
+
+\begin{frame}{Evaluation Theorem}
+The antiderivative gives an easy way to evaluate definite integrals. If
+$F(x)$ is an antiderivative of $f(x)$, then
+$$\int_a^b f(x) \, dx = F(b) - F(a)$$
+\end{frame}
+
+\begin{frame}{Evaluation Theorem}
+This  theorem is a big deal!
+\begin{itemize}
+\item Adding up millions of tiny rectangles under a curve
+\item Evaluating an antiderivative of a function
+\end{itemize}
+These turn out to be the same thing!
+\end{frame}
+
+\begin{frame}{Evaluation Theorem}
+$$\int_a^b f(x) \, dx = F(b) - F(a)$$
+
+Where does the $+ C$ go?
+\end{frame}
+
+\begin{frame}{Evaluation Theorem}
+New notation: 
+$$F(x) |_a^b = F(b) - F(a)$$
+\end{frame}
+
+\begin{frame}{Indefinite Integrals}
+New notation: a new way to write the \textbf{antiderivative}.
+$$\int f(x) \, dx = F(x)$$
+
+This is called an indefinite integral.  No limits of integration.
+
+From now on, the phrases ``the indefinite integral'' and ``the antiderivative''
+are interchangeable.
+\end{frame}
+
+\begin{frame}{Indefinite Integrals}
+We've seen almost all of these before.
+\img{indef}
+\end{frame}
+
+\begin{frame}{Example}
+Evaluate the definite integral:
+$$\int_{-2}^3 12 x^2 + 5 \, dx$$
+\end{frame}
+
+\begin{frame}{Example}
+Evaluate the definite integral:
+$$\int_0^2 e^x + \frac{x^3 + x^4}{x^2} \, dx $$
+\end{frame}
+
+\begin{frame}{Try it!}
+Evaluate the definite integral:
+$$\int_4^9 \frac{1}{\sqrt{x}} - e^x - 1 \, dx $$
+\end{frame}
+
+\begin{frame}{Example}
+Evaluate the definite integral:
+$$\int_{-5}^5 |x| \, dx$$
+
+Hint: $\displaystyle |x| = \begin{cases}
+-x, & x < 0 \\
+x, & x \ge 0
+\end{cases}
+$
+\end{frame}
+
+\begin{frame}{Applications}
+If we start with a function which is already a derivative, then taking
+the antiderivative just gives us the original function back.
+
+So: 
+$$\int_a^b v(t) \, dt = s(b) - s(a) $$
+
+This gives the net change in position.
+\end{frame}
+
+\begin{frame}{Applications}
+The same concept works with any rate of change.
+\begin{itemize}
+\item Integral of rate of water flowing into a pool equals total change in
+volume of water
+\item Integral of rate of blood flow through a vein equals total amount of blood
+pumped through
+\item Integral of rate of change of population equals net change in population
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Applications}
+Because of conservation efforts, the population of bald eagles is increasing.  Suppose the population has rate of change equal to 
+$$v(t) = 30t^2 + 100t + 10 \text{ eagles/year}$$
+What will be the net increase in the bald eagle population in 10 years?
+\end{frame}
+
+\begin{frame}{The fundamental theorem of calculus: Intro}
+The fundamental theorem of calculus describes the exact way
+in which the integral and the derivative are opposite operations. 
+We will go over several applications as well.
+\end{frame}
+
+\begin{frame}{Function defined with an integral}
+Look at this function:
+$$g(x) = \int_0^x f(t) \, dt$$
+This is a \textbf{function of $x$}
+\end{frame}
+
+\begin{frame}{Function defined with an integral}
+$$g(x) = \int_0^x f(t) \, dt$$
+Think of the function in terms of area. As $x$ increases we pick up more area under 
+of the function $f(t)$.
+\img{areafun}
+\end{frame}
+
+\begin{frame}{Example}
+Find $g(10)$ and $g(25)$ for $g(x) = \int_0^x f(t) \, dt$ 
+\img{intfunex}
+\end{frame}
+
+\begin{frame}{The fundamental theorem of calculus}
+The fundamental theorem of calculus has two parts.
+\begin{itemize}
+\item (Evaluation theorem from earlier) If $F(x)$ is an antiderivative
+of $f(x)$, then
+$$\int_a^b f(x) \, dx = F(b) - F(a)$$
+\item If the function $f(x)$ is continuous, then
+$$\left( \int_a^x f(t) dt \right)' = f(x)$$
+The letter $a$ stands for a constant number.  This formula only holds 
+with just plain $x$.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{The fundamental theorem of calculus}
+\begin{itemize}
+\item (Evaluation theorem from earlier) If $F(x)$ is an antiderivative
+of $f(x)$, then
+$$\int_a^b f(x) \, dx = F(b) - F(a)$$
+\item If the function $f(x)$ is continuous, then
+$$\left( \int_a^x f(t) dt \right)' = f(x)$$
+The letter $a$ stands for a constant number.  This formula only holds 
+with just plain $x$.
+\end{itemize}
+How do these show that the integral and derivative are opposite operations?
+\end{frame}
+
+\begin{frame}{Example}
+For the function $g(x) = \int_0^x f(t) \, dt$, find
+\begin{itemize}
+\item The intervals where $g(x)$ is increasing/decreasing
+\item The intervals where $g(x)$ is concave up/down
+\end{itemize}
+\img{ftocEx}
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative of $g(x)$ for
+$$g(x) = \int_5^x \sin(t^2) \, dt$$
+\end{frame}
+
+\begin{frame}{Try it!}
+Find the derivative of $g(x)$ for
+$$g(x) = \int_{-3}^x \frac{\ln(t) - 6t^2}{e^t + 7} \, dt $$
+\end{frame}
+
+\begin{frame}{Example}
+Use both methods to find the derivative of $g(x)$.
+$$g(x) = \int_0^x 4t - 5 \, dt$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative of $g(x)$.
+$$g(x) = \int_0^{3x} 5t^2 - 2e^{5t} \, dt$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the derivative of $g(x)$.
+$$g(x) = \int_x^{5x} \sin(t) + 2t^2 \, dt$$
+\end{frame}
+
+\begin{frame}{Try it!}
+Find the derivative of $g(x)$.
+$$g(x) = \int_x^{x^2} e^{3t} \, dt $$
+\end{frame}
+
+
+\end{document}
