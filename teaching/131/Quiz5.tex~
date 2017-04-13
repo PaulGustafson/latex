@@ -1,0 +1,46 @@
+%% LyX 2.2.2 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[english]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage{geometry, graphicx}
+\geometry{verbose,tmargin=3cm,bmargin=3cm,lmargin=3cm,rmargin=3cm}
+\setlength{\parskip}{\bigskipamount}
+\setlength{\parindent}{0pt}
+\PassOptionsToPackage{normalem}{ulem}
+\usepackage{ulem}
+\usepackage{babel}
+\usepackage{amsmath,amssymb}
+\pagenumbering{gobble}
+\begin{document}
+\textbf{Take Home Quiz 4}
+
+Official name (printed):\bigskip{}
+
+\newpage
+
+1.  Find the antiderivative of each of the following functions. 
+
+a) $\displaystyle f(x) = x^2 + 2$
+
+\vspace{1.5in}
+
+b)  $\displaystyle f(x) = 2 \cos(x)$
+
+\vspace{1.5in}
+
+c)  $\displaystyle f(x) = e^x + \frac{1}{x^2}$
+
+\vspace{2in}
+
+d)  $\displaystyle f(x) = \frac{3}{x}$
+
+\newpage
+
+2. Suppose $f''(x) = 6x + 2$, $f(0) = 3$, and $f(1) = 5$.  Find $f(x)$.
+\vspace{3.5in}
+
+
+3.  Use a right Riemann sum with 5 intervals to estimate
+$$\int_0^{5 \pi/4} 2 \sin(x) \, dx$$
+\end{document}

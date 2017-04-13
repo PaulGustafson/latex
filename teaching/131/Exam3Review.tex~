@@ -1,0 +1,157 @@
+\documentclass[t]{beamer}
+
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{4 on 1 boxed}[a4paper, border shrink=5mm, landscape]
+  \nofiles
+}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Exam 2 Review}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Limit definition of Derivative}
+Use the limit definition of the derivative to find $f'(x)$ at $x = 2$:
+$$f(x) = \frac{x}{x-3}$$
+\end{frame}
+
+\begin{frame}{Limit definition of Derivative}
+Use the limit definition of the derivative to find $f'(x)$ at $x = 3$:
+$$f(x) = \sqrt{12 - x}$$
+\end{frame}
+
+\begin{frame}{Derivatives and Graphs}
+Below is the graph of $f'(x)$.  Find the $x$-values where $f(x)$ has
+an inflection point, max, and min.
+\img{dg2}
+\end{frame}
+
+\begin{frame}{Product Rule}
+Find the derivative.
+$$f(x) = x^2 e^x \sin(x)$$
+\end{frame}
+
+\begin{frame}{Quotient Rule}
+Find the derivative.
+$$f(x) = \frac{\ln(x)}{x^2 - 1}$$
+\end{frame}
+
+\begin{frame}{Chain Rule}
+Find the derivative.
+$$f(x) = \left( e^{\sin(x)} -3x \right) \left( \tan(x^2) + 2 \right)$$
+\end{frame}
+
+\begin{frame}{Chain Rule}
+Find the derivative.
+$$f(x) = \cot(6 \ln( e^x - 3x))$$
+\end{frame}
+
+\begin{frame}{Chain Rule}
+Find the derivative.
+$$f(x) = \ln(5 + \cos(e^x))$$
+\end{frame}
+
+\begin{frame}{Log Rule}
+Find the derivative.
+$$f(x) = \ln \left( \frac{\sin(x)}{x^2 + 1} \right)$$
+\end{frame}
+
+\begin{frame}{Applications}
+A ball is pushed down a hill with initial velocity $5$ m/s.  Its position
+function is
+$$f(t) = 5t + 3t^2.$$
+\begin{itemize}
+\item What is the velocity of the ball after 2 seconds?
+\item How long does it take the velocity to reach $35$ m/s?
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Linearization}
+Linearization is a fancy word for $\rule{1cm}{0.15mm}$ ?
+\end{frame}
+
+\begin{frame}{Linear approximation}
+Use a linearization to approximate $\sqrt{4.01}$
+\end{frame}
+
+
+\end{document}
