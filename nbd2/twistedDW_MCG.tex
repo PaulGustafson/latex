@@ -57,6 +57,7 @@ midarrow/.default=0.5
 \newtheorem{ques}[thm]{Question}
 \newtheorem{fact}[thm]{Fact}
 \newtheorem{ex}[thm]{Exercise}
+\newcommand{\Hs}{H}
 
 
 \DeclareMathOperator{\id}{id}
@@ -70,9 +71,10 @@ midarrow/.default=0.5
 \DeclareMathOperator{\Img}{Im}
 \DeclareMathOperator{\coev}{coev}
 \DeclareMathOperator{\ev}{ev}
-
+\DeclareMathOperator{\Gr}{Graph}
+\DeclareMathOperator{\VGr}{VGraph}
+\newcommand{\VV}{\mathbf{V}}       % boundary condition
 \newcommand{\vgo}{\Vect^G_\omega}
-
 \newcommand{\one}{1}
 \newcommand{\al}{\alpha}
 \newcommand{\be}{\beta}
@@ -187,7 +189,7 @@ structure gives functorial isomorphisms
 \begin{equation}\label{e:cyclic}
 z\colon\<V_1,\dots,V_n\>\simeq \<V_n, V_1,\dots,V_{n-1}\>
 \end{equation}
-such that $z^n=\id$ (see \ocite{BK}*{Section 5.3}); thus, up to a canonical
+such that $z^n=\id$ (see \cite{BK}*{Section 5.3}); thus, up to a canonical
 isomorphism, the space $\<V_1,\dots,V_n\>$ only depends on the cyclic order
 of $V_1,\dots, V_n$.
 
@@ -261,6 +263,25 @@ In particular, if $\del \Si=\varnothing$, then the only possible boundary
 condition is trivial ($B=\varnothing$); in this case, we wil just write
 $\VGr(\Si)$. 
 
+
+
+The following theorem is a variation of result of Reshitikhin and Turaev. 
+\begin{thm}\label{t:RT}
+  There is a unique  way to assign to every colored
+  planar graph $\Ga$ in a disk $D\subset \R^2$ a vector
+  \begin{equation}
+    \<\Ga\>_D\in \Hom (\one, V(\ee_1) \otimes \dots \otimes V(\ee_n))
+  \end{equation}
+  where $\ee_1,\dots, \ee_n$ are the edges of $\Ga$ meeting the boundary
+  of $D$ (legs), taken in counterclockwise order and with outgoing orientation,
+  so that that following conditions are satisfied:
+  \begin{enumerate}
+     \item $\<\Ga\>$ only depends on the isotopy  class of $\Ga$.
+
+    \item If $\Ga$ is a single vertex colored by
+          $\ph\in \Hom (1, V(\ee_1) \otimes \dots \otimes V(\ee_n))$, then $\<\Ga\>=\ph$.
+     
+    \item Local relations shown in \firef{f:local_rels1} hold. 
 
 
 \begin{figure}[ht]
@@ -344,11 +365,11 @@ $\VGr(\Si)$.
 \end{tikzpicture}
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 \caption{Local relations for colored graphs.
-  Here $\ph\cc{X}\psi$ denotes the morphism
-$1 \xrightarrow{\ph \otimes \psi} 
-V_1 \otimes \cdots \otimes V_n \otimes X \otimes X^* \otimes W_1 \otimes \cdots \otimes W_m  \xrightarrow{ev_{X^*}} 
-V_1 \otimes \cdots \otimes V_n \otimes W_1 \otimes \cdots \otimes W_m $
-. 
+%%   Here $\ph\cc{X}\psi$ denotes the morphism
+%% $1 \xrightarrow{\ph \otimes \psi} 
+%% V_1 \otimes \cdots \otimes V_n \otimes X \otimes X^* \otimes W_1 \otimes \cdots \otimes W_m  \xrightarrow{ev_{X^*}} 
+%% V_1 \otimes \cdots \otimes V_n \otimes W_1 \otimes \cdots \otimes W_m $
+%% . 
         }\label{f:local_rels1}
 \end{figure}
 
@@ -357,12 +378,14 @@ V_1 \otimes \cdots \otimes V_n \otimes W_1 \otimes \cdots \otimes W_m $
 	$D'\subset D$, and in this disk are homeomorphic to the graphs
     shown in  \firef{f:local_rels1},  we must have $\<\Ga\>=\<\Ga'\>$. 
    \end{enumerate}
+
     Moreover, so defined $\<\Ga\>$ satisfies the following properties:
     \begin{enumerate} 
     \item $\<\Ga\>$ is linear in color of each vertex $v$ \textup{(}for 
          fixed colors of edges and other vertices\textup{)}.
     \item $\<\Ga\>$ is additive in colors of edges as shown in 
           \firef{f:linearity}.
+
 \begin{figure}[ht]
 $$
 %%%%%%%%%%%%
