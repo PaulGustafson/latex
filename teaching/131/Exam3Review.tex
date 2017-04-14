@@ -1,0 +1,173 @@
+\documentclass[t]{beamer}
+
+\mode<handout>
+{
+  \usepackage{pgf}
+  \usepackage{pgfpages}
+
+\pgfpagesdeclarelayout{4 on 1 boxed}
+{
+  \edef\pgfpageoptionheight{\the\paperheight} 
+  \edef\pgfpageoptionwidth{\the\paperwidth}
+  \edef\pgfpageoptionborder{0pt}
+}
+{
+  \pgfpagesphysicalpageoptions
+  {%
+    logical pages=4,%
+    physical height=\pgfpageoptionheight,%
+    physical width=\pgfpageoptionwidth%
+  }
+  \pgfpageslogicalpageoptions{1}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{2}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.75\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{3}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.25\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+  \pgfpageslogicalpageoptions{4}
+  {%
+    border code=\pgfsetlinewidth{2pt}\pgfstroke,%
+    border shrink=\pgfpageoptionborder,%
+    resized width=.5\pgfphysicalwidth,%
+    resized height=.5\pgfphysicalheight,%
+    center=\pgfpoint{.75\pgfphysicalwidth}{.25\pgfphysicalheight}%
+  }%
+}
+
+
+  \pgfpagesuselayout{4 on 1 boxed}[a4paper, border shrink=5mm, landscape]
+  \nofiles
+}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+\usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+\usepackage{enumitem}
+
+% full page itemieze
+\newenvironment{fpi}
+  {\itemize[nolistsep,itemsep=\fill]}
+  {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\vfill
+} 
+
+
+\title{Exam 3 Review}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Topics}
+\begin{itemize}
+\item 4.2 Absolute Max/Min
+\item 4.3 Shape of Curve: 4 step process
+\item 4.6 Optimization Problems
+\item 4.8 Antiderivatives
+\item 5.1 Riemann Sums
+\item 5.2 Integral as Area
+\item 5.3 Evaluation Theorem
+\item 5.4 Fundamental Theorem of Calculus
+\item 5.5 Substitution Rule
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Absolute max/min}
+Find the absolute max/min values on the interval [0,4] for
+$$f(x) = 5 + 54x - 2x^3$$
+\end{frame}
+
+\begin{frame}{Shape of graph}
+For the function $f(x)$, find
+\begin{itemize}
+\item The intervals where it's increasing/decreasing
+\item The local maxes/mins
+\item The intervals where it's concave up/concave down
+\item The inflection points
+\end{itemize}
+$$f(x) = 5 + 54x - 2x^3$$
+\end{frame}
+
+\begin{frame}{Optimization}
+When solving an optimization problem:
+\begin{itemize}
+\item Draw a picture of the scenario.
+\item Identify what quantity you are optimizing. Write down that equation.
+\item Write down a second equation from information given
+(the constraining equation.
+\item Solve the second equation for a variable. Substitute it into the first
+equation.
+\item The first equation should now have only one variable.
+Minimize/maximize it.
+\item Make sure to answer the question!
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Optimization}
+We build a can in the shape of a cylinder closed on both ends.  We have enough metal for $100$ squared centimeters of surface area.  What dimensions maximize the volume of the can?  What is the maximum volume?
+\end{frame}
+
+\begin{frame}{Antiderivatives}
+Find the original function $f(x)$ if $f(0) = 9$ and $f(2) = 15$ and
+$$f''(x) = 2 - 12x$$
+\end{frame}
+
+\begin{frame}{Riemann sum}
+Find the left Riemann sum for $n=3$ for the integral 
+$$\int_5^8 \frac{\sqrt{x}}{x + 1} \, dx $$
+\end{frame}
+
+\begin{frame}{Integral as area}
+Interpret the integral in terms of the area of shapes to calculate the
+definite integral
+$$\int_{-2}^2  3 + \sqrt{4 - x^2} \, dx $$
+\end{frame}
+
+\begin{frame}{Evaluation theorem}
+Evaluate the definite integral.
+$$\int_{\pi}^{2 \pi} \sin(x) + 5 \, dx $$
+\end{frame}
+
+\begin{frame}{Fundamental theorem of calculus}
+For the function 
+$$g(x) = \int_0^{2x} \frac{ \sec(2t) - t } {t^2} \, dt,$$
+find $g'(x)$.
+\end{frame}
+
+\begin{frame}{Substitution}
+Calculate the integral 
+$$ \int_2^3 \frac{\sin(\ln(x))}{x} \, dx $$
+\end{frame}
+
+\end{document}
