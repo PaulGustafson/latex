@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.3.22)  14 APR 2017 13:07
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.3.22)  15 APR 2017 13:12
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -861,66 +861,64 @@ LaTeX Warning: Citation `0806.2493' on page 1 undefined on input line 135.
 
 LaTeX Warning: Citation `erw' on page 1 undefined on input line 135.
 
-
-LaTeX Warning: Citation `math/0601012' on page 1 undefined on input line 139.
-
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 
+LaTeX Warning: Citation `math/0601012' on page 2 undefined on input line 144.
+
+
 LaTeX Warning: Citation `kirillovStringNets' on page 2 undefined on input line 
-167.
+172.
 
 
-LaTeX Warning: Citation `BK' on page 2 undefined on input line 192.
+LaTeX Warning: Citation `BK' on page 2 undefined on input line 191.
 
 
-LaTeX Warning: Reference `f:coloring' on page 2 undefined on input line 231.
+LaTeX Warning: Reference `f:coloring' on page 2 undefined on input line 230.
 
 [2] [3]
 \R=\dimen188
  <lickorish.png, id=82, 351.3125pt x 107.40125pt>
 File: lickorish.png Graphic file (type png)
  <use lickorish.png>
-Package pdftex.def Info: lickorish.png used on input line 536.
+Package pdftex.def Info: lickorish.png used on input line 535.
 (pdftex.def)             Requested size: 281.85587pt x 86.17348pt.
 
+
+LaTeX Warning: Citation `fjfu' on page 4 undefined on input line 554.
+
+
+LaTeX Warning: Citation `dijkgraaf1990' on page 4 undefined on input line 554.
+
 [4]
-
-LaTeX Warning: Citation `fjfu' on page 5 undefined on input line 555.
-
-
-LaTeX Warning: Citation `dijkgraaf1990' on page 5 undefined on input line 555.
-
-
-Overfull \hbox (7.88884pt too wide) in paragraph at lines 837--1029
+Overfull \hbox (7.88884pt too wide) in paragraph at lines 836--1028
  [][] 
  []
 
 
 LaTeX Warning: Citation `kirillovStringNets' on page 5 undefined on input line 
-1037.
+1036.
 
-[5 <./lickorish.png>]
 
-LaTeX Warning: Citation `birman' on page 6 undefined on input line 1041.
+LaTeX Warning: Citation `birman' on page 5 undefined on input line 1040.
 
 Missing character: There is no ; in font nullfont!
-[6]
+[5 <./lickorish.png>]
 
-LaTeX Warning: Citation `erw' on page 7 undefined on input line 1893.
-
-
-LaTeX Warning: Citation `fjfu' on page 7 undefined on input line 1893.
+LaTeX Warning: Citation `erw' on page 6 undefined on input line 1892.
 
 
-LaTeX Warning: Citation `tambara' on page 7 undefined on input line 1893.
+LaTeX Warning: Citation `fjfu' on page 6 undefined on input line 1892.
+
+
+LaTeX Warning: Citation `tambara' on page 6 undefined on input line 1892.
 
 No file twistedDW_MCG.bbl.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1904.
-[7] [8]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1904.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1903.
+[6] [7] [8] [9]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1903.
  (./twistedDW_MCG.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1904.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1904.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1903.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1903.
 
 Package rerunfilecheck Info: File `twistedDW_MCG.out' has not changed.
 (rerunfilecheck)             Checksum: E6E24A8C48F0645DF43052E68670F37F;378.
@@ -928,16 +926,19 @@ Package rerunfilecheck Info: File `twistedDW_MCG.out' has not changed.
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1904.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1903.
  ) 
 Here is how much of TeX's memory you used:
- 18491 strings out of 494985
- 329365 string characters out of 6180356
- 501519 words of memory out of 5000000
+ 18489 strings out of 494985
+ 329353 string characters out of 6180356
+ 527276 words of memory out of 5000000
  21157 multiletter control sequences out of 15000+600000
- 47854 words of font info for 108 fonts, out of 8000000 for 9000
+ 45990 words of font info for 105 fonts, out of 8000000 for 9000
  197 hyphenation exceptions out of 8191
- 56i,16n,69p,1187b,1192s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,15n,69p,1187b,1192s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
 e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
@@ -953,10 +954,10 @@ live/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw
 /times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on twistedDW_MCG.pdf (8 pages, 181836 bytes).
+Output written on twistedDW_MCG.pdf (9 pages, 182449 bytes).
 PDF statistics:
- 193 PDF objects out of 1000 (max. 8388607)
- 163 compressed objects within 2 object streams
- 45 named destinations out of 1000 (max. 500000)
+ 197 PDF objects out of 1000 (max. 8388607)
+ 166 compressed objects within 2 object streams
+ 46 named destinations out of 1000 (max. 500000)
  74 words of extra memory for PDF output out of 10000 (max. 10000000)
 

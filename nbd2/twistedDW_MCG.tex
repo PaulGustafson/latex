@@ -136,7 +136,12 @@ More is known when we fix a particular surface $M$. In the case where $M$ is a t
 
 \section{Definitions}
 
-Let $G$ be a finite group, and a let $\omega \in Z^3(G, k^\times)$ be a 3-cocycle.   Let $V_g \in \Obj(\Vect_G^\omega)$ denote a choice of 1-dimensional vector space in degree $g$.   We will abuse notation by referring to the object $V_g$ by the group element $g$.  For the structural morphisms of the spherical fusion category $\Vect_G^\omega$, we follow \cite{math/0601012}.  The associator $\alpha_{g,h,k}:(g \otimes h) \otimes k \to g \otimes (h \otimes k)$ is defined to be
+
+Let $k$ be a field,  $G$ be a finite group, and $\omega \in Z^3(G, k^\times)$ be a 3-cocycle.    Let  $\Vect_G^\omega$  denote the category of $G$-graded $k$-vector spaces with associativity defined by $\omega$.  
+The objects of this category are vector spaces with a decomposition $V = \bigoplus_{g \in G} V_g$. Morphisms are linear maps preserving the grading. The tensor product is defined by
+$$ (V \otimes W)_g = \bigoplus_{x,y \in G, xy = g} V_x \otimes W_y $$.
+
+For the structural morphisms of the spherical fusion category $\Vect_G^\omega$, we follow \cite{math/0601012}.  For each $g \in G$, pick a simple object $\delta_g \in \Obj(\Vect_G^\omega)$,  1-dimensional vector space in degree $g$.  The set $\{\delta_g : g \in G\}$ is a complete set of pairwise non-isomorphic representatives for the isomorphism classes of simple objects of $\Vect_G^\omega$.  We will abuse notation by referring to an object $\delta_g$ by the group element $g$.  The associator $\alpha_{g,h,k}:(g \otimes h) \otimes k \to g \otimes (h \otimes k)$ is defined by
 $$\alpha_{g,h,k} = \omega(g,h,k) \id_{ghk}.$$ 
 The evaluator $\ev_g:g^* \otimes g \to 1$ is 
 $$\ev_g = \omega(g^{-1},g,g^{-1}) \id_1.$$  
@@ -171,12 +176,6 @@ local relations.  He also proves that this space
 is canonically isomorphic to the TVBW vector space associated to $M$.  It is
 straightforward to check that this isomorphism, which amounts to replacing a 
 triangulation with its dual graph,  commutes with the mapping class group action.
-
-We will denote by $\Irr(\A)$ the
-set of isomorphism classes of simple objects; abusing the language, we will
-frequently use the same letter $i$ for denoting both a  simple object and 
-its isomorphism class. In those cases where it can lead to confusion, we
-will use notation $X_i$ for a representative of isomorphism class $i$.
 
 
 We define the functor $\A^{\boxtimes n}\to \Vect$ by
