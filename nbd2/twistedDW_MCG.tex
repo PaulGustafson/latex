@@ -141,6 +141,8 @@ Let $k$ be a field,  $G$ be a finite group, and $\omega \in Z^3(G, k^\times)$ be
 The objects of this category are vector spaces with a decomposition $V = \bigoplus_{g \in G} V_g$. Morphisms are linear maps preserving the grading. The tensor product is defined by
 $$ (V \otimes W)_g = \bigoplus_{x,y \in G, xy = g} V_x \otimes W_y $$.
 
+%% Put e_g \otimes e_h = e_{gh} below?  
+
 For the structural morphisms of the spherical fusion category $\Vect_G^\omega$, we follow \cite{math/0601012}.  For each $g \in G$, pick a simple object $\delta_g \in \Obj(\Vect_G^\omega)$,  1-dimensional vector space in degree $g$.  The set $\overline{G} := \{\delta_g : g \in G\}$ is a complete set of pairwise non-isomorphic representatives for the isomorphism classes of simple objects of $\Vect_G^\omega$.  We will abuse notation by referring to an object $\delta_g$ by the group element $g$.  The associator $\alpha_{g,h,k}:(g \otimes h) \otimes k \to g \otimes (h \otimes k)$ is defined by
 $$\alpha_{g,h,k} = \omega(g,h,k) \id_{ghk}.$$ 
 The evaluator $\ev_g:g^* \otimes g \to 1$ is 
@@ -502,7 +504,9 @@ By Theorem \ref{t:RT} and the definition of the quotient map identifying the sid
 Since the evaluation map of Theorem \label{t:RT} is additive in the direct sum, I claim that the representation space $H$ is spanned by the set of such colored graphs $\Gamma$ such that each $V(e_i)$ is simple.   In fact, strictly speaking, we can only take advantage of the additivity on a disc, not on an edge $e_i$, which is a $v$-based loop. However, we can easily add a $\coev$-labeled vertex to any edge $e_i$, apply the additivity on one of the two resulting edges (which lies in an embedded disc), and then contract on the other Since the evaluation map isedge to get the decomposition we want.
 
 Since isomorphic colorings give the same evaluation, we can play the same game to see that $H$ is spanned by colored graphs $\Gamma$ such that
-each $V(
+each $V(e_i) = \delta_{g_i}$ for some $g_i \in G$.  For such $\Gamma$,  the space of possible $v$-colors $\Hom (\one, \bigotimes_{i=1}^g V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1})^* \otimes V(e_{2i}))^*$ is one-dimensional if $\prod_{i=1}^g$
+
+By using the linearity in the vertex color, we can further restrict to $\Gamma$ such that 
 
 
 
