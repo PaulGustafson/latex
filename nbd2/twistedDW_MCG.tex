@@ -118,7 +118,7 @@ Any twisted Dijkgraaf-Witten representation of a mapping class group of an orien
 \maketitle
 
 \section{Introduction}
-Given a spherical fusion category $\mathcal A$ over a field $k$ and an oriented compact surface $M$, possibly with boundary, the Turaev-Viro-Barrett-Westbury (TVBW) construction gives a projective representation of the mapping class group $\MCG(M)$ \cite{TURAEV1992865, hep-th/9311155}.  A natural question is to determine the image of these representations.  In particular,  when does such a representation have finite image?
+Given a spherical fusion category $\mathcal A$ over a field $k$ and an oriented compact surface $\Si$, possibly with boundary, the Turaev-Viro-Barrett-Westbury (TVBW) construction gives a projective representation of the mapping class group $\MCG(\Si)$ \cite{TURAEV1992865, hep-th/9311155}.  A natural question is to determine the image of these representations.  In particular,  when does such a representation have finite image?
 
 It is conjectured that these representations have finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a modification of the Property F conjecture \cite{nr, erw}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral. Instead of only considering braid group representations, one can consider mapping class groups of arbitrary orientable surfaces.  In this case, the input categories to construct the representations must be more specialized than just braided monoidal.  One can either apply the Reshitikhin-Turaev construction to a modular tensor category, or apply the TVBW construction to a spherical fusion category.  The former is more general than the latter since the Reshitikhin-Turaev construction for the Drinfeld center $Z(\mathcal A)$ of a spherical fusion category $\mathcal A$ yields the same representation as the TVBW construction for $\mathcal A$.  However, for the case considered in this paper, the simpler TVBW construction suffices.
 
@@ -132,18 +132,18 @@ The closest related work is a result of Fjelstad and Fuchs \cite{fjfu} showing t
 
 In \cite{bantay}, Bantay defined representations of mapping class groups on the Hilbert space of an orbifold model associated to $D^\omega(G)$.  These representations appear to coincide with the twisted Dijkgraaf-Witten representations. However, the precise details of the connection are not clear to me.
 
-More is known when we fix a particular surface $M$. In the case where $M$ is a torus, Ng and Schauenburg showed that any Reshitikhin-Turaev representation of the mapping class group of the torus is finite \cite{0806.2493}.   In the case where $M$ is an $n$-punctured disk, the mapping class group of $M$ relative to the boundary of the disk is the braid group $B_n$.  In this case, Etingof, Rowell, and Witherspoon proved that the representations associated to $\Mod(D^\omega(G))$ are finite \cite{erw}.
+More is known when we fix a particular surface $\Si$. In the case where $\Si$ is a torus, Ng and Schauenburg showed that any Reshitikhin-Turaev representation of the mapping class group of the torus is finite \cite{0806.2493}.   In the case where $\Si$ is an $n$-punctured disk, the mapping class group of $\Si$ relative to the boundary of the disk is the braid group $B_n$.  In this case, Etingof, Rowell, and Witherspoon proved that the representations associated to $\Mod(D^\omega(G))$ are finite \cite{erw}.
 
-\section{Definitions}
-
-
-Let $k$ be a field,  $G$ be a finite group, and $\omega \in Z^3(G, k^\times)$ be a 3-cocycle.    Let  $\Vect_G^\omega$  denote the category of $G$-graded $k$-vector spaces with associativity defined by $\omega$.  
-The objects of this category are vector spaces with a decomposition $V = \bigoplus_{g \in G} V_g$. Morphisms are linear maps preserving the grading. The tensor product is defined by
+\section{Background}
+\subsection{The spherical fusion category \Vect_G^\omega}
+The following defintions are well-known and can be found in, e.g., \cite{etingofTensor}.  Let $k$ be a field,  $G$ a finite group, and $\omega \in Z^3(G, k^\times)$ a 3-cocycle.    The spherical fusion category of $G$-graded $k$-vector spaces with associativity defined by $\omega$ is denoted $\Vect_G^\omega$.  The objects of this category are vector spaces with a decomposition $V = \bigoplus_{g \in G} V_g$. Morphisms are linear maps preserving the grading. The tensor product is defined by
 $$ (V \otimes W)_g = \bigoplus_{x,y \in G, xy = g} V_x \otimes W_y $$.
 
 %% Put e_g \otimes e_h = e_{gh} below?  
 
-For the structural morphisms of the spherical fusion category $\Vect_G^\omega$, we follow \cite{math/0601012}.  For each $g \in G$, pick a simple object $\delta_g \in \Obj(\Vect_G^\omega)$,  1-dimensional vector space in degree $g$.  The set $\overline{G} := \{\delta_g : g \in G\}$ is a complete set of pairwise non-isomorphic representatives for the isomorphism classes of simple objects of $\Vect_G^\omega$.  We will abuse notation by referring to an object $\delta_g$ by the group element $g$.  The associator $\alpha_{g,h,k}:(g \otimes h) \otimes k \to g \otimes (h \otimes k)$ is defined by
+For each $g \in G$, pick a simple object $\delta_g \in \Obj(\Vect_G^\omega)$,  1-dimensional vector space in degree $g$.  The set $\overline{G} := \{\delta_g : g \in G\}$ is a complete set of pairwise non-isomorphic representatives for the isomorphism classes of simple objects of $\Vect_G^\omega$.  We have $\one \simeq \delta_0$ and $\delta_g^* \simeq \delta_{g^{-1}}$.
+
+For the structural morphisms,  we follow \cite{math/0601012}.  We will abuse notation by referring to an object $\delta_g$ by the group element $g$.  The associator $\alpha_{g,h,k}:(g \otimes h) \otimes k \to g \otimes (h \otimes k)$ is defined by
 $$\alpha_{g,h,k} = \omega(g,h,k) \id_{{ghk}}.$$ 
 The evaluator $\ev_g:g^* \otimes g \to 1$ is 
 $$\ev_{g} = \omega(g^{-1},g,g^{-1}) \id_1.$$  
@@ -170,12 +170,15 @@ $$j_{g} = \omega(g^{-1},g,g^{-1}) \id_{g}.$$
 \newcommand{\firef}[1]{Figure~{\rm\ref{#1}}}
 \newcommand{\R}{\mathbb{R}}       % real numbers
 
+
+\subsection{Colored graphs}\label{s:colored}
+
 The following definitions and theorem are from Kirillov's paper
- \cite{kirillovStringNets}.  For any spherical fusion category $\mathcal A$
-and surface $M$, he gives the following presentation of the Levin-Wen model
+ \cite{kirillovStringNets}, but repeated here for the reader's convenience.  
+For any spherical fusion category $\mathcal A$ and surface $\Si$, he gives the following presentation of the Levin-Wen model
 as a vector space of colored graphs modulo
 local relations.  He also proves that this space 
-is canonically isomorphic to the TVBW vector space associated to $M$.  It is
+is canonically isomorphic to the TVBW vector space associated to $\Si$.  It is
 straightforward to check that this isomorphism, which amounts to replacing a 
 triangulation with its dual graph,  commutes with the mapping class group action.
 
@@ -203,8 +206,6 @@ W_m\>&\to\<V_1,\dots,V_n, W_1,\dots, W_m\>\\
 \end{aligned}
 \end{equation}
 where $\ev_X\colon X\otimes  X^*\to \one$ is the evaluation morphism.
-
-\subsection{Colored graphs}\label{s:colored}
 
 We will consider finite  graphs embedded in an oriented surface $\Si$
 (which may have boundary); for such a
@@ -452,7 +453,7 @@ The vector $\<\Ga\>$ is called the {\em evaluation} of $\Ga$.
 To define local relations between graphs, Kirillov defines the space of
 null graphs as follows. Let
 $\Ga=c_1\Ga_1+\dots+c_n\Ga_n$ be a formal linear
-combination of colored graphs in $M$.  If there exists an embedded disk $D \subset M$ such that
+combination of colored graphs in $\Si$.  If there exists an embedded disk $D \subset M$ such that
 \begin{enumerate}
   \item $\Ga$ is transversal to $\del D$ (i.e., no vertices of $\Ga_i$ 
       are on the boundary of $D$ and edges of each $\Ga_i$ meet 
@@ -462,8 +463,10 @@ combination of colored graphs in $M$.  If there exists an embedded disk $D \subs
 \end{enumerate}
 then $\Ga$ is called a null graph. 
 
+\section{Results}
+
 \begin{defn}
-The representation space $\Hs(\Si, \VV)$ associated to a oriented surface $M$ with boundary condition $\VV$ by a spherical fusion category $\mathcal A$ is the quotient space
+The representation space $\Hs(\Si, \VV)$ associated to a oriented surface $\Si$ with boundary condition $\VV$ by a spherical fusion category $\mathcal A$ is the quotient space
  $$
    \Hs(\Si, \VV)=\VGr(\Si, \VV)/N(\Si, \VV)
   $$
@@ -472,13 +475,13 @@ The representation space $\Hs(\Si, \VV)$ associated to a oriented surface $M$ wi
 \end{defn}
 %% The action of the mapping class group on H
 
-\section{No Boundary Case}
+\subsection{No Boundary Case}
 
 %% \begin{prop}
-%% The action of the mapping class group on the vector space $H$ induced by the action of the orientation-preserving homeomorphisms on the surface $M$ is well-defined.
+%% The action of the mapping class group on the vector space $H$ induced by the action of the orientation-preserving homeomorphisms on the surface $\Si$ is well-defined.
 %% \end{prop}
 %% \begin{proof}
-%% The orientation-preserving group $\Homeo^+(M)$ acts on colored embedded graphs in $M$.  To see that the mapping class group $\MCG(M)$ has a well-defined action on $H$, we need to check two things: first, that isotopic homeomorphisms acting on a colored graph take it to equivalent colored graphs and, second, that a homeomorphism maps equivalent colored graphs to equivalent colored graphs.
+%% The orientation-preserving group $\Homeo^+(M)$ acts on colored embedded graphs in $\Si$.  To see that the mapping class group $\MCG(\Si)$ has a well-defined action on $H$, we need to check two things: first, that isotopic homeomorphisms acting on a colored graph take it to equivalent colored graphs and, second, that a homeomorphism maps equivalent colored graphs to equivalent colored graphs.
 
 %% For the first, suppose $f, g \in Homeo^+(M)$ are isotopic, with $H: M \times I \to M$ an isotopy from $f$ to $g$.  Let $i: \Gamma \to M$ be an graph embedding.  Then $H \circ i$ is an isotopy from $f \circ i$ to $g \circ i$.    
 
@@ -489,15 +492,26 @@ The representation space $\Hs(\Si, \VV)$ associated to a oriented surface $M$ wi
 %% Thus, the action of the mapping class group on $H$ is well-defined.
 %% \end{proof}
 
+\begin{defn}
+Let $\Gamma$ be a graph embedded in a surface $\Si$.  A $\Vect_G^\omega$ coloring of $Gamma$ is called \emph{simple}$ if 
+\begin{enumerate}
+\item For every oriented edge $\ee \in E^{or}(\Gamma)$, there exists a group element $g(\ee) \in G$ such that
+the coloring $V(e_i) = \delta_{g(\ee)}$.
+\item If $v$ is an interior vertex of $\Gamma$ and
+      $\ee_1, \dots, \ee_n$ are edges incident to $v$, taken in counterclockwise 
+      order and with outward orientation, then $\prod_{i=1}^n g(\ee_i) = 1$ and
+      $\phi(v): \Hom(\one, \prod_{i=1}^n \delta_{g(\ee_i)}$ is the canonical isomorphism
+\end{enumerate}
+\end{defn}
 
-
+\be
 
 \begin{thm}\label{thm:closed}
-The image of any twisted Dijkgraaf-Witten representation of a mapping class group of an orientable, closed surface $M$ is finite.
+The image of any twisted Dijkgraaf-Witten representation of a mapping class group of an orientable, closed surface $\Si$ is finite.
 \end{thm}
 
 \begin{proof}
-Let $\Gamma$ be a $\Vect_G^\omega$-colored graph embedding, and let $g \ge 1$ be the genus of $M$ (if $g = 0$, the mapping class group is trivial). Thinking of $M$ as a quotient of its fundamental $4g$-gon, by isotopy we may assume that the vertices of $\Gamma$ lie in the interior of the polygon, none of the edges of $\Gamma$ intersect the corners of the polygon, and that the edges of $\Gamma$ only meet the sides of the polygon transversally.  Evaluating on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$ and edges $e_1, \ldots, e_{2g}$ corresponding to the standard generators of $\pi_1(M,v)$ as shown in Figure \ref{fig:span}.
+Let $\Gamma$ be a $\Vect_G^\omega$-colored graph embedding, and let $g \ge 1$ be the genus of $\Si$ (if $g = 0$, the mapping class group is trivial). Thinking of $\Si$ as a quotient of its fundamental $4g$-gon, by isotopy we may assume that the vertices of $\Gamma$ lie in the interior of the polygon, none of the edges of $\Gamma$ intersect the corners of the polygon, and that the edges of $\Gamma$ only meet the sides of the polygon transversally.  Evaluating on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$ and edges $e_1, \ldots, e_{2g}$ corresponding to the standard generators of $\pi_1(M,v)$ as shown in Figure \ref{fig:span}.
 
 By Theorem \ref{t:RT} and the definition of the quotient map identifying the sides of the fundamental polygon, the vertex $v$ is colored by an element $\phi(v) \in \Hom (\one, \bigotimes_{i=1}^g V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1})^* \otimes V(e_{2i}))^*$, where $V(e_i) \in \Obj(\Vect_G^\omega)$ is the coloring of the edge $e_i$.   
 
@@ -507,9 +521,9 @@ Since isomorphic colorings give the same evaluation, we can play the same game t
 each $V(e_i) = \delta_{g_i}$ for some $g_i \in G$.  For such $\Gamma$,  the space of possible $v$-colors $\Hom (\one, \bigotimes_{i=1}^g V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1})^* \otimes V(e_{2i}))^*$ is one-dimensional if $\prod_{i=1}^g [g_{2i-1}, g_{2i}] = 1$, and zero-dimensional otherwise.
 By using the linearity in the vertex color, we can further restrict to colored graphs $\Gamma$ such that $\ph(v)$ is the canonical isomorphism $\one \to \bigotimes_{i=1}^g \delta_{g_{2i-1}} \otimes \delta_{g_{2i}} \otimes \delta_{g_{2i-1}}^* \otimes \delta_{g_{2i}}^*$. 
 
-Thus, the representation space $H$ has a finite spanning set $S$ consisting of colored graphs $\Gamma$ with one vertex $v$ and edges $e_1, \ldots, e_{2g}$ corresponding to the standard generators of $\pi_1(M,v)$ such that the edge labels $V(e_i)$ 
+Thus, the representation space $H$ has a finite spanning set $S$ consisting of all colored graphs $\Gamma$ with one vertex $v$ and edges $e_1, \ldots, e_{2g}$ corresponding to the standard generators of $\pi_1(M,v)$ such that each edge label $V(e_i) = \delta_{g_i}$ for some $g_i \in G$ such that $\prod_{i=1}^g [g_{2i-1}, g_{2i}] = 1$  and each vertex label is the canonical isomorphism $\one \to \bigotimes_{i=1}^g \delta_{g_{2i-1}} \otimes \delta_{g_{2i}} \otimes \delta_{g_{2i-1}}^* \otimes \delta_{g_{2i}}^*$.
 
-where $\Irr(\Vect_G^\omega)$ is the a complete set of representatives for the isomorphism classes of simple objects of $\Vect_G^\omega$, which correspond to the elements of $G$. 
+
 
 \newdimen\R
 \R=0.8cm
@@ -552,7 +566,7 @@ where $\Irr(\Vect_G^\omega)$ is the a complete set of representatives for the is
 The second fact that we need is that the result of each of the local moves in Figure \ref{f:local_rels1} is
 
 
-The mapping class group of $M$ is generated by the Lickorish generating set consisting of Dehn twists around $3g-1$ simple closed curves.   These can be divided into two types of twists: the ones around a single hole (the blue and green curves in Figure \ref{fig:lickorish}), and the ones connecting two holes (the red curves).
+The mapping class group of $\Si$ is generated by the Lickorish generating set consisting of Dehn twists around $3g-1$ simple closed curves.   These can be divided into two types of twists: the ones around a single hole (the blue and green curves in Figure \ref{fig:lickorish}), and the ones connecting two holes (the red curves).
 
 
 To understand the action of each type of Dehn twist on the representation space $H$, 
@@ -568,7 +582,7 @@ Thus, the image of any such mapping class group representation is a quotient of 
 \end{proof}
 
 \begin{rmk} 
-When $\omega = 1$ and $M$ is closed, this representation is a permutation representation.  
+When $\omega = 1$ and $\Si$ is closed, this representation is a permutation representation.  
 \end{rmk}
 
 \begin{proof}
@@ -1053,13 +1067,13 @@ The Dehn twist is performed along the dashed simple closed curve.}
 \end{table}
 
 
-\section{Boundary Case}
+\subsection{With Boundary Case}
 
-When $M$ has boundary, we define the mapping class group $\MCG(M)$ to be the group of isotopy classes of homeomorphisms fixing the boundary of $M$ setwise. There are mapping class group representations for every labelling of the boundary components  $\pi_0(\partial M) \to \Obj(Z(\vgo))$.  Given such a labelling, the representation space is spanned by colored graphs for which the coloring of a leg ending in a boundary component coincides with the image of the forgetful functor $F: Z(\vgo) \to \vgo$ on the labelling of that boundary component.  The same local relations are valid in this representation space \cite{kirillovStringNets}.
+When $\Si$ has boundary, we define the mapping class group $\MCG(\Si)$ to be the group of isotopy classes of homeomorphisms fixing the boundary of $\Si$ setwise. There are mapping class group representations for every labelling of the boundary components  $\pi_0(\partial M) \to \Obj(Z(\vgo))$.  Given such a labelling, the representation space is spanned by colored graphs for which the coloring of a leg ending in a boundary component coincides with the image of the forgetful functor $F: Z(\vgo) \to \vgo$ on the labelling of that boundary component.  The same local relations are valid in this representation space \cite{kirillovStringNets}.
 
-By a similar argument as in the proof of the Theorem $\ref{thm:closed}$, any such representation space has a spanning set $S$ of colored graphs with a single vertex, loops for each of the usual generators of the fundamental group of $M$, and a leg from the vertex to each of the boundary components.  Each of the edges is labeled by a simple object, i.e. an element of the group $G$.
+By a similar argument as in the proof of the Theorem $\ref{thm:closed}$, any such representation space has a spanning set $S$ of colored graphs with a single vertex, loops for each of the usual generators of the fundamental group of $\Si$, and a leg from the vertex to each of the boundary components.  Each of the edges is labeled by a simple object, i.e. an element of the group $G$.
 
-Let $N$ denote the closed surface obtained by filling in all the boundary components of $M$ with disks. The mapping class group $\MCG(M)$ is generated by the same Dehn twists as $\MCG(N)$, as well as braids interchanging boundary components and mapping classes corresponding to dragging a boundary component along a representative of a standard generator of $\pi_1(N)$ \cite{birman}.  It is straightforward to check that applying any of these generators of $\MCG(M)$ to a colored graph in $S$ yields an element in $\Img(\omega)S$ (see Tables \ref{fig:braid1} and \ref{fig:drag1}).  Since the braid group is also generated by such braids, we have the following theorem.
+Let $N$ denote the closed surface obtained by filling in all the boundary components of $\Si$ with disks. The mapping class group $\MCG(\Si)$ is generated by the same Dehn twists as $\MCG(N)$, as well as braids interchanging boundary components and mapping classes corresponding to dragging a boundary component along a representative of a standard generator of $\pi_1(N)$ \cite{birman}.  It is straightforward to check that applying any of these generators of $\MCG(\Si)$ to a colored graph in $S$ yields an element in $\Img(\omega)S$ (see Tables \ref{fig:braid1} and \ref{fig:drag1}).  Since the braid group is also generated by such braids, we have the following theorem.
 
 
 \nc{\rightX}{0.5}  % left marked point x value
