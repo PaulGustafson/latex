@@ -1,0 +1,114 @@
+\documentclass[t]{beamer}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+%\usepackage[utf8x]{inputenc}
+%\usepackage[T1]{fontenc}
+
+\usetheme{Madrid}
+% \usecolortheme{beaver}
+
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{graphicx}
+
+%\usepackage{enumitem}
+
+% full page itemieze
+%% \newenvironment{fpi}
+%%   {\itemize[nolistsep,itemsep=\fill]}
+%%   {\vfill\enditemize}
+
+\newcommand{\img}[1]{
+\vfill
+\begin{center}
+\includegraphics[width=\textwidth,height=0.5\textheight,keepaspectratio]{#1}
+\end{center}
+\vfill
+} 
+
+
+\title{Average Value of a Function (Section 6.5) and \\
+Applications to Biology (Section 6.7)}
+\date{}
+
+\begin{document}
+\frame{\titlepage}
+
+\begin{frame}{Intro}
+Computing the average value of a list of numbers is a 
+natural way to understand the data.  Computing the
+average value of a function is similar, except we need
+a new formula.
+\end{frame}
+
+\begin{frame}{Averages}
+We know how to calculate the average value of a list of numbers.
+Data: 
+$$(1,2,5,5,2,3,4)$$
+Average:
+$$\frac{1 + 2 + 5 + 5 + 2 + 3 + 4}{7}$$
+\end{frame}
+
+\begin{frame}{Average value of a function}
+For a function, there are infinitely many $y$-values. Instead of a 
+sum, we use an integral.  On the interval $[a,b]$, the average 
+value of a function $f$ is:
+$$f_{ave} = \frac{1}{b - a} \int_a^b f(x) \, dx$$
+\end{frame}
+
+\begin{frame}{Average value of a function}
+On the interval $[a,b]$, the average 
+value of a function $f$ is:
+$$f_{ave} = \frac{1}{b - a} \int_a^b f(x) \, dx$$
+
+The denominator $b - a$ is the length of the interval -- analogous to the
+number of terms in a list.
+
+The integral is analogous to the sum of all the terms in the list.
+\end{frame}
+
+\begin{frame}{Example}
+Find the average value of the function $f(x)$ on the interval $[2,8]$.
+$$f(x) = x^2 - 3x$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the average value of the function $f(x)$ on the interval $[0,2]$.
+$$f(x) = \sqrt{12x + 1}$$
+\end{frame}
+
+\begin{frame}{Try it!}
+Find the average value of $f(x)$ on the interval $[-2,2]$.
+$$f(x) = 6x (x^2-5)^3$$
+\end{frame}
+
+\begin{frame}{Example}
+Find the $x$-value $c$ such that the average value of $f(x)$
+on the interval $[0,6]$ equals $f(c)$.
+$$f(x) = x^2 - 5x + 1 $$
+\end{frame}
+
+\begin{frame}{Try it!}
+Find the $x$-value $c$ such that the average value of $f(x)$
+on the interval $[0,8]$ equals $f(c)$.
+$$f(x) = 3x^2 - 4x - 7$$
+\end{frame}
+
+\begin{frame}{Example}
+Let 
+$$f(x) = 2x - 3 $$
+Find a value of $b$ such that the average value of $f(x)$ on the interval $[0,b]$
+is equal to $10$.
+\end{frame}
+
+\begin{frame}{Section 6.7: Poiseuille's Law}
+You need this formula which gives the blood flow 
+in a blood vessel for the homework:
+$$F = \frac{\pi P R^4}{8 \eta l}$$
+Just plug the numbers in.
+\end{frame}
+
+
+
+\end{document}
