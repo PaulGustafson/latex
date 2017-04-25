@@ -493,18 +493,25 @@ The representation space $\Hs(\Si, \VV)$ associated to a oriented surface $\Si$ 
 %% \end{proof}
 
 \begin{defn}
-Let $\Gamma$ be a graph embedded in a surface $\Si$.  A $\Vect_G^\omega$ coloring of $Gamma$ is called \emph{simple}$ if 
+Let $\Gamma$ be a graph embedded in a surface $\Si$.  A $\Vect_G^\omega$ coloring $(V, \phi)$ of $Gamma$ will be called \emph{simple}$ if 
 \begin{enumerate}
 \item For every oriented edge $\ee \in E^{or}(\Gamma)$, there exists a group element $g(\ee) \in G$ such that
 the coloring $V(e_i) = \delta_{g(\ee)}$.
 \item If $v$ is an interior vertex of $\Gamma$ and
       $\ee_1, \dots, \ee_n$ are edges incident to $v$, taken in counterclockwise 
       order and with outward orientation, then $\prod_{i=1}^n g(\ee_i) = 1$ and
-      $\phi(v): \Hom(\one, \prod_{i=1}^n \delta_{g(\ee_i)}$ is the canonical isomorphism
+      $\phi(v): \Hom(\one, \bigotimes_{i=1}^n \delta_{g(\ee_i)}$ is the canonical isomorphism
 \end{enumerate}
 \end{defn}
 
-\be
+\begin{prop}
+Let $\Gamma$ be a simple colored graph embedded in a surface $\Sigma$.  Then any local move in Figure \ref{f:local_rels1} applied to $\Gamma$ results in a colored graph equivalent to $\alpha \Delta$ for some $\alpha \in \Img(\omega)$ and simple colored graph $\Delta$.
+\end{prop}
+\begin{proof}
+This follows from the fact that all the structural morphisms of $\Vect_G^\omega$ are $1 \times 1$-matrices with values in $\Img(\omega)$.
+\end{proof}
+
+
 
 \begin{thm}\label{thm:closed}
 The image of any twisted Dijkgraaf-Witten representation of a mapping class group of an orientable, closed surface $\Si$ is finite.
