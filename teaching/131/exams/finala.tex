@@ -60,7 +60,7 @@ An Aggie does not lie, cheat, or steal or tolerate those who do.
 \par\noindent\makebox[2.5in]{\hrulefill} 
 \par\noindent\makebox[2.5in][l]{Signature}     
 \end{instructions}
-\PointTable{2}
+%\PointTable{2}
 %\hrule width \linewidth height 2pt\vspace{2pt}%
 %\hrule width \linewidth height 1pt\vspace{2pt}%
 %\hrule width \linewidth height 1pt%
@@ -138,18 +138,18 @@ For questions 1-4, use the following graph of $f(x)$:\\
 
 \question According to the graph of $f(x)$, the function $f(x)$ is not continuous at $x=3$ because
 \begin{answers}{3}
-\ans $f(x)$ is not defined at $x=6$.
-\ans there is a removable discontinuity at $x=6$
-\ans $\lim_{x\to 6}f(x)$ does not exist.
-\ans there is a horizontal asymptote at $x=6$. 
-\ans there is a vertical asymptote at $x=6$.
+\ans $f(x)$ is not defined at $x=3$.
+\ans there is a removable discontinuity at $x=3$
+\ans $\lim_{x\to 3}f(x)$ does not exist.
+\ans there is a horizontal asymptote at $x=3$. 
+\ans there is a vertical asymptote at $x=3$.
 \end{answers}
 
 %\textbf{Solution: e}
 
 %11.1,2
 
-\nextpage
+\newpage
 
 \question The graph of $g(x)$ is given below.\\
 
@@ -179,7 +179,7 @@ According to the graph above, the domain and range of $g(x)$ are
 \end{answers}
 
 
-\question Let $f(x) = \sqrt{4-x^2}$ and $g(x)=\ln(x)$.  What is the domain of $f(x)*g(x)$?
+\question Let $f(x) = \sqrt{4-x^2}$ and $g(x)=\ln(x)$.  What is the domain of $f(x)g(x)$?
 \begin{answers}{2}
 \ans $(0,2]$
 \ans $[-1,2)$
@@ -188,7 +188,23 @@ According to the graph above, the domain and range of $g(x)$ are
 \ans $[-2,2]$
 \end{answers}
 
-\nextpage
+\newpage
+
+%(25 - x^2) - 16 / 3 - x
+% 9 - x^2 / 3 -x
+% 3 + x
+% 6
+
+\question Evaluate $\displaystyle \lim_{x \to 3} \frac{\sqrt{25-x^2} - 4}{3-x}$.
+\begin{answers}{3}
+\ans $1$
+\ans $\frac{\sqrt{23} - 4}{2}$
+\ans $-2$
+\ans $6$
+\ans $9$
+\end{answers}
+
+
 
 \question Given a function $f(x)$, then the graph of $2f\left(3 - x\right)$ will be
 \begin{answers}{2}
@@ -319,7 +335,7 @@ $f(x) = \ln(x^2 + 1)$ on the interval $[-1, 3]$
 
 \newpage
 
-\question Find the derivative of the function $\tan(x e^x)$.
+\question Find the derivative of the function $f(x) = \tan(x e^x)$.
 \begin{answers}{2}
 \ans $(1+x)e^x \sec^2(xe^x) $
 \ans $e^x \sec^2(xe^x) $
@@ -348,6 +364,25 @@ net change in position between time $t = 0$ and $t = \pi$
 \ans $0$
 \ans $\frac{\pi}{2}$
 \end{answers}
+
+
+% 600 = 2s^2 + 4sl
+% V = s^2l
+% 4sl = 600 -2s^2
+% l = 600 -2 s^2 / 4 s
+% V =  (600s - 2 s^3)/ 4
+% V' = 150 - (3s^2/2)
+% s = 10
+
+\question Alex wants to make a box with a square base, closed on all sides.  He has 600 square inches of cardboard.  What is the maximum volume of the box in cubic inches?
+\begin{answers}{3}
+\ans $598.32$
+\ans $643.60$
+\ans $1000$
+\ans $1284.81$
+\ans $1500$
+\end{answers}
+
 
 \question Calculate the indefinite integral 
 $\displaystyle \int \frac{1}{x} + \sec(3x) \tan(3x) \, dx$
@@ -424,6 +459,21 @@ The position function for the particle is
 \ans $-\frac{\pi}{2}$
 \ans $\pi$
 \ans $\frac{2}{\pi}$
+\end{answers}
+
+
+% ln(y+2/(y-3)) = x - 7
+% \frac{y+2}{y-3} = e^{x - 7}
+% y +2 = (y - 3)e^{x-7}
+% y(1 - e^{x-7}) = -3e^{x-7} - 2
+% C
+\question Find the inverse function to $f(x) = \ln(x+2) - \ln(x-3) + 7$.
+\begin{answers}{2}
+\ans $\frac{-2e^{x-7} - 3}{-e^{x-7} - 1}$
+\ans $\frac{-3e^{x-7} - 2}{-e^{x-7} - 1}$
+\ans $\frac{-3e^{x-7} - 2}{-e^{x-7} + 1}$
+\ans $\frac{-2e^{x-1} - 3}{-e^{x-1} + 7}$
+\ans $\frac{-2e^{x-3} - 2}{-e^{x-3} - 7}$
 \end{answers}
 
 \end{multiplechoice}
