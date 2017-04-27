@@ -1,0 +1,15 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.6}
+
+\pgfplotsset{soldot/.style={color=black,only marks,mark=*}} \pgfplotsset{holdot/.style={color=black,fill=white,only marks,mark=*}}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[minor tick num=4,axis lines=middle,grid=both,xmin=-11,xmax=11,ymin=-11,ymax=11]
+\addplot[smooth,domain=-11:11,black] {1/20*(x-2)*(x+1)*(x-9)};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}

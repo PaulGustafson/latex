@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.6}
+
+\pgfplotsset{soldot/.style={color=black,only marks,mark=*}} \pgfplotsset{holdot/.style={color=black,fill=white,only marks,mark=*}}
+
+\begin{document}
+
+\begin{tikzpicture}
+\begin{axis}[minor tick num=4,axis lines=middle,grid=both,xmin=-11,xmax=11,ymin=-11,ymax=11]
+\addplot[domain=-11:-2,black] {0.5*x*x - 2};
+\addplot[domain=-2:3,black] {5-x};
+\addplot[domain=3:12,black] {x-1};
+\addplot[holdot] coordinates{(-2,0)(3,2)};
+\addplot[soldot] coordinates{(-2,7)(3,-1)};
+\end{axis}
+\end{tikzpicture}
+
+\end{document}
