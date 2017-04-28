@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.3.22)  27 APR 2017 12:57
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=pdflatex 2017.3.22)  28 APR 2017 16:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -597,197 +597,197 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-LaTeX Font Info:    Try loading font information for U+msa on input line 87.
+LaTeX Font Info:    Try loading font information for U+msa on input line 85.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 87.
+LaTeX Font Info:    Try loading font information for U+msb on input line 85.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Underfull \hbox (badness 10000) in paragraph at lines 87--88
+Underfull \hbox (badness 10000) in paragraph at lines 85--86
 
  []
 
 <finalgraph1.pdf, id=13, 198.5558pt x 162.39873pt>
 File: finalgraph1.pdf Graphic file (type pdf)
  <use finalgraph1.pdf>
-Package pdftex.def Info: finalgraph1.pdf used on input line 93.
+Package pdftex.def Info: finalgraph1.pdf used on input line 91.
 (pdftex.def)             Requested size: 198.5553pt x 162.39832pt.
 
-Overfull \hbox (17.0pt too wide) in paragraph at lines 90--96
+Overfull \hbox (17.0pt too wide) in paragraph at lines 88--94
 []$[]$ 
  []
 
 
-Overfull \hbox (68.84991pt too wide) in alignment at lines 103--109
+Overfull \hbox (68.84991pt too wide) in alignment at lines 101--107
 [][][][][][][]
  []
 
 
-Overfull \hbox (68.84991pt too wide) in alignment at lines 115--121
+Overfull \hbox (68.84991pt too wide) in alignment at lines 113--119
 [][][][][][][]
  []
 
 
-Overfull \hbox (68.84991pt too wide) in alignment at lines 126--132
+Overfull \hbox (68.84991pt too wide) in alignment at lines 124--130
 [][][][][][][]
  []
 
 
-Overfull \hbox (68.84991pt too wide) in alignment at lines 140--146
+Overfull \hbox (68.84991pt too wide) in alignment at lines 138--144
 [][][][][][][]
  []
 
 [2 <./finalgraph1.pdf>]
-Underfull \hbox (badness 10000) in paragraph at lines 154--155
+Underfull \hbox (badness 10000) in paragraph at lines 152--153
 
  []
 
 <exam1graph2.pdf, id=35, 198.5558pt x 162.39873pt>
 File: exam1graph2.pdf Graphic file (type pdf)
  <use exam1graph2.pdf>
-Package pdftex.def Info: exam1graph2.pdf used on input line 159.
+Package pdftex.def Info: exam1graph2.pdf used on input line 157.
 (pdftex.def)             Requested size: 198.5553pt x 162.39832pt.
 
-Overfull \hbox (50.1583pt too wide) in alignment at lines 163--169
+Overfull \hbox (50.1583pt too wide) in alignment at lines 161--167
 [][][][][]
  []
 
 
-Overfull \hbox (50.1583pt too wide) in alignment at lines 173--179
+Overfull \hbox (50.1583pt too wide) in alignment at lines 171--177
 [][][][][]
  []
 
 
-Overfull \hbox (50.1583pt too wide) in alignment at lines 183--189
+Overfull \hbox (50.1583pt too wide) in alignment at lines 181--187
 [][][][][]
  []
 
 [3 <./exam1graph2.pdf>]
-Overfull \hbox (68.84991pt too wide) in alignment at lines 199--205
+Overfull \hbox (68.84991pt too wide) in alignment at lines 197--203
 [][][][][][][]
  []
 
 
-Overfull \hbox (50.1583pt too wide) in alignment at lines 210--216
+Overfull \hbox (50.1583pt too wide) in alignment at lines 208--214
 [][][][][]
  []
 
 
-Overfull \hbox (68.84991pt too wide) in alignment at lines 221--227
+Overfull \hbox (68.84991pt too wide) in alignment at lines 219--225
 [][][][][][][]
  []
 
 
-Overfull \hbox (50.1583pt too wide) in alignment at lines 233--239
+Overfull \hbox (50.1583pt too wide) in alignment at lines 231--237
 [][][][][]
  []
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 244--245
+Underfull \hbox (badness 10000) in paragraph at lines 242--243
 
  []
 
 <finalgraph3.pdf, id=50, 198.5558pt x 162.39873pt>
 File: finalgraph3.pdf Graphic file (type pdf)
  <use finalgraph3.pdf>
-Package pdftex.def Info: finalgraph3.pdf used on input line 250.
+Package pdftex.def Info: finalgraph3.pdf used on input line 248.
 (pdftex.def)             Requested size: 198.5553pt x 162.39832pt.
 
-Overfull \hbox (68.84991pt too wide) in alignment at lines 256--262
+Overfull \hbox (68.84991pt too wide) in alignment at lines 254--260
 [][][][][][][]
  []
 
 
-Overfull \hbox (50.1583pt too wide) in alignment at lines 266--272
+Overfull \hbox (50.1583pt too wide) in alignment at lines 264--270
 [][][][][]
  []
 
 
-Overfull \hbox (68.84991pt too wide) in alignment at lines 280--286
+Overfull \hbox (68.84991pt too wide) in alignment at lines 278--284
 [][][][][][][]
  []
 
 [5 <./finalgraph3.pdf>]
-Overfull \hbox (50.1583pt too wide) in alignment at lines 291--297
+Overfull \hbox (50.1583pt too wide) in alignment at lines 289--295
 [][][][][]
  []
 
 
-Overfull \hbox (50.1583pt too wide) in alignment at lines 302--308
+Overfull \hbox (50.1583pt too wide) in alignment at lines 300--306
 [][][][][]
  []
 
 
-Overfull \hbox (50.1583pt too wide) in alignment at lines 311--317
+Overfull \hbox (50.1583pt too wide) in alignment at lines 309--315
 [][][][][]
  []
 
 
-Overfull \hbox (30.24997pt too wide) in alignment at lines 328--334
+Overfull \hbox (30.24997pt too wide) in alignment at lines 326--332
 [][][]
  []
 
 [6]
-Overfull \hbox (50.1583pt too wide) in alignment at lines 339--345
+Overfull \hbox (50.1583pt too wide) in alignment at lines 337--343
 [][][][][]
  []
 
 
-Overfull \hbox (50.1583pt too wide) in alignment at lines 349--355
+Overfull \hbox (50.1583pt too wide) in alignment at lines 347--353
 [][][][][]
  []
 
 
-Overfull \hbox (50.1583pt too wide) in alignment at lines 360--366
+Overfull \hbox (50.1583pt too wide) in alignment at lines 358--364
 [][][][][]
  []
 
 
-Overfull \hbox (68.84991pt too wide) in alignment at lines 378--384
+Overfull \hbox (68.84991pt too wide) in alignment at lines 376--382
 [][][][][][][]
  []
 
 
-Overfull \hbox (50.1583pt too wide) in alignment at lines 389--395
+Overfull \hbox (50.1583pt too wide) in alignment at lines 387--393
 [][][][][]
  []
 
 [7]
-Overfull \hbox (50.1583pt too wide) in alignment at lines 402--408
+Overfull \hbox (50.1583pt too wide) in alignment at lines 400--406
 [][][][][]
  []
 
 
-Overfull \hbox (50.1583pt too wide) in alignment at lines 418--424
+Overfull \hbox (50.1583pt too wide) in alignment at lines 416--422
 [][][][][]
  []
 
 
-Overfull \hbox (50.1583pt too wide) in alignment at lines 429--435
+Overfull \hbox (50.1583pt too wide) in alignment at lines 427--433
 [][][][][]
  []
 
 
-Overfull \hbox (50.1583pt too wide) in alignment at lines 438--444
+Overfull \hbox (50.1583pt too wide) in alignment at lines 436--442
 [][][][][]
  []
 
 
-Overfull \hbox (68.84991pt too wide) in alignment at lines 447--453
+Overfull \hbox (68.84991pt too wide) in alignment at lines 445--451
 [][][][][][][]
  []
 
 
-Overfull \hbox (68.84991pt too wide) in alignment at lines 456--462
+Overfull \hbox (68.84991pt too wide) in alignment at lines 454--460
 [][][][][][][]
  []
 
 [8]
-Overfull \hbox (50.1583pt too wide) in alignment at lines 471--477
+Overfull \hbox (50.1583pt too wide) in alignment at lines 469--475
 [][][][][]
  []
 
@@ -818,7 +818,7 @@ sfonts/cm/cmss10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts
 /cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 sy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on finala.pdf (9 pages, 157856 bytes).
+Output written on finala.pdf (9 pages, 157545 bytes).
 PDF statistics:
  115 PDF objects out of 1000 (max. 8388607)
  87 compressed objects within 1 object stream
