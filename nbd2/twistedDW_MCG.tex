@@ -137,11 +137,11 @@ More is known when we fix a particular surface $\Si$. In the case where $\Si$ is
 \section{Background}
 \subsection{The spherical fusion category $\Vect_G^\omega$}
 The following defintions are well-known and can be found in, e.g., \cite{etingofTensor}.  Let $k$ be an  algebraically closed field of characteristic 0,  $G$ a finite group, and $\omega \in Z^3(G, k^\times)$ a 3-cocycle.    The spherical fusion category of $G$-graded $k$-vector spaces with associativity defined by $\omega$ is denoted $\Vect_G^\omega$.  The objects of this category are vector spaces with a decomposition $V = \bigoplus_{g \in G} V_g$. Morphisms are linear maps preserving the grading. The tensor product is defined by
-$$ (V \otimes W)_g = \bigoplus_{x,y \in G, xy = g} V_x \otimes W_y $$.
+$$ (V \otimes W)_g = \bigoplus_{x,y \in G, xy = g} V_x \otimes W_y. $$
 
 %% Put e_g \otimes e_h = e_{gh} below?  
 
-For each $g \in G$, pick a simple object $\delta_g \in \Obj(\Vect_G^\omega)$,  1-dimensional vector space in degree $g$.  The set $\overline{G} := \{\delta_g : g \in G\}$ is a complete set of pairwise non-isomorphic representatives for the isomorphism classes of simple objects of $\Vect_G^\omega$.  We have $\one \simeq \delta_0$ and $\delta_g^* \simeq \delta_{g^{-1}}$.
+For each $g \in G$, pick a 1-dimensional vector space $\delta_g \in \Obj(\Vect_G^\omega)$ concentrated in degree $g$.  The set $\overline{G} := \{\delta_g : g \in G\}$ is a complete set of pairwise non-isomorphic representatives for the isomorphism classes of simple objects of $\Vect_G^\omega$.  We have $\one \simeq \delta_0$ and $\delta_g^* \simeq \delta_{g^{-1}}$.
 
 For the structural morphisms,  we follow \cite{math/0601012}.  We will abuse notation by referring to an object $\delta_g$ by the group element $g$.  The associator $\alpha_{g,h,k}:(g \otimes h) \otimes k \to g \otimes (h \otimes k)$ is defined by
 $$\alpha_{g,h,k} = \omega(g,h,k) \id_{{ghk}}.$$ 
@@ -200,13 +200,13 @@ of $V_1,\dots, V_n$.
 We have a natural composition map 
 \begin{equation}\label{e:composition}
 \begin{aligned}
- \<V_1,\dots,V_n, X\>\otimes\<X^*, W_1,\dots,
+ \<V_1,\dots,V_n, X^*\>\otimes\<X, W_1,\dots,
 W_m\>&\to\<V_1,\dots,V_n, W_1,\dots, W_m\>\\
 \ph\otimes\psi\mapsto \ph\cc{X}\psi= \ev_X\circ (\ph\otimes\psi)
 \end{aligned}
 \end{equation}
-where $\ev_X\colon X\otimes  X^*\to \one$ is the evaluation morphism.
-%% FIXME
+where $\ev_X\colon X^*\otimes  X\to \one$ is the evaluation morphism.
+%% Changed to unify notation
 
 We will consider finite  graphs embedded in an oriented surface $\Si$
 (which may have boundary); for such a
@@ -511,7 +511,10 @@ the coloring $V(e_i) = \delta_{g(\ee)}$.
 Let $\Gamma$ be a simple colored graph embedded in a surface $\Sigma$.  Then any local move in Figure \ref{f:local_rels1} applied to $\Gamma$ results in a colored graph equivalent to $\alpha \Delta$ for some $\alpha \in \Img(\omega)$ and simple colored graph $\Delta$.
 \end{prop}
 \begin{proof}
-This follows from the fact that all the structural morphisms of $\Vect_G^\omega$ are $1 \times 1$-matrices with values in $\Img(\omega)$.
+For the first (edge contraction) local move, there are two steps.  First, we repeatedly apply associators and the cyclic $z$-morphism of Equation \ref{e:cyclic} so that the $\phi $
+
+This follows from the fact that all the structural morphisms of $\Vect_G^\omega$ evaluated on simple objects are of the form $\alpha \id_X$ where $\alpha \in \Img(\omega)$.  
+
 \end{proof}
 
 
