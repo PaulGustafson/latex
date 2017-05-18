@@ -1,0 +1,49 @@
+De Renzi - Non-semisimple Extended TQFTs 
+
+Based on a paer of Constantino, Geer, Pataireau
+
+From a relative pre-modular category $\C$ satisfying a certain
+non-degeneracy condition, we will get an invariant $\CGP_\C$ of closed
+3-manifolds endowed with a cohomology class satisfying a certain
+admissibility condition.
+
+Example - the category of f.d. complex-weight representations of unrolled quantum $sl_2$  ($U_q^H sl_2$) where $K$ acts as $q^H$ gives $\CGP_r$
+
+$\CGP_r$ extends to a graded TQFT
+
+\begin{definition}
+An extended TQFT (ETQFT) is a symmetric monoidal 2-functor from a 
+cobordism 2-category to a linear 2-category.
+\end{definition}
+
+Main result:
+\begin{theorem}[DR]
+If $\C$ is a relative modular category, then $\CGP_\C$ extends to a graded ETQFT $\E_\C$.
+\end{theorem}
+
+Let $G, \Pi$ be abelian groups, $X \subset G$ be a ``small'' symmetric subset.
+
+\begin{definition}
+A relative premodular category $C$ is a ribbon linear category with a nondegenerate projective modified trace, a compatible $G$-structure, and
+$\sigma: \Pi \to \C_0$ a free realization of $\Pi$, satisfying
+$$g \in G \setminus X \implies \C_g \text{ semisimple} $$,
+dominated by $\sigma(\Pi \otimes \Theta(\C_g)$ where $\Theta(\C_G)$ is a finite set of simple objects of $\Proj(\C_g)$,
+and more conditions.
+\end{definition}
+
+Example: If $q = e^{\pi i / r}$, $\mathfrak g$ a simple Lie algebra with
+Cartan subalgebra $\mathfrak h$, $\Phi$ a root system, and $L_\Phi$ the
+root lattice, then $U_q^H \mathfrak g - \mod$ is relative premodular with $G =  \mathfrak h^* /  L_\Phi$ (sl_2 case: $\CC/ 2 \CC$), $\Pi = r L_\Phi$  ($\ZZ$) ,$X = \{ [\lambda] \in G : \exists \alpha \in \Phi, 2 \langle \lambda, \alpha \rangle \in \ZZ\}$ ($\ZZ / 2\ZZ$).
+
+\begin{definition}
+Kirby color of index $g \in G \setminus X$: 
+$$ \Omega_g = \sum_{V_i \in \Theta(\C_g)} d(V_i) V_i $$
+\end{definition}
+
+
+\begin{definition}
+A relative modular category $\C$ is a relative premodular category such that  
+$$\exists \zeta \in \CC^* \qquad \forall g,h \in G \setminus X, 
+\qquad \forall V_i, V_j \in \Theta(\C_g)$$
+
+[diagrammatic condition generalizing nonsingularity of $S$]
