@@ -482,6 +482,8 @@ The representation space $\Hs(\Si, \VV)$ associated to a oriented surface $\Si$ 
 \section{Results}
 \subsection{No Boundary Case}
 
+
+
 %% \begin{prop}
 %% The action of the mapping class group on the vector space $H$ induced by the action of the orientation-preserving homeomorphisms on the surface $\Si$ is well-defined.
 %% \end{prop}
@@ -514,14 +516,14 @@ the coloring $V(e_i) = \delta_{g(\ee)}$.
 \end{defn}
 
 \begin{prop} \label{prop:omega}
-Let $\Gamma$ be a simple colored graph embedded in a surface $\Sigma$.  Then any local move in Figure \ref{f:local_rels1} applied to $\Gamma$ results in a colored graph equivalent in $H$ to $\alpha \Delta$ for some $\alpha \in \Img(\omega)$ where $\Delta$ is a simple colored graph whose with the same edge labels and embedded graph as the graph given by applying the local move to $\Gamma$.
+Let $\Gamma$ be a simple colored graph embedded in a surface $\Sigma$.  Then any local move in Figure \ref{f:local_rels1} applied to $\Gamma$ results in a colored graph equivalent in $H$ to $\alpha \Delta$ for some $\alpha \in \Img(\omega) \cup \{1\}$ where $\Delta$ is a simple colored graph whose with the same edge labels and embedded graph as the graph given by applying the local move to $\Gamma$.
 \end{prop}
 \begin{proof}
 For the first (edge contraction) local move in Figure \ref{f:local_rels1}, there are two steps.  First, we repeatedly apply associators and the cyclic $z$-morphism of Equation \ref{e:cyclic} so that the order of objects in the codomains of $\phi$ and $\psi$ correspond to the orders on the left hand side of Equation \ref{e:composition} and that $X$ and $X*$ are isolated (not contained in any parentheses).  After applying the $\ev_X$ morphism, we reassociate until the new label $\ph\cc{X}\psi$ has the appropriate parenthesization.  Since every edge is labeled by a simple object, each associator morphism is  of the form $\alpha_{g,h,k}$ for some $g,h,k \in G$.  For the same reason, every $z$-morphism is a composition of tensor products of morphism of the form $\id_{g}$, $\ev_g$, $\coev_g$ , $\alpha_{g,h,k}$, and $j_g$.  By the definition of $\Vect_G^\omega$ (in particular, the definitions of the structural morphisms on the simple objects), it follows that the result of the local moves is of the desired form.
 
 For the second local move (tensoring parallel edges), there are two cases, $k = 0$ and $k > 0$.  In the $k = 0$ case, we need to apply inverse unitors to introduce an edge labeled by the unit object, followed by some reassocation.  In the $k > 0$ case, we need to reassociate to group togetherlabels of the parallel edges then reassociate at the end.  For the same reasons as for the first move (every edge is labeled by a simple object), it follows that the result of this local moves is also of the desired form.
 
-For the third local move (adding a $\coev$-labeled vertex), the colored graph given by direct application of the local move to a simple graph is already simple, so we can pick $\alpha = 1 \in \Img(\omega)$.  %% FIXME: need to assume omega is normalized (or lies in U(1))
+For the third local move (adding a $\coev$-labeled vertex), the colored graph given by direct application of the local move to a simple graph is already simple, so we can pick $\alpha = 1$.  
 \end{proof}
 
 
