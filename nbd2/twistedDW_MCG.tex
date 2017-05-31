@@ -60,6 +60,7 @@ midarrow/.default=0.5
 \newcommand{\Hs}{H}
 
 
+
 \DeclareMathOperator{\id}{id}
 \DeclareMathOperator{\MCG}{MCG}
 \DeclareMathOperator{\Mod}{Mod}
@@ -95,6 +96,8 @@ midarrow/.default=0.5
 \newcommand{\Om}{\Omega}
 \newcommand{\eps}{\varepsilon}
 \renewcommand{\th}{\theta}
+\newcommand{\stX}{ ^*X}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -202,12 +205,12 @@ of $V_1,\dots, V_n$.
 We have a natural composition map 
 \begin{equation}\label{e:composition}
 \begin{aligned}
- \<V_1,\dots,V_n, X^*\>\otimes\<X, W_1,\dots,
+ \<V_1,\dots,V_n, X\>\otimes\<\stX, W_1,\dots,
 W_m\>&\to\<V_1,\dots,V_n, W_1,\dots, W_m\>\\
 \ph\otimes\psi\mapsto \ph\cc{X}\psi= \ev_X \circ (\ph\otimes\psi)
 \end{aligned}
 \end{equation}
-where $\ev_X\colon X^* \otimes  X\to \one$ is the evaluation morphism.
+where $\ev_X \colon X \otimes  \stX \to \one$ is the evaluation morphism.
 %% Changed to unify notation
 
 We will consider finite  graphs embedded in an oriented surface $\Si$
@@ -468,20 +471,19 @@ then $\Ga$ is called a null graph.
 
 
 
+
 \begin{defn}
-The representation space $\Hs(\Si, \VV)$ associated to a oriented surface $\Si$ with boundary condition $\VV$ by a spherical fusion category $\mathcal A$ is the quotient space
+The vector space $\Hs(\Si, \VV)$ associated to a oriented surface $\Si$ with boundary condition $\VV$ by a spherical fusion category $\mathcal A$ is the quotient space
  $$
    \Hs(\Si, \VV)=\VGr(\Si, \VV)/N(\Si, \VV)
   $$
   where $N(\Si, \VV)$ is  the subspace spanned by null graphs 
-  (for all possible embedded disks  $D\subset \Si$). 
+  (for all possible embedded disks  $D \subset \Si$). 
 \end{defn}
 %% The action of the mapping class group on H
 
-
 \section{Results}
 \subsection{No Boundary Case}
-
 
 
 %% \begin{prop}
@@ -502,15 +504,14 @@ The representation space $\Hs(\Si, \VV)$ associated to a oriented surface $\Si$ 
 
 %% FIXME: Prove that the Turaev-Viro/ RT construction gives the same thing for equivalent TQFTs
 
-\newcommand{\A}{\mathcal A}
 \newcommand{\B}{\mathcal B}
 
 \begin{prop} \label{prop:equivCats}
 Let $\Sigma$ be a compact surface with boundary. Let $\mathcal A$ and $\mathcal B$ be monoidally equivalent spherical fusion categories.  Then
-the TVBW-representation of $\MCG(\Sigma)$ associated to $\mathcal A$ is isomorphic to the representation associated to $\mathcal B$.
+the TVBW-representation $\rho_A : \MCG(\Sigma) \to GL(H_A)$ associated to $\mathcal A$ is isomorphic to the representation associated to $\mathcal B$.
 \end{prop}
 \begin{proof}
-Let $F: \mathcal A \to \mathcal B$ be an equivalence of monoidal categories.
+Let $F : \A \to \B$ be an equivalence of monoidal categories. I claim that $F$ induces an isomorphism $\overline{F}: H_A \to H_B$.    To see this, we need to check that $F$ preserves
 \end{proof}
 
 
@@ -1975,7 +1976,7 @@ vol.\ {\bf 21},  Amer.\ Math.\ Soc., 2001.
 
 \bibitem{bantay} P.\ Bantay, \emph{Algebraic Aspects of Orbifold Models}, Int.\ J.\ Mod.\ Phys.\ \textbf{A9} (1994), 1443--1456.
 
-\bibitem{hep-th/9311155} J.\ Barrett and B.\ Westbury. {\em Invarients
+\bibitem{hep-th/9311155} J.\ Barrett and B.\ Westbury. {\em Invariants
 of Piecewise-Linear 3-Manifolds}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{348} (1996), 3997--4022.
 
 \bibitem{birman} J.\ Birman. \emph{Mapping class groups and their relationship to braid groups}, Comm.\ Pure Appl.\ Math.\ \textbf{22} (1969) 213--242.
