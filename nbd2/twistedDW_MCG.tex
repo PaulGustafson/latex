@@ -96,7 +96,6 @@ midarrow/.default=0.5
 \newcommand{\Om}{\Omega}
 \newcommand{\eps}{\varepsilon}
 \renewcommand{\th}{\theta}
-\newcommand{\stX}{ ^*X}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -144,7 +143,7 @@ $$ (V \otimes W)_g = \bigoplus_{x,y \in G, xy = g} V_x \otimes W_y. $$
 
 %% Put e_g \otimes e_h = e_{gh} below?  
 
-For each $g \in G$, pick a 1-dimensional vector space $\delta_g \in \Obj(\Vect_G^\omega)$ concentrated in degree $g$.  The set $\overline{G} := \{\delta_g : g \in G\}$ is a complete set of pairwise non-isomorphic representatives for the isomorphism classes of simple objects of $\Vect_G^\omega$.  We have $\one \simeq \delta_0$ and $\delta_g^* \simeq \delta_{g^{-1}}$.
+For each $g \in G$, pick a 1-dimensional vector space $\delta_g \in \Obj(\Vect_G^\omega)$ concentrated in degree $g$.  The set $\{\delta_g : g \in G\}$ is a complete set of pairwise non-isomorphic representatives for the isomorphism classes of simple objects of $\Vect_G^\omega$.  We have $\one \simeq \delta_0$ and $\delta_g^* \simeq \delta_{g^{-1}}$.
 
 For the structural morphisms,  we follow \cite{math/0601012}.  We will abuse notation by referring to an object $\delta_g$ by the group element $g$.  The associator $\alpha_{g,h,k}:(g \otimes h) \otimes k \to g \otimes (h \otimes k)$ is defined by
 $$\alpha_{g,h,k} = \omega(g,h,k) \id_{{ghk}}.$$ 
@@ -205,13 +204,13 @@ of $V_1,\dots, V_n$.
 We have a natural composition map 
 \begin{equation}\label{e:composition}
 \begin{aligned}
- \<V_1,\dots,V_n, X\>\otimes\<\stX, W_1,\dots,
-W_m\>&\to\<V_1,\dots,V_n, W_1,\dots, W_m\>\\
+ \<V_1,\dots,V_n, X\> \otimes \<X^*, W_1,\dots,
+W_m\>&\to\<V_1,\dots,V_n, W_1,\dots, W_m\> \\
 \ph\otimes\psi\mapsto \ph\cc{X}\psi= \ev_X \circ (\ph\otimes\psi)
 \end{aligned}
 \end{equation}
-where $\ev_X \colon X \otimes  \stX \to \one$ is the evaluation morphism.
-%% Changed to unify notation
+where $\ev_X \colon X \otimes  X^* \to \one$ is the evaluation morphism.
+%% FIXME: strict pivotal??
 
 We will consider finite  graphs embedded in an oriented surface $\Si$
 (which may have boundary); for such a
@@ -315,7 +314,7 @@ The following theorem is a variation of result of Reshitikhin and Turaev.
 %%%%%%%%
 \begin{tikzpicture}
 \node[ellipse, thin, scale=0.8, inner sep=1pt, draw] (ph) at (0,0)
-             {$\ph\cc{X}\psi$};
+             {$\psi\cc{X}\ph$};
 \node at (-0.8,0.1) {$\vdots$};
 \node at (0.8,0.1) {$\vdots$};
 \draw[->] (ph)-- +(220:1cm) node[pos=1.0,below,scale=0.8] {$V_n$};
@@ -483,7 +482,6 @@ The vector space $\Hs(\Si, \VV)$ associated to a oriented surface $\Si$ with bou
 %% The action of the mapping class group on H
 
 \section{Results}
-\subsection{No Boundary Case}
 
 
 %% \begin{prop}
@@ -501,7 +499,6 @@ The vector space $\Hs(\Si, \VV)$ associated to a oriented surface $\Si$ with bou
 %% Thus, the action of the mapping class group on $H$ is well-defined.
 %% \end{proof}
 
-
 %% FIXME: Prove that the Turaev-Viro/ RT construction gives the same thing for equivalent TQFTs
 
 \newcommand{\B}{\mathcal B}
@@ -511,7 +508,10 @@ Let $\Sigma$ be a compact surface with boundary. Let $\mathcal A$ and $\mathcal 
 the TVBW-representation $\rho_A : \MCG(\Sigma) \to GL(H_A)$ associated to $\mathcal A$ is isomorphic to the representation associated to $\mathcal B$.
 \end{prop}
 \begin{proof}
-Let $F : \A \to \B$ be an equivalence of monoidal categories. I claim that $F$ induces an isomorphism $\overline{F}: H_A \to H_B$.    To see this, we need to check that $F$ preserves
+Let $(F, J)$ be a monoidal equivalence from $\A$ to $\B$. I claim that $F$ induces an isomorphism $\overline{F}: H_A \to H_B$ by acting on the labels.  To see that this is well-defined, we need to check that if $\phi \in \Hom(\one, V_1 \otimes \cdot \otimes V_n)$ then $F(\phi) \in    \Hom(\one, F(V_1) \otimes \cdot \otimes F(V_n))$
+
+
+To see this, we need to check that $F$ preserves the local relations.  For the first local relation (contracting an edge), we need to check that $F(\ev_{F(X)}) \circ (F(\phi) \otimes F(\psi)) = F(\ev_{F(X)} \circ (\phi \otimes \psi))$.
 \end{proof}
 
 
@@ -539,6 +539,7 @@ For the second local move (tensoring parallel edges), there are two cases, $k = 
 For the third local move (adding a $\coev$-labeled vertex), the colored graph given by direct application of the local move to a simple graph is already simple, so we can pick $\alpha = 1$.  
 \end{proof}
 
+\subsection{No Boundary Case}
 
 \begin{thm}\label{thm:closed}
 The image of any twisted Dijkgraaf-Witten representation of a mapping class group of an orientable, closed surface $\Si$ is finite.
@@ -1099,7 +1100,7 @@ The Dehn twist is performed along the dashed simple closed curve.}
 
 \subsection{With Boundary Case}
 
-When $\Si$ has boundary, we denote by $\MCG(\Si)$ the group of isotopy classes of homeomorphisms fixing the boundary of $\Si$ setwise. There are mapping class group representations for every labelling of the boundary components  $\pi_0(\partial M) \to \Obj(Z(\vgo))$.  Given such a labelling, the representation space is spanned by colored graphs for which the coloring of a leg ending in a boundary component coincides with the image of the forgetful functor $F: Z(\vgo) \to \vgo$ on the labelling of that boundary component.  The same local relations are valid in this representation space \cite{kirillovStringNets}.
+When $\Si$ has boundary, we denote by $\MCG(\Si)$ the group of isotopy classes of homeomorphisms fixing the boundary of $\Si$ setwise. There are mapping class group representations for every labelling of the boundary  $l : \pi_0(\partial M) \to \Obj(Z(\vgo))$.  Given such a labelling, the representation space is $\Hs(\Si, \VV)$ where the boundary condition $\VV = F \circ l$, where $F$ is the forgetful functor $F: Z(\vgo) \to \vgo$.  The same local relations are valid in this representation space \cite{kirillovStringNets}.
 
 By a similar argument as in the proof of the Theorem $\ref{thm:closed}$, any such representation space has a spanning set $S$ of colored graphs with a single vertex, loops for each of the usual generators of the fundamental group of $\Si$, and a leg from the vertex to each of the boundary components.  Each of the edges is labeled by a simple object, i.e. an element of the group $G$.
 
