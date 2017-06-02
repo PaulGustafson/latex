@@ -1,0 +1,21 @@
+\begin{verbatim}
+\begin{theorem}[Name/Attribution of Theorem]
+X iff Y
+\end{theorem}
+\end{verbatim}
+
+\begin{theorem}[Name/Attribution of Theorem]
+X iff Y
+\end{theorem}
+
+\begin{verbatim}
+\begin{proof}
+This is trivial.
+\end{proof}
+\end{verbatim}
+
+\begin{proof}
+This is trivial.
+\end{proof}
+
+\hyperlink{outline}{\beamerbutton{back to beamer}}
