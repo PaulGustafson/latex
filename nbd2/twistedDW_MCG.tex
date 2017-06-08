@@ -58,6 +58,7 @@ midarrow/.default=0.5
 \newtheorem{fact}[thm]{Fact}
 \newtheorem{ex}[thm]{Exercise}
 \newcommand{\Hs}{H}
+\newcommand{\stX}{{^*}X}
 
 
 
@@ -197,6 +198,8 @@ structure gives functorial isomorphisms
 \begin{equation}\label{e:cyclic}
 z\colon\<V_1,\dots,V_n\>\simeq \<V_n, V_1,\dots,V_{n-1}\>
 \end{equation}
+where, up to associators, if $\phi \in \Hom_\A(\one, V_1 \otimes \cdots \otimes V_n)$ then
+$z(\phi)= \coev_{V_n} \circ () $ %FIXME
 such that $z^n=\id$ (see \cite[Section 5.3]{BK}); thus, up to a canonical
 isomorphism, the space $\<V_1,\dots,V_n\>$ only depends on the cyclic order
 of $V_1,\dots, V_n$.
@@ -204,12 +207,12 @@ of $V_1,\dots, V_n$.
 We have a natural composition map 
 \begin{equation}\label{e:composition}
 \begin{aligned}
- \<V_1,\dots,V_n, X\> \otimes \<X^*, W_1,\dots,
+ \<V_1,\dots,V_n, X\> \otimes \<\stX, W_1,\dots,
 W_m\>&\to\<V_1,\dots,V_n, W_1,\dots, W_m\> \\
-\ph\otimes\psi\mapsto \ph\cc{X}\psi= \ev_X \circ (\ph\otimes\psi)
+\ph\otimes\psi\mapsto \ph\cc{X}\psi= \ev_{\stX} \circ (\ph\otimes\psi)
 \end{aligned}
 \end{equation}
-where $\ev_X \colon X \otimes  X^* \to \one$ is the evaluation morphism.
+where $\ev_{\stX} \colon X \otimes  \stX \to \one$ is the evaluation morphism.
 %% FIXME: strict pivotal??
 
 We will consider finite  graphs embedded in an oriented surface $\Si$
@@ -472,7 +475,7 @@ then $\Ga$ is called a null graph.
 
 
 \begin{defn}
-The vector space $\Hs(\Si, \VV)$ associated to a oriented surface $\Si$ with boundary condition $\VV$ by a spherical fusion category $\mathcal A$ is the quotient space
+The vector space $H := \Hs(\Si, \VV)$ associated to a oriented surface $\Si$ with boundary condition $\VV$ by the spherical fusion category $\mathcal A$ is the quotient space
  $$
    \Hs(\Si, \VV)=\VGr(\Si, \VV)/N(\Si, \VV)
   $$
@@ -503,21 +506,21 @@ The vector space $\Hs(\Si, \VV)$ associated to a oriented surface $\Si$ with bou
 
 \newcommand{\B}{\mathcal B}
 
-\begin{prop} \label{prop:equivCats}
-Let $\Sigma$ be a compact surface with boundary. Let $\mathcal A$ and $\mathcal B$ be monoidally equivalent spherical fusion categories.  Then
-the TVBW-representation $\rho_A : \MCG(\Sigma) \to GL(H_A)$ associated to $\mathcal A$ is isomorphic to the representation associated to $\mathcal B$.
-\end{prop}
-\begin{proof}
-Let $(F, J)$ be a monoidal equivalence from $\A$ to $\B$. I claim that $F$ induces an isomorphism $\overline{F}: H_A \to H_B$ by acting on the labels.  To see that this is well-defined, we need to check that if $\phi \in \Hom(\one, V_1 \otimes \cdot \otimes V_n)$ then $F(\phi) \in    \Hom(\one, F(V_1) \otimes \cdot \otimes F(V_n))$
+%% \begin{prop} \label{prop:equivCats}
+%% Let $\Sigma$ be a compact surface with boundary. Let $\mathcal A$ and $\mathcal B$ be monoidally equivalent spherical fusion categories.  Then
+%% the TVBW-representation $\rho_A : \MCG(\Sigma) \to GL(H_A)$ associated to $\mathcal A$ is isomorphic to the representation associated to $\mathcal B$.
+%% \end{prop}
+%% \begin{proof}
+%% Let $(F, J)$ be a monoidal equivalence from $\A$ to $\B$. I claim that $F$ induces an isomorphism $\overline{F}: H_A \to H_B$ by acting on the labels.  To see that this is well-defined, we need to check that if $\phi \in \Hom(\one, V_1 \otimes \cdot \otimes V_n)$ then $F(\phi) \in    \Hom(\one, F(V_1) \otimes \cdot \otimes F(V_n))$
 
 
-To see this, we need to check that $F$ preserves the local relations.  For the first local relation (contracting an edge), we need to check that $F(\ev_{F(X)}) \circ (F(\phi) \otimes F(\psi)) = F(\ev_{F(X)} \circ (\phi \otimes \psi))$.
-\end{proof}
+%% To see this, we need to check that $F$ preserves the local relations.  For the first local relation (contracting an edge), we need to check that $F(\ev_{F(X)}) \circ (F(\phi) \otimes F(\psi)) = F(\ev_{F(X)} \circ (\phi \otimes \psi))$.
+%% \end{proof}
 
 
 
 \begin{defn} \label{def:vect}
-Let $\Gamma$ be a graph embedded in a surface $\Si$.  A $\Vect_G^\omega$ coloring $(V, \phi)$ of $Gamma$ will be called \emph{simple} if 
+Let $\Gamma$ be a graph embedded in a surface $\Si$.  A $\Vect_G^\omega$ coloring $(V, \phi)$ of $\Gamma$ will be called \emph{simple} if the following conditions both hold: 
 \begin{enumerate}
 \item For every oriented edge $\ee \in E^{or}(\Gamma)$, there exists a group element $g(\ee) \in G$ such that
 the coloring $V(e_i) = \delta_{g(\ee)}$.
@@ -529,10 +532,19 @@ the coloring $V(e_i) = \delta_{g(\ee)}$.
 \end{defn}
 
 \begin{prop} \label{prop:omega}
-Let $\Gamma$ be a simple colored graph embedded in a surface $\Sigma$.  Then any local move in Figure \ref{f:local_rels1} applied to $\Gamma$ results in a colored graph equivalent in $H$ to $\alpha \Delta$ for some $\alpha \in \Img(\omega) \cup \{1\}$ where $\Delta$ is a simple colored graph whose with the same edge labels and embedded graph as the graph given by applying the local move to $\Gamma$.
+Let $\Gamma$ be a simple colored graph embedded in a surface $\Sigma$.  Let $\Delta$ be the colored graph given by applying any local move in Figure \ref{f:local_rels1} to $\Gamma$.  Then
+\begin{enumerate}
+\item  each edge of $\Delta$ is labeled by $\delta_g$ for some $g \in G$, and
+\item  there exists $\alpha \in \Img(\omega) \cup \{1\}$ such that 
+$$\Delta - \alpha \Delta' \in N(\Sigma, \VV),$$
+where $\Delta'$ is the simple colored graph given by replacing each vertex label in $\Delta$ with the canonical isomorphism in condition (2) of Definition \ref{def:vect}.
+\end{enumerate}
 \end{prop}
 \begin{proof}
-For the first (edge contraction) local move in Figure \ref{f:local_rels1}, there are two steps.  First, we repeatedly apply associators and the cyclic $z$-morphism of Equation \ref{e:cyclic} so that the order of objects in the codomains of $\phi$ and $\psi$ correspond to the orders on the left hand side of Equation \ref{e:composition} and that $X$ and $X*$ are isolated (not contained in any parentheses).  After applying the $\ev_X$ morphism, we reassociate until the new label $\ph\cc{X}\psi$ has the appropriate parenthesization.  Since every edge is labeled by a simple object, each associator morphism is  of the form $\alpha_{g,h,k}$ for some $g,h,k \in G$.  For the same reason, every $z$-morphism is a composition of tensor products of morphism of the form $\id_{g}$, $\ev_g$, $\coev_g$ , $\alpha_{g,h,k}$, and $j_g$.  By the definition of $\Vect_G^\omega$ (in particular, the definitions of the structural morphisms on the simple objects), it follows that the result of the local moves is of the desired form.
+The proof of (1) follows from the definition of the local moves. For (2), we'll consider each local move separately.  In each case, we need to show that $\Delta$ is equivalent to $\alpha \Delta'$ in $H$.  This boils down to using the linearity of the evaluation map of Theorem \ref{\t:rt} with respect to the vertex coloring.
+
+For the first (edge contraction) local move in Figure \ref{f:local_rels1}, %FIXME
+sing the same notation as in the figure, we repeatedly apply associators and the cyclic $z$-morphism of Equation \ref{e:cyclic} so that the order of objects in the codomains of $\phi$ and $\psi$ correspond to the orders on the left hand side of Equation \ref{e:composition} and that $X$ and $X^*$ are isolated (not contained in any parentheses).  After applying the $\ev_X$ morphism, we reassociate until the new label $\ph\cc{X}\psi$ has the appropriate parenthesization.  Since every edge is labeled by a simple object, each associator morphism is  of the form $\alpha_{g,h,k}$ for some $g,h,k \in G$.  For the same reason, every $z$-morphism is a composition of tensor products of morphism of the form $\id_{g}$, $\ev_g$, $\coev_g$ , $\alpha_{g,h,k}$, and $j_g$.  By the definition of $\Vect_G^\omega$ (in particular, the definitions of the structural morphisms on the simple objects), it follows that the result of the local moves is of the desired form.
 
 For the second local move (tensoring parallel edges), there are two cases, $k = 0$ and $k > 0$.  In the $k = 0$ case, we need to apply inverse unitors to introduce an edge labeled by the unit object, followed by some reassocation.  In the $k > 0$ case, we need to reassociate to group togetherlabels of the parallel edges then reassociate at the end.  For the same reasons as for the first move (every edge is labeled by a simple object), it follows that the result of this local moves is also of the desired form.
 
