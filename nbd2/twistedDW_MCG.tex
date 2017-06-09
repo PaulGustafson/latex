@@ -58,7 +58,7 @@ midarrow/.default=0.5
 \newtheorem{fact}[thm]{Fact}
 \newtheorem{ex}[thm]{Exercise}
 \newcommand{\Hs}{H}
-\newcommand{\stX}{{^*}X}
+\newcommand{\lstar}{{^*}}
 
 
 
@@ -198,21 +198,21 @@ structure gives functorial isomorphisms
 \begin{equation}\label{e:cyclic}
 z\colon\<V_1,\dots,V_n\>\simeq \<V_n, V_1,\dots,V_{n-1}\>
 \end{equation}
-where, up to associators, if $\phi \in \Hom_\A(\one, V_1 \otimes \cdots \otimes V_n)$ then
-$z(\phi)= \coev_{V_n} \circ () $ %FIXME
-such that $z^n=\id$ (see \cite[Section 5.3]{BK}); thus, up to a canonical
+where, up to associators and unitors,
+$$z(\phi)= (j_{\lstar \lstar V}^{-1} \otimes \id_{V_1 \otimes \cdots \otimes V_{n-1}} \otimes \ev_{\lstar V_n} ) \circ (\id_{\lstar \lstar V_n} \otimes \phi \otimes \id_{\lstar V_n} ) \circ  \coev_{\lstar \lstar V_n}  $$ 
+and $z^n=\id$ (see \cite[Section 5.3]{BK}). Thus, up to a canonical
 isomorphism, the space $\<V_1,\dots,V_n\>$ only depends on the cyclic order
 of $V_1,\dots, V_n$.
 
 We have a natural composition map 
 \begin{equation}\label{e:composition}
 \begin{aligned}
- \<V_1,\dots,V_n, X\> \otimes \<\stX, W_1,\dots,
+ \<V_1,\dots,V_n, X\> \otimes \<\lstar X, W_1,\dots,
 W_m\>&\to\<V_1,\dots,V_n, W_1,\dots, W_m\> \\
-\ph\otimes\psi\mapsto \ph\cc{X}\psi= \ev_{\stX} \circ (\ph\otimes\psi)
+\ph\otimes\psi\mapsto \ph\cc{X}\psi= \ev_{\lstar X} \circ (\ph\otimes\psi)
 \end{aligned}
 \end{equation}
-where $\ev_{\stX} \colon X \otimes  \stX \to \one$ is the evaluation morphism.
+where $\ev_{\lstar X} \colon X \otimes  \lstar X \to \one$ is the evaluation morphism.
 %% FIXME: strict pivotal??
 
 We will consider finite  graphs embedded in an oriented surface $\Si$
@@ -541,10 +541,10 @@ where $\Delta'$ is the simple colored graph given by replacing each vertex label
 \end{enumerate}
 \end{prop}
 \begin{proof}
-The proof of (1) follows from the definition of the local moves. For (2), we'll consider each local move separately.  In each case, we need to show that $\Delta$ is equivalent to $\alpha \Delta'$ in $H$.  This boils down to using the linearity of the evaluation map of Theorem \ref{\t:rt} with respect to the vertex coloring.
+The proof of (1) follows from the definition of the local moves. For (2), we'll consider each local move separately.  In each case, we need to show that $\Delta$ is equivalent to $\alpha \Delta'$ in $H$.  This boils down to using the linearity of the evaluation map of Theorem \ref{t:RT} with respect to each vertex label.
 
 For the first (edge contraction) local move in Figure \ref{f:local_rels1}, %FIXME
-sing the same notation as in the figure, we repeatedly apply associators and the cyclic $z$-morphism of Equation \ref{e:cyclic} so that the order of objects in the codomains of $\phi$ and $\psi$ correspond to the orders on the left hand side of Equation \ref{e:composition} and that $X$ and $X^*$ are isolated (not contained in any parentheses).  After applying the $\ev_X$ morphism, we reassociate until the new label $\ph\cc{X}\psi$ has the appropriate parenthesization.  Since every edge is labeled by a simple object, each associator morphism is  of the form $\alpha_{g,h,k}$ for some $g,h,k \in G$.  For the same reason, every $z$-morphism is a composition of tensor products of morphism of the form $\id_{g}$, $\ev_g$, $\coev_g$ , $\alpha_{g,h,k}$, and $j_g$.  By the definition of $\Vect_G^\omega$ (in particular, the definitions of the structural morphisms on the simple objects), it follows that the result of the local moves is of the desired form.
+using the same notation as in the figure, we repeatedly apply associators and the cyclic $z$-morphism of Equation \ref{e:cyclic} so that the order of objects in the codomains of $\phi$ and $\psi$ correspond to the orders on the left hand side of Equation \ref{e:composition} and that $X$ and $X^*$ are isolated (not contained in any parentheses).  After applying the $\ev_X$ morphism, we reassociate until the new label $\ph\cc{X}\psi$ has the appropriate parenthesization.  Since every edge is labeled by a simple object, each associator morphism is  of the form $\alpha_{g,h,k}$ for some $g,h,k \in G$.  For the same reason, every $z$-morphism is a composition of tensor products of morphism of the form $\id_{g}$, $\ev_g$, $\coev_g$ , $\alpha_{g,h,k}$, and $j_g$.  By the definition of $\Vect_G^\omega$ (in particular, the definitions of the structural morphisms on the simple objects), it follows that the result of the local moves is of the desired form.
 
 For the second local move (tensoring parallel edges), there are two cases, $k = 0$ and $k > 0$.  In the $k = 0$ case, we need to apply inverse unitors to introduce an edge labeled by the unit object, followed by some reassocation.  In the $k > 0$ case, we need to reassociate to group togetherlabels of the parallel edges then reassociate at the end.  For the same reasons as for the first move (every edge is labeled by a simple object), it follows that the result of this local moves is also of the desired form.
 
