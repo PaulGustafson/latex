@@ -115,7 +115,7 @@ midarrow/.default=0.5
     
 
 \begin{abstract}
-Any twisted Dijkgraaf-Witten representation of a mapping class group of an orientable, compact surface with boundary has finite image.
+We show that any twisted Dijkgraaf-Witten representation of a mapping class group of an orientable, compact surface with boundary has finite image. This generalizes work of Etingof, Rowell and Witherspoon showing that the braid group images are finite \cite{erw}.  In particular, we answer a question asked by Etingof, Rowell and Witherspoon in the affirmative.
 \end{abstract}
 
 \maketitle
@@ -131,11 +131,9 @@ In this paper, our input category is  $\mathcal A = \Vect_G^\omega$, the spheric
 
 \section{Related Work}
 
-The closest related work is a result of Etingof, Rowell, and Witherspoon who should purely algebraically that the braid group representations associated to the modular category $\Mod(D^\omega(G))$ have finite images \cite{erw}.   The braid group $B_n$ is the mapping class group of a disk with $n$ marked points relative to its boundary, so they asked whether their result generalizes to arbitrary mapping class group representations associated to $\Mod(D^\omega(G))$. This paper answers their question affirmatively, using a more geometric method of proof.
+The closest related work is a result of Etingof, Rowell, and Witherspoon who showed purely algebraically that the braid group representations associated to the modular category $\Mod(D^\omega(G))$ have finite images \cite{erw}.   The braid group $B_n$ is the mapping class group of a disk with $n$ marked points relative to its boundary, so they asked whether their result generalizes to arbitrary mapping class group representations associated to $\Mod(D^\omega(G))$. This paper answers their question affirmatively, using a more geometric method of proof.
 
-Prior to the current work, certain specific cases had already been solved. In the case of the torus, Ng and Schauenburg's Congruence Subgroup Theorem implies the much stronger result that any Reshitikhin-Turaev representation of the mapping class group of the torus has finite image \cite{0806.2493}.   
-
-Another related result is due to Fjelstad and Fuchs \cite{fjfu}.  They showed that, given a surface with at most one boundary component, the mapping class group representations corresponding to the untwisted (i.e. $\omega = 1$) Dijkgraaf-Witten theory have finite image.  Their paper uses an algebraic method of Lyubashenko \cite{Lyubashenko1996} that gives a projective mapping class group representation to any factorizable ribbon Hopf algebra, in their case, the double $D(G)$. In our case, we instead consider the mapping class group action on a vector space of $\Vect_G^\omega$-colored embedded graphs defined by Kirillov \cite{kirillovStringNets}, yielding a simpler, geometric proof of the more general twisted case.
+Prior to the current work, certain specific cases had already been solved. In the case of the torus, Ng and Schauenburg's Congruence Subgroup Theorem implies the much stronger result that any Reshitikhin-Turaev representation of the mapping class group of the torus has finite image \cite{0806.2493}.   Another related result is due to Fjelstad and Fuchs \cite{fjfu}.  They showed that, given a surface with at most one boundary component, the mapping class group representations corresponding to the untwisted (i.e. $\omega = 1$) Dijkgraaf-Witten theory have finite image.  Their paper uses an algebraic method of Lyubashenko \cite{Lyubashenko1996} that gives a projective mapping class group representation to any factorizable ribbon Hopf algebra, in their case, the double $D(G)$. In our case, we instead consider the mapping class group action on a vector space of $\Vect_G^\omega$-colored embedded graphs defined by Kirillov \cite{kirillovStringNets}, yielding a simpler, geometric proof of the more general twisted case.
 
 Bantay also calculated the images of certain representations of mapping class groups on the Hilbert space of an orbifold model associated to $D^\omega(G)$ \cite{bantay}.  These representations appear to coincide with the twisted Dijkgraaf-Witten representations. However, due to lack of proof, the precise connection is unclear. 
 
@@ -217,7 +215,7 @@ W_m\>&\to\<V_1,\dots,V_n, W_1,\dots, W_m\> \\
 \ph\otimes\psi\mapsto \ph\cc{X}\psi= \ev_{\lstar X} \circ (\ph\otimes\psi),
 \end{aligned}
 \end{equation}
-up to associators, where $\ev_{\lstar X} \colon X \otimes  \lstar X \to \one$ is the evaluation morphism.
+up to associators.  Note that, due to the order of $X$ and $\lstar X$ in the tensor product, we use the right evaluation map $\ev_{\lstar X} \colon X \otimes  \lstar X \to \one$ for the left dual $\lstar X$, instead of the right evaluation map $\ev_X : X^* \otimes X \to 1$ for $X$.  Since $\lstar X \cong X^*$, the defining equation for $\ev_{\lstar X}$  in $\Vect_G^\omega$ is the same as for $\ev_{X^*}$, i.e. $\ev_{\lstar g} = \omega(g, g^{-1}, g) \id_{1}$.
 
 We will consider finite  graphs embedded in an oriented surface $\Si$
 (which may have boundary); for such a
@@ -580,7 +578,7 @@ Let $\Gamma$ be a $\Vect_G^\omega$-colored graph embedding, and let $g \ge 1$ be
 
 By Theorem \ref{t:RT} and the definition of the quotient map identifying the sides of the fundamental polygon, the vertex $v$ is colored by an element $\phi(v) \in \Hom (\one, \bigotimes_{i=1}^g V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1})^* \otimes V(e_{2i}))^*$, where $V(e_i) \in \Obj(\Vect_G^\omega)$ is the coloring of the edge $e_i$.   
 
-I claim that the representation space $H$ is spanned by the set of such colored graphs $\Gamma$ such that each $V(e_i)$ is simple. This follows from the additivity of the evaluation map of Theorem \label{t:RT} in the direct sum.   Strictly speaking, we can only take advantage of the additivity on a disk, not on an edge $e_i$, which is a $v$-based loop. However, we can easily add a $\coev$-labeled vertex to any edge $e_i$, apply the additivity on one of the two resulting edges (which lies in an embedded disk), and then contract on the other edge to get the decomposition we want.
+We claim that the representation space $H$ is spanned by the set of such colored graphs $\Gamma$ such that each $V(e_i)$ is simple. This follows from the additivity of the evaluation map of Theorem \label{t:RT} in the direct sum.   Strictly speaking, we can only take advantage of the additivity on a disk, not on an edge $e_i$, which is a $v$-based loop. However, we can easily add a $\coev$-labeled vertex to any edge $e_i$, apply the additivity on one of the two resulting edges (which lies in an embedded disk), and then contract on the other edge to get the decomposition we want.
 
 Since isomorphic colorings give the same evaluation, it follows that $H$ is spanned by colored graphs $\Gamma$ such that
 each $V(e_i) = \delta_{g_i}$ for some $g_i \in G$.  For such $\Gamma$,  the space of possible $v$-colors $\Hom (\one, \bigotimes_{i=1}^g V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1})^* \otimes V(e_{2i}))^*$ is one-dimensional if $\prod_{i=1}^g [g_{2i-1}, g_{2i}] = 1$, and zero-dimensional otherwise.
@@ -629,7 +627,7 @@ By using the linearity in each vertex label, we can further restrict to simple c
 The mapping class group of $\Si$ is generated by the Lickorish generating set consisting of Dehn twists around $3g-1$ simple closed curves.   These can be divided into two types of twists: the ones around a single hole (the blue and green curves in Figure \ref{fig:lickorish}), and the ones connecting two holes (the red curves). The action of a Dehn twist around a simple closed curve corresponds to cutting the manifold along the curve, holding one piece in place and twisting the other piece by $2\pi$ radians in a clockwise direction, then gluing the two pieces back together.
 
 
-To understand the action of each type of Dehn twist on the representation space $H$, we will consider the action on the spanning set $S$.  First, I claim that we can apply local moves to any element of $S$ to get a colored graph of the form shown in the first figure of Table \ref{fig:tikzTwist1_1}, where the unshown part of the fundamental polygon looks the same as in the definition of $S$.  Indeed, to pass from an arbitrary element of $S$, to a colored graph of the form shown in the first figure of $\ref{fig:tikzTwist1_1}$, we first add coevalution-labeled vertices to each  edge intersecting the three shown sides of the fundamental polygon.  Then connect the new vertices using $\one$-labeled edges (this corresponds to applying the second local move in Figure \ref{f:local_rels1} with  $k = 0$), contract the connections to get one new vertex, and tensor together the edges connecting the old vertex to the new vertex.
+To understand the action of each type of Dehn twist on the representation space $H$, we will consider the action on the spanning set $S$.  First, we claim that we can apply local moves to any element of $S$ to get a colored graph of the form shown in the first figure of Table \ref{fig:tikzTwist1_1}, where the unshown part of the fundamental polygon looks the same as in the definition of $S$.  Indeed, to pass from an arbitrary element of $S$, to a colored graph of the form shown in the first figure of $\ref{fig:tikzTwist1_1}$, we first add coevalution-labeled vertices to each  edge intersecting the three shown sides of the fundamental polygon.  Then connect the new vertices using $\one$-labeled edges (this corresponds to applying the second local move in Figure \ref{f:local_rels1} with  $k = 0$), contract the connections to get one new vertex, and tensor together the edges connecting the old vertex to the new vertex.
 
 The action of the first type of Dehn twist on an arbitrary element of $S$ is shown in the first two figures of Table \ref{fig:tikzTwist1_1}.  
 After applying the Dehn twist, we have the simple colored graph shown in the second figure of Table \ref{fig:tikzTwist1_1}.  We then apply local moves in the remaining figures.  By repeated application of Proposition $\ref{prop:omega}$, the resulting colored graph is equivalent to $\beta \Delta$, for some $\beta \in \mu_{|G|}$ and  $\Delta \in S$.    Thus, the first type of Dehn twist maps $S$ to $\mu_{|G|} S$.
@@ -1123,7 +1121,7 @@ The Dehn twist is performed along the dashed simple closed curve.}
 \end{table}
 
 
-\subsection{With Boundary Case}
+\subsection{Boundary Case}
 
 When $\Si$ has boundary, we denote by $\MCG(\Si)$ the group of isotopy classes of homeomorphisms fixing the boundary of $\Si$ setwise. Given any labelling of the boundary  by objects in the Drinfeld center, $l : \pi_0(\partial M) \to \Obj(Z(\vgo))$, we get a mapping class group representation. The representation space is $\Hs(\Si, \VV)$ where the boundary condition $\VV = F \circ l$, where $F$ is the forgetful functor $F: Z(\vgo) \to \vgo$.  The same local relations are valid in this representation space \cite{kirillovStringNets}.
 
