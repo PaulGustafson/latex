@@ -10,10 +10,11 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 
-\documentclass{ws-jktr}
+\documentclass{amsart}
 
-%% \usepackage{amsmath,amssymb,fullpage,mathptmx, hyperref,dsfont,framed, graphicx, textcomp} % The usual suspects
-\usepackage{hyperref}
+\usepackage[pagewise]{lineno}%\linenumbers
+
+\usepackage{amsmath,amssymb,amsthm,fullpage,mathptmx, hyperref,dsfont,framed, graphicx, subcaption, textcomp}
 
 
 %%%%%%%%%%%%%%%%%% Tikz %%%%%%%%%
@@ -119,13 +120,13 @@ midarrow/.default=0.5
 {Finiteness of Mapping Class Group Representations from Twisted Dijkgraaf-Witten Theory}
 
 %%%%%%%%%%%%%%%%%%%%% Publisher's Area please ignore %%%%%%%%%%%%%%
-\catchline{}{}{}{}{}
+%\catchline{}{}{}{}{}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \title{Finiteness of Mapping Class Group Representations from Twisted Dijkgraaf-Witten Theory}
 
 \author{Paul P. Gustafson}
-% \email{pgustafs@math.tamu.edu}
+\email{pgustafs@math.tamu.edu}
 \address{Department of Mathematics,
     Texas A\&M University,
     College Station, TX
@@ -139,9 +140,9 @@ We show that any twisted Dijkgraaf-Witten representation of a mapping class grou
 Our approach is to translate the problem into manipulation of colored graphs embedded in the given surface. To do this translation, we use the fact that any twisted Dijkgraaf-Witten representation associated to a finite group $G$ and 3-cocycle $\omega$ is isomorphic to a Turaev-Viro-Barrett-Westbury (TVBW) representation associated to the spherical fusion category $\Vect_G^\omega$ of twisted $G$-graded vector spaces. As shown by Kirillov, the representation space for this TVBW representation is canonically isomorphic to a vector space spanned by $\Vect_G^\omega$-colored graphs embedded in the surface \cite{kirillovStringNets}.   By analyzing the action of the Birman generators \cite{birman} on a finite spanning set of colored graphs, we find that the mapping class group acts by permutations on a slightly larger finite spanning set.  This implies that the representation has finite image.
 \end{abstract}
 
-\keywords{TQFT; mapping class group; twisted Dijkgraaf-Witten; Property F conjecture}
+%\keywords{TQFT; mapping class group; twisted Dijkgraaf-Witten; Property F conjecture}
 
-\ccode{Mathematics Subject Classification 2000: 18D10, 20F36, 57M99}
+%\ccode{Mathematics Subject Classification 2000: 18D10, 20F36, 57M99}
 
 \section{Introduction}
 Given a spherical fusion category $\mathcal A$ over a field $k$ and an oriented compact surface $\Si$, possibly with boundary, the Turaev-Viro-Barrett-Westbury (TVBW) construction gives a projective representation of the mapping class group $\MCG(\Si)$ \cite{hep-th/9311155, TURAEV1992865}.  A natural problem is to determine the images of such representations.  In particular, we would like to know when such a representation has finite image.

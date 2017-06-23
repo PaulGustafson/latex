@@ -912,7 +912,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% ss %%%%%%%%%%%%%%%%%%%%%%%%%%%
 \def\cropmarks{\nointerlineskip%
      \vbox to 0pt{\vskip-8.6pt
-	\parindent0pt\hspace*{6pt}\draftnote
+	\parindent0pt\hspace*{6pt}%\draftnote
      \par\advance\trimheight by 2pc
      \vbox to \trimheight{\offinterlineskip\parindent0pt\vskip-2pc
      \hbox to \trimwidth{\raise2.6pc\hbox{\vrule height2pc width0.3pt}\raisebox{2pc}
