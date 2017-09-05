@@ -1,0 +1,5 @@
+
+Goal: Show primality testing is in BPP (Miller-Rabin 1980s)
+
+BPP: poly time algo w/ access to randomness such that for any input gives correct answer w/ prob > 1/2
+

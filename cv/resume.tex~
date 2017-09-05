@@ -1,0 +1,105 @@
+% LaTeX resume example template
+%
+% Matthew M. Boedicker <matthewm@boedicker.org>
+% http://matthewm.boedicker.org/
+%
+% placed in the public domain
+
+\documentclass[11pt]{article}
+\usepackage{fullpage,hyperref}
+\textheight=9.0in
+\pagestyle{empty}
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+\begin{document}
+
+  \begin{tabular*}{6.5in}{l@{\extracolsep{\fill}}r}
+    \textbf{Paul Gustafson} & \\
+    paul.gustafson@gmail.com\\
+  \end{tabular*}
+  \\
+  \vspace{0.2in}
+
+  
+ {\large \textbf{Work Experience}}
+
+  \begin{itemize}
+
+  \item[]
+    \begin{tabular*}{6in}{l@{\extracolsep{\fill}}r}
+      \textbf{Texas A\&M University} & 2013 - Present \\
+      PhD Candidate, Department of Mathematics & \\
+    \end{tabular*}
+
+    \begin{itemize}
+      \item Proved conjecture on anyon suitability for topological quantum computation
+      \item Created Haskell library for computing with quantum mapping class group representations
+      \item Mentored undergraduates in conducting research projects
+      \item Instructor for 60-student Calculus class
+    \end{itemize}
+
+  \item[]
+    \begin{tabular*}{6in}{l@{\extracolsep{\fill}}r}
+      \textbf{Knowledge Based Systems, Inc.} & 2008 - 2012 \\
+       Programmer Analyst & \\
+    \end{tabular*}
+
+    \begin{itemize}
+      \item Secured \$825,000 Phase II SBIR grant by co-developing a wireless sensor network cybersecurity simulator in Java and NetLogo
+      \item Researched, designed, and implemented simulation features for various network topologies, routing protocols, attack types, power consumption profiles, and anomaly detection systems
+      \item Designed and implemented exporter from a proprietary file format into UML (an open XML-based file format)
+    \end{itemize}
+
+  \end{itemize}
+
+   {\large \textbf{Programming Languages}}
+   \begin{itemize}
+   \item[]
+      \begin{tabular*}{6in}{l@{\extracolsep{\fill}}r}
+        Java, Haskell, Python, C, Agda, Coq, MATLAB, NetLogo \\
+      \end{tabular*}
+   \end{itemize}
+    
+  {\large \textbf{Education}}
+
+  \begin{itemize}
+
+  \item[]
+    \begin{tabular*}{6in}{l@{\extracolsep{\fill}}r}
+      \textbf{Texas A\&M University} & 2013 - Present \\
+      Doctor of Philosophy in Mathematics & May 2018 (Expected) \\
+    \end{tabular*}
+ 
+    \begin{itemize}
+      \item Field of study: Mapping class group representations from TQFTs 
+      \item Advisor: Eric Rowell
+    \end{itemize} 
+
+  \item[]
+    \begin{tabular*}{6in}{l@{\extracolsep{\fill}}r}
+      \textbf{Texas A\&M University} & 2012-2013 \\
+      Bachelor of Science in Mathematics  & 2013 \\
+    \end{tabular*}              
+    \begin{itemize}
+      \item Madhava Prize in Analysis
+    \end{itemize}
+
+    \begin{tabular*}{6in}{l@{\extracolsep{\fill}}r}
+     \textbf{Princeton University} & 2007 - 2011 \\
+    \end{tabular*}              
+    \begin{itemize}
+      \item Manfred Pyka Memorial Prize in Physics 
+    \end{itemize}        
+
+  \end{itemize}
+
+ {\large \textbf{Interests}}
+   \begin{itemize}
+   \item[]
+      \begin{tabular*}{6in}{l@{\extracolsep{\fill}}r}
+        Quantum computing, type theory, machine learning, weightlifting, piano, judo
+      \end{tabular*}
+   \end{itemize}
+
+\end{document}
