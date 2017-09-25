@@ -1,0 +1,14 @@
+r = 3
+l = 4*r + 2
+k = CyclotomicField(2*l)
+q = k.gen()
+
+rho = vector([5/2, 3/2, 1/2])
+wt = map(vector,[[1,0,0], [1,1,0], [1/2,1/2,1/2]])
+lam = [vector([0,0,0]), 2*wt[0], wt[0], wt[1], 2*wt[2], wt[2], wt[0] + wt[2]]
+exps = map(lambda x: 2*x.dot_product(x + 2*rho), lam)
+
+twist = map(lambda x: q^x, exps)
+
+
+

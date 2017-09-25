@@ -1,0 +1,12 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent Math 689 Commutative and Homological Algebra
+
+\subsection*{HW 1}
+\p 1 
+\begin{proof}
+\end{proof}
+\end{document}

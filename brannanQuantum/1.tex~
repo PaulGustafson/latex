@@ -1,0 +1,29 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent MATH 663 - Subfactors, Knots, and Planar Algebras (Fall 2017)
+
+\subsection*{HW 1}
+\p 1 Let $\phi: \mB(H) \to \CC$ be a linear functional. Show that the following statements are equivalent:
+\begin{itemize}[(a)]
+\item There are $n \in \NN$ and $(\xi_i)_{i=1}^n, (\eta_i)_{i=1}^n \subset H$ such that
+  $$ \phi(x) = \sum_{i=1}^n \langle x \xi_i | \eta_i \rangle \qquad (x \in \mB(H))$$
+\item $\phi$ is continuous with respect to the weak operator topology.
+ \item $\phi$ is continuous with respect to the strong operator topology.
+\end{itemize}
+\begin{proof}
+  (a) $\implies$ (b): Let $(x_\lambda)_\lambda \subset \mB(H)$ be a net such that $\x_\lambda \overset{WOT}{\to} x$. Then
+  \begin{align*}
+  \lim_\lambda \phi(x_\lambda) & =  \sum_{i=1}^n \lim_\lambda \langle x_\lambda \xi_i | \eta_i \rangle \\
+  & = \sum_{i=1}^n \langle \lim_\lambda x_\lambda \xi_i | \eta_i \rangle \\
+  & = \phi(x),
+  \end{align*}
+  where the second equality follows from the definition of the WOT.
+
+  
+\end{proof}
+
+\p 2 Let $H$ be an infinite dimensional Hilbert space. Show by means of explicit examples that the norm topology, the strong operator topology, and the weak operator topology are all inequivalent on $\mB(H)$.
+\end{document}
