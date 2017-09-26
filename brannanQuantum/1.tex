@@ -27,9 +27,9 @@
 
   (c) $\implies$ (a):  Suppose $\phi$ is continuous with respect to the SOT.  By the definition of the SOT, there exists an $r > 0$ and $\xi_1, \ldots, \xi_n$ such that $\|x \xi_i\| < r$ for all $i$ implies that $|\phi(x)| < 1$.   This implies that there exists $\delta$ such that $\sum_i \|x \xi_i\|^2 < \delta$ implies $|\phi(x)| < 1$.
   
-  Define $i: \mB(H) \to H^{\oplus n}$ by $i(x) = \bigoplus_i x \xi_i$.  Let $K = \im(i)$. Let $\psi: K \to \CC$ be the linear functional defined by
-  $$\psi(\bigoplus_i x \xi_i) = \phi(x).$$ By the Hahn-Banach theorem, we can extend $\psi$ to $\overline K$.  Hence, by the Riesz Representation Theorem, we can write
-  $$\phi(x) = \sum_{i=1}^n \langle x \xi_i, \eta_i \rangle $$
+  Define $j: \mB(H) \to H^{\oplus n}$ by $j(x) = \bigoplus_i x \xi_i$.  Let $K = \im(j)$. Let $\psi: K \to \CC$ be the linear functional defined by
+  $$\psi(\bigoplus_i x \xi_i) = \phi(x).$$ By the Hahn-Banach theorem, we can extend $\psi$ to $H^{\oplus n}$.  Hence, by the Riesz Representation Theorem, we can write
+  $$\phi(x) = \psi j (x) = \sum_{i=1}^n \langle x \xi_i, \eta_i \rangle $$
 for some $(\eta_i) \subset H$.
 \end{proof}
 
