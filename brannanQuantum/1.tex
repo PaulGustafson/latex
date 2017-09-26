@@ -25,31 +25,40 @@
   (b) $\implies$ (c): Suppose $\phi$ is continuous wrt the WOT. Further suppose $x_\lambda \overset{SOT}{\to} x \in \mB(H)$.
   Then $x_\lambda \overset{WOT}{\to} x \in \mB(H)$, so $\phi(x_\lambda) \to \phi(x)$.
 
-  (c) $\implies$ (a):  Suppose $\phi$ is continuous with respect to the SOT.  
+  (c) $\implies$ (a):  Suppose $\phi$ is continuous with respect to the SOT.  By the definition of the SOT, there exists an $r > 0$ and $\xi_1, \ldots, \xi_n$ such that $\|x \xi_i\| < r$ for all $i$ implies that $|\phi(x)| < 1$.   This implies that there exists $\delta$ such that $\sum_i \|x \xi_i\|^2 < \delta$ implies $|\phi(x)| < 1$.
   
-  
+  Define $i: \mB(H) \to H^{\oplus n}$ by $i(x) = \bigoplus_i x \xi_i$.  Let $K = \im(i)$. Let $\psi: K \to \CC$ be the linear functional defined by
+  $$\psi(\bigoplus_i x \xi_i) = \phi(x).$$ By the Hahn-Banach theorem, we can extend $\psi$ to $\overline K$.  Hence, by the Riesz Representation Theorem, we can write
+  $$\phi(x) = \sum_{i=1}^n \langle x \xi_i, \eta_i \rangle $$
+for some $(\eta_i) \subset H$.
 \end{proof}
 
 \p 2 Let $H$ be an infinite dimensional Hilbert space. Show by means of explicit examples that the norm topology, the strong operator topology, and the weak operator topology are all inequivalent on $\mB(H)$.
 \begin{proof}
-  
+  Define $x_n \in \mB(\ell^2(\NN))$  by $x_n(e_i) = 0$ if $i \le n$ and $x_n(e_i) = e_i$ if $i > n$. Then $x_n \to 0$ in the SOT. On the other hand, $\|x_n\| = 1$ for all $n$.
+
+  Define $y_n \in \mB(\ell^2(\NN))$ by $y_n(e_i) = e_{i+n}$.  Then $x_n \to 0$ in the WOT.  On the other hand, $x_n(e_1) = e_n$ for all $n$, which doesn't converge.
 \end{proof}
 
 \p 3 Show that $\mB(H)$ is a factor.
 \begin{frame}
   The set of bounded operators  $\mB(H)$ is obviously a von Neumann algebra (it's the commutant of the identity).  To see that it is a factor, we need to show that $\mB(H) \cap Z(\mB(H)) = \CC$.  In other words, we need to show that $Z(\mB(H)) = \CC$.
 
-  Suppose $T \in Z(\mB(H)) \setminus \CC$.  Then there exists $\xi \in H$ such that $T \xi$ is not a multiple of $\xi$.  %TODO
+Suppose $x \in Z(\mB(H)) \setminus \CC$.  Then there exists $\xi \in H$ such that $x \xi$ is not a multiple of $\xi$.  Let $V$ be the two-dimensional Hilbert space spanned by $\xi$ and $T_\xi$.  Let $p$ be the projection onto $V$.  Then $pxp$ corresponds to a nonscalar $2\times 2$ matrix in the center of $M_2(\CC)$, a contradiction.
 \end{frame}
 
 \p 4 Let $S$ be a self-adjoint subset of $\mB(H)$. Show that $S'$ is a von Neumann algebra.
 \begin{proof}
   First, I claim that $S'$ is a *-subalgebra of $\mB(H)$.  Suppose $x, y \in S'$ and $u \in S$.  Then $xyu = uxy$, and $\alpha x + \beta y) u = u (\alpha x + \beta u$ for all $\alpha, \beta \in \CC$.  Moreover,  $x^* u  = (u^* x)^* = (x u^*)^* = u x^*$.   Hence, $S'$ is a *-algebra.
 
-  Since $S'$ obiously contains $1_{\mB(H)}$, it suffices to show that $S'$ is weakly closed.  Let $(x_\lambda) \subset S'$ be a net such that  $x_\lambda \to x \in \mB(H)$ in the weak operator topology.  Suppose $x \not\in S'$.  Then there exists $u \in S$ such that $x u - u x = v \neq 0$.  Since $v \neq 0$, there exist nonzero vectors $\xi, \eta in \mB(H)$ such that $v \xi = \eta$.  However,
-  %% \begin{align*}
-  %%   \langle (x_\lambda u - u x_\lambda) \xi, \eta \rangle & =
-  %% \end{align*}
+  Since $S'$ obiously contains $1_{\mB(H)}$, it suffices to show that $S'$ is weakly closed.  Let $(x_\lambda) \subset S'$ be a net such that  $x_\lambda \to x \in \mB(H)$ in the weak operator topology.  Let $u \in M$ be arbitrary.  
+  \begin{align*}
+    0 & = \langle (x_\lambda u - u x_\lambda) \xi, \eta \rangle \\
+    & = \langle x_\lambda u \xi, \eta \rangle - \langle x_\lambda \xi, u^* \eta \rangle \\
+    & \to \langle x u \xi, \eta \rangle - \langle x \xi, u^* \eta \rangle \\
+    & = \langle (x u - u x) \xi, \eta \rangle
+  \end{align*}
+  Thus, $x \in S'$.  Hence, $S'$ is weakly closed.
 \end{proof}
 
 \p 5 Let $e$ be a finite projection in a von Neumann algebra $M$. Let $f \le e$ be another projection.  Show that $f$ is also finite.
@@ -69,15 +78,13 @@
 
 \p 7 Let $M \subset \mB(H)$ be a von Neumann algebra. A vector $\xi \in H$ is called cyclic for $M$ if $H = \overline{M \xi}^{\lVert \cdot \rVert}$. We call $\xi$ separating for $M$ if for each $x \in M$, $x \xi = 0 \implies x = 0$. Show that $\xi$ is cyclic for $M$ if and only if $\xi$ is separating for $M'$.
 \begin{proof}
-  Suppose $\xi$ is separating for $M'$.  Let $p$ be the projection onto $\overline{M \xi}$.   Since $M$ is unital, $(p - 1) \xi = \xi$.  Since $\xi$ is separating for $M'$, it is enough to show that $p - 1 \in M'$.  Or, equivalently, show that $p \in M'$.
+  Suppose $\xi$ is separating for $M'$.  Let $p$ be the projection onto $\overline{M \xi}$.   Since $M$ is unital, $(p - 1) \xi = 0$.  Since $\xi$ is separating for $M'$, it is enough to show that $p - 1 \in M'$.  Or, equivalently, show that $p \in M'$.
 
-  Suppose $x \in M$ and $v \in M \xi$.  Then $xpv = xv = pxv$.  Thus $xpv = pxv$ for all $v \in \overline{M \xi}$.  If $v \in (M \xi)^\perp$, then
+  Suppose $x \in M$ and $v \in M \xi$.  Then $xpv = xv = pxv$.  Thus $xpv = pxv$ for all $v \in M \xi$.  Since $xp - px$ is a bounded operator, the same identity holds for all $v \in \overline{M \xi}$.  If $v \in (M \xi)^\perp$, then
   $xpv = 0$.  On the other hand, for all $w \in M \xi$, we have $\langle xv, w \rangle = \langle v, xw \rangle = 0$.  Thus, $pxv = 0$.  Thus, since $H = \overline{M \xi} \oplus (M \xi)^\perp$, we have $px = xp$.  Thus, $p \in M'$.
 
   Conversely suppose $\xi$ is cyclic for $M$.  Further suppose that $x \xi = 0$ for some $x \in M'$.  Then $x y \xi = y x \xi = 0$ for all $y \in M$.
-  Thus, $x M \xi = 0$.  Since $x$ is bounded, this implies $0 = x \overline{M \xi} = x H$.  Thus, $x = 0$.  
-\end{align*}
-  
+  Thus, $x M \xi = 0$.  Since $x$ is bounded, this implies $0 = x \overline{M \xi} = x H$.  Thus, $x = 0$.   
 
 \end{proof}
 
@@ -120,9 +127,9 @@ Hence, $x$ and $y$ commute.  Since $x$ and $y$ were arbitrary, this implies  $\r
     & = \langle x \delta_{e},  \delta_{hgh^{-1}} \rangle \\
     & = \hat{x}(hgh^{-1})
     \end{align*}
-  \end{proof}
 
-  Now suppose $L \Gamma$ is icc, and $x \in L \Gamma \cap L \Gamma'$.  Since $\hat{x}$ is constant on conjugacy classes, it must be zero for all non-trivial conjugacy classes (otherwise, its $\ell^2$-norm would be infinite).  Hence $L \Gamma \cap L \Gamma' = \CC$, so $L \Gamma$ is a factor. Since $\tau$ is a normal, faithful, tracial state, $L \Gamma$ is finite. Hence, since $L \Gamma$ is infinite dimensional, it is a $II_1$-factor.
+    Now suppose $L \Gamma$ is icc, and $x \in L \Gamma \cap L \Gamma'$.  Since $\hat{x}$ is constant on conjugacy classes, it must be zero for all non-trivial conjugacy classes (otherwise, its $\ell^2$-norm would be infinite).  Hence $L \Gamma \cap L \Gamma' = \CC$, so $L \Gamma$ is a factor. Since $\tau$ is a normal, faithful, tracial state, $L \Gamma$ is finite. Hence, since $L \Gamma$ is infinite dimensional, it is a $II_1$-factor.
+\end{proof}
   
 \item Conversely, show that if $\Gamma$ is not icc, then $L\Gamma \cap L\Gamma' \neq \CC 1$.
   \begin{proof}
@@ -131,7 +138,7 @@ Hence, $x$ and $y$ commute.  Since $x$ and $y$ were arbitrary, this implies  $\r
       0 & = \langle (x_i \lambda(\delta_C) - \lambda(\delta_C) x_i) \xi, \eta \rangle \\
       & \to  \langle (x \lambda(\delta_C)  -  \lambda(\delta_C) x )\xi, \eta \rangle,
     \end{align*}
-    for all $\xi, eta$.  Thus $\lambda(\delta_C) \in L\Gamma'$.
+    for all $\xi, \eta \in H$.  Thus $\lambda(\delta_C) \in L\Gamma'$.
   \end{proof}
 \end{enumerate}
 
