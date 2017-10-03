@@ -1,0 +1,94 @@
+\documentclass[12pt]{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{amscd}
+\usepackage{amsfonts}
+\usepackage{graphicx}%
+\usepackage{fancyhdr}
+
+
+\newcommand{\ZZ}{\mathbb{Z}}
+\DeclareMathOperator{\Mod}{Mod}
+
+\theoremstyle{plain} \numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{finalremark}[theorem]{Final Remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{question}{Question} \topmargin-2cm
+
+\textwidth6in
+
+\setlength{\topmargin}{0in} \addtolength{\topmargin}{-\headheight}
+\addtolength{\topmargin}{-\headsep}
+
+\setlength{\oddsidemargin}{0in}
+
+\oddsidemargin  0.0in \evensidemargin 0.0in % \parindent0em
+
+%\pagestyle{fancy}
+%\lhead{Research Statement} %\rhead{August 2005}
+%\chead{{\large{\bf Paul Gustafson}}} \lfoot{} \rfoot{\bf \thepage} \cfoot{}
+
+\newcounter{list}
+
+\title{Paul Gustafson's Research Statement}
+
+\begin{document}
+
+\maketitle
+
+% \raisebox{1cm}
+
+\section{Overview}
+
+My research uses category theory and low-dimensional topology to answer questions arising from condensed matter physics and pure mathematics.   My main project is the Property F conjecture, a conjecture relating universality of topological quantum computation to algebraic properties of tensor categories.  My main result is the proof of  an extended version of the Property F conjecture for the representation categories of the twisted quantum doubles of finite groups. 
+
+My future projects include:
+\begin{itemize}
+\item Investigating the effects of symmetry gauging on braid group representations
+\item Proving Property F for metaplectic modular categories
+\item Classifying even metaplectic modular categories
+\end{itemize}
+
+\section{Background}
+
+Recently, a major program in condensed matter physics has been to classify topological phases of matter giving rise to quasiparticles with exotic braiding statistics. Category theory (more specifically, tensor category theory) has proven to be the correct framework for this classification program. Briefly, (2+1)-dimensional topological phases of matter correspond to (2+1)-topological quantum field theories (TQFTs) which, in turn, correspond to unitary modular tensor categories (UMTCs), a highly structured type of fusion category. 
+
+The holy grail for this classification program is to build a universal topological quantum computer.  A topological quantum computer is a theoretical quantum computer that performs computations by braiding quasiparticles. Its computational power directly depends on the braiding statistics of its quasiparticles. If the braiding statistics are insufficiently expressive, such a  computer may not hold any advantage over a classical computer.   One characterization of the expressivity of a quantum computer is universality.  A universal quantum computer is one that can efficiently simulate any other quantum computer.   The most straightforward path to universality is to create a quasiparticle whose braiding statistics are expressive enough to simulate any quantum circuit.  Translated into mathematics, this corresponds to finding UMTCs whose associated braid group representations are dense in (projective) unitary groups.
+
+The Property F conjecture pushes this translation one step further, from analysis into algebra.  It states that the braid group representations associated to a simple object in a braided fusion category are finite if and only if the that object is weakly integral, a purely algebraic condition.   
+Although verifying the Property F conjecture in full generality has proven elusive, it has been verified for many classes of UMTCs.  In particular, it has been verified for all UMTCs arising from the classical quantum group construction.  It has also been verified for representation categories of twisted quantum doubles of finite groups.
+
+\section{Results}
+
+Since a $(2+1)$-TQFT gives (projective) representations of all mapping class groups of oriented, compact surfaces, we can modify the Property F conjecture to consider all such mapping class groups. This modified conjecture is not, strictly speaking a generalization of the original Property F conjecture.  This is because the original conjecture applies to all braided fusion categories, a larger class than the class of unitary modular tensor categories.   However, for any UMTC, the modified property F conjecture is a meaningful generalization of the original one.  
+
+My thesis proves this modified Property F conjecture for the representation categories of twisted quantum doubles of finite groups.  In particular, my result answers their question regarding finiteness of images of arbitrary mapping class group representations in the affirmative.
+
+My approach is to translate the problem into manipulation of colored graphs embedded in the given surface. To do this translation, I use the fact that any mapping class group representation associated to $\Mod(D^\omega(G))$ isomorphic to a Turaev-Viro-Barrett-Westbury (TVBW) representation associated to the spherical fusion category $\text{Vec}_G^\omega$ of twisted $G$-graded vector spaces. As shown by Kirillov, the representation space for this TVBW representation is canonically isomorphic to a vector space spanned by $\text{Vec}_G^\omega$-colored graphs embedded in the surface. By analyzing the action of the Birman generators on a finite spanning set of colored graphs, we find that the mapping class group acts by permutations on a slightly larger finite spanning set. This implies that the representation has finite image.
+
+\section{Current Research}
+
+I am currently further investigating Property F and related conjectures.  The most promising path towards proving the Property F conjecture for all UMTCs appears to be break it into two sub-conjectures based on the notion of gauging, a procedure for building a modular tensor category using  a smaller modular tensor category as input.   Physically, gauging corresponds to promoting a global topological symmetry to a local symmetry.  Mathematically, gauging corresponds to first extending a UMTC by a finite group $G$ and then equivariantizing. Conjecturally, any weakly integral category can be obtained by gauging a small class of very well-understood categories (a pointed modular category or a pointed modular category tensor an Ising category).   It is also conjectured that gauging  preserves Property F, i.e. the property that all simple objects’ associated braid group representations have finite image.  Proving both of these two conjecture would imply the Property F conjecture.
+
+Progress on the first conjecture is underway. A recent result of Sonia Natale shows that all weakly group theoretical categories are gaugings of pointed modular categories or pointed tensor Ising modular categories.  Moreover, all known weakly integral modular categories are weakly group-theoretical, and the weak integrality is conjecturally equivalent being weakly group-theoretical.  Thus, Sonia Natale’s result is a large step towards proving that all weakly integral categories are obtained by gauging very simple ones, reducing this conjecture to another, potentially more tenable, conjecture.
+
+\section{Property F for Metaplectic Modular Categories}
+
+I am currently focused on the conjecture that gauging preserves Property F.  Some of the simplest non-trivial examples of weakly integral categories are the metaplectic modular categories, UMTCs with the same fusion rules of the quantum group UMTC $SO(N)_2$ for $N$ odd.   Every metaplectic modular category is the gauging of a $\ZZ_n$-cyclic pointed modular category.  Therefore, metaplectic modular categories serve as a testbed for the second conjecture:  if we can prove Property F for all metaplectic categories, we will have a much better understanding of how it relates to gauging.  
+
+Recently,  Rowell and Wenzl showed that the classical quantum group UMTC $SO(N)_2$ has property $F$.  However, their proof uses the quantum group machinery heavily, making the task of generalizing their result to all metaplectic modular categories highly nontrivial.  I am currently pursuing three approaches  to the more general metaplectic case: (i) directly comparing the metaplectic R-matrices to the $SO(N)_2$ ones, (ii) modifying the quantum group construction to change the Frobenius-Schur indicator of the fundamental spinor object, and (iii) analyzing the effects of gauging on R-matrices.
+
+\section{Classification of Even Metaplectic Modular Categories}
+
+A related problem is classification of even metaplectic modular categories, UMTCs with the fusion rules of $SO(N)_2$ for $N$ even. This classification is of interest because it fits directly into the (2+1)-topological phase of matter classification program.  Additionally, this classification should be a test case for the conjecture that all weakly integral modular categories are gaugings of pointed modular categories or pointed tensor Isings.   These categories are expected to be gaugings of $\ZZ_{N}$-cyclic modular categories, but the situation is more complicated due to the power of $2$ in the prime factorization of $N$. In fact, the nomenclature (even metaplectic vs. metaplectic) is due to the fact that powers of $2$ in the prime factorization of $N$ introduce a complication the fusion rules compared to the odd case.   Gauging is also more complicated: the $2$-torsion elements of $\ZZ_N$ introduce possible cohomological obstructions to the extension and increase the number of possible fusion rules for the extension.  Thus, understanding and classifying these categories will be a significant step towards understanding gauging.
+
+\end{document}
