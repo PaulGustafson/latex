@@ -77,10 +77,28 @@ Prove that $L(S_\infty)$ has property Gamma.
 \p 7 Let $M \subset \mB(H)$ be a von Neumann algebra and let $K$ be a Hilbert space. Consider the von
 Neumann algebra $M \otimes 1 \subset \mB(H \otimes K)$. Show that $(M \otimes 1)' = M' \bar{\otimes} \mB(K)$.
 (Here, $M' \bar{\otimes} \mB(K)$ is defined as the von Neumann algebra generated the algebraic
-tensor product $M' \otimes \mB(K)$ inside $\mB(H \otimes K)$.
+tensor product $M' \otimes \mB(K)$ inside $\mB(H \otimes K)$.)
 \begin{proof}
   Clearly $M' \bar\otimes \mB(K) \subset (M \otimes 1)'$.  For the reverse inclusion, suppose that $x \in M' \bar\otimes \mB(K)$.
-  % https://math.stackexchange.com/questions/156204/the-commutant-of-a-tensor-product
+  Let $(e_i)_{i \in I}$ be an o.n.b. for $H$ and $(f_j)_{j \in J}$ an o.n.b. for $K$.  We can write
+  $$x (e_i \otimes f_j) = \sum_{k,l} x^{kl}_{ij} e_k \otimes f_l.$$
+  After some algebra, the commutation relation $x (y \otimes 1) = (y \otimes 1) x$ for $y \in M$ becomes
+  $$\sum_k y_i^k x^{lm}_{kj} = \sum_k x_{ij}^{km} y^l_k,$$
+  for all $l,m,i,j$.   Letting $p_r: H \otimes K \to H \otimes f_r \simeq H$ denote the projection, we have
+  $p_j x p_m \in B(H)$ with matrix coefficients $(x^{a m}_{b j})_{ab}$.  Fixing $m$ and $j$ in the commutation equation above
+  gives the equation $p_j x p_m y = y p_j x p_m$ for all $j,m$.  Thus, $p_j x p_m \in M'$.
+
+  Let $\mF$ denote the net of finite subsets of the index set $J$.  For $\lambda \in \mF$, let
+  $x_\lambda = \sum_{j,m \in \mF} p_j x p_m \in M' \otimes \mB(K)$.  Let $\xi \in H \otimes K$.
+  Then $\xi = \sum_{i,j} \xi_{ij} e_i \otimes f_j$.  We have
+  \begin{align*}
+    \|(x - x_\lambda) \xi \| & = \| \sum_{l \not\in \mF} x^{kl}_{ij} \xi_{kl} e_k \otimes f_l
+    + \sum_{j \not \in \mF, l \in \mF} x^{kl}_{ij} \xi_{kl} e_k \otimes f_l  \| \\
+    & \le \|x\|  \left( \sum_{l \not\in \mF} |\xi_{kl}|^2 \right)^{1/2} + + \| \sum_{j \not \in \mF} x^{kl}_{ij} \xi_{kl} e_k \otimes f_l  \| \\
+    & \to 0,
+  \end{align*}
+  where the first term goes to 0 since $\xi$ is square-summable and the second because $x \xi$ is square-summable.
+  Thus, $x_\lambda \to x$ in the SOT. 
 \end{proof}
 
 
