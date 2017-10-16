@@ -39,20 +39,32 @@ the standard matrix units associated to a fixed orthonormal basis $(e_i)_i$ for 
       & = \tr(\sum_j \overline{b_{ji}} a_{jk}) \\
       & = \sum_{i,j} \overline{b_{ji}} a_{ji} \\
       & = \sum_{i,j} \overline{b_{ji}} a_{ji} \\
-      & = \sum_{i,j} \langle b_{ij} (e_i \otimes \overline{e_j}),  a_{ij} (e_i \otimes \overline{e_j} \rangle \\
+      & = \sum_{i,j} \langle a_{ij} (e_i \otimes \overline{e_j}),  b_{ij} (e_i \otimes \overline{e_j} \rangle \\
     \end{align*}
   \end{proof}
 \item Describe how $M$ acts via the GNS representation on $\CC^n \otimes \overline{\CC^n}$.
+  
   The image of the action of $e_{ij} \in M$ on $e_{kl} \in L^2(M)$ is $\delta_{jk} e_{il}$.  Thus,
   the image of the action of $e_{ij}$ on $e_k \otimes \overline{e_l}$ is $\delta_{jk} e_i \otimes \overline{e_l}$.
+  This is just the usual matrix action on the first tensor factor, trivial action on the second factor.
     
-  \item Describe how the modular conjugation $J$ acts on $\CC^n \otimes \overline{\CC^n}$.
-    The modular conjugation $J$ acts on $L^2(M)$ by $Jx \xi = x^* J \xi$, where $\xi = \sum_i e_{ii}$.  Thus, it
-    acts on $\CC^n \otimes \overline{\CC^n}$ by $J x \xi = x^* J \xi$, where $\xi = \sum_i e_i \otimes \overline{e_i}$
+\item Describe how the modular conjugation $J$ acts on $\CC^n \otimes \overline{\CC^n}$.
   
-  \item Describe how $M'$ acts on $\CC^n \otimes \overline{\CC^n}$.
-    Since $M' = JMJ$, we have
-    %% DOUBLECHECK Above, should just be acting on one factor..
+  The modular conjugation $J$ acts on $L^2(M)$ by $Jx \xi = x^* \xi$, where $\xi = \sum_i e_{ii}$.  Hence,
+  $J \sum_{j,k} a_{jk} e_{jk} = J \sum_{j,k} a_{jk} e_{jk} \xi = \overline a_{jk} e_{kj}$.  Thus, $J$
+  acts on $\CC^n \otimes \overline{\CC^n}$ by $J \sum_{j,k} a_{jk} e_j \otimes \overline e_k =
+  \overline a_{jk} e_k \otimes \overline e_j$.
+  
+\item Describe how $M'$ acts on $\CC^n \otimes \overline{\CC^n}$.
+  
+    Since $M' = JMJ$, the action is given by
+    \begin{align*}
+      (J \sum_{i,j} a_{ij} e_{ij} J) b_{kl} e_k \otimes \overline e_l & = J \sum_{i,j} a_{ij} e_{ij} \overline b_{kl} e_l \otimes \overline e_k \\
+      & = J \sum_{i,j} a_{ij} \delta_{jl} \overline b_{kl} e_i \otimes \overline e_k \\
+      & = \sum_{i,j} \overline a_{ij} \delta_{jl} b_{kl} e_k \otimes \overline e_i \\
+      & = \sum_{i,j}  b_{kl} e_k \otimes \overline a_{ij} e_{ij} \overline e_l.
+    \end{align*}
+    This is just matrix multiplication on the second tensor factor.
 \end{enumerate}
 
 \p 4 Give an example of a group $\Gamma$ and an ergodic probability measure preserving action $\Gamma \curvearrowright (X, \Sigma, \mu)$ so that
@@ -86,7 +98,7 @@ tensor product $M' \otimes \mB(K)$ inside $\mB(H \otimes K)$.)
   $$\sum_k y_i^k x^{lm}_{kj} = \sum_k x_{ij}^{km} y^l_k,$$
   for all $l,m,i,j$.   Letting $p_r: H \otimes K \to H \otimes f_r \simeq H$ denote the projection, we have
   $p_j x p_m \in B(H)$ with matrix coefficients $(x^{a m}_{b j})_{ab}$.  Fixing $m$ and $j$ in the commutation equation above
-  gives the equation $p_j x p_m y = y p_j x p_m$ for all $j,m$.  Thus, $p_j x p_m \in M'$.
+  gives the equation $p_j x p_m (y \otimes 1) = (y \otimes 1) p_j x p_m$ for all $j,m$.  Thus, $p_j x p_m \in (M \otimes 1)'$.
 
   Let $\mF$ denote the net of finite subsets of the index set $J$.  For $\lambda \in \mF$, let
   $x_\lambda = \sum_{j,m \in \mF} p_j x p_m \in M' \otimes \mB(K)$.  Let $\xi \in H \otimes K$.
