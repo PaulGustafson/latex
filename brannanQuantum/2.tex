@@ -35,17 +35,17 @@ the standard matrix units associated to a fixed orthonormal basis $(e_i)_i$ for 
   \begin{proof}
     We have
     \begin{align*}
-      \langle \sum_{i,j} a_{ij} e_{ij}, \sum_{kl} b_{kl} e_{kl} \rangle & = \tr(B^* A) \\
+      \langle \sum_{i,j} a_{ij} e_{ij}, \sum_{kl} b_{kl} e_{kl} \rangle_{L^2(M)} & = \tr(b^* a) \\
       & = \tr(\sum_j \overline{b_{ji}} a_{jk}) \\
       & = \frac 1 n \sum_{i,j} \overline{b_{ji}} a_{ji} \\
-      & = \sum_{i,j} \langle a_{ij} (e_i \otimes \overline{e_j}),  b_{ij} (e_i \otimes \overline{e_j} \rangle \\
+      & = \sum_{i,j} \langle a_{ij} (e_i \otimes \overline{e_j}),  b_{ij} (e_i \otimes \overline{e_j} \rangle_{\CC^n \otimes \overline{\CC^n}} \\
     \end{align*}
   \end{proof}
 \item Describe how $M$ acts via the GNS representation on $\CC^n \otimes \overline{\CC^n}$.
   
   The image of the action of $e_{ij} \in M$ on $e_{kl} \in L^2(M)$ is $\delta_{jk} e_{il}$.  Thus,
   the image of the action of $e_{ij}$ on $e_k \otimes \overline{e_l}$ is $\delta_{jk} e_i \otimes \overline{e_l}$.
-  This is just the usual matrix action on the first tensor factor, trivial action on the second factor.
+  This is just the usual matrix multiplication action on the first tensor factor, trivial action on the second factor.
     
 \item Describe how the modular conjugation $J$ acts on $\CC^n \otimes \overline{\CC^n}$.
   
