@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent MATH 663 - Subfactors, Knots, and Planar Algebras (Fall 2017)
+
+\subsection*{HW 1}
+\p 1 Recall the construction of the hyperfinite II$_1$-factor $R = \pi_\infty(A_\infty)''$, where $A_\infty = \bigcup_n A_n$, $A_n = \bigotimes_n M_2(\CC)$, and $\pi_\infty$ is the GNS representation associated to the tracial state
+$$ \tau_\infty = (\bigotimes_n \Tr_{M_2(\CC)}(x) \qquad (x \in A_n \subset A_\infty) $$
+\begin{enumerate}[(a)]
+\item Let $p \in P(R)\setminus \{0,1\}$. Explain why $pRp \cong R$.
+\item Fix $\lambda \in (0,1)$ and replace the canonical trace state $\Tr_{M_2(\CC)}$ with the state
+  $$ \phi_\lambda((x_{ij})) = \frac{\lambda x_{11} + x_{22}}{1 + \lambda} $$
+  Repeat the above GNS constrution for $A_\infty$ wiht $\tau_\infty$ replaced by
+  the state
+  $$\phi_{\lambda,\infty}:A_\infty \to \CC \quad \phi_{\lambda,\infty}(x) = \bigotimes_n\phi_\lambda(x) \quad (x \in A_n \subset A_\infty).$$
+  Let $\pi_{\lambda,\infty}$ denote the corresponding GNS representation and
+  let $R_\lambda := \pi_{\lambda, \infty}(A_\infty)''$.
+  Show that $R_\lambda$ is AFD and does not admit any faithufl normal tracial state (hence $R_\lamdba$ is a type III AFD von Neumann algebra).
+\end{document}

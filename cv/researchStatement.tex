@@ -63,7 +63,7 @@ My current projects include:
 \item Investigating the effects of symmetry gauging on braid group representations associated to modular tensor categories
 \item Proving Property F for metaplectic modular categories
 \item Classifying even metaplectic modular categories
-\item Developing a Haskell library for computing with quantum mapping class group representations
+\item Developing a Haskell library for quantum mapping class group representations
 \item Optimizing cubicaltt, a typechecker for a constructive univalent type theory
 \end{itemize}
 
@@ -108,13 +108,19 @@ Together with Paul Bruillard, Julia Plavnik, and Eric Rowell, I am also working 
 
 As in the (odd) metaplectic case, all even metaplectic modular categories are expected to be gaugings of $\ZZ_{N}$-cyclic modular categories, but the situation is more complicated due to the power of $2$ in the prime factorization of $N$. In fact, the somewhat awkward nomenclature (even metaplectic vs. metaplectic) reflects the fact that powers of $2$ in the prime factorization of $N$ introduce a complication in the fusion rules.   Gauging is also more complicated: the $2$-torsion elements of $\ZZ_N$ introduce possible cohomological obstructions and increase the number of possible fusion rules for the extension.  Thus, understanding and classifying these categories will be a significant step towards understanding gauging.
 
-\subsubsection{Stringnet: A Haskell library for quantum mapping class group representations}
-I am also working on a Haskell library for computing matrix coefficients of quantum mapping class group coefficients.  The long-term goal of the project is to calculate any matrix coefficient of a Birman mapping class group generator for any computationally tractable Turaev-Viro-Barrett-Westbury (TVBW) (2+1)-TQFT.   It currently calculates the image of a braid group generator in the TVBW representation associated to an arbitrary spherical fusion category in terms of ~300 structural morphisms (associators, coevaluators, and evaluators -- each tensored with identity morphisms).
+\subsubsection*{A Haskell library for quantum mapping class group representations}
+I am also working on a Haskell library for quantum mapping class group represenations.  The executable currently calculates the image of a braid group generator in the Turaev-Viro-Barett-Westbury (TVBW) representation associated to an arbitrary spherical fusion category in terms of ~300 structural morphisms (associators, coevaluators, and evaluators -- each tensored with identity morphisms).
 
-This is useful, but ideally I would like to be able to compute actual matrix coefficients for the image of a braid group generator in a TVBW representation.  In fact, the initial impetus for the project was to compute these matrix coefficients for Tambara-Yamagami categories.  
+The next goal is to compute matrix coefficients of mapping class group generators in particular TVBW representations.   To investigate braiding, I attempted to do this for Tambara Yamagami categories, but it turned out to be computationally intractable even for the simplest nontrivial cases (possibly for "deep" reasons: we may need to take advantage of deeper structure).  A simpler first step is to calculate matrix coefficients of braid group representations from pointed spherical fusion categories.  After that, it may be possible to compute matrix coefficients for more complicated categories using gauging.
 
-\subsubsection{Optimizing cubicaltt}
+\subsubsection*{Optimizing cubicaltt}  %% TODO: References
+I am also interested in univalent type theories. My long-term goal is to facilitate machine-checked mathematical proofs.  Univalent type theories allow a homotopical version of logic that greatly simplifies the process of formalizing mathematics.  However, one major drawback of early univalent type theories was a lack of canonicity -- it was possible to construct terms of the type of natural numbers that would not reduce to a canonical natural number ($0,1,2,\ldots$).
 
+Cubical type theory solves this problem, in theory, since the type theory has the canonicity property.  Moreover, a type checker named ``cubicaltt'' for the type theory has been implemented.  However, the normal forms of relatively simple terms can be enormous.  The normal form of the univalence axiom, for example, is on the order of tens of megabytes.  This makes serious computation with the univalence axiom quickly intractable.
+
+Last summer, I experimented with cubicaltt at a Mathematical Research Community on Homotopy Type Theory.  We wanted to calculate $\pi_4(S^3)$ by using the long exact sequence associated to the Hopf fibration, based on some type-theoretical work in Guillaume Brunerie's thesis.  We were able to get further than he did before, but again we hit a computational roadblock due to huge normalized terms.
+
+Since then, I have profiled the cubicaltt interpreter (which is also written in Haskell) to narrow down the source of the computational overhead.  The next step in the project is to look for a more computationally-efficient representation of certain terms that currently have huge overhead.
 
 \begin{thebibliography}{0}
   \bibitem{acrw} E.\ Ardonne, M.\ Cheng, E.\ C.\ Rowell, and Z.\ Wang, \emph{Classification of Metaplectic Modular Categories}, J. Algebra \textbf{466} (2016), 141--146.
