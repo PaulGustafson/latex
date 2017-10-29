@@ -125,7 +125,7 @@ I am also interested in mechanized formal verification of mathematical proofs.  
 
 Although Cubical Type Theory solves this problem in theory, the normal forms of relatively simple terms can be enormous.  The normal form of the univalence axiom, for example, is on the order of tens of megabytes.  This makes serious computation with the univalence axiom quickly intractable.  For example, my working group at the MRC on Homotopy Type Theory attempted to calculate $\pi_4(S^3)$ using the long exact sequence associated to the Hopf fibration, as previously formalized by Guillaume Brunerie \cite{gb}.  The calculation involves composing a number of maps, some of which involve the univalence axiom.  Our group was able to calculate more of this composition than previous attempts, but the terms involving univalence were still out of reach.
 
-More recently, I profiled the cubicaltt interpreter (which is also written in Haskell) to narrow down the sources of the computational overhead. Currently, I am looking for term representations that are more efficient with respect to the most computationally-costly functions.
+More recently, I have been profiling the cubicaltt interpreter (which is also written in Haskell) to narrow down the sources of the computational overhead. It turns out that the vast majority of the computational cost is due to nominal operations on interval variables (e.g. swapping interval variable names). Currently, I am looking for term representations that are more efficient with respect to these nominal operations.
 
 %% \subsection*{Future projects}
 %% \subsubsection*{Braiding for fermionic (2+1)-TQFTs}
