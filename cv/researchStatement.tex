@@ -54,45 +54,58 @@
 
 % \raisebox{1cm}
 
-\subsubsection*{Overview}
+\subsection*{Overview}
 
-My research applies category theory and low-dimensional topology to questions from condensed matter physics and pure mathematics.   My main project is the Property F conjecture \cite{nr}, which relates universality of topological quantum computation to algebraic properties of fusion categories.  My main result is the proof of  an extended version of the Property F conjecture for the representation categories of twisted quantum doubles of finite groups \cite{g}. I am also interested in applying functional programming and dependent type theory to mathematics.  
+My research applies category theory and low-dimensional topology to condensed matter physics and pure mathematics.   My main focus is the Property F conjecture \cite{nr}, which relates universality of topological quantum computation to algebraic properties of fusion categories. I am also interested in mechanized verification of mathematical proofs in univalent dependent type theories.
 
-My current projects include:
+My previous results include: %% TODO: Write down theorems
+\begin{itemize}
+\item Proving a generalized Property F conjecture for mapping class group representations associated to $\Mod(D^\omega(G))$ \cite{g}
+\item Contributing to the classification of even metaplectic modular categories
+\end{itemize}
+  
+Current projects include:    %% TODO: Write down problems
 \begin{itemize}
 \item Investigating the effects of symmetry gauging on braid group representations associated to modular tensor categories
 \item Proving Property F for metaplectic modular categories
-\item Classifying even metaplectic modular categories
 \item Developing a Haskell library for quantum mapping class group representations
 \item Optimizing cubicaltt, a typechecker for a constructive univalent type theory
 \end{itemize}
 
-Potential future projects include:
+Future projects include:
 \begin{itemize}
-  \item Investigating braiding for fermionic (2+1)-TQFTs
-  \item Constructing (3+1)-TQFTS
+  \item Investigating braiding for fermionic (2+1)-TQFTs \cite{walker}
+  \item Exploring (3+1)-dimensional generalizations of Turaev-Viro-Barrett-Westbury TQFTs \cite{cui}
 \end{itemize}
 
 
-\subsubsection*{Background}
+\subsection*{Background}
 
 Recently, a major program in condensed matter physics has been to classify topological phases of matter giving rise to quasiparticles with exotic braiding statistics. In 2016, the Nobel Prize in Physics was awarded to Thouless, Haldane, and Kosterlitz for related work on ``theoretical discoveries of topological phase transitions and topological phases of matter.'' Category theory (more specifically, fusion category theory) has proven to be the correct framework for this classification program. Briefly, 2-dimensional topological phases of matter correspond to (2+1)-topological quantum field theories (TQFTs) parametrized by unitary modular tensor categories (UMTCs), a highly structured type of fusion category. 
 
-The holy grail for this program is to build a universal topological quantum computer.  A topological quantum computer is a theoretical quantum computer that performs computations by braiding quasiparticles. The braiding statistics of a quasiparticle, images of a family of braid group representations, form the gate set for a quantum circuit model for the computer. If the braiding statistics are insufficiently expressive, this computer may not hold any advantage over a classical computer. On the other extreme, a universal quantum computer is as expressive as possible. More precisely, a universal quantum computer can efficiently simulate any other quantum computer.  One path to universality for topological quantum computation is to create a quasiparticle whose braiding statistics are expressive enough to simulate any quantum circuit.  Translated into mathematics, this corresponds to finding UMTCs whose associated braid group representations' images are dense in (projective) unitary groups \cite{flw}.
+A holy grail of condensed matter research is to build a universal topological quantum computer.  A topological quantum computer is a theoretical quantum computer that performs computations by braiding quasiparticles. The braiding statistics of a quasiparticle, images of a family of braid group representations, form the gate set for a quantum circuit model for the computer. If the braiding statistics are insufficiently expressive, this computer may not hold any advantage over a classical computer. On the other extreme, a universal quantum computer is as expressive as possible. More precisely, a universal quantum computer can efficiently simulate any other quantum computer.  One path to universality for topological quantum computation is to create a quasiparticle whose braiding statistics are expressive enough to simulate any quantum circuit.  Translated into mathematics, this corresponds to finding UMTCs whose associated braid group representations' images are dense in (projective) unitary groups \cite{flw}.
 
 The Property F conjecture \cite{nr} pushes this translation one step further, from analysis into algebra.  It states that the braid group representations associated to a simple object in a braided fusion category have finite image if and only if the object is weakly integral, a purely algebraic condition.  In practice, most infinite UMTC-associated braid group images turn out to be dense in the appropriate unitary groups.  Thus, proving the Property F conjecture would be a major milestone in classifying topological phases of matter capable of universal quantum computation by quasiparticle braiding.
 
 Although verifying the Property F conjecture in full generality has proven elusive, it has been verified for many classes of UMTCs.  In particular, it has been verified for all UMTCs arising from the classical quantum group construction and various cases related to Hecke- and BMW-algebras \cite{FRW, flw, jones86, jonescmp, LRW, r, rw}.  It has also been verified for representation categories of twisted quantum doubles of finite groups \cite{erw}.
 
-\subsubsection*{Results}
+\subsection*{Results}
+\subsubsection*{Generalized Property F for $\Mod(D^\omega(G))$}
 
 Since a $(2+1)$-TQFT gives (projective) representations of all mapping class groups of oriented, compact surfaces, we can generalize the Property F conjecture to consider all such mapping class groups, not just the braid group. My thesis proves this modified Property F conjecture for the representation categories of twisted quantum doubles of finite groups.  In particular, my result answers a question of Etingof, Rowell and Witherspoon \cite{erw} regarding finiteness of images of arbitrary mapping class group representations in the affirmative.
 
 My approach is to translate the problem into manipulation of colored graphs embedded in the given surface. To do this translation, I use the fact that any mapping class group representation associated to $\Mod(D^\omega(G))$ is isomorphic to a Turaev-Viro-Barrett-Westbury (TVBW) representation \cite{bw} associated to the spherical fusion category $\text{Vec}_G^\omega$ of twisted $G$-graded vector spaces. As shown by Kirillov \cite{k} , the representation space for this TVBW representation is canonically isomorphic to a vector space spanned by $\text{Vec}_G^\omega$-colored graphs embedded in the surface. By analyzing the action of the Birman generators \cite{birman} on a finite spanning set of colored graphs, I found that the mapping class group acts by permutations on a slightly larger finite spanning set. This implies that the representation has finite image.
 
-\subsubsection*{Current Research}
+\subsubsection*{Classification of Even Metaplectic Modular Categories}
 
-I am currently further investigating Property F and related conjectures.  The most promising path towards proving the Property F conjecture for all UMTCs appears to be break it into two sub-conjectures based on the notion of gauging \cite{bbcw}, a procedure for building a modular tensor category using  a smaller modular tensor category as input.   Physically, gauging corresponds to promoting a global topological symmetry to a local symmetry.  Mathematically, gauging corresponds to first extending a UMTC by a finite group $G$ and then equivariantizing. Conjecturally, any weakly integral category can be obtained by gauging a small class of very well-understood categories (a pointed modular category or a pointed modular category tensor an Ising category).   It is also conjectured that gauging  preserves Property F, i.e. the property that all simple objects’ associated braid group representations have finite image.  Proving both of these two conjecture would imply the Property F conjecture.
+Paul Bruillard, Julia Plavnik, Eric Rowell and I have recently completed the last remaining case in the classification of metaplectic modular categories, UMTCs with the fusion rules of $SO(N)_2$.  This classification is of interest because it fits directly into the (2+1)-topological phase of matter classification program.  Additionally, this classification is a test case for the conjecture that all weakly integral modular categories are gaugings of pointed modular categories or pointed tensor Isings.
+
+As in the (odd) metaplectic case, all even metaplectic modular categories are gaugings of $\ZZ_{N}$-cyclic modular categories, but the situation is more complicated due to the power of $2$ in the prime factorization of $N$. In fact, the somewhat awkward nomenclature (even metaplectic vs. metaplectic) reflects the fact that powers of $2$ in the prime factorization of $N$ introduce a complication in the fusion rules.   Gauging is also more complicated: the $2$-torsion elements of $\ZZ_N$ introduce possible cohomological obstructions and increase the number of possible fusion rules for the extension.  Thus, understanding and classifying these categories is a significant step towards understanding gauging.
+
+
+\subsection*{Current Research}
+
+I am currently investigating Property F and related conjectures.  Currently, the most promising path towards proving the Property F conjecture for all UMTCs is to break it into two sub-conjectures using the notion of gauging \cite{bbcw}, a procedure for building a modular tensor category using  a smaller modular tensor category as input.   Physically, gauging corresponds to promoting a global topological symmetry to a local symmetry.  Mathematically, gauging corresponds to first extending a UMTC by a finite group $G$ and then equivariantizing. Conjecturally, any weakly integral category can be obtained by gauging a small class of very well-understood categories (a pointed modular category or a pointed modular category tensor an Ising category).   It is also conjectured that gauging  preserves Property F, i.e. the property that all simple objects’ associated braid group representations have finite image.  Proving both of these two conjecture would imply the Property F conjecture.
 
 Progress on the first conjecture is underway. A recent result of Natale \cite{n} shows that all weakly group theoretical categories are gaugings of pointed modular categories or pointed tensor Ising modular categories.  Moreover, all known weakly integral modular categories are weakly group-theoretical, and the weak integrality is conjecturally equivalent being weakly group-theoretical.  Thus, Natale's result is a large step towards proving that all weakly integral categories are obtained by gauging very simple ones, reducing this conjecture to another, potentially more tenable, conjecture.
 
@@ -102,38 +115,45 @@ My main current focus is the conjecture that gauging preserves Property F. A tes
 
 Recently,  Rowell and Wenzl showed that the classical quantum group UMTC $SO(N)_2$ has Property $F$ \cite{rw}.  However, their proof uses the quantum group machinery heavily, making the task of generalizing their result to all metaplectic modular categories nontrivial.  I am currently pursuing three approaches  to the more general metaplectic case: (i) comparing the metaplectic $R$-matrices to the $SO(N)_2$ ones, (ii) modifying the quantum group construction to change the Frobenius-Schur indicator of the fundamental spinor object, and (iii) directly analyzing the effects of gauging on $R$-matrices.
 
-\subsubsection*{Classification of Even Metaplectic Modular Categories}
-
-Together with Paul Bruillard, Julia Plavnik, and Eric Rowell, I am also working on classification of even metaplectic modular categories, UMTCs with the fusion rules of $SO(N)_2$ for $N$ even. This classification is of interest because it fits directly into the (2+1)-topological phase of matter classification program.  Additionally, this classification is a test case for the conjecture that all weakly integral modular categories are gaugings of pointed modular categories or pointed tensor Isings.
-
-As in the (odd) metaplectic case, all even metaplectic modular categories are expected to be gaugings of $\ZZ_{N}$-cyclic modular categories, but the situation is more complicated due to the power of $2$ in the prime factorization of $N$. In fact, the somewhat awkward nomenclature (even metaplectic vs. metaplectic) reflects the fact that powers of $2$ in the prime factorization of $N$ introduce a complication in the fusion rules.   Gauging is also more complicated: the $2$-torsion elements of $\ZZ_N$ introduce possible cohomological obstructions and increase the number of possible fusion rules for the extension.  Thus, understanding and classifying these categories will be a significant step towards understanding gauging.
-
-\subsubsection*{A Haskell library for quantum mapping class group representations}
-I am also working on a Haskell library for quantum mapping class group represenations.  The executable currently calculates the image of a braid group generator in the Turaev-Viro-Barett-Westbury (TVBW) representation associated to an arbitrary spherical fusion category in terms of ~300 structural morphisms (associators, coevaluators, and evaluators -- each tensored with identity morphisms).
+\subsubsection*{A Haskell Library for Quantum Mapping Class Group Representation}
+I am also working on a Haskell library for computing with quantum mapping class group representations.  The executable currently calculates the image of a braid group generator in the Turaev-Viro-Barett-Westbury (TVBW) representation associated to an arbitrary spherical fusion category in terms of ~300 structural morphisms (associators, coevaluators, and evaluators -- each tensored with identity morphisms).
 
 The next goal is to compute matrix coefficients of mapping class group generators in particular TVBW representations.   To investigate braiding, I attempted to do this for Tambara Yamagami categories, but it turned out to be computationally intractable even for the simplest nontrivial cases (possibly for "deep" reasons: we may need to take advantage of deeper structure).  A simpler first step is to calculate matrix coefficients of braid group representations from pointed spherical fusion categories.  After that, it may be possible to compute matrix coefficients for more complicated categories using gauging.
 
-\subsubsection*{Optimizing cubicaltt}  %% TODO: References
-I am also interested in formally verifying mathematical proofs using computers.  My main ongoing project in this direction is optimizing cubicaltt, a type checker for Cubical Type Theory.  Cubical type theory is a Martin-L\"of-style type theory with the addition of a homotopical interval and 
+\subsubsection*{Optimizing cubicaltt} 
+I am also interested in mechanized formal verification of mathematical proofs.  My main project in this direction is optimizing cubicaltt, an experimental type checker for Cubical Type Theory \cite{ctt1, ctt2} .  This type theory is a Martin-L\"of-style dependent type theory with the addition of a homotopical interval and Kan composition and filling operations for $n$-dimensional cubes.  It is notable for proving Voevodsky's univalence axiom while retaining canonicity for natural numbers \cite{h}.  Here, canonicity means that every term that typechecks as a natural number actually normalizes to a canonical natural number (i.e. one of $0, 1, 2, 3, \ldots$).  In previous univalent type theories, it was easy to construct natural-number terms involving univalence that would not normalize to a canonical natural number.
 
-%% I am also interested in univalent type theories. My long-term goal is to make machine-checked mathematical proofs.  Univalent type theories allow a homotopical version of logic that greatly simplifies the process of formalizing mathematics.  However, one major drawback of early univalent type theories was a lack of canonicity -- it was possible to construct terms of the type of natural numbers that would not reduce to a canonical natural number ($0,1,2,\ldots$).
 
-%% Cubical type theory solves this problem, in theory, since the type theory has the canonicity property.  Moreover, a type checker named ``cubicaltt'' for the type theory has been implemented.  However, the normal forms of relatively simple terms can be enormous.  The normal form of the univalence axiom, for example, is on the order of tens of megabytes.  This makes serious computation with the univalence axiom quickly intractable.
+Although Cubical Type Theory solves this problem in theory, the normal forms of relatively simple terms can be enormous.  The normal form of the univalence axiom, for example, is on the order of tens of megabytes.  This makes serious computation with the univalence axiom quickly intractable.  For example, my working group at the MRC on Homotopy Type Theory attempted to calculate $\pi_4(S^3)$ using the long exact sequence associated to the Hopf fibration, using some previous formalization work of Guillaume Brunerie.  The calculation involves composing a number of maps, some of which involve the univalence axiom.  Our group was able to calculate more of this composition than previous attempts, but the terms involving univalence were still out of reach.
 
-%% Last summer, I experimented with cubicaltt at a Mathematical Research Community on Homotopy Type Theory.  We wanted to calculate $\pi_4(S^3)$ by using the long exact sequence associated to the Hopf fibration, based on some type-theoretical work in Guillaume Brunerie's thesis.  We were able to get further than he did before, but again we hit a computational roadblock due to huge normalized terms.
+More recently, I profiled the cubicaltt interpreter (which is also written in Haskell) to narrow down the sources of the computational overhead. Currently, I am looking for term representations that are more efficient with respect to the most computationally-costly functions.
 
-%% Since then, I have profiled the cubicaltt interpreter (which is also written in Haskell) to narrow down the source of the computational overhead.  The next step in the project is to look for a more computationally-efficient representation of certain terms that currently have huge overhead.
+%% \subsection*{Future projects}
+%% \subsubsection*{Braiding for fermionic (2+1)-TQFTs}
+
+
+
+%% \subsubsection*{(3+1)-dimensional generalizations of Turaev-Viro-Barrett-Westbury TQFTs}
 
 \begin{thebibliography}{0}
+
+  \bibitem{walker} D. Aasen, E. Lake, K. Walker, Fermion condensation and super pivotal categories, arXiv:1709.01941.
+  
   \bibitem{acrw} E.\ Ardonne, M.\ Cheng, E.\ C.\ Rowell, and Z.\ Wang, \emph{Classification of Metaplectic Modular Categories}, J. Algebra \textbf{466} (2016), 141--146.
 
   \bibitem{bbcw} M.\ Barkeshli, P.\ Bonderson, M.\ Cheng, and Z.\ Wang, \emph{Symmetry, defects, and gauging of topological phases}, Preprint (2014), arXiv:1410.4540.
   
-  \bibitem{bw} J.\ Barrett and B.\ Westbury. {\em Invariants
-of Piecewise-Linear 3-Manifolds}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{348} (1996), 3997--4022.
+  \bibitem{bw} J.\ Barrett and B.\ Westbury, {\em Invariants
+    of Piecewise-Linear 3-Manifolds}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{348} (1996), 3997--4022.
 
-  \bibitem{birman} J.\ Birman. \emph{Mapping class groups and their relationship to braid groups}, Comm.\ Pure Appl.\ Math.\ \textbf{22} (1969) 213--242.
+  \bibitem{ctt1} M. Bezem, T. Coquand, and S. Huber. A model of type theory in cubical sets. Preprint, September 2013.
 
+  \bibitem{birman} J.\ Birman, \emph{Mapping class groups and their relationship to braid groups}, Comm.\ Pure Appl.\ Math.\ \textbf{22} (1969) 213--242.
+
+  \bibitem{ctt2} C. Cohen, T. Coquand, S. Huber, and A. Mortberg, Cubical Type Theory: a constructive interpretation of the univalence axiom, Preprint, 2016.
+
+  \bibitem{cui} S. X. Cui, Higher Categories and Topological Quantum Field Theories, arXiv:1610.07628.
+    
   \bibitem{erw} P.\ Etingof, E.\ C.\ Rowell, and S.\ Witherspoon, \emph{Braid group representations from twisted quantum doubles of finite groups}, Pacific J.\ Math.\ \textbf{234} (2008), no. 1, 33--42.
 
 
@@ -147,9 +167,10 @@ of Piecewise-Linear 3-Manifolds}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{348} (1996
 \bibitem{jonescmp} V.\ F.\ R.\ Jones, \textit{On a certain value of the Kauffman polynomial}, Comm. Math. Phys. \textbf{125} (1989), no. 3, 459--467.
 
 \bibitem{LRW} M.\ J.\ Larsen, E. C. Rowell, Z. Wang, \emph{The $N$-eigenvalue problemand two applications}, Int. Math. Res. Not.  \textbf{2005},  no. 64, 3987--4018.
-
   
-  \bibitem{g} P.\ Gustafson, \emph{Finiteness of Mapping Class Group Representations from Twisted Dijkgraaf-Witten Theory}, Preprint (2017), arXiv:1610.06069.
+\bibitem{g} P.\ Gustafson, \emph{Finiteness of Mapping Class Group Representations from Twisted Dijkgraaf-Witten Theory}, arXiv:1610.06069.
+
+ \bibitem{h} S.\ Huber, Canonicity for Cubical Type Theory, arXiv:1607.04156.
 
   \bibitem{k} A.\ Kirillov, \emph{String-net model of {Turaev-Viro} invariants}, Preprint (2011), arXiv:1106.6033.
 
