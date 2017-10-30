@@ -142,7 +142,7 @@ More recently, I have been profiling the cubicaltt interpreter (which is also wr
 
   \bibitem{bbcw} M.\ Barkeshli, P.\ Bonderson, M.\ Cheng, and Z.\ Wang, {Symmetry, defects, and gauging of topological phases}, Preprint (2014), arXiv:1410.4540.
   
-  \bibitem{bw} J.\ Barrett and B.\ Westbury, {Invariants
+  \bibitem{bw} J.\ Barrett and B.\ Westbury, {\em Invariants
     of Piecewise-Linear 3-Manifolds}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{348} (1996), 3997--4022.
 
   \bibitem{ctt1} M.\ Bezem, T.\ Coquand, and S.\ Huber, A model of type theory in cubical sets, Preprint, September 2013.
@@ -172,7 +172,7 @@ More recently, I have been profiling the cubicaltt interpreter (which is also wr
    
 \bibitem{jones86} V.\ F.\ R.\ Jones, {Braid groups, Hecke algebras and type ${\rm II}\sb 1$ factors} in Geometric methods in operator algebras (Kyoto, 1983), 242--273, Pitman Res.\ Notes Math.\ Ser., 123, Longman Sci.\ Tech., Harlow, 1986.
 
-\bibitem{jonescmp} V.\ F.\ R.\ Jones, {On a certain value of the Kauffman polynomial}, Comm.\ Math.\ Phys.\ \textbf{125} (1989), no.\ 3, 459--467.
+\bibitem{jonescmp} V.\ F.\ R.\ Jones, \textit{On a certain value of the Kauffman polynomial}, Comm.\ Math.\ Phys.\ \textbf{125} (1989), no.\ 3, 459--467.
 
   \bibitem{k} A.\ Kirillov, {String-net model of {Turaev-Viro} invariants}, Preprint (2011), arXiv:1106.6033.
   
