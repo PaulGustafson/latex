@@ -10,6 +10,10 @@
 $$ \tau_\infty = (\bigotimes_n \Tr_{M_2(\CC)}(x) \qquad (x \in A_n \subset A_\infty) $$
 \begin{enumerate}[(a)]
 \item Let $p \in P(R)\setminus \{0,1\}$. Explain why $pRp \cong R$.
+  \begin{proof}
+    If $p$ has finite rank, this is not true.  Otherwise, $pRp$ is a 
+  \end{proof}
+
 \item Fix $\lambda \in (0,1)$ and replace the canonical trace state $\Tr_{M_2(\CC)}$ with the state
   $$ \phi_\lambda((x_{ij})) = \frac{\lambda x_{11} + x_{22}}{1 + \lambda} $$
   Repeat the above GNS constrution for $A_\infty$ wiht $\tau_\infty$ replaced by
@@ -18,6 +22,30 @@ $$ \tau_\infty = (\bigotimes_n \Tr_{M_2(\CC)}(x) \qquad (x \in A_n \subset A_\in
   Let $\pi_{\lambda,\infty}$ denote the corresponding GNS representation and
   let $R_\lambda := \pi_{\lambda, \infty}(A_\infty)''$.
   Show that $R_\lambda$ is AFD and does not admit any faithufl normal tracial state (hence $R_\lamdba$ is a type III AFD von Neumann algebra).
+\end{enumerate}
 
+\p 2 Let $M$ be a II$_1$-factor and let $(H_i)_{i \in \NN}$ be $M$-modules. Prove that
+$$\dim_M \left( \bigoplus_{i\in I} H_i \right) = \sum_i \dim_M(H_i)$$
+\begin{proof}
   
+\end{proof}
+
+\p 3 Let $M \subset B(\mH)$ be a von Neumann algebra on some Hilbert space $\mH$ and let $p \in M$ be a non-zero projection.  Prove the following statements:
+\begin{enumerate}[(a)]
+\item We have $pMp = (M' p)'$ and $(pMp)' = M'p$ as algebras of operators on the Hilbert space $p \mH = \ran(p)$.  Thus $pMp$ and $M'p$ are both von Neumann algebras on $p \mH$
+  \begin{proof}
+    I claim that $(pM')' = pMp$.  Suppose $x \in M$ and $y \in M'$.  Then we have $pxp(py) = ppxpy = pypxp$.  Thus $pMp \subset (pM')'$.  On th
+  \end{proof}
+
+\item If $M$ is a factor, then $pMp$ and $pM'$ are both factors on $p\mH$. Moreover, the map
+  $$\Phi : M' \to M' p, \quad x \mapsto xp$$
+  is a weakly continuous $*$-algebra isomorphism.
+
+\item If $M$ is a factor and if $x \in M$ and $y \in M'$ are given, then $xy = 0$ implies that $x = 0$ or $y = 0$.
+
+\item If $M$ is a factor, then $M \cup M'$ generates $B(\mH)$ as a von Neumann algebra.
+
+\item If $M$ is a type II$_1$ factor, then $pMp \subset B(p \mH)$ is also a type II$_1$ factor.
+
+
 \end{document}
