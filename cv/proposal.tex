@@ -56,7 +56,7 @@
 
 \subsection*{Overview}
 
-My research applies category theory and low-dimensional topology to questions from condensed matter physics and pure mathematics.   My main focus is the Property F conjecture \cite{nr}, which relates universality of topological quantum computation to algebraic properties of fusion categories. I am also interested in mechanized verification of mathematical proofs in univalent dependent type theories.
+My research applies category theory and low-dimensional topology to questions from condensed matter physics and pure mathematics.   My main focus is the Property F conjecture \cite{nr}, which relates universality of topological quantum computation to algebraic properties of fusion categories. 
 
 My results include: %% TODO: Write down theorems
 \begin{itemize}
@@ -69,13 +69,6 @@ Current projects include:    %% TODO: Write down problems
 \item Investigating the effects of symmetry gauging on braid group representations associated to modular tensor categories
 \item Proving Property F for metaplectic modular categories
 \item Developing a Haskell library for quantum mapping class group representations
-\item Optimizing cubicaltt, a typechecker for a constructive univalent type theory
-\end{itemize}
-
-Future projects include:
-\begin{itemize}
-  \item Investigating braiding for fermionic (2+1)-TQFTs \cite{walker}
-  \item Exploring (3+1)-dimensional generalizations of Turaev-Viro-Barrett-Westbury TQFTs \cite{cui}
 \end{itemize}
 
 \subsection*{Background}
@@ -118,14 +111,6 @@ I am also working on a Haskell library for computing with quantum mapping class 
 
 The next goal is to compute matrix coefficients of mapping class group generators in particular TVBW representations.   Although the initial impetus for the project was to calculate braid group representations from Tambara-Yamagami categories, evaluating the long composition of structural morphisms turns out to be computationally intractable even for the simplest Tambara-Yamagami categories.  One reason for this is the presence of multi-fusion channels, i.e. a tensor product of simple objects can consist of more than one simple object, leading to exponential behavior. A simpler first step is to calculate matrix coefficients of braid group representations from pointed spherical fusion categories, which do not have this problem.  After that, it may be possible to compute matrix coefficients for more complicated categories using gauging.
 
-\subsubsection*{Optimizing cubicaltt} %% TODO: Explain why this is important!?
-I am also interested in mechanized formal verification of mathematical proofs.  My main project in this direction is optimizing cubicaltt, an experimental type checker for Cubical Type Theory \cite{ctt1, ctt2} .  This type theory is a Martin-L\"of-style dependent type theory with the addition of a homotopical interval and Kan composition and filling operations for $n$-dimensional cubes.  It is notable for proving Voevodsky's univalence axiom while retaining canonicity for natural numbers \cite{h}.  Here, canonicity means that every term that typechecks as a natural number actually normalizes to a canonical natural number (i.e. one of $0, 1, 2, 3, \ldots$).  In previous univalent type theories, it was easy to construct natural-number terms involving univalence that would not normalize to a canonical natural number.
-
-
-Although Cubical Type Theory solves this problem in theory, the normal forms of relatively simple terms can be enormous.  The normal form of the univalence axiom, for example, is on the order of tens of megabytes.  This makes serious computation with the univalence axiom quickly intractable.  For example, my working group at the MRC on Homotopy Type Theory attempted to calculate $\pi_4(S^3)$ using the long exact sequence associated to the Hopf fibration, as previously formalized by Guillaume Brunerie \cite{gb}.  The calculation involves composing a number of maps, some of which involve the univalence axiom.  Our group was able to calculate more of this composition than previous attempts, but the terms involving univalence were still out of reach.
-
-More recently, I have been profiling the cubicaltt interpreter (which is also written in Haskell) to narrow down the sources of the computational overhead. It turns out that the vast majority of the computational cost is due to nominal operations on interval variables (e.g. swapping interval variable names). Currently, I am looking for term representations that are more efficient with respect to these nominal operations.
-
 %% \subsection*{Future projects}
 %% \subsubsection*{Braiding for fermionic (2+1)-TQFTs}
 
@@ -134,8 +119,6 @@ More recently, I have been profiling the cubicaltt interpreter (which is also wr
 %% \subsubsection*{(3+1)-dimensional generalizations of Turaev-Viro-Barrett-Westbury TQFTs}
 
 \begin{thebibliography}{0}
-
-  \bibitem{walker} D.\ Aasen, E.\ Lake, K.\ Walker, Fermion condensation and super pivotal categories, arXiv:1709.01941.
   
   \bibitem{acrw} E.\ Ardonne, M.\ Cheng, E.\ C.\ Rowell, and Z.\ Wang, {Classification of Metaplectic Modular Categories}, J.\ Algebra \textbf{466} (2016), 141--146.
 
@@ -144,18 +127,9 @@ More recently, I have been profiling the cubicaltt interpreter (which is also wr
   \bibitem{bw} J.\ Barrett and B.\ Westbury, {Invariants
     of Piecewise-Linear 3-Manifolds}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{348} (1996), 3997--4022.
 
-  \bibitem{ctt1} M.\ Bezem, T.\ Coquand, and S.\ Huber, A model of type theory in cubical sets, Preprint, September 2013.
-
   \bibitem{birman} J.\ Birman, {Mapping class groups and their relationship to braid groups}, Comm.\ Pure Appl.\ Math.\ \textbf{22} (1969) 213--242.
 
-
     \bibitem{bgpr} P.\ Bruillard, P.\ Gustafson, J.\ Plavnik, E.\ C.\ Rowell, Categorical Dimension as a Quantum Statistic and Applications, submitted.
-    
-  \bibitem{gb} G.\ Brunerie, On the homotopy groups of spheres in homotopy type theory, arXiv:1606.05916.
-    
-  \bibitem{ctt2} C.\ Cohen, T.\ Coquand, S.\ Huber, and A.\ Mortberg, Cubical Type Theory: a constructive interpretation of the univalence axiom, Preprint, 2016.
-
-  \bibitem{cui} S.\ X.\ Cui, Higher Categories and Topological Quantum Field Theories, arXiv:1610.07628.
     
   \bibitem{erw} P.\ Etingof, E.\ C.\ Rowell, and S.\ Witherspoon, {Braid group representations from twisted quantum doubles of finite groups}, Pacific J.\ Math.\ \textbf{234} (2008), no.\ 1, 33--42.
 
@@ -166,9 +140,6 @@ More recently, I have been profiling the cubicaltt interpreter (which is also wr
           
 \bibitem{g} P.\ Gustafson, {Finiteness of Mapping Class Group Representations from Twisted Dijkgraaf-Witten Theory}, arXiv:1610.06069, submitted.
 
- \bibitem{h} S.\ Huber, Canonicity for Cubical Type Theory, arXiv:1607.04156.
-
-   
 \bibitem{jones86} V.\ F.\ R.\ Jones, {Braid groups, Hecke algebras and type ${\rm II}\sb 1$ factors} in Geometric methods in operator algebras (Kyoto, 1983), 242--273, Pitman Res.\ Notes Math.\ Ser., 123, Longman Sci.\ Tech., Harlow, 1986.
 
 \bibitem{jonescmp} V.\ F.\ R.\ Jones, {On a certain value of the Kauffman polynomial}, Comm.\ Math.\ Phys.\ \textbf{125} (1989), no.\ 3, 459--467.
