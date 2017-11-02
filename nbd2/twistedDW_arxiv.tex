@@ -164,7 +164,7 @@ Bantay also calculated the images of certain representations of mapping class gr
 
 \section{Background}
 \subsection{The spherical fusion category $\Vect_G^\omega$}
-The following definitions are well-known and can be found in, e.g., \cite{etingofTensor}.  Let $k$ be an  algebraically closed field of characteristic 0,  $G$ a finite group, and $\omega \in Z^3(G, k^\times)$ a 3-cocycle.    The spherical fusion category of $G$-graded $k$-vector spaces with associativity defined by $\omega$ is denoted $\Vect_G^\omega$.  The objects of this category are vector spaces with a decomposition $V = \bigoplus_{g \in G} V_g$. Morphisms are linear maps preserving the grading. The tensor product is defined by
+The following definitions are well-known and can be found in, e.g., \cite{etingofTensor}.  Let $k$ be an algebraically closed field of characteristic 0,  $G$ a finite group, and $\omega \in Z^3(G, k^\times)$ a 3-cocycle.    The spherical fusion category of $G$-graded $k$-vector spaces with associativity defined by $\omega$ is denoted $\Vect_G^\omega$.  The objects of this category are vector spaces with a decomposition $V = \bigoplus_{g \in G} V_g$. Morphisms are linear maps preserving the grading. The tensor product is defined by
 $$ (V \otimes W)_g = \bigoplus_{x,y \in G, xy = g} V_x \otimes W_y. $$
 
 For each $g \in G$, pick a 1-dimensional vector space $\delta_g \in \Obj(\Vect_G^\omega)$ concentrated in degree $g$.  The set $\{\delta_g : g \in G\}$ is a complete set of pairwise non-isomorphic representatives for the isomorphism classes of simple objects of $\Vect_G^\omega$.  We will sometimes abuse notation by referring to an object $\delta_g$ by the group element $g$.  We have $\one \cong \delta_1$, and  $\delta_g^* := \delta_{g^{-1}}$ with the coevaluation and evaluation maps defined below.
@@ -179,6 +179,10 @@ The pivotal structure $j_g:\delta_g \to \delta_g^{**}$ is
 $$j_{g} = \omega(g^{-1},g,g^{-1}) \id_{g}.$$
 
 If $\omega$ and $\omega'$ are cohomologous cocycles, then $\Vect_G^\omega$ is monoidally equivalent to $\Vect_G^{\omega'}$ \cite{etingofTensor}.  This equivalence respects the pivotal structure, so extends to an equivalence of spherical categories.  It is a basic result in group cohomology that any cocycle $\omega \in Z^3(G, k^\times)$ is cohomologous to a cocycle taking values in $\mu_{|G|}$, the roots of unity of order $|G|$.  Thus, by replacing $\Vect^\omega_G$ with an equivalent spherical category, we assume  without loss of generality that $\Img(\omega) \subset \mu_{|G|}$.  
+
+\subsection{Strictification}
+The input category for the colored graph construction must be strictly pivotal, so we must strictify $\Vect_G^\omega$ to get an equivalent strict pivotal monoidal $\widehat \Vect_G^\omega$. Every pivotal category is equivalent to a strict pivotal monoidal category by first strictifying with respect to the monoidal structure, and then strictifying with respect to the pivotal structure \cite{ns}. %%(as follows) Given a monoidal category $C$, there exists a monoidally equivalent strict monoidal category $\mC'$ with objects consisting of all finite lists of objects of $\mC$ and morphisms defined by $\Hom_{\mC'}([A_1, \ldots, A_n], [B_1, \ldots, B_m]) = \Hom_\mC((\cdots(A_1 \otimes A_2) \otimes \cdots \otimes A_n, (\cdots(B_1 \otimes B_2) \otimes \cdots \otimes B_m$. Given a pivotal strict monoidal category $\mC$, there is a strict pivotal monoidal category $\widehat \mC$ equivalent, as a pivotal monoidal category, to $\mC$.  The objects of $\widehat \mC$ are pairs $(X, \epsilon)$ for which there exists $r \in \NN_0$ such that $X \in \mC^r$ and $\epsilon \in \ZZ_2^r$.  The 
+
 %% TODO: prove same rep for equivalent cats? move above to later section
 
 \newcommand{\ee}{\mathbf{e}}       % oriented edge
@@ -204,7 +208,8 @@ If $\omega$ and $\omega'$ are cohomologous cocycles, then $\Vect_G^\omega$ is mo
 
 The following definitions and theorem are due to Kirillov
 \cite{kirillovStringNets}, and recorded here for convenience.  For any
-spherical fusion category $\mathcal A$ and surface $\Si$, Kirillov gives the
+strictly pivotal spherical fusion category $\mathcal A$ and surface $\Si$,
+Kirillov gives the
 following presentation of the Levin-Wen model as a vector space of
 colored graphs modulo local relations.  He also proves that this space
 is canonically isomorphic to the TVBW vector space associated to
@@ -212,8 +217,6 @@ $\Si$.  It is straightforward to check that this isomorphism, which
 amounts to replacing a triangulation with its dual graph, commutes
 with the mapping class group action.
 
-We use the convention that a tensor product of multiple objects with parentheses
-omitted correspond to the left-associative parenthesization.
 
 We define the functor $\A^{\boxtimes n}\to \Vect$ by
 \begin{equation}\label{e:vev}
@@ -225,8 +228,8 @@ structure gives functorial isomorphisms
 \begin{equation}\label{e:cyclic}
 z\colon\<V_1,\dots,V_n\>\cong \<V_n, V_1,\dots,V_{n-1}\>
 \end{equation}
-where, up to associators and unitors,
-$$z(\phi)= (j_{\lstar \lstar V_n} \otimes \id_{V_1 \otimes \cdots \otimes V_{n-1}} \otimes \ev_{\lstar V_n} ) \circ (\id_{\lstar \lstar V_n} \otimes \phi \otimes \id_{\lstar V_n} ) \circ  \coev_{\lstar \lstar V_n}  $$ 
+where
+$$z(\phi)= (j_{ V_n} \otimes \id_{V_1 \otimes \cdots \otimes V_{n-1}} \otimes \ev_{V_n^*} ) \circ (\id_{V_n} \otimes \phi \otimes \id_{V_n^*} ) \circ  \coev_{V_n^*}  $$ 
 and $z^n=\id$ (see \cite[Section 5.3]{BK}). Thus, up to a canonical
 isomorphism, the space $\<V_1,\dots,V_n\>$ only depends on the cyclic order
 of $V_1,\dots, V_n$.
@@ -234,12 +237,12 @@ of $V_1,\dots, V_n$.
 We have a natural composition map 
 \begin{equation}\label{e:composition}
 \begin{aligned}
- \<V_1,\dots,V_n, X\> \otimes \<\lstar X, W_1,\dots,
+ \<V_1,\dots,V_n, X\> \otimes \<X^*, W_1,\dots,
 W_m\>&\to\<V_1,\dots,V_n, W_1,\dots, W_m\> \\
-\ph\otimes\psi\mapsto \ph\cc{X}\psi= \ev_{\lstar X} \circ (\ph\otimes\psi),
+\ph\otimes\psi\mapsto \ph\cc{X}\psi= \ev_{X^*} \circ (\ph\otimes\psi).
 \end{aligned}
 \end{equation}
-up to associators.  Note that, due to the order of $X$ and $\lstar X$ in the tensor product, we use the right evaluation map $\ev_{\lstar X} \colon X \otimes  \lstar X \to \one$ for the left dual of $X$, instead of the right evaluation map $\ev_X : X^* \otimes X \to 1$ for $X$.  Since $\lstar X \cong X^*$, the defining equation for $\ev_{\lstar X}$  in $\Vect_G^\omega$ is the same as for $\ev_{X^*}$, i.e. $\ev_{\lstar g} = \omega(g, g^{-1}, g) \id_{1}$.
+
 
 We will consider finite  graphs embedded in an oriented surface $\Si$
 (which may have boundary); for such a
@@ -2109,6 +2112,9 @@ of Piecewise-Linear 3-Manifolds}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{348} (1996
 
 \bibitem{Lyubashenko1996} V.\ Lyubashenko, \emph{Ribbon Abelian Categories as Modular Categories}, J.\ Knot Theory Ramifications \textbf{5} (1996), no. 3, 311--403.
 
+\bibitem{ns}  S.-H. Ng, P. Schauenburg, \emph{Higher Frobenius-Schur Indicators for Pivotal Categories}, Contemp.
+Math. \textbf{441} (2007), 63--90.
+  
 \bibitem{nr} D.\ Naidu and E.\ C.\ Rowell. \emph{A finiteness property for braided fusion categories}, Algebr.\ and Represent.\ Theor.\ \textbf{14} (2011), no. 5, 837--855.
 
 \bibitem{0806.2493} S.-H.\ Ng and P.\ Schauenburg, \emph{Congruence Subgroups and Generalized {Frobenius-Schur} Indicators}, Comm.\ Math.\ Phys.\ \textbf{300} (2010), no. 1, 1--46.

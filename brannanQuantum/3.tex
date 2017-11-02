@@ -1,31 +1,36 @@
 \documentclass{article}
 \usepackage{../m}
 
+
 \begin{document}
 \noindent Paul Gustafson\\
 \noindent MATH 663 - Subfactors, Knots, and Planar Algebras (Fall 2017)
 
 \subsection*{HW 1}
 \p 1 Recall the construction of the hyperfinite II$_1$-factor $R = \pi_\infty(A_\infty)''$, where $A_\infty = \bigcup_n A_n$, $A_n = \bigotimes_n M_2(\CC)$, and $\pi_\infty$ is the GNS representation associated to the tracial state
-$$ \tau_\infty = (\bigotimes_n \Tr_{M_2(\CC)}(x) \qquad (x \in A_n \subset A_\infty) $$
+$$ \tau_\infty = \bigotimes_n \Tr_{M_2(\CC)}(x) \qquad (x \in A_n \subset A_\infty) $$
 \begin{enumerate}[(a)]
 \item Let $p \in P(R)\setminus \{0,1\}$. Explain why $pRp \cong R$.
   \begin{proof}
     If $A \subset R$ is a finite-dimensional $*$-subalgebra, then $pAp$ is a finite-dimensional $*$-subalgebra.
     Moreover, I claim that $pRp = \left( \bigcup_n pA_np \right)''$. The $\supset$ inclusion is clear.  For the
     other, suppose $x \in R$.  Then there exists a net $(x_i) \subset A_\infty$ with $x_i \to x$ in the WOT.
-    Since $\langle p x_i p \xi, \eta \rangle = \langle x_i p \xi, p \eta \rangle \to \langle x p \xi, p \eta \rangle = \langle pxp \xi, \eta \rangle$, we have $px_ip \to pxp$ in the WOT.  This implies that $pRp = \left( \bigcup_n pA_np \right)''$.   Thus,
-    $pRp$ is a hyperfinite II$_1$ factor, so by the uniqueness property, $pRp \cong R$.    
+    Since $\langle p x_i p \xi, \eta \rangle = \langle x_i p \xi, p \eta \rangle \to \langle x p \xi, p \eta \rangle = \langle pxp \xi, \eta \rangle$, we have $px_ip \to pxp$ in the WOT.  This implies that $pRp = \left( \bigcup_n pA_np \right)''$.   Thus, $pRp$ is AFD.
+
+    In exercise (3) of this homework we will show that a compression of a II$_1$ factor is still a II$_1$ factor.   Thus,  $pRp$ is a hyperfinite II$_1$ factor, so by the uniqueness property, $pRp \cong R$.   
   \end{proof}
 
 \item Fix $\lambda \in (0,1)$ and replace the canonical trace state $\Tr_{M_2(\CC)}$ with the state
   $$ \phi_\lambda((x_{ij})) = \frac{\lambda x_{11} + x_{22}}{1 + \lambda} $$
-  Repeat the above GNS constrution for $A_\infty$ wiht $\tau_\infty$ replaced by
+  Repeat the above GNS constrution for $A_\infty$ with $\tau_\infty$ replaced by
   the state
   $$\phi_{\lambda,\infty}:A_\infty \to \CC \quad \phi_{\lambda,\infty}(x) = \bigotimes_n\phi_\lambda(x) \quad (x \in A_n \subset A_\infty).$$
   Let $\pi_{\lambda,\infty}$ denote the corresponding GNS representation and
   let $R_\lambda := \pi_{\lambda, \infty}(A_\infty)''$.
-  Show that $R_\lambda$ is AFD and does not admit any faithful normal tracial state (hence $R_\lamdba$ is a type III AFD von Neumann algebra).
+  Show that $R_\lambda$ is AFD and does not admit any faithful normal tracial state (hence $R_\lambda$ is a type III AFD von Neumann algebra).
+  \begin{proof}
+    By construction, $R_\lambda$ is AFD.  Pick $2 < \alpha < \frac{\lambda + 1}{\lambda}$.  Let $(x_n) \subset A_\infty$ be the sequence defined by $x_n = \bigotimes_{i=1}^n \alpha e_{11}$, where $e_{11} \in M_2$ is the matrix unit.  Then for $y = \bigotimes_i y^{(i)} \in A_N \subset L^2(A_\infty, \phi_{\lambda, \infty})$, we have $\|\pi_{\lambda,\infty} (x_n) y \|^2  = \phi(y^* x_n x_n y) = \left( \frac{\alpha \lambda}{1 + \lambda} \right)^n C_y$ for some constant $C_y$ for all $n \ge N$. Thus $\|\pi_{\lambda,\infty} (x_n) y\| \to 0$ for all $y \in A_\infty \subset L^2(A_\infty, \phi_{\lambda, \infty})$. This implies that $\pi_{\lambda, \infty}(x_n) \to 0$ in the SOT.  Thus, if $\tau: R_\lambda \to \CC$ is a faithful normal tracial state, then $\tau(x_n) \to 0$. On the other hand, the restriction of $\tau$ to each $A_N$ must be the usual trace by the uniqueness of the trace on type I factors.  Thus, $\tau(x_n) = \left( \frac{\alpha}{2} \right)^n \to \infty$ since $\alpha > 2$, a contradiction.
+  \end{proof}
 \end{enumerate}
 
 \p 2 Let $M$ be a II$_1$-factor and let $(H_i)_{i \in \NN}$ be $M$-modules. Prove that
@@ -34,25 +39,189 @@ $$\dim_M \left( \bigoplus_{i\in I} H_i \right) = \sum_i \dim_M(H_i)$$
   For each $i$, let $v_i: H_i \to L^2(M) \otimes \ell^2(\NN)$ be an isometry such that $v_i x = (x \otimes 1) v_i$ for all $x \in M$. Then
   $v := \bigoplus_i v_i: \bigoplus_i H_i \to \bigoplus_i L^2(M) \otimes \ell^2(\NN) \cong L^2(M) \otimes \ell^2(\NN)$ is an isometry such that
   $v x = (x \otimes 1) v$ for all $x \in M$.  Thus
-  $\dim_M \left( \bigoplus_{i\in I} H_i \right) = \Tr(v v*) = \sum_i \Tr(v_i v_i^*) = \sum_i \dim_M(H_i)$.
+  $\dim_M \left( \bigoplus_{i\in I} H_i \right) = \Tr(v v^*) = \sum_i \Tr(v_i v_i^*) = \sum_i \dim_M(H_i)$.
 \end{proof}
 
 \p 3 Let $M \subset B(\mH)$ be a von Neumann algebra on some Hilbert space $\mH$ and let $p \in M$ be a non-zero projection.  Prove the following statements:
 \begin{enumerate}[(a)]
 \item We have $pMp = (M' p)'$ and $(pMp)' = M'p$ as algebras of operators on the Hilbert space $p \mH = \ran(p)$.  Thus $pMp$ and $M'p$ are both von Neumann algebras on $p \mH$
   \begin{proof}
-    I claim that $(pM')' = pMp$.  Suppose $x \in M$ and $y \in M'$.  Then we have $pxp(py) = ppxpy = pypxp$.  Thus $pMp \subset (pM')'$.  On the other hand, suppose that $x \in (pM')'$.  Then, for all $y \in M'$, we have $xpy = ypx$.  Thus, $
+  To show that $(pM')' = pMp$, first we show that $pMp \subset (pM')'$. Suppose $x \in M$ and $y \in M'$.  Then we have $pxp(py) = ppxpy = pypxp$.  Thus $pMp \subset (pM')'$.  For the other inclusion, suppose that $x \in (pM')'$.  Then, for all $y \in M'$, we have $xpy = ypx$.  Setting $y = 1$, we have $xp = px$.  Substituting into the previous equation, we have $xpy = yxp$.  Since $y \in M'$ was arbitrary, this implies that $xp \in M'' = M$.  Thus $x = xp = p(xp)p \in pMp$ as operators on $pH$.
+
+  To show that $(pMp)' = M'p$, first we show that $(pMp)' \subset pM'$.  Suppose $u \in (pMp)'$ is unitary. Define $\widetilde u : MpH \to MpH$ by
+  $\widetilde u: \sum_{i=1}^n x_i \xi_i = \sum_{i=1}^n x_i u \xi_i$ for $x_i \in M$ and $\xi_i \in pH$.  To see that $\widetilde u$ is well-defined,
+  we have
+  \begin{align*}
+    \| \widetilde u \sum_{i=1}^n x_i \xi_i \|^2 & = \sum_{i,j} \langle x_i u \xi_i, x_j u \xi_j \rangle \\
+    & = \sum_{i,j} \langle p x_j^* x_i p u \xi_i,  u \xi_j \rangle \\
+    & = \sum_{i,j} \langle u p x_j^* x_i p \xi_i,  u \xi_j \rangle \\
+    & = \sum_{i,j} \langle  p x_j^* x_i p \xi_i,  \xi_j \rangle \\
+    & = \sum_{i,j} \langle   x_i \xi_i,  x_i \xi_j \rangle \\
+    & = \|x_i \xi_i\|^2.
+  \end{align*}
+  Thus, if $ \sum_i x_i \xi_i =: \xi = \eta := \sum_j y_j \eta_j$, then $u(\xi - \eta) = 0$.  Thus, $\widetilde u$ is well-defined.  Moreover, it can be extended an isometry on $K = \overline{MpH}$. 
+
+  Let $q: H \to K$ be the orthogonal projection.  It is clear that $K$ is invariant under $M$ and $M'$.  Furthermore, we have if $\xi \in K^\perp$ and $x \in M \cup M'$, we have $\langle x \xi, \eta \rangle = \langle \xi, x^* \eta \rangle = 0$ for all $\eta \in K$.  Thus, $x \xi \in K^\perp$.  Thus, both $K$ and $K^\perp$ are invariant under $M$ and $M'$.  Thus, $q \in Z(M) = M \cap M'$. Thus, we have, for $\xi \in pH$,
+  $\widetilde{u} q \xi = q u \xi = u \xi$.  Thus, $u = \widetilde{u} q$ on $pH$.  Moreover, if $x \in M$ and $\xi \in pH$, we have
+  $\widetilde u q x \xi = q x u \xi = x q u \xi = x (\widetilde u q) \xi$, thus $u = \widetilde{u} q \in M'$.
+
+  The last inclusion to prove is that $pM' \subset (pMp)'$.  But we already know that $pM' \subset (pM')'' = (pMp)'$ from the first part of the problem.
   \end{proof}
 
 \item If $M$ is a factor, then $pMp$ and $pM'$ are both factors on $p\mH$. Moreover, the map
   $$\Phi : M' \to M' p, \quad x \mapsto xp$$
   is a weakly continuous $*$-algebra isomorphism.
 
-\item If $M$ is a factor and if $x \in M$ and $y \in M'$ are given, then $xy = 0$ implies that $x = 0$ or $y = 0$.
+  \begin{proof}
+    To see that $M'p$ is a factor, suppose $x \in M'p \cap (M'p)'$.  Then we can write $x$ as $x = yp$ for some $y \in M'$.
+    Moreover, for all $z \in M'$, we have $yzp = ypzp = zpyp = zyp$.  Thus, $yz = zy$ on $pH$. Since $z$ was arbitrary,
+    we have $y \in M' \cap M'' = M' \cap M = Z(M)$.  Thus, $M'p$ is a factor.  Since $pMp$ is the commutant of $M'p$,
+    this implies that $pMp$ is also a factor.
 
-\item If $M$ is a factor, then $M \cup M'$ generates $B(\mH)$ as a von Neumann algebra.
+    To see that $\Phi$ is injective, suppose $xp = 0$ for some $x \in M'$.   Then $x y p \xi = yx p \xi = 0$ for all $y \in M, \xi \in H$.
+    Thus $x MpH = 0$.  Using the same notation from part (a), the projection $q$ onto $K = \overline{MpH}$ is in $Z(M)$ since $M$ is a factor.  Since
+    $p \neq 0$, this implies that $q = 1$.  Thus $MpH$ is dense in $H$.  Thus, $x = 0$.
+
+    The map $\Phi$ is linear, and $\Phi(xy) = xyp = xpyp = \Phi(x) \Phi(y)$. Similarly, easy to check the rest.
+  \end{proof}
+  
+\item If $M$ is a factor and if $x \in M$ and $y \in M'$ are given, then $xy = 0$ implies that $x = 0$ or $y = 0$.
+  \begin{proof}
+    WLOG $x \neq 0$. Let $p$ be the projection onto the closure of the range of $x$. We have $p \in M$ by the polar decomposition. Moreover,
+    for $\xi \in H$ we have $yp = 0$ since $y$ is zero on the range of $x$. Part (b) implies that $y = 0$.
+  \end{proof}
+
+\item If $M$ is a factor, then $M \cup M'$ generates $B(H)$ as a von Neumann algebra.
+  \begin{proof}
+    We have $\CC 1 \subset (M \cup M')' \subset M' \cap M = \CC 1$.  Thus, $(M \cup M')' = \CC 1$.
+    Thus, $M \cup M'  = (M \cup M')''= \mB(H)$.
+  \end{proof}
 
 \item If $M$ is a type II$_1$ factor, then $pMp \subset B(p \mH)$ is also a type II$_1$ factor.
+  \begin{proof}
+    Let $\tau_{pMp} = \frac{1}{\tau_M(p)} \tau_m$ be the trace for $pMp$ on $pH$.  This is clearly
+    unital normal tracial state.  Faithfulness follows from the fact that $\tau_{pMp}((pxp)^* pxp) = 0$
+    is equivalent to $\tau((pxp)^*(pxp)) = 0$, which is equivalent to $pxp = 0$, for all $x \in M$.
+    Thus, $pMp$ is a finite factor.
+
+    Thus, it suffices to show that $pMp$ has no minimal projections.  Suppose that $\widetilde{e} \in pMp \subset B(pH)$ is a
+    minimal projection.  Let $e = \widetilde{e} p \in M \subset B(H)$.  I claim that $e$ is minimal.  Suppose that $f \in P(M)$
+    with $f \le e$. Then $\ran(f) \subset \ran(e) \subset pH$, so $f = fp \le \widetilde{e}$ on $pH$.  Since $\widetilde{e}$
+    is minimal, we have $fp = \widetilde{e} = ep$ or $f = 0$.  Thus, $f = e$ or $f = 0$, so $e$ is a minimal projection for
+    the II$_1$ factor $M$, a contradiction.
+  \end{proof}
 \end{enumerate}
+
+\p 4 Let $ H $ and $ G $ be discrete i.c.c. groups, such that $ H $ is a subgroup of $ G $. We denote by $ [G:H] $ the group theoretic index of $ H $ in $ G $, i.e. the number of (left or right) cosets of $ H $ in $ G $. Recall that left and right cosets of $ H $ in $ G $ are of the form $ gH = \{gh| h \in H\} $ and $ Hg = \{hg| h \in H\} $ for $ g \in G $, respectively, and that their number is always the same.\\
+	
+\begin{enumerate}
+	\item[(a)] Justify that $ \ell^2(G)$ provides an $ L(H)$-module and prove that its $ L(H)$-dimension is given by 
+	\[\dim_{L(H)}(\ell^2(G))=[G:H]\]
+
+        \begin{proof}
+          Define $\pi: H \to B(\ell^2(G))$ to be the restriction of the left regular representation of $L(G)$ to $L(H)$. This
+          is still a unital normal $*$-homomorphism, so $\ell^2(G)$ is an $L(H)$-module. We have 
+          $$\ell^2(G)  \cong \sum_{Hg \in H \setminus G} \ell^2(Hg) \cong \sum_{Hg \in H \setminus G} \ell^2(H),$$
+          as $L(H)$-modules.
+          Thus, by exercise (2),
+          $$ \dim_{L(H)} \ell^2(G) = [G : H] \dim_{L(H)} \ell^2(H) = [G : H]$$
+        \end{proof}
+        
+        
+	
+	\item[(b)] Consider the group factor $ L(G) $ and denote by $ \tau $ its cannonical trace. Show that 
+	\begin{center}
+		$ L^2(L(G),\tau) $ and $ \ell^2(G) $
+	\end{center}
+        are isomorphic as $ L(G)$-modules.
+
+        \begin{proof}
+          The left regular representation defines an isometry $\lambda: \CC G \to \lambda(\CC G) \subset B(\ell^2(G))$.
+          The set $\CC G$ is dense in $\ell^2(G)$, and the set $\lambda(\CC G)$ is dense in $L^2(L(G), \tau)$.  Thus,
+          it defines a unitary equivalence $\ell^2(G)$ to $L^2(L(G), \tau)$. Moreover, $\lambda(x \xi) = x \lambda(\xi)$
+          for all $x \in L(G)$ and $\xi \in \ell^2(G)$.          
+        \end{proof}
+
+		
+
+	\item[(c)] 
+	Show that $ L(H) $ can be considered as a subfactor of $ L(G) $ and deduce for the corresponding Jones index that 
+	\[[L(G):L(H)]=[G:H]\]
+
+        \begin{proof}
+          By part (a), we have $L(H) \subset L(G) \subset B(\ell^2(G))$, a unital inclusion.  Thus, $L(H) \subset L(G)$ is
+          a subfactor.  Then, parts (a) and (b) together imply the conclusion.
+        \end{proof}
+			
+\end{enumerate}
+
+\p 5
+\begin{enumerate}
+		\item[(a)] Let $ M $ be a factor of type $ \text{I}_n $. Prove that any subfactor $ N $ of $ M $ is of type $ \text{I}_m $ for some integer $ m $ dividing $ n $. Moreover, show that all subfactors $ N $ of $ M $ of type $ \text{I}_m $ are uniquely determined, up to conjugation by unitaries in $ M $, by the integer $ k > 0 $ such that $ pMp $ is a factor of type $ \text{I}_k $ for some minimal projection $ p \in N $ and $ mk = n $.
+				
+	          \begin{proof}
+                    Suppose $N \subset M$ is a subfactor. Since $N$ is finite dimensional, it must be of type $\text{I}_m$ for some $m$. Pick a minimal projection $p \in P(N)$.  As shown in class, $pMp$ is a factor, obviously of type I$_k$ for some $k$.  Pick a minimal projection $q \in P(pMp)$.  Then $q$ is also minimal in $M$.  Thus, $n = \frac{1}{\tau_M(q)} = \frac{1}{\tau_M(p) \tau_{pMp}(q)} = m \cdot k$, where we used the fact that $\tau_{pMp} = \frac{1}{\tau_M(p)} \tau_M$.  Thus $m$ divides $k$.
+
+                    For the second part, suppose $N$ and $N'$ are of type I$_m$.  We want to find a unitary $U$ such that $N = U N' U^*$.  Let $(e_{ij})$ be matrix units for $N$ and $(f_{ij})$ be matrix units for $N'$.  Pick a partial isometries $u$ such that  $u u^* = e_{11}$ and $u^* u = f_{11}$.  Let $U = \sum_i e_{i1} u f_{1i}$.  Then
+                    \begin{align*}
+                      U^* U & = \left( \sum_i f_{i1} u^* e_{1i} \right) \left( \sum_j e_{j1} u f_{1j} \right) \\
+                      & = \sum_i f_{i1} u^* e_{11} u f_{1i} \\
+                      & = \sum_i f_{i1} u^* u u^* u f_{1i} \\
+                      & = \sum_i f_{i1} f_{11} f_{1i} \\
+                      & = \sum_i f_{ii},
+                    \end{align*}
+                    and similarly $U^* U = 1$.
+
+                    Furthermore,
+                    \begin{align}
+                      U^* e_{kl} U & = \left( \sum_i f_{i1} u^* e_{1i} \right) e_{kl} \left( \sum_j e_{j1} u f_{1j} \right) \\
+                      & = f_{k1} u^* e_{11} u f_{1l} \\
+                      & = f_{k1} u^* u u^* u f_{1l} \\
+                      & = f_{k1} f_{11} f_{1l} \\
+                      & = f_{kl}.
+                    \end{align}
+                Thus $N' = U^* N U$ for a unitary $U$.                    			
+		\end{proof}
+		
+		\item[(b)] Let $ N \subseteq M $ be finite dimensional von Neumann algebras. Let $ p_1,\ldots, p_m $ be the minimal central projections of $ M $ and 
+		$ q_1,\ldots, q_n $ those of $ N $. For each $ (i, j) \in	\{1, \ldots , n\} \times \{1,\ldots, m\} $, $ p_jq_iMq_ip_j $ yields a factor with subfactor $ p_jq_iN $, to which we may associate an integer $ k_{i,j} $ according to (a). We form the matrix
+			\[\Lambda=(k_{i,j})_{i=1,\ldots,n. j=1,\ldots, m}\]
+			Compute $ \Lambda $ for $ M=M_5(\mathbb{C})\oplus M_3(\mathbb{C})$ and the subalgebra $ N $ of matrices of the form 
+			
+	\begin{center}
+		$\begin{pmatrix}X & 0& 0\\
+		0& X & 0\\
+		0&0&z
+		\end{pmatrix}\oplus \begin{pmatrix}
+		X&0\\
+		0&z
+		\end{pmatrix}$ with $ z\in \mathbb{C} $ and $ X\in M_2(\mathbb{C}) $
+	\end{center}
+
+		
+	\begin{proof}
+          Let $p_1$ be the projection onto the $M_5$ component, $p_2$ the projection onto the $M_3$ component.  Let $q_1$ be the projection onto the $X$ component, and $q_2$ the projection onto the $z$ component.   Then, $p_1q_1 M q_1 p_1 \cong M_4$ and $p_1 q_1 N \cong M_2$, so $k_{11} = 2$.  Similarly, we get the rest of the entries of $\Lambda$:
+          $$\Lambda = \begin{pmatrix}
+            2 & 1 \\
+            1 & 1
+          \end{pmatrix}
+          $$
+	
+\end{proof}
+
+    \item[(c)] Show that $ k_{i,j} = \text{Tr}(p_je_i)$ holds, if $ e_i $ is a minimal projection in the factor $ q_iN $. Note that Tr denotes here the unnormalized trace on $ p_jMp_j $, which is isomorphic to $ M_{m_j}(\mathbb{C}) $ for some $ m_j\in \mathbb{(N)} $    		
+      \begin{proof}
+        Since $q_i$ is a minimal central projection of $N$, we have that $q_iN$ is a factor.  Thus, exercise (3)(b) implies that, since $p_j \in (q_i N)'$, we have $q_i N \cong p_j q_i N$.  Thus, $p_j e_i$ is a minimal projection of $p_j q_i N$.  Thus,
+        if $p_j q_i N$ is of type I$_m$ and $p_j q_i M q_i p_j$ is of type I$_n$, we have
+        \begin{align*}
+          k_{ij} & = \frac{n}{m} \\
+          & = n \cdot \tau_{p_j q_i N}(p_j e_i) \\
+          & = \Tr_{p_j q_i M q_i p_j}(p_j e_i) \\
+          & = \Tr_{p_j M p_j}(p_j e_i) \\
+        \end{align*}
+    	
+      \end{proof}
+\end{enumerate}
+	
 
 \end{document}
