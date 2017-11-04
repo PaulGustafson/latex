@@ -7,12 +7,15 @@
 \usepackage[alphabetic,y2k,lite]{amsrefs}
 
 \newcommand{\ZZ}{\mathbf{Z}}
+\newcommand{\mB}{\mathcal{B}}
 
 \newtheorem{prop}[theorem]{Proposition}
+\newtheorem{thm}[theorem]{Theorem}
 \newtheorem{conj}[theorem]{Conjecture}
 \DeclareMathOperator{\Obj}{Obj}
 \DeclareMathOperator{\FPdim}{FPdim}
 \DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Aut}{Aut}
 \DeclareMathOperator{\ev}{ev}
 \DeclareMathOperator{\coev}{coev}
 \DeclareMathOperator{\id}{id}
@@ -76,40 +79,105 @@
 \begin{conj}[Rowell]
 Let $\mathcal C$ be a braided fusion category and let $X$ be a simple object in $\mathcal C$.  The braid group representations $\mathcal B_n$ on $\End(X^{\otimes n})$ have finite image for all $n>0$ if and only if  $X$ is weakly integral (i.e. $\FPdim(X)^2 \in \mathbf Z$).
 \end{conj}
+
+\begin{itemize}
+\item Verified for modular categories from quantum groups (Rowell, Naidu, Freedman, Larsen, Wang, Wenzl, Jones, Goldschmidt) 
+\end{itemize}
 \end{frame}
 
 
-\begin{frame}{Gauging}
+\begin{frame}{A potential approach to property F for modular categories}
+  Prove two conjectures:
+  \begin{enumerate}[(1)]
+  \item Gauging preserves property F
+  \item Every weakly integral modular category is a gauging of a pointed or pointed$\boxtimes$Ising MTC
+  \end{enumerate}
+
+  \pause
+
+  \begin{thm}[Natale, 2017]
+    Every weakly group-theoretical modular category is a gauging of a pointed or pointed$\boxtimes$Ising MTC
+  \end{thm}
 \end{frame}
+
+
+\begin{frame}{Gauging a modular category}
+  \begin{itemize}
+  \item Starting point: a group homomorphism $\rho: G \to \Aut_\otimes^{br}(\mB)$
+  \item Extend $\mB$ by $\rho$ to get a $G$-crossed graded category $\mB_G^\times$
+    \begin{itemize}
+    \item Cohomological obstructions must vanish for the extension to exist
+    \item Choices for fusion rules, associators 
+    \end{itemize}
+  \item Equivariantize 
+  \end{itemize}
+\end{frame}
+
+
+\newcommand{\one}{1}{
 
 \begin{frame}{Metaplectic categories}
-  A metaplectic modular category is a unitary modular category with the same fusion rules as $SO(N)_2$ for some odd $N > 1$.
+  A metaplectic modular category is a unitary modular category with the same fusion rules as $SO(N)_2$ for some odd $N > 1$. It has $2$ simple objects $X_1, X_2$ of dimension $\sqrt{N}$, two simple objects $\one, Z$ of dimension $1$, and $\frac{N-1}{2}$ objects $Y_i$, $i=1,\ldots,\frac{N-1}{2}$ of dimension $2$.
+
+  The fusion rules are:
+\begin{enumerate}
+ \item $Z\otimes Y_i\cong Y_i$, $Z\otimes X_i\cong X_{i+1}$ (modulo $2$), $Z^{\otimes 2}\cong\one$,
+ \item $X_i^{\otimes 2}\cong \one\oplus \bigoplus_{i} Y_i$,
+ \item $X_1\otimes X_2\cong Z\oplus\bigoplus_{i} Y_i$,
+ \item $Y_i\otimes Y_j\cong Y_{\min\{i+j,N-i-j\}}\oplus Y_{|i-j|}$, for $i\neq j$ and $Y_i^{\otimes 2}=\one\oplus Z\oplus Y_{\min\{2i,N-2i\}}$.
+\end{enumerate}
+
 \end{frame}
 
 
-\begin{frame}{Example: $SO(3)_2$}
+\begin{frame}{Related Work}
+% ng schaumburg - genus 1, any modular category
+\begin{theorem}[Rowell--Wenzl]
+The images of the braid group representations on $\End_{SO(N)_2}(S^{\otimes n})$ for $N$ odd are isomorphic to images of braid groups in Gaussian representations; in particular, they are finite groups.
+\end{theorem}
+
+\begin{theorem}[Ardonne--Cheng--Rowell--Wang]
+\begin{enumerate}
+\item Suppose $\mathcal{C}$ is a metaplectic modular category with fusion rules $SO(N)_2$, then $\mathcal{C}$ is a gauging of the particle-hole symmetry of a $\mathbb{Z}_N$-cyclic modular category.
+\item For $N=p_1^{\alpha_1}\cdots p_s^{\alpha_s}$ with distinct odd primes $p_i$, there are exactly $2^{s+1}$ many inequivalent metaplectic modular categories.
+\end{enumerate}
+\end{theorem}
+\end{frame}
+
+
+\begin{frame}{Distinguishing metaplectics}
+  Ardonne--Finch--Titsworth classify metaplectic fusion categories up to monoidal equivalence and give modular data for low-rank cases.
+
+  Key invariants for distinguishing different metaplectics of the
+  same $SO(N)_2$ are the Frobenius-Schur indicators $\nu_2(X_i)$
+  of the spin objects.
 \end{frame}
 
 \begin{frame}{Strategies}
+  In apparent order of increasing difficulty:
   \begin{itemize}
-  \item Relate $R$-matrices to $SO(N)_2$
-  \item Modify the quantum group construction
-  \item Relate $R$-matrices to $\ZZ_N$
+    \item Modify the quantum group construction to get all metaplectic modular categories
+    \item Relate the $R$-matrix of a metaplectic category to that of the corresponding $SO(N)_2$
+    \item Relate $R$-matrices to $\ZZ_N$ 
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Modify the quantum group construction}
+  \begin{itemize}
+  \item Naive approach: take Galois conjugates of $q^{1/2}$
+  \item Not general enough -- doesn't modify $\nu_2(X_i)$
+  \item Zesting?
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Compare $R$-matrices with $SO(N)_2$}
 \end{frame}
 
-\begin{frame}{Modify the quantum group construction}
-\end{frame}
 
 \begin{frame}{Relate $R$-matrices to $\ZZ_N$}
 
 \end{frame}
-
-
-
 
 
 \begin{frame}{Thanks}
