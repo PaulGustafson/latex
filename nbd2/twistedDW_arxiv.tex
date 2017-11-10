@@ -171,9 +171,9 @@ For each $g \in G$, pick a 1-dimensional vector space $\delta_g \in \Obj(\Vect_G
 
 For the structural morphisms,  we follow \cite{math/0601012}.  We will treat the canonical isomorphisms $\delta_g \otimes \delta_h \cong \delta_{gh}$ as identities.    The associator $\alpha_{g,h,k}:(\delta_g \otimes \delta_h) \otimes \delta_k \to \delta_g \otimes (\delta_h \otimes \delta_k)$ is defined by
 $$\alpha_{g,h,k} = \omega(g,h,k) \id_{ghk}.$$ 
-The evaluator $\ev_g:\delta_g^* \otimes \delta_g \to 1$ is 
+The evaluation $\ev_g:\delta_g^* \otimes \delta_g \to 1$ is 
 $$\ev_{g} = \omega(g^{-1},g,g^{-1}) \id_1.$$  
-The coevaluator $\coev_g:1 \to \delta_g \otimes \delta_g^*$ is 
+The coevaluation $\coev_g:1 \to \delta_g \otimes \delta_g^*$ is 
 $$\coev_{g} = \id_1.$$ 
 The pivotal structure $j_g:\delta_g \to \delta_g^{**}$ is 
 $$j_{g} = \omega(g^{-1},g,g^{-1}) \id_{g}.$$
@@ -181,7 +181,11 @@ $$j_{g} = \omega(g^{-1},g,g^{-1}) \id_{g}.$$
 If $\omega$ and $\omega'$ are cohomologous cocycles, then $\Vect_G^\omega$ is monoidally equivalent to $\Vect_G^{\omega'}$ \cite{etingofTensor}.  This equivalence respects the pivotal structure, so extends to an equivalence of spherical categories.  It is a basic result in group cohomology that any cocycle $\omega \in Z^3(G, k^\times)$ is cohomologous to a cocycle taking values in $\mu_{|G|}$, the roots of unity of order $|G|$.  Thus, by replacing $\Vect^\omega_G$ with an equivalent spherical category, we assume  without loss of generality that $\Img(\omega) \subset \mu_{|G|}$.  
 
 \subsection{Strictification}
-The input category for the colored graph construction must be strictly pivotal, so we must strictify $\Vect_G^\omega$ to get an equivalent strict pivotal monoidal $\widehat \Vect_G^\omega$. Every pivotal category is equivalent to a strict pivotal monoidal category by first strictifying with respect to the monoidal structure, and then strictifying with respect to the pivotal structure \cite{ns}. %%(as follows) Given a monoidal category $C$, there exists a monoidally equivalent strict monoidal category $\mC'$ with objects consisting of all finite lists of objects of $\mC$ and morphisms defined by $\Hom_{\mC'}([A_1, \ldots, A_n], [B_1, \ldots, B_m]) = \Hom_\mC((\cdots(A_1 \otimes A_2) \otimes \cdots \otimes A_n, (\cdots(B_1 \otimes B_2) \otimes \cdots \otimes B_m$. Given a pivotal strict monoidal category $\mC$, there is a strict pivotal monoidal category $\widehat \mC$ equivalent, as a pivotal monoidal category, to $\mC$.  The objects of $\widehat \mC$ are pairs $(X, \epsilon)$ for which there exists $r \in \NN_0$ such that $X \in \mC^r$ and $\epsilon \in \ZZ_2^r$.  The 
+The input category for the colored graph construction must be strictly pivotal, so we must strictify $\Vect_G^\omega$ to get an equivalent strict pivotal monoidal $\widehat \Vect_G^\omega$. Every pivotal category is equivalent to a strict pivotal monoidal category by first strictifying with respect to the monoidal structure, and then strictifying with respect to the pivotal structure as follows \cite{ns}.
+
+Given a monoidal category $C$, there exists a monoidally equivalent strict monoidal category $\mC'$ with objects consisting of all finite lists of objects of $\mC$ and morphisms defined by $\Hom_{\mC'}([A_1, \ldots, A_n], [B_1, \ldots, B_m]) = \Hom_\mC((\cdots(A_1 \otimes A_2) \otimes \cdots \otimes A_n, (\cdots(B_1 \otimes B_2) \otimes \cdots \otimes B_m$. Given a pivotal strict monoidal category $\mC'$, there is a strict pivotal monoidal category $\widehat \mC$ equivalent, as a pivotal monoidal category, to $\mC$.  The objects of $\widehat \mC$ are pairs $(X, \epsilon)$ for which there exists $r \in \NN_0$ such that $X \in \mC^r$ and $\epsilon \in \ZZ_2^r$.  The duality functor $*$ is given by
+$$(X, \epsilon)^* = ((X_r, \ldots, X_1), (\epsilon_r + 1, \ldots, \epsilon_1 + 1)).$$
+The evaluation function is inductively defined using tensor products of identities, $j$'s, and evaluation in $\mC'$, and similarly for coevaluation. %%double-check coev
 
 %% TODO: prove same rep for equivalent cats? move above to later section
 
@@ -208,7 +212,7 @@ The input category for the colored graph construction must be strictly pivotal, 
 
 The following definitions and theorem are due to Kirillov
 \cite{kirillovStringNets}, and recorded here for convenience.  For any
-strictly pivotal spherical fusion category $\mathcal A$ and surface $\Si$,
+strict pivotal spherical fusion category $\mathcal A$ and surface $\Si$,
 Kirillov gives the
 following presentation of the Levin-Wen model as a vector space of
 colored graphs modulo local relations.  He also proves that this space
