@@ -71,7 +71,10 @@ midarrow/.default=0.5
 \newtheorem{fact}[thm]{Fact}
 \newtheorem{ex}[thm]{Exercise}
 \newcommand{\Hs}{H}
-\newcommand{\lstar}{{^*}}
+\newcommand{\mC}{\mathcal{C}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+% \newcommand{\lstar}{{^*}}
 
 
 
@@ -81,7 +84,7 @@ midarrow/.default=0.5
 \DeclareMathOperator{\Vect}{Vec}
 \DeclareMathOperator{\Homeo}{Homeo}
 \DeclareMathOperator{\Hom}{Hom}
-\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Obj}{}
 \DeclareMathOperator{\Irr}{Irr}
 \DeclareMathOperator{\Img}{Im}
 \DeclareMathOperator{\coev}{coev}
@@ -89,7 +92,7 @@ midarrow/.default=0.5
 \DeclareMathOperator{\Gr}{Graph}
 \DeclareMathOperator{\VGr}{VGraph}
 \newcommand{\VV}{\mathbf{V}}       % boundary condition
-\newcommand{\vgo}{\Vect^G_\omega}
+\newcommand{\vgo}{\Vect_G^\omega}
 \newcommand{\one}{1}
 \newcommand{\al}{\alpha}
 \newcommand{\be}{\beta}
@@ -178,14 +181,20 @@ $$\coev_{g} = \id_1.$$
 The pivotal structure $j_g:\delta_g \to \delta_g^{**}$ is 
 $$j_{g} = \omega(g^{-1},g,g^{-1}) \id_{g}.$$
 
-If $\omega$ and $\omega'$ are cohomologous cocycles, then $\Vect_G^\omega$ is monoidally equivalent to $\Vect_G^{\omega'}$ \cite{etingofTensor}.  This equivalence respects the pivotal structure, so extends to an equivalence of spherical categories.  It is a basic result in group cohomology that any cocycle $\omega \in Z^3(G, k^\times)$ is cohomologous to a cocycle taking values in $\mu_{|G|}$, the roots of unity of order $|G|$.  Thus, by replacing $\Vect^\omega_G$ with an equivalent spherical category, we assume  without loss of generality that $\Img(\omega) \subset \mu_{|G|}$.  
+If $\omega$ and $\omega'$ are cohomologous cocycles, then $\Vect_G^\omega$ is monoidally equivalent to $\Vect_G^{\omega'}$ \cite{etingofTensor}.  This equivalence respects the pivotal structure, so extends to an equivalence of spherical categories.  It is a basic result in group cohomology that any cocycle $\omega \in Z^3(G, k^\times)$ is cohomologous to a cocycle taking values in $\mu_{|G|}$, the roots of unity of order $|G|$.  Thus, by replacing $\Vect^\omega_G$ with an equivalent spherical category, we assume  without loss of generality that $\Img(\omega) \subset \mu_{|G|}$ (as in \cite{erw}).  
 
 \subsection{Strictification}
-The input category for the colored graph construction must be strictly pivotal, so we must strictify $\Vect_G^\omega$ to get an equivalent strict pivotal monoidal $\widehat \Vect_G^\omega$. Every pivotal category is equivalent to a strict pivotal monoidal category by first strictifying with respect to the monoidal structure, and then strictifying with respect to the pivotal structure as follows \cite{ns}.
+The input category for the colored graph construction is strictly pivotal, so we must strictify $\Vect_G^\omega$ to get an equivalent strict pivotal monoidal $\widehat \vgo$. Every pivotal category is equivalent to a strict pivotal monoidal category by first strictifying with respect to the monoidal structure, and then strictifying with respect to the pivotal structure as follows \cite{ns}.
 
-Given a monoidal category $C$, there exists a monoidally equivalent strict monoidal category $\mC'$ with objects consisting of all finite lists of objects of $\mC$ and morphisms defined by $\Hom_{\mC'}([A_1, \ldots, A_n], [B_1, \ldots, B_m]) = \Hom_\mC((\cdots(A_1 \otimes A_2) \otimes \cdots \otimes A_n, (\cdots(B_1 \otimes B_2) \otimes \cdots \otimes B_m$. Given a pivotal strict monoidal category $\mC'$, there is a strict pivotal monoidal category $\widehat \mC$ equivalent, as a pivotal monoidal category, to $\mC$.  The objects of $\widehat \mC$ are pairs $(X, \epsilon)$ for which there exists $r \in \NN_0$ such that $X \in \mC^r$ and $\epsilon \in \ZZ_2^r$.  The duality functor $*$ is given by
+Given a monoidal category $\mC$, there exists a monoidally equivalent strict monoidal category $\mC'$ with objects consisting of all finite lists of objects of $\mC$ and morphisms defined by $\Hom_{\mC'}([A_1, \ldots, A_n], [B_1, \ldots, B_m]) = \Hom_\mC(((\cdots((A_1 \otimes A_2) \otimes A_3) \otimes \cdots \otimes A_n, ((\cdots((B_1 \otimes B_2) \otimes B_3) \otimes \cdots \otimes B_m)$. The strictification functor applies the obvious unique composition of associators to both objects and morphisms of $\mC$, similarly for the coherence map. If $\mC$ is pivotal, this equivalence extends to an equivalence of pivotal monoidal categories by transporting the pivotal structure along the equivalence.  
+
+Given a pivotal strict monoidal category $\mC'$, there is a strict pivotal monoidal category $\widehat \mC$ equivalent, as a pivotal monoidal category, to $\mC'$.  The objects of $\widehat \mC$ are pairs $(X, \epsilon)$ for which there exists $r \in \NN_0$ such that $X \in \mC^r$ and $\epsilon \in \ZZ_2^r$. The morphisms are
+$$\Hom_{\widehat \mC}((X, \epsilon), (Y, \epsilon)) = \Hom_{\mC'}(X_1^{\epsilon_1} \otimes \cdots \otimes X_r^{\epsilon_r}, Y_1^{\epsilon_1} \otimes \cdots \otimes Y_s^{\epsilon_s}),$$
+where $X^\epsilon$ is defined by $X^0 = X$ and $X^1 = X^*$.  The duality functor on $\widehat \mC$ is given by
 $$(X, \epsilon)^* = ((X_r, \ldots, X_1), (\epsilon_r + 1, \ldots, \epsilon_1 + 1)).$$
-The evaluation function is inductively defined using tensor products of identities, $j$'s, and evaluation in $\mC'$, and similarly for coevaluation. %%double-check coev
+The evaluation function $\ev_{(X, \epsilon)}$ on $\widehat \mC$ is inductively defined using tensor products of identities, $j_{X_i}$'s, and evaluation maps $\ev_{X_i}$ in $\mC'$, and similarly for coevaluation.  This strictification functor maps $X \in \mC'$ to $((X), (0))$ and acts on morphisms as the identity.  The coherence maps are also identity maps.
+
+Slightly abusing notation, we will sometimes use the same symbol for both $X \in \mC$ and its images in $\mC'$ and $\widehat \mC$ under the strictification functors.
 
 %% TODO: prove same rep for equivalent cats? move above to later section
 
@@ -233,7 +242,7 @@ structure gives functorial isomorphisms
 z\colon\<V_1,\dots,V_n\>\cong \<V_n, V_1,\dots,V_{n-1}\>
 \end{equation}
 where
-$$z(\phi)= (j_{ V_n} \otimes \id_{V_1 \otimes \cdots \otimes V_{n-1}} \otimes \ev_{V_n^*} ) \circ (\id_{V_n} \otimes \phi \otimes \id_{V_n^*} ) \circ  \coev_{V_n^*}  $$ 
+$$z(\phi)= ( \id_{V_n \otimes V_1 \otimes \cdots \otimes V_{n-1}} \otimes \ev_{V_n^*} ) \circ (\id_{V_n} \otimes \phi \otimes \id_{V_n^*} ) \circ  \coev_{V_n^*}  $$ 
 and $z^n=\id$ (see \cite[Section 5.3]{BK}). Thus, up to a canonical
 isomorphism, the space $\<V_1,\dots,V_n\>$ only depends on the cyclic order
 of $V_1,\dots, V_n$.
@@ -242,8 +251,8 @@ We have a natural composition map
 \begin{equation}\label{e:composition}
 \begin{aligned}
  \<V_1,\dots,V_n, X\> \otimes \<X^*, W_1,\dots,
-W_m\>&\to\<V_1,\dots,V_n, W_1,\dots, W_m\> \\
-\ph\otimes\psi\mapsto \ph\cc{X}\psi= \ev_{X^*} \circ (\ph\otimes\psi).
+W_m\> & \to\<V_1,\dots,V_n, W_1,\dots, W_m\> \\
+\ph\otimes\psi & \mapsto \ph\cc{X}\psi = (\id_{V_1 \otimes \cdots \otimes V_n} \otimes \ev_{X^*} \otimes \id_{W_1 \otimes \cdots \otimes W_m}) \circ (\ph\otimes\psi).
 \end{aligned}
 \end{equation}
 
@@ -567,7 +576,7 @@ Let $g_1, \ldots, g_n \in G$.  A morphism $\phi \in \langle g_1, \ldots, g_n \ra
 By MacLane's coherence theorem, there is a unique simple morphism in $\langle g_1, \ldots, g_n \rangle$ whenever $\prod_{i=1}^n g_i = 1$. This simple morphism is a canonical basis element for the 1-dimensional space $\langle g_1, \ldots, g_n \rangle$.  We will describe a map between such spaces as multiplication by a scalar, where the scalar is the matrix coefficient of the map with respect to these canonical bases.
 
 \begin{defn} \label{def:simple_graph}
-Let $\Gamma$ be a graph embedded in a surface $\Si$.  A $\Vect_G^\omega$ coloring $(V, \phi)$ of $\Gamma$ will be called \emph{simple} if the following conditions both hold: 
+Let $\Gamma$ be a graph embedded in a surface $\Si$.  A $\widehat {\Vect_G^\omega}$ coloring $(V, \phi)$ of $\Gamma$ will be called \emph{simple} if the following conditions both hold: 
 \begin{enumerate}
 \item For every oriented edge $\ee \in E^{or}(\Gamma)$, there exists a group element $g(\ee) \in G$ such that
 the coloring $V(e_i) = \delta_{g(\ee)}$.
@@ -575,11 +584,13 @@ the coloring $V(e_i) = \delta_{g(\ee)}$.
 \end{enumerate}
 \end{defn}
 
+
+%FIXME
 \begin{lem} \label{lem:z_simple}
 Let $\phi \in \langle g_1, \ldots, g_n \rangle$ and $\psi \in \langle g_n, g_1, \ldots, g_{n-1} \rangle$ be simple morphisms.  Then $z(\phi) = \alpha \psi$, where $\alpha \in \mu_{|G|}$.
 \end{lem}
 \begin{proof}
-The definition of the $z$-morphism in Equation \ref{e:cyclic} only involves tensors and compositions of structural morphisms -- i.e. associators, unitors, the pivotal $j$-morphism, evaluation, and coevaluation morphisms.  Since all the tensor factors in the codomain of $\phi$ are simple objects, the definition of $\Vect_G^\omega$ states that each of the structural morphisms simply consist of multiplication by elements of the form $\omega(g,h,k)$ for some $g,h,k \in G$. Thus, $z(\phi) = \alpha \psi$ for some $\alpha$ which is a product of elements in $\Img(\omega)$.   Since $\Img(\omega) \subset \mu_{|G|}$, it follows that $\alpha \in \mu_{|G|}$.
+The definition of the $z$-morphism in Equation \ref{e:cyclic} only involves tensors and compositions of structural morphisms -- i.e. associators, unitors, the pivotal $j$-morphism, evaluation, and coevaluation morphisms in $\vgo$.  Since all the tensor factors in the codomain of $\phi$ are simple objects, the definition of $\Vect_G^\omega$ implies that each of the structural morphisms simply consist of multiplication by elements of the form $\omega(g,h,k)$ for some $g,h,k \in G$. Thus, $z(\phi) = \alpha \psi$ for some $\alpha$ which is a product of elements in $\Img(\omega)$.   Since $\Img(\omega) \subset \mu_{|G|}$, it follows that $\alpha \in \mu_{|G|}$.
 \end{proof}
 
 \begin{prop} \label{prop:omega}
@@ -611,9 +622,9 @@ The image of any twisted Dijkgraaf-Witten representation of a mapping class grou
 \end{thm}
 
 \begin{proof}
-Let $\Gamma$ be a $\Vect_G^\omega$-colored graph embedded in $\Si$, and let $g \ge 1$ be the genus of $\Si$ (if $g = 0$, the mapping class group is trivial). Thinking of $\Si$ as a quotient of its fundamental $4g$-gon, by isotopy we may assume that the vertices of $\Gamma$ lie in the interior of the polygon, none of the edges of $\Gamma$ intersect the corners of the polygon, and that the edges of $\Gamma$ only meet the sides of the polygon transversally.  Applying the evaluation map of Theorem \ref{t:RT} on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$ and edges $e_1, \ldots, e_{2g}$ corresponding to the standard generators of $\pi_1(M,v)$ as shown in Figure \ref{fig:span}.
+Let $\Gamma$ be a $\widehat \vgo$-colored graph embedded in $\Si$, and let $g \ge 1$ be the genus of $\Si$ (if $g = 0$, the mapping class group is trivial). Thinking of $\Si$ as a quotient of its fundamental $4g$-gon, by isotopy we may assume that the vertices of $\Gamma$ lie in the interior of the polygon, none of the edges of $\Gamma$ intersect the corners of the polygon, and that the edges of $\Gamma$ only meet the sides of the polygon transversally.  Applying the evaluation map of Theorem \ref{t:RT} on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$ and edges $e_1, \ldots, e_{2g}$ corresponding to the standard generators of $\pi_1(M,v)$ as shown in Figure \ref{fig:span}.
 
-By Theorem \ref{t:RT} and the definition of the quotient map identifying the sides of the fundamental polygon, the vertex $v$ is colored by an element $\phi(v) \in \Hom (\one, \bigotimes_{i=1}^g V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1})^* \otimes V(e_{2i})^*)$, where $V(e_i) \in \Obj(\Vect_G^\omega)$ is the coloring of the edge $e_i$.   
+By Theorem \ref{t:RT} and the definition of the quotient map identifying the sides of the fundamental polygon, the vertex $v$ is colored by an element $\phi(v) \in \Hom (\one, \bigotimes_{i=1}^g V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1})^* \otimes V(e_{2i})^*)$, where $V(e_i) \in \Obj(\widehat \vgo)$ is the coloring of the edge $e_i$.   
 
 We claim that the representation space $H$ is spanned by the set of such colored graphs $\Gamma$ such that each $V(e_i)$ is simple. This follows from the additivity of the evaluation map of Theorem \ref{t:RT} in the direct sum.   Strictly speaking, we can only take advantage of the additivity on a disk, not on an edge $e_i$, which is a $v$-based loop. However, we can easily add a $\coev$-labeled vertex to any edge $e_i$, apply the additivity on one of the two resulting edges (which lies in an embedded disk), and then contract on the other edge to get the decomposition we want.
 

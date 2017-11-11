@@ -88,7 +88,7 @@ midarrow/.default=0.5
 \DeclareMathOperator{\Gr}{Graph}
 \DeclareMathOperator{\VGr}{VGraph}
 \newcommand{\VV}{\mathbf{V}}       % boundary condition
-\newcommand{\vgo}{\Vect^G_\omega}
+\newcommand{\vgo}{\Vect_G^\omega}
 \newcommand{\one}{1}
 \newcommand{\al}{\alpha}
 \newcommand{\be}{\beta}
@@ -235,10 +235,10 @@ We have a natural composition map
 \begin{aligned}
  \<V_1,\dots,V_n, X\> \otimes \<\lstar X, W_1,\dots,
 W_m\>&\to\<V_1,\dots,V_n, W_1,\dots, W_m\> \\
-\ph\otimes\psi\mapsto \ph\cc{X}\psi= \ev_{\lstar X} \circ (\ph\otimes\psi),
+\ph\otimes\psi & \mapsto \ph\cc{X}\psi= (\id_{V_1 \otimes \cdots \otimes V_{n}} \otimes \ev_{\lstar X} \otimes \id_{W_1 \otimes \cdots \otimes W_{m}} )\circ (\ph\otimes\psi),
 \end{aligned}
 \end{equation}
-up to associators.  Note that, due to the order of $X$ and $\lstar X$ in the tensor product, we use the right evaluation map $\ev_{\lstar X} \colon X \otimes  \lstar X \to \one$ for the left dual of $X$, instead of the right evaluation map $\ev_X : X^* \otimes X \to 1$ for $X$.  Since $\lstar X \cong X^*$, the defining equation for $\ev_{\lstar X}$  in $\Vect_G^\omega$ is the same as for $\ev_{X^*}$, i.e. $\ev_{\lstar g} = \omega(g, g^{-1}, g) \id_{1}$.
+up to associators.  % Note that, due to the order of $X$ and $\lstar X$ in the tensor product, we use the right evaluation map $\ev_{\lstar X} = \lstar\coev_X \colon X \otimes  \lstar X \to \one$ for the left dual of $X$, instead of the right evaluation map $\ev_X : X^* \otimes X \to 1$ for $X$.  
 
 We will consider finite  graphs embedded in an oriented surface $\Si$
 (which may have boundary); for such a
