@@ -566,17 +566,11 @@ The vector space $H := \Hs(\Si, \VV)$ associated to a oriented surface $\Si$ wit
 %% \end{proof}
 
 
-To show that the image of any $\Vect_G^\omega$ mapping class group representation is finite, we will analyze the action of the mapping class group on a finite collection of colored graphs that span the representation space $H$.  To define this spanning set, we will need the following definitions of nice objects, morphisms and colored graphs.
-
-\begin{defn} \label{def:simple_object}
-  An object $X \in \widehat \vgo$ will be called \emph{nice} if it is of the form
-  $((\delta_{g_1}, \ldots, \delta_{g_r}), (\epsilon_1, \ldots, \epsilon_r))$ for some $r \in \NN_0$,
-  $g_1, \ldots, g_r \in G$, and $\epsilon_1, \ldots, \epsilon_r \in \ZZ_2$.
-\end{defn}
+To show that the image of any $\Vect_G^\omega$ mapping class group representation is finite, we will analyze the action of the mapping class group on a finite collection of colored graphs that span the representation space $H$.  To define this spanning set, we will need the following definitions of simple morphisms and colored graphs.
 
 
 \begin{defn} \label{def:simple_morphism}
-Let $g_1, \ldots, g_n \in G$ and $\epsilon_1, \ldots, \epsilon_2  \in \ZZ_2$.  A morphism $\phi \in \langle (\delta_{g_1}, \epsilon_1), \ldots, (\delta_{g_n}, \epsilon_n) \rangle = \Hom_{\widehat{\vgo}}(1, (\delta_{g_1}, \epsilon_1) \otimes \cdots \otimes (\delta_{g_n}, \epsilon_n)) = \Hom_{\vgo}(1, (( \cdots (\delta_{g_1}^{\epsilon_1} \otimes \delta_{g_2}^{\epsilon_2}) \otimes \cdots  \delta_{g_n}^{epsilon_n})$ will be called \emph{nice} if it is the composition of the isomorphism $\one \cong \delta_1$ and  tensor product isomorphisms of the form $\delta_{gh} \cong \delta_g \otimes \delta_h$ in $\vgo$.
+Let $g_1, \ldots, g_n \in G$ and $\epsilon_1, \ldots, \epsilon_n  \in \{\pm 1\} = \ZZ_2$.  A morphism $\phi \in \langle (\delta_{g_1}, \epsilon_1), \ldots, (\delta_{g_n}, \epsilon_n) \rangle = \Hom_{\widehat{\vgo}}(1, (\delta_{g_1}, \epsilon_1) \otimes \cdots \otimes (\delta_{g_n}, \epsilon_n)) = \Hom_{\vgo}(1, (( \cdots (\delta_{g_1^{\epsilon_1}} \otimes \delta_{g_2^{\epsilon_2}}) \otimes \cdots  \otimes \delta_{g_n^{\epsilon_n}})$ will be called \emph{nice} if it is the composition of the isomorphism $\one \cong \delta_1$ and  tensor product isomorphisms of the form $\delta_{gh} \cong \delta_g \otimes \delta_h$ in $\vgo$.
 \end{defn}
 
 By MacLane's coherence theorem applied to the $\vgo$ Hom-space, there is a unique simple morphism in $\langle (\delta_{g_1}, \epsilon_1), \ldots, (\delta_{g_n}, \epsilon_n) \rangle$ whenever $\prod_{i=1}^n g_i = 1$. This simple morphism is a canonical basis element for the 1-dimensional space $\langle (\delta_{g_1}, \epsilon_1), \ldots, (\delta_{g_n}, \epsilon_n) \rangle$.  We will describe a map between such spaces as multiplication by a scalar, where the scalar is the matrix coefficient of the map with respect to these canonical bases.

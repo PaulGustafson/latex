@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.29)  11 NOV 2017 16:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.29)  11 NOV 2017 22:25
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -958,33 +958,65 @@ Package hyperref Warning: Composite letter `\textdotaccent+"'
 (hyperref)                not defined in PD1 encoding,
 (hyperref)                removing `\textdotaccent' on input line 170.
 
-[2] [3] [4] [5]
+[2] [3] [4]
+Overfull \hbox (39.77179pt too wide) in paragraph at lines 573--574
+[][]\OT1/ptm/b/n/10 Definition 4.1. []\OT1/ptm/m/it/10 Let $\OML/ztmcm/m/it/10 
+g[]; [] ; g[] \OMS/ztmcm/m/n/10 2 \OML/ztmcm/m/it/10 G$ \OT1/ptm/m/it/10 and $\
+OML/ztmcm/m/it/10 ^^O[]; [] ; ^^O[] \OMS/ztmcm/m/n/10 2 f^^F\OT1/ztmcm/m/n/10 1
+\OMS/ztmcm/m/n/10 g \OT1/ztmcm/m/n/10 = \U/msb/m/n/10 Z[]$\OT1/ptm/m/it/10 . A 
+mor-phism $\OML/ztmcm/m/it/10 ^^^ \OMS/ztmcm/m/n/10 2 h\OT1/ztmcm/m/n/10 (\OML/
+ztmcm/m/it/10 ^^N[]; ^^O[]\OT1/ztmcm/m/n/10 )\OML/ztmcm/m/it/10 ; [] ; \OT1/ztm
+cm/m/n/10 (\OML/ztmcm/m/it/10 ^^N[]; ^^O[]\OT1/ztmcm/m/n/10 )\OMS/ztmcm/m/n/10 
+i \OT1/ztmcm/m/n/10 = [][](1\OML/ztmcm/m/it/10 ; \OT1/ztmcm/m/n/10 (\OML/ztmcm/
+m/it/10 ^^N[]; ^^O[]\OT1/ztmcm/m/n/10 ) \OMS/ztmcm/m/n/10 
+
+ []
+
+
+Overfull \hbox (47.05739pt too wide) in paragraph at lines 576--577
+[]\OT1/ptm/m/n/10 By MacLane's co-her-ence the-o-rem ap-plied to the $[][]$ Hom
+-space, there is a unique sim-ple mor-phism in $\OMS/ztmcm/m/n/10 h\OT1/ztmcm/m
+/n/10 (\OML/ztmcm/m/it/10 ^^N[]; ^^O[]\OT1/ztmcm/m/n/10 )\OML/ztmcm/m/it/10 ; [
+] ; \OT1/ztmcm/m/n/10 (\OML/ztmcm/m/it/10 ^^N[]; ^^O[]\OT1/ztmcm/m/n/10 )\OMS/z
+tmcm/m/n/10 i$
+ []
+
+
+Overfull \hbox (28.63495pt too wide) in paragraph at lines 576--577
+\OT1/ptm/m/n/10 when-ever $[][] \OML/ztmcm/m/it/10 g[] \OT1/ztmcm/m/n/10 = 1$\O
+T1/ptm/m/n/10 . This sim-ple mor-phism is a canon-i-cal ba-sis el-e-ment for th
+e 1-dimensional space $\OMS/ztmcm/m/n/10 h\OT1/ztmcm/m/n/10 (\OML/ztmcm/m/it/10
+ ^^N[]; ^^O[]\OT1/ztmcm/m/n/10 )\OML/ztmcm/m/it/10 ; [] ; \OT1/ztmcm/m/n/10 (\O
+ML/ztmcm/m/it/10 ^^N[]; ^^O[]\OT1/ztmcm/m/n/10 )\OMS/ztmcm/m/n/10 i$\OT1/ptm/m/
+n/10 .
+ []
+
+[5]
 \R=\dimen191
  <lickorish.png, id=160, 351.3125pt x 107.40125pt>
 File: lickorish.png Graphic file (type png)
-
-<use lickorish.png>
-Package pdftex.def Info: lickorish.png used on input line 669.
+ <use lickorish.png>
+Package pdftex.def Info: lickorish.png used on input line 667.
 (pdftex.def)             Requested size: 281.85587pt x 86.17348pt.
- [6] [7 <./lickorish.png>]
+
+[6] [7 <./lickorish.png>]
 Missing character: There is no ; in font nullfont!
  [8] [9] [10]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2173.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2171.
  [11]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2173.
-
-(./twistedDW_arxiv.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2173.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2173.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2171.
+ (./twistedDW_arxiv.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2171.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2171.
 
 Package rerunfilecheck Info: File `twistedDW_arxiv.out' has not changed.
 (rerunfilecheck)             Checksum: C488CE323F387AB38E3F37446F72F33D;684.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2173.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2171.
  ) 
 Here is how much of TeX's memory you used:
  20269 strings out of 493029
  380682 string characters out of 6136234
- 586611 words of memory out of 5000000
+ 587898 words of memory out of 5000000
  23198 multiletter control sequences out of 15000+600000
  53227 words of font info for 121 fonts, out of 8000000 for 9000
  1302 hyphenation exceptions out of 8191
@@ -1003,7 +1035,7 @@ are/texlive/texmf-dist/fonts/type1/urw/symbol/usyr.pfb></usr/share/texlive/texm
 f-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
 tmri8a.pfb>
-Output written on twistedDW_arxiv.pdf (11 pages, 197874 bytes).
+Output written on twistedDW_arxiv.pdf (11 pages, 198982 bytes).
 PDF statistics:
  292 PDF objects out of 1000 (max. 8388607)
  259 compressed objects within 3 object streams

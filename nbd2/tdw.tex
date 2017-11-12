@@ -203,7 +203,7 @@ If $\omega$ and $\omega'$ are cohomologous cocycles, then $\Vect_G^\omega$ is mo
 \subsection{Colored graphs}\label{s:colored}
 
 The following definitions and theorem are due to Kirillov
-\cite{kirillovStringNets}.  An unstrictified version is recorded here for convenience.  For any spherical fusion category $\mathcal A$ and surface $\Si$, Kirillov gives the following presentation of the Levin-Wen model as a vector space of
+\cite{kirillovStringNets}.  An unstrict version is recorded here for convenience.  For any spherical fusion category $\mathcal A$ and surface $\Si$, Kirillov gives the following presentation of the Levin-Wen model as a vector space of
 colored graphs modulo local relations.  He also proves that this space
 is canonically isomorphic to the TVBW vector space associated to
 $\Si$.  It is straightforward to check that this isomorphism, which
@@ -232,19 +232,16 @@ of $V_1,\dots, V_n$.
 We have a natural composition map 
 \begin{equation}\label{e:composition}
 \begin{aligned}
- \<V_1,\dots,V_n, X\> \otimes \<\lstar X, W_1,\dots,
+ \<V_1,\dots,V_n, X^*\> \otimes \<X, W_1,\dots,
 W_m\>&\to\<V_1,\dots,V_n, W_1,\dots, W_m\> \\
-\ph\otimes\psi & \mapsto \ph\cc{X}\psi= (\id_{V_1 \otimes \cdots \otimes V_{n}} \otimes \ev_{\lstar X}  \otimes \id_{W_1 \otimes \cdots \otimes W_{m}} )\circ (\ph\otimes\psi),
+\ph\otimes\psi & \mapsto \ph\cc{X}\psi= (\id_{V_1 \otimes \cdots \otimes V_{n}} \otimes \ev_{X}  \otimes \id_{W_1 \otimes \cdots \otimes W_{m}} )\circ (\ph\otimes\psi),
 \end{aligned}
 \end{equation}
-up to associators.  % Note that, due to the order of $X$ and $\lstar X$ in the tensor product, we use the right evaluation map $\ev_{\lstar X} = \lstar\coev_X \colon X \otimes  \lstar X \to \one$ for the left dual of $X$, instead of the right evaluation map $\ev_X : X^* \otimes X \to 1$ for $X$.  
+up to associators and unitors.  % Note that, due to the order of $X$ and $\lstar X$ in the tensor product, we use the right evaluation map $\ev_{\lstar X} = \lstar\coev_X \colon X \otimes  \lstar X \to \one$ for the left dual of $X$, instead of the right evaluation map $\ev_X : X^* \otimes X \to 1$ for $X$.  
 
-We will consider finite  graphs embedded in an oriented surface $\Si$
+We will consider finite directed graphs embedded in an oriented surface $\Si$
 (which may have boundary); for such a
-graph $\Ga$, let $E(\Ga)$ be the set of edges. Note that edges are not
-oriented. Let $E^{or}$ be the set of oriented edges, i.e. pairs $\ee=(e,
-\text{orientation of } e)$; for such an oriented edge $\ee$, we denote by
-$\bar{\ee}$ the edge with opposite orientation.
+graph $\Ga$, let $E(\Ga)$ be the set of edges.
 
 If $\Si$ has a boundary, the graph is allowed to have uncolored one-valent
 vertices on $\del \Si$ but no other common points with $\del \Si$; all
@@ -257,17 +254,17 @@ defined above.  A {\em coloring} of $\Ga$ is the
 following data:
 
   \begin{itemize}
-    \item Choice of a pair $V(\ee)\in \Obj \A$ for every oriented edge $\ee\in E^{or}(\Ga)$ so that $V(\ov{\ee}) = V(\ee)^*$.
-    \item Choice of a vector $\ph(v)\in \<V(\ee_1),\dots,V(\ee_n)\>$ 
+    \item Choice of an object $V(\ee)\in \Obj \A$ for every oriented edge $\ee\in E(\Ga)$ 
+    \item Choice of a vector $\ph(v)\in \<V(\ee_1)^{\epsilon_1},\dots,V(\ee_n)^{\epsilon_n}\>$ 
       (see \eqref{e:vev})  for    every interior vertex $v$, where 
-      $\ee_1, \dots, \ee_n$ are edges incident to $v$, taken in counterclockwise 
-      order and with outward orientation. % (see \firef{f:coloring}). 
+      $\ee_1, \dots, \ee_n$ are edges incident to $v$ taken in counterclockwise 
+      order. The object $V(\ee_i)^{\epsilon_i} = V(\ee_i)$ if $\ee_i$ is outgoing and $V(\ee_i)^*$ if $\ee_i$ is incoming. % (see \firef{f:coloring}). 
 \end{itemize}
 
-An {\em isomorphism} $f$ of two colorings $\{V(\ee), \ph(v)\}$, $\{V'(\ee), \ph'(v)\}$ is a collection of isomorphisms $f_\ee \colon V(\ee)\cong 
-V'(\ee)$ which  agree  with the isomorphisms $V(\ov{\ee})=V(\ee)^*$ and which 
-identify $\ph', \ph$:  $\ph'(v)=f\circ\ph(v)$. 
+  An {\em isomorphism} $f$ of two colorings $\{V(\ee), \ph(v)\}$, $\{V'(\ee), \ph'(v)\}$ is a collection of isomorphisms $f_\ee \colon V(\ee)\cong V'(\ee)$  and $f_{\overline \ee}: V(\ee)^* \cong V'(\ee)^*$ for which  $\ph'(v)=f\circ\ph(v)$.
+%% FIXME: how to make f_\overline \ee???
 
+  
 We will denote the set of all colored graphs on a surface $\Si$ by
 $\Gr(\Si)$.
 \end{defn}
@@ -279,7 +276,7 @@ a collection of points $B=\{b_1,\dots, b_n\}\subset \del \Si$ (the
 endpoints of the legs of $\Ga$) and a collection of objects $V_b\in \Obj\
 \A$ for every $b \in B$: the colors of the legs of $\Ga$ taken with
 outgoing orientation. We will denote the pair $(B, \{V_b\})$ by
-$\VV=\Ga\cap \del\Si$ and call it {\em boundary value}. We will denote  
+$\VV=\Ga\cap \del\Si$ and call it a {\em boundary value}. We will denote  
 $$
 \Gr(\Si, \VV)=\text{set of all colored graphs in $\Si$ with boundary value
 } \VV.
@@ -559,7 +556,7 @@ By MacLane's coherence theorem, there is a unique simple morphism in $\langle g_
 \begin{defn} \label{def:simple_graph}
 Let $\Gamma$ be a graph embedded in a surface $\Si$.  A $\Vect_G^\omega$ coloring $(V, \phi)$ of $\Gamma$ will be called \emph{simple} if the following conditions both hold: 
 \begin{enumerate}
-\item For every oriented edge $\ee \in E^{or}(\Gamma)$, there exists a group element $g(\ee) \in G$ such that
+\item For every oriented edge $\ee \in E(\Gamma)$, there exists a group element $g(\ee) \in G$ such that
 the coloring $V(e_i) = \delta_{g(\ee)}$.
 \item If $v$ is an interior vertex of $\Gamma$, then there exists an enumeration  $\ee_1, \dots, \ee_n$ of the edges incident to $v$, taken in counterclockwise order and with outward orientation, such that $\prod_{i=1}^n g(\ee_i) = 1$ and  the vertex label $\phi(v) \in \langle g(\ee_1), \ldots, g(\ee_n) \rangle$ is a simple morphism.
 \end{enumerate}
