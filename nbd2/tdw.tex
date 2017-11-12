@@ -91,6 +91,7 @@ midarrow/.default=0.5
 \newcommand{\VV}{\mathbf{V}}       % boundary condition
 \newcommand{\vgo}{\Vect_G^\omega}
 \newcommand{\one}{1}
+\newcommand{\ZZ}{\mathbb{Z}}
 \newcommand{\al}{\alpha}
 \newcommand{\be}{\beta}
 \newcommand{\ga}{\gamma}
@@ -178,7 +179,7 @@ $$\coev_{g} = \id_1.$$
 The pivotal structure $j_g:\delta_g \to \delta_g^{**}$ is 
 $$j_{g} = \omega(g^{-1},g,g^{-1}) \id_{g}.$$
 
-If $\omega$ and $\omega'$ are cohomologous cocycles, then $\Vect_G^\omega$ is monoidally equivalent to $\Vect_G^{\omega'}$ \cite{etingofTensor}.  This equivalence respects the pivotal structure, so extends to an equivalence of spherical categories.  It is a basic result in group cohomology that any cocycle $\omega \in Z^3(G, k^\times)$ is cohomologous to a cocycle taking values in $\mu_{|G|}$, the roots of unity of order $|G|$.  Thus, by replacing $\Vect^\omega_G$ with an equivalent spherical category, we assume  without loss of generality that $\Img(\omega) \subset \mu_{|G|}$.  
+If $\omega$ and $\omega'$ are cohomologous cocycles, then $\Vect_G^\omega$ is monoidally equivalent to $\Vect_G^{\omega'}$ \cite{etingofTensor}.  This equivalence respects the pivotal structure, so extends to an equivalence of spherical categories.  It is a basic result in group cohomology that any cocycle $\omega \in Z^3(G, k^\times)$ is cohomologous to a cocycle taking values in $\mu_{|G|}$, the roots of unity of order $|G|$.  Thus, by replacing $\Vect^\omega_G$ with an equivalent spherical category, we assume  without loss of generality that $\Img(\omega) \subset \mu_{|G|}$ (as in \cite{erw}).  
 %% TODO: prove same rep for equivalent cats? move above to later section
 
 \newcommand{\ee}{\mathbf{e}}       % oriented edge
@@ -203,7 +204,7 @@ If $\omega$ and $\omega'$ are cohomologous cocycles, then $\Vect_G^\omega$ is mo
 \subsection{Colored graphs}\label{s:colored}
 
 The following definitions and theorem are due to Kirillov
-\cite{kirillovStringNets}.  An unstrict version is recorded here for convenience.  For any spherical fusion category $\mathcal A$ and surface $\Si$, Kirillov gives the following presentation of the Levin-Wen model as a vector space of
+\cite{kirillovStringNets}.  An unstrict version is recorded here for convenience (see \cite{ns} for definitions of the strictification monoidal functors and their quasi-inverses).  For any spherical fusion category $\mathcal A$ and surface $\Si$, Kirillov gives the following presentation of the Levin-Wen model as a vector space of
 colored graphs modulo local relations.  He also proves that this space
 is canonically isomorphic to the TVBW vector space associated to
 $\Si$.  It is straightforward to check that this isomorphism, which
@@ -232,9 +233,9 @@ of $V_1,\dots, V_n$.
 We have a natural composition map 
 \begin{equation}\label{e:composition}
 \begin{aligned}
- \<V_1,\dots,V_n, X^*\> \otimes \<X, W_1,\dots,
+ \<V_1,\dots,V_n, X\> \otimes \<X^*, W_1,\dots,
 W_m\>&\to\<V_1,\dots,V_n, W_1,\dots, W_m\> \\
-\ph\otimes\psi & \mapsto \ph\cc{X}\psi= (\id_{V_1 \otimes \cdots \otimes V_{n}} \otimes \ev_{X}  \otimes \id_{W_1 \otimes \cdots \otimes W_{m}} )\circ (\ph\otimes\psi),
+\ph\otimes\psi & \mapsto \ph\cc{X}\psi= (\id_{V_1 \otimes \cdots \otimes V_{n}} \otimes (\ev_{X^*} \circ (j_X \otimes \id_{X^*}  )\otimes \id_{W_1 \otimes \cdots \otimes W_{m}} )\circ (\ph\otimes\psi),
 \end{aligned}
 \end{equation}
 up to associators and unitors.  % Note that, due to the order of $X$ and $\lstar X$ in the tensor product, we use the right evaluation map $\ev_{\lstar X} = \lstar\coev_X \colon X \otimes  \lstar X \to \one$ for the left dual of $X$, instead of the right evaluation map $\ev_X : X^* \otimes X \to 1$ for $X$.  
@@ -243,10 +244,8 @@ We will consider finite directed graphs embedded in an oriented surface $\Si$
 (which may have boundary); for such a
 graph $\Ga$, let $E(\Ga)$ be the set of edges.
 
-If $\Si$ has a boundary, the graph is allowed to have uncolored one-valent
-vertices on $\del \Si$ but no other common points with $\del \Si$; all
-other  vertices will  be called interior.  We will  call the edges of $\Ga$
-terminating at these  one-valent vertices {\em legs}.   
+If $\Si$ has a boundary, the graph is allowed to have uncolored 
+one-valent vertices on $\del \Si$ with exactly one incoming edge but no other common points with $\del \Si$; all other  vertices will  be called interior.  We will  call the edges of $\Ga$ terminating in these  one-valent vertices {\em legs}.   
 %%%%%%%%%%%%%%%%%%%%%%
 \begin{defn}\label{d:coloring} Let $\Si$ be an oriented surface
 (possibly with boundary) and $\Ga\subset \Si$ --- an embedded graph as
@@ -258,11 +257,10 @@ following data:
     \item Choice of a vector $\ph(v)\in \<V(\ee_1)^{\epsilon_1},\dots,V(\ee_n)^{\epsilon_n}\>$ 
       (see \eqref{e:vev})  for    every interior vertex $v$, where 
       $\ee_1, \dots, \ee_n$ are edges incident to $v$ taken in counterclockwise 
-      order. The object $V(\ee_i)^{\epsilon_i} = V(\ee_i)$ if $\ee_i$ is outgoing and $V(\ee_i)^*$ if $\ee_i$ is incoming. % (see \firef{f:coloring}). 
+      order. The object $V(\ee_i)^{\epsilon_i} = V(\ee_i)$ if $\ee_i$ is outgoing from $v$ and $V(\ee_i)^*$ if $\ee_i$ is incoming. % (see \firef{f:coloring}). 
 \end{itemize}
 
-  An {\em isomorphism} $f$ of two colorings $\{V(\ee), \ph(v)\}$, $\{V'(\ee), \ph'(v)\}$ is a collection of isomorphisms $f_\ee \colon V(\ee)\cong V'(\ee)$  and $f_{\overline \ee}: V(\ee)^* \cong V'(\ee)^*$ for which  $\ph'(v)=f\circ\ph(v)$.
-%% FIXME: how to make f_\overline \ee???
+  An {\em isomorphism} $f$ of two colorings $\{V(\ee), \ph(v)\}$, $\{V'(\ee), \ph'(v)\}$ is a collection of isomorphisms $f_\ee \colon V(\ee)\cong V'(\ee)$  for which  $\ph'(v)=f\circ\ph(v)$, where the action of $f$ on $V(\ee)^*$ is by $(f_\ee^{-1})^*$.
 
   
 We will denote the set of all colored graphs on a surface $\Si$ by
@@ -273,9 +271,8 @@ $\Gr(\Si)$.
 
 Note that if $\Si$ has a boundary, then every colored graph $\Ga$ defines
 a collection of points $B=\{b_1,\dots, b_n\}\subset \del \Si$ (the
-endpoints of the legs of $\Ga$) and a collection of objects $V_b\in \Obj\
-\A$ for every $b \in B$: the colors of the legs of $\Ga$ taken with
-outgoing orientation. We will denote the pair $(B, \{V_b\})$ by
+endpoints of the legs of $\Ga$)  and  a collection of objects $V_b\in \Obj\
+\A$ for every $b \in B$: the colors of the legs of $\Ga$. We will the pair $(B, \{V_b\})$ by
 $\VV=\Ga\cap \del\Si$ and call it a {\em boundary value}. We will denote  
 $$
 \Gr(\Si, \VV)=\text{set of all colored graphs in $\Si$ with boundary value
@@ -300,10 +297,10 @@ The following theorem is a variation of result of Reshitikhin and Turaev.
   There is a unique  way to assign to every colored
   planar graph $\Ga$ in a disk $D\subset \R^2$ a vector
   \begin{equation*}
-    \<\Ga\>_D\in \langle V(\ee_1), \dots, V(\ee_n) \rangle
+    \<\Ga\>_D\in \langle V(\ee_1)^{\epsilon_i}, \dots, V(\ee_n)^{\epsilon_n} \rangle
   \end{equation*}
   where $\ee_1,\dots, \ee_n$ are the edges of $\Ga$ meeting the boundary
-  of $D$ (legs), taken in counterclockwise order and with outgoing orientation,
+  of $D$ (legs), taken in counterclockwise order and $\epsilon_i$ are the corresponding orientations,
   so that that following conditions are satisfied:
   \begin{enumerate}
      \item $\<\Ga\>$ only depends on the isotopy  class of $\Ga$.
@@ -558,7 +555,7 @@ Let $\Gamma$ be a graph embedded in a surface $\Si$.  A $\Vect_G^\omega$ colorin
 \begin{enumerate}
 \item For every oriented edge $\ee \in E(\Gamma)$, there exists a group element $g(\ee) \in G$ such that
 the coloring $V(e_i) = \delta_{g(\ee)}$.
-\item If $v$ is an interior vertex of $\Gamma$, then there exists an enumeration  $\ee_1, \dots, \ee_n$ of the edges incident to $v$, taken in counterclockwise order and with outward orientation, such that $\prod_{i=1}^n g(\ee_i) = 1$ and  the vertex label $\phi(v) \in \langle g(\ee_1), \ldots, g(\ee_n) \rangle$ is a simple morphism.
+\item If $v$ is an interior vertex of $\Gamma$, then there exists an enumeration  $\ee_1, \dots, \ee_n$ of the edges incident to $v$, taken in counterclockwise order, such that $\prod_{i=1}^n g(\ee_i)^{\epsilon_i} = 1$ and  the vertex label $\phi(v) \in \langle g(\ee_1)^{\epsilon_i}, \ldots, g(\ee_n)^{\epsilon_i} \rangle$ is a simple morphism, where $\epsilon_i = 1$ if $\ee_i$ is outgoing from $v$ and $-1$ if $\ee_i$ is incoming.
 \end{enumerate}
 \end{defn}
 
@@ -566,7 +563,7 @@ the coloring $V(e_i) = \delta_{g(\ee)}$.
 Let $\phi \in \langle g_1, \ldots, g_n \rangle$ and $\psi \in \langle g_n, g_1, \ldots, g_{n-1} \rangle$ be simple morphisms.  Then $z(\phi) = \alpha \psi$, where $\alpha \in \mu_{|G|}$.
 \end{lem}
 \begin{proof}
-The definition of the $z$-morphism in Equation \ref{e:cyclic} only involves tensors and compositions of structural morphisms -- i.e. associators, unitors, the pivotal $j$-morphism, evaluation, and coevaluation morphisms.  Since all the tensor factors in the codomain of $\phi$ are simple objects, the definition of $\Vect_G^\omega$ states that each of the structural morphisms simply consist of multiplication by elements of the form $\omega(g,h,k)$ for some $g,h,k \in G$. Thus, $z(\phi) = \alpha \psi$ for some $\alpha$ which is a product of elements in $\Img(\omega)$.   Since $\Img(\omega) \subset \mu_{|G|}$, it follows that $\alpha \in \mu_{|G|}$.
+The definition of the $z$-morphism in Equation \ref{e:cyclic} only involves tensors and compositions of structural morphisms -- i.e. associators, unitors, the pivotal $j$-morphism, evaluation, and coevaluation morphisms.  Since all the tensor factors in the codomain of $\phi$ are of the form $\delta_g$, the definition of $\Vect_G^\omega$ implies that each of the structural morphisms simply consist of multiplication by elements of the form $\omega(g,h,k)$ for some $g,h,k \in G$. Thus, $z(\phi) = \alpha \psi$ for some $\alpha$ which is a product of elements in $\Img(\omega)$.   Since $\Img(\omega) \subset \mu_{|G|}$, it follows that $\alpha \in \mu_{|G|}$.
 \end{proof}
 
 \begin{prop} \label{prop:omega}
@@ -581,9 +578,9 @@ where $\Delta'$ is a simple colored graph given by replacing each vertex label i
 \begin{proof}
 The proof of (1) follows directly from the definition  of each local move. For (2), we'll consider each local move separately.  In each case, we need to show that $\Delta$ is equivalent to $\alpha \Delta'$ in $H$.  
 
-For the first (edge contraction) local move in Figure \ref{f:local_rels1},  using the same notation as in the figure, the vertex label $\psi \cc{X} \phi$ in $\Delta$ is given by the following composition.  Since $\Gamma$ is simple, there exist integers $l,k$ and simple morphisms $\phi', \psi'$ such that $\psi = z^l(\psi')$ and $\phi = z^k(\phi')$. Then we repeatedly apply associators and the cyclic $z$-morphism of Equation \ref{e:cyclic} to $\phi$ and $\psi$ until the tensor factors of the codomain are rearranged in the order of the left hand side of Equation \ref{e:composition} and that $X$ and $X^*$ are isolated (not contained in any parentheses).  After applying the $\ev_X$ morphism, we reassociate until the new label $\ph\cc{X}\psi$ has the left-associated parenthesization.  Since every edge is labeled by a simple object, each associator morphism consists of multiplication by $\omega(g,h,k)$ for some $g,h,k \in G$.  Similarly, by Lemma \ref{lem:z_simple}, every $z$-morphism consists of multiplication by some $\beta \in \mu_{|G|}$.  Thus, the overall composition consists of multiplication by an element $\alpha \in \mu_{|G|}$.
+For the first (edge contraction) local move in Figure \ref{f:local_rels1},  using the same notation as in the figure, the vertex label $\psi \cc{X} \phi$ in $\Delta$ is given by the following composition.  Since $\Gamma$ is simple, there exist integers $l,k$ and simple morphisms $\phi', \psi'$ such that $\psi = z^l(\psi')$ and $\phi = z^k(\phi')$. Then we repeatedly apply associators and the cyclic $z$-morphism of Equation \ref{e:cyclic} to $\phi$ and $\psi$ until the tensor factors of the codomain are rearranged in the order of the left hand side of Equation \ref{e:composition} and that $X$ and $X^*$ are isolated (not contained in any parentheses).  After applying the $\ev_X$ morphism, we reassociate until the new label $\ph\cc{X}\psi$ has the left-associated parenthesization.  Since every edge is labeled by an object of the form $\delta_g$, each structural morphism consists of multiplication by $\omega(g,h,k)$ for some $g,h,k \in G$.  Similarly, by Lemma \ref{lem:z_simple}, every $z$-morphism consists of multiplication by some $\beta \in \mu_{|G|}$.  Thus, the overall composition consists of multiplication by an element $\alpha \in \mu_{|G|}$.
 
-For the second local move (tensoring parallel edges), there are two cases: $k = 0$ and $k > 0$.  In the $k = 0$ case,  we apply inverse unitors to each vertex label to introduce an edge labeled by the unit object, followed by reassocation.  In the $k > 0$ case, we need to reassociate to group together labels of the parallel edges then reassociate at the end.  For the same reasons as for the first move (every edge is labeled by a simple object), it follows that the result of this local move is also of the desired form.
+For the second local move (tensoring parallel edges), there are two cases: $k = 0$ and $k > 0$.  In the $k = 0$ case,  we apply inverse unitors to each vertex label to introduce an edge labeled by the unit object, followed by reassocation.  In the $k > 0$ case, we need to reassociate to group together labels of the parallel edges then reassociate at the end.  For the same reasons as for the first move (every edge is labeled by a $\delta_g$), it follows that the result of this local move is also of the desired form.
 
 For the third local move (adding a $\coev$-labeled vertex), the colored graph given by direct application of the local move to a simple graph is already simple, so we can pick $\alpha = 1$.  
 \end{proof}
@@ -598,7 +595,7 @@ The image of any twisted Dijkgraaf-Witten representation of a mapping class grou
 \end{thm}
 
 \begin{proof}
-Let $\Gamma$ be a $\Vect_G^\omega$-colored graph embedded in $\Si$, and let $g \ge 1$ be the genus of $\Si$ (if $g = 0$, the mapping class group is trivial). Thinking of $\Si$ as a quotient of its fundamental $4g$-gon, by isotopy we may assume that the vertices of $\Gamma$ lie in the interior of the polygon, none of the edges of $\Gamma$ intersect the corners of the polygon, and that the edges of $\Gamma$ only meet the sides of the polygon transversally.  Applying the evaluation map of Theorem \ref{t:RT} on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$ and edges $e_1, \ldots, e_{2g}$ corresponding to the standard generators of $\pi_1(M,v)$ as shown in Figure \ref{fig:span}.
+Let $\Gamma$ be a $\Vect_G^\omega$-colored graph embedded in $\Si$, and let $g \ge 1$ be the genus of $\Si$ (if $g = 0$, the mapping class group is trivial). Thinking of $\Si$ as a quotient of its fundamental $4g$-gon, by isotopy we may assume that the vertices of $\Gamma$ lie in the interior of the polygon, none of the edges of $\Gamma$ intersect the corners of the polygon, and that the edges of $\Gamma$ only meet the sides of the polygon transversally.  Applying the evaluation map of Theorem \ref{t:RT} on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once. Note that we can always flip the orientation of an edge by adding a $\coev$-labeled vertex to the relevant edge and then contracting on the edge corresponding to the original edge label.   Thus, by using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.     If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$ and edges $e_1, \ldots, e_{2g}$ corresponding to the standard generators of $\pi_1(M,v)$ as shown in Figure \ref{fig:span}.
 
 By Theorem \ref{t:RT} and the definition of the quotient map identifying the sides of the fundamental polygon, the vertex $v$ is colored by an element $\phi(v) \in \Hom (\one, \bigotimes_{i=1}^g V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1})^* \otimes V(e_{2i})^*)$, where $V(e_i) \in \Obj(\Vect_G^\omega)$ is the coloring of the edge $e_i$.   
 
@@ -607,7 +604,7 @@ We claim that the representation space $H$ is spanned by the set of such colored
 Since isomorphic colorings give the same evaluation, it follows that $H$ is spanned by colored graphs $\Gamma$ such that
 each $V(e_i) = \delta_{g_i}$ for some $g_i \in G$.  For such $\Gamma$,  the space of possible $v$-colors $\Hom (\one, \bigotimes_{i=1}^g V(e_{2i-1}) \otimes V(e_{2i})  \otimes V(e_{2i-1})^* \otimes V(e_{2i})^*)$ is one-dimensional if $\prod_{i=1}^g [g_{2i-1}, g_{2i}] = 1$, and zero-dimensional otherwise.
 
-By using the linearity with respect to the vertex label, we can further restrict to simple colored graphs $\Gamma$.  Thus, the representation space $H$ has a spanning set $S$ consisting of all simple colored graphs $\Gamma$ with one vertex $v$ and edges $e_1, \ldots, e_{2g}$ corresponding to the standard generators of $\pi_1(M,v)$.  Since there are only $|G|$ simple objects in $\Vect_G^\omega$ and at most $4g$ choices of simple morphisms labeling the vertex for a fixed edge labelling, the spanning set $S$ is finite.
+By using the linearity with respect to the vertex label, we can further restrict to simple colored graphs $\Gamma$.  Thus, the representation space $H$ has a spanning set $S$ consisting of all simple colored graphs $\Gamma$ with one vertex $v$ and edges $e_1, \ldots, e_{2g}$ corresponding to the standard generators of $\pi_1(M,v)$.  Since there are $|G|$ objects of the form $\delta_g$ in $\Vect_G^\omega$ and at most $4g$ choices of simple morphisms labeling the vertex for a fixed edge labelling, the spanning set $S$ is finite.
 
 \newdimen\R
 \R=0.8cm
@@ -655,7 +652,7 @@ The mapping class group of $\Si$ is generated by the Lickorish generating set co
 To understand the action of each type of Dehn twist on the representation space $H$, we will consider the action on the spanning set $S$.  First, we claim that we can apply local moves to any element of $S$ to get a colored graph of the form shown in the first subfigure of Figure \ref{fig:tikzTwist1_1}, where the unshown part of the fundamental polygon looks the same as in the definition of $S$.  Indeed, to pass from an arbitrary element of $S$, to a colored graph of the form shown in the first subfigure of $\ref{fig:tikzTwist1_1}$, we first add coevalution-labeled vertices to each  edge intersecting the three shown sides of the fundamental polygon.  Then connect the new vertices using edges labeled by the trivial object (this corresponds to applying the second local move in Figure \ref{f:local_rels1} with  $k = 0$), contract the connections to get one new vertex, and tensor together the edges connecting the old vertex to the new vertex.
 
 The action of the first type of Dehn twist on an arbitrary element of $S$ is shown in the first two subfigures of Figure \ref{fig:tikzTwist1_1}.  
-After applying the Dehn twist, we have the simple colored graph shown in the second subfigure of Figure \ref{fig:tikzTwist1_1}.  We then apply local moves in the remaining subfigures.  For example, to go from the second subfigure to the third, we first apply the third local move of Figure \ref{f:local_rels1} to add a $\coev$-labeled vertex to the top left $g$-labeled edge.  We then apply the second local move (tensoring edges) with the number of parallel edges $k = 0$ to add an edge labeled by the trivial object between the new vertex and the old one. To go from the third to the fourth subfigure, we apply the edge contraction local move on the new edge.  Lastly, we get to the fifth subfigure by applying the tensoring edges local move again (strictly speaking, this is not a valid move since it does not take place on a disk, but one can easily add a $\coev$-labeled vertex to each of the two parallel edges, connect them, contract the connection, tensor together each of the two pairs of parallel edges, and contract one of the resulting edges to get the same result). By repeated application of Proposition $\ref{prop:omega}$, the resulting colored graph is equivalent to $\beta \Delta$, for some $\beta \in \mu_{|G|}$ and  $\Delta \in S$.    Thus, the first type of Dehn twist maps $S$ to $\mu_{|G|} S$.
+After applying the Dehn twist, we have the simple colored graph shown in the second subfigure of Figure \ref{fig:tikzTwist1_1}.  We then apply local moves in the remaining subfigures.  For example, to go from the second subfigure to the third, we first apply the third local move of Figure \ref{f:local_rels1} to add a $\coev$-labeled vertex to the top left $g$-labeled edge. Note that we have flipped the orientation of one of the edges incident to this new vertex, dualizing its object label.  We then apply the second local move (tensoring edges) with the number of parallel edges $k = 0$ to add an edge labeled by the trivial object between the new vertex and the old one. To go from the third to the fourth subfigure, we apply the edge contraction local move on the new edge.  Lastly, we get to the fifth subfigure by applying the tensoring edges local move again (strictly speaking, this is not a valid move since it does not take place on a disk, but one can easily add a $\coev$-labeled vertex to each of the two parallel edges, connect them, contract the connection, tensor together each of the two pairs of parallel edges, and contract one of the resulting edges to get the same result). By repeated application of Proposition $\ref{prop:omega}$, the resulting colored graph is equivalent to $\beta \Delta$, for some $\beta \in \mu_{|G|}$ and  $\Delta \in S$.    Thus, the first type of Dehn twist maps $S$ to $\mu_{|G|} S$.
 
 An analogous proof works for the second type of Dehn twist shown in Figure \ref{fig:tikzTwist2_0}. Thus, the image of any such mapping class group representation is a quotient of the group of permutations of the finite set $\mu_{|G|} S$, hence finite.
 \end{proof}
@@ -1147,7 +1144,7 @@ Under the assumption that the representation in \cite{fjfu} coincides with ours,
 
 \subsection{Boundary Case}
 
-When $\Si$ has boundary, we denote by $\MCG(\Si)$ the group of isotopy classes of homeomorphisms fixing the boundary of $\Si$ setwise. Given any labelling of the boundary  by objects in the Drinfeld center, $l : \pi_0(\partial M) \to \Obj(Z(\vgo))$, we get a mapping class group representation. The representation space is $\Hs(\Si, \VV)$ with boundary condition $\VV = F \circ l$, where $F$ is the forgetful functor $F: Z(\vgo) \to \vgo$.  The same local relations are valid in this representation space \cite{kirillovStringNets}.
+When $\Si$ has boundary, we denote by $\MCG(\Si)$ the group of isotopy classes of homeomorphisms fixing the boundary of $\Si$ setwise. Given any labelling of the boundary  by objects in the Drinfeld center, $l : \pi_0(\partial M) \to \Obj(Z(\vgo))$, we get a mapping class group representation. Picking one point on each boundary component, we get a set of points $B \subset \partial M$ and bijection $b: B \to \pi_0(\partial M)$.  The representation space $H = \Hs(\Si, \VV)$ corresponding to the labelling $l$ has boundary condition $\VV = (B, F \circ l \circ b)$, where $F$ is the forgetful functor $F: Z(\vgo) \to \vgo$.  The local relations used above still hold in this representation space \cite{kirillovStringNets}.
 
 By a similar argument as in the proof of the Theorem $\ref{thm:closed}$, any such representation space has a finite spanning set $S$ consisting of all simple colored graphs with a single vertex, loops for each of the usual generators of the fundamental group of $\Si$, and a leg from the vertex to each of the boundary components.  
 
@@ -2103,8 +2100,13 @@ of Piecewise-Linear 3-Manifolds}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{348} (1996
 
 \bibitem{Lyubashenko1996} V.\ Lyubashenko, \emph{Ribbon Abelian Categories as Modular Categories}, J.\ Knot Theory Ramifications \textbf{5} (1996), no. 3, 311--403.
 
+  
+ 
 \bibitem{nr} D.\ Naidu and E.\ C.\ Rowell. \emph{A finiteness property for braided fusion categories}, Algebr.\ and Represent.\ Theor.\ \textbf{14} (2011), no. 5, 837--855.
 
+\bibitem{ns}  S.-H.\ Ng and P.\ Schauenburg, \emph{Higher Frobenius-Schur Indicators for Pivotal Categories}, Contemp.
+Math. \textbf{441} (2007), 63--90.
+  
 \bibitem{0806.2493} S.-H.\ Ng and P.\ Schauenburg, \emph{Congruence Subgroups and Generalized {Frobenius-Schur} Indicators}, Comm.\ Math.\ Phys.\ \textbf{300} (2010), no. 1, 1--46.
 
 \bibitem{math/0601012} S.-H.\ Ng and P.\ Schauenburg, \emph{{Frobenius-Schur} Indicators and Exponents of Spherical Categories}, Adv.\ Math.\ \textbf{211} (2007), no. 1, 34--71.
