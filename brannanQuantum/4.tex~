@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{../m}
+
+\begin{document}
+\noindent Paul Gustafson\\
+\noindent MATH 663 - Subfactors, Knots, and Planar Algebras (Fall 2017)
+
+\subsection*{HW 4}
+\p 1 Let $(M, \tau)$ be a finite von Neumann algebra, let $1 \in N \subset M$ be a von Neumann subalgebra, and let $E: M \to N$ be the unique $\tau$-preserving conditional expectation.  Prove that $E$ is continuous and completely positive.
+
+\begin{proof}
+  By definition, $E$ is a positive linear map between C-* algebras, so $E$ is bounded.  For the complete positivity, suppose $(x_i)_{i=1}^r \subset M_n(\CC)$ and $(y_i)_{i=1}^r \in M$ such that $\sum_i x_i \otimes y_i$ is positive.  Then
+  $\sum_i x_i \otimes E(y_i)
+\end{proof}
+
+\p 2 Let $\pi, \sigma \in NC_2(2n)$.  Let $\beta \in \CC \setminus \{0\}$ and consider the canonical trace $\tau : D_n(\beta) = TL_n(\beta^{-2}) \to \CC$.  Show that $\tau(D_\sigma^* D_\pi) = \beta^{|\pi \vee \sigma|} - n$.
+
+\p 3 Prove that the canonical trace $\tau_n$ \on $TL_n(\lambda)$ is positive semidefinite for all $\lambda \in (0, \frac{1}{4}]$.
+\end{document}
