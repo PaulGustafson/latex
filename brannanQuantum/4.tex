@@ -46,16 +46,62 @@ Thus, the Gram matrix for $\tau_n$ wrt to $(\D_\pi)_\pi$ is same as the Gram mat
 
 \DeclareMathOperator{\slim}{s-lim}
   
-  \p 4 (Exercise 10 of Speicher) Let $p,q \in B(H)$ be orthogonal projections on a separable complex Hilbert space $H$.
+  \p {Exercise 10 of Speicher} Let $p,q \in B(H)$ be orthogonal projections on a separable complex Hilbert space $H$.
   \begin{enumerate}[(a)]
   \item Show that
     $$\slim_{n \to \infty} (pqp)^n = p \wedge q.$$
     \begin{proof}
-      Since $pqp$ is self-adjoint, $C^*(1, pqp)$ is a unital commutative $C^*$-algebra, hence isometrically $*$-isomorphic to $C(\Spec(pqp))$ via a map $\phi$ with $\phi(pqp) = \id_{\Spec(pqp)}$.  It is easy to check that $pqp$ is a contractive positive operator. Hence, $\Spec(pqp) \subset [0,1]$.  Thus, $\phi((pqp)^n) = \id_{\Spec(pqp)}^n \to \xi_{\{1\}}$.  Thus, $pqp$ converges in norm to some projection $e$.
+      Since $pqp$ is self-adjoint, $C^*(1, pqp)$ is a unital commutative $C^*$-algebra, hence isometrically $*$-isomorphic to $C(\Spec(pqp))$ via a map $\phi$ with $\phi(pqp) = \id_{\Spec(pqp)}$.  It is easy to check that $pqp$ is a contractive positive operator. Hence, $\Spec(pqp) \subset [0,1]$.  Thus, $\phi((pqp)^n) = \id_{\Spec(pqp)}^n \to \xi_{\{1\}}$.  Thus, $(pqp)^n$ converges in norm to some projection $e$.
 
-      It is clear that $p \wedge q \le e$.  For the opposite inequality, we have
-      $\|(pqp)^n \xi\| \le \|q \xi\|$ for all $\xi \in H$, so $\|e \xi\| \le \|q \xi\|$.  The same holds for $p$.  Thus, $e \le p \wedge q$.  Thus, $e = p \wedge q$.
-      
+      We have $pe = \lim_n p (pqp)^n = e$, so $p \le e$.  We also have
+      \begin{align^*}
+        eqe & = \lim_n (pqp)^n q \lim_m (pqp)^m  \\
+        & = \lim_n \lim_m (pqp)^n q (pqp)^m \\
+        & = \lim_{n} \lim_m (pqp)^{n + m + 1} \\
+        & = \lim_n e \\
+        & = e.
+      \end{align^*}
+      Thus,
+      \begin{align*}
+        \langle (e - q)\xi,  \xi \rangle & = \langle (e^2 - eqe) \xi,  \xi \rangle \\
+        & = \langle (1 - q) e \xi, e \xi \rangle \\
+        & \ge 0,
+      \end{align*}
+      so $q \le e$.  Thus, $p \wedge q \le e$
+
+      On the other hand, $(p \wedge q) e = \lim_n (p \wedge q) (pqp)^n = \lim_n p \wedge q = p \wedge q$.  Thus,
+      $e \le p \wedge q$.  Thus, $e = p \wedge q$.
+    \end{proof}
+
+  \item Deduce that $\slim_{n \to \infty} (pq)^n = p \wedge q$.
+    \begin{proof}
+      We have $(pq)^n = (pqp)^{n-1}q \to (p \wedge q) q = p \wedge q$ in norm.
+    \end{proof}
+
+  \item Discuss the statements (a) and (b) in the case $H = \CC^3$ for the projections
+    $p = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0   \end{pmatrix}$
+    and $q = u  \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0   \end{pmatrix} u^*$, where $u = \begin{pmatrix} \cos(\theta) & 0 & -\sin(\theta) \\    0 & 1 & 0 \\      \sin(\theta) & 0 & \cos(\theta)     \end{pmatrix}$ for some
+    $0 \le \theta \le \pi$.
+
+    \emph{Answer:}
+    
+    The matrix $u$ is a rotation by $\theta$ about the $y$ axis. The matrix $q$ is a projection onto the space spanned by the $y$ axis and rotation of the $x$-axis by $\theta$ around the $y$-axis.  The matrix $p$ projects back onto the $x$ and $y$ axis.  Each time you do this the $x$-coordinate shrinks by a value of $\cos^2(\theta)$, but the $y$ coordinate remains the same.
+
+    More explicitly, we have
+    $(pq)^n = \begin{pmatrix} \cos(\theta)^{2n} & 0 & \cos(\theta)^{2n-1} \sin(\theta) \\ 0 & 1 & 0 \\ 0 & 0 & 0     \end{pmatrix}$ and
+    $(pqp)^n = \begin{pmatrix} \cos(\theta)^{2n} & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 0     \end{pmatrix}$.
+
+    The limit in both cases is the projection onto the $y$-axis.
+
+  \end{enumerate}
+    
+  \p{Exercise 11 of Speicher} Let $(S_n)_{n=0}^\infty$ be the sequence of Chebyshev polynomials of the second kind, which are recursively defined by $S_0(x) = 1$, $S_1(x) = x$ and
+  $$x S_n(x) = S_{n+1}(x) + S_{n-1}(x) \qquad \text{for all } n \ge 1.$$
+  Prove the following statements.
+  \begin{enumerate}[(a)]
+  \item  For all $n \ge 0$ and all $0 < \theta < \pi$, it holds true that
+    $$S_n( 2 \cos(\theta)) = \frac{\sin((n+1) \theta)}{\sin(\theta)}.$$
+    \begin{proof}
     \end{proof}
     
   \end{enumerate}
