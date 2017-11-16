@@ -36,7 +36,7 @@
         \langle \xi_\pi, \xi_\sigma \rangle &  = \sum_i \prod_{b \in \pi \vee \sigma} \prod_{j = 1}^{|b|} F_{i(x_j)i(x_{j+1})}  
       \end{align*}
 
-      For the last product to be nonvanishing, we must have $i(x_{j+1}) \neq i(x_{j})$ for all $j$.  Thus, for every block we get exactly two nonvanishing values of $i$ corresponding to the values $i(x_1)$ at the block's minimal element $x_1$.  Moreover, the map $j \mapsto x_j$ for $1 \le j \le |b| + 1$ defines a piecewise linear map $\phi: (1, |b| +1) \to \RR_{\ge 0}$ by connecting consecutive points with line segments.  It is easy to check that
+      For the innermost product to be nonvanishing, since $F$ is $0$ on its diagonal, we must have $i(x_{j+1}) \neq i(x_{j})$ for all $j$.  Thus, for every block $b$ we get exactly two nonvanishing choices $i|_b$ determined by the values $i(x_1)$ at the block's minimal element $x_1$.  Moreover, the map $j \mapsto x_j$ for $1 \le j \le |b| + 1$ defines a piecewise linear map $\phi: (1, |b| +1) \to \RR_{\ge 0}$ by connecting consecutive points with line segments.  It is easy to check that
       $$ \prod_{j = 1}^{|b|} F_{i(x_j)i(x_{j+1})}   = \beta^{\frac{-|b|}{2}} q^{\# (\text{local maxima of } \phi)- \# (\text{local minima of } \phi)} $$
       if $i(x_1) = 1$.  If $i(x_1) = 2$, the sign of the exponent of $q$ flips.   Since $x_1 = x_{|b| + 1}$ is minimal, the first and last local extrema of $\phi$ in $(1, |b| + 1)$ are local maxima.  Thus, the previous product is $q^2$ or $q^{-2}$, depending on $i(x_1)$.  Since the choice of $i(x_1)$ is independent for each block $b$, we have
 \begin{align*}
@@ -155,12 +155,40 @@ Thus, the Gram matrix for $\tau_n$ wrt to $(D_\pi)_\pi$ is same as the Gram matr
         \sum_{n = 0}^\infty {S_n(x) - S_n(y)}{x - y} z^n & = \frac{1}{x-y} \left( \frac{1}{1 - xz + z^2} - \frac{1}{1 - yz + z^2} \right) \\
         & = \frac{1}{x-y}\left(\frac{(x - y)z}{(1 - xz + z^2) (1 - yz + z^2)}\right) \\
         & = z \left( \sum_{n=0}^\infty S_n(x)z^n \right) \left(\sum_{n=0}^\infty S_n(y) z^n \right) \\
-        & = z \sum_{n=0}^\infty \sum_{k = 0}^n S_k(x) S_{n-k}(y) z^n) \\
-        & = \sum_{n=0}^\infty \sum_{k = 1}^{n+1} S_{k-1}(x) S_{n-k+1}(y) z^{n+1}) \\
-        & = \sum_{n=0}^\infty \sum_{k = 1}^{n} S_{k-1}(x) S_{n-k}(y) z^{n})
+        & = z \sum_{n=0}^\infty \sum_{k = 0}^n S_k(x) S_{n-k}(y) z^n \\
+        & = \sum_{n=0}^\infty \sum_{k = 1}^{n+1} S_{k-1}(x) S_{n-k+1}(y) z^{n+1} \\
+        & = \sum_{n=0}^\infty \sum_{k = 1}^{n} S_{k-1}(x) S_{n-k}(y) z^{n}
       \end{align*}
     \end{proof}
   \end{enumerate}
 
+  \p{Exercise 12 of Speicher}
+  \begin{enumerate}[(a)]
+    \item  Given f.d. von Neumann algebras $N \subset M \subset P$, show that
+      $$\Lambda_N^P = \Lambda_N^M \Lambda_M^P.$$
+      \begin{proof}
+        Let $(p_i), (q_j), (r_k)$ be the minimal central projections of $N$, $M$, and $P$ respectively.  For each $i$, let $e_i$ be a minimal projection in $p_iN$.   We have $e_i = \sum_j q_j e_i = \sum_{j,l} f_{ijl}$ for some minimal projections $f_{ij}^{(l)} \in q_j M$.  Then $\sum_l 1 = \Tr(\sum_l f_{ij}^{(l)}) = \Tr(q_j e_i) = (\Lambda_N^M)_{ij}$. Thus, 
+        \begin{align*}
+          (\Lambda_N^P)_{ik} & = \Tr(r_k e_i) \\
+          & = \sum_{j,l} \Tr(r_k f_{ij}^{(l)} ) \\
+          & = \sum_{j,l} (\Lambda_M^P)_{jk} \\
+          & = \sum_j  (\Lambda_N^M)_{ij} (\Lambda_M^P)_{jk}
+        \end{align*}
+      \end{proof}
 
+      \item Let $s,t$ be trace vectors for f.d. von Neumann algebras $N$ and $M$, respectively.  Show that $\tau_M|_N = \tau_N$ if and only if $\Lambda_N^M t = s$.
+        \begin{proof}
+          We have $\tau_M|_N = \tau_N$ iff $\tau_M|_N(e) = \tau_N(e)$ for every minimal projection $e \in P(N)$.  By definition, $\tau_N(e) = s_i$, where $i$ is the index of the factor containing $e$.  On the other hand, if $(p_j)$ are minimal central projections for $M$,
+\begin{align*}
+  \tau_M(e) & = \sum_j \tau_M(p_j e) \\
+  & = \sum_j t_j \Tr(p_j e) \\
+  & = \sum_j \Lambda_{ij} t_j  
+\end{align*}
+
+Thus, $\tau_N(e) = \tau_M|_N(e)$ iff $s_i = \sum_j \Lambda_{ij} t_j$.  Thus,
+$\tau_N = \tau_M|_N$ iff $s = \Lambda t$.
+
+
+      \end{proof}
+  \end{enumerate}
 \end{document}
