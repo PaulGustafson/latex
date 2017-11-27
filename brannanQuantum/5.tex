@@ -1,0 +1,47 @@
+\documentclass{article}
+
+\usepackage{../m}
+
+\DeclareMathOperator{\Spec}{Spec}
+\DeclareMathOperator{\slim}{s-lim}
+
+\begin{document}
+\noindent Paul Gustafson (j.w.w. Qing Zhang) \\
+\noindent MATH 663 - Subfactors, Knots, and Planar Algebras (Fall 2017)
+
+\subsection*{HW 5}
+\p{15} Let $n \in \NN$ with $n \ge 2$ be fixed.  Consider the symmtric matrix $\Lambda \in M_n(\CC)$ defined by
+$$ \Lambda_{ij} = \begin{cases}
+  1, & \text{ if } |i - j| = 1
+  0, & \text{ else}
+\end{cases}
+$$
+\begin{enumerate}[(a)]
+\item Prove that the eigenvalues of $\Lambda$ are precisely the zeros of the $n$-th Chebyshev polynomial $S_n$ of the second kind, i.e.
+  $$ \left{ 2 \cos\left(\frac{k \pi}{n + 1} \right) \mid k = 1, \ldots, n \right}, $$
+  where an eigenvector corresponding to the eigenvalue $\lambda_k = 2 \cos \left( \frac{k \pi}{n + 1} \right)$ is given by
+  $$t_k = \left( \sin\left( \frac{k \pi}{n + 1} \right),  \sin\left( \frac{2k \pi}{n + 1} \right), \ldots, \sin\left( \frac{nk \pi}{n + 1} \right) \right)^T$$
+
+\item Deduce that all values in
+  $$\left{ 4 \cos^2 \left( \frac{\pi}{n + 1} \right) \mid n \ge 2 \right}$$
+\end{enumerate}
+
+\p{16} Let a real matrix $P \in M_n(\RR)$ be a real symmetric matrix with nonnegative entries.  Suppose there exists a real eigenvector $y \in \RR^n$ of $P$ with positive entries and corresponding eigenvalue $\lambda \ge 0$.
+\begin{enumerate}[(a)]
+\item On the set
+  $$ \Gamma_n := \{ x = (x_1, \ldots, x_n) \in \RR^n \mid x_1, \ldots x_n > 0 \}$$ consider the function
+  $$ L : \Gamma_n \to [0, \infty), x \mapsto \max\{s \ge 0 \mid sx \le Px \},$$
+  where $x \le x'$ means that it holds entry-wise. Prove that
+  $$\sup_{x \in \Gamma_n} L(x) = \lambda = L(y).$$
+
+\item Deduce that $\|P \| = \lambda.$
+\end{enumerate}
+
+\p{17} Find braids whose closures are the given links, and their associated Jones polynomials.
+
+\p{18} Let $\mH$ be a separable complex Hilbert space and let $U: \mH \to \mH$ be a unitary operator.  Prove that
+$$ \lim_{N \to \infty} \frac{1}{N} \sum_{n = 0}^{N -1} U^n \xi = \pi(\xi)$$
+holds for any $\xi \in \mH$, where $\pi$ denotes the orthogonal projection from $\mH$ onto the closed subspace $\mH^U$ of all $U$-invariant vectors in $\mH$.
+
+
+\end{document}

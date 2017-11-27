@@ -11,8 +11,8 @@
 \newcommand{\ZZ}{\mathbb{Z}}
 \DeclareMathOperator{\Mod}{Mod}
 
-\theoremstyle{plain} \numberwithin{equation}{section}
-\newtheorem{theorem}{Theorem}[section]
+%\theoremstyle{plain} \numberwithin{equation}{section}
+\newtheorem{theorem}{Theorem}%[section]
 \newtheorem{corollary}[theorem]{Corollary}
 \newtheorem{conjecture}{Conjecture}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -72,7 +72,7 @@ Current projects include:    %% TODO: Write down problems
 \item Optimizing cubicaltt, a typechecker for a constructive univalent type theory
 \end{itemize}
 
-Future projects include:
+Potential future projects include:
 \begin{itemize}
   \item Investigating braiding for fermionic (2+1)-TQFTs \cite{walker}
   \item Exploring (3+1)-dimensional generalizations of Turaev-Viro-Barrett-Westbury TQFTs \cite{cui}
@@ -94,11 +94,16 @@ Although verifying the Property F conjecture in full generality has proven elusi
 
 Since a $(2+1)$-TQFT gives (projective) representations of all mapping class groups of oriented, compact surfaces, we can generalize the Property F conjecture to consider all such mapping class groups, not just the braid group. My thesis proves this generalized Property F conjecture for the representation categories of twisted quantum doubles of finite groups.  In particular, my result answers a question of Etingof, Rowell and Witherspoon \cite{erw} regarding finiteness of images of arbitrary mapping class group representations in the affirmative.
 
-My approach is to translate the problem into manipulation of colored graphs embedded in the given surface. To do this translation, I use the fact that any mapping class group representation associated to $\Mod(D^\omega(G))$ is isomorphic to a Turaev-Viro-Barrett-Westbury (TVBW) representation \cite{bw} associated to the spherical fusion category $\text{Vec}_G^\omega$ of twisted $G$-graded vector spaces. As shown by Kirillov \cite{k}, the representation space for this TVBW representation is canonically isomorphic to a vector space spanned by $\text{Vec}_G^\omega$-colored graphs embedded in the surface. By analyzing the action of the Birman generators \cite{birman} on a finite spanning set of colored graphs, we find that the mapping class group acts by permutations on a slightly larger finite spanning set. This implies that the representation has finite image.
+My approach is to translate the problem into manipulation of colored graphs embedded in the given surface. To do this translation, I use the fact that any mapping class group representation associated to $\Mod(D^\omega(G))$ is isomorphic to a Turaev-Viro-Barrett-Westbury (TVBW) representation \cite{bw} associated to the spherical fusion category $\text{Vec}_G^\omega$ of twisted $G$-graded vector spaces. As shown by Kirillov \cite{k}, the representation space for this TVBW representation is canonically isomorphic to a vector space spanned by $\text{Vec}_G^\omega$-colored graphs embedded in the surface. By analyzing the action of the Birman generators \cite{birman} on a finite spanning set of colored graphs, we find that the mapping class group acts by permutations on a slightly larger finite spanning set, yielding the following theorem.
+
+\begin{theorem}
+The image of any twisted Dijkgraaf-Witten representation of a mapping class group of an orientable, compact surface with boundary is finite.  In particular, the image of any such braid group representation is finite.
+\end{theorem}
+
 
 \subsubsection*{Classification of Even Metaplectic Modular Categories}
 
-Paul Bruillard, Julia Plavnik, Eric Rowell and I have recently classified UMTCs with the fusion rules of $SO(N)_2$ for $N \equiv 0 \pmod{4}$ \cite{bgpr}, the last remaining case in the classification of (even) metaplectic categories.  This classification is of interest because it fits directly into the (2+1)-topological phase of matter classification program.  It is also a test case for the conjecture that all weakly integral modular categories are gaugings of pointed modular categories or pointed tensor Isings.
+Paul Bruillard, Julia Plavnik, Eric Rowell and I have recently classified UMTCs with the fusion rules of $SO(N)_2$ for $N \equiv 0 \pmod{4}$, the last remaining case in the classification of (even) metaplectic categories \cite{bgpr}.  This classification is of interest because it fits directly into the (2+1)-topological phase of matter classification program.  It is also a test case for the conjecture that all weakly integral modular categories are gaugings of pointed modular categories or pointed tensor Isings.
 
 As in the (odd) metaplectic case,  all even metaplectic modular categories with $N > 4$ and $4 \mid N$ are gaugings of $\ZZ_{N}$-cyclic modular categories, but the situation is more complicated due to the power of $2$ in the prime factorization of $N$. In fact, the somewhat awkward nomenclature (even metaplectic vs. metaplectic) reflects the fact that powers of $2$ in the prime factorization of $N$ introduce a complication in the fusion rules.   Gauging is also more complicated: the $2$-torsion elements of $\ZZ_N$ introduce possible cohomological obstructions and increase the number of possible fusion rules for the extension.  Thus, understanding and classifying these categories is a significant step towards understanding gauging.
 
@@ -115,7 +120,7 @@ My main current focus is the conjecture that gauging preserves Property F. A tes
 Recently,  Rowell and Wenzl showed that the classical quantum group UMTC $SO(N)_2$ has Property $F$ \cite{rw}.  However, their proof uses the quantum group machinery heavily, making the task of generalizing their result to all metaplectic modular categories nontrivial.  I am currently pursuing three approaches  to the more general metaplectic case: (i) comparing the metaplectic $R$-matrices to the $SO(N)_2$ ones, (ii) modifying the quantum group construction to change the Frobenius-Schur indicator of the fundamental spinor object, and (iii) directly analyzing the effects of gauging on $R$-matrices.
 
 \subsubsection*{Quantum Mapping Class Group Representations in Haskell}
-I am also working on a Haskell library for computing with quantum mapping class group representations.  The executable currently calculates the image of a braid group generator in the Turaev-Viro-Barett-Westbury (TVBW) representation associated to an arbitrary spherical fusion category in terms of ~300 structural morphisms (associators, coevaluators, and evaluators -- each tensored with identity morphisms).
+I am also working on a Haskell library for computing with quantum mapping class group representations  (https://github.com/PaulGustafson/stringnet).  The executable currently calculates the image of a braid group generator in the Turaev-Viro-Barett-Westbury (TVBW) representation associated to an arbitrary spherical fusion category in terms of ~300 structural morphisms (associators, coevaluators, and evaluators -- each tensored with identity morphisms).
 
 The next goal is to compute matrix coefficients of mapping class group generators in particular TVBW representations.   Although the initial impetus for the project was to calculate braid group representations from Tambara-Yamagami categories, evaluating the long composition of structural morphisms turns out to be computationally intractable even for the simplest Tambara-Yamagami categories.  One reason for this is the presence of multi-fusion channels, i.e. a tensor product of simple objects can consist of more than one simple object, leading to exponential behavior. A simpler first step is to calculate matrix coefficients of braid group representations from pointed spherical fusion categories, which do not have this problem.  After that, it may be possible to compute matrix coefficients for more complicated categories using gauging.
 
