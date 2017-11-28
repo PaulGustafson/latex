@@ -10,20 +10,31 @@
 \noindent MATH 663 - Subfactors, Knots, and Planar Algebras (Fall 2017)
 
 \subsection*{HW 5}
-\p{15} Let $n \in \NN$ with $n \ge 2$ be fixed.  Consider the symmtric matrix $\Lambda \in M_n(\CC)$ defined by
+\p{15} Let $n \in \NN$ with $n \ge 2$ be fixed.  Consider the symmetric matrix $\Lambda \in M_n(\CC)$ defined by
 $$ \Lambda_{ij} = \begin{cases}
-  1, & \text{ if } |i - j| = 1
+  1, & \text{ if } |i - j| = 1 \\
   0, & \text{ else}
-\end{cases}
-$$
+\end{cases} $$
 \begin{enumerate}[(a)]
 \item Prove that the eigenvalues of $\Lambda$ are precisely the zeros of the $n$-th Chebyshev polynomial $S_n$ of the second kind, i.e.
-  $$ \left{ 2 \cos\left(\frac{k \pi}{n + 1} \right) \mid k = 1, \ldots, n \right}, $$
-  where an eigenvector corresponding to the eigenvalue $\lambda_k = 2 \cos \left( \frac{k \pi}{n + 1} \right)$ is given by
+  $$ \left\{ 2 \cos\left(\frac{k \pi}{n + 1} \right) \mid k = 1, \ldots, n \right\}, $$
+  where an eigenvector corresponding to the eigenvalue $\lambda_k ``= 2 \cos \left( \frac{k \pi}{n + 1} \right)$ is given by
   $$t_k = \left( \sin\left( \frac{k \pi}{n + 1} \right),  \sin\left( \frac{2k \pi}{n + 1} \right), \ldots, \sin\left( \frac{nk \pi}{n + 1} \right) \right)^T$$
 
+  \begin{proof}
+    Let $\Lambda_n$ denote the matrix $\Lambda \in M_n(\CC)$ for any value of $n \ge 2$.  The eigenvalues of $\Lambda$ are the roots of the polynomial
+    $P_n(\Lambda) := \det(\lambda I - \Lambda_n)$.  Expanding on the first row and calculating, we have $P_{n+1}(\lambda) = \lambda P_{n}(\lambda) - P_{n-1}(\lambda)$ for all $n \ge 3$. Moreover, $P_2(x) = x^2 - 1$ and $P_3(x) = x^3 - 2x$ which agree with the Chebyshev polynomials, so $P_n = S_n$ for all $n \ge 2$.
+
+    It follows from Exercise 11 (a) that each $\lambda_k := 2 \cos \left( \frac{k \pi}{n + 1} \right)$ for $k = 1, \ldots, n$ is a root of $S_n$.  Since $n = \deg(S_n)$, these must be all the roots of $S_n$.  Exercise 11(a) combined
+  \end{proof}
+  
 \item Deduce that all values in
-  $$\left{ 4 \cos^2 \left( \frac{\pi}{n + 1} \right) \mid n \ge 2 \right}$$
+  $$\left\{ 4 \cos^2 \left( \frac{\pi}{n + 1} \right) \mid n \ge 2 \right\}$$
+show up as the Jones index for some subfactor of the hyperfinite II$_1$ factor.
+\begin{proof}
+    
+    
+  \end{proof}
 \end{enumerate}
 
 \p{16} Let a real matrix $P \in M_n(\RR)$ be a real symmetric matrix with nonnegative entries.  Suppose there exists a real eigenvector $y \in \RR^n$ of $P$ with positive entries and corresponding eigenvalue $\lambda \ge 0$.
