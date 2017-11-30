@@ -18,22 +18,28 @@ $$ \Lambda_{ij} = \begin{cases}
 \begin{enumerate}[(a)]
 \item Prove that the eigenvalues of $\Lambda$ are precisely the zeros of the $n$-th Chebyshev polynomial $S_n$ of the second kind, i.e.
   $$ \left\{ 2 \cos\left(\frac{k \pi}{n + 1} \right) \mid k = 1, \ldots, n \right\}, $$
-  where an eigenvector corresponding to the eigenvalue $\lambda_k ``= 2 \cos \left( \frac{k \pi}{n + 1} \right)$ is given by
+  where an eigenvector corresponding to the eigenvalue $\lambda_k := 2 \cos \left( \frac{k \pi}{n + 1} \right)$ is given by
   $$t_k = \left( \sin\left( \frac{k \pi}{n + 1} \right),  \sin\left( \frac{2k \pi}{n + 1} \right), \ldots, \sin\left( \frac{nk \pi}{n + 1} \right) \right)^T$$
 
   \begin{proof}
-    Let $\Lambda_n$ denote the matrix $\Lambda \in M_n(\CC)$ for any value of $n \ge 2$.  The eigenvalues of $\Lambda$ are the roots of the polynomial
-    $P_n(\Lambda) := \det(\lambda I - \Lambda_n)$.  Expanding on the first row and calculating, we have $P_{n+1}(\lambda) = \lambda P_{n}(\lambda) - P_{n-1}(\lambda)$ for all $n \ge 3$. Moreover, $P_2(x) = x^2 - 1$ and $P_3(x) = x^3 - 2x$ which agree with the Chebyshev polynomials, so $P_n = S_n$ for all $n \ge 2$.
+    %% Let $\Lambda_n$ denote the matrix $\Lambda \in M_n(\CC)$ for any value of $n \ge 2$.  The eigenvalues of $\Lambda$ are the roots of the polynomial
+    %% $P_n(\Lambda) := \det(\lambda I - \Lambda_n)$.  Expanding on the first row and calculating, we have $P_{n+1}(\lambda) = \lambda P_{n}(\lambda) - P_{n-1}(\lambda)$ for all $n \ge 3$. Moreover, $P_2(x) = x^2 - 1$ and $P_3(x) = x^3 - 2x$ which agree with the Chebyshev polynomials, so $P_n = S_n$ for all $n \ge 2$.
 
-    It follows from Exercise 11 (a) that each $\lambda_k := 2 \cos \left( \frac{k \pi}{n + 1} \right)$ for $k = 1, \ldots, n$ is a root of $S_n$.  Since $n = \deg(S_n)$, these must be all the roots of $S_n$.  Exercise 11(a) combined
+    The double angle formula for $\sin(x)$ gives $(\Lambda t_k)_1 = 2 \cos \left( \frac{k \pi}{n + 1} \right) \sin(\frac{k \pi}{n+1}) = (\lambda_k t_k)_1$.  Moreover, we have $(\Lambda t_k)_n = \sin(k \pi - \frac{2 k \pi}{n+1}) = (-1)^{k+1} 2 \cos \left( \frac{k \pi}{n + 1} \right) \sin(\frac{k \pi}{n+1}) = (\lambda_k t_k)_n$.
+
+    Let $q = e^{\frac{k \pi i}{n+1}}$. For $1 < j < n$, we have
+    \begin{align*}
+      (\Lambda t_k)_j & = \frac{1}{2i}(q^{j-1} - q^{1-j} + q^{j+1} - q^{-j - 1}) \\
+      & = \frac{1}{2i}(q + q^{-1}) (q^{j} - q^{-j}) \\
+      & = \lambda_k (t_k)_j
+    \end{align*}    
   \end{proof}
   
 \item Deduce that all values in
   $$\left\{ 4 \cos^2 \left( \frac{\pi}{n + 1} \right) \mid n \ge 2 \right\}$$
 show up as the Jones index for some subfactor of the hyperfinite II$_1$ factor.
 \begin{proof}
-    
-    
+  We showed how to do this in class (using a theorem of Jones about Markov traces + the basic construction).
   \end{proof}
 \end{enumerate}
 
@@ -44,15 +50,72 @@ show up as the Jones index for some subfactor of the hyperfinite II$_1$ factor.
   $$ L : \Gamma_n \to [0, \infty), x \mapsto \max\{s \ge 0 \mid sx \le Px \},$$
   where $x \le x'$ means that it holds entry-wise. Prove that
   $$\sup_{x \in \Gamma_n} L(x) = \lambda = L(y).$$
+  \begin{proof}
+    Since $\lambda y = Py$, we have $\sup_{x \in \Gamma_n} L(x) \ge L(y) \ge \lambda$.  To see that $\sup_x L(x) \le \lambda$, let $x \in \Gamma_n$.  Suppose $s \ge 0 $ with $sx \le Px$.  Then we have
+    \begin{align*}
+      \langle sx, y \rangle & \le \langle Px, y \rangle \\
+      & = \langle x, P y \rangle \\
+      & = \lambda \langle x,  y \rangle \\
+    \end{align*}
+    Thus, $s \le \lambda$, so $L(x) \le \lambda$.  Thus, $\sup_x L(x) \le \lambda$.     
+  \end{proof}
 
 \item Deduce that $\|P \| = \lambda.$
+  \begin{proof}
+    Note that the same proof as in (a) works for
+    $$ \Gamma_n' := \{ x = (x_1, \ldots, x_n) \in \RR^n \setminus \{0\} \mid x_1, \ldots x_n > 0 \}.$$
+    One important thing to note is that $\langle x, y \rangle > 0$ for $x \in \Gamma'$ since $x \neq 0$ and $y$ has positive entries. Let $L' : \Gamma_n' \to [0, \infty)$ denote the corresponding function.
+
+      Let $\beta$ denote the eigenvalue of $P$ such that $\|P\| = | \beta |$.  Let $x$ be an eigenvector for $\beta$.  Define $\hat{x}: = (|x_1|, |x_2|, \ldots, |x_n|)$.  Then for all $i$, we have $\|P\| \hat{x}_i = |\lambda x_i| = |(P x)_i|  \le (P \hat{x})_i$.  Thus $\|P\| \hat{x} \le \hat{x}$.  Thus $\|P\| \le L'(\hat{x}) \le \lambda$.  Thus $\|P\| = \lambda$.    
+  \end{proof}
 \end{enumerate}
 
 \p{17} Find braids whose closures are the given links, and their associated Jones polynomials.
+
+\emph{Soln:} A braid for the Hopf link is $b := \sigma^2$.  The Jones polynomial is
+\begin{align*}
+  V_{\hat{b}}(t) & = (\sqrt{t} + \sqrt{t}^{-1})^{n-1} (\sqrt{t})^{\text{wr}(b)} \tau(\pi_t(b)) \\
+    & = (\sqrt{t} + \sqrt{t}^{-1})^{2-1} (\sqrt{t})^2 \tau((1 - (1+t)e)^2) \\
+    & = (\sqrt{t} + \sqrt{t}^{-1}) t \tau(1- 2(1+t)e + (1 + 2t + t^2) e ) \\
+    & = \sqrt{t} (t + 1) \tau(1 + (t^2 -1) e ) \\
+    & = \sqrt{t} (t + 1) (1 + (t^2 -1) \frac{t}{(t+1)^2})  \\
+    & = \sqrt{t} (t+1 + (t -1) t)  \\
+    & = t^{5/2}  - t^{1/2}
+\end{align*}
+    
 
 \p{18} Let $\mH$ be a separable complex Hilbert space and let $U: \mH \to \mH$ be a unitary operator.  Prove that
 $$ \lim_{N \to \infty} \frac{1}{N} \sum_{n = 0}^{N -1} U^n \xi = \pi(\xi)$$
 holds for any $\xi \in \mH$, where $\pi$ denotes the orthogonal projection from $\mH$ onto the closed subspace $\mH^U$ of all $U$-invariant vectors in $\mH$.
 
+\begin{proof}
+  Let $\mW := \{U \xi - \xi  \mid \xi \in \mH \}$.  To see that $\mH^U$ is orthogonal to $\mW$, suppose $\eta, \xi \in \mH$.  Then we have $\langle \eta, U \xi - \xi \rangle = \langle U \eta, U \xi \rangle - \langle \eta, \xi \rangle = 0$.  
 
+  The formula for the mean ergodic theorem obviously holds for $\xi \in \mH^U$.  Moreover, if $\xi \in \mH$, we have
+  \begin{align*}
+    \lim_{N \to \infty} \frac{1}{N} \sum_{n = 0}^{N -1} U^n (U \xi - \xi) & =  \lim_{N \to \infty} \frac{1}{N} \sum_{n = 0}^{N -1} U^{n+1} \xi - U^n \xi \\
+    & =  \lim_{N \to \infty} \frac{1}{N} (U^N \xi -  \xi)
+    \to 0.
+  \end{align*}
+  Since $\mH^U$ is orthogonal to $\mW$, we have $\pi(U \xi - \xi) = 0$ also.  Thus, the formula holds on $\mH^U + \mW$.
+
+  Now suppose the formula holds for some sequence $(\xi_i)_i \subset \mH$ with $\xi_i \to \xi$ for some $\xi$.  Then we have
+  $$ \| \frac{1}{N} \sum_{n = 0}^{N-1} U^n (\xi -\xi_i) \| \le   \frac{1}{N} \sum_{n = 0}^{N-1} \|U^n\| \| \xi -\xi_i \| \le \| \xi -\xi_i \|.$$
+  Hence,
+  \begin{align*}
+    \| \lim_{N \to \infty} \frac{1}{N} \sum_{n = 0}^{N -1} U^n \xi - \pi(\xi) \| & \le \|\xi - \xi_i\| + \|\lim_{N \to \infty} \frac{1}{N} \sum_{n = 0}^{N -1} U^n \xi_i - \pi(\xi - \xi_i) - \pi(\xi_i) \| \\
+    & \le 2 \|\xi - \xi_i\|  +  \| \lim_{N \to \infty} \frac{1}{N} \sum_{n = 0}^{N -1} U^n \xi_i - \pi(\xi_i) \| \\
+    & \to 0.
+  \end{align*}
+  Thus, the formula holds on $\overline{\mH^U + \mW}$.
+
+  To see that $\mH = \overline{\mH^U + \mW}$, suppose not.  Then there exists a nonzero vector $\xi \in (\mH^U + \mW)^\perp$.  Since $\xi$ is orthogonal to $\mW$, we have $\langle \xi, U \xi - \xi \rangle = 0$.  Thus,
+  \begin{align*}
+    \| U \xi - \xi \|^2 & = \langle U \xi , U \xi \rangle - \langle U \xi, \xi \rangle - \langle \xi, U \xi \rangle + \langle \xi, \xi \rangle \\
+    & = 2 \langle \xi, \xi \rangle - \langle U \xi, \xi \rangle - \langle \xi, U \xi \rangle  \\
+    & = \langle \xi - U \xi, \xi \rangle + \langle \xi, \xi - U \xi \rangle \\
+    & = 0.
+  \end{align*}
+  Thus, $\xi \in \mH^U$, a contradiction.
+\end{proof}
 \end{document}
