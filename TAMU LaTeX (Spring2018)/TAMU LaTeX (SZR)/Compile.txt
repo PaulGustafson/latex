@@ -27,6 +27,6 @@ the folder in which you have saved the main file
 TAMUTemplate.tex (or whatever you may have renamed it). In
 a Windows/DOS-style command prompt:
 
-xelatex tamutemplate & bibtex tamutemplate & xelatex tamutemplate & xelatex tamutemplate
+xelatex tamutemplate && bibtex tamutemplate && xelatex tamutemplate && xelatex tamutemplate
 
 Linux users will need to replace & with && in the above.
