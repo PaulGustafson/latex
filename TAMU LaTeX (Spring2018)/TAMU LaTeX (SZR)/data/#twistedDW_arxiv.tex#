@@ -1,20 +1,152 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Trim Size: 9.75in x 6.5in
+%% Text Area: 8in (include Runningheads) x 5in
+%% ws-jktr.tex   :   26-6-08
+%% Tex file to use with ws-jktr.cls written in Latex2E. 
+%% The content, structure, format and layout of this style file is the 
+%% property of World Scientific Publishing Co. Pte. Ltd. 
+%% Copyright 1995, 2002 by World Scientific Publishing Co. 
+%% All rights are reserved.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
-%  New template code for TAMU Theses and Dissertations starting Fall 2016.  
-%
-%
-%  Author: Sean Zachary Roberson
-%  Version 3.17.09
-%  Last Updated: 9/21/2017
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%                           SECTION II
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass{amsart}
+
+\usepackage[pagewise]{lineno}%\linenumbers
+
+\usepackage{amsmath,amssymb,amsthm,fullpage,mathptmx, hyperref,dsfont,framed, graphicx, subcaption, textcomp}
 
 
-\chapter{Finiteness of Twisted Dijkgraaf-Witten Mapping Class Group Representations}
+%%%%%%%%%%%%%%%%%% Tikz %%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc}
+\usetikzlibrary{scopes}
+\usetikzlibrary{decorations.markings}
+
+\tikzset{
+every picture/.style={line width=0.8pt, >=stealth,
+                       baseline=-3pt,label distance=-3pt},
+%%%%%%%%%%  Node styles
+dotnode/.style={fill=black,circle,minimum size=2.5pt, inner sep=1pt, outer
+sep=0},
+morphism/.style={circle,draw,thin, inner sep=1pt, minimum size=15pt,
+                 scale=0.8},
+small_morphism/.style={circle,draw,thin,inner sep=1pt,
+                       minimum size=10pt, scale=0.8},
+coupon/.style={draw,thin, inner sep=1pt, minimum size=18pt,scale=0.8},
+%%%% different line styles:
+regular/.style={densely dashed},
+edge/.style={thick, dashed, draw=blue, text=black},
+boundary/.style={thick,  draw=blue, text=black},
+overline/.style={preaction={draw,line width=2mm,white,-}},
+drinfeld center/.style={>=stealth,green!60!black, double
+distance=1pt,text=black},
+%%%%%%% Fill styles %%%%%%%%%%%%%%%
+cell/.style={fill=black!10},
+subgraph/.style={fill=black!30},
+%%%%%%% Mid-path arrows
+midarrow/.style={postaction={decorate},
+                 decoration={
+                    markings,% switch on markings
+                    mark=at position #1 with {\arrow{>}},
+                 }},
+midarrow/.default=0.5
+}
+
+
+
+\newtheorem{thm}{Theorem}[section]
+%\newtheorem*{uthm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+%\newtheorem*{ulem}{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+%\newtheorem*{uprop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{rmk}[thm]{Remark}
+\newtheorem{prob}[thm]{Open problem}
+\newtheorem{ques}[thm]{Question}
+\newtheorem{fact}[thm]{Fact}
+\newtheorem{ex}[thm]{Exercise}
+\newcommand{\Hs}{H}
+\newcommand{\mC}{\mathcal{C}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+% \newcommand{\lstar}{{^*}}
+
+
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\MCG}{MCG}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Vect}{Vec}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\coev}{coev}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\Gr}{Graph}
+\DeclareMathOperator{\VGr}{VGraph}
+\newcommand{\VV}{\mathbf{V}}       % boundary condition
+\newcommand{\vgo}{\Vect_G^\omega}
+\newcommand{\one}{1}
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\ga}{\gamma}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\de}{\delta}
+\newcommand{\De}{\Delta}
+\newcommand{\ka}{\varkappa}
+\newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda}
+\newcommand{\ph}{\varphi}
+\newcommand{\Ph}{\Phi} 
+\newcommand{\si}{\sigma}
+\newcommand{\Si}{\Sigma}
+\newcommand{\Sibar}{\overline{\Sigma}}
+\newcommand{\Sihat}{\widehat{\Sigma}}
+\newcommand{\om}{\omega}
+\newcommand{\Om}{\Omega}
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\th}{\theta}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+\markboth{Paul Gustafson}
+{Finiteness of Mapping Class Group Representations from Twisted Dijkgraaf-Witten Theory}
+
+%%%%%%%%%%%%%%%%%%%%% Publisher's Area please ignore %%%%%%%%%%%%%%
+%\catchline{}{}{}{}{}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title{Finiteness of Mapping Class Group Representations from Twisted Dijkgraaf-Witten Theory}
+
+\author{Paul P. Gustafson}
+\email{pgustafs@math.tamu.edu}
+\address{Department of Mathematics,
+    Texas A\&M University,
+    College Station, TX
+    U.S.A.}
+
+\maketitle
+
+\begin{abstract}
+We show that any twisted Dijkgraaf-Witten representation of a mapping class group of an orientable, compact surface with boundary has finite image. This generalizes work of Etingof, Rowell and Witherspoon showing that the braid group images are finite \cite{erw}.  In particular, our result answers their question regarding finiteness of images of arbitrary mapping class group representations in the affirmative.
+
+Our approach is to translate the problem into manipulation of colored graphs embedded in the given surface. To do this translation, we use the fact that any twisted Dijkgraaf-Witten representation associated to a finite group $G$ and 3-cocycle $\omega$ is isomorphic to a Turaev-Viro-Barrett-Westbury (TVBW) representation associated to the spherical fusion category $\Vect_G^\omega$ of twisted $G$-graded vector spaces. As shown by Kirillov, the representation space for this TVBW representation is canonically isomorphic to a vector space spanned by $\Vect_G^\omega$-colored graphs embedded in the surface \cite{kirillovStringNets}.   By analyzing the action of the Birman generators \cite{birman} on a finite spanning set of colored graphs, we find that the mapping class group acts by permutations on a slightly larger finite spanning set.  This implies that the representation has finite image.
+\end{abstract}
+
+%\keywords{TQFT; mapping class group; twisted Dijkgraaf-Witten; Property F conjecture}
+
+%\ccode{Mathematics Subject Classification 2000: 18D10, 20F36, 57M99}
+
 \section{Introduction}
 Given a spherical fusion category $\mathcal A$ over a field $k$ and an oriented compact surface $\Si$, possibly with boundary, the Turaev-Viro-Barrett-Westbury (TVBW) construction gives a projective representation of the mapping class group $\MCG(\Si)$ \cite{hep-th/9311155, TURAEV1992865}.  A natural problem is to determine the images of such representations.  In particular, we would like to know when such a representation has finite image.
 
@@ -186,7 +318,7 @@ $\VGr(\Si)$.
 
 
 The following theorem is a variation of result of Reshitikhin and Turaev. 
-\begin{thrm}\label{t:RT}
+\begin{thm}\label{t:RT}
   There is a unique  way to assign to every colored
   planar graph $\Ga$ in a disk $D\subset \R^2$ a vector
   \begin{equation*}
@@ -373,7 +505,7 @@ $X_1\oplus X_2\to X_2$), and similarly for $\psi_1,\psi_2$.
 
   \end{enumerate}
 The vector $\<\Ga\>$ is called the {\em evaluation} of $\Ga$.
-\end{thrm}
+\end{thm}
 
 To define local relations between embedded graphs, Kirillov defines the space of null graphs as follows. Let
 $\Ga=c_1\Ga_1+\dots+c_n\Ga_n$ be a formal linear
@@ -483,9 +615,9 @@ For the third local move (adding a $\coev$-labeled vertex), the colored graph gi
 
 We first prove our theorem in the easier case where the surface $\Si$ is closed.  
 
-\begin{thrm}\label{thm:closed}
+\begin{thm}\label{thm:closed}
 The image of any twisted Dijkgraaf-Witten representation of a mapping class group of an orientable, closed surface $\Si$ is finite.
-\end{thrm}
+\end{thm}
 
 \begin{proof}
 Let $\Gamma$ be a $\widehat \vgo$-colored graph embedded in $\Si$, and let $g \ge 1$ be the genus of $\Si$ (if $g = 0$, the mapping class group is trivial). Thinking of $\Si$ as a quotient of its fundamental $4g$-gon, by isotopy we may assume that the vertices of $\Gamma$ lie in the interior of the polygon, none of the edges of $\Gamma$ intersect the corners of the polygon, and that the edges of $\Gamma$ only meet the sides of the polygon transversally.  Applying the evaluation map of Theorem \ref{t:RT} on the interior of the polygon shows that $\Gamma$ is equivalent to a graph with a single vertex whose edges are simple closed curves, each of which intersect the boundary of the polygon precisely once.  By using the local relations, we can replace all the edges intersecting a side with a single edge labeled by the tensor product of their labels.  If there are no edges intersecting a side, we can insert a single edge labeled by the group identity into $\Gamma$ that intersects only that side.  Thus, $\Gamma$ is equivalent to a colored graph with one vertex $v$ and edges $e_1, \ldots, e_{2g}$ corresponding to the standard generators of $\pi_1(M,v)$ as shown in Figure \ref{fig:span}.
@@ -1843,9 +1975,9 @@ Let $N$ denote the closed surface obtained by filling in all the boundary compon
 \end{figure}
 
 
-\begin{thrm}\label{thm:compact}
+\begin{thm}\label{thm:compact}
 The image of any twisted Dijkgraaf-Witten representation of a mapping class group of an orientable, compact surface with boundary is finite.  In particular, the image of any such braid group representation is finite.
-\end{thrm}
+\end{thm}
 
 
 %% \section{Example Calculation}
@@ -1895,3 +2027,147 @@ The image of any twisted Dijkgraaf-Witten representation of a mapping class grou
 
 \section{Further Directions}
 We have proved that every twisted Dijkgraaf-Witten representation of a mapping class group of a compact, orientable surface has finite image.  This is a generalization of the results of \cite{erw} and \cite{fjfu}, as well as another step towards the (modified) Property F conjecture. A potential next step would be to consider more complicated spherical categories than $\vgo$.  One candidate is the class of Tambara-Yamagami categories \cite{tambara}.  The main additional complication here is the appearance of multifusion channels, i.e. the tensor product of two simple objects can be a direct sum of multiple simple objects.  
+
+\medskip
+
+
+ 
+%% \bibliographystyle{unsrt}
+%% \bibliography{stringnets}
+
+\begin{thebibliography}{0}
+
+%% \bibitem{AMU} J.\ E.\ Andersen, G.\ Masbaum, and K.\ Ueno, \emph{Topological Quantum Field Theory and the Nielsen-Thurston classification of M(0,4)}, Math.\ Proc.\ Cambridge Philos.\ Soc., \textbf{141} (2006), no. 3, 477--488.
+
+%\bibitem{A} E.\ Artin, \emph{The theory of braids}, Ann. of Math. (2) \textbf{48} (1947), %101-126.
+
+\bibitem{BK} B.\ Bakalov and A.\ Kirillov, Jr., {\em Lectures on
+Tensor Categories and Modular Functors}, University Lecture Series,
+vol.\ {\bf 21},  Amer.\ Math.\ Soc., 2001.
+
+\bibitem{bantay} P.\ Bantay, \emph{Algebraic Aspects of Orbifold Models}, Int.\ J.\ Mod.\ Phys.\ \textbf{A9} (1994), 1443--1456.
+
+\bibitem{hep-th/9311155} J.\ Barrett and B.\ Westbury. {\em Invariants
+of Piecewise-Linear 3-Manifolds}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{348} (1996), 3997--4022.
+
+\bibitem{birman} J.\ Birman. \emph{Mapping class groups and their relationship to braid groups}, Comm.\ Pure Appl.\ Math.\ \textbf{22} (1969) 213--242.
+
+%\bibitem{Bur} W.\ Burau, \emph{\:Uber Zopfgruppen und gleichsinnig verdrilte Verkettungen,} %Abh.\ Math.\ Sem.\ Hanischen Univ.\ \textbf{11} (1936), 171--178.
+
+%% \bibitem{CP} V.\ Chari and A.\ Pressley, {\em A Guide to Quantum Groups},
+%% Cambridge Univ.\ Press, 1994.
+
+%\bibitem{cibils97} C.\ Cibils, {\em Tensor product of Hopf bimodules
+%over a group algebra}, Proc.\ Amer.\ Math.\ Soc.\ \textbf{125} (1997), 1315--1321.
+
+%% \bibitem{Cox} H.\ S.\ M.\ Coxeter, \emph{Factor groups of the braid group}, Proceedings of the Fourth Can.\ Math.\ Cong., Banff 1957, University of Toronto Press (1959), 95--122.
+
+\bibitem{dijkgraaf1990} R. Dijkgraaf and E. Witten. \emph{Topological gauge theories and group cohomology}, Comm.\ Math.\ Phys.\ \textbf{129} (1990), no. 2, 393--429.
+
+%\bibitem{DVVV} R.\ Dijkgraaf, C.\ Vafa, E.\ Verlinde, and H.\ Verlinde, \emph{The operator %algebra of orbifold models},  Comm.\ Math.\ Phys.\  \textbf{123}  (1989),  no. 3, 485--526.
+
+%% \bibitem{D} V.\ G.\ Drinfeld, {\em Quasi-Hopf algebras}, Leningrad Math.\ J.\
+%% {\bf 1} (1990), 1419--1457.
+
+%% \bibitem{ENO} P.\ Etingof, D.\ Nikshych, and V.\ Ostrik, \emph{On fusion categories}, Ann. of Math. (2) \textbf{162} (2005), no. 2, 581-642.
+
+\bibitem{etingofTensor} P.\ Etingof, S.\ Gelaki, D.\ Nikshych,  and V.\ Ostrik, \emph{Tensor categories}, Mathematical surveys and monographs \textbf{205} (2015).
+
+\bibitem{erw} P.\ Etingof, E.\ C.\ Rowell, and S.\ Witherspoon, \emph{Braid group representations from twisted quantum doubles of finite groups}, Pacific J.\ Math.\ \textbf{234} (2008), no. 1, 33--42.
+
+\bibitem{fjfu} J.\ Fjelstad and J. Fuchs, \emph{Mapping class group representations from {Drinfeld} doubles of finite groups}, Preprint (2015), arXiv:1506.03263.
+
+%\bibitem{For} E.\ Formanek, \emph{Braid group representations of low degree,}
+%Proc.\ London.\ Math.\ Soc.\ \textbf{72} (1996), 279--322.
+
+%% \bibitem{FRW} J.\ Franko, E.\ C.\ Rowell, and Z.\ Wang, \emph{Extraspecial 2-groups and images of braid group
+%% representations}, J.\ Knot Theory Ramifications \textbf{15} (2006) no. 4, 1--15.
+
+%\bibitem{FLKW} M.\ H.\ Freedman, A.\ Kitaev,
+%    M.\ J.\ Larsen, and Z.\ Wang,
+%    \emph{Topological quantum computation, Mathematical challenges of the 21st century
+%    (Los Angeles, CA, 2000)},  Bull.\ Amer.\ Math.\ Soc.\ (N.S.) \textbf{40}  (2003),  no. 1, %31--38.
+
+%% \bibitem{FLW} M.\ H.\ Freedman, M.\ J.\ Larsen, and Z.\ Wang,
+%%     \emph{The two-eigenvalue problem and density of Jones representation of braid groups,}
+%%     Comm.\ Math.\ Phys.\ \textbf{228} (2002), 177-199.
+
+%% \bibitem{GJ} D.\ M.\ Goldschmidt and V.\ F.\ R.\ Jones, \textit{Metaplectic link invariants.}
+%% Geom.\ Dedicata \textbf{31} (1989), no. 2, 165--191.
+
+%\bibitem{Hg}
+%Y.-Z.\ Huang, \emph{Vertex operator algebras, the Verlinde conjecture, and modular tensor %categories}, Proc.\ Natl.\ Acad.\ Sci.\ USA \textbf{102} (2005), no. 15, 5352--5356
+
+%\bibitem{Iz} M.\ Izumi, \emph{The structure of sectors associated with Longo-Rehren %inclusions. II. Examples}, Rev.\ Math.\ Phys.\ {\bf 13} (2001), no. 5, 603--674.
+
+%% \bibitem{J86} V.\ F.\ R.\ Jones, \emph{Braid groups, Hecke algebras and type ${\rm II}\sb 1$ factors,}
+%% Geometric methods in
+%%  operator algebras (Kyoto, 1983), 242--273, Pitman Res.\ Notes Math.\ Ser.\ {\bf 123}, Longman Sci. Tech.,
+%%  Harlow, 1986.
+
+%% \bibitem{J89} V.\ F.\ F.\ Jones, \emph{On a certain value of the Kauffman polynomial},
+%% Comm.\ Math.\ Phys.\ \textbf{125} (1989), no. 3, 459--467.
+
+\bibitem{kirillovStringNets} A.\ Kirillov, \emph{String-net model of {Turaev-Viro} invariants}, Preprint (2011), arXiv:1106.6033.
+
+%\bibitem{KSSB} T.\ H.\ Koornwinder, B.\ J.\ Schroers, J.\ K.\ Slingerland, and
+%F.\ A.\ Bais,
+%\emph{Fourier transform and the Verlinde formula for the quantum double of a finite group}.
+%J.\ Phys.\ A \textbf{32} (1999), no. 48, 8539--8549.
+
+%% \bibitem{LR} M.\ J.\ Larsen and E.\ C.\ Rowell, \emph{An algebra-level version of a link-polynomial identity of Lickorish}, Math.\
+%% Proc.\ Cambridge Philos.\ Soc., to appear.
+
+ %% \bibitem{LRW} M.\ J.\ Larsen, E.\ C.\ Rowell, and Z.\ Wang, \emph{The $N$-eigenvalue problem and two applications},  Int.\ Math.\ Res.\ Not.\ \textbf{2005} (2005), no. 64, 3987--4018.
+
+
+%\bibitem{LW} M.\ J.\ Larsen and Z.\ Wang, \emph{Density of the SO(3) TQFT representation of %mapping class groups}.  Comm. Math. Phys.  \textbf{260}  (2005),  no. 3, 641--658.
+
+\bibitem{Lyubashenko1996} V.\ Lyubashenko, \emph{Ribbon Abelian Categories as Modular Categories}, J.\ Knot Theory Ramifications \textbf{5} (1996), no. 3, 311--403.
+
+  
+\bibitem{nr} D.\ Naidu and E.\ C.\ Rowell. \emph{A finiteness property for braided fusion categories}, Algebr.\ and Represent.\ Theor.\ \textbf{14} (2011), no. 5, 837--855.
+
+
+\bibitem{ns}  S.-H.\ Ng and P.\ Schauenburg, \emph{Higher Frobenius-Schur Indicators for Pivotal Categories}, Contemp.
+Math. \textbf{441} (2007), 63--90.
+  
+\bibitem{0806.2493} S.-H.\ Ng and P.\ Schauenburg, \emph{Congruence Subgroups and Generalized {Frobenius-Schur} Indicators}, Comm.\ Math.\ Phys.\ \textbf{300} (2010), no. 1, 1--46.
+
+\bibitem{math/0601012} S.-H.\ Ng and P.\ Schauenburg, \emph{{Frobenius-Schur} Indicators and Exponents of Spherical Categories}, Adv.\ Math.\ \textbf{211} (2007), no. 1, 34--71.
+
+%\bibitem{RR} N.\ Read and E.\ Rezayi, \emph{Beyond paired quantum Hall states: parafermions %and incompressible states in the first excited Landau level}, Phys.\ Rev.\ B \textbf{59} %(1999) 8084--8094.
+
+%\bibitem{Sun} J.\ G.\ Sunday,
+%\emph{Presentations of the groups ${\rm SL}(2,\,m)$ and ${\rm PSL}(2,\,m)$}.
+%Canad. J. Math. \textbf{24} (1972), 1129--1131.
+
+\bibitem{tambara} D. Tambara and S. Yamagami, \emph{Tensor Categories with Fusion Rules of Self-Duality for Finite Abelian Groups}, J.\ Algebra \textbf{209} (1998), 692--707.
+
+%\bibitem{TbWz} I.\ Tuba and H.\ Wenzl, \emph{On braided tensor categories of type $BCD$},
+%  J.\ Reine Angew.\ Math.\ \textbf{581} (2005), 31-69.
+
+%% \bibitem{Tur1} V.\ G.\ Turaev, \emph{Quantum Invariants of Knots and 3-Manifolds},
+%%  de Gruyter Studies in Mathematics {\bf 18}, Walter de Gruyter $\&$ Co., Berlin, 1994.
+
+\bibitem{TURAEV1992865} V.\ G.\ Turaev and O. Y. Viro. {\em State sum invariants of 3-manifolds and quantum 6j-symbols}, Topology \textbf{31} (1992), 865--902.
+
+\bibitem{We} Weibel, C., {\em An introduction to Homological algebra}, Cambridge Studies in Advanced Mathematics \textbf{38} (1995).
+
+%\bibitem{Wel} D.\ Welsh,
+%  \emph{Complexity: Knots, Colourings and Counting}, LMS Lecture
+%  Notes Series 186, Cambridge University Press, Cambridge, 1993.
+
+%% \bibitem{witherspoon96} S.\ J.\ Witherspoon, {\em The representation
+%% ring of the twisted quantum double of a finite group}, Canad.\ J.\ Math.\
+%% \textbf{48} (1996), 1324--1338.
+
+%\bibitem{witherspoon04} S.\ J.\ Witherspoon, {\em Products in
+%Hochschild cohomology and Grothendieck rings of group crossed products},
+%Adv.\ Math.\ \textbf{185} (2004), 136--158.
+
+
+\end{thebibliography}
+
+
+\end{document}

@@ -18,6 +18,8 @@
 
 \usepackage{tamuconfig}
 
+\usepackage{amsmath,amssymb,amsthm,fullpage,mathptmx,dsfont,framed, graphicx, subcaption, textcomp}
+
 % Most of the packages that set the default settings
 % for the document have moved to the style file
 % tamuconfig.sty. This includes
@@ -52,6 +54,105 @@
 
 % For quick document navigation.
 \usepackage[hidelinks]{hyperref}
+
+
+%%%%%%%%%%%%%%%%%% Tikz %%%%%%%%%
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc}
+\usetikzlibrary{scopes}
+\usetikzlibrary{decorations.markings}
+
+\tikzset{
+every picture/.style={line width=0.8pt, >=stealth,
+                       baseline=-3pt,label distance=-3pt},
+%%%%%%%%%%  Node styles
+dotnode/.style={fill=black,circle,minimum size=2.5pt, inner sep=1pt, outer
+sep=0},
+morphism/.style={circle,draw,thin, inner sep=1pt, minimum size=15pt,
+                 scale=0.8},
+small_morphism/.style={circle,draw,thin,inner sep=1pt,
+                       minimum size=10pt, scale=0.8},
+coupon/.style={draw,thin, inner sep=1pt, minimum size=18pt,scale=0.8},
+%%%% different line styles:
+regular/.style={densely dashed},
+edge/.style={thick, dashed, draw=blue, text=black},
+boundary/.style={thick,  draw=blue, text=black},
+overline/.style={preaction={draw,line width=2mm,white,-}},
+drinfeld center/.style={>=stealth,green!60!black, double
+distance=1pt,text=black},
+%%%%%%% Fill styles %%%%%%%%%%%%%%%
+cell/.style={fill=black!10},
+subgraph/.style={fill=black!30},
+%%%%%%% Mid-path arrows
+midarrow/.style={postaction={decorate},
+                 decoration={
+                    markings,% switch on markings
+                    mark=at position #1 with {\arrow{>}},
+                 }},
+midarrow/.default=0.5
+}
+
+
+
+\newtheorem{thrm}{Theorem}[section]
+%\newtheorem*{uthm}{Theorem}
+\newtheorem{lem}[thrm]{Lemma}
+%\newtheorem*{ulem}{Lemma}
+\newtheorem{prop}[thrm]{Proposition}
+%\newtheorem*{uprop}[thm]{Proposition}
+%% \newtheorem{cor}[thm]{Corollary}
+%% \newtheorem{conj}[thm]{Conjecture}
+\newtheorem{defn}[thrm]{Definition}
+\newtheorem{rmk}[thrm]{Remark}
+%% \newtheorem{prob}[thm]{Open problem}
+%% \newtheorem{ques}[thm]{Question}
+%% \newtheorem{fact}[thm]{Fact}
+%% \newtheorem{ex}[thm]{Exercise}
+\newcommand{\Hs}{H}
+\newcommand{\mC}{\mathcal{C}}
+\newcommand{\NN}{\mathbb{N}}
+\newcommand{\ZZ}{\mathbb{Z}}
+% \newcommand{\lstar}{{^*}}
+
+
+
+\DeclareMathOperator{\id}{id}
+\DeclareMathOperator{\MCG}{MCG}
+\DeclareMathOperator{\Mod}{Mod}
+\DeclareMathOperator{\Vect}{Vec}
+\DeclareMathOperator{\Homeo}{Homeo}
+\DeclareMathOperator{\Hom}{Hom}
+\DeclareMathOperator{\Obj}{Obj}
+\DeclareMathOperator{\Irr}{Irr}
+\DeclareMathOperator{\Img}{Im}
+\DeclareMathOperator{\coev}{coev}
+\DeclareMathOperator{\ev}{ev}
+\DeclareMathOperator{\Gr}{Graph}
+\DeclareMathOperator{\VGr}{VGraph}
+\newcommand{\VV}{\mathbf{V}}       % boundary condition
+\newcommand{\vgo}{\Vect_G^\omega}
+\newcommand{\one}{1}
+\newcommand{\al}{\alpha}
+\newcommand{\be}{\beta}
+\newcommand{\ga}{\gamma}
+\newcommand{\Ga}{\Gamma}
+\newcommand{\de}{\delta}
+\newcommand{\De}{\Delta}
+\newcommand{\ka}{\varkappa}
+\newcommand{\la}{\lambda}
+\newcommand{\La}{\Lambda}
+\newcommand{\ph}{\varphi}
+\newcommand{\Ph}{\Phi} 
+\newcommand{\si}{\sigma}
+\newcommand{\Si}{\Sigma}
+\newcommand{\Sibar}{\overline{\Sigma}}
+\newcommand{\Sihat}{\widehat{\Sigma}}
+\newcommand{\om}{\omega}
+\newcommand{\Om}{\Omega}
+\newcommand{\eps}{\varepsilon}
+\renewcommand{\th}{\theta}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %Please place all your personal packages here. Check to
@@ -108,16 +209,16 @@
 \include{data/titlepage} % This is simply a file that formats and adds your titlepage, please do not edit this unless you have a specific need. .
 \include{data/abstract}
 \include{data/dedication}
-\include{data/acknowledgements}
+%\include{data/acknowledgements}
 \include{data/contributors}
-\include{data/nomenclature}
+%\include{data/nomenclature}
 
 \include{data/lists}  % This is simply a file that formats and adds your toc, lof, and lot, please do not edit this unless you have a specific need.
 
-\include{data/section1}
+%\include{data/section1}
+%\include{data/section2}
+%\include{data/section3}
 \include{data/section2}
-\include{data/section3}
-\include{data/section4}
 %The next line is the format for inserting new sections.
 %Replace the name "newsection"  with the name of your
 %new section file.
@@ -155,7 +256,7 @@
 %pointers if you end up changing the filenames.
 %Leave this commented if you will not need
 %appendix material.
-\include{data/appendices}
+%\include{data/appendices}
 
 
 \end{document}

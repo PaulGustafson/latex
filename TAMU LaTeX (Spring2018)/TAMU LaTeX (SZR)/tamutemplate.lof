@@ -1,38 +1,10 @@
 \addvspace {10\p@ }
 \vskip -10pt
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Some Haskell code in a compiler.\relax }}{4}{figure.caption.9}
-\contentsline {figure}{\numberline {1.2}{\ignorespaces The DOSBox console running in Windows 7. The contents of the mounted directory C: are displayed, with the active subdirectory DUKE3D.\relax }}{4}{figure.caption.10}
-\contentsline {figure}{\numberline {1.3}{\ignorespaces The inclusion of a copyright statement as a footnote. The lines in yellow help to change to footnote marking scheme.\relax }}{5}{figure.caption.11}
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Linux Mint 13 with the XFCE desktop environment.\relax }}{6}{figure.caption.12}
-\contentsline {figure}{\numberline {1.5}{\ignorespaces The ``Table of Contents" dialog box in Microsoft Word. This must be accessed to properly generate the Table of Contents when using the Recommended Template.\relax }}{6}{figure.caption.13}
-\contentsline {figure}{\numberline {1.6}{\ignorespaces Linear regression on three (top) and four (bottom) independent variables in base R.\relax }}{7}{figure.caption.14}
-\addvspace {10\p@ }
-\vskip -10pt
-\contentsline {figure}{\numberline {2.1}{\ignorespaces The command line compiler in Windows.}}{8}{figure.caption.15}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces A typical desktop space in Linux Mint.\relax }}{9}{figure.caption.16}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces The autocorrelation function (ACF) of the differenced unemployment series. Seasonal adjustments may be needed.\relax }}{10}{figure.caption.17}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces The Linux terminal. The commands shown are from a two-dimensional mesh generator that triangulates a domain in the plane. Files containing nodes, elements, the polygon, and the edges are created.\relax }}{11}{figure.caption.18}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces A blank float.\relax }}{15}{figure.caption.21}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Another blank float.\relax }}{15}{figure.caption.22}
-\addvspace {10\p@ }
-\vskip -10pt
-\contentsline {figure}{\numberline {3.1}{\ignorespaces A typical Texmaker workspace in Windows 7. The right sidebar displays the current file's structure according to the subsections in place.\relax }}{17}{figure.caption.24}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Some commands in R.\relax }}{18}{figure.caption.25}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces The logo of a familiar university.\relax }}{19}{figure.caption.26}
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Yet another blank float that has no purpose. This is only to test the appearance of the Lists of Figures and the List of Tables.\relax }}{19}{figure.caption.27}
-\contentsline {figure}{\numberline {3.5}{\ignorespaces A signal and the result after a basic filter. The FFT was used to create the plot on the right.\relax }}{20}{figure.caption.28}
-\contentsline {figure}{\numberline {3.6}{\ignorespaces There is nothing to see here.\relax }}{20}{figure.caption.29}
-\contentsline {figure}{\numberline {3.7}{\ignorespaces There is another float here. I wonder what could be here? Guess what? Nothing! There is no material in this float.\relax }}{20}{figure.caption.30}
-\addvspace {10\p@ }
-\vskip -10pt
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Declaring graphics directories.\relax }}{21}{figure.caption.31}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces The place to declare any packages you require that I have not already declared. This simplifies debugging.\relax }}{22}{figure.caption.32}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Two points on the unit circle and their corresponding position vectors.\relax }}{23}{figure.caption.33}
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Changing the method of compilation for XeLaTeX in TeXstudio.\relax }}{24}{figure.caption.34}
-\contentsline {figure}{\numberline {4.5}{\ignorespaces A portion of the changelog in the README for this document. This is located in the root directory.\relax }}{25}{figure.caption.35}
-\addvspace {10\p@ }
-\vskip -10pt
-\contentsline {figure}{\numberline {A.1}{\ignorespaces TAMU figure\relax }}{28}{figure.caption.39}
-\addvspace {10\p@ }
-\vskip -10pt
-\contentsline {figure}{\numberline {B.1}{\ignorespaces Another TAMU figure.\relax }}{29}{figure.caption.40}
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Local relations for colored graphs. \relax }}{xv}{figure.caption.6}
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Linearity of $\delimiter "426830A \Gamma \delimiter "526930B $. Here $\varphi _1,\varphi _2$ are compositions of $\varphi $ with projector $X_1\oplus X_2\to X_1$ (respectively, $X_1\oplus X_2\to X_2$), and similarly for $\psi _1,\psi _2$. \relax }}{xvi}{figure.caption.7}
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Element of the spanning set $S$ for a genus 2 surface\relax }}{xxi}{figure.caption.8}
+\contentsline {figure}{\numberline {1.4}{\ignorespaces Simple closed curves for the Dehn twists in the Lickorish generating set for the mapping class group of a genus $3$ closed surface (Image source: \url {https://en.wikipedia.org/wiki/Dehn_twist})\relax }}{xxi}{figure.caption.9}
+\contentsline {figure}{\numberline {1.5}{\ignorespaces Using local moves to calculate the action of the first type of Dehn twist on an arbitrary element of the spanning set $S$. Read from left to right, then top to bottom. Unlabeled interior edges are colored by the group identity element. The Dehn twist is performed along the dashed simple closed curve. The first two subfigures show the action of the Dehn twist. The last three show the local moves relating the image of the Dehn twist to another element of $S$.\relax }}{xxiv}{figure.caption.10}
+\contentsline {figure}{\numberline {1.6}{\ignorespaces Using local moves to calculate the action of the second type of Dehn twist on an arbitrary element of the spanning set $S$. Read from left to right, then top to bottom. The Dehn twist is performed along the dashed simple closed curve. The first two subfigures show application of local moves prior to the Dehn twist action. The third shows the action of the twist. The last three show the local moves relating the image of the Dehn twist to another element of $S$.\relax }}{xxv}{figure.caption.11}
+\contentsline {figure}{\numberline {1.7}{\ignorespaces Using local moves to calculate the action of a braid generator on an arbitrary element of the spanning set $S$. Read from left to right, then top to bottom. Unlabeled interior edges are colored by the group identity element. The first two subfigures show application of the braid generator, which interchanges the univalent vertices. The last four show the local moves relating the image to another element of $S$.\relax }}{xxvii}{figure.caption.12}
+\contentsline {figure}{\numberline {1.8}{\ignorespaces Using local moves to calculate the action of the last Birman generator on an arbitrary element of the spanning set $S$. This generator corresponds to pulling a boundary component of the surface $\Sigma $ along a generator for the fundamental group of the closed surface given by filling in all boundary components of $\Sigma $. Read from left to right, then top to bottom. Unlabeled interior edges are colored by the group identity element. The first two figures show application of the Birman generator. The last eight show the local moves relating the image to another element of $S$.\relax }}{xxviii}{figure.caption.13}
