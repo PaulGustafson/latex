@@ -1,5 +1,28 @@
 \begin{thebibliography}{10}
 
+\bibitem{erw}
+P.~Etingof, E.~Rowell, and S.~Witherspoon, ``Braid group representations from
+  twisted quantum doubles of finite groups,'' {\em Pacific journal of
+  mathematics}, vol.~234, no.~1, pp.~33--41, 2008.
+
+\bibitem{REALCAR}
+N.~Carothers, {\em Real Analysis}.
+\newblock Cambridge University Press, 2000.
+
+\bibitem{einstein}
+A.~Einstein, ``{Zur Elektrodynamik bewegter K{\"o}rper}. ({German}) [{On} the
+  electrodynamics of moving bodies],'' {\em Annalen der Physik}, vol.~322,
+  no.~10, pp.~891--921, 1905.
+
+\bibitem{Barn-JORVQ}
+C.~F. Barnes and R.~L. Frost, ``Residual vector quantizers with jointly
+  optimized code books,'' {\em Advances in Electronics and Electron Physics},
+  vol.~84, pp.~1--59, 1992.
+
+\bibitem{WAGFJ}
+G.~T. Gilbert and R.~L. Hatcher, ``Wagering in final jeopardy!,'' {\em
+  Mathematics Magazine}, vol.~67, pp.~268--277, October 1994.
+
 \bibitem{hep-th/9311155}
 J.~Barrett and B.~Westbury, ``Invariants of piecewise-linear 3-manifolds,''
   {\em Transactions of the American Mathematical Society}, vol.~348, no.~10,
@@ -8,11 +31,6 @@ J.~Barrett and B.~Westbury, ``Invariants of piecewise-linear 3-manifolds,''
 \bibitem{TURAEV1992865}
 V.~G. Turaev and O.~Y. Viro, ``State sum invariants of 3-manifolds and quantum
   6j-symbols,'' {\em Topology}, vol.~31, no.~4, pp.~865--902, 1992.
-
-\bibitem{erw}
-P.~Etingof, E.~Rowell, and S.~Witherspoon, ``Braid group representations from
-  twisted quantum doubles of finite groups,'' {\em Pacific journal of
-  mathematics}, vol.~234, no.~1, pp.~33--41, 2008.
 
 \bibitem{nr}
 D.~Naidu and E.~C. Rowell, ``A finiteness property for braided fusion

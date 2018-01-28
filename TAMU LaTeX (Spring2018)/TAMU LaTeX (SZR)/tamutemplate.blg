@@ -3,50 +3,54 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: tamutemplate.aux
 A level-1 auxiliary file: data/titlepage.aux
 A level-1 auxiliary file: data/abstract.aux
-A level-1 auxiliary file: data/dedication.aux
 A level-1 auxiliary file: data/contributors.aux
 A level-1 auxiliary file: data/lists.aux
+A level-1 auxiliary file: data/section1.aux
 A level-1 auxiliary file: data/section2.aux
 The style file: ieeetr.bst
 Database file #1: data/myReference.bib
-You've used 16 entries,
+Warning--I didn't find a database entry for "TAMU"
+Warning--I didn't find a database entry for "GIGEM"
+Warning--I didn't find a database entry for "Over9000"
+You've used 20 entries,
             1876 wiz_defined-function locations,
-            594 strings with 5889 characters,
-and the built_in function-call counts, 4501 in all, are:
-= -- 493
-> -- 121
+            628 strings with 6429 characters,
+and the built_in function-call counts, 5535 in all, are:
+= -- 606
+> -- 145
 < -- 0
-+ -- 47
-- -- 31
-* -- 307
-:= -- 617
-add.period$ -- 18
-call.type$ -- 16
-change.case$ -- 14
++ -- 57
+- -- 37
+* -- 373
+:= -- 756
+add.period$ -- 23
+call.type$ -- 20
+change.case$ -- 17
 chr.to.int$ -- 0
-cite$ -- 16
-duplicate$ -- 232
-empty$ -- 427
-format.name$ -- 31
-if$ -- 1114
+cite$ -- 20
+duplicate$ -- 287
+empty$ -- 530
+format.name$ -- 37
+if$ -- 1375
 int.to.chr$ -- 0
-int.to.str$ -- 16
-missing$ -- 18
-newline$ -- 53
-num.names$ -- 16
-pop$ -- 31
+int.to.str$ -- 20
+missing$ -- 23
+newline$ -- 66
+num.names$ -- 20
+pop$ -- 41
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 174
+skip$ -- 214
 stack$ -- 0
-substring$ -- 363
-swap$ -- 106
+substring$ -- 442
+swap$ -- 130
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 52
-width$ -- 18
-write$ -- 169
+while$ -- 64
+width$ -- 22
+write$ -- 209
+(There were 3 warnings)
