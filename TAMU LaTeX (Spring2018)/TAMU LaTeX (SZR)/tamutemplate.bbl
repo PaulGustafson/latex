@@ -9,6 +9,11 @@ P.~Etingof, E.~Rowell, and S.~Witherspoon, ``Braid group representations from
 A.~Kirillov~Jr, ``String-net model of turaev-viro invariants,'' {\em arXiv
   preprint arXiv:1106.6033}, 2011.
 
+\bibitem{reshetikhin1991invariants}
+N.~Reshetikhin and V.~G. Turaev, ``Invariants of 3-manifolds via link
+  polynomials and quantum groups,'' {\em Inventiones mathematicae}, vol.~103,
+  no.~1, pp.~547--597, 1991.
+
 \bibitem{hep-th/9311155}
 J.~Barrett and B.~Westbury, ``Invariants of piecewise-linear 3-manifolds,''
   {\em Transactions of the American Mathematical Society}, vol.~348, no.~10,
@@ -38,15 +43,15 @@ S.-H. Ng and P.~Schauenburg, ``Frobenius--schur indicators and exponents of
   spherical categories,'' {\em Advances in Mathematics}, vol.~211, no.~1,
   pp.~34--71, 2007.
 
-\bibitem{ns}
-S.-H. Ng and P.~Schauenburg, ``Higher frobenius-schur indicators for pivotal
-  categories,'' {\em Hopf algebras and generalizations}, vol.~441, pp.~63--90,
-  2007.
-
 \bibitem{BK}
 B.~Bakalov and A.~A. Kirillov, {\em Lectures on tensor categories and modular
   functors}, vol.~21.
 \newblock American Mathematical Soc., 2001.
+
+\bibitem{ns}
+S.-H. Ng and P.~Schauenburg, ``Higher frobenius-schur indicators for pivotal
+  categories,'' {\em Hopf algebras and generalizations}, vol.~441, pp.~63--90,
+  2007.
 
 \bibitem{0806.2493}
 S.-H. Ng and P.~Schauenburg, ``Congruence subgroups and generalized

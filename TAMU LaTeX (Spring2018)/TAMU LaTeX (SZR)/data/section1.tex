@@ -28,23 +28,19 @@
 
 \section{Topological quantum computation}
 
-The term ``topological quantum computation'' refers to a variety of proposals for building a quantum computer using topological phases of matter.  In the usual setup, one creates $n$ quasiparticle excitations (anyons) in a 2-dimensional disk.  The motion group of $n$ points on a disk is the braid group $B_n$.  Physically braiding quasiparticle excitations corresponds to an unitary action of the braid group on the Hilbert space of possible states of the system.  These unitary braid group representations are completely determined by the anyon types of the $n$ quasiparticles. The images of the standard braid group generators in such a representation form the gate set for a quantum computer.  
+Topological quantum computation refers to a variety of proposals for building a quantum computer using topological phases of matter.  In the usual setup, one creates $n$ quasiparticle excitations (anyons) in a 2-dimensional disk.  Physically braiding quasiparticle excitations corresponds to a unitary action of the braid group $B_n$ on the Hilbert space of possible states of the system.  These unitary braid group representations are completely determined by the anyon types of the $n$ quasiparticles. The images of the standard braid group generators in such a representation form the gate set for a quantum computer.  
 
 %% FIXME: Insert braiding PICTURE
 
-\subsection{Mapping class groups}
-
-More generally, one can consider a system of quasiparticle excitations on a closed surface of arbitrary genus.  In this case, there may be nontrivial self-homeomorphisms of the underlying surface in addition to motions of the quasiparticle excitions on the surface.  Both types of actions correspond to elements of the mapping class group of a compact surface with boundary, where a labeled boundary components replaces each quasiparticle excitation. The previously mentioned braid group example corresponds to the mapping class group of a disk with $n$ open disks removed relative to the outer, vacuum-labeled boundary.  
+More generally, we consider a system of quasiparticle excitations on a closed surface of arbitrary genus.  In this case, there may be nontrivial self-homeomorphisms of the underlying surface in addition to motions of the quasiparticle excitions on the surface.  Both types of actions correspond to elements of the mapping class group of a compact surface with boundary, where a labeled boundary component replaces each quasiparticle excitation. The aforementioned braid group example corresponds to the mapping class group of a disk with $n$ open disks removed, holding the outer, vacuum-labeled boundary fixed.  
 
 \subsection{Topological quantum field theories}
-To first approximation, a $(2+1)$-topological quantum field theory assigns a vector space to every oriented compact surface and a linear operator to every $3$-manifold with boundary in a compatible way.  In particular, if a $3$-manifold $M$ has boundary $\partial M = N_1 \sqcup \overline{N_2}$, then a TQFT $F$ should define an operator $F(M) : F(N_1) \to F(N_2)$.   Specializing to the case where $N := N_1 = N_2$, a TQFT defines a representation of the mapping class group of $N$.
+The relevant dynamics of proposed topological phases of matter are governed by topological quantum field theories (TQFTs). The theories we consider in this paper are $(2+1)$-dimensional (two spatial dimensions and one time dimension). A $(2+1)$-dimensional topological quantum field theory assigns a vector space to every oriented compact surface and a (possibly projective) linear map to every $3$-manifold with boundary in a compatible way.  In particular, if a $3$-manifold $M$ has boundary $\partial M = N_1 \sqcup \overline{N_2}$, then a TQFT $F$  defines a (projective) operator $F(M) : F(N_1) \to F(N_2)$.   Specializing to the case where $N := N_1 = N_2$, a TQFT defines a representation of the mapping class group of $N$.
 
 %% FIXME: cite RT construction
-A common way of constructing TQFTs is by labelling geometric data (e.g. simplices of a triangulation, or framed links) by data from a sufficiently nice fusion category.  Two such constructions are the Reshitikhin-Turaev and the Turaev-Viro-Barrett-Westbury constructions.  In these cases, the operators associated to $3$-manifolds with boundary are not strictly linear but projection.
+A common way of constructing TQFTs is by labelling geometric data (e.g. simplices of a triangulation, or framed links) by data from a sufficiently nice tensor category.  Two such constructions are the Reshitikhin-Turaev \cite{reshetikhin1991invariants} and the Turaev-Viro-Barrett-Westbury \cite{hep-th/9311155, TURAEV1992865} constructions.
 
 More concretely, given a spherical fusion category $\mathcal A$ over a field $k$ and an oriented compact surface $\Si$, possibly with boundary, the Turaev-Viro-Barrett-Westbury (TVBW) construction gives a projective representation of the mapping class group $\MCG(\Si)$ \cite{hep-th/9311155, TURAEV1992865}. A natural problem motivated by topological quantum computation is to determine the images of such representations.  In particular, we would like to know when such a representation has a finite image.
-
-
 
 %% \subsection{Spherical fusion categories}
 
@@ -58,7 +54,7 @@ More concretely, given a spherical fusion category $\mathcal A$ over a field $k$
 \section{The Property F conjecture}
 It is conjectured that any TVBW mapping class group representation associated to a spherical fusion category $\mathcal A$ has finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a modification of the Property F conjecture \cite{erw, nr}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral. Instead of only considering braid group representations, one can consider mapping class groups of arbitrary orientable surfaces.  In this case, the input categories to construct the representations must be more specialized than just braided monoidal.  One can either apply the Reshitikhin-Turaev construction to a modular tensor category, or apply the TVBW construction to a spherical fusion category.  The former is more general than the latter since the Reshitikhin-Turaev construction for the Drinfeld center $Z(\mathcal A)$ of a spherical fusion category $\mathcal A$ yields the same representation as the TVBW construction for $\mathcal A$.  However, for the case considered in this paper, the simpler TVBW construction suffices.
 
-In this paper, our input category is  $\mathcal A = \Vect_G^\omega$, the spherical fusion category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the TVBW construction corresponds to both twisted Dijkgraaf-Witten theory \cite{dijkgraaf1990} and the Reshitikhin-Turaev construction \cite{reshetikhin1991invariants} applied to $\Mod-D^\omeg(G) \cong Z(\Vect_G^\omega)$.  The category $\Vect_G^\omega$ is integral, so the one expects its associated mapping class group representations to have finite image.  The main contribution of this paper is to verify this for arbitrary $G$ and $\omega$.
+In this paper, our input category is  $\mathcal A = \Vect_G^\omega$, the spherical fusion category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the TVBW construction corresponds to both twisted Dijkgraaf-Witten theory \cite{dijkgraaf1990} and the Reshitikhin-Turaev construction \cite{reshetikhin1991invariants} applied to $\Mod-D^\omega(G) \cong Z(\Vect_G^\omega)$.  The category $\Vect_G^\omega$ is integral, so the one expects its associated mapping class group representations to have finite image.  The main contribution of this paper is to verify this for arbitrary $G$ and $\omega$.
 
 
 
@@ -83,19 +79,6 @@ $$j_{g} = \omega(g^{-1},g,g^{-1}) \id_{g}.$$
 
 If $\omega$ and $\omega'$ are cohomologous cocycles, then $\Vect_G^\omega$ is monoidally equivalent to $\Vect_G^{\omega'}$ \cite{etingofTensor}.  This equivalence respects the pivotal structure, so extends to an equivalence of spherical categories.  It is a basic result in group cohomology that any cocycle $\omega \in Z^3(G, k^\times)$ is cohomologous to a cocycle taking values in $\mu_{|G|}$, the roots of unity of order $|G|$.  Thus, by replacing $\Vect^\omega_G$ with an equivalent spherical category, we assume  without loss of generality that $\Img(\omega) \subset \mu_{|G|}$ (as in \cite{erw}).  
 
-\subsection{Strictification}
-The colored graph construction takes a strict pivotal category as input, so we must strictify $\Vect_G^\omega$ to get an equivalent strict pivotal monoidal $\widehat \vgo$. Every pivotal category is equivalent to a strict pivotal monoidal category by first strictifying with respect to the monoidal structure, and then strictifying with respect to the pivotal structure as follows \cite{ns}.
-
-Given a monoidal category $\mC$, there exists a monoidally equivalent strict monoidal category $\mC'$ with objects consisting of all finite lists of objects of $\mC$ and morphisms defined by $\Hom_{\mC'}([A_1, \ldots, A_n], [B_1, \ldots, B_m]) = \Hom_\mC(((\cdots((A_1 \otimes A_2) \otimes A_3) \otimes \cdots \otimes A_n, ((\cdots((B_1 \otimes B_2) \otimes B_3) \otimes \cdots \otimes B_m)$.  The tensor product in $\mC'$ is concatenation of lists. The strictification functor applies the obvious unique composition of associators to both objects and morphisms of $\mC$, and the coherence map does the same. If $\mC$ is pivotal, this monoidal equivalence extends to an equivalence of pivotal monoidal categories (where the pivotal structure on $\mC'$ is given by applying the strictification functor to the pivotal structure of $\mC$).
-
-Given a pivotal strict monoidal category $\mC'$, there is a strict pivotal monoidal category $\widehat \mC$ equivalent, as a pivotal monoidal category, to $\mC'$.  The objects of $\widehat \mC$ are pairs $(X, \epsilon)$ for which there exists $r \in \NN_0$ such that $X \in \mC^r$ and $\epsilon \in \ZZ_2^r$. The morphisms are
-$$\Hom_{\widehat \mC}((X, \epsilon), (Y, \epsilon)) = \Hom_{\mC'}(X_1^{\epsilon_1} \otimes \cdots \otimes X_r^{\epsilon_r}, Y_1^{\epsilon_1} \otimes \cdots \otimes Y_s^{\epsilon_s}),$$
-where $X^\epsilon$ is defined by $X^0 = X$ and $X^1 = X^*$. The tensor product is given by concatenation. The duality functor on $\widehat \mC$ is given by
-$$(X, \epsilon)^* = ((X_r, \ldots, X_1), (\epsilon_r + 1, \ldots, \epsilon_1 + 1)).$$
-The evaluation function $\ev_{(X, \epsilon)}$ on $\widehat \mC$ is inductively defined using tensor products of identities, $j_{X_i}$'s, and evaluation maps $\ev_{X_i}$ in $\mC'$, and similarly for coevaluation.  This strictification functor maps $X \in \mC'$ to $(X, 0)$ and acts on morphisms as the identity.  The coherence maps are also identity maps.
-
-Slightly abusing notation, we will sometimes use the same symbol for both $X \in \mC$ and its images in $\mC'$ and $\widehat \mC$ under the strictification functors.
-
 
 \newcommand{\ee}{\mathbf{e}}       % oriented edge
 \newcommand{\A}{\mathcal{A}}      % category 
@@ -110,7 +93,7 @@ Slightly abusing notation, we will sometimes use the same symbol for both $X \in
 \renewcommand{\>}{\rangle}
 \newcommand{\surjto}{\twoheadrightarrow}      %   -->> surjection
 \newcommand{\injto}{\hookrightarrow}          %  (--> injection
-\newcommand{\isoto}{\xrightarrow{\sim}}       % isomor.
+\newcommand{\isoto}{\xrightarrow {\sim}}       % isomor.
 \newcommand{\xxto}{\xrightarrow}              % long arrow
 \newcommand{\firef}[1]{Figure~{\rm\ref{#1}}}
 \newcommand{\R}{\mathbb{R}}       % real numbers
@@ -436,4 +419,17 @@ The vector space $H := \Hs(\Si, \VV)$ associated to a oriented surface $\Si$ wit
 
 
 
+
+\subsection{Strictification}
+The colored graph construction takes a strict pivotal category as input, so we must strictify $\Vect_G^\omega$ to get an equivalent strict pivotal monoidal $\widehat \vgo$. Every pivotal category is equivalent to a strict pivotal monoidal category by first strictifying with respect to the monoidal structure, and then strictifying with respect to the pivotal structure as follows \cite{ns}.
+
+Given a monoidal category $\mC$, there exists a monoidally equivalent strict monoidal category $\mC'$ with objects consisting of all finite lists of objects of $\mC$ and morphisms defined by $$\Hom_{\mC'}([A_1, \ldots, A_n], [B_1, \ldots, B_m]) = \Hom_\mC(((\cdots((A_1 \otimes A_2) \otimes A_3) \otimes \cdots \otimes A_n, ((\cdots((B_1 \otimes B_2) \otimes B_3) \otimes \cdots \otimes B_m)$$.  The tensor product in $\mC'$ is concatenation of lists. The strictification functor applies the obvious unique composition of associators to both objects and morphisms of $\mC$, and the coherence map does the same. If $\mC$ is pivotal, this monoidal equivalence extends to an equivalence of pivotal monoidal categories (where the pivotal structure on $\mC'$ is given by applying the strictification functor to the pivotal structure of $\mC$).
+
+Given a pivotal strict monoidal category $\mC'$, there is a strict pivotal monoidal category $\widehat \mC$ equivalent, as a pivotal monoidal category, to $\mC'$.  The objects of $\widehat \mC$ are pairs $(X, \epsilon)$ for which there exists $r \in \NN_0$ such that $X \in \mC^r$ and $\epsilon \in \ZZ_2^r$. The morphisms are
+$$\Hom_{\widehat \mC}((X, \epsilon), (Y, \epsilon)) = \Hom_{\mC'}(X_1^{\epsilon_1} \otimes \cdots \otimes X_r^{\epsilon_r}, Y_1^{\epsilon_1} \otimes \cdots \otimes Y_s^{\epsilon_s}),$$
+where $X^\epsilon$ is defined by $X^0 = X$ and $X^1 = X^*$. The tensor product is given by concatenation. The duality functor on $\widehat \mC$ is given by
+$$(X, \epsilon)^* = ((X_r, \ldots, X_1), (\epsilon_r + 1, \ldots, \epsilon_1 + 1)).$$
+The evaluation function $\ev_{(X, \epsilon)}$ on $\widehat \mC$ is inductively defined using tensor products of identities, $j_{X_i}$'s, and evaluation maps $\ev_{X_i}$ in $\mC'$, and similarly for coevaluation.  This strictification functor maps $X \in \mC'$ to $(X, 0)$ and acts on morphisms as the identity.  The coherence maps are also identity maps.
+
+Slightly abusing notation, we will sometimes use the same symbol for both $X \in \mC$ and its images in $\mC'$ and $\widehat \mC$ under the strictification functors.
 
