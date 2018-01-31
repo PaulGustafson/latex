@@ -1,8 +1,8 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.8.29)  26 JAN 2018 15:09
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.8.29)  29 JAN 2018 18:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**tamutemplate
+**tamutemplate^^M
 (./tamutemplate.tex
 LaTeX2e <2016/02/01>
 Babel <3.9q> and hyphenation patterns for 81 language(s) loaded.
@@ -921,25 +921,387 @@ e.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
 decorations.markings.code.tex))
 \c@thrm=\count160
+Package csquotes Info: Checking for multilingual support...
+Package csquotes Info: ... none found.
+ (./tamutemplate.aux (./data/titlepage.aux)
+(./data/abstract.aux) (./data/contributors.aux) (./data/lists.aux)
+(./data/section1.aux) (./data/section2.aux) (./data/section3.aux)
+(./data/section4.aux))
+\openout1 = `tamutemplate.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 179.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 179.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
+File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 179.
+LaTeX Font Info:    ... okay on input line 179.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 179.
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
+File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
+)
+*geometry* driver: auto-detecting
+*geometry* detected driver: xetex
+*geometry* verbose mode - [ preamble ] result:
+* driver: xetex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: 
+* h-part:(L,W,R)=(72.26999pt, 469.75502pt, 72.26999pt)
+* v-part:(T,H,B)=(72.26999pt, 650.43001pt, 72.26999pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=469.75502pt
+* \textheight=620.43001pt
+* \oddsidemargin=0.0pt
+* \evensidemargin=0.0pt
+* \topmargin=0.0pt
+* \headheight=0.0pt
+* \headsep=0.0pt
+* \topskip=12.0pt
+* \footskip=30.0pt
+* \marginparwidth=44.0pt
+* \marginparsep=10.0pt
+* \columnsep=10.0pt
+* \skip\footins=10.8pt plus 4.0pt minus 2.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: End \AtBeginDocument code.
+\AtBeginShipoutBox=\box52
+Package hyperref Info: Link coloring OFF on input line 179.
+(/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count161
+)
+LaTeX Info: Redefining \ref on input line 179.
+LaTeX Info: Redefining \pageref on input line 179.
+LaTeX Info: Redefining \nameref on input line 179.
+
+(./tamutemplate.out) (./tamutemplate.out)
+\@outlinefile=\write4
+\openout4 = `tamutemplate.out'.
 
 
-! LaTeX Error: Command \Vec already defined.
-               Or name \end... illegal, see p.192 of the manual.
+ABD: EveryShipout initializing macros
+\openout2 = `data/titlepage.aux'.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.125 \DeclareMathOperator{\Vec}{Vec}
-                                     
-? X
- 
+ (./data/titlepage.tex
+LaTeX Font Info:    Try loading font information for OT1+ztmcm on input line 46
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ztmcm.fd
+File: ot1ztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OT1/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OML+ztmcm on input line 46
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlztmcm.fd
+File: omlztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OML/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OMS+ztmcm on input line 46
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsztmcm.fd
+File: omsztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMS/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OMX+ztmcm on input line 46
+.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omxztmcm.fd
+File: omxztmcm.fd 2000/01/03 Fontinst v1.801 font definitions for OMX/ztmcm.
+)
+LaTeX Font Info:    Try loading font information for OT1+ptm on input line 46.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+)
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <9> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 46.
+
+(/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
+File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
+
+)
+[1
+
+
+])
+\openout2 = `data/abstract.aux'.
+
+ (./data/abstract.tex [2
+
+
+
+])
+\openout2 = `data/contributors.aux'.
+
+ (./data/contributors.tex
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
+) [3
+
+
+
+]
+\openout2 = `data/lists.aux'.
+
+ (./data/lists.tex
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 35.
+
+(./tamutemplate.toc)
+\tf@toc=\write5
+\openout5 = `tamutemplate.toc'.
+
+ [4
+
+
+] (./tamutemplate.lof
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 9.
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+))
+\tf@lof=\write6
+\openout6 = `tamutemplate.lof'.
+
+ [5] [6])
+\openout2 = `data/section1.aux'.
+
+
+(./data/section1.tex
+Chapter 1.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uppercase' on input line 22.
+
+[1
+
+
+
+]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathop' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathchardef' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\std@minus' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathcode' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                \kern 2.66638pt
+(hyperref)                removed on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\mathgroup' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\symoperators' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `superscript' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\omega' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 63.
+
+[2] [3]
+Overfull \hbox (87.36534pt too wide) in paragraph at lines 83--84
+\T1/ptm/m/n/12 with ob-jects con-sist-ing of all fi-nite lists of ob-jects of $
+\OMS/ztmcm/m/n/12 C$ \T1/ptm/m/n/12 and mor-phisms de-fined by $[][]\OT1/ztmcm/
+m/n/12 ([\OML/ztmcm/m/it/12 A[]; [] ; A[]\OT1/ztmcm/m/n/12 ]\OML/ztmcm/m/it/12 
+; \OT1/ztmcm/m/n/12 [\OML/ztmcm/m/it/12 B[]; [] ; B[]\OT1/ztmcm/m/n/12 ]) =
+ []
+
+[4] [5]
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 171.
+
+ (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+) [6] [7]
+Underfull \hbox (badness 10000) in paragraph at lines 265--267
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 301--303
+
+ []
+
+[8] [9]) [10]
+\openout2 = `data/section2.aux'.
+
+ (./data/section2.tex
+Chapter 2.
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uppercase' on input line 17.
+
+) [11
+
+
+
+]
+\openout2 = `data/section3.aux'.
+
+ (./data/section3.tex
+Chapter 3.
+
+Overfull \hbox (37.98842pt too wide) in paragraph at lines 55--56
+[][]\T1/ptm/b/n/12 Definition 3.0.1. []\T1/ptm/m/it/12 Let $\OML/ztmcm/m/it/12 
+g[]; [] ; g[] \OMS/ztmcm/m/n/12 2 \OML/ztmcm/m/it/12 G$ \T1/ptm/m/it/12 and $\O
+ML/ztmcm/m/it/12 ^^O[]; [] ; ^^O[] \OMS/ztmcm/m/n/12 2 f^^F\OT1/ztmcm/m/n/12 1\
+OMS/ztmcm/m/n/12 g \OT1/ztmcm/m/n/12 = \U/msb/m/n/12 Z[]$\T1/ptm/m/it/12 . A mo
+r-phism $\OML/ztmcm/m/it/12 ^^^ \OMS/ztmcm/m/n/12 2 h\OT1/ztmcm/m/n/12 (\OML/zt
+mcm/m/it/12 ^^N[]; ^^O[]\OT1/ztmcm/m/n/12 )\OML/ztmcm/m/it/12 ; [] ; \OT1/ztmcm
+/m/n/12 (\OML/ztmcm/m/it/12 ^^N[]; ^^O[]\OT1/ztmcm/m/n/12 )\OMS/ztmcm/m/n/12 i 
+\OT1/ztmcm/m/n/12 =
+ []
+
+
+Overfull \hbox (3.3493pt too wide) in paragraph at lines 64--65
+\T1/ptm/m/it/12 to $\OML/ztmcm/m/it/12 v$\T1/ptm/m/it/12 , taken in coun-ter-cl
+ock-wise or-der and with out-ward ori-en-ta-tion, such that $[][] \OML/ztmcm/m/
+it/12 g\OT1/ztmcm/m/n/12 (\OT1/ptm/b/n/12 e[]\OT1/ztmcm/m/n/12 )[] =
+ []
+
+[12
+
+
+
+] [13]
+
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 96.
+
+[14]
+\R=\dimen197
+File: ./graphic/lickorish.png Graphic file (type QTm)
+ <use  "./graphic/lickorish.png" > [15] [16] [17]
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 507.
+ [18] [19] [20]
+Missing character: There is no ; in font nullfont!
+) [21]
+[22] [23]
+\openout2 = `data/section4.aux'.
+
+ (./data/section4.tex
+Chapter 4.
+) [24
+
+
+
+] (./tamutemplate.bbl [25
+
+
+]) [26]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 266.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 266.
+ (./tamutemplate.aux (./data/titlepage.aux) (./data/abstract.aux) (./data/contr
+ibutors.aux) (./data/lists.aux)
+(./data/section1.aux) (./data/section2.aux) (./data/section3.aux)
+(./data/section4.aux))
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 266.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 266.
+ )
+(\end occurred inside a group at level 1)
+
+### semi simple group (level 1) entered at line 58 (\begingroup)
+### bottom level 
 Here is how much of TeX's memory you used:
- 23550 strings out of 493638
- 420221 string characters out of 6146796
- 484674 words of memory out of 5000000
- 26600 multiletter control sequences out of 15000+600000
- 5062 words of font info for 17 fonts, out of 8000000 for 9000
+ 24986 strings out of 493638
+ 445838 string characters out of 6146796
+ 650672 words of memory out of 5000000
+ 27910 multiletter control sequences out of 15000+600000
+ 34631 words of font info for 67 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 55i,0n,65p,774b,66s stack positions out of 5000i,500n,10000p,200000b,80000s
-No pages of output.
+ 55i,14n,71p,1896b,1526s stack positions out of 5000i,500n,10000p,200000b,80000s
+
+Output written on tamutemplate.pdf (32 pages).
