@@ -40,29 +40,22 @@ The relevant dynamics of proposed topological phases of matter are governed by t
 %% FIXME: cite RT construction
 A common way of constructing TQFTs is by labelling geometric data (e.g. simplices of a triangulation, or framed links) by data from a sufficiently nice tensor category.  Two such constructions are the Reshitikhin-Turaev \cite{reshetikhin1991invariants} and the Turaev-Viro-Barrett-Westbury \cite{hep-th/9311155, TURAEV1992865} constructions.
 
-More concretely, given a spherical fusion category $\mathcal A$ over a field $k$ and an oriented compact surface $\Si$, possibly with boundary, the Turaev-Viro-Barrett-Westbury (TVBW) construction gives a projective representation of the mapping class group $\MCG(\Si)$ \cite{hep-th/9311155, TURAEV1992865}. A natural problem motivated by topological quantum computation is to determine the images of such representations.  In particular, we would like to know when such a representation has a finite image.
+More concretely, given a spherical fusion category $\mathcal A$ (to be defined in the next subsection) and an oriented compact surface $\Si$, possibly with boundary, the Turaev-Viro-Barrett-Westbury (TVBW) construction gives a projective representation of the mapping class group $\MCG(\Si)$ \cite{hep-th/9311155, TURAEV1992865}. A natural problem motivated by topological quantum computation is to determine the images of such representations.  In particular, we would like to know when such a representation has a finite image.
 
-%% \subsection{Spherical fusion categories}
-
-%% The algebraic aspects of two dimensional topological phases of matters are governed by the theory of fusion categories. A fusion category is a rigid semisimple linear monoidal category with only finitely many isomorphism classes of simple objects.  Each anyon type corresponds to an isomorphism class of simple objects.
-
-%% %% TODO:
-%% % \subsubsection{Monoidal categories}
-%% %% A monoidal category is a triple $(\mC, \otimes, 
+\subsection{Spherical fusion categories}
+The dynamics of two dimensional topological phases of matter can be modeled usinng the theory of fusion categories. A fusion category is a rigid semisimple linear monoidal category with only finitely many isomorphism classes of simple objects \cite{etingofTensor}.  Each anyon type corresponds to an isomorphism class of simple objects.  A spherical fusion category is a fusion category equipped with a pivotal structure satisfying the spherical property \cite{etingofTensor}.  Sphericality is a technical property required for the uniqueness of the categorical trace (or, equivalently, the categorical dimension).
 
 
 \section{The Property F conjecture}
 It is conjectured that any TVBW mapping class group representation associated to a spherical fusion category $\mathcal A$ has finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a modification of the Property F conjecture \cite{erw, nr}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral. Instead of only considering braid group representations, one can consider mapping class groups of arbitrary orientable surfaces.  In this case, the input categories to construct the representations must be more specialized than just braided monoidal.  One can either apply the Reshitikhin-Turaev construction to a modular tensor category, or apply the TVBW construction to a spherical fusion category.  The former is more general than the latter since the Reshitikhin-Turaev construction for the Drinfeld center $Z(\mathcal A)$ of a spherical fusion category $\mathcal A$ yields the same representation as the TVBW construction for $\mathcal A$.  However, for the case considered in this paper, the simpler TVBW construction suffices.
 
+
+
+\subsection{The spherical fusion category $\Vect_G^\omega$}
+
 In this paper, our input category is  $\mathcal A = \Vect_G^\omega$, the spherical fusion category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the TVBW construction corresponds to both twisted Dijkgraaf-Witten theory \cite{dijkgraaf1990} and the Reshitikhin-Turaev construction \cite{reshetikhin1991invariants} applied to $\Mod-D^\omega(G) \cong Z(\Vect_G^\omega)$.  The category $\Vect_G^\omega$ is integral, so the one expects its associated mapping class group representations to have finite image.  The main contribution of this paper is to verify this for arbitrary $G$ and $\omega$.
 
 
-
-%% TODO: \subsection{Universality}
-%% TODO: \subsection{Weak integrality}
-%% TODO: \subsection{Current progress}
-
-\subsection{The spherical fusion category $\Vect_G^\omega$}
 The following definitions are well-known and can be found in, e.g., \cite{etingofTensor}.  Let $k$ be an algebraically closed field of characteristic 0,  $G$ a finite group, and $\omega \in Z^3(G, k^\times)$ a 3-cocycle.    The spherical fusion category of $G$-graded $k$-vector spaces with associativity defined by $\omega$ is denoted $\Vect_G^\omega$.  The objects of this category are vector spaces with a decomposition $V = \bigoplus_{g \in G} V_g$. Morphisms are linear maps preserving the grading. The tensor product is defined by
 $$ (V \otimes W)_g = \bigoplus_{x,y \in G, xy = g} V_x \otimes W_y. $$
 

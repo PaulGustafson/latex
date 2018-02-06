@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.8.29)  1 FEB 2018 13:52
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2017.8.29)  5 FEB 2018 21:23
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1116,98 +1116,98 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 ] [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 65.
+(hyperref)                removing `math shift' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathop' on input line 65.
+(hyperref)                removing `\mathop' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 65.
+(hyperref)                removing `\mathcode' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 65.
+(hyperref)                removing `\mathcode' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 65.
+(hyperref)                removing `\mathcode' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathchardef' on input line 65.
+(hyperref)                removing `\mathchardef' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\std@minus' on input line 65.
+(hyperref)                removing `\std@minus' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 65.
+(hyperref)                removing `\mathcode' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 65.
+(hyperref)                removing `\mathcode' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 65.
+(hyperref)                removing `\mathcode' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 65.
+(hyperref)                removing `\mathcode' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.66638pt
-(hyperref)                removed on input line 65.
+(hyperref)                removed on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathgroup' on input line 65.
+(hyperref)                removing `\mathgroup' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\symoperators' on input line 65.
+(hyperref)                removing `\symoperators' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 65.
+(hyperref)                removing `\@ifnextchar' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 65.
+(hyperref)                removing `subscript' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 65.
+(hyperref)                removing `superscript' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\omega' on input line 65.
+(hyperref)                removing `\omega' on input line 54.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 65.
+(hyperref)                removing `math shift' on input line 54.
 
 [3] [4]
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 160.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 153.
 
  (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [5] [6]
-Underfull \hbox (badness 10000) in paragraph at lines 254--256
+Underfull \hbox (badness 10000) in paragraph at lines 247--249
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--292
+Underfull \hbox (badness 10000) in paragraph at lines 283--285
 
  []
 
 [7] [8]
-Overfull \hbox (49.47043pt too wide) detected at line 426
+Overfull \hbox (49.47043pt too wide) detected at line 419
 [][]\OT1/ztmcm/m/n/12 ([\OML/ztmcm/m/it/12 A[]; [] ; A[]\OT1/ztmcm/m/n/12 ]\OML
 /ztmcm/m/it/12 ; \OT1/ztmcm/m/n/12 [\OML/ztmcm/m/it/12 B[]; [] ; B[]\OT1/ztmcm/
 m/n/12 ]) = [][]((([] ((\OML/ztmcm/m/it/12 A[] \OMS/ztmcm/m/n/12 
@@ -1306,10 +1306,10 @@ Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 266.
 Here is how much of TeX's memory you used:
  24987 strings out of 493638
  445865 string characters out of 6146796
- 650495 words of memory out of 5000000
+ 650570 words of memory out of 5000000
  27911 multiletter control sequences out of 15000+600000
  34631 words of font info for 67 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 55i,14n,71p,1896b,1508s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,14n,71p,1896b,1514s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on tamutemplate.pdf (32 pages).

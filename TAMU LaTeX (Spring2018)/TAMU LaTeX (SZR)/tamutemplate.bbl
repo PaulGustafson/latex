@@ -23,6 +23,11 @@ J.~Barrett and B.~Westbury, ``Invariants of piecewise-linear 3-manifolds,''
 V.~G. Turaev and O.~Y. Viro, ``State sum invariants of 3-manifolds and quantum
   6j-symbols,'' {\em Topology}, vol.~31, no.~4, pp.~865--902, 1992.
 
+\bibitem{etingofTensor}
+P.~I. Etingof, S.~Gelaki, D.~Nikshych, and V.~Ostrik, {\em Tensor categories},
+  vol.~205.
+\newblock American Mathematical Society Providence, RI, 2015.
+
 \bibitem{nr}
 D.~Naidu and E.~C. Rowell, ``A finiteness property for braided fusion
   categories,'' {\em Algebras and representation theory}, vol.~14, no.~5,
@@ -32,11 +37,6 @@ D.~Naidu and E.~C. Rowell, ``A finiteness property for braided fusion
 R.~Dijkgraaf and E.~Witten, ``Topological gauge theories and group
   cohomology,'' {\em Communications in Mathematical Physics}, vol.~129, no.~2,
   pp.~393--429, 1990.
-
-\bibitem{etingofTensor}
-P.~I. Etingof, S.~Gelaki, D.~Nikshych, and V.~Ostrik, {\em Tensor categories},
-  vol.~205.
-\newblock American Mathematical Society Providence, RI, 2015.
 
 \bibitem{math/0601012}
 S.-H. Ng and P.~Schauenburg, ``Frobenius--schur indicators and exponents of
