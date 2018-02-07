@@ -3,6 +3,7 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: tamutemplate.aux
 A level-1 auxiliary file: data/titlepage.aux
 A level-1 auxiliary file: data/abstract.aux
+A level-1 auxiliary file: data/acknowledgements.aux
 A level-1 auxiliary file: data/contributors.aux
 A level-1 auxiliary file: data/lists.aux
 A level-1 auxiliary file: data/section1.aux
@@ -13,7 +14,7 @@ The style file: ieeetr.bst
 Database file #1: data/myReference.bib
 You've used 17 entries,
             1876 wiz_defined-function locations,
-            603 strings with 6093 characters,
+            604 strings with 6118 characters,
 and the built_in function-call counts, 4833 in all, are:
 = -- 531
 > -- 129
