@@ -52,7 +52,7 @@ To show that the image of any $\Vect_G^\omega$ mapping class group representatio
 
 
 \begin{defn} \label{def:simple_morphism}
-Let $g_1, \ldots, g_n \in G$ and $\epsilon_1, \ldots, \epsilon_n  \in \{\pm 1\} = \ZZ_2$.  A morphism $\phi \in \langle (\delta_{g_1}, \epsilon_1), \ldots, (\delta_{g_n}, \epsilon_n) \rangle = \Hom_{\widehat{\vgo}}(1, (\delta_{g_1}, \epsilon_1) \otimes \cdots \otimes (\delta_{g_n}, \epsilon_n)) = \Hom_{\vgo}(1, (( \cdots (\delta_{g_1^{\epsilon_1}} \otimes \delta_{g_2^{\epsilon_2}}) \otimes \cdots  \otimes \delta_{g_n^{\epsilon_n}})$ will be called \emph{nice} if it is the composition of the isomorphism $\one \cong \delta_1$ and  tensor product isomorphisms of the form $\delta_{gh} \cong \delta_g \otimes \delta_h$ in $\vgo$.
+  Let $g_1, \ldots, g_n \in G$ and $\epsilon_1, \ldots, \epsilon_n  \in \{\pm 1\} = \ZZ_2$.  A morphism  $\phi \in \langle (\delta_{g_1}, \epsilon_1), \ldots, (\delta_{g_n}, \epsilon_n) \rangle = \Hom_{\widehat{\vgo}}(1, (\delta_{g_1}, \epsilon_1) \otimes \cdots \otimes (\delta_{g_n}, \epsilon_n)) = \Hom_{\vgo}(1, (( \cdots ((\delta_{g_1^{\epsilon_1}} \otimes \delta_{g_2^{\epsilon_2}}) \otimes \cdots  \otimes \delta_{g_n^{\epsilon_n}})$ will be called \emph{simple} if it is the composition of the isomorphism $\one \cong \delta_1$ and  tensor product isomorphisms of the form $\delta_{gh} \cong \delta_g \otimes \delta_h$ in $\vgo$.
 \end{defn}
 
 By MacLane's coherence theorem applied to the $\vgo$ Hom-space, there is a unique simple morphism in $\langle (\delta_{g_1}, \epsilon_1), \ldots, (\delta_{g_n}, \epsilon_n) \rangle$ whenever $\prod_{i=1}^n g_i = 1$. This simple morphism is a canonical basis element for the 1-dimensional space $\langle (\delta_{g_1}, \epsilon_1), \ldots, (\delta_{g_n}, \epsilon_n) \rangle$.  We will describe a map between such spaces as multiplication by a scalar, where the scalar is the matrix coefficient of the map with respect to these canonical bases.
@@ -60,7 +60,7 @@ By MacLane's coherence theorem applied to the $\vgo$ Hom-space, there is a uniqu
 \begin{defn} \label{def:simple_graph}
 Let $\Gamma$ be a graph embedded in a surface $\Si$.  A $\widehat {\Vect_G^\omega}$-coloring $(V, \phi)$ of $\Gamma$ will be called \emph{simple} if the following conditions both hold: 
 \begin{enumerate}
-\item For every oriented edge $\ee \in E^{or}(\Gamma)$, there exists a group element $g(\ee) \in G$ and $\epsilon(\ee) \in \{\pm 1\} = \ZZ_2$ such that the coloring $V(\ee) = (\delta_{g(\ee)}, \epsilon(\ee)),$.
+\item For every oriented edge $\ee \in E^{or}(\Gamma)$, there exists a group element $g(\ee) \in G$ and $\epsilon(\ee) \in \{\pm 1\} = \ZZ_2$ such that the coloring $V(\ee) = (\delta_{g(\ee)}, \epsilon(\ee))$.
 \item If $v$ is an interior vertex of $\Gamma$, then there exists an enumeration  $\ee_1, \dots, \ee_n$ of the edges incident to $v$, taken in counterclockwise order and with outward orientation, such that $\prod_{i=1}^n g(\ee_i)^{\epsilon(\ee_i)} = 1$ and  the vertex label $\phi(v) \in \langle g(\ee_1), \ldots, g(\ee_n) \rangle$ is a simple morphism.
 \end{enumerate}
 \end{defn}
@@ -74,22 +74,17 @@ The definition of the $z$-morphism in Equation \ref{e:cyclic} only involves tens
 \end{proof}
 
 \begin{prop} \label{prop:omega}
-Let $\Gamma$ be a simple colored graph embedded in a surface $\Sigma$.  Let $\Delta$ be the colored graph given by applying one of the three local moves in Figure \ref{f:local_rels1} to $\Gamma$.  Then
-\begin{enumerate}
-\item  each edge of $\Delta$ is labeled by $(\delta_g, \epsilon)$ for some $g \in G$ and $\epsilon \in \ZZ_2$, and
-\item  there exists $\alpha \in \mu_{|G|}$ such that 
-$$\Delta - \alpha \Delta' \in N(\Sigma, \VV),$$
-where $\Delta'$ is a simple colored graph given by replacing each vertex label in $\Delta$ with a simple morphism.
-\end{enumerate}
+Let $\Gamma$ be a simple colored graph embedded in a surface $\Sigma$.  Let $\Delta$ be the colored graph given by applying one of the three local moves in Figure \ref{f:local_rels1} to $\Gamma$.  Then there exists $\alpha \in \mu_{|G|}$ such that $$\Delta - \alpha \Delta' \in N(\Sigma, \VV),$$
+where $\Delta'$ is a simple colored graph given by replacing each vertex label in $\Delta$ with a simple morphism and each edge label by a object of the form $(\delta_g, \epsilon)$ for some $g \in G$ and $\epsilon \in \ZZ_2$.
 \end{prop}
 \begin{proof}
-The proof of (1) follows directly from the definition  of each local move. For (2), we'll consider each local move separately.  In each case, we need to show that $\Delta$ is equivalent to $\alpha \Delta'$ in $H$.  
+We'll consider each local move separately.  In each case, we need to show that $\Delta$ is equivalent to $\alpha \Delta'$ in $H$.  
 
 For the first (edge contraction) local move in Figure \ref{f:local_rels1},  using the same notation as in the figure, the vertex label $\psi \cc{X} \phi$ in $\Delta$ is given by the following composition in $\vgo$.  Since $\Gamma$ is simple, there exist integers $l,k$ and simple morphisms $\phi', \psi'$ such that $\psi = z^l(\psi')$ and $\phi = z^k(\phi')$. Then we repeatedly apply associators and the cyclic $z$-morphism of Equation \ref{e:cyclic} to $\phi$ and $\psi$ until the tensor factors of the codomain are rearranged in the order of the left hand side of Equation \ref{e:composition} and that $X$ and $X^*$ are isolated (not contained in any parentheses).  After applying the $\ev_X$ morphism, we reassociate until the new label $\ph\cc{X}\psi$ has the left-associated parenthesization.  Since every edge is labeled by a $(\delta_g, \epsilon)$ for some $g \in G$ and $\epsilon \in \ZZ_2)$, each associator morphism consists of multiplication by $\omega(g,h,k)$ for some $g,h,k \in G$.  Similarly, by Lemma \ref{lem:z_simple}, every $z$-morphism consists of multiplication by some $\beta \in \mu_{|G|}$.  Thus, the overall composition consists of multiplication by an element $\alpha \in \mu_{|G|}$.
 
-For the second local move (tensoring parallel edges), there are two cases: $k = 0$ and $k > 0$.  In the $k = 0$ case,  we apply inverse unitors to each vertex label to introduce an edge labeled by the unit object, followed by reassocation.  In the $k > 0$ case, we need to reassociate to group together labels of the parallel edges then reassociate at the end.  For the same reasons as for the first move (every edge is labeled by a $\delta_g$), it follows that the result of this local move is also of the desired form.
+For the second local move (tensoring parallel edges), there are two cases: $k = 0$ and $k > 0$.  In the $k = 0$ case,  we apply inverse unitors to each vertex label to introduce an edge labeled by the unit object, followed by reassocation.  In the $k > 0$ case, tensoring in $\widehat \vgo$ corresponds to applying associators to $\vgo$ Hom-spaces.  For the same reasons as for the first move (every edge is labeled by a simple object), it follows that the result of this local move is also of the desired form.
 
-For the third local move (adding a $\coev$-labeled vertex), the colored graph given by direct application of the local move to a simple graph has an extra vertex labeled by $\coev_{\delta_g}$ in $\widehat \vgo$ for some $g \in G$.  
+For the third local move (adding a $\coev$-labeled vertex), the colored graph given by direct application of the local move to a simple graph has an extra vertex labeled by $\coev_{\delta_g}$ in $\widehat \vgo$ for some $g \in G$, which is a simple morphism by definition.  
 \end{proof}
 
 
