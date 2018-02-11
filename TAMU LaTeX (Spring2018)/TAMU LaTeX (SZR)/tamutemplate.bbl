@@ -1,0 +1,84 @@
+\begin{thebibliography}{10}
+
+\bibitem{erw}
+P.~Etingof, E.~Rowell, and S.~Witherspoon, ``Braid group representations from
+  twisted quantum doubles of finite groups,'' {\em Pacific journal of
+  mathematics}, vol.~234, no.~1, pp.~33--41, 2008.
+
+\bibitem{kirillovStringNets}
+A.~Kirillov~Jr, ``String-net model of turaev-viro invariants,'' {\em arXiv
+  preprint arXiv:1106.6033}, 2011.
+
+\bibitem{reshetikhin1991invariants}
+N.~Reshetikhin and V.~G. Turaev, ``Invariants of 3-manifolds via link
+  polynomials and quantum groups,'' {\em Inventiones mathematicae}, vol.~103,
+  no.~1, pp.~547--597, 1991.
+
+\bibitem{hep-th/9311155}
+J.~Barrett and B.~Westbury, ``Invariants of piecewise-linear 3-manifolds,''
+  {\em Transactions of the American Mathematical Society}, vol.~348, no.~10,
+  pp.~3997--4022, 1996.
+
+\bibitem{TURAEV1992865}
+V.~G. Turaev and O.~Y. Viro, ``State sum invariants of 3-manifolds and quantum
+  6j-symbols,'' {\em Topology}, vol.~31, no.~4, pp.~865--902, 1992.
+
+\bibitem{etingofTensor}
+P.~I. Etingof, S.~Gelaki, D.~Nikshych, and V.~Ostrik, {\em Tensor categories},
+  vol.~205.
+\newblock American Mathematical Society Providence, RI, 2015.
+
+\bibitem{nr}
+D.~Naidu and E.~C. Rowell, ``A finiteness property for braided fusion
+  categories,'' {\em Algebras and representation theory}, vol.~14, no.~5,
+  pp.~837--855, 2011.
+
+\bibitem{dijkgraaf1990}
+R.~Dijkgraaf and E.~Witten, ``Topological gauge theories and group
+  cohomology,'' {\em Communications in Mathematical Physics}, vol.~129, no.~2,
+  pp.~393--429, 1990.
+
+\bibitem{math/0601012}
+S.-H. Ng and P.~Schauenburg, ``Frobenius--schur indicators and exponents of
+  spherical categories,'' {\em Advances in Mathematics}, vol.~211, no.~1,
+  pp.~34--71, 2007.
+
+\bibitem{BK}
+B.~Bakalov and A.~A. Kirillov, {\em Lectures on tensor categories and modular
+  functors}, vol.~21.
+\newblock American Mathematical Soc., 2001.
+
+\bibitem{ns}
+S.-H. Ng and P.~Schauenburg, ``Higher frobenius-schur indicators for pivotal
+  categories,'' {\em Hopf algebras and generalizations}, vol.~441, pp.~63--90,
+  2007.
+
+\bibitem{0806.2493}
+S.-H. Ng and P.~Schauenburg, ``Congruence subgroups and generalized
+  frobenius-schur indicators,'' {\em Communications in Mathematical Physics},
+  vol.~300, no.~1, pp.~1--46, 2010.
+
+\bibitem{fjfu}
+J.~Fjelstad and J.~Fuchs, ``Mapping class group representations from drinfeld
+  doubles of finite groups,'' {\em arXiv preprint arXiv:1506.03263}, 2015.
+
+\bibitem{Lyubashenko1996}
+V.~Lyubashenko, ``Ribbon abelian categories as modular categories,'' {\em
+  Journal of Knot Theory and Its Ramifications}, vol.~5, no.~03, pp.~311--403,
+  1996.
+
+\bibitem{bantay}
+P.~Bantay, ``Algebraic aspects of orbifold models,'' {\em International Journal
+  of Modern Physics A}, vol.~9, no.~09, pp.~1443--1456, 1994.
+
+\bibitem{birman}
+J.~S. Birman, ``Mapping class groups and their relationship to braid groups,''
+  {\em Communications on Pure and Applied Mathematics}, vol.~22, no.~2,
+  pp.~213--238, 1969.
+
+\bibitem{tambara}
+D.~Tambara and S.~Yamagami, ``Tensor categories with fusion rules of
+  self-duality for finite abelian groups,'' {\em Journal of Algebra}, vol.~209,
+  no.~2, pp.~692--707, 1998.
+
+\end{thebibliography}

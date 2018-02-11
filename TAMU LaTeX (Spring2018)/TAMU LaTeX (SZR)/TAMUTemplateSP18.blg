@@ -1,0 +1,23 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: TAMUTemplateSP18.aux
+A level-1 auxiliary file: data/titlepage.aux
+A level-1 auxiliary file: data/abstract.aux
+A level-1 auxiliary file: data/dedication.aux
+A level-1 auxiliary file: data/acknowledgements.aux
+A level-1 auxiliary file: data/contributors.aux
+A level-1 auxiliary file: data/nomenclature.aux
+A level-1 auxiliary file: data/lists.aux
+A level-1 auxiliary file: data/section1.aux
+A level-1 auxiliary file: data/section2.aux
+A level-1 auxiliary file: data/section3.aux
+A level-1 auxiliary file: data/section4.aux
+The style file: ieeetr.bst
+A level-1 auxiliary file: data/appendices.aux
+Database file #1: data/myReference.bib
+Warning--entry type for "ANCONS" isn't style-file defined
+--line 43 of file data/myReference.bib
+Warning--entry type for "ARCADIA" isn't style-file defined
+--line 53 of file data/myReference.bib
+Warning--I didn't find a database entry for "TAMU"
+Warning--I didn't find a database entry for "GIGEM"
+Warning--I didn't find a database entry for "Over9000"
+(There were 5 warnings)

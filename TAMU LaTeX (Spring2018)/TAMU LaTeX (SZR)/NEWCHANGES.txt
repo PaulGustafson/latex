@@ -1,0 +1,49 @@
+----------------------------------------------------------
+----------------------------------------------------------
+TAMU LaTeX Thesis/Dissertation Template
+
+New Changes for Fall 2017/Spring 2018
+
+Mail: ogaps-latex@tamu.edu
+
+Office: 612A Evans Library
+
+Phone: (979) 429-3120
+----------------------------------------------------------
+----------------------------------------------------------
+
+There are some new changes that will be implemented
+beginning Fall 2017. The following notes below outline
+what these changes are.
+
+----------------------------------------------------------
+----------------------------------------------------------
+MARGINS
+----------------------------------------------------------
+----------------------------------------------------------
+
+Margins must be a minimum of one inch on all sides and
+must be consistent throughout the entire document. If
+binding, a left margin of 1.4 inches is recommended. This
+template uses 1 inch margins as a standard option.
+
+----------------------------------------------------------
+----------------------------------------------------------
+REFERENCES
+----------------------------------------------------------
+----------------------------------------------------------
+We will now allow reference sections to be placed at the
+end of each chapter. You will need to place a subheading
+called References (or something similar) at the end of
+each chapter. This feature has not been fully implemented
+in the template.
+
+----------------------------------------------------------
+----------------------------------------------------------
+TYPE SIZE AND VERTICAL SPACING
+----------------------------------------------------------
+----------------------------------------------------------
+The new requirement is to use only 12 point type with
+double line spacing. In the case of long documents, we
+will allow 11 point type or one and a half line spacing
+with the approval of Thesis and Dissertation Services.
