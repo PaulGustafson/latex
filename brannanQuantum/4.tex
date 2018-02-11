@@ -38,7 +38,13 @@
         \frac{1}{|\beta|^n} \sum_i \prod_{b \in \pi \vee \sigma} \prod_{j = 1}^{|b|} \sqrt{\beta} F_{i(x_j)i(x_{j+1})} 
       \end{align*}
 
+<<<<<<< Updated upstream
       For the innermost product to be nonvanishing, since $F$ is $0$ on its diagonal, we must have $i(x_{j+1}) \neq i(x_{j})$ for all $j$.  Thus, for every block $b$ we get exactly two nonvanishing choices $i|_b$ determined by the values $i(x_1)$ at the block's minimal element $x_1$.  Moreover, the map $j \mapsto x_j$ for $1 \le j \le |b| + 1$ defines a piecewise linear map $\phi: [1, |b| +1] \to \RR_{\ge 0}$ by connecting consecutive points with line segments. The noncrossing condition ensures that there exists at least one, hence at least two, consecutive extrema $(i, x_j)$ and $(j, x_j)$ such that $i - j$ is odd.  Moreover, any triple $x_{i-1}, x_{i}, x_{i+1}$ with $x_{i+1}$ nonextremal contributes a trivial factor to the product.  We can contract an ``innermost'' such triple (i.e. triple at $i$ such that there is no triple $x_j, x_{j+1}, x_{j+1}$ between $x_i$ and one of $x_{i \pm 1}$.   We get noncrossing pairings $\pi'|_b$ and $\sigma'|_b$, each with one fewer pairing than the unprimed versions. Continuous this process, we end up with a function $\phi': [1, c] \to \RR_{\ge 0}$ with and $\phi'(1) = \phi(1) = \phi(|b|+1) = \phi'(c)$ and with extrema at every integer value.   By the non-crossing condition, $c = 3$.  Thus, the previous product is $q^2$ or $q^{-2}$, depending on $i(x_1)$.  Since the choice of $i|_b$ is independent for each block $b$, we have
+=======
+      For the innermost product to be nonvanishing, since $F$ is $0$ on its diagonal, we must have $i(x_{j+1}) \neq i(x_{j})$ for all $j$.  Thus, for every block $b$ we get exactly two nonvanishing choices $i|_b$ determined by the values $i(x_1)$ at the block's minimal element $x_1$.  Moreover, the map $j \mapsto x_j$ for $1 \le j \le |b| + 1$ defines a piecewise linear map $\phi: (1, |b| +1) \to \RR_{\ge 0}$ by connecting consecutive points with line segments. We can check that
+      $$ \prod_{j = 1}^{|b|} F_{i(x_j)i(x_{j+1})}   = \beta^{\frac{-|b|}{2}} q^{2(\# (\text{local maxima of } \phi)- \# (\text{local minima of } \phi))} $$
+      if $i(x_1) = 1$.  If $i(x_1) = 2$, the sign of the exponent of $q$ flips.   Since $x_1 = x_{|b| + 1}$ is minimal, the first and last local extrema of $\phi$ in $(1, |b| + 1)$ are local maxima.  Thus, the previous product is $q^2$ or $q^{-2}$, depending on $i(x_1)$.  Since the choice of $i(x_1)$ is independent for each block $b$, we have
+>>>>>>> Stashed changes
 \begin{align*}
   \langle \xi_\pi, \xi_\sigma \rangle &  = \beta^{-n} \prod_{b \in \pi \vee \sigma} (q^2 + q^{-2})   \\
   & = \beta^{-n} \prod_{b \in \pi \vee \sigma} \beta \\
