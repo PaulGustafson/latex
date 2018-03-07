@@ -114,11 +114,30 @@ midarrow/.default=0.5
 
 \begin{frame}{Outline}
   \begin{itemize}
-  \item The Property F Conjecture 
-  \item Similar conjecture for mapping class groups
-  \item Proof of the modified conjecture in $\Vect_G^\omega$-case
-  \item Progress on Property F in the metaplectic case
+  \item The Property F conjecture for mapping class groups
+  \item Proof in $\Vect_G^\omega$ case
+  \item Progress in the metaplectic case
   \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Definition of the mapping class group}
+\begin{itemize}
+\item
+    Let $\Sigma = \Sigma_{g,b}^m$ be the oriented compact surface of genus $g$ with $b$ boundary components and $m$ marked points in its interior.
+
+    \pause
+\item
+   The mapping class group of $\Sigma$, 
+   $MCG(\Sigma),$
+   is the group of isotopy classes of orientation-preserving homeomorphisms of $\Sigma$ that preserve the boundary \emph{pointwise} and preserve the marked points \emph{setwise}.
+
+  \item Examples
+  \begin{itemize}
+    \item $\MCG(\Sigma_{0,1}^m) = B_m$
+    \item $\MCG(\Sigma_{1,0}^0) = SL(2,\mathbb Z)$
+  \end{itemize}
+\end{itemize}
 \end{frame}
 
 
@@ -132,7 +151,9 @@ Let $\mathcal C$ be a braided fusion category and let $X$ be a simple object in 
 \end{itemize}
 \end{frame}
 
-\begin{frame}{A similar conjecture for mapping class groups}
+
+
+\begin{frame}{A conjecture for mapping class groups}
 \begin{conj}
 The Turaev-Viro-Barrett-Westbury (TVBW) mapping class group representation associated to a compact surface $\Sigma$ and spherical fusion category $\mathcal A$ has finite image iff $\mathcal A$ is weakly integral.
 \end{conj}
@@ -164,21 +185,40 @@ Every modular representation associated to a modular category has finite image.
 \end{theorem}
 \end{frame}
 
-\begin{frame}{Main result}
-\begin{theorem}[G.]
-The image of any $\Vect^\omega_G$ TVBW representation $\rho$ of a mapping class group of an orientable, compact surface $\Sigma$ with boundary is finite.
-\end{theorem}
 
-Idea of proof:
-
-\begin{itemize}
-  \item Find a good finite spanning set $S$ for the representation space
-  \item Calculate the action of each Birman generator on $S$
-  \item Show that the representation of each Birman generator lies in a quotient of a finite group of monomial matrices.  
+\begin{frame}{The spherical fusion category $\Vect^\omega_G$}
+  The spherical fusion category $\Vect^\omega_G$ is the category of $G$-graded finite-dimensional vector spaces with the following structural morphisms, where $V_g$ is the simple object:   
+\begin{itemize} 
+\item The associator $\alpha_{g,h,k}:(V_g \otimes V_h) \otimes V_k \to V_g \otimes (V_h \otimes V_k)$
+            $$ \alpha_{g,h,k} = \omega(g,h,k)$$
+\item The evaluator $\ev_g:V_g^* \otimes V_g \to 1$
+  $$ ev_g = \omega(g^{-1},g,g^{-1})$$
+\item The coevaluator $\coev_g:V_g \otimes V_g^* \to 1$
+    $$\coev_g = 1$$
+\item The pivotal structure $j_g:V_g^{**} \to V_g$
+            $$ j_g = \omega(g^{-1},g,g^{-1})$$
 \end{itemize}
 
 \end{frame}
 
+
+\begin{frame}{Main result}
+\begin{theorem}[G.]
+The image of any $\Vect^\omega_G$ TVBW representation $\rho$ of a mapping class group of an orientable, compact surface $\Sigma$ with boundary is finite.
+\end{theorem}
+\begin{itemize}
+  \item Describe a tractable presentation of  the representation space
+  \item Find a good finite spanning set $S$ for the representation space
+  \item Calculate the action of each Birman generator on $S$
+  \item Show that the representation of each Birman generator lies in a quotient of a finite group of monomial matrices.  
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Proof outline}
+\begin{itemize}
+  \item Describe a tractable presentation of  the representation space
+\end{itemize}
+\end{frame}
 
 \begin{frame}{The TVBW space associated to a 2-manifold}
   \begin{itemize}
@@ -369,7 +409,15 @@ $X_1\oplus X_2\to X_2$), and similarly for $\psi_1,\psi_2$.
 
 \end{frame}
 
-\begin{frame}{Basis for the representation space}
+
+\begin{frame}{Proof outline}
+\begin{itemize}
+  \item Describe a tractable presentation of  the representation space
+  \item Find a good finite spanning set $S$ for the representation space
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Spanning set for the representation space}
   By applying the local moves and the preceding theorem, any such representation space has a finite spanning set of ``simple'' colored graphs with a single vertex, loops for each of the standard generators of $\pi_1(\Sigma)$, and a leg from the vertex to each of the boundary components.  
 
 \newdimen\R
@@ -403,6 +451,16 @@ $X_1\oplus X_2\to X_2$), and similarly for $\psi_1,\psi_2$.
 \label{fig:span}
 \end{figure}
 \end{frame}
+
+
+\begin{frame}{Proof outline}
+\begin{itemize}
+  \item Describe a tractable presentation of  the representation space
+  \item Find a good finite spanning set $S$ for the representation space
+  \item Calculate the action of each Birman generator on $S$
+\end{itemize}
+\end{frame}
+
 
 \begin{frame}{Applying the Birman generators to the spanning set}
 \begin{itemize}
@@ -443,6 +501,18 @@ $X_1\oplus X_2\to X_2$), and similarly for $\psi_1,\psi_2$.
 
 \newcommand{\one}{1}
 
+
+\begin{frame}{Proof outline}
+\begin{itemize}
+  \item Describe a tractable presentation of  the representation space
+  \item Find a good finite spanning set $S$ for the representation space
+  \item Calculate the action of each Birman generator on $S$
+  \item Show that the representation of each Birman generator lies in a quotient of a finite group of monomial matrices.  
+\end{itemize}
+\end{frame}
+
+
+
 \begin{frame}{Next step: Metaplectic modular categories}
   A metaplectic modular category is a unitary modular category with the fusion rules of  $SO(N)_2$ for odd $N>1$. It has $2$ simple objects $X_1, X_2$ of dimension $\sqrt{N}$, two simple objects $\one, Z$ of dimension $1$, and $\frac{N-1}{2}$ objects $Y_i$, $i=1,\ldots,\frac{N-1}{2}$ of dimension $2$.
 
@@ -478,8 +548,7 @@ Ardonne--Finch--Titsworth classify metaplectic fusion categories up to monoidal 
   \begin{itemize}
    \item Can we modify the standard quantum group construction to construct other metaplectic modular categories?
    \item In particular, can we flip the signs of the Frobenius-Schur indicators $\nu_2(X_i)$ for the spin objects $X_i$?
-   \item Conjugating/flipping the sign of $q^{1/2}$ don't work.
-   \item Modify the trace construction?
+   \item Modify the trace construction
   \end{itemize}  
 \end{frame}
 
