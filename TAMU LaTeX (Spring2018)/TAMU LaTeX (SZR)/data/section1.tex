@@ -43,10 +43,10 @@ A common way of constructing TQFTs is by labelling geometric data (e.g. simplice
 More concretely, given a spherical fusion category $\mathcal A$ (to be defined in the next subsection) and an oriented compact surface $\Si$, possibly with boundary, the Turaev-Viro-Barrett-Westbury (TVBW) construction gives a projective representation of the mapping class group $\MCG(\Si)$ \cite{hep-th/9311155, TURAEV1992865}. A natural problem motivated by topological quantum computation is to determine the images of such representations.  In particular, we would like to know when such a representation has a finite image.
 
 \subsection{Spherical fusion categories}
-The theory of fusion categories captures much of the algebraic structure of topological phases of matter. A \textbf{fusion category} is a rigid semisimple linear monoidal category with only finitely many isomorphism classes of simple objects \cite{etingofTensor}.  Each isomorphism class of simple objects corresponds to an anyon type.  A \textbf{spherical fusion category} is a fusion category equipped with a pivotal structure satisfying the spherical property \cite{etingofTensor}, a technical requirement guaranteeing the uniqueness of the categorical trace.  
+The theory of fusion categories captures much of the algebraic structure of topological phases of matter. A \textbf{fusion category} is a rigid semisimple linear monoidal category with only finitely many isomorphism classes of simple objects such that the monoidal unit is simple \cite{etingofTensor}.  Each isomorphism class of simple objects corresponds to an anyon type.  A \textbf{spherical fusion category} is a fusion category equipped with a pivotal structure satisfying the spherical property \cite{etingofTensor}, a technical requirement guaranteeing the uniqueness of the categorical trace.  
 
 \subsection{The Property F conjecture}
-A fusion category is said to be \textbf{weakly integral} if the squared Frobenius-Perron dimension of every simple object is an integer.  It is conjectured that any TVBW mapping class group representation associated to a spherical fusion category $\mathcal A$ has finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a modification of the Property F conjecture \cite{erw, nr}, which states that braid group representations coming from a braided fusion category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral. Instead of only considering braid group representations, one can consider mapping class groups of arbitrary orientable surfaces.  In this case, the input categories to construct the representations must be more specialized than just braided fusion.  One can either apply the Reshitikhin-Turaev construction to a modular tensor category, or apply the TVBW construction to a spherical fusion category.  The former is more general than the latter since the Reshitikhin-Turaev construction for the Drinfeld center $Z(\mathcal A)$ of a spherical fusion category $\mathcal A$ yields the same representation as the TVBW construction for $\mathcal A$.  However, for the case considered in this paper, the simpler TVBW construction suffices.
+A fusion category is said to be \textbf{weakly integral} if the square of its Frobenius-Perron dimension is an integer.  It is conjectured that any TVBW mapping class group representation associated to a spherical fusion category $\mathcal A$ has finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a modification of the Property F conjecture \cite{erw, nr}, which states that braid group representations coming from a braided fusion category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral. Instead of only considering braid group representations, one can consider mapping class groups of arbitrary orientable surfaces.  In this case, the input categories to construct the representations must be more specialized than just braided fusion.  One can either apply the Reshitikhin-Turaev construction to a modular tensor category, or apply the TVBW construction to a spherical fusion category.  The former is more general than the latter since the Reshitikhin-Turaev construction for the Drinfeld center $Z(\mathcal A)$ of a spherical fusion category $\mathcal A$ yields the same representation as the TVBW construction for $\mathcal A$.  However, for the case considered in this paper, the simpler TVBW construction suffices.
 
 \section{Twisted Dijkgraaf-Witten theory}
 
@@ -106,7 +106,7 @@ amounts to replacing a triangulation with its dual graph, commutes
 with the mapping class group action.
 
 
-We define the functor $\A^{\boxtimes n}\to \Vect$ by
+We define the functor from the $n$-fold Deligne product $\A^{\boxtimes n}\to \Vect$ by
 \begin{equation}\label{e:vev}
 \<V_1,\dots,V_n\>=\Hom_\A(\one,
 V_1\otimes\dots\otimes V_n)
@@ -116,7 +116,8 @@ structure gives functorial isomorphisms
 \begin{equation}\label{e:cyclic}
 z\colon\<V_1,\dots,V_n\>\cong \<V_n, V_1,\dots,V_{n-1}\>
 \end{equation}
-where
+where, given $\phi \in \Hom_\A(\one,
+V_1\otimes\dots\otimes V_n)$,
 $$z(\phi)= ( \id_{V_n \otimes V_1 \otimes \cdots \otimes V_{n-1}} \otimes \ev_{V_n^*} ) \circ (\id_{V_n} \otimes \phi \otimes \id_{V_n^*} ) \circ  \coev_{V_n^*}  $$ 
 and $z^n=\id$ (see \cite[Section 5.3]{BK}). Thus, up to a canonical
 isomorphism, the space $\<V_1,\dots,V_n\>$ only depends on the cyclic order
