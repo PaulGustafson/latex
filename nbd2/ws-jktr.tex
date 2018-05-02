@@ -57,14 +57,14 @@ midarrow/.default=0.5
 
 \newtheorem{thm}{Theorem}[section]
 %\newtheorem*{uthm}{Theorem}
-\newtheorem{lem}[thm]{Lemma}
+\newtheorem{lem}{Lemma}[section]
 %\newtheorem*{ulem}{Lemma}
-\newtheorem{prop}[thm]{Proposition}
-%\newtheorem*{uprop}[thm]{Proposition}
-\newtheorem{cor}[thm]{Corollary}
-\newtheorem{conj}[thm]{Conjecture}
-\newtheorem{defn}[thm]{Definition}
-\newtheorem{rmk}[thm]{Remark}
+\newtheorem{prop}{Proposition}[section]
+\newtheorem{cor}{Corollary}[section]
+\newtheorem{uconj}[thm]{Conjecture}
+%\newtheorem*{uconj}{Conjecture}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{rmk}{Remark}[section]
 \newtheorem{prob}[thm]{Open problem}
 \newtheorem{ques}[thm]{Question}
 \newtheorem{fact}[thm]{Fact}
@@ -146,24 +146,34 @@ Our approach is to translate the problem into manipulation of colored graphs emb
 \section{Introduction}
 Given a spherical fusion category $\mathcal A$ over a field $k$ and an oriented compact surface $\Si$, possibly with boundary, the Turaev-Viro-Barrett-Westbury (TVBW) construction gives a projective representation of the mapping class group $\MCG(\Si)$ \cite{TURAEV1992865, hep-th/9311155}.  A natural problem is to determine the images of such representations.  In particular, we would like to know when such a representation has finite image.
 
-It is conjectured any TVBW mapping class group representation associated to a spherical fusion category $\mathcal A$ has finite image if and only if  $\mathcal A$ is weakly integral.  This conjecture is a modification of the Property F conjecture \cite{nr, erw}, which states that braid group representations coming from a braided monoidal category $\mathcal C$ should have finite image if and only if $\mathcal C$ is weakly integral. Instead of only considering braid group representations, one can consider mapping class groups of arbitrary orientable surfaces.  In this case, the input categories to construct the representations must be more specialized than just braided monoidal.  One can either apply the Reshitikhin-Turaev construction to a modular tensor category, or apply the TVBW construction to a spherical fusion category.  The former is more general than the latter since the Reshitikhin-Turaev construction for the Drinfeld center $Z(\mathcal A)$ of a spherical fusion category $\mathcal A$ yields the same representation as the TVBW construction for $\mathcal A$.  However, for the case considered in this paper, the simpler TVBW construction suffices.
+ The original Property F conjecture states that all braid group representations coming from a braided monoidal category $\mathcal C$ have finite image if and only if $\mathcal C$ is weakly integral \cite{nr, erw}. Instead of only considering braid group representations, one can consider mapping class groups of arbitrary orientable surfaces.  In this case, the input categories to construct the representations must be more specialized than just braided monoidal.  One can either apply the Reshitikhin-Turaev construction to a modular tensor category, or apply the TVBW construction to a spherical fusion category.  The former construction is more general than the latter since the Reshitikhin-Turaev construction for the Drinfeld center $Z(\mathcal A)$ of a spherical fusion category $\mathcal A$ yields the same representation as the TVBW construction for $\mathcal A$.  Hence, the most general form of this modified conjecture is the following:
 
-In this paper, our input category is  $\mathcal A = \Vect_G^\omega$, the spherical fusion category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the TVBW construction corresponds to the twisted Dijkgraaf-Witten theory of \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects its associated mapping class group representations to have finite image.  The main contribution of this paper is to verify this for arbitrary $G$ and $\omega$.
+\begin{uconj}[Property F for mapping class groups]
+  All Reshitikhin-Turaev mapping class group representations associated to a modular tensor category $\mathcal C$ have finite images if and only if  $\mathcal C$ is weakly integral.
+\end{uconj}
 
-\textbf{Acknowledgments.}  This paper would not have been written without the guidance of my advisor, Eric Rowell.  I am also grateful to Zhenghan Wang and my father Robert Gustafson for their advice.
+
+However, for the case considered in this paper, the simpler TVBW construction suffices. Our input category is  $\mathcal A = \Vect_G^\omega$, the spherical fusion category of $G$-graded vector spaces with associativity modified by a cocycle $\omega \in Z^3(G, k^\times)$.  In this case, the TVBW construction corresponds to the twisted Dijkgraaf-Witten theory of \cite{dijkgraaf1990}.  The category $\Vect_G^\omega$ is integral, so the one expects its associated mapping class group representations to have finite image.  The main contribution of this paper is to verify this for arbitrary $G$ and $\omega$.
+
+\textbf{Acknowledgments.}  This paper would not have been written without the guidance of my advisor, Eric Rowell.  I am also grateful to Zhenghan Wang and my father Robert Gustafson for their invaluable advice.
 
 \section{Related Work}
 
-The closest related work is a result of Etingof, Rowell, and Witherspoon who showed purely algebraically that the braid group representations associated to the modular category $\Mod(D^\omega(G))$ have finite images \cite{erw}.   The braid group $B_n$ is the mapping class group of a disk with $n$ marked points relative to its boundary, so they asked whether their result generalizes to arbitrary mapping class group representations associated to $\Mod(D^\omega(G))$. This paper answers their question affirmatively, using a more geometric method of proof.
+The closest related work is a result of Etingof, Rowell, and Witherspoon who showed purely algebraically that the braid group representations associated to the modular category $\Mod(D^\omega(G))$ have finite images \cite{erw}.   The braid group $B_n$ is the mapping class group of a disk with $n$ marked points relative to its boundary, so they asked whether their result generalizes to arbitrary mapping class group representations associated to $\Mod(D^\omega(G))$. This paper answers their question affirmatively, using more topological techniques rather than strictly algebraic ones.
 
-Prior to the current work, certain specific cases had already been solved. In the case of the torus, Ng and Schauenburg's Congruence Subgroup Theorem implies the much stronger result that any Reshitikhin-Turaev representation of the mapping class group of the torus has finite image \cite{0806.2493}.   Another related result is due to Fjelstad and Fuchs \cite{fjfu}.  They showed that, given a surface with at most one boundary component, the mapping class group representations corresponding to the untwisted (i.e. $\omega = 1$) Dijkgraaf-Witten theory have finite image.  Their paper uses an algebraic method of Lyubashenko \cite{Lyubashenko1996} that gives a projective mapping class group representation to any factorizable ribbon Hopf algebra, in their case, the double $D(G)$. In our case, we instead consider the mapping class group action on a vector space of $\Vect_G^\omega$-colored embedded graphs defined by Kirillov \cite{kirillovStringNets}, yielding a simpler, geometric proof of the more general twisted case.
+Prior to the current work, certain specific cases had already been solved.   In the case of the torus, Ng and Schauenburg's Congruence Subgroup Theorem implies the much stronger result that any Reshitikhin-Turaev representation of the mapping class group of the torus has finite image \cite{0806.2493}.   Another related result is due to Fjelstad and Fuchs \cite{fjfu}.  They showed that, given a surface with at most one boundary component, the mapping class group representations corresponding to the untwisted (i.e. $\omega = 1$) Dijkgraaf-Witten theory have finite image.  Their paper uses an algebraic method of Lyubashenko \cite{Lyubashenko1996} that gives a projective mapping class group representation to any factorizable ribbon Hopf algebra, in their case, the double $D(G)$. In our case, we instead consider the mapping class group action on a vector space of $\Vect_G^\omega$-colored embedded graphs defined by Kirillov \cite{kirillovStringNets}, yielding a simpler, geometric proof of the more general twisted case.
 
-Bantay also calculated the images of certain representations of mapping class groups on the Hilbert space of an orbifold model associated to $D^\omega(G)$ \cite{bantay}.  These representations appear to coincide with the twisted Dijkgraaf-Witten representations. However, due to lack of proof, the precise connection is unclear. 
+Bantay also calculated the images of certain representations of mapping class groups on the Hilbert space of an orbifold model associated to $D^\omega(G)$ \cite{bantay}.  These representations appear to coincide with the twisted Dijkgraaf-Witten representations. However, due to lack of proof, the precise connection is unclear.
+
+Much more is known for modular categories other than $\Mod(D^\omega(G))$, especially for braid group representations.  More precisely, the braid group Property F conjecture has been verified for all unitary modular tensor categories arising from the classical quantum group construction and various cases related to Hecke- and BMW-algebras \cite{FRW, FLW, J86, J89, LRW, r, rw}.
+
+Less is known about the more general mapping class group conjecture.  Wright has shown that, for any closed surface, the mapping class group representations associated to $U_qsl(2)$ at level $4$ have finite image \cite{gw}.  Funar proved that, for closed surfaces of genus $g \ge 2$, the mapping class group representations associated $SU(2)$ and $SO(3)$ are infinite for all sufficiently large levels \cite{funar}.
+
 
 
 \section{Background}
 \subsection{The spherical fusion category $\Vect_G^\omega$}
-The following defintions are well-known and can be found in, e.g., \cite{etingofTensor}.  Let $k$ be an  algebraically closed field of characteristic 0,  $G$ a finite group, and $\omega \in Z^3(G, k^\times)$ a 3-cocycle.    The spherical fusion category of $G$-graded $k$-vector spaces with associativity defined by $\omega$ is denoted $\Vect_G^\omega$.  The objects of this category are vector spaces with a decomposition $V = \bigoplus_{g \in G} V_g$. Morphisms are linear maps preserving the grading. The tensor product is defined by
+The following definitions are well-known and can be found in \cite{etingofTensor}.  Let $k$ be an  algebraically closed field of characteristic 0,  $G$ a finite group, and $\omega \in Z^3(G, k^\times)$ a 3-cocycle.    The spherical fusion category of $G$-graded $k$-vector spaces with associativity defined by $\omega$ is denoted $\Vect_G^\omega$.  The objects of this category are vector spaces with a decomposition $V = \bigoplus_{g \in G} V_g$. Morphisms are linear maps preserving the grading. The tensor product is defined by
 $$ (V \otimes W)_g = \bigoplus_{x,y \in G, xy = g} V_x \otimes W_y. $$
 
 For each $g \in G$, pick a 1-dimensional vector space $\delta_g \in \Obj(\Vect_G^\omega)$ concentrated in degree $g$.  The set $\{\delta_g : g \in G\}$ is a complete set of pairwise non-isomorphic representatives for the isomorphism classes of simple objects of $\Vect_G^\omega$.  We will sometimes abuse notation by referring to an object $\delta_g$ by the group element $g$.  We have $\one \cong \delta_1$, and  $\delta_g^* := \delta_{g^{-1}}$ with the coevaluation and evaluation maps defined below.
@@ -201,7 +211,7 @@ If $\omega$ and $\omega'$ are cohomologous cocycles, then $\Vect_G^\omega$ is mo
 
 \subsection{Colored graphs}\label{s:colored}
 
-The following definitions and theorem are due to Kirillov
+The following definitions and theorem are due to Kirillov 
 \cite{kirillovStringNets}, and recorded here for convenience.  For any
 spherical fusion category $\mathcal A$ and surface $\Si$, Kirillov gives the
 following presentation of the Levin-Wen model as a vector space of
@@ -233,12 +243,12 @@ of $V_1,\dots, V_n$.
 We have a natural composition map 
 \begin{equation}\label{e:composition}
 \begin{aligned}
- \<V_1,\dots,V_n, X\> \otimes \<\lstar X, W_1,\dots,
+ \<V_1,\dots,V_n, X^*\> \otimes \<X, W_1,\dots,
 W_m\>&\to\<V_1,\dots,V_n, W_1,\dots, W_m\> \\
 \ph\otimes\psi\mapsto \ph\cc{X}\psi= \ev_{\lstar X} \circ (\ph\otimes\psi),
 \end{aligned}
 \end{equation}
-up to associators.  Note that, due to the order of $X$ and $\lstar X$ in the tensor product, we use the right evaluation map $\ev_{\lstar X} \colon X \otimes  \lstar X \to \one$ for the left dual $\lstar X$, instead of the right evaluation map $\ev_X : X^* \otimes X \to 1$ for $X$.  Since $\lstar X \cong X^*$, the defining equation for $\ev_{\lstar X}$  in $\Vect_G^\omega$ is the same as for $\ev_{X^*}$, i.e. $\ev_{\lstar g} = \omega(g, g^{-1}, g) \id_{1}$.
+up to associators.  Note that, due to the order of $X$ and $\lstar X$ in the tensor product, we use the right evaluation map $\ev_{\lstar X} \colon X \otimes  \lstar X \to \one$ for the left dual $\lstar X$, instead of the right evaluation map $\ev_X : X^* \otimes X \to 1$ for $X$.  
 
 We will consider finite  graphs embedded in an oriented surface $\Si$
 (which may have boundary); for such a
@@ -662,12 +672,12 @@ To understand the action of each type of Dehn twist on the representation space 
 The action of the first type of Dehn twist on an arbitrary element of $S$ is shown in the first two subfigures of Figure \ref{fig:tikzTwist1_1}.  
 After applying the Dehn twist, we have the simple colored graph shown in the second subfigure of Figure \ref{fig:tikzTwist1_1}.  We then apply local moves in the remaining subfigures.  By repeated application of Proposition $\ref{prop:omega}$, the resulting colored graph is equivalent to $\beta \Delta$, for some $\beta \in \mu_{|G|}$ and  $\Delta \in S$.    Thus, the first type of Dehn twist maps $S$ to $\mu_{|G|} S$.
 
-An analagous proof works for the second type of Dehn twist shown in Figure \ref{fig:tikzTwist2_0}. Thus, the image of any such mapping class group representation is a quotient of the group of permutations of the finite set $\mu_{|G|} S$, hence finite.
+An analogous proof works for the second type of Dehn twist shown in Figure \ref{fig:tikzTwist2_0}. Thus, the image of any such mapping class group representation is a quotient of the group of permutations of the finite set $\mu_{|G|} S$, hence finite.
 \end{proof}
 
-\begin{rmk} 
+\begin{cor} 
 When $\omega = 1$ and $\Si$ is closed, this representation is a permutation representation.  
-\end{rmk}
+\end{cor}
 
 \begin{proof}
 Under the assumption that the representation in \cite{fjfu} coincides with ours, this fact follows from Theorem 2.6 in \cite{fjfu}.  We can also see this directly by first noting that $G$ acts on $S$ by simultaneously conjugation of all edge labels by a single element $g \in G$.  If $s \in S$ and $g \in G$, then we can retrieve $s$ from $gs$ by separating two oppositely oriented, $g$-labeled edges from each edge in the embedded graph $gs$.  This results in a loop labeled by $g$, whose evaluation is $1$.  Thus $gs$ is equivalent to $s$.  Moreover, the cardinality $|S/G| = |\Hom(\pi_1(M), G)|/|G|$ is equal to the dimension of the untwisted Dijkgraaf-Witten representation space $H$ \cite{dijkgraaf1990}.  Hence, $S/G$ is a basis for $H$.  The mapping class group action on $S$ commutes with the $G$-action, so the mapping class group permutes $S/G$, i.e. $H$ is a permutation representation.
@@ -2063,17 +2073,19 @@ of Piecewise-Linear 3-Manifolds}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{348} (1996
 %\bibitem{For} E.\ Formanek, \emph{Braid group representations of low degree,}
 %Proc.\ London.\ Math.\ Soc.\ \textbf{72} (1996), 279--322.
 
-%% \bibitem{FRW} J.\ Franko, E.\ C.\ Rowell, and Z.\ Wang, \emph{Extraspecial 2-groups and images of braid group
-%% representations}, J.\ Knot Theory Ramifications \textbf{15} (2006) no. 4, 1--15.
+\bibitem{FRW} J.\ Franko, E.\ C.\ Rowell, and Z.\ Wang, \emph{Extraspecial 2-groups and images of braid group
+representations}, J.\ Knot Theory Ramifications \textbf{15} (2006) no. 4, 1--15.
 
 %\bibitem{FLKW} M.\ H.\ Freedman, A.\ Kitaev,
 %    M.\ J.\ Larsen, and Z.\ Wang,
 %    \emph{Topological quantum computation, Mathematical challenges of the 21st century
 %    (Los Angeles, CA, 2000)},  Bull.\ Amer.\ Math.\ Soc.\ (N.S.) \textbf{40}  (2003),  no. 1, %31--38.
 
-%% \bibitem{FLW} M.\ H.\ Freedman, M.\ J.\ Larsen, and Z.\ Wang,
-%%     \emph{The two-eigenvalue problem and density of Jones representation of braid groups,}
-%%     Comm.\ Math.\ Phys.\ \textbf{228} (2002), 177-199.
+\bibitem{FLW} M.\ H.\ Freedman, M.\ J.\ Larsen, and Z.\ Wang,
+    \emph{The two-eigenvalue problem and density of Jones representation of braid groups,}
+    Comm.\ Math.\ Phys.\ \textbf{228} (2002), 177-199.
+
+\bibitem{funar} L.\ Funar, \emph{On the TQFT representations of the mapping class groups}, Pacific J.\ Math\., \textbf{188} (1999), 251--274.
 
 %% \bibitem{GJ} D.\ M.\ Goldschmidt and V.\ F.\ R.\ Jones, \textit{Metaplectic link invariants.}
 %% Geom.\ Dedicata \textbf{31} (1989), no. 2, 165--191.
@@ -2083,13 +2095,13 @@ of Piecewise-Linear 3-Manifolds}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{348} (1996
 
 %\bibitem{Iz} M.\ Izumi, \emph{The structure of sectors associated with Longo-Rehren %inclusions. II. Examples}, Rev.\ Math.\ Phys.\ {\bf 13} (2001), no. 5, 603--674.
 
-%% \bibitem{J86} V.\ F.\ R.\ Jones, \emph{Braid groups, Hecke algebras and type ${\rm II}\sb 1$ factors,}
-%% Geometric methods in
-%%  operator algebras (Kyoto, 1983), 242--273, Pitman Res.\ Notes Math.\ Ser.\ {\bf 123}, Longman Sci. Tech.,
-%%  Harlow, 1986.
+\bibitem{J86} V.\ F.\ R.\ Jones, \emph{Braid groups, Hecke algebras and type ${\rm II}\sb 1$ factors,}
+Geometric methods in
+ operator algebras (Kyoto, 1983), 242--273, Pitman Res.\ Notes Math.\ Ser.\ {\bf 123}, Longman Sci. Tech.,
+ Harlow, 1986.
 
-%% \bibitem{J89} V.\ F.\ F.\ Jones, \emph{On a certain value of the Kauffman polynomial},
-%% Comm.\ Math.\ Phys.\ \textbf{125} (1989), no. 3, 459--467.
+\bibitem{J89} V.\ F.\ F.\ Jones, \emph{On a certain value of the Kauffman polynomial},
+Comm.\ Math.\ Phys.\ \textbf{125} (1989), no. 3, 459--467.
 
 \bibitem{kirillovStringNets} A.\ Kirillov, \emph{String-net model of {Turaev-Viro} invariants}, Preprint (2011), arXiv:1106.6033.
 
@@ -2101,7 +2113,7 @@ of Piecewise-Linear 3-Manifolds}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{348} (1996
 %% \bibitem{LR} M.\ J.\ Larsen and E.\ C.\ Rowell, \emph{An algebra-level version of a link-polynomial identity of Lickorish}, Math.\
 %% Proc.\ Cambridge Philos.\ Soc., to appear.
 
- %% \bibitem{LRW} M.\ J.\ Larsen, E.\ C.\ Rowell, and Z.\ Wang, \emph{The $N$-eigenvalue problem and two applications},  Int.\ Math.\ Res.\ Not.\ \textbf{2005} (2005), no. 64, 3987--4018.
+ \bibitem{LRW} M.\ J.\ Larsen, E.\ C.\ Rowell, and Z.\ Wang, \emph{The $N$-eigenvalue problem and two applications},  Int.\ Math.\ Res.\ Not.\ \textbf{2005} (2005), no. 64, 3987--4018.
 
 
 %\bibitem{LW} M.\ J.\ Larsen and Z.\ Wang, \emph{Density of the SO(3) TQFT representation of %mapping class groups}.  Comm. Math. Phys.  \textbf{260}  (2005),  no. 3, 641--658.
@@ -2113,6 +2125,10 @@ of Piecewise-Linear 3-Manifolds}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{348} (1996
 \bibitem{0806.2493} S.-H.\ Ng and P.\ Schauenburg, \emph{Congruence Subgroups and Generalized {Frobenius-Schur} Indicators}, Comm.\ Math.\ Phys.\ \textbf{300} (2010), no. 1, 1--46.
 
 \bibitem{math/0601012} S.-H.\ Ng and P.\ Schauenburg, \emph{{Frobenius-Schur} Indicators and Exponents of Spherical Categories}, Adv.\ Math.\ \textbf{211} (2007), no. 1, 34--71.
+
+\bibitem{r} E.\ C.\ Rowell, \emph{Braid representations from quantum groups of exceptional Lie type}, Rev. Un. Mat. Argentina \textbf{51} (2010), no. 1, 165--175.
+
+\bibitem{rw} E.\ C.\ Rowell and H. Wenzl, \emph{$SO(N)_2$ Braid group representations are Gaussian}, Quantum Topol. \textbf{8} (2017), no. 1, 1--33
 
 %\bibitem{RR} N.\ Read and E.\ Rezayi, \emph{Beyond paired quantum Hall states: parafermions %and incompressible states in the first excited Landau level}, Phys.\ Rev.\ B \textbf{59} %(1999) 8084--8094.
 
@@ -2128,9 +2144,12 @@ of Piecewise-Linear 3-Manifolds}, Trans.\ Amer.\ Math.\ Soc.\ \textbf{348} (1996
 %% \bibitem{Tur1} V.\ G.\ Turaev, \emph{Quantum Invariants of Knots and 3-Manifolds},
 %%  de Gruyter Studies in Mathematics {\bf 18}, Walter de Gruyter $\&$ Co., Berlin, 1994.
 
-\bibitem{TURAEV1992865} V.\ G.\ Turaev and O. Y. Viro. {\em State sum invariants of 3-manifolds and quantum 6j-symbols}, Topology \textbf{31} (1992), 865--902.
+\bibitem{TURAEV1992865} V.\ G.\ Turaev and O.\ Y.\ Viro, {\em State sum invariants of 3-manifolds and quantum 6j-symbols}, Topology \textbf{31} (1992), 865--902.
 
-\bibitem{We} Weibel, C., {\em An introduction to Homological algebra}, Cambridge Studies in Advanced Mathematics \textbf{38} (1995).
+\bibitem{We} C.\ Weibel, {\em An introduction to Homological algebra}, Cambridge Studies in Advanced Mathematics \textbf{38} (1995).
+
+\bibitem{gw} G.\ Wright, \emph{The Reshetikhin-Turaev representation of the mapping class groups}, J.\ Knot Theory Ramifications \textbf{3} (1994),
+547--574.
 
 %\bibitem{Wel} D.\ Welsh,
 %  \emph{Complexity: Knots, Colourings and Counting}, LMS Lecture
