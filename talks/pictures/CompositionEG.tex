@@ -1,0 +1,80 @@
+\begin{tikzpicture}[baseline]
+	\clip (0,0) circle (3cm);
+	
+	\begin{scope}[shift=(10:1cm)]	
+		\draw[shaded] (0,0)--(0:6cm)--(90:6cm)--(0,0);	
+		\draw[shaded] (0,0) .. controls ++(180:2cm) and ++(-90:2cm) .. (0,0);
+	\end{scope}
+	
+	\draw[shaded] (-150:1cm) -- (120:4cm) -- (180:4cm) -- (-150:1cm);
+	\draw[shaded] (-150:1cm) -- (-120:4cm) -- (-60:4cm) -- (-150:1cm);
+	
+	\begin{scope}[shift=(10:1cm)]	
+		\node at (0,0) [Tbox, inner sep=1.4mm] {\tiny{\textcolor{gray}{2}}};
+				\draw[thick] (0,0) circle (.5cm);
+		%	\draw[thick] (0:0) circle (.5cm);
+		\node at (90:1.5cm) [Tbox, inner sep=1.4mm] {\tiny{\textcolor{gray}{1}}};
+				\draw[thick] (90:1.5cm) circle (.5cm);
+		%	\draw[thick] (90:1.5cm) circle (.5cm);
+		\node at (-45:.7cm) {\scriptsize{$*$}};
+		\node at (120:1.6cm) {\scriptsize{$*$}};
+	\end{scope}
+	\node at (-150:1cm) [Tbox, inner sep=1.4mm] {\tiny{\textcolor{gray}{3}}};
+			\draw[thick] (-150:1cm) circle (.5cm);
+		%\draw[thick] (-150:1cm) circle (.4mm);
+	\node at (-150:1.7cm) {\scriptsize{$*$}};
+	\node at (-30:2.7cm) {\scriptsize{$*$}};
+	
+	\draw[ultra thick] (0,0) circle (3cm);
+	\draw[ultra thick] (0,0) circle (3cm);
+	\draw[ultra thick] (0,0) circle (3cm);	
+\end{tikzpicture}
+\,
+\circ_{2}
+\,
+\begin{tikzpicture}[baseline]
+	\clip (0,0) circle (2cm);
+
+	\draw[shaded] (0:4cm)--(0,0)--(90:4cm);
+	\draw[shaded] (180:4cm)--(180:2cm) .. controls ++(0:1cm) and ++(90:1cm) .. (270:2cm) -- (270:4cm);
+	
+		\node at (0,0) [Tbox, inner sep=1.4mm] {\tiny{\textcolor{gray}{1}}};
+		\draw[thick] (0,0) circle (.5cm);
+	\node at (-45:1.7cm) {\scriptsize{$*$}};
+	\node at (-45:.7cm) {\scriptsize{$*$}};
+
+	\draw[ultra thick] (0,0) circle (2cm);
+	\draw[ultra thick] (0,0) circle (2cm);
+	\draw[ultra thick] (0,0) circle (2cm);	
+\end{tikzpicture}
+\,
+=
+\,
+\begin{tikzpicture}[baseline]
+	\clip (0,0) circle (3cm);
+	
+	\begin{scope}[shift=(10:1cm)]	
+		\draw[shaded] (0:6cm)--(90:6cm)--(90:2cm) .. controls ++(-90:1cm) and ++(180:.5cm) .. (0:1cm)--(0:6cm);	
+		\draw[shaded] (-135:.6cm) circle (.5cm);
+	\end{scope}
+	
+	\draw[shaded] (-150:1cm) -- (120:4cm) -- (180:4cm) -- (-150:1cm);
+	\draw[shaded] (-150:1cm) -- (-120:4cm) -- (-60:4cm) -- (-150:1cm);
+	
+	\begin{scope}[shift=(10:1cm)]	
+		\node at (0:.8cm)[Tbox, inner sep=1.4mm] {\tiny{\textcolor{gray}{2}}};
+		\draw[thick] (0:.8cm) circle (.5cm);
+		\node at (90:1.5cm) [Tbox, inner sep=1.4mm] {\tiny{\textcolor{gray}{1}}};
+		\draw[thick] (90:1.5cm) circle (.5cm);
+		\node at (-45:.9cm) {\scriptsize{$*$}};
+		\node at (120:1.6cm){\scriptsize{$*$}};
+	\end{scope}
+	\node at (-150:1cm) [Tbox, inner sep=1.4mm] {\tiny{\textcolor{gray}{3}}};
+	\draw[thick] (-150:1cm) circle (.5cm);	
+	\node at (-150:1.7cm){\scriptsize{$*$}};
+	\node at (-30:2.7cm) {\scriptsize{$*$}};
+	
+	\draw[ultra thick] (0,0) circle (3cm);
+	\draw[ultra thick] (0,0) circle (3cm);
+	\draw[ultra thick] (0,0) circle (3cm);
+\end{tikzpicture}

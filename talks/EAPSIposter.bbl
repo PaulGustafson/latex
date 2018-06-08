@@ -1,0 +1,39 @@
+\newcommand{\etalchar}[1]{$^{#1}$}
+\providecommand{\bysame}{\leavevmode\hbox to3em{\hrulefill}\thinspace}
+\providecommand{\MR}{\relax\ifhmode\unskip\space\fi MR }
+% \MRhref is called by the amsart/book/proc definition of \MR.
+\providecommand{\MRhref}[2]{%
+  \href{http://www.ams.org/mathscinet-getitem?mr=#1}{#2}
+}
+\providecommand{\href}[2]{#2}
+\begin{thebibliography}{BMPS09}
+
+\bibitem[BMPS09]{extendedHASF}
+S.~Bigelow, S.~Morrison, E.~Peters, and N.~Snyder, \emph{Constructing the
+  extended {H}aagerup planar algebra}, \arXiv{0909.4099}, 2009.
+
+\bibitem[IG08]{IG}
+M.~Izumi and P.~Grossman, \emph{Classification of noncommuting quadrilaterals
+  of subfactors}, International Journal of Mathematics \textbf{19(5)} (2008),
+  557--643.
+
+\bibitem[Jon99]{pa}
+V.F.R. Jones, \emph{Planar algebras {I}}, \arXiv{math/9909027}, to be published
+  in the New Zealand Journal of Mathematics, 1999.
+
+\bibitem[Kau87]{kauffman}
+L.H. Kauffman, \emph{State models and the {J}ones polynomial}, Topology
+  \textbf{26(3)} (1987), 395--407.
+
+\bibitem[Pet09]{HASF}
+E.~Peters, \emph{A planar algebra construction of the {H}aagerup subfactor},
+  \arXiv{0902.1294}, 2009.
+
+\bibitem[PXS{\etalchar{+}}99]{PRL}
+W.~Pan, J.-S. Xia, V.~Shvarts, D.E. Adams, H.L. Stormer, D.C. Tsui, L.N.
+  Pfeiffer, K.W. Baldwin, and K.W. West, \emph{Exact {Q}uantization of the
+  {E}ven-{D}enominator {F}ractional {Q}uantum {H}all {S}tate at $\nu=5/2$
+  {L}andau {L}evel {F}illing {F}actor}, Phys. Rev. Lett. \textbf{83} (1999),
+  3530--3533.
+
+\end{thebibliography}

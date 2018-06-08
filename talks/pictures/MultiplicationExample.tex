@@ -1,0 +1,79 @@
+ \begin{tikzpicture}[scale=.75,baseline]
+	\clip [draw] (3,3) arc (0:180:3cm) -- (-3,-3) arc (-180:0:3cm) -- (3,3);
+	
+	%first draw the lines
+	\draw[shaded] (0,8cm)--(0,-8cm)--(4,-8)--(4,8);
+	\draw[shaded] (0,2) .. controls ++(-150:1.5cm) and ++(150:1.5cm) .. (0,-2) -- (.1,-2) -- (.1,2) -- (0,2);
+	\draw[unshaded] (0,2) .. controls ++(-30:1.5cm) and ++(30:1.5cm) .. (0,-2) -- (0,2);
+	\draw[shaded] (0,2) -- +(80:5cm) -- +(130:5cm) -- (0,2);
+	\draw[shaded] (0,-2) -- +(-80:5cm) -- +(-130:5cm) -- (0,-2);
+	\draw[unshaded] (0,2) -- +(90:5cm) -- +(50:5cm) -- (0,2);
+	\draw[unshaded] (0,-2) -- +(-90:5cm) -- +(-50:5cm) -- (0,-2);
+
+	
+	%decorate with dots, labels and stars
+	\filldraw[unshaded] (0,2.5) circle (1.5cm);
+			\draw[thick] (0,2.5) circle (1.5cm);
+	\filldraw[unshaded] (0,-2.5) circle (1.5cm);
+			\draw[thick] (0,-2.5cm) circle (1.5cm);
+	\node at (-2,2.5) {$*$};
+	\node at (-2,-2.5) {$*$};
+	\node at (-2.5,0)  {$*$};	
+	\node at (0,2.5) {\tiny{\textcolor{gray}{1}}};
+	\node at (0,-2.5) {\tiny{\textcolor{gray}{2}}};
+
+	\draw[ultra thick] (3,3) arc (0:180:3cm) -- (-3,-3) arc (-180:0:3cm) -- (3,3);
+	\draw[ultra thick] (3,3) arc (0:180:3cm) -- (-3,-3) arc (-180:0:3cm) -- (3,3);
+	\draw[ultra thick] (3,3) arc (0:180:3cm) -- (-3,-3) arc (-180:0:3cm) -- (3,3);	
+\end{tikzpicture}
+\left(
+\begin{tikzpicture}[scale=.75,baseline]
+	\clip (0,0) circle (3cm);
+	\filldraw[shaded]  (0,4cm) --(0,-4cm) arc (-90:90:4cm);
+	\filldraw[unshaded] (3cm,0) circle (1.5cm);
+	\filldraw[shaded] (-3cm,0) circle (1.5cm);
+	\draw[ultra thick] (0,0) circle (3cm);
+	\draw[ultra thick] (0,0) circle (3cm);
+	\draw[ultra thick] (0,0) circle (3cm);	
+	\node at (120:2.5cm) {$*$};
+\end{tikzpicture}
+,
+\begin{tikzpicture}[scale=.75,baseline]
+	\clip (0,0) circle (3cm);
+	\filldraw[shaded]  (0,-3) arc (-90:-30:3cm) arc (30:210:1.5cm);
+	\filldraw[shaded]  (-3,0) arc (180:210:3cm) arc (-90:90:1.5cm) arc (150:180:3cm);
+	\filldraw[shaded] (90:3cm) arc (90:30:3cm) arc (-30:-210:1.5cm);
+	\draw[ultra thick] (0,0) circle (3cm);
+	\draw[ultra thick] (0,0) circle (3cm);
+	\draw[ultra thick] (0,0) circle (3cm);	
+	\node at (120:2.5cm) {$*$};
+\end{tikzpicture}
+\right)
+= \begin{tikzpicture}[scale=.75,baseline]
+	\clip [draw] (3,3) arc (0:180:3cm) -- (-3,-3) arc (-180:0:3cm) -- (3,3);
+	
+	\draw[shaded] (-.5,0) ellipse (1cm and 2cm);
+
+	\draw[shaded] (.75,2) --(-3,6) -- +(100,6cm)--(4,-10)--(1,-3.2) .. controls ++(120:1.5cm) and ++(-50:2cm) .. (.75,2);
+	\draw[unshaded] (0,8) .. controls ++(-90:5cm) and ++(-130:5cm) .. (3,5);
+	\draw[shaded] (0,-8) .. controls ++(90:5cm) and ++(50:5cm) .. (-3,-5);
+
+	\node at (-2.5,0)  {$*$};	
+
+	\draw[dashed] (0,2.5) circle (1.5cm);
+	\draw[dashed] (0,-2.5) circle (1.5cm);
+	\draw[ultra thick] (3,3) arc (0:180:3cm) -- (-3,-3) arc (-180:0:3cm) -- (3,3);
+	\draw[ultra thick] (3,3) arc (0:180:3cm) -- (-3,-3) arc (-180:0:3cm) -- (3,3);
+	\draw[ultra thick] (3,3) arc (0:180:3cm) -- (-3,-3) arc (-180:0:3cm) -- (3,3);		
+\end{tikzpicture}
+=d\hs
+\begin{tikzpicture}[scale=.75,baseline]
+	\clip (0,0) circle (3cm);
+	\filldraw[shaded]  (0,4cm) --(0,-4cm) arc (-90:90:4cm);
+	\filldraw[unshaded] (3cm,0) circle (1.5cm);
+	\filldraw[shaded] (-3cm,0) circle (1.5cm);
+	\draw[ultra thick] (0,0) circle (3cm);
+	\draw[ultra thick] (0,0) circle (3cm);
+	\draw[ultra thick] (0,0) circle (3cm);	
+	\node at (120:2.5cm) {$*$};
+\end{tikzpicture}
