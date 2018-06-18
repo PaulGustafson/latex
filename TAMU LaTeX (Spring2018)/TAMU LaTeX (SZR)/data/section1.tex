@@ -106,13 +106,13 @@ amounts to replacing a triangulation with its dual graph, commutes
 with the mapping class group action.
 
 
-We define the functor from the $n$-fold Deligne product $\A^{\boxtimes n}\to \Vect$ by
+We define the functor $\< \cdot \> : \A^{\boxtimes n}\to \Vect$ from the $n$-fold Deligne product $\A^{\boxtimes n}$ by
 \begin{equation}\label{e:vev}
 \<V_1,\dots,V_n\>=\Hom_\A(\one,
 V_1\otimes\dots\otimes V_n)
 \end{equation}
 for any collection $V_1,\dots, V_n$ of objects of $\A$. Note that pivotal
-structure gives functorial isomorphisms
+structure gives functorial isomorphisms (see Figure \ref{fig:z})
 \begin{equation}\label{e:cyclic}
 z\colon\<V_1,\dots,V_n\>\cong \<V_n, V_1,\dots,V_{n-1}\>
 \end{equation}
@@ -123,9 +123,18 @@ and $z^n=\id$ (see \cite[Section 5.3]{BK}).
 
 
 
+\begin{figure}
+ \centering
+ \includegraphics[width=.60\textwidth]{z.png}
+ \caption{String diagram notation for the image of the morphism $\phi$ under the functorial isomorphism $z$}
+\label{fig:z}
+\end{figure}
+
 Thus, up to a canonical
 isomorphism, the space $\<V_1,\dots,V_n\>$ only depends on the cyclic order
 of $V_1,\dots, V_n$.
+
+
 
 We have a natural composition map 
 \begin{equation}\label{e:composition}
@@ -156,7 +165,7 @@ following data:
 
   \begin{itemize}
     \item Choice of an object $V(\ee)\in \Obj \A$ for every oriented edge
-        $\ee\in E^{or}(\Ga)$ so that $V(\ov{\ee})=V(\ee)^*$.
+        $\ee\in E^{or}(\Ga)$ so that $V(\ov{\ee})=V(\ee)^*$, where $\overline{e}$ is the edge with opposite orientation.
     \item Choice of a vector $\ph(v)\in \<V(\ee_1),\dots,V(\ee_n)\>$ 
       (see \eqref{e:vev})  for    every interior vertex $v$, where 
       $\ee_1, \dots, \ee_n$ are edges incident to $v$, taken in counterclockwise 
@@ -164,8 +173,7 @@ following data:
 \end{itemize}
 
 An {\em isomorphism} $f$ of two colorings $\{V(\ee), \ph(v)\}$, $\{V'(\ee), \ph'(v)\}$ is a collection of isomorphisms $f_\ee \colon V(\ee)\cong 
-V'(\ee)$ which  agree  with the isomorphisms $V(\ov{\ee})=V(\ee)^*$ and which 
-identify $\ph', \ph$:  $\ph'(v)=f\circ\ph(v)$. 
+V'(\ee)$ which  agree  with the identifications $V(\ov{\ee})=V(\ee)^*$ and which identify $\ph', \ph$:  $\ph'(v)=f\circ\ph(v)$. 
 
 We will denote the set of all colored graphs on a surface $\Si$ by
 $\Gr(\Si)$.
@@ -403,7 +411,7 @@ then $\Ga$ is called a null graph.
 
 
 \begin{defn}
-The vector space $H := \Hs(\Si, \VV)$ associated to a oriented surface $\Si$ with boundary condition $\VV$ by the spherical fusion category $\mathcal A$ is the quotient space
+The vector space $H := \Hs(\Si, \VV)$ associated to an oriented surface $\Si$ with boundary condition $\VV$ by the spherical fusion category $\mathcal A$ is the quotient space
  $$
    \Hs(\Si, \VV)=\VGr(\Si, \VV)/N(\Si, \VV)
   $$

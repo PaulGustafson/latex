@@ -14,10 +14,10 @@
 \contentsline {section}{\numberline {1.2}Twisted Dijkgraaf-Witten theory}{3}{section.1.2}
 \contentsline {subsection}{\numberline {1.2.1}The spherical fusion category $\Vect _G^\omega $}{3}{subsection.1.2.1}
 \contentsline {subsection}{\numberline {1.2.2}Colored graphs}{5}{subsection.1.2.2}
-\contentsline {subsection}{\numberline {1.2.3}Strictification}{9}{subsection.1.2.3}
-\contentsline {chapter}{\numberline {2}\uppercase {Related Work}}{11}{chapter.2}
-\contentsline {chapter}{\numberline {3}RESULTS}{12}{chapter.3}
-\contentsline {subsection}{\numberline {3.0.1}No Boundary Case}{14}{subsection.3.0.1}
-\contentsline {subsection}{\numberline {3.0.2}Boundary Case}{20}{subsection.3.0.2}
-\contentsline {chapter}{\numberline {4}SUMMARY AND OUTLOOK }{23}{chapter.4}
-\contentsline {chapter}{REFERENCES}{24}{section*.14}
+\contentsline {subsection}{\numberline {1.2.3}Strictification}{10}{subsection.1.2.3}
+\contentsline {chapter}{\numberline {2}\uppercase {Related Work}}{12}{chapter.2}
+\contentsline {chapter}{\numberline {3}RESULTS}{13}{chapter.3}
+\contentsline {subsection}{\numberline {3.0.1}No Boundary Case}{15}{subsection.3.0.1}
+\contentsline {subsection}{\numberline {3.0.2}Boundary Case}{21}{subsection.3.0.2}
+\contentsline {chapter}{\numberline {4}SUMMARY AND OUTLOOK }{24}{chapter.4}
+\contentsline {chapter}{REFERENCES}{25}{section*.15}
