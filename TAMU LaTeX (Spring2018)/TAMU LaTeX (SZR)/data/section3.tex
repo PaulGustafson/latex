@@ -14,7 +14,7 @@
 
 
 
-\chapter{RESULTS}
+\chapter{RESULTS*}
 
 
 %% \begin{prop}
@@ -48,11 +48,16 @@
 %% \end{proof}
 
 
-To show that the image of any $\Vect_G^\omega$ mapping class group representation is finite, we will analyze the action of the mapping class group on a finite collection of colored graphs that span the representation space $H$.  To define this spanning set, we will need the following definitions of simple morphisms and colored graphs.
+To show that the image of any $\Vect_G^\omega$ mapping class group representation is finite, we will analyze the action of the mapping class group on a finite collection of colored graphs that span the representation space $H$.  To define this spanning set, we will need the following definitions of simple morphisms and colored graphs. \let\thefootnote\relax\footnote{* Reprinted with permission from ``Finiteness for mapping class group representations from twisted dijkgraaf--witten theory,'' P.\ P.\ Gustafson, \emph{Journal of Knot Theory and Its Ramifications}, vol. 27, no. 06, p. 1850043, Copyright 2018 by World Scientific Publishing Company.}
 
 
 \begin{defn} \label{def:simple_morphism}
-  Let $g_1, \ldots, g_n \in G$ and $\epsilon_1, \ldots, \epsilon_n  \in \{\pm 1\} = \ZZ_2$.  A morphism  $\phi \in \langle (\delta_{g_1}, \epsilon_1), \ldots, (\delta_{g_n}, \epsilon_n) \rangle = \Hom_{\widehat{\vgo}}(1, (\delta_{g_1}, \epsilon_1) \otimes \cdots \otimes (\delta_{g_n}, \epsilon_n)) = \Hom_{\vgo}(1, (( \cdots ((\delta_{g_1^{\epsilon_1}} \otimes \delta_{g_2^{\epsilon_2}}) \otimes \cdots  \otimes \delta_{g_n^{\epsilon_n}})$ will be called \emph{simple} if it is the composition of the isomorphism $\one \cong \delta_1$ and  tensor product isomorphisms of the form $\delta_{gh} \cong \delta_g \otimes \delta_h$ in $\vgo$.
+  Let $g_1, \ldots, g_n \in G$ and $\epsilon_1, \ldots, \epsilon_n  \in \{\pm 1\} = \ZZ_2$.  A morphism
+  \begin{align*}
+    \phi \in \langle (\delta_{g_1}, \epsilon_1), \ldots, (\delta_{g_n}, \epsilon_n) \rangle & = \Hom_{\widehat{\vgo}}(1, (\delta_{g_1}, \epsilon_1) \otimes \cdots \otimes (\delta_{g_n}, \epsilon_n)) \\
+    & = \Hom_{\vgo}(1, (( \cdots ((\delta_{g_1^{\epsilon_1}} \otimes \delta_{g_2^{\epsilon_2}}) \otimes \cdots  \otimes \delta_{g_n^{\epsilon_n}})
+  \end{align*}
+  will be called \emph{simple} if it is the composition of the isomorphism $\one \cong \delta_1$ and  tensor product isomorphisms of the form $\delta_{gh} \cong \delta_g \otimes \delta_h$ in $\vgo$.
 \end{defn}
 
 By MacLane's coherence theorem applied to the $\vgo$ Hom-space, there is a unique simple morphism in $\langle (\delta_{g_1}, \epsilon_1), \ldots, (\delta_{g_n}, \epsilon_n) \rangle$ whenever $\prod_{i=1}^n g_i = 1$. This simple morphism is a canonical basis element for the 1-dimensional space $\langle (\delta_{g_1}, \epsilon_1), \ldots, (\delta_{g_n}, \epsilon_n) \rangle$.  We will describe a map between such spaces as multiplication by a scalar, where the scalar is the matrix coefficient of the map with respect to these canonical bases.
@@ -88,7 +93,7 @@ For the third local move (adding a $\coev$-labeled vertex), the colored graph gi
 \end{proof}
 
 
-\subsection{No Boundary Case}
+\section{No Boundary Case}
 
 We first prove our theorem in the easier case where the surface $\Si$ is closed.  
 
@@ -142,7 +147,7 @@ By using the linearity with respect to the vertex label, we can further restrict
 \begin{figure}
  \centering
  \includegraphics[width=.60\textwidth]{lickorish.png}
- \caption{Simple closed curves for the Dehn twists in the Lickorish generating set for the mapping class group of a genus $3$ closed surface (Image source: \url{https://en.wikipedia.org/wiki/Dehn_twist})}
+ \caption{Simple closed curves for the Dehn twists in the Lickorish generating set for the mapping class group of a genus $3$ closed surface. Reprinted from \cite{wiki:dt}.}
 \label{fig:lickorish}
 \end{figure}
 
@@ -644,7 +649,7 @@ Under the assumption that the representation in \cite{fjfu} coincides with ours,
 \end{figure}
 
 
-\subsection{Boundary Case}
+\section{Boundary Case}
 
 When $\Si$ has boundary, we denote by $\MCG(\Si)$ the group of isotopy classes of homeomorphisms fixing the boundary of $\Si$ setwise. Given any labelling of the boundary  by objects in the Drinfeld center, $l : \pi_0(\partial M) \to \Obj(Z(\vgo))$, we get a mapping class group representation. The representation space is $\Hs(\Si, \VV)$ with boundary condition $\VV = F \circ l$, where $F$ is the forgetful functor $F: Z(\vgo) \to \vgo$.  The same local relations are valid in this representation space \cite{kirillovStringNets}.
 

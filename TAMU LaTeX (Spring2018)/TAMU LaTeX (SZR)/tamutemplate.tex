@@ -20,6 +20,8 @@
 
 \usepackage{amsmath,amssymb,amsthm,fullpage,mathptmx,dsfont,framed, graphicx, subcaption, textcomp}
 \usepackage{csquotes}
+\usepackage[symbol]{footmisc}
+\renewcommand{\thefootnote}{*}
 
 
 % Most of the packages that set the default settings
@@ -119,16 +121,16 @@ midarrow/.default=0.5
 
 
 
-\newtheorem{thrm}{Theorem}[section]
+\newtheorem{thrm}{Theorem}[chapter]
 %\newtheorem*{uthm}{Theorem}
-\newtheorem{lem}[thrm]{Lemma}
+\newtheorem{lem}{Lemma}[chapter]
 %\newtheorem*{ulem}{Lemma}
-\newtheorem{prop}[thrm]{Proposition}
+\newtheorem{prop}{Proposition}[chapter]
 %\newtheorem*{uprop}[thm]{Proposition}
 %% \newtheorem{cor}[thm]{Corollary}
 %% \newtheorem{conj}[thm]{Conjecture}
-\newtheorem{defn}[thrm]{Definition}
-\newtheorem{rmk}[thrm]{Remark}
+\newtheorem{defn}{Definition}[chapter]
+\newtheorem{rmk}{Remark}[chapter]
 %% \newtheorem{prob}[thm]{Open problem}
 %% \newtheorem{ques}[thm]{Question}
 %% \newtheorem{fact}[thm]{Fact}
@@ -209,7 +211,7 @@ midarrow/.default=0.5
 \renewcommand{\tamupapertype}{Dissertation}
 
 %Your full name goes here, as it is in university records. Check your student record on Howdy if there is any mismatch.
-\renewcommand{\tamufullname}{Paul Gustafson}
+\renewcommand{\tamufullname}{Paul Prem Gustafson}
 
 %The degree title goes here. See the OGAPS site for more info.
 \renewcommand{\tamudegree}{Doctor of Philosophy}
@@ -224,7 +226,7 @@ midarrow/.default=0.5
 \renewcommand{\tamudepthead}{Emil Straube}
 
 %Type only May, August, or December.
-\renewcommand{\tamugradmonth}{May}
+\renewcommand{\tamugradmonth}{August}
 \renewcommand{\tamugradyear}{2018}
 %Your department name goes here.
 \renewcommand{\tamudepartment}{Mathematics}
@@ -271,6 +273,8 @@ midarrow/.default=0.5
 %This file is a .bib database that contains the sources.
 %This removes the dependency on the previous file
 %bibliography.tex.
+\nocite{gustafson2018finiteness}
+
 \bibliography{data/myReference}
 
 

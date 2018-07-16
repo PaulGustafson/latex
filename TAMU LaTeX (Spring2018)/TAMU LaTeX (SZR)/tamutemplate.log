@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2018.5.9)  18 JUN 2018 14:15
+This is XeTeX, Version 3.14159265-2.6-0.99996 (TeX Live 2016/Debian) (preloaded format=xelatex 2018.6.20)  16 JUL 2018 09:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -466,6 +466,20 @@ Package csquotes Info: ... configuration file loaded successfully.
 (/usr/share/texlive/texmf-dist/tex/latex/csquotes/csquotes.cfg
 File: csquotes.cfg 
 ))
+(/usr/share/texlive/texmf-dist/tex/latex/footmisc/footmisc.sty
+Package: footmisc 2011/06/06 v5.5b a miscellany of footnote facilities
+\FN@temptoken=\toks34
+\footnotemargin=\dimen140
+\c@pp@next@reset=\count127
+Package footmisc Info: Declaring symbol style bringhurst on input line 855.
+Package footmisc Info: Declaring symbol style chicago on input line 863.
+Package footmisc Info: Declaring symbol style wiley on input line 872.
+Package footmisc Info: Declaring symbol style lamport-robust on input line 883.
+
+Package footmisc Info: Declaring symbol style lamport* on input line 903.
+Package footmisc Info: Declaring symbol style lamport*-robust on input line 924
+.
+)
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/times.sty
 Package: times 2005/04/12 PSNFSS-v9.2a (SPQR) 
 )
@@ -528,14 +542,14 @@ Package: auxhook 2016/05/16 v1.4 Hooks for auxiliary files (HO)
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2016/05/16 v3.12 Key value format for package options (HO)
 )
-\@linkdim=\dimen140
-\Hy@linkcounter=\count127
-\Hy@pagecounter=\count128
+\@linkdim=\dimen141
+\Hy@linkcounter=\count128
+\Hy@pagecounter=\count129
 
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2016/05/05 v6.83n Hyperref: PDFDocEncoding definition (HO)
 )
-\Hy@SavedSpaceFactor=\count129
+\Hy@SavedSpaceFactor=\count130
 
 (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/hyperref.cfg
 File: hyperref.cfg 2002/06/06 v1.2 hyperref configuration of TeXLive
@@ -547,17 +561,17 @@ Package hyperref Info: Plain pages OFF on input line 4461.
 Package hyperref Info: Backreferencing OFF on input line 4466.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4691.
-\c@Hy@tempcnt=\count130
+\c@Hy@tempcnt=\count131
 
 (/usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip11
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5044.
-\XeTeXLinkMargin=\dimen141
-\Fld@menulength=\count131
-\Field@Width=\dimen142
-\Fld@charsize=\dimen143
+\XeTeXLinkMargin=\dimen142
+\Fld@menulength=\count132
+\Field@Width=\dimen143
+\Fld@charsize=\dimen144
 Package hyperref Info: Hyper figures OFF on input line 6298.
 Package hyperref Info: Link nesting OFF on input line 6303.
 Package hyperref Info: Hyper index ON on input line 6306.
@@ -567,9 +581,9 @@ Package hyperref Info: Link coloring with OCG OFF on input line 6323.
 Package hyperref Info: PDF/A mode OFF on input line 6328.
 LaTeX Info: Redefining \ref on input line 6368.
 LaTeX Info: Redefining \pageref on input line 6372.
-\Hy@abspage=\count132
-\c@Item=\count133
-\c@Hfootnote=\count134
+\Hy@abspage=\count133
+\c@Item=\count134
+\c@Hfootnote=\count135
 )
 
 Package hyperref Message: Driver (autodetected): hxetex.
@@ -585,10 +599,10 @@ Package: stringenc 2016/05/16 v1.11 Convert strings between diff. encodings (HO
 )
 )
 \pdfm@box=\box39
-\c@Hy@AnnotLevel=\count135
-\HyField@AnnotCount=\count136
-\Fld@listcount=\count137
-\c@bookmark@seq@number=\count138
+\c@Hy@AnnotLevel=\count136
+\HyField@AnnotCount=\count137
+\Fld@listcount=\count138
+\c@bookmark@seq@number=\count139
 
 (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/rerunfilecheck.sty
 Package: rerunfilecheck 2016/05/16 v1.8 Rerun checks for auxiliary files (HO)
@@ -605,9 +619,9 @@ tly
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
-\pgfutil@everybye=\toks34
-\pgfutil@tempdima=\dimen144
-\pgfutil@tempdimb=\dimen145
+\pgfutil@everybye=\toks35
+\pgfutil@tempdima=\dimen145
+\pgfutil@tempdimb=\dimen146
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.t
 ex)) (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
@@ -626,30 +640,30 @@ Package: pgf 2015/08/07 v3.0.1a (rcs-revision 1.15)
 Package: pgfsys 2014/07/09 v3.0.1a (rcs-revision 1.48)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks35
-\pgfkeys@temptoks=\toks36
+\pgfkeys@pathtoks=\toks36
+\pgfkeys@temptoks=\toks37
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.t
 ex
-\pgfkeys@tmptoks=\toks37
+\pgfkeys@tmptoks=\toks38
 ))
-\pgf@x=\dimen146
-\pgf@y=\dimen147
-\pgf@xa=\dimen148
-\pgf@ya=\dimen149
-\pgf@xb=\dimen150
-\pgf@yb=\dimen151
-\pgf@xc=\dimen152
-\pgf@yc=\dimen153
+\pgf@x=\dimen147
+\pgf@y=\dimen148
+\pgf@xa=\dimen149
+\pgf@ya=\dimen150
+\pgf@xb=\dimen151
+\pgf@yb=\dimen152
+\pgf@xc=\dimen153
+\pgf@yc=\dimen154
 \w@pgf@writea=\write3
 \r@pgf@reada=\read1
-\c@pgf@counta=\count139
-\c@pgf@countb=\count140
-\c@pgf@countc=\count141
-\c@pgf@countd=\count142
-\t@pgf@toka=\toks38
-\t@pgf@tokb=\toks39
-\t@pgf@tokc=\toks40
+\c@pgf@counta=\count140
+\c@pgf@countb=\count141
+\c@pgf@countc=\count142
+\c@pgf@countd=\count143
+\t@pgf@toka=\toks39
+\t@pgf@tokb=\toks40
+\t@pgf@tokc=\toks41
  (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2008/05/14  (rcs-revision 1.7)
 )
@@ -665,13 +679,13 @@ File: pgfsys-dvipdfmx.def 2014/07/09  (rcs-revision 1.14)
 f
 File: pgfsys-common-pdf.def 2013/10/10  (rcs-revision 1.13)
 )
-\pgfsys@objnum=\count143
+\pgfsys@objnum=\count144
 )))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.
 tex
 File: pgfsyssoftpath.code.tex 2013/09/09  (rcs-revision 1.9)
-\pgfsyssoftpath@smallbuffer@items=\count144
-\pgfsyssoftpath@bigbuffer@items=\count145
+\pgfsyssoftpath@smallbuffer@items=\count145
+\pgfsyssoftpath@bigbuffer@items=\count146
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.
 tex
@@ -699,12 +713,12 @@ Package: pgfcore 2010/04/11 v3.0.1a (rcs-revision 1.7)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen154
-\pgfmath@count=\count146
+\pgfmath@dimen=\dimen155
+\pgfmath@count=\count147
 \pgfmath@box=\box41
-\pgfmath@toks=\toks41
-\pgfmath@stack@operand=\toks42
-\pgfmath@stack@operation=\toks43
+\pgfmath@toks=\toks42
+\pgfmath@stack@operand=\toks43
+\pgfmath@stack@operation=\toks44
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code
@@ -724,37 +738,37 @@ tex)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerari
 thmetics.code.tex)))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count147
+\c@pgfmathroundto@lastzeros=\count148
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.te
 x
 File: pgfcorepoints.code.tex 2013/10/07  (rcs-revision 1.27)
-\pgf@picminx=\dimen155
-\pgf@picmaxx=\dimen156
-\pgf@picminy=\dimen157
-\pgf@picmaxy=\dimen158
-\pgf@pathminx=\dimen159
-\pgf@pathmaxx=\dimen160
-\pgf@pathminy=\dimen161
-\pgf@pathmaxy=\dimen162
-\pgf@xx=\dimen163
-\pgf@xy=\dimen164
-\pgf@yx=\dimen165
-\pgf@yy=\dimen166
-\pgf@zx=\dimen167
-\pgf@zy=\dimen168
+\pgf@picminx=\dimen156
+\pgf@picmaxx=\dimen157
+\pgf@picminy=\dimen158
+\pgf@picmaxy=\dimen159
+\pgf@pathminx=\dimen160
+\pgf@pathmaxx=\dimen161
+\pgf@pathminy=\dimen162
+\pgf@pathmaxy=\dimen163
+\pgf@xx=\dimen164
+\pgf@xy=\dimen165
+\pgf@yx=\dimen166
+\pgf@yy=\dimen167
+\pgf@zx=\dimen168
+\pgf@zy=\dimen169
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.
 code.tex
 File: pgfcorepathconstruct.code.tex 2013/10/07  (rcs-revision 1.29)
-\pgf@path@lastx=\dimen169
-\pgf@path@lasty=\dimen170
+\pgf@path@lastx=\dimen170
+\pgf@path@lasty=\dimen171
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code
 .tex
 File: pgfcorepathusage.code.tex 2014/11/02  (rcs-revision 1.24)
-\pgf@shorten@end@additional=\dimen171
-\pgf@shorten@start@additional=\dimen172
+\pgf@shorten@end@additional=\dimen172
+\pgf@shorten@start@additional=\dimen173
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.te
 x
@@ -762,19 +776,19 @@ File: pgfcorescopes.code.tex 2015/05/08  (rcs-revision 1.46)
 \pgfpic=\box42
 \pgf@hbox=\box43
 \pgf@layerbox@main=\box44
-\pgf@picture@serial@count=\count148
+\pgf@picture@serial@count=\count149
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.c
 ode.tex
 File: pgfcoregraphicstate.code.tex 2014/11/02  (rcs-revision 1.12)
-\pgflinewidth=\dimen173
+\pgflinewidth=\dimen174
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformation
 s.code.tex
 File: pgfcoretransformations.code.tex 2015/08/07  (rcs-revision 1.20)
-\pgf@pt@x=\dimen174
-\pgf@pt@y=\dimen175
-\pgf@pt@temp=\dimen176
+\pgf@pt@x=\dimen175
+\pgf@pt@y=\dimen176
+\pgf@pt@temp=\dimen177
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
 File: pgfcorequick.code.tex 2008/10/09  (rcs-revision 1.3)
@@ -790,12 +804,12 @@ File: pgfcorepathprocessing.code.tex 2013/09/09  (rcs-revision 1.9)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.te
 x
 File: pgfcorearrows.code.tex 2015/05/14  (rcs-revision 1.43)
-\pgfarrowsep=\dimen177
+\pgfarrowsep=\dimen178
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
 File: pgfcoreshade.code.tex 2013/07/15  (rcs-revision 1.15)
-\pgf@max=\dimen178
-\pgf@sys@shading@range@num=\count149
+\pgf@max=\dimen179
+\pgf@sys@shading@range@num=\count150
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
 File: pgfcoreimage.code.tex 2013/07/15  (rcs-revision 1.18)
@@ -826,8 +840,8 @@ File: pgfmoduleplot.code.tex 2015/08/03  (rcs-revision 1.13)
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65
 .sty
 Package: pgfcomp-version-0-65 2007/07/03 v3.0.1a (rcs-revision 1.7)
-\pgf@nodesepstart=\dimen179
-\pgf@nodesepend=\dimen180
+\pgf@nodesepstart=\dimen180
+\pgf@nodesepend=\dimen181
 )
 (/usr/share/texlive/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18
 .sty
@@ -841,10 +855,10 @@ Package: pgfcomp-version-1-18 2007/07/23 v3.0.1a (rcs-revision 1.1)
 Package: pgffor 2013/12/13 v3.0.1a (rcs-revision 1.25)
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
-\pgffor@iter=\dimen181
-\pgffor@skip=\dimen182
-\pgffor@stack=\toks44
-\pgffor@toks=\toks45
+\pgffor@iter=\dimen182
+\pgffor@skip=\dimen183
+\pgffor@stack=\toks45
+\pgffor@toks=\toks46
 ))
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
 Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
@@ -852,31 +866,31 @@ Package: tikz 2015/08/07 v3.0.1a (rcs-revision 1.151)
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers
 .code.tex
 File: pgflibraryplothandlers.code.tex 2013/08/31 v3.0.1a (rcs-revision 1.20)
-\pgf@plot@mark@count=\count150
-\pgfplotmarksize=\dimen183
+\pgf@plot@mark@count=\count151
+\pgfplotmarksize=\dimen184
 )
-\tikz@lastx=\dimen184
-\tikz@lasty=\dimen185
-\tikz@lastxsaved=\dimen186
-\tikz@lastysaved=\dimen187
-\tikzleveldistance=\dimen188
-\tikzsiblingdistance=\dimen189
+\tikz@lastx=\dimen185
+\tikz@lasty=\dimen186
+\tikz@lastxsaved=\dimen187
+\tikz@lastysaved=\dimen188
+\tikzleveldistance=\dimen189
+\tikzsiblingdistance=\dimen190
 \tikz@figbox=\box47
 \tikz@figbox@bg=\box48
 \tikz@tempbox=\box49
 \tikz@tempbox@bg=\box50
-\tikztreelevel=\count151
-\tikznumberofchildren=\count152
-\tikznumberofcurrentchild=\count153
-\tikz@fig@count=\count154
+\tikztreelevel=\count152
+\tikznumberofchildren=\count153
+\tikznumberofcurrentchild=\count154
+\tikz@fig@count=\count155
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
 File: pgfmodulematrix.code.tex 2013/09/17  (rcs-revision 1.8)
-\pgfmatrixcurrentrow=\count155
-\pgfmatrixcurrentcolumn=\count156
-\pgf@matrix@numberofcolumns=\count157
+\pgfmatrixcurrentrow=\count156
+\pgfmatrixcurrentcolumn=\count157
+\pgf@matrix@numberofcolumns=\count158
 )
-\tikz@expandcount=\count158
+\tikz@expandcount=\count159
 
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tik
 zlibrarytopaths.code.tex
@@ -906,20 +920,24 @@ zlibrarydecorations.markings.code.tex
 zlibrarydecorations.code.tex
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.cod
 e.tex
-\pgfdecoratedcompleteddistance=\dimen190
-\pgfdecoratedremainingdistance=\dimen191
-\pgfdecoratedinputsegmentcompleteddistance=\dimen192
-\pgfdecoratedinputsegmentremainingdistance=\dimen193
-\pgf@decorate@distancetomove=\dimen194
-\pgf@decorate@repeatstate=\count159
-\pgfdecorationsegmentamplitude=\dimen195
-\pgfdecorationsegmentlength=\dimen196
+\pgfdecoratedcompleteddistance=\dimen191
+\pgfdecoratedremainingdistance=\dimen192
+\pgfdecoratedinputsegmentcompleteddistance=\dimen193
+\pgfdecoratedinputsegmentremainingdistance=\dimen194
+\pgf@decorate@distancetomove=\dimen195
+\pgf@decorate@repeatstate=\count160
+\pgfdecorationsegmentamplitude=\dimen196
+\pgfdecorationsegmentlength=\dimen197
 )
 \tikz@lib@dec@box=\box51
 )
 (/usr/share/texlive/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrary
 decorations.markings.code.tex))
-\c@thrm=\count160
+\c@thrm=\count161
+\c@lem=\count162
+\c@prop=\count163
+\c@defn=\count164
+\c@rmk=\count165
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... none found.
  (./tamutemplate.aux (./data/titlepage.aux)
@@ -928,31 +946,31 @@ Package csquotes Info: ... none found.
 (./data/section3.aux) (./data/section4.aux))
 \openout1 = `tamutemplate.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 201.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 201.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 203.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 203.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 201.
-LaTeX Font Info:    ... okay on input line 201.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 201.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 203.
+LaTeX Font Info:    ... okay on input line 203.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 203.
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -995,18 +1013,18 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
 \AtBeginShipoutBox=\box52
-Package hyperref Info: Link coloring OFF on input line 201.
+Package hyperref Info: Link coloring OFF on input line 203.
 (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
-\c@section@level=\count161
+\c@section@level=\count166
 )
-LaTeX Info: Redefining \ref on input line 201.
-LaTeX Info: Redefining \pageref on input line 201.
-LaTeX Info: Redefining \nameref on input line 201.
+LaTeX Info: Redefining \ref on input line 203.
+LaTeX Info: Redefining \pageref on input line 203.
+LaTeX Info: Redefining \nameref on input line 203.
 
 (./tamutemplate.out) (./tamutemplate.out)
 \@outlinefile=\write4
@@ -1063,7 +1081,14 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 ])
 \openout2 = `data/abstract.aux'.
 
- (./data/abstract.tex [2
+ (./data/abstract.tex
+Overfull \hbox (4.06657pt too wide) in paragraph at lines 22--24
+\T1/ptm/m/n/12 im-ages of map-ping class group rep-re-sen-ta-tions as-so-ci-ate
+d to the the mod-u-lar cat-e-gory $[] \OMS/ztmcm/m/n/12 ^^@\OML/ztmcm/m/it/12 D
+[]\OT1/ztmcm/m/n/12 (\OML/ztmcm/m/it/12 G\OT1/ztmcm/m/n/12 )$
+ []
+
+[2
 
 
 
@@ -1077,8 +1102,7 @@ File: se-ascii-print.def 2016/05/16 v1.11 stringenc: Printable ASCII characters
 ])
 \openout2 = `data/contributors.aux'.
 
-
-(./data/contributors.tex
+ (./data/contributors.tex
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 43.
 ) [4
@@ -1088,7 +1112,8 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 ]
 \openout2 = `data/lists.aux'.
 
- (./data/lists.tex
+
+(./data/lists.tex
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 35.
  (./tamutemplate.toc)
@@ -1098,25 +1123,26 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <24.88> not available
  [5
 
 
-]
-(./tamutemplate.lof
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 10.
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-))
+] (./tamutemplate.lof)
 \tf@lof=\write6
 \openout6 = `tamutemplate.lof'.
 
-
-[6] [7])
+ [6] [7])
 \openout2 = `data/section1.aux'.
 
- (./data/section1.tex
+
+(./data/section1.tex
 Chapter 1.
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\uppercase' on input line 22.
 
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 31.
 [1
 
 
@@ -1124,96 +1150,96 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 ] [2]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 56.
+(hyperref)                removing `math shift' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathop' on input line 56.
+(hyperref)                removing `\mathop' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 56.
+(hyperref)                removing `\mathcode' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 56.
+(hyperref)                removing `\mathcode' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 56.
+(hyperref)                removing `\mathcode' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Umathcharnumdef' on input line 56.
+(hyperref)                removing `\Umathcharnumdef' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\std@minus' on input line 56.
+(hyperref)                removing `\std@minus' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Umathcodenum' on input line 56.
+(hyperref)                removing `\Umathcodenum' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 56.
+(hyperref)                removing `\mathcode' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 56.
+(hyperref)                removing `\mathcode' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathcode' on input line 56.
+(hyperref)                removing `\mathcode' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                \kern 2.66638pt
-(hyperref)                removed on input line 56.
+(hyperref)                removed on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\mathgroup' on input line 56.
+(hyperref)                removing `\mathgroup' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\symoperators' on input line 56.
+(hyperref)                removing `\symoperators' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 56.
+(hyperref)                removing `\@ifnextchar' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 56.
+(hyperref)                removing `subscript' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `superscript' on input line 56.
+(hyperref)                removing `superscript' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\omega' on input line 56.
+(hyperref)                removing `\omega' on input line 57.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 56.
+(hyperref)                removing `math shift' on input line 57.
 
 [3] [4]
 File: ./graphic/z.png Graphic file (type QTm)
  <use  "./graphic/z.png" > [5]
-LaTeX Font Info:    Try loading font information for TS1+ptm on input line 167.
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 168.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
 File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
 ) [6] [7]
-Underfull \hbox (badness 10000) in paragraph at lines 260--262
+Underfull \hbox (badness 10000) in paragraph at lines 261--263
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 296--298
+Underfull \hbox (badness 10000) in paragraph at lines 297--299
 
  []
 
@@ -1236,19 +1262,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
  (./data/section3.tex
 Chapter 3.
 
-Overfull \hbox (37.98842pt too wide) in paragraph at lines 55--56
-[][]\T1/ptm/b/n/12 Definition 3.0.1. []\T1/ptm/m/it/12 Let $\OML/ztmcm/m/it/12 
-g[]; [] ; g[] \OMS/ztmcm/m/n/12 2 \OML/ztmcm/m/it/12 G$ \T1/ptm/m/it/12 and $\O
-ML/ztmcm/m/it/12 ^^O[]; [] ; ^^O[] \OMS/ztmcm/m/n/12 2 f^^F\OT1/ztmcm/m/n/12 1\
-OMS/ztmcm/m/n/12 g \OT1/ztmcm/m/n/12 = \U/msb/m/n/12 Z[]$\T1/ptm/m/it/12 . A mo
-r-phism $\OML/ztmcm/m/it/12 ^^^ \OMS/ztmcm/m/n/12 2 h\OT1/ztmcm/m/n/12 (\OML/zt
-mcm/m/it/12 ^^N[]; ^^O[]\OT1/ztmcm/m/n/12 )\OML/ztmcm/m/it/12 ; [] ; \OT1/ztmcm
-/m/n/12 (\OML/ztmcm/m/it/12 ^^N[]; ^^O[]\OT1/ztmcm/m/n/12 )\OMS/ztmcm/m/n/12 i 
-\OT1/ztmcm/m/n/12 =
- []
-
-
-Overfull \hbox (3.3493pt too wide) in paragraph at lines 64--65
+Overfull \hbox (3.3493pt too wide) in paragraph at lines 69--70
 \T1/ptm/m/it/12 to $\OML/ztmcm/m/it/12 v$\T1/ptm/m/it/12 , taken in coun-ter-cl
 ock-wise or-der and with out-ward ori-en-ta-tion, such that $[][] \OML/ztmcm/m/
 it/12 g\OT1/ztmcm/m/n/12 (\OT1/ptm/b/n/12 e[]\OT1/ztmcm/m/n/12 )[] =
@@ -1258,21 +1272,13 @@ it/12 g\OT1/ztmcm/m/n/12 (\OT1/ptm/b/n/12 e[]\OT1/ztmcm/m/n/12 )[] =
 
 
 
-] [14]
-
-Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 91.
-
-[15]
-\R=\dimen197
+] [14] [15]
+\R=\dimen198
 File: ./graphic/lickorish.png Graphic file (type QTm)
- <use  "./graphic/lickorish.png" > [16] [17] [18]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 502.
- [19] [20]
+ <use  "./graphic/lickorish.png" > [16] [17] [18] [19] [20]
 Missing character: There is no ; in font nullfont!
-) [21] [22]
-[23]
+)
+[21] [22] [23]
 \openout2 = `data/section4.aux'.
 
  (./data/section4.tex
@@ -1285,26 +1291,26 @@ Chapter 4.
 
 
 ]) [26]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 288.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 288.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 292.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 292.
  (./tamutemplate.aux (./data/titlepage.aux) (./data/abstract.aux) (./data/ackno
 wledgements.aux) (./data/contributors.aux) (./data/lists.aux) (./data/section1.
 aux) (./data/section2.aux)
 (./data/section3.aux) (./data/section4.aux))
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 288.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 288.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 292.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 292.
  )
 (\end occurred inside a group at level 1)
 
 ### semi simple group (level 1) entered at line 58 (\begingroup)
 ### bottom level 
 Here is how much of TeX's memory you used:
- 25002 strings out of 493591
- 446216 string characters out of 6145591
- 654063 words of memory out of 5000000
- 27924 multiletter control sequences out of 15000+600000
- 34631 words of font info for 67 fonts, out of 8000000 for 9000
+ 25109 strings out of 493591
+ 447809 string characters out of 6145590
+ 655787 words of memory out of 5000000
+ 28031 multiletter control sequences out of 15000+600000
+ 45545 words of font info for 85 fonts, out of 8000000 for 9000
  1347 hyphenation exceptions out of 8191
- 55i,14n,71p,1896b,1524s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,14n,71p,1896b,1528s stack positions out of 5000i,500n,10000p,200000b,80000s
 
 Output written on tamutemplate.pdf (33 pages).
