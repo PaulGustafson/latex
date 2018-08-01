@@ -1,0 +1,20 @@
+Notes
+
+BT 2 desiderata:
+1. Locality (merge nonconflicting chains)
+2. NP complete problem auctions for PoW
+3. Interop (eat other coins)
+
+S_n^*  monoid of substitutions
+B_n^*
+
+inner prod as bilinear equality
+
+
+
+The special Z_2 de-gauging of SO(8)_2
+
+We get a modular category C(Z_8, q). What is q? Does de-equivariantization preserve twists? The de-equivariantization functor $F : C \to D$ with respect to a Tannakian subcategory T is defined as follows.  The category $D$ has the same objects as $C$ and $D(X,Y) = C(
+
+
+
